@@ -1,4 +1,4 @@
-# fxstrength-pages
+# fxstrength-app
 
 Static host for the **FX Strength Desk** Android app. GitHub Pages serves this folder; the app
 fetches `dashboard.html` from it and checks `update.json` for new app builds.
