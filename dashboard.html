@@ -1,0 +1,837 @@
+<title>Currency Strength Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap">
+<style>
+:root{
+  --bg:#f7f7fa; --surface:#ffffff; --surface2:#f1f1f6; --line:#e3e3ec; --line2:#d3d3df;
+  --ink:#1a1a22; --ink2:#4a4a5c; --mut:#6c6c7e;
+  --accent:#5457d6; --pos:#1f9d62; --neg:#d0453b; --warn:#c98a18;
+  --posbg:rgba(31,157,98,.13); --negbg:rgba(208,69,59,.13); --warnbg:rgba(201,138,24,.15);
+  --shadow:0 1px 2px rgba(20,20,32,.05),0 1px 8px rgba(20,20,32,.04);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#14141a; --surface:#1d1d25; --surface2:#23232d; --line:#2e2e3a; --line2:#3b3b4a;
+    --ink:#ecedf2; --ink2:#b8b9c6; --mut:#8f90a2;
+    --accent:#8b8df0; --pos:#3fbe83; --neg:#ec6a5e; --warn:#e0a63a;
+    --posbg:rgba(63,190,131,.16); --negbg:rgba(236,106,94,.16); --warnbg:rgba(224,166,58,.18);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 1px 10px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14141a; --surface:#1d1d25; --surface2:#23232d; --line:#2e2e3a; --line2:#3b3b4a;
+  --ink:#ecedf2; --ink2:#b8b9c6; --mut:#8f90a2;
+  --accent:#8b8df0; --pos:#3fbe83; --neg:#ec6a5e; --warn:#e0a63a;
+  --posbg:rgba(63,190,131,.16); --negbg:rgba(236,106,94,.16); --warnbg:rgba(224,166,58,.18);
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 1px 10px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased;
+}
+.mono,.num{font-family:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace}
+.num,.mscore,.cval,.ccon,.cbig{font-variant-numeric:tabular-nums}
+.wrap{max-width:1180px;margin:0 auto;padding:32px 24px 72px;display:flex;flex-direction:column;gap:34px}
+.mut{color:var(--mut)}
+.pos{color:var(--pos)} .neg{color:var(--neg)}
+
+header.top{display:flex;flex-direction:column;gap:14px;border-bottom:1px solid var(--line);padding-bottom:22px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--mut)}
+h1{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;font-weight:700;
+  font-size:clamp(28px,4vw,40px);margin:0;letter-spacing:-.01em;text-wrap:balance}
+.tagline{margin:0;color:var(--ink2);max-width:64ch}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:8px;
+  padding:10px 14px;box-shadow:var(--shadow);min-width:150px}
+.stat .k{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--mut);display:block}
+.stat .v{font-size:17px;font-weight:600;font-variant-numeric:tabular-nums;display:block}
+.stat .s{font-size:12px;color:var(--mut);font-family:"IBM Plex Mono",monospace}
+
+section{display:flex;flex-direction:column;gap:14px}
+h2{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;font-size:20px;
+  font-weight:700;margin:0;letter-spacing:-.005em}
+.sub{margin:-8px 0 0;color:var(--mut);font-size:13.5px;max-width:70ch}
+
+.bar{position:relative;display:block;height:11px;border-radius:3px;background:var(--surface2);
+  border:1px solid var(--line);overflow:hidden}
+.bar::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:var(--line2);z-index:2}
+.fill{position:absolute;top:0;bottom:0;border-radius:2px}
+.fill.pos{background:var(--pos)} .fill.neg{background:var(--neg)}
+
+.meter{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:8px 18px;box-shadow:var(--shadow)}
+.mrow{display:grid;grid-template-columns:132px 1fr 62px 190px;gap:16px;align-items:center;
+  padding:13px 0;border-bottom:1px solid var(--line)}
+.mrow:last-child{border-bottom:0}
+.mrow.msep{display:block;padding:9px 0 6px;border-bottom:0}
+.mrow.msep span{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--mut)}
+.mccy{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:15px;display:flex;
+  flex-direction:column;line-height:1.25}
+.mname{font-family:"IBM Plex Sans",sans-serif;font-weight:400;font-size:11.5px;color:var(--mut)}
+.mscore{text-align:right;font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:15px}
+.mrate{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.pill{font-family:"IBM Plex Mono",monospace;font-size:11px;padding:3px 8px;border-radius:999px;
+  border:1px solid var(--line2);white-space:nowrap}
+.pill.vsb,.pill.mb{color:var(--pos);background:var(--posbg);border-color:transparent}
+.pill.vwb,.pill.mbr{color:var(--neg);background:var(--negbg);border-color:transparent}
+.pill.neu{color:var(--mut);background:var(--surface2)}
+.chip{font-family:"IBM Plex Mono",monospace;font-size:10.5px;padding:3px 7px;border-radius:999px}
+.chip.warn{color:var(--warn);background:var(--warnbg)}
+.chip.ok{color:var(--pos);background:var(--posbg)}
+.chip.neg{color:var(--neg);background:var(--negbg)}
+.readline{margin:-4px 0 2px;font-size:12.5px;font-family:"IBM Plex Mono",monospace}
+.readline.pos{color:var(--pos)} .readline.neg{color:var(--neg)} .readline.warn{color:var(--warn)}
+.readline.neu{color:var(--mut)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:16px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px}
+.chead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  border-bottom:1px solid var(--line);padding-bottom:10px}
+.cccy{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:16px}
+.cnm{color:var(--mut);font-size:12px;margin-left:8px}
+.cbig{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:21px}
+.comp{display:flex;flex-direction:column;gap:8px}
+.crow{display:grid;grid-template-columns:112px 1fr 42px 44px;gap:10px;align-items:center;font-size:12.5px}
+.clab{color:var(--ink2);display:flex;justify-content:space-between;gap:6px}
+.cw{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--mut)}
+.cval{text-align:right;font-family:"IBM Plex Mono",monospace;font-size:12px}
+.ccon{text-align:right;font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--ink)}
+.detail{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line);padding-top:12px}
+.dblock h4{margin:0 0 5px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  font-family:"IBM Plex Mono",monospace;color:var(--mut);font-weight:500}
+.dblock h4 .mut{letter-spacing:0;text-transform:none}
+.dblock p{margin:0 0 3px;font-size:12.5px;color:var(--ink2);font-family:"IBM Plex Mono",monospace}
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:2px 14px}
+.cat{display:flex;justify-content:space-between;font-size:12px;border-bottom:1px dotted var(--line);padding:2px 0}
+.cat b{font-family:"IBM Plex Mono",monospace;font-weight:600}
+ul.news{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+ul.news li{display:grid;grid-template-columns:16px 1fr auto 44px;gap:8px;align-items:baseline;font-size:12px}
+ul.news li.empty{display:block;color:var(--mut)}
+.ntitle{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nnum{font-family:"IBM Plex Mono",monospace;font-size:11.5px}
+.npts{text-align:right;font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:11.5px}
+.nimp{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;
+  border-radius:3px;font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:600}
+.nimp.high{background:var(--negbg);color:var(--neg)}
+.nimp.medium{background:var(--warnbg);color:var(--warn)}
+.nimp.low{background:var(--surface2);color:var(--mut)}
+
+.tw{overflow-x:auto;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:560px}
+th{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--mut);font-weight:500;padding:11px 16px;
+  border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px 16px;border-bottom:1px solid var(--line);vertical-align:baseline}
+tr:last-child td{border-bottom:0}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+.pr{font-family:"IBM Plex Mono",monospace;font-weight:600}
+.wn{color:var(--warn);font-size:12px}
+.mismatch{font-family:"IBM Plex Mono",monospace;font-size:10.5px;padding:2px 6px;
+  border-radius:999px;background:var(--warnbg);color:var(--warn);margin-left:6px}
+.tone{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600}
+.wbar{position:relative;display:inline-block;width:46px;height:6px;border-radius:2px;
+  background:var(--surface2);border:1px solid var(--line);vertical-align:middle;margin-right:7px}
+.wbar i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);border-radius:2px}
+.mnote{font-size:11.5px;color:var(--mut);font-family:"IBM Plex Sans",sans-serif;
+  margin:2px 0 0;line-height:1.4}
+.mnote.warn{color:var(--warn)} .mnote.neg{color:var(--neg)}
+.mnote.warn b,.mnote.neg b{color:inherit}
+
+footer{border-top:1px solid var(--line);padding-top:20px;color:var(--mut);font-size:12.5px;
+  display:flex;flex-direction:column;gap:8px}
+footer p{margin:0}
+footer b{color:var(--ink2);font-weight:600}
+footer code{font-family:"IBM Plex Mono",monospace;background:var(--surface2);
+  padding:1px 5px;border-radius:4px;font-size:11.5px}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+@media (max-width:720px){
+  .mrow{grid-template-columns:96px 1fr 56px;row-gap:8px}
+  .mrate{grid-column:1/-1}
+  .cats{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <span class="eyebrow">Positioning &middot; macro &middot; flow</span>
+    <h1>Currency Strength Desk</h1>
+    <p class="tagline">One blended bias per currency, built from the 28-indicator checklist, CFTC
+    positioning, open-interest flow and released economic surprises. Rebuilt on every COT release,
+    every daily refresh, and after each scheduled data print.</p>
+    <div class="stats">
+      <div class="stat"><span class="k">Strongest</span>
+        <span class="v mono pos">AUD +12.3</span></div>
+      <div class="stat"><span class="k">Weakest</span>
+        <span class="v mono neg">JPY -16.7</span></div>
+      <div class="stat"><span class="k">Widest spread</span>
+        <span class="v mono">AUD/JPY</span><span class="s">+29.0</span></div>
+      <div class="stat"><span class="k">COT as of</span>
+        <span class="v mono">2026-08-25</span><span class="s">weekly, Tuesday data</span></div>
+      <div class="stat"><span class="k">Next high-impact</span>
+        <span class="v mono" style="font-size:13px">Mon 31 Aug 05:00 UTC</span><span class="s">in 18h 19m</span></div>
+      <div class="stat"><span class="k">Commodities</span>
+        <span class="v mono">XAU +48.3</span><span class="s">Very Strong Bullish</span></div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Strength meter</h2>
+    <p class="sub">Blended score from &minus;100 to +100. Bars diverge from the centre line: right is
+    bullish, left is bearish. The score is a medium-term bias; the chip beside it reads it against
+    the last 5 trading days &mdash; <b class="pos">on&nbsp;trend</b> when price confirms the bias,
+    <b class="warn">poss.&nbsp;retracement</b> when price is pulling back against it (a continuation
+    watch, not a reversal call). <em>Crowded</em> = speculative net above 35% of open interest;
+    <b class="warn">COT&nbsp;extreme</b> = speculative net at a multi-week high or low, where a
+    trend change often starts (<b class="neg">COT&nbsp;turning</b> once it rolls over).
+    Gold, silver and crude sit below the rule &mdash; own model, wider score range, not in the
+    currency centring or pair ranking.</p>
+    <div class="meter">
+      <div class="mrow">
+        <div class="mccy">AUD<span class="mname">Australian Dlr</span></div>
+        <span class="bar"><span class="fill pos" style="left:50%;width:6.15%"></span></span>
+        <div class="mscore pos">+12.3</div>
+        <div class="mrate"><span class="pill mb">Moderately Bullish</span> <span class="chip ok" title="Bullish — directional, trend running (+0.4% 5d)">on&nbsp;trend</span></div>
+      </div>
+      <div class="mrow">
+        <div class="mccy">CAD<span class="mname">Canadian Dlr</span></div>
+        <span class="bar"><span class="fill pos" style="left:50%;width:4.40%"></span></span>
+        <div class="mscore pos">+8.8</div>
+        <div class="mrate"><span class="pill mb">Moderately Bullish</span> <span class="chip warn" title="Possible bullish retracement (-0.8% 5d against the bias)">poss. retracement</span> <span class="chip neg" title="speculative net short troughed 4 week(s) ago at a 32-week low and has since covered 43% of its range — short squeeze / trend-change risk">COT&nbsp;turning</span></div>
+      </div>
+      <div class="mrow">
+        <div class="mccy">USD<span class="mname">US Dollar</span></div>
+        <span class="bar"><span class="fill pos" style="left:50%;width:1.65%"></span></span>
+        <div class="mscore pos">+3.3</div>
+        <div class="mrate"><span class="pill neu">Neutral</span> <span class="chip warn" title="speculative net long at its highest in 32 weeks — positioning stretched, a trend change often starts from here">COT&nbsp;extreme</span></div>
+      </div>
+      <div class="mrow">
+        <div class="mccy">GBP<span class="mname">British Pound</span></div>
+        <span class="bar"><span class="fill pos" style="left:50%;width:1.35%"></span></span>
+        <div class="mscore pos">+2.7</div>
+        <div class="mrate"><span class="pill neu">Neutral</span> <span class="chip warn" title="speculative net long at its highest in 32 weeks — positioning stretched, a trend change often starts from here">COT&nbsp;extreme</span></div>
+      </div>
+      <div class="mrow">
+        <div class="mccy">EUR<span class="mname">Euro</span></div>
+        <span class="bar"><span class="fill pos" style="left:50%;width:0.80%"></span></span>
+        <div class="mscore pos">+1.6</div>
+        <div class="mrate"><span class="pill neu">Neutral</span> <span class="chip neg" title="speculative net short troughed 4 week(s) ago at a 32-week low and has since covered 23% of its range — short squeeze / trend-change risk">COT&nbsp;turning</span></div>
+      </div>
+      <div class="mrow">
+        <div class="mccy">NZD<span class="mname">NZ Dollar</span></div>
+        <span class="bar"><span class="fill neg" style="left:43.85%;width:6.15%"></span></span>
+        <div class="mscore neg">-12.3</div>
+        <div class="mrate"><span class="pill mbr">Moderately Bearish</span> <span class="chip ok" title="Bearish — directional, trend running (-0.7% 5d)">on&nbsp;trend</span> <span class="chip warn" title="speculative net short at its lowest in 32 weeks — positioning stretched, a squeeze / trend change often starts from here">COT&nbsp;extreme</span> <span class="chip warn" title="Net position is more than 35% of open interest - squeeze risk">crowded</span></div>
+      </div>
+      <div class="mrow">
+        <div class="mccy">JPY<span class="mname">Japanese Yen</span></div>
+        <span class="bar"><span class="fill neg" style="left:41.65%;width:8.35%"></span></span>
+        <div class="mscore neg">-16.7</div>
+        <div class="mrate"><span class="pill vwb">Very Weak / Bearish</span> <span class="chip ok" title="Bearish — directional, trend running (-0.6% 5d)">on&nbsp;trend</span></div>
+      </div>
+      <div class="mrow msep"><span>Commodities &mdash; own model, wider scale, not in the
+      currency centring or pair ranking</span></div>
+      <div class="mrow">
+        <div class="mccy">XAU<span class="mname">Gold</span></div>
+        <span class="bar"><span class="fill pos" style="left:50%;width:24.15%"></span></span>
+        <div class="mscore pos">+48.3</div>
+        <div class="mrate"><span class="pill vsb">Very Strong Bullish</span> <span class="chip warn" title="Possible bullish retracement (-2.0% 5d against the bias)">poss. retracement</span> <span class="chip warn" title="speculative net long at its highest in 32 weeks — positioning stretched, a trend change often starts from here">COT&nbsp;extreme</span></div>
+      </div>
+      <div class="mrow">
+        <div class="mccy">XAG<span class="mname">Silver</span></div>
+        <span class="bar"><span class="fill pos" style="left:50%;width:21.20%"></span></span>
+        <div class="mscore pos">+42.4</div>
+        <div class="mrate"><span class="pill mb">Moderately Bullish</span> <span class="chip warn" title="Possible bullish retracement (-2.4% 5d against the bias)">poss. retracement</span></div>
+      </div>
+      <div class="mrow">
+        <div class="mccy">WTI<span class="mname">Crude Oil</span></div>
+        <span class="bar"><span class="fill pos" style="left:50%;width:3.55%"></span></span>
+        <div class="mscore pos">+7.1</div>
+        <div class="mrate"><span class="pill neu">Neutral</span></div>
+      </div></div>
+  </section>
+
+  <section>
+    <h2>What moved each score</h2>
+    <p class="sub">Each input is scored &minus;100 to +100 on its own, then weighted. The right-hand
+    column is the weighted contribution &mdash; those four numbers sum to the headline score.</p>
+    <div class="grid">
+      <article class="card">
+        <header class="chead">
+          <div><span class="cccy">AUD</span><span class="cnm">Australian Dlr</span></div>
+          <div class="cbig pos">+12.3</div>
+        </header>
+        <p class="readline pos">Bullish — directional, trend running (+0.4% 5d)</p>
+        <p class="mnote"><b>No pullback yet.</b> First support 20-day mean -1.3%; a 38.2–61.8% retrace of the current up-leg (extreme 28 Aug) sits at -1.6% to -2.6% of AUD strength.</p>
+        <div class="comp"><div class="crow"><div class="clab">Checklist<span class="cw">&times;0.25</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:7.80%"></span></span>
+            <div class="cval pos">+16</div>
+            <div class="ccon">+3.9</div></div><div class="crow"><div class="clab">Rate odds<span class="cw">&times;0.10</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:22.00%"></span></span>
+            <div class="cval pos">+44</div>
+            <div class="ccon">+4.4</div></div><div class="crow"><div class="clab">COT<span class="cw">&times;0.15</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:15.85%"></span></span>
+            <div class="cval pos">+32</div>
+            <div class="ccon">+4.8</div></div><div class="crow"><div class="clab">Open interest<span class="cw">&times;0.10</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:42.55%"></span></span>
+            <div class="cval pos">+85</div>
+            <div class="ccon">+8.5</div></div><div class="crow"><div class="clab">News<span class="cw">&times;0.40</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:0.75%"></span></span>
+            <div class="cval pos">+2</div>
+            <div class="ccon">+0.6</div></div></div>
+        <div class="detail">
+          <div class="dblock">
+            <h4>Positioning</h4>
+            <p>asset-mgr net +54,061 (+16.2% of OI), week +1,953</p>
+            <p class="mut">OI 333,906 (+45,380, +15.7%), leveraged net +1,953 - new money long</p>
+            <p class="mut">Speculative net at the 64th percentile of 32 weeks — mid-range.</p>
+          </div>
+          <div class="dblock">
+            <h4>Checklist <span class="mut">3.31/5 &middot; 52% measured</span></h4>
+            <div class="cats"><div class="cat"><span>Interest Rates</span><b class="pos">3.86</b></div><div class="cat"><span>Economic Growth</span><b class="pos">3.02</b></div><div class="cat"><span>Inflation</span><b class="pos">4.27</b></div><div class="cat"><span>Employment</span><b class="neg">2.40</b></div><div class="cat"><span>Trade Balance</span><b class="pos">3.54</b></div><div class="cat"><span>Central Bank</span><b class="pos">3.09</b></div><div class="cat"><span>Geopolitics &amp; Risk</span><b class="mut">3.00</b></div></div><p class="mnote"><b>Expected rate change:</b> Hawkish hold. Cash rate 4.35% since 11 Aug; RBA says inflation is still too high and it could hike again if upside risks materialise. Next decision 29 Sep 2026. CB stance and next-meeting expectation are derived from the scored minutes, not set here.</p>
+          </div>
+          <div class="dblock">
+            <h4>News drivers</h4>
+            <ul class="news"><li><span class="nimp medium">M</span>
+            <span class="ntitle">RBA Trimmed Mean CPI MoM</span>
+            <span class="nnum">0.5 <span class="mut">vs fc 0.3</span></span>
+            <span class="npts pos">+3.5</span></li><li><span class="nimp medium">M</span>
+            <span class="ntitle">Construction Work Done QoQ</span>
+            <span class="nnum">-2.1 <span class="mut">vs fc 0.5</span></span>
+            <span class="npts neg">-3.2</span></li><li><span class="nimp low">L</span>
+            <span class="ntitle">Building Capital Expenditure QoQ</span>
+            <span class="nnum">2.1 <span class="mut">vs fc &mdash;</span></span>
+            <span class="npts pos">+2.9</span></li><li><span class="nimp low">L</span>
+            <span class="ntitle">Plant Machinery Capital Expenditure QoQ</span>
+            <span class="nnum">-8.9 <span class="mut">vs fc &mdash;</span></span>
+            <span class="npts neg">-2.8</span></li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <header class="chead">
+          <div><span class="cccy">CAD</span><span class="cnm">Canadian Dlr</span></div>
+          <div class="cbig pos">+8.8</div>
+        </header>
+        <p class="readline warn">Possible bullish retracement (-0.8% 5d against the bias)</p>
+        <p class="mnote"><b>dip-buy zone:</b> -0.5% to -1.4% of CAD strength &middot; 20-day mean -0.4% &middot; 23% retraced of the current up-leg (extreme 21 Aug).</p>
+        <div class="comp"><div class="crow"><div class="clab">Checklist<span class="cw">&times;0.25</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:4.55%"></span></span>
+            <div class="cval pos">+9</div>
+            <div class="ccon">+2.3</div></div><div class="crow"><div class="clab">Rate odds<span class="cw">&times;0.10</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:0.50%"></span></span>
+            <div class="cval pos">+1</div>
+            <div class="ccon">+0.1</div></div><div class="crow"><div class="clab">COT<span class="cw">&times;0.15</span></div>
+            <span class="bar"><span class="fill neg" style="left:48.10%;width:1.90%"></span></span>
+            <div class="cval neg">-4</div>
+            <div class="ccon">-0.6</div></div><div class="crow"><div class="clab">Open interest<span class="cw">&times;0.10</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:14.60%"></span></span>
+            <div class="cval pos">+29</div>
+            <div class="ccon">+2.9</div></div><div class="crow"><div class="clab">News<span class="cw">&times;0.40</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:17.45%"></span></span>
+            <div class="cval pos">+35</div>
+            <div class="ccon">+14.0</div></div></div>
+        <div class="detail">
+          <div class="dblock">
+            <h4>Positioning</h4>
+            <p>asset-mgr net -72,092 (-21.9% of OI), week +16,805</p>
+            <p class="mut">OI 329,544 (-30,041, -8.4%), leveraged net +16,805 - liquidation long</p>
+            <p class="mnote neg"><b>Positioning:</b> speculative net short troughed 4 week(s) ago at a 32-week low and has since covered 43% of its range — short squeeze / trend-change risk.</p>
+          </div>
+          <div class="dblock">
+            <h4>Checklist <span class="mut">3.18/5 &middot; 61% measured</span></h4>
+            <div class="cats"><div class="cat"><span>Interest Rates</span><b class="neg">2.41</b></div><div class="cat"><span>Economic Growth</span><b class="pos">4.00</b></div><div class="cat"><span>Inflation</span><b class="neg">2.87</b></div><div class="cat"><span>Employment</span><b class="pos">3.49</b></div><div class="cat"><span>Trade Balance</span><b class="pos">3.51</b></div><div class="cat"><span>Central Bank</span><b class="mut">3.00</b></div><div class="cat"><span>Geopolitics &amp; Risk</span><b class="mut">3.00</b></div></div><p class="mnote"><b>Expected rate change:</b> Mild tightening bias expected from a low base, but not imminent. LOW CONFIDENCE.</p><p class="mnote"><b>CB stance:</b> Held 2.25% on 15 Jul and sits among the most accommodative of the majors. Commentary points to eventual tightening but nothing near-term is signalled. LOW CONFIDENCE - inferred from cross-bank commentary rather than a direct BoC statement, so held near neutral.</p><p class="mnote"><b>Next meeting expectation:</b> No near-term move signalled. LOW CONFIDENCE.</p>
+          </div>
+          <div class="dblock">
+            <h4>News drivers</h4>
+            <ul class="news"><li><span class="nimp high">H</span>
+            <span class="ntitle">GDP Growth Rate QoQ</span>
+            <span class="nnum">0.8 <span class="mut">vs fc &mdash;</span></span>
+            <span class="npts pos">+41.1</span></li><li><span class="nimp medium">M</span>
+            <span class="ntitle">Current Account</span>
+            <span class="nnum">8.8 <span class="mut">vs fc -2</span></span>
+            <span class="npts pos">+10.0</span></li><li><span class="nimp low">L</span>
+            <span class="ntitle">Budget Balance</span>
+            <span class="nnum">0.99 <span class="mut">vs fc &mdash;</span></span>
+            <span class="npts pos">+6.5</span></li><li><span class="nimp medium">M</span>
+            <span class="ntitle">GDP MoM</span>
+            <span class="nnum">0.3 <span class="mut">vs fc 0.2</span></span>
+            <span class="npts pos">+6.0</span></li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <header class="chead">
+          <div><span class="cccy">USD</span><span class="cnm">US Dollar</span></div>
+          <div class="cbig pos">+3.3</div>
+        </header>
+        <p class="readline neu">Neutral — no directional edge</p>
+        
+        <div class="comp"><div class="crow"><div class="clab">Checklist<span class="cw">&times;0.25</span></div>
+            <span class="bar"><span class="fill neg" style="left:45.70%;width:4.30%"></span></span>
+            <div class="cval neg">-9</div>
+            <div class="ccon">-2.1</div></div><div class="crow"><div class="clab">Rate odds<span class="cw">&times;0.10</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:25.00%"></span></span>
+            <div class="cval pos">+50</div>
+            <div class="ccon">+5.0</div></div><div class="crow"><div class="clab">COT<span class="cw">&times;0.15</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:5.60%"></span></span>
+            <div class="cval pos">+11</div>
+            <div class="ccon">+1.7</div></div><div class="crow"><div class="clab">Open interest<span class="cw">&times;0.10</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:0.20%"></span></span>
+            <div class="cval pos">+0</div>
+            <div class="ccon">+0.0</div></div><div class="crow"><div class="clab">News<span class="cw">&times;0.40</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:10.85%"></span></span>
+            <div class="cval pos">+22</div>
+            <div class="ccon">+8.7</div></div></div>
+        <div class="detail">
+          <div class="dblock">
+            <h4>Positioning</h4>
+            <p>inverse basket -1 (75%) blended with dollar-index contract +48 (25%); index OI only 47,953</p>
+            <p class="mut">OI 47,953 (+25, +0.1%), leveraged net +1,077 - new money long</p>
+            <p class="mnote warn"><b>Positioning:</b> speculative net long at its highest in 32 weeks — positioning stretched, a trend change often starts from here.</p>
+          </div>
+          <div class="dblock">
+            <h4>Checklist <span class="mut">2.83/5 &middot; 68% measured</span></h4>
+            <div class="cats"><div class="cat"><span>Interest Rates</span><b class="pos">3.43</b></div><div class="cat"><span>Economic Growth</span><b class="pos">3.33</b></div><div class="cat"><span>Inflation</span><b class="neg">1.77</b></div><div class="cat"><span>Employment</span><b class="neg">1.86</b></div><div class="cat"><span>Trade Balance</span><b class="neg">2.90</b></div><div class="cat"><span>Central Bank</span><b class="pos">3.50</b></div><div class="cat"><span>Geopolitics &amp; Risk</span><b class="mut">3.00</b></div></div><p class="mnote"><b>Expected rate change:</b> Post-Warsh, September hike odds are ~50% and the next move is firmly up, not down; only the timing (Sep vs later in 2026) is unresolved.</p><p class="mnote"><b>CB stance:</b> Held 3.50-3.75% on 29 Jul with THREE regional presidents dissenting for a hike - first triple dissent since Sep 2016. At Jackson Hole on 28 Aug new Chair Warsh called inflation 'concerning', said underlying trends have not 'meaningfully improved' and the Fed has 'work to do'; hawk dissenter Hammack said 'now is the time to act'. Most hawkish major central bank, live hike on the table - but has not actually hiked and Warsh withheld an explicit September signal, so 4.5 not 5.</p><p class="mnote"><b>Next meeting expectation:</b> September 15-16 now a coin flip: CME FedWatch hike odds jumped to ~46-56% (from ~33-36%) after Warsh's Jackson Hole keynote. Direction of risk clearly up; a hold is still roughly as likely as a hike.</p>
+          </div>
+          <div class="dblock">
+            <h4>News drivers</h4>
+            <ul class="news"><li><span class="nimp high">H</span>
+            <span class="ntitle">Non Farm Payrolls Annual Revision Prel</span>
+            <span class="nnum">-79 <span class="mut">vs fc &mdash;</span></span>
+            <span class="npts pos">+30.6</span></li><li><span class="nimp high">H</span>
+            <span class="ntitle">Durable Goods Orders MoM</span>
+            <span class="nnum">1.1 <span class="mut">vs fc 0.5</span></span>
+            <span class="npts pos">+13.6</span></li><li><span class="nimp high">H</span>
+            <span class="ntitle">Personal Income MoM</span>
+            <span class="nnum">0.4 <span class="mut">vs fc 0.2</span></span>
+            <span class="npts pos">+12.4</span></li><li><span class="nimp medium">M</span>
+            <span class="ntitle">Wholesale Inventories MoM Adv</span>
+            <span class="nnum">1.3 <span class="mut">vs fc 0.1</span></span>
+            <span class="npts pos">+11.6</span></li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <header class="chead">
+          <div><span class="cccy">GBP</span><span class="cnm">British Pound</span></div>
+          <div class="cbig pos">+2.7</div>
+        </header>
+        <p class="readline neu">Neutral — no directional edge</p>
+        
+        <div class="comp"><div class="crow"><div class="clab">Checklist<span class="cw">&times;0.25</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:1.05%"></span></span>
+            <div class="cval pos">+2</div>
+            <div class="ccon">+0.5</div></div><div class="crow"><div class="clab">Rate odds<span class="cw">&times;0.10</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:7.00%"></span></span>
+            <div class="cval pos">+14</div>
+            <div class="ccon">+1.4</div></div><div class="crow"><div class="clab">COT<span class="cw">&times;0.15</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:18.80%"></span></span>
+            <div class="cval pos">+38</div>
+            <div class="ccon">+5.6</div></div><div class="crow"><div class="clab">Open interest<span class="cw">&times;0.10</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:35.75%"></span></span>
+            <div class="cval pos">+72</div>
+            <div class="ccon">+7.2</div></div><div class="crow"><div class="clab">News<span class="cw">&times;0.40</span></div>
+            <span class="bar"><span class="fill neg" style="left:47.35%;width:2.65%"></span></span>
+            <div class="cval neg">-5</div>
+            <div class="ccon">-2.1</div></div></div>
+        <div class="detail">
+          <div class="dblock">
+            <h4>Positioning</h4>
+            <p>asset-mgr net +47,909 (+15.0% of OI), week +5,032</p>
+            <p class="mut">OI 318,468 (+32,097, +11.2%), leveraged net +5,032 - new money long</p>
+            <p class="mnote warn"><b>Positioning:</b> speculative net long at its highest in 32 weeks — positioning stretched, a trend change often starts from here.</p>
+          </div>
+          <div class="dblock">
+            <h4>Checklist <span class="mut">3.04/5 &middot; 52% measured</span></h4>
+            <div class="cats"><div class="cat"><span>Interest Rates</span><b class="pos">3.43</b></div><div class="cat"><span>Economic Growth</span><b class="neg">2.60</b></div><div class="cat"><span>Inflation</span><b class="pos">3.16</b></div><div class="cat"><span>Employment</span><b class="pos">3.54</b></div><div class="cat"><span>Trade Balance</span><b class="neg">2.73</b></div><div class="cat"><span>Central Bank</span><b class="neg">2.83</b></div><div class="cat"><span>Geopolitics &amp; Risk</span><b class="mut">3.00</b></div></div><p class="mnote"><b>Expected rate change:</b> Easing bias - the weakest policy direction of the majors tracked here.</p><p class="mnote"><b>CB stance:</b> Neutral-to-dovish against a tightening Fed and ECB; no tightening bias signalled.</p><p class="mnote"><b>Next meeting expectation:</b> Priced for one further cut during 2026.</p>
+          </div>
+          <div class="dblock">
+            <h4>News drivers</h4>
+            <ul class="news"><li><span class="nimp medium">M</span>
+            <span class="ntitle">CBI Distributive Trades</span>
+            <span class="nnum">-48 <span class="mut">vs fc -24</span></span>
+            <span class="npts neg">-5.1</span></li><li><span class="nimp low">L</span>
+            <span class="ntitle">Car Production YoY</span>
+            <span class="nnum">-10.6 <span class="mut">vs fc &mdash;</span></span>
+            <span class="npts neg">-3.0</span></li><li><span class="nimp low">L</span>
+            <span class="ntitle">Treasury Gilt 2033 Auction</span>
+            <span class="nnum">4.761 <span class="mut">vs fc &mdash;</span></span>
+            <span class="npts pos">+0.1</span></li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <header class="chead">
+          <div><span class="cccy">EUR</span><span class="cnm">Euro</span></div>
+          <div class="cbig pos">+1.6</div>
+        </header>
+        <p class="readline neu">Neutral — no directional edge</p>
+        
+        <div class="comp"><div class="crow"><div class="clab">Checklist<span class="cw">&times;0.25</span></div>
+            <span class="bar"><span class="fill neg" style="left:49.55%;width:0.45%"></span></span>
+            <div class="cval neg">-1</div>
+            <div class="ccon">-0.2</div></div><div class="crow"><div class="clab">Rate odds<span class="cw">&times;0.10</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:42.75%"></span></span>
+            <div class="cval pos">+86</div>
+            <div class="ccon">+8.6</div></div><div class="crow"><div class="clab">COT<span class="cw">&times;0.15</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:4.60%"></span></span>
+            <div class="cval pos">+9</div>
+            <div class="ccon">+1.4</div></div><div class="crow"><div class="clab">Open interest<span class="cw">&times;0.10</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:6.70%"></span></span>
+            <div class="cval pos">+13</div>
+            <div class="ccon">+1.3</div></div><div class="crow"><div class="clab">News<span class="cw">&times;0.40</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:0.55%"></span></span>
+            <div class="cval pos">+1</div>
+            <div class="ccon">+0.4</div></div></div>
+        <div class="detail">
+          <div class="dblock">
+            <h4>Positioning</h4>
+            <p>asset-mgr net -38,359 (-4.7% of OI), week +19,357</p>
+            <p class="mut">OI 818,524 (+13,584, +1.7%), leveraged net +19,357 - new money long</p>
+            <p class="mnote neg"><b>Positioning:</b> speculative net short troughed 4 week(s) ago at a 32-week low and has since covered 23% of its range — short squeeze / trend-change risk.</p>
+          </div>
+          <div class="dblock">
+            <h4>Checklist <span class="mut">2.98/5 &middot; 55% measured</span></h4>
+            <div class="cats"><div class="cat"><span>Interest Rates</span><b class="neg">2.50</b></div><div class="cat"><span>Economic Growth</span><b class="neg">2.14</b></div><div class="cat"><span>Inflation</span><b class="neg">2.88</b></div><div class="cat"><span>Employment</span><b class="neg">2.88</b></div><div class="cat"><span>Trade Balance</span><b class="pos">3.98</b></div><div class="cat"><span>Central Bank</span><b class="pos">3.50</b></div><div class="cat"><span>Geopolitics &amp; Risk</span><b class="mut">3.00</b></div></div><p class="mnote"><b>Expected rate change:</b> Tightening bias, live hike on the table.</p><p class="mnote"><b>CB stance:</b> The only major central bank actively raising in this cycle. Five cuts from Jun 2024 reversed as Hormuz energy prices pushed euro-area inflation back above target.</p><p class="mnote"><b>Next meeting expectation:</b> A September follow-up hike is under active debate.</p>
+          </div>
+          <div class="dblock">
+            <h4>News drivers</h4>
+            <ul class="news"><li><span class="nimp low">L</span>
+            <span class="ntitle">Services Sentiment</span>
+            <span class="nnum">5.8 <span class="mut">vs fc 4.9</span></span>
+            <span class="npts pos">+1.0</span></li><li><span class="nimp low">L</span>
+            <span class="ntitle">Consumer Inflation Expectations</span>
+            <span class="nnum">33 <span class="mut">vs fc &mdash;</span></span>
+            <span class="npts pos">+0.5</span></li><li><span class="nimp low">L</span>
+            <span class="ntitle">Loans to Companies YoY</span>
+            <span class="nnum">4.4 <span class="mut">vs fc &mdash;</span></span>
+            <span class="npts pos">+0.4</span></li><li><span class="nimp low">L</span>
+            <span class="ntitle">Selling Price Expectations</span>
+            <span class="nnum">16.4 <span class="mut">vs fc &mdash;</span></span>
+            <span class="npts neg">-0.4</span></li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <header class="chead">
+          <div><span class="cccy">NZD</span><span class="cnm">NZ Dollar</span></div>
+          <div class="cbig neg">-12.3</div>
+        </header>
+        <p class="readline neg">Bearish — directional, trend running (-0.7% 5d)</p>
+        
+        <div class="comp"><div class="crow"><div class="clab">Checklist<span class="cw">&times;0.25</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:1.40%"></span></span>
+            <div class="cval pos">+3</div>
+            <div class="ccon">+0.7</div></div><div class="crow"><div class="clab">Rate odds<span class="cw">&times;0.10</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:45.50%"></span></span>
+            <div class="cval pos">+91</div>
+            <div class="ccon">+9.1</div></div><div class="crow"><div class="clab">COT<span class="cw">&times;0.15</span></div>
+            <span class="bar"><span class="fill neg" style="left:9.75%;width:40.25%"></span></span>
+            <div class="cval neg">-80</div>
+            <div class="ccon">-12.1</div></div><div class="crow"><div class="clab">Open interest<span class="cw">&times;0.10</span></div>
+            <span class="bar"><span class="fill neg" style="left:49.60%;width:0.40%"></span></span>
+            <div class="cval neg">-1</div>
+            <div class="ccon">-0.1</div></div><div class="crow"><div class="clab">News<span class="cw">&times;0.40</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:0.00%"></span></span>
+            <div class="cval pos">+0</div>
+            <div class="ccon">+0.0</div></div></div>
+        <div class="detail">
+          <div class="dblock">
+            <h4>Positioning</h4>
+            <p>asset-mgr net -31,994 (-36.0% of OI), week -5,188 - CROWDED, squeeze risk</p>
+            <p class="mut">OI 88,964 (-189, -0.2%), leveraged net -5,188 - liquidation short</p>
+            <p class="mnote warn"><b>Positioning:</b> speculative net short at its lowest in 32 weeks — positioning stretched, a squeeze / trend change often starts from here.</p>
+          </div>
+          <div class="dblock">
+            <h4>Checklist <span class="mut">3.06/5 &middot; 48% measured</span></h4>
+            <div class="cats"><div class="cat"><span>Interest Rates</span><b class="neg">2.56</b></div><div class="cat"><span>Economic Growth</span><b class="pos">3.09</b></div><div class="cat"><span>Inflation</span><b class="pos">3.50</b></div><div class="cat"><span>Employment</span><b class="pos">3.52</b></div><div class="cat"><span>Trade Balance</span><b class="neg">2.55</b></div><div class="cat"><span>Central Bank</span><b class="pos">3.17</b></div><div class="cat"><span>Geopolitics &amp; Risk</span><b class="mut">3.00</b></div></div><p class="mnote"><b>Expected rate change:</b> Tightening bias confirmed by the July hike.</p><p class="mnote"><b>CB stance:</b> Actively tightening from a low base - hiked 25bp to 2.50% on 8 Jul, the most recent move of any bank tracked here. Policy still accommodative in absolute terms, direction is up.</p><p class="mnote"><b>Next meeting expectation:</b> Further tightening expected; RBNZ is among the banks with the largest expected rate increases ahead.</p>
+          </div>
+          <div class="dblock">
+            <h4>News drivers</h4>
+            <ul class="news"><li class="mut">No scored releases in the decay window.</li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <header class="chead">
+          <div><span class="cccy">JPY</span><span class="cnm">Japanese Yen</span></div>
+          <div class="cbig neg">-16.7</div>
+        </header>
+        <p class="readline neg">Bearish — directional, trend running (-0.6% 5d)</p>
+        <p class="mnote"><b>No pullback yet.</b> First support 20-day mean +0.6%; a 38.2–61.8% retrace of the current down-leg (extreme 18 Aug) sits at +0.7% to +1.2% of JPY strength.</p>
+        <div class="comp"><div class="crow"><div class="clab">Checklist<span class="cw">&times;0.25</span></div>
+            <span class="bar"><span class="fill neg" style="left:44.20%;width:5.80%"></span></span>
+            <div class="cval neg">-12</div>
+            <div class="ccon">-2.9</div></div><div class="crow"><div class="clab">Rate odds<span class="cw">&times;0.10</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:27.00%"></span></span>
+            <div class="cval pos">+54</div>
+            <div class="ccon">+5.4</div></div><div class="crow"><div class="clab">COT<span class="cw">&times;0.15</span></div>
+            <span class="bar"><span class="fill neg" style="left:25.05%;width:24.95%"></span></span>
+            <div class="cval neg">-50</div>
+            <div class="ccon">-7.5</div></div><div class="crow"><div class="clab">Open interest<span class="cw">&times;0.10</span></div>
+            <span class="bar"><span class="fill neg" style="left:46.45%;width:3.55%"></span></span>
+            <div class="cval neg">-7</div>
+            <div class="ccon">-0.7</div></div><div class="crow"><div class="clab">News<span class="cw">&times;0.40</span></div>
+            <span class="bar"><span class="fill neg" style="left:48.60%;width:1.40%"></span></span>
+            <div class="cval neg">-3</div>
+            <div class="ccon">-1.1</div></div></div>
+        <div class="detail">
+          <div class="dblock">
+            <h4>Positioning</h4>
+            <p>asset-mgr net -77,042 (-20.1% of OI), week -9,071</p>
+            <p class="mut">OI 384,216 (+3,405, +0.9%), leveraged net -9,071 - new money short</p>
+            <p class="mut">Speculative net at the 43th percentile of 32 weeks — mid-range.</p>
+          </div>
+          <div class="dblock">
+            <h4>Checklist <span class="mut">2.77/5 &middot; 55% measured</span></h4>
+            <div class="cats"><div class="cat"><span>Interest Rates</span><b class="neg">1.75</b></div><div class="cat"><span>Economic Growth</span><b class="neg">2.01</b></div><div class="cat"><span>Inflation</span><b class="neg">2.72</b></div><div class="cat"><span>Employment</span><b class="pos">3.83</b></div><div class="cat"><span>Trade Balance</span><b class="neg">2.90</b></div><div class="cat"><span>Central Bank</span><b class="pos">3.17</b></div><div class="cat"><span>Geopolitics &amp; Risk</span><b class="mut">3.00</b></div></div><p class="mnote"><b>Expected rate change:</b> Direction is up, pace is the constraint.</p><p class="mnote"><b>CB stance:</b> Gradual normalisation continues after years of ultra-loose policy; policy rate now 1.00%.</p><p class="mnote"><b>Next meeting expectation:</b> A further 25bp hike expected over the coming year - tightening, but slow.</p>
+          </div>
+          <div class="dblock">
+            <h4>News drivers</h4>
+            <ul class="news"><li><span class="nimp low">L</span>
+            <span class="ntitle">Stock Investment by Foreigners</span>
+            <span class="nnum">-764.1 <span class="mut">vs fc &mdash;</span></span>
+            <span class="npts neg">-3.0</span></li><li><span class="nimp low">L</span>
+            <span class="ntitle">Foreign Bond Investment</span>
+            <span class="nnum">-1978.4 <span class="mut">vs fc &mdash;</span></span>
+            <span class="npts neg">-3.0</span></li><li><span class="nimp medium">M</span>
+            <span class="ntitle">Unemployment Rate</span>
+            <span class="nnum">2.4 <span class="mut">vs fc 2.5</span></span>
+            <span class="npts pos">+0.6</span></li><li><span class="nimp low">L</span>
+            <span class="ntitle">Tokyo CPI Ex Food and Energy YoY</span>
+            <span class="nnum">2 <span class="mut">vs fc &mdash;</span></span>
+            <span class="npts pos">+0.5</span></li></ul>
+          </div>
+        </div>
+      </article></div>
+  </section>
+
+  <section>
+    <h2>Commodities <span class="mut" style="font-weight:400;font-size:14px">&mdash; gold, silver, crude</span></h2>
+    <p class="sub">A separate track, not part of the currency board. Commodities have no central
+    bank, no rate path and no macro checklist, and are not zero-sum against each other &mdash; so
+    this is a lighter blend of what does carry over: CFTC <em>Managed Money</em> positioning,
+    open-interest conviction, the trend against the 50-day average, and a manual macro overlay
+    (real yields, the dollar, OPEC+) held neutral until set. Gold/silver ratio 66.8;
+    prices to 2026-08-28.</p>
+    <div class="meter">
+      <div class="mrow">
+        <div class="mccy">XAU<span class="mname">Gold</span></div>
+        <span class="bar"><span class="fill pos" style="left:50%;width:24.15%"></span></span>
+        <div class="mscore pos">+48.3</div>
+        <div class="mrate"><span class="pill vsb">Very Strong Bullish</span> <span class="chip warn" title="Possible bullish retracement (-2.0% 5d against the bias)">poss. retracement</span> <span class="chip warn" title="speculative net long at its highest in 32 weeks — positioning stretched, a trend change often starts from here">COT&nbsp;extreme</span></div>
+      </div>
+      <div class="mrow">
+        <div class="mccy">XAG<span class="mname">Silver</span></div>
+        <span class="bar"><span class="fill pos" style="left:50%;width:21.20%"></span></span>
+        <div class="mscore pos">+42.4</div>
+        <div class="mrate"><span class="pill mb">Moderately Bullish</span> <span class="chip warn" title="Possible bullish retracement (-2.4% 5d against the bias)">poss. retracement</span></div>
+      </div>
+      <div class="mrow">
+        <div class="mccy">WTI<span class="mname">Crude Oil</span></div>
+        <span class="bar"><span class="fill pos" style="left:50%;width:3.55%"></span></span>
+        <div class="mscore pos">+7.1</div>
+        <div class="mrate"><span class="pill neu">Neutral</span></div>
+      </div></div>
+    <div class="grid">
+      <article class="card">
+        <header class="chead">
+          <div><span class="cccy">XAU</span><span class="cnm">Gold</span></div>
+          <div class="cbig pos">+48.3</div>
+        </header>
+        <p class="readline warn">Possible bullish retracement (-2.0% 5d against the bias)</p>
+        <p class="mnote"><b>dip-buy zone:</b> 4391–4236 (-3.1% to -6.5%) &middot; 20-day avg 4414 (-2.6%) &middot; 17% retraced of the 3986 (16 Jul) → 4641 (24 Aug) leg.</p>
+        <div class="comp"><div class="crow"><div class="clab">Trend<span class="cw">&times;0.35</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:26.25%"></span></span>
+            <div class="cval pos">+52</div>
+            <div class="ccon">+18.4</div></div><div class="crow"><div class="clab">COT<span class="cw">&times;0.25</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:25.90%"></span></span>
+            <div class="cval pos">+52</div>
+            <div class="ccon">+12.9</div></div><div class="crow"><div class="clab">Open interest<span class="cw">&times;0.15</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:20.15%"></span></span>
+            <div class="cval pos">+40</div>
+            <div class="ccon">+6.0</div></div><div class="crow"><div class="clab">Overlay<span class="cw">&times;0.25</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:21.90%"></span></span>
+            <div class="cval pos">+44</div>
+            <div class="ccon">+10.9</div></div></div>
+        <div class="detail">
+          <div class="dblock">
+            <h4>Trend</h4>
+            <p>4529.9 vs 50-day avg 4210 (+8.8%), 20-day +13.5%, last 5-day -2.0%</p>
+          </div>
+          <div class="dblock">
+            <h4>Positioning</h4>
+            <p>Managed Money net +144,747 (+33.8% of OI), week +3,099</p>
+            <p class="mut">OI 427,957 (+21,697, +5.3%), Managed Money net +3,099 - new money long</p>
+            <p class="mnote warn"><b>Positioning:</b> speculative net long at its highest in 32 weeks — positioning stretched, a trend change often starts from here.</p>
+          </div>
+          <div class="dblock">
+            <h4>Macro overlay <span class="mut">100% set</span></h4>
+            <p class="mnote"><b>Real yield direction:</b> 10y TIPS ~2.35% on 2026-08-30, down from 2.43% over the prior 30 days - direction is easing, which helps gold, but the level is still historically restrictive so not a full bull signal.</p><p class="mnote"><b>US dollar direction:</b> DXY ~99.6, below a declining 200-day MA and testing channel support; bank consensus leans to a modestly weaker dollar into year-end (mid-90s) on slowing US growth and the Warsh rate path. A soft dollar is bullish gold.</p><p class="mnote"><b>Central-bank &amp; ETF demand:</b> Central banks bought 6.4x more gold than ETF investors sold in Q2 2026; WGC survey shows the strongest stated buying intention since 2019; ECB says gold has passed US Treasuries as the largest reserve asset (27% of holdings). Western ETF outflows are the one offset, so 4 not higher.</p><p class="mnote"><b>Safe-haven bid:</b> US-Israel-Iran conflict in an uneasy pause with Strait of Hormuz risk still live (a ~$4/bbl war premium sits in oil); elevated geopolitical uncertainty keeps a safe-haven bid under gold.</p>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <header class="chead">
+          <div><span class="cccy">XAG</span><span class="cnm">Silver</span></div>
+          <div class="cbig pos">+42.4</div>
+        </header>
+        <p class="readline warn">Possible bullish retracement (-2.4% 5d against the bias)</p>
+        <p class="mnote"><b>dip-buy zone:</b> 64.3–61.1 (-5.2% to -9.9%) &middot; 20-day avg 65.3 (-3.7%) &middot; 12% retraced of the 55.9 (16 Jul) → 69.5 (21 Aug) leg.</p>
+        <div class="comp"><div class="crow"><div class="clab">Trend<span class="cw">&times;0.35</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:31.95%"></span></span>
+            <div class="cval pos">+64</div>
+            <div class="ccon">+22.4</div></div><div class="crow"><div class="clab">COT<span class="cw">&times;0.25</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:18.55%"></span></span>
+            <div class="cval pos">+37</div>
+            <div class="ccon">+9.3</div></div><div class="crow"><div class="clab">Open interest<span class="cw">&times;0.15</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:9.95%"></span></span>
+            <div class="cval pos">+20</div>
+            <div class="ccon">+3.0</div></div><div class="crow"><div class="clab">Overlay<span class="cw">&times;0.25</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:15.60%"></span></span>
+            <div class="cval pos">+31</div>
+            <div class="ccon">+7.8</div></div></div>
+        <div class="detail">
+          <div class="dblock">
+            <h4>Trend</h4>
+            <p>67.786 vs 50-day avg 62 (+11.0%), 20-day +18.6%, last 5-day -2.4%</p>
+          </div>
+          <div class="dblock">
+            <h4>Positioning</h4>
+            <p>Managed Money net +14,073 (+12.4% of OI), week +2,378</p>
+            <p class="mut">OI 113,801 (-6,316, -5.3%), Managed Money net +2,378 - liquidation long</p>
+            <p class="mut">Speculative net at the 85th percentile of 32 weeks — mid-range.</p>
+          </div>
+          <div class="dblock">
+            <h4>Macro overlay <span class="mut">100% set</span></h4>
+            <p class="mnote"><b>Real yield direction:</b> Same falling-real-yield backdrop as gold (10y TIPS 2.43% -&gt; 2.35% over 30 days); silver is more leveraged to the move.</p><p class="mnote"><b>US dollar direction:</b> Soft DXY (~99.6, below the 200-day MA, consensus lower into year-end) is bullish silver.</p><p class="mnote"><b>Industrial demand:</b> Structural solar/electronics demand stays firm, but 2026 global growth is slowing (IEA has oil demand contracting on trade disruption), which caps the industrial pull. Net mildly positive.</p><p class="mnote"><b>Gold-silver ratio:</b> Ratio ~66.8, well below the long-run ~80 average - silver has already closed most of the gap to gold, so it is no longer cheap on this measure. Neutral for further silver outperformance.</p>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <header class="chead">
+          <div><span class="cccy">WTI</span><span class="cnm">Crude Oil</span></div>
+          <div class="cbig pos">+7.1</div>
+        </header>
+        <p class="readline neu">Neutral — no directional edge</p>
+        
+        <div class="comp"><div class="crow"><div class="clab">Trend<span class="cw">&times;0.35</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:11.65%"></span></span>
+            <div class="cval pos">+23</div>
+            <div class="ccon">+8.2</div></div><div class="crow"><div class="clab">COT<span class="cw">&times;0.25</span></div>
+            <span class="bar"><span class="fill pos" style="left:50%;width:3.20%"></span></span>
+            <div class="cval pos">+6</div>
+            <div class="ccon">+1.6</div></div><div class="crow"><div class="clab">Open interest<span class="cw">&times;0.15</span></div>
+            <span class="bar"><span class="fill neg" style="left:46.25%;width:3.75%"></span></span>
+            <div class="cval neg">-8</div>
+            <div class="ccon">-1.1</div></div><div class="crow"><div class="clab">Overlay<span class="cw">&times;0.25</span></div>
+            <span class="bar"><span class="fill neg" style="left:46.90%;width:3.10%"></span></span>
+            <div class="cval neg">-6</div>
+            <div class="ccon">-1.6</div></div></div>
+        <div class="detail">
+          <div class="dblock">
+            <h4>Trend</h4>
+            <p>83.4 vs 50-day avg 79 (+4.7%), 20-day +3.4%, last 5-day -4.2%</p>
+          </div>
+          <div class="dblock">
+            <h4>Positioning</h4>
+            <p>Managed Money net +84,020 (+4.4% of OI), week -3,459</p>
+            <p class="mut">OI 1,906,740 (+17,780, +0.9%), Managed Money net -3,459 - new money short</p>
+            <p class="mut">Speculative net at the 70th percentile of 32 weeks — mid-range.</p>
+          </div>
+          <div class="dblock">
+            <h4>Macro overlay <span class="mut">100% set</span></h4>
+            <p class="mnote"><b>OPEC+ supply policy:</b> OPEC+ approved a small +188k bpd September hike (2 Aug), completing the rollback of the 2023 voluntary cuts, then signalled quotas held steady through year-end. Removing the 'more barrels coming' overhang is mildly supportive versus the prior path, though all the cut barrels are now back in the market. Next review 6 Sep.</p><p class="mnote"><b>Inventory trend:</b> EIA reported a 17.4Mb crude build for the week of 7 Aug (largest since Jan 2023, import-driven), then broadly flat; stocks ~428.9Mb, matching the 5-year average. Level is neutral but the month's trajectory was builds, not draws.</p><p class="mnote"><b>Demand outlook:</b> IEA sees 2026 oil demand contracting (~-80 kb/d), with the sharpest quarterly drop since Covid, as trade disruption hits advanced economies, Asia and the Middle East. Clearly bearish.</p><p class="mnote"><b>Geopolitical risk premium:</b> Only a modest ~$4/bbl war premium is priced; Hormuz/Iran risk is unresolved and asymmetric to the upside on any escalation. A mild net support.</p>
+          </div>
+        </div>
+      </article></div>
+  </section>
+
+  <section>
+    <h2>Central bank commentary</h2>
+    <p class="sub">Speeches carry no number, so the numeric pipeline cannot see them at all.
+    These are weighted by <em>speaker seniority</em> rather than the feed's impact tag, because
+    that tag is unreliable for commentary &mdash; a mismatch is flagged below. Tone is read
+    separately and feeds the checklist's CB-stance indicator.</p>
+    <div class="tw"><table>
+      <thead><tr><th>When</th><th>Ccy</th><th class="num">Weight</th><th>Feed tier</th><th>Event</th><th>Tone</th></tr></thead>
+      <tbody><tr><td class="mono">Fri 28 Aug 16:15 UTC<br><span class="mut">42h ago</span></td><td class="mono">USD</td><td class="num"><span class="wbar"><i style="width:85%"></i></span>0.85</td><td><span class="nimp high">H</span></td><td>Jackson Hole Symposium</td><td><span class="tone pos">+1.5 &rarr; +39</span></td></tr><tr><td class="mono">Fri 28 Aug 14:00 UTC<br><span class="mut">44h ago</span></td><td class="mono">USD</td><td class="num"><span class="wbar"><i style="width:100%"></i></span>1.00</td><td><span class="nimp high">H</span></td><td>Fed Chairman Warsh Speaks</td><td><span class="tone pos">+1.0 &rarr; +30</span></td></tr><tr><td class="mono">Fri 28 Aug 13:00 UTC<br><span class="mut">45h ago</span></td><td class="mono">USD</td><td class="num"><span class="wbar"><i style="width:45%"></i></span>0.45</td><td><span class="nimp low">L</span></td><td>FOMC Member Hammack Speaks</td><td><span class="tone pos">+2.0 &rarr; +27</span></td></tr><tr><td class="mono">Thu 27 Aug 16:15 UTC<br><span class="mut">66h ago</span></td><td class="mono">USD</td><td class="num"><span class="wbar"><i style="width:85%"></i></span>0.85</td><td><span class="nimp medium">M</span></td><td>Jackson Hole Symposium<span class="mismatch">under-tagged</span></td><td><span class="tone pos">+1.0 &rarr; +20</span></td></tr><tr><td class="mono">Tue 25 Aug 01:30 UTC<br><span class="mut">129h ago</span></td><td class="mono">AUD</td><td class="num"><span class="wbar"><i style="width:85%"></i></span>0.85</td><td><span class="nimp low">L</span></td><td>Monetary Policy Meeting Minutes<span class="mismatch">under-tagged</span></td><td><span class="tone pos">+1.0 &rarr; +10</span></td></tr><tr><td class="mono">Wed 19 Aug 18:00 UTC<br><span class="mut">256h ago</span></td><td class="mono">USD</td><td class="num"><span class="wbar"><i style="width:100%"></i></span>1.00</td><td><span class="nimp medium">M</span></td><td>FOMC Minutes - Meeting of July 28-29<span class="mismatch">under-tagged</span></td><td><span class="tone pos">+1.5 &rarr; +4</span></td></tr><tr><td class="mono">Tue 01 Sep 13:05 UTC<br><span class="mut">in 50h 24m</span></td><td class="mono">USD</td><td class="num"><span class="wbar"><i style="width:45%"></i></span>0.45</td><td><span class="nimp low">L</span></td><td>FOMC Member Barr Speaks</td><td><span class="mut">&mdash;</span></td></tr><tr><td class="mono">Wed 02 Sep 00:30 UTC<br><span class="mut">in 61h 49m</span></td><td class="mono">EUR</td><td class="num"><span class="wbar"><i style="width:70%"></i></span>0.70</td><td><span class="nimp low">L</span></td><td>German Buba President Nagel Speaks<span class="mismatch">under-tagged</span></td><td><span class="mut">&mdash;</span></td></tr><tr><td class="mono">Wed 02 Sep 02:00 UTC<br><span class="mut">in 63h 19m</span></td><td class="mono">NZD</td><td class="num"><span class="wbar"><i style="width:35%"></i></span>0.35</td><td><span class="nimp high">H</span></td><td>RBNZ Rate Statement</td><td><span class="mut">&mdash;</span></td></tr><tr><td class="mono">Wed 02 Sep 03:00 UTC<br><span class="mut">in 64h 19m</span></td><td class="mono">NZD</td><td class="num"><span class="wbar"><i style="width:85%"></i></span>0.85</td><td><span class="nimp high">H</span></td><td>RBNZ Press Conference</td><td><span class="mut">&mdash;</span></td></tr><tr><td class="mono">Wed 02 Sep 13:45 UTC<br><span class="mut">in 75h 04m</span></td><td class="mono">CAD</td><td class="num"><span class="wbar"><i style="width:35%"></i></span>0.35</td><td><span class="nimp high">H</span></td><td>BOC Rate Statement</td><td><span class="mut">&mdash;</span></td></tr><tr><td class="mono">Wed 02 Sep 14:30 UTC<br><span class="mut">in 75h 49m</span></td><td class="mono">CAD</td><td class="num"><span class="wbar"><i style="width:85%"></i></span>0.85</td><td><span class="nimp high">H</span></td><td>BOC Press Conference</td><td><span class="mut">&mdash;</span></td></tr><tr><td class="mono">Thu 03 Sep 01:15 UTC<br><span class="mut">in 86h 34m</span></td><td class="mono">AUD</td><td class="num"><span class="wbar"><i style="width:55%"></i></span>0.55</td><td><span class="nimp low">L</span></td><td>RBA Assist Gov Jones Speaks<span class="mismatch">under-tagged</span></td><td><span class="mut">&mdash;</span></td></tr><tr><td class="mono">Thu 03 Sep 05:15 UTC<br><span class="mut">in 90h 34m</span></td><td class="mono">AUD</td><td class="num"><span class="wbar"><i style="width:55%"></i></span>0.55</td><td><span class="nimp low">L</span></td><td>RBA Assist Gov Hunter Speaks<span class="mismatch">under-tagged</span></td><td><span class="mut">&mdash;</span></td></tr><tr><td class="mono">Thu 03 Sep 12:30 UTC<br><span class="mut">in 97h 49m</span></td><td class="mono">USD</td><td class="num"><span class="wbar"><i style="width:45%"></i></span>0.45</td><td><span class="nimp low">L</span></td><td>FOMC Member Waller Speaks</td><td><span class="mut">&mdash;</span></td></tr><tr><td class="mono">Fri 04 Sep 08:50 UTC<br><span class="mut">in 118h 09m</span></td><td class="mono">GBP</td><td class="num"><span class="wbar"><i style="width:55%"></i></span>0.55</td><td><span class="nimp high">H</span></td><td>BOE Gov Bailey Speaks</td><td><span class="mut">&mdash;</span></td></tr></tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Pair ranking</h2>
+    <p class="sub">Sorted by strength differential. A wide spread is a starting shortlist, not a
+    signal &mdash; location on the chart still decides the trade.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Pair</th><th>Long</th><th>Short</th><th class="num">Spread</th><th>Warnings</th></tr></thead>
+      <tbody><tr><td class="pr">AUD/JPY</td><td class="mono pos">AUD</td><td class="mono neg">JPY</td><td class="mono num">+29.0</td><td class="wn"><span class="mut">&mdash;</span></td></tr><tr><td class="pr">CAD/JPY</td><td class="mono pos">CAD</td><td class="mono neg">JPY</td><td class="mono num">+25.5</td><td class="wn"><span class="mut">&mdash;</span></td></tr><tr><td class="pr">AUD/NZD</td><td class="mono pos">AUD</td><td class="mono neg">NZD</td><td class="mono num">+24.6</td><td class="wn">NZD positioning crowded</td></tr><tr><td class="pr">CAD/NZD</td><td class="mono pos">CAD</td><td class="mono neg">NZD</td><td class="mono num">+21.1</td><td class="wn">NZD positioning crowded</td></tr><tr><td class="pr">USD/JPY</td><td class="mono pos">USD</td><td class="mono neg">JPY</td><td class="mono num">+20.0</td><td class="wn"><span class="mut">&mdash;</span></td></tr><tr><td class="pr">GBP/JPY</td><td class="mono pos">GBP</td><td class="mono neg">JPY</td><td class="mono num">+19.4</td><td class="wn"><span class="mut">&mdash;</span></td></tr><tr><td class="pr">EUR/JPY</td><td class="mono pos">EUR</td><td class="mono neg">JPY</td><td class="mono num">+18.3</td><td class="wn"><span class="mut">&mdash;</span></td></tr><tr><td class="pr">USD/NZD</td><td class="mono pos">USD</td><td class="mono neg">NZD</td><td class="mono num">+15.6</td><td class="wn">NZD positioning crowded</td></tr><tr><td class="pr">GBP/NZD</td><td class="mono pos">GBP</td><td class="mono neg">NZD</td><td class="mono num">+15.0</td><td class="wn">NZD positioning crowded</td></tr><tr><td class="pr">EUR/NZD</td><td class="mono pos">EUR</td><td class="mono neg">NZD</td><td class="mono num">+13.9</td><td class="wn">NZD positioning crowded</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Release schedule</h2>
+    <p class="sub">These are the refresh triggers. The scheduled job wakes shortly after each print,
+    scores the surprise against forecast, and rebuilds this page.</p>
+    <div class="tw"><table>
+      <thead><tr><th>When</th><th>Relative</th><th>Ccy</th><th>Event</th><th class="num">Forecast</th></tr></thead>
+      <tbody><tr><td class="mono">Sun 30 Aug 23:50 UTC</td><td class="mono mut">in 13h 09m</td>
+        <td class="mono">JPY</td>
+        <td><span class="nimp low">L</span> Industrial Production YoY Prel</td>
+        <td class="mono num mut">&mdash;</td></tr><tr><td class="mono">Sun 30 Aug 23:50 UTC</td><td class="mono mut">in 13h 09m</td>
+        <td class="mono">JPY</td>
+        <td><span class="nimp medium">M</span> Retail Sales YoY</td>
+        <td class="mono num mut">3</td></tr><tr><td class="mono">Sun 30 Aug 23:50 UTC</td><td class="mono mut">in 13h 09m</td>
+        <td class="mono">JPY</td>
+        <td><span class="nimp medium">M</span> Industrial Production MoM Prel</td>
+        <td class="mono num mut">-0.6</td></tr><tr><td class="mono">Sun 30 Aug 23:50 UTC</td><td class="mono mut">in 13h 09m</td>
+        <td class="mono">JPY</td>
+        <td><span class="nimp low">L</span> Retail Sales MoM</td>
+        <td class="mono num mut">&mdash;</td></tr><tr><td class="mono">Mon 31 Aug 01:00 UTC</td><td class="mono mut">in 14h 19m</td>
+        <td class="mono">NZD</td>
+        <td><span class="nimp medium">M</span> ANZ Business Confidence</td>
+        <td class="mono num mut">&mdash;</td></tr><tr><td class="mono">Mon 31 Aug 01:00 UTC</td><td class="mono mut">in 14h 19m</td>
+        <td class="mono">AUD</td>
+        <td><span class="nimp low">L</span> TD-MI Inflation Gauge MoM</td>
+        <td class="mono num mut">&mdash;</td></tr><tr><td class="mono">Mon 31 Aug 01:30 UTC</td><td class="mono mut">in 14h 49m</td>
+        <td class="mono">AUD</td>
+        <td><span class="nimp low">L</span> Private Sector Credit YoY</td>
+        <td class="mono num mut">&mdash;</td></tr><tr><td class="mono">Mon 31 Aug 01:30 UTC</td><td class="mono mut">in 14h 49m</td>
+        <td class="mono">AUD</td>
+        <td><span class="nimp low">L</span> Private Sector Credit MoM</td>
+        <td class="mono num mut">0.7</td></tr><tr><td class="mono">Mon 31 Aug 01:30 UTC</td><td class="mono mut">in 14h 49m</td>
+        <td class="mono">AUD</td>
+        <td><span class="nimp low">L</span> Housing Credit MoM</td>
+        <td class="mono num mut">&mdash;</td></tr><tr><td class="mono">Mon 31 Aug 01:30 UTC</td><td class="mono mut">in 14h 49m</td>
+        <td class="mono">AUD</td>
+        <td><span class="nimp medium">M</span> Company Gross Profits QoQ</td>
+        <td class="mono num mut">2</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <footer>
+    <p><b>Sources.</b> Positioning and open interest from the CFTC Commitments of Traders via
+    tradingster.com &mdash; the financial report (Leveraged Funds) for currencies, the
+    disaggregated report (Managed Money) for commodities. Calendar, actuals and forecasts from
+    TradingView's economic calendar API. Commodity daily closes from Yahoo Finance (GC=F, SI=F,
+    CL=F). The checklist auto-fills any indicator with a released datapoint behind it; judgment
+    indicators stay manual and are held at neutral until set.</p>
+    <p><b>Open interest is weekly, not daily.</b> weekly (COT report, Fri 15:30 ET). No free daily open-interest feed was
+    reachable &mdash; CME resets the connection, and MarketWatch, WSJ, Investing.com, Barchart and
+    Stooq all block automated reads. Swap in a daily source by implementing an adapter in
+    <code>fetch_oi.py</code>.</p>
+    <p>Built 30 Aug 2026 10:40 UTC. Scores are a weighted heuristic, not advice &mdash; every number here is
+    traceable to the source shown beside it.</p>
+  </footer>
+</div>
