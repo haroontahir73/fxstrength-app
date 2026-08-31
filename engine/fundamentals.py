@@ -1,4 +1,4 @@
-"""The 28-indicator checklist: auto-derive what the calendar can prove, keep the rest manual.
+"""The 31-indicator checklist: auto-derive what the calendar can prove, keep the rest manual.
 
 Each indicator is scored 1-5 (5 = strongly bullish for that currency, 1 = strongly bearish),
 matching the original workbook. Two sources feed it:

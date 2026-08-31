@@ -1,7 +1,7 @@
 """Blend the four inputs into a per-currency strength score, daily bias, and pair ranking."""
 import json, math, datetime as dt
 from config import (DATA, ORDER, WEIGHTS, COT_CATEGORY, rating,
-                    directional_read, retracement_zone, cot_extreme)
+                    directional_read, retracement_zone, cot_extreme, cot_reversal_adjust)
 
 CROWDED = 0.35   # |net| / open interest above this = crowded, squeeze-prone
 
@@ -92,6 +92,29 @@ def build():
             "expectations": exp["currencies"].get(ccy, {}),
         }
 
+    # weekly COT-net history for the positioning-extreme / trend-turn read
+    chp = DATA / "cot_history.json"
+    try:
+        chist = json.loads(chp.read_text(encoding="utf-8")) if chp.exists() else {}
+    except Exception:
+        chist = {}
+    cnet = {}
+    for d in sorted(chist):
+        week = chist[d] or {}
+        for c in ORDER:
+            v = ((week.get(c) or {}).get(COT_CATEGORY) or {}).get("net")
+            if v is not None:
+                cnet.setdefault(c, []).append(v)
+
+    # COT extreme -> contrarian pull on the RAW score, before centring, so the tilt is
+    # relative (a currency with crowded longs looks weaker vs the pack) and the board still
+    # sums to zero afterwards.
+    for c in ORDER:
+        rows[c]["cot_x"] = cot_extreme(cnet.get(c))
+        rows[c]["score_pre_cot_x"] = rows[c]["score"]
+        rows[c]["score"], rows[c]["cot_adj"] = cot_reversal_adjust(
+            rows[c]["score"], rows[c]["cot_x"], "fx")
+
     # Centre on zero. FX strength is relative by construction - if every currency scores
     # positive the board is incoherent, which is exactly what happened before USD was
     # reconciled with the basket. Centring preserves the ordering and the spreads.
@@ -113,26 +136,11 @@ def build():
     pfx, pser = fxd.get("moves", {}), fxd.get("series", {})
     pdates = fxd.get("series_dates")
 
-    # weekly COT-net history for the positioning-extreme / trend-turn read
-    chp = DATA / "cot_history.json"
-    try:
-        chist = json.loads(chp.read_text(encoding="utf-8")) if chp.exists() else {}
-    except Exception:
-        chist = {}
-    cnet = {}
-    for d in sorted(chist):
-        week = chist[d] or {}
-        for c in ORDER:
-            v = ((week.get(c) or {}).get(COT_CATEGORY) or {}).get("net")
-            if v is not None:
-                cnet.setdefault(c, []).append(v)
-
     for c in ORDER:
         d5 = pfx.get(c, {}).get("d5")
         rows[c]["chg_5d_pct"] = d5
         rows[c]["read"] = directional_read(rows[c]["score"], d5, "fx")
         rows[c]["retr"] = retracement_zone(pser.get(c), rows[c]["score"], "fx", pdates)
-        rows[c]["cot_x"] = cot_extreme(cnet.get(c))
 
     ranked = sorted(ORDER, key=lambda c: -rows[c]["score"])
 

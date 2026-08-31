@@ -20,7 +20,8 @@ Writes data/commodities.json.
 """
 import json, math, datetime as dt
 from config import (DATA, COMMODITIES, COMMODITY_ORDER, COMMODITY_WEIGHTS,
-                    commodity_rating, directional_read, retracement_zone, cot_extreme)
+                    commodity_rating, directional_read, retracement_zone, cot_extreme,
+                    cot_reversal_adjust)
 
 MANUAL_FILE = DATA / "commodities_manual.json"
 CROWDED = 0.35
@@ -181,7 +182,10 @@ def build():
             "overlay": _overlay_leg(sym, manual),
         }
         parts = {k: legs[k]["score"] for k in COMMODITY_WEIGHTS}
-        total = sum(parts[k] * COMMODITY_WEIGHTS[k] for k in COMMODITY_WEIGHTS)
+        blended = sum(parts[k] * COMMODITY_WEIGHTS[k] for k in COMMODITY_WEIGHTS)
+        # COT extreme -> contrarian pull on the score (crowded longs drag it toward reversal)
+        cx = cot_extreme(mm_net.get(sym))
+        total, cot_adj = cot_reversal_adjust(blended, cx, "commodity")
         label, cls = commodity_rating(total)
         # directional / retracement read: the score is medium-term; classify it against the
         # last week of price. `read.state == "retracement"` is the old `pullback` flag.
@@ -190,13 +194,14 @@ def build():
         read = directional_read(total, chg_5d_pct, "commodity")
         retr = retracement_zone(p.get("closes"), total, "commodity", p.get("dates"))
         rows[sym] = {
-            "score": round(total, 1), "rating": label, "cls": cls,
+            "score": round(total, 1), "score_pre_cot_x": round(blended, 1),
+            "cot_adj": cot_adj, "rating": label, "cls": cls,
             "parts": {k: round(v, 1) for k, v in parts.items()},
             "contrib": {k: round(parts[k] * COMMODITY_WEIGHTS[k], 1) for k in COMMODITY_WEIGHTS},
             "crowded": legs["cot"].get("crowded", False),
             "read": read, "pullback": read["state"] == "retracement",
             "chg_5d_pct": round(chg_5d_pct, 1) if chg_5d_pct is not None else None,
-            "retr": retr, "cot_x": cot_extreme(mm_net.get(sym)), "legs": legs,
+            "retr": retr, "cot_x": cx, "legs": legs,
         }
 
     ranked = sorted(COMMODITY_ORDER, key=lambda s: -rows[s]["score"])

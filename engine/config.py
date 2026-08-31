@@ -210,6 +210,36 @@ def ordinal(n):
     return f"{n}{suf}"
 
 
+# The COT-extreme flag can PULL THE SCORE toward a reversal, not just show a chip - user's
+# call 2026-08-31, weighting the contrarian read above the model default (which keeps
+# positioning as momentum because the 513-week backtest shows COT does not TIME reversals -
+# extremes can persist and deepen for months). A stretched speculative net trims the score
+# toward zero; once the net actually starts to unwind ("turning") the pull is strong enough
+# to flip the sign. Each entry is (fraction of |score| removed, absolute points floor).
+# The COT-extreme contrarian pull, as (fraction-of-|score|, floor). A positioning extreme
+# that is merely FLAGGED (`stretched`) gets a nudge; one that is already UNWINDING (`turning`
+# - the reversal in motion) gets a firmer shove. Sized to move a mid-strength name by ~8-13
+# on the -100..100 scale - visible against the rest of the board without dominating it.
+COT_REVERSAL_PULL = {
+    "fx":        {"stretched": (0.30, 3.0),  "turning": (0.50, 5.0)},
+    "commodity": {"stretched": (0.30, 8.0),  "turning": (0.50, 14.0)},
+}
+
+
+def cot_reversal_adjust(score, cot_x, kind: str = "fx"):
+    """(adjusted score, adjustment) after the COT-extreme contrarian pull. Direction is set
+    by WHICH SIDE is stretched - crowded longs pull the score DOWN, crowded shorts pull it UP
+    - regardless of the score's own sign. Returns (score, 0.0) when there is no flag."""
+    if not cot_x or not cot_x.get("state"):
+        return round(score, 1), 0.0
+    st = cot_x["state"]
+    key = "turning" if st in ("long unwinding", "short covering") else "stretched"
+    frac, floor = COT_REVERSAL_PULL.get(kind, COT_REVERSAL_PULL["fx"])[key]
+    long_side = st in ("stretched long", "long unwinding")
+    adj = (-1.0 if long_side else 1.0) * (abs(score) * frac + floor)
+    return round(score + adj, 1), round(adj, 1)
+
+
 def _span(weeks):
     if weeks >= 100:
         return f"~{round(weeks / 52)} years"

@@ -38,6 +38,11 @@ Each input is scored −100..+100 on its own, then weighted (`config.py: WEIGHTS
 | Open interest | 0.10 | OI level and change vs positioning direction | weekly |
 | News | 0.40 | actual vs forecast, time-decayed | continuous |
 
+After the weighted blend, a **COT-extreme contrarian pull** (`cot_reversal_adjust`) can shove
+the score ±8–13 toward a reversal when the speculative net is at a multi-year extreme or
+already unwinding — see [COT extreme / positioning turn](#cot-extreme--positioning-turn). It
+is not a weighted leg; it is applied after the blend and shown as its own breakdown row.
+
 **Rate odds was promoted out of the checklist** on 2026-08-27. As 2 boxes out of 28 it was
 worth 2.5% of the score, which is a structural mis-weighting: market-implied policy odds are
 the most direct statement available about a currency's future carry, and rate differentials
@@ -134,6 +139,22 @@ by `cot_history*.json` — **10 years** of weekly data, straight from CFTC):
 
 Sign-aware: "least short in the window" is **not** a stretched long. It is a contrarian read
 — when everyone is already positioned one way, there is no one left to push the trend further.
+
+**The flag pulls the score toward the reversal** (`config.py: cot_reversal_adjust`,
+`COT_REVERSAL_PULL`). It is not one of the weighted legs — it is an additive shove applied
+to the blended score *after* the blend, before FX centring:
+
+| State | Pull |
+|---|---|
+| **COT extreme** (stretched, not yet turning) | `0.30 × \|score\| + 3.0` (FX) / `+ 8.0` (commodity) |
+| **COT turning** (extreme already unwinding — reversal in motion, higher conviction) | `0.50 × \|score\| + 5.0` (FX) / `+ 14.0` (commodity) |
+
+Direction is set by **which side is crowded**, not by the score's own sign: crowded longs
+(`stretched long` / `long unwinding`) pull the score **down**, crowded shorts (`stretched
+short` / `short covering`) pull it **up**. Sized to move a mid-strength name by ~8–13 points
+— visible against the rest of the board without overriding the checklist and news. It shows
+as its own **COT extreme** row in the "what moved each score" breakdown, and the card's
+Positioning note states the points applied.
 
 **History.** `cot_history.json` (Leveraged Funds, TFF report — plus Asset Manager and Dealer)
 and `cot_history_commodity.json` (Managed Money, disaggregated — plus Producer and Swap) hold

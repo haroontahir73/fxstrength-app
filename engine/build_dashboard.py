@@ -69,8 +69,9 @@ def cot_chip(cx):
     return f' <span class="chip warn" title="{esc(cx["note"])}">COT&nbsp;extreme</span>'
 
 
-def cotx_line(cx):
-    """The positioning-extreme sentence for a card. '' when mid-range."""
+def cotx_line(cx, adj=0.0):
+    """The positioning-extreme sentence for a card. '' when mid-range. `adj` is the
+    contrarian pull the flag put on the score (0 when nothing fired)."""
     if not cx:
         return ""
     if not cx.get("note"):
@@ -81,7 +82,42 @@ def cotx_line(cx):
         return (f'<p class="mut">Speculative net: {ordinal(p1)} percentile over 1 year, '
                 f'{ordinal(p3)} over 3, {ordinal(cx.get("pctl_max"))} over {yrs} — mid-range.</p>')
     turn = cx["state"] in ("long unwinding", "short covering")
-    return f'<p class="mnote {"neg" if turn else "warn"}"><b>Positioning:</b> {esc(cx["note"])}.</p>'
+    pull = f' <b>Score pulled {adj:+.1f}</b> toward reversal.' if adj else ""
+    return (f'<p class="mnote {"neg" if turn else "warn"}"><b>Positioning:</b> '
+            f'{esc(cx["note"])}.{pull}</p>')
+
+
+def cot_pull_row(r):
+    """Breakdown row for the COT-extreme contrarian pull. '' when the flag did not fire.
+    It is not a weighted leg - it is an additive shove applied after the blend - so it
+    shows no weight, just the points it moved the score."""
+    adj = r.get("cot_adj") or 0.0
+    if not adj:
+        return ""
+    cx = r.get("cot_x") or {}
+    turn = cx.get("state") in ("long unwinding", "short covering")
+    sign = "pos" if adj >= 0 else "neg"
+    tip = esc(cx.get("note", "") or "speculative positioning at an extreme")
+    return (f'<div class="crow"><div class="clab">COT extreme'
+            f'<span class="cw">{"turning" if turn else "flag"}</span></div>'
+            f'{bar(adj)}'
+            f'<div class="cval mut" title="{tip}">pull</div>'
+            f'<div class="ccon {sign}">{adj:+.1f}</div></div>')
+
+
+def centring_row(r):
+    """FX cards only: the board-centring offset, so the rows + the COT pull + this line add
+    up exactly to the headline score. FX strength is relative - the seven scores are shifted
+    so the board averages zero; commodities are not centred and get no row."""
+    raw = r.get("raw_score")
+    if raw is None:
+        return ""
+    delta = round(r["score"] - raw, 1)
+    if delta == 0:
+        return ""
+    return (f'<div class="crow"><div class="clab">Centring<span class="cw">board avg &rarr; 0</span></div>'
+            f'{bar(delta)}<div class="cval mut">&mdash;</div>'
+            f'<div class="ccon mut">{delta:+.1f}</div></div>')
 
 
 def _fmt_d(iso):
@@ -172,7 +208,7 @@ def commodities_block(d):
             {bar(r['parts'][k])}
             <div class="cval {'pos' if r['parts'][k]>=0 else 'neg'}">{r['parts'][k]:+.0f}</div>
             <div class="ccon">{r['contrib'][k]:+.1f}</div></div>"""
-            for k in ("trend", "cot", "oi", "overlay"))
+            for k in ("trend", "cot", "oi", "overlay")) + cot_pull_row(r)
 
         ov = r["legs"]["overlay"]
         onotes = "".join(f"""<p class="mnote"><b>{esc(k)}:</b> {esc(v)}</p>"""
@@ -202,7 +238,7 @@ def commodities_block(d):
             <h4>Positioning</h4>
             <p>{esc(r['legs']['cot']['note'])}</p>
             <p class="mut">{esc(r['legs']['oi']['note'])}</p>
-            {cotx_line(r.get('cot_x'))}
+            {cotx_line(r.get('cot_x'), r.get('cot_adj') or 0.0)}
           </div>
           <div class="dblock">
             <h4>Macro overlay <span class="mut">{ov.get('coverage',0)}% set</span></h4>
@@ -260,7 +296,7 @@ def build():
             {bar(r['parts'][k])}
             <div class="cval {'pos' if r['parts'][k]>=0 else 'neg'}">{r['parts'][k]:+.0f}</div>
             <div class="ccon">{r['contrib'][k]:+.1f}</div></div>"""
-            for k in ("fundamentals", "expectations", "cot", "oi", "news"))
+            for k in ("fundamentals", "expectations", "cot", "oi", "news")) + cot_pull_row(r) + centring_row(r)
 
         news = r["news_drivers"][:4]
         newshtml = "".join(
@@ -293,7 +329,7 @@ def build():
             <h4>Positioning</h4>
             <p>{esc(r['cot']['note'])}</p>
             <p class="mut">{esc(r['oi']['note'])}</p>
-            {cotx_line(r.get('cot_x'))}
+            {cotx_line(r.get('cot_x'), r.get('cot_adj') or 0.0)}
           </div>
           <div class="dblock">
             <h4>Checklist <span class="mut">{r['fundamentals']['avg_1_5']:.2f}/5 &middot; {r['fundamentals']['coverage']}% measured</span></h4>

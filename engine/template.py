@@ -169,7 +169,7 @@ a{color:var(--accent)}
   <header class="top">
     <span class="eyebrow">Positioning &middot; macro &middot; flow</span>
     <h1>Currency Strength Desk</h1>
-    <p class="tagline">One blended bias per currency, built from the 28-indicator checklist, CFTC
+    <p class="tagline">One blended bias per currency, built from the 31-indicator checklist, CFTC
     positioning, open-interest flow and released economic surprises. Rebuilt on every COT release,
     every daily refresh, and after each scheduled data print.</p>
     <div class="stats">
@@ -195,8 +195,10 @@ a{color:var(--accent)}
     the last 5 trading days &mdash; <b class="pos">on&nbsp;trend</b> when price confirms the bias,
     <b class="warn">poss.&nbsp;retracement</b> when price is pulling back against it (a continuation
     watch, not a reversal call). <em>Crowded</em> = speculative net above 35% of open interest;
-    <b class="warn">COT&nbsp;extreme</b> = speculative net at a multi-week high or low, where a
-    trend change often starts (<b class="neg">COT&nbsp;turning</b> once it rolls over).
+    <b class="warn">COT&nbsp;extreme</b> = speculative net at a multi-year high or low, where a
+    trend change often starts (<b class="neg">COT&nbsp;turning</b> once it rolls over). Either
+    one pulls the score a few points <em>toward the reversal</em> &mdash; crowded longs down,
+    crowded shorts up &mdash; shown as its own row in the breakdown below.
     Gold, silver and crude sit below the rule &mdash; own model, wider score range, not in the
     currency centring or pair ranking.</p>
     <div class="meter">{{METER}}</div>
@@ -205,7 +207,10 @@ a{color:var(--accent)}
   <section>
     <h2>What moved each score</h2>
     <p class="sub">Each input is scored &minus;100 to +100 on its own, then weighted. The right-hand
-    column is the weighted contribution &mdash; those four numbers sum to the headline score.</p>
+    column is the weighted contribution. A stretched or turning <b>COT extreme</b> adds a
+    contrarian <em>pull toward reversal</em>, applied after the blend; for currencies a
+    <em>Centring</em> row then shifts the board to average zero. Every row in the right-hand
+    column adds up to the headline score.</p>
     <div class="grid">{{CARDS}}</div>
   </section>
 
