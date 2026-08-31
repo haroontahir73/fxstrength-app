@@ -186,6 +186,9 @@ def main():
                      + WEIGHTS["oi"] * oi.get(c, 0) + WEIGHTS["news"] * nw[c]) for c in ORDER}
         mean = sum(blend.values()) / len(blend)
         blend = {c: v - mean for c, v in blend.items()}
+        # NB: this measures the weighted blend only. The live board also applies the
+        # discretionary COT-extreme contrarian pull (cot_reversal_adjust) after this point;
+        # it is not reconstructed here, so these numbers are the pre-pull signal.
 
         row = {"date": d}
         for name, sv in (("blended", blend), ("news only", nw),
