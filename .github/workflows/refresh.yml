@@ -7,6 +7,13 @@ name: refresh dashboard
 on:
   schedule:
     - cron: '*/30 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'engine/**'
+      - 'index.html'
+      - 'update.json'
+      - '.github/workflows/refresh.yml'
   workflow_dispatch:
     inputs:
       mode:
