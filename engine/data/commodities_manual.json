@@ -1,0 +1,69 @@
+{
+  "_help": "Per commodity, an indicator->1-5 map (5 = bullish). A bare number or {\"score\": n, \"note\": \"why\"} for auditability. Unset = held at neutral and excluded from the average, exactly like fundamentals_manual. Refreshed by the fx-strength-desk-daily task, step 2c.",
+  "XAU": {
+    "Real yield direction": {
+      "score": 3.5,
+      "note": "10y TIPS ~2.35% on 2026-08-30, down from 2.43% over the prior 30 days - direction is easing, which helps gold, but the level is still historically restrictive so not a full bull signal.",
+      "as_of": "2026-08-30"
+    },
+    "US dollar direction": {
+      "score": 4,
+      "note": "DXY ~99.6, below a declining 200-day MA and testing channel support; bank consensus leans to a modestly weaker dollar into year-end (mid-90s) on slowing US growth and the Warsh rate path. A soft dollar is bullish gold.",
+      "as_of": "2026-08-30"
+    },
+    "Central-bank & ETF demand": {
+      "score": 4,
+      "note": "Central banks bought 6.4x more gold than ETF investors sold in Q2 2026; WGC survey shows the strongest stated buying intention since 2019; ECB says gold has passed US Treasuries as the largest reserve asset (27% of holdings). Western ETF outflows are the one offset, so 4 not higher.",
+      "as_of": "2026-08-30"
+    },
+    "Safe-haven bid": {
+      "score": 4,
+      "note": "US-Israel-Iran conflict in an uneasy pause with Strait of Hormuz risk still live (a ~$4/bbl war premium sits in oil); elevated geopolitical uncertainty keeps a safe-haven bid under gold.",
+      "as_of": "2026-08-30"
+    }
+  },
+  "XAG": {
+    "Real yield direction": {
+      "score": 4,
+      "note": "Same falling-real-yield backdrop as gold (10y TIPS 2.43% -> 2.35% over 30 days); silver is more leveraged to the move.",
+      "as_of": "2026-08-30"
+    },
+    "US dollar direction": {
+      "score": 4,
+      "note": "Soft DXY (~99.6, below the 200-day MA, consensus lower into year-end) is bullish silver.",
+      "as_of": "2026-08-30"
+    },
+    "Industrial demand": {
+      "score": 3.5,
+      "note": "Structural solar/electronics demand stays firm, but 2026 global growth is slowing (IEA has oil demand contracting on trade disruption), which caps the industrial pull. Net mildly positive.",
+      "as_of": "2026-08-30"
+    },
+    "Gold-silver ratio": {
+      "score": 3,
+      "note": "Ratio ~66.8, well below the long-run ~80 average - silver has already closed most of the gap to gold, so it is no longer cheap on this measure. Neutral for further silver outperformance.",
+      "as_of": "2026-08-30"
+    }
+  },
+  "WTI": {
+    "OPEC+ supply policy": {
+      "score": 3.5,
+      "note": "OPEC+ approved a small +188k bpd September hike (2 Aug), completing the rollback of the 2023 voluntary cuts, then signalled quotas held steady through year-end. Removing the 'more barrels coming' overhang is mildly supportive versus the prior path, though all the cut barrels are now back in the market. Next review 6 Sep.",
+      "as_of": "2026-08-30"
+    },
+    "Inventory trend": {
+      "score": 2.5,
+      "note": "EIA reported a 17.4Mb crude build for the week of 7 Aug (largest since Jan 2023, import-driven), then broadly flat; stocks ~428.9Mb, matching the 5-year average. Level is neutral but the month's trajectory was builds, not draws.",
+      "as_of": "2026-08-30"
+    },
+    "Demand outlook": {
+      "score": 2,
+      "note": "IEA sees 2026 oil demand contracting (~-80 kb/d), with the sharpest quarterly drop since Covid, as trade disruption hits advanced economies, Asia and the Middle East. Clearly bearish.",
+      "as_of": "2026-08-30"
+    },
+    "Geopolitical risk premium": {
+      "score": 3.5,
+      "note": "Only a modest ~$4/bbl war premium is priced; Hormuz/Iran risk is unresolved and asymmetric to the upside on any escalation. A mild net support.",
+      "as_of": "2026-08-30"
+    }
+  }
+}

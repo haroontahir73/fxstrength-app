@@ -1,0 +1,42 @@
+# This .gitignore sits at engine/ (the pipeline subdir); paths are engine-relative.
+# Python
+__pycache__/
+*.pyc
+
+# The dashboard is built in the runner and deployed straight to Pages (not committed).
+# Local runs and the Artifact publish still produce it here.
+dashboard.html
+
+# --- pipeline state: regenerated every run, do NOT commit (git-history bloat) ---
+# The live dashboard needs none of these persisted between CI runs - each run rebuilds
+# them from source. Use actions/cache for the ones marked [cache] if you want to skip
+# the rebuild cost / keep the accumulation; everything else is fine to lose.
+
+data/cot.json
+data/cot_history.json               # [cache] rebuildable in ~30s: run.py bootstrap (CFTC)
+data/cot_history_commodity.json     # [cache] same
+data/calendar.json
+data/calendar_history.json          # [cache] backtest_blend.py only; API paging makes a full rebuild lossy
+data/ff_archive.json                # [cache] ForexFactory speaker archive - only ever serves the current week
+data/ff_cache.json
+data/oi.json
+data/rates.json
+data/rate_expectations.json
+data/expectations_history.json      # [cache] accumulates 1 row/run for the rate-odds backtest
+data/fundamentals.json
+data/scores.json
+data/score_history.json             # [cache] accumulates 1 row/run for RATING_BANDS calibration
+data/commodities.json
+data/commodity_history.json          # [cache] accumulates 1 row/run
+data/prices_fx.json
+data/prices_commodity.json
+data/speakers.json                  # derived from the live calendars + speech_tone.json
+data/state.json
+data/refresh.log
+
+# --- COMMITTED (small, human/Claude-authored, the fx-strength-desk-daily task edits these) ---
+#   data/fundamentals_manual.json
+#   data/commodities_manual.json
+#   data/rate_expectations_manual.json
+#   data/speech_tone.json
+#   dashboard.html                  <- the Action writes this; Pages serves it
