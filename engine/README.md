@@ -39,9 +39,10 @@ Each input is scored −100..+100 on its own, then weighted (`config.py: WEIGHTS
 | News | 0.40 | actual vs forecast, time-decayed | continuous |
 
 After the weighted blend, a **COT-extreme contrarian pull** (`cot_reversal_adjust`) can shove
-the score ±8–13 toward a reversal when the speculative net is at a multi-year extreme or
-already unwinding — see [COT extreme / positioning turn](#cot-extreme--positioning-turn). It
-is not a weighted leg; it is applied after the blend and shown as its own breakdown row.
+the score ±8–13 toward a reversal when the speculative net is at a multi-year extreme, back on
+a level it has reversed from before, or already unwinding — see [COT extreme / positioning
+turn](#cot-extreme--positioning-turn). It is not a weighted leg; it is applied after the blend
+and shown as its own breakdown row.
 
 **Rate odds was promoted out of the checklist** on 2026-08-27. As 2 boxes out of 28 it was
 worth 2.5% of the score, which is a structural mis-weighting: market-implied policy odds are
@@ -135,10 +136,17 @@ by `cot_history*.json` — **10 years** of weekly data, straight from CFTC):
 | Flag | Meaning |
 |---|---|
 | **COT extreme** | speculative net at (within 6% of range of) its **1-year** *high* while genuinely net long, or its 1-year *low* while net short — positioning stretched, the point a trend change tends to start. The note also shows the 3-year and 10-year percentile so you can tell a genuine multi-year extreme from a merely-elevated one. |
+| **COT level** | net back on a value it has **reversed from before** — the horizontal support/resistance of positioning (`config.py: _cot_levels`). A pivot counts only if it sat in the top/bottom quarter of the 10-year range *and* was followed within ~3 months by a reversal of ≥ 30% of that range; pivots within 10% of range are one level; a level needs ≥ 2 touches to show and its strength is the touch count. Fires when the net is within 10%-of-range of such a level *and moving into it*, even if that is not a fresh 1-year extreme. |
 | **COT turning** | a **26-week** extreme was hit in the last ~6 weeks and the net has since unwound ≥ 15% of that window's range — longs leaving / shorts covering, which is *when* the trend change usually happens |
 
 Sign-aware: "least short in the window" is **not** a stretched long. It is a contrarian read
 — when everyone is already positioned one way, there is no one left to push the trend further.
+
+**Why levels, and does it work?** A walk-forward test over 10 years × 6 currencies (clusters
+built only from history before each week): a net sitting on a **≥ 3-touch** level that was
+**not** also a 1-year extreme led the reversal by **+1.3% over the next 8 weeks, 68%
+directional** (n = 80). 2-touch levels showed almost nothing — so the pull scales with touch
+count. Like the rest of COT it is a slow, multi-week read, not a one-week timing call.
 
 **The flag pulls the score toward the reversal** (`config.py: cot_reversal_adjust`,
 `COT_REVERSAL_PULL`). It is not one of the weighted legs — it is an additive shove applied
@@ -146,15 +154,19 @@ to the blended score *after* the blend, before FX centring:
 
 | State | Pull |
 |---|---|
-| **COT extreme** (stretched, not yet turning) | `0.30 × \|score\| + 3.0` (FX) / `+ 8.0` (commodity) |
+| **COT extreme** / **COT level** (stretched, or on a proven level, not yet turning) | `0.30 × \|score\| + 3.0` (FX) / `+ 8.0` (commodity) |
 | **COT turning** (extreme already unwinding — reversal in motion, higher conviction) | `0.50 × \|score\| + 5.0` (FX) / `+ 14.0` (commodity) |
 
+A **COT level** hit additionally scales the pull by touch count: `× 0.6` at 2 touches,
+`× 1.0` at ~3, up to `× 1.6` at 4+ — putting the weight where the backtest found the edge.
+
 Direction is set by **which side is crowded**, not by the score's own sign: crowded longs
-(`stretched long` / `long unwinding`) pull the score **down**, crowded shorts (`stretched
-short` / `short covering`) pull it **up**. Sized to move a mid-strength name by ~8–13 points
-— visible against the rest of the board without overriding the checklist and news. It shows
-as its own **COT extreme** row in the "what moved each score" breakdown, and the card's
-Positioning note states the points applied.
+(`stretched long` / `long unwinding` / `at long ceiling`) pull the score **down**, crowded
+shorts (`stretched short` / `short covering` / `at short floor`) pull it **up**. Sized to
+move a mid-strength name by ~8–13 points — visible against the rest of the board without
+overriding the checklist and news. It shows as its own **COT extreme** row in the "what moved
+each score" breakdown, and the card's Positioning note states the points applied and lists
+the proven levels.
 
 **History.** `cot_history.json` (Leveraged Funds, TFF report — plus Asset Manager and Dealer)
 and `cot_history_commodity.json` (Managed Money, disaggregated — plus Producer and Swap) hold

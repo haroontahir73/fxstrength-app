@@ -163,13 +163,14 @@ def build():
         chist = json.loads(chp.read_text(encoding="utf-8")) if chp.exists() else {}
     except Exception:
         chist = {}
-    mm_net = {}
+    mm_net, mm_date = {}, {}
     for d in sorted(chist):
         week = chist[d] or {}
         for sym in COMMODITY_ORDER:
             v = ((week.get(sym) or {}).get("managed_money") or {}).get("net")
             if v is not None:
                 mm_net.setdefault(sym, []).append(v)
+                mm_date.setdefault(sym, []).append(d)
 
     rows = {}
     for sym in COMMODITY_ORDER:
@@ -184,7 +185,7 @@ def build():
         parts = {k: legs[k]["score"] for k in COMMODITY_WEIGHTS}
         blended = sum(parts[k] * COMMODITY_WEIGHTS[k] for k in COMMODITY_WEIGHTS)
         # COT extreme -> contrarian pull on the score (crowded longs drag it toward reversal)
-        cx = cot_extreme(mm_net.get(sym))
+        cx = cot_extreme(mm_net.get(sym), mm_date.get(sym))
         total, cot_adj = cot_reversal_adjust(blended, cx, "commodity")
         label, cls = commodity_rating(total)
         # directional / retracement read: the score is medium-term; classify it against the

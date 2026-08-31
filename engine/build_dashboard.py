@@ -60,31 +60,48 @@ def read_chip(read):
 
 
 def cot_chip(cx):
-    """Chip for a speculative-positioning extreme / turn. Nothing when mid-range."""
+    """Chip for a speculative-positioning extreme / turn / proven level. Nothing when mid-range."""
     if not cx or not cx.get("state"):
         return ""
     st = cx["state"]
     if st in ("long unwinding", "short covering"):
         return f' <span class="chip neg" title="{esc(cx["note"])}">COT&nbsp;turning</span>'
+    if st in ("at long ceiling", "at short floor"):
+        return f' <span class="chip warn" title="{esc(cx["note"])}">COT&nbsp;level</span>'
     return f' <span class="chip warn" title="{esc(cx["note"])}">COT&nbsp;extreme</span>'
 
 
-def cotx_line(cx, adj=0.0):
-    """The positioning-extreme sentence for a card. '' when mid-range. `adj` is the
-    contrarian pull the flag put on the score (0 when nothing fired)."""
+def _levels_line(cx):
+    """Muted context line listing the proven recurring reversal levels, or '' if none."""
     if not cx:
         return ""
+    def fmt(lst, label):
+        return ", ".join(f'{label} {L["level"]:+,} ({L["touches"]}&times;)' for L in lst[:2])
+    parts = [s for s in (fmt(cx.get("ceilings") or [], "ceiling"),
+                         fmt(cx.get("floors") or [], "floor")) if s]
+    if not parts:
+        return ""
+    return f'<p class="mnote mut">Proven reversal levels: {" &middot; ".join(parts)}.</p>'
+
+
+def cotx_line(cx, adj=0.0):
+    """The positioning-extreme sentence for a card, plus the proven-levels context line.
+    `adj` is the contrarian pull the flag put on the score (0 when nothing fired)."""
+    if not cx:
+        return ""
+    levels = _levels_line(cx)
     if not cx.get("note"):
         p1, p3 = cx.get("pctl_1y"), cx.get("pctl_3y")
         if p1 is None:
-            return ""
+            return levels
         yrs = round(cx.get("hist_weeks", 0) / 52)
         return (f'<p class="mut">Speculative net: {ordinal(p1)} percentile over 1 year, '
-                f'{ordinal(p3)} over 3, {ordinal(cx.get("pctl_max"))} over {yrs} — mid-range.</p>')
+                f'{ordinal(p3)} over 3, {ordinal(cx.get("pctl_max"))} over {yrs} — mid-range.</p>'
+                + levels)
     turn = cx["state"] in ("long unwinding", "short covering")
     pull = f' <b>Score pulled {adj:+.1f}</b> toward reversal.' if adj else ""
     return (f'<p class="mnote {"neg" if turn else "warn"}"><b>Positioning:</b> '
-            f'{esc(cx["note"])}.{pull}</p>')
+            f'{esc(cx["note"])}.{pull}</p>' + levels)
 
 
 def cot_pull_row(r):
@@ -95,11 +112,18 @@ def cot_pull_row(r):
     if not adj:
         return ""
     cx = r.get("cot_x") or {}
-    turn = cx.get("state") in ("long unwinding", "short covering")
+    st = cx.get("state")
+    lvl = cx.get("level")
+    if st in ("long unwinding", "short covering"):
+        tag = "turning"
+    elif lvl and st in ("at long ceiling", "at short floor"):
+        tag = f"level &times;{lvl['touches']}"
+    else:
+        tag = "flag"
     sign = "pos" if adj >= 0 else "neg"
     tip = esc(cx.get("note", "") or "speculative positioning at an extreme")
     return (f'<div class="crow"><div class="clab">COT extreme'
-            f'<span class="cw">{"turning" if turn else "flag"}</span></div>'
+            f'<span class="cw">{tag}</span></div>'
             f'{bar(adj)}'
             f'<div class="cval mut" title="{tip}">pull</div>'
             f'<div class="ccon {sign}">{adj:+.1f}</div></div>')

@@ -195,10 +195,12 @@ a{color:var(--accent)}
     the last 5 trading days &mdash; <b class="pos">on&nbsp;trend</b> when price confirms the bias,
     <b class="warn">poss.&nbsp;retracement</b> when price is pulling back against it (a continuation
     watch, not a reversal call). <em>Crowded</em> = speculative net above 35% of open interest;
-    <b class="warn">COT&nbsp;extreme</b> = speculative net at a multi-year high or low, where a
-    trend change often starts (<b class="neg">COT&nbsp;turning</b> once it rolls over). Either
-    one pulls the score a few points <em>toward the reversal</em> &mdash; crowded longs down,
-    crowded shorts up &mdash; shown as its own row in the breakdown below.
+    <b class="warn">COT&nbsp;extreme</b> = speculative net at a multi-year high or low;
+    <b class="warn">COT&nbsp;level</b> = net back on a price it has reversed from before (the
+    horizontal support/resistance of positioning &mdash; strongest where it has held 3+ times);
+    <b class="neg">COT&nbsp;turning</b> once the net actually rolls over. Each pulls the score
+    a few points <em>toward the reversal</em> &mdash; crowded longs down, crowded shorts up
+    &mdash; shown as its own row in the breakdown below.
     Gold, silver and crude sit below the rule &mdash; own model, wider score range, not in the
     currency centring or pair ranking.</p>
     <div class="meter">{{METER}}</div>

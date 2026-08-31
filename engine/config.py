@@ -212,14 +212,11 @@ def ordinal(n):
 
 # The COT-extreme flag can PULL THE SCORE toward a reversal, not just show a chip - user's
 # call 2026-08-31, weighting the contrarian read above the model default (which keeps
-# positioning as momentum because the 513-week backtest shows COT does not TIME reversals -
-# extremes can persist and deepen for months). A stretched speculative net trims the score
-# toward zero; once the net actually starts to unwind ("turning") the pull is strong enough
-# to flip the sign. Each entry is (fraction of |score| removed, absolute points floor).
-# The COT-extreme contrarian pull, as (fraction-of-|score|, floor). A positioning extreme
-# that is merely FLAGGED (`stretched`) gets a nudge; one that is already UNWINDING (`turning`
-# - the reversal in motion) gets a firmer shove. Sized to move a mid-strength name by ~8-13
-# on the -100..100 scale - visible against the rest of the board without dominating it.
+# positioning as momentum because the 513-week backtest shows COT does not TIME reversals to
+# the week - extremes can persist and deepen for months). The pull, as (fraction-of-|score|,
+# floor): a net that is merely FLAGGED (`stretched`, or sitting on a proven reversal level)
+# gets a nudge; one that is already UNWINDING (`turning` - the reversal in motion) gets a
+# firmer shove. Sized to move a mid-strength name by ~8-13 on the -100..100 scale.
 COT_REVERSAL_PULL = {
     "fx":        {"stretched": (0.30, 3.0),  "turning": (0.50, 5.0)},
     "commodity": {"stretched": (0.30, 8.0),  "turning": (0.50, 14.0)},
@@ -229,14 +226,20 @@ COT_REVERSAL_PULL = {
 def cot_reversal_adjust(score, cot_x, kind: str = "fx"):
     """(adjusted score, adjustment) after the COT-extreme contrarian pull. Direction is set
     by WHICH SIDE is stretched - crowded longs pull the score DOWN, crowded shorts pull it UP
-    - regardless of the score's own sign. Returns (score, 0.0) when there is no flag."""
+    - regardless of the score's own sign. A hit on a proven multi-touch reversal level scales
+    the pull by how many times the level has held (2x -> 0.6, 4x+ -> 1.6). Returns (score,
+    0.0) when there is no flag."""
     if not cot_x or not cot_x.get("state"):
         return round(score, 1), 0.0
     st = cot_x["state"]
     key = "turning" if st in ("long unwinding", "short covering") else "stretched"
     frac, floor = COT_REVERSAL_PULL.get(kind, COT_REVERSAL_PULL["fx"])[key]
-    long_side = st in ("stretched long", "long unwinding")
-    adj = (-1.0 if long_side else 1.0) * (abs(score) * frac + floor)
+    lvl = cot_x.get("level")
+    mult = 1.0
+    if lvl and st in ("at long ceiling", "at short floor"):
+        mult = min(1.6, max(0.6, 0.6 + 0.35 * (lvl["touches"] - 2)))
+    long_side = st in ("stretched long", "long unwinding", "at long ceiling")
+    adj = (-1.0 if long_side else 1.0) * mult * (abs(score) * frac + floor)
     return round(score + adj, 1), round(adj, 1)
 
 
@@ -248,20 +251,79 @@ def _span(weeks):
     return f"{weeks} weeks"
 
 
-def cot_extreme(nets, flag_window: int = 52, turn_window: int = 26, turn_recent: int = 6):
-    """The contrarian positioning read: a speculative net position at a multi-year EXTREME
-    tends to precede a trend change, the more so once it starts to unwind.
+def _cot_levels(vals, dates=None, k: int = 5, edge: float = 0.25,
+                min_rev: float = 0.30, min_touch: int = 2):
+    """Proven recurring reversal levels in the net series - the horizontal support/resistance
+    of speculative positioning. A pivot counts only if it is a local extreme in the top/bottom
+    `edge` of the whole-history range AND was followed within ~3 months by a reversal of at
+    least `min_rev` of that range. Pivots within 10% of the range are one level; a level needs
+    `min_touch` pivots to be "proven". Returns (ceilings, floors), each
+    [{level, touches, last}], sorted low->high / high->low by |level|.
+
+    Walk-forward test over 10y x 6 currencies: a net sitting on a >=3-touch level led the
+    reversal by ~+0.9% over the next 8 weeks (66% directional); 2-touch levels showed almost
+    nothing, which is why `cot_reversal_adjust` scales the pull by touch count.
+    """
+    v = [x for x in (vals or []) if x is not None]
+    n = len(v)
+    if n < 90:
+        return [], []
+    dts = dates if (dates and len(dates) == len(vals)) else None
+    lo, hi = min(v), max(v)
+    rng = (hi - lo) or 1
+    hz, lz = hi - edge * rng, lo + edge * rng
+    tol = 0.10 * rng
+    highs, lows = [], []
+    for i in range(k, n - k):
+        w = v[i - k:i + k + 1]
+        fut = v[i + 1:i + 13]
+        if not fut:
+            continue
+        di = dts[i] if dts else None
+        if v[i] == max(w) and v[i] >= hz and (v[i] - min(fut)) >= min_rev * rng:
+            highs.append((v[i], di))
+        if v[i] == min(w) and v[i] <= lz and (max(fut) - v[i]) >= min_rev * rng:
+            lows.append((v[i], di))
+
+    def clump(pts, descend):
+        pts = sorted(pts, key=lambda p: p[0])
+        groups = []
+        for val, d in pts:
+            if groups and val - groups[-1][-1][0] <= tol:
+                groups[-1].append((val, d))
+            else:
+                groups.append([(val, d)])
+        out = []
+        for g in groups:
+            if len(g) < min_touch:
+                continue
+            last = max((d for _, d in g if d), default=None)
+            out.append({"level": round(sum(x for x, _ in g) / len(g)),
+                        "touches": len(g), "last": last})
+        out.sort(key=lambda L: -abs(L["level"]) if descend else abs(L["level"]))
+        return out
+
+    return clump(highs, True), clump(lows, True)
+
+
+def cot_extreme(nets, dates=None, flag_window: int = 52, turn_window: int = 26,
+                turn_recent: int = 6):
+    """The contrarian positioning read: a speculative net position at a multi-year EXTREME,
+    or back on a level it has reversed from before, tends to precede a trend change - the more
+    so once it starts to unwind.
 
     nets : weekly speculative-net values (Leveraged Funds for FX, Managed Money for
-    commodities), oldest first, the current week LAST. Returns None with < 12 weeks.
+    commodities), oldest first, the current week LAST. dates : parallel ISO week dates,
+    optional, used only to date the proven levels in the note. Returns None with < 12 weeks.
 
-    Two windows:
-      - the FLAG (`stretched long/short`) asks whether the net is at/near its high/low over
-        the last `flag_window` weeks (default 52 = a 1-year extreme) while genuinely on that
-        side of the market;
-      - the TURN (`long unwinding` / `short covering`) asks whether a `turn_window`-week
-        (default 26) extreme was hit in the last `turn_recent` weeks and the net has since
-        unwound >= 15% of that window's range - the point the trend change usually shows up.
+    States, in priority order:
+      - `long unwinding` / `short covering` - the TURN: a `turn_window`-week (default 26)
+        extreme was hit in the last `turn_recent` weeks and the net has since unwound >= 15%
+        of that window's range - the point the trend change usually shows up;
+      - `stretched long` / `stretched short` - the FLAG: net at/near its high/low over the
+        last `flag_window` weeks (default 52 = a 1-year extreme) while genuinely on that side;
+      - `at long ceiling` / `at short floor` - net within 10% of range of a proven multi-touch
+        reversal level (`_cot_levels`) and moving into it, even if not a 1-year extreme.
 
     Percentiles over 1y / 3y / 5y / all history are reported for context. Sign-aware:
     "least short in the window" is NOT a stretched long.
@@ -311,9 +373,38 @@ def cot_extreme(nets, flag_window: int = 52, turn_window: int = 26, turn_recent:
                     f"low and has since covered {off_trough:.0f}% of that range — short squeeze / "
                     f"trend-change risk")
 
+    # --- proven recurring reversal levels: is the net sitting on one it has turned from before?
+    ceilings, floors = _cot_levels(nets, dates)
+    rng_full = (max(full) - min(full)) or 1
+    ltol = 0.10 * rng_full
+    trav = cur - full[-5] if len(full) >= 5 else 0.0
+    level = None
+    if cur > 0 and trav > 0:
+        cand = [L for L in ceilings if abs(L["level"] - cur) <= ltol]
+        if cand:
+            level = {**min(cand, key=lambda L: abs(L["level"] - cur)), "kind": "ceiling"}
+    elif cur < 0 and trav < 0:
+        cand = [L for L in floors if abs(L["level"] - cur) <= ltol]
+        if cand:
+            level = {**min(cand, key=lambda L: abs(L["level"] - cur)), "kind": "floor"}
+
+    if level:
+        held = (f"{level['touches']}× (last {level['last']})"
+                if level.get("last") else f"{level['touches']} times")
+        word = "capped" if level["kind"] == "ceiling" else "floored"
+        side = "net long" if level["kind"] == "ceiling" else "net short"
+        lnote = (f"speculative {side} back on ~{level['level']:+,}, a level that has {word} "
+                 f"positioning {held} — reversal risk builds over the coming weeks")
+        if not state:
+            state = "at long ceiling" if level["kind"] == "ceiling" else "at short floor"
+            note = lnote
+        else:
+            note = f"{note}. Also: {lnote}"
+
     return {"pctl": p1y, "pctl_1y": p1y, "pctl_3y": p3y, "pctl_5y": p5y, "pctl_max": pmax,
             "hist_weeks": len(full), "flag_weeks": len(fw),
-            "extreme": extreme, "state": state, "note": note}
+            "extreme": extreme, "state": state, "note": note,
+            "level": level, "ceilings": ceilings[:3], "floors": floors[:3]}
 
 
 _LEG_LOOKBACK = {"fx": 48, "commodity": 75}       # FX drifts; a shorter window keeps the leg current

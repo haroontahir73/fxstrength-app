@@ -98,19 +98,20 @@ def build():
         chist = json.loads(chp.read_text(encoding="utf-8")) if chp.exists() else {}
     except Exception:
         chist = {}
-    cnet = {}
+    cnet, cdate = {}, {}
     for d in sorted(chist):
         week = chist[d] or {}
         for c in ORDER:
             v = ((week.get(c) or {}).get(COT_CATEGORY) or {}).get("net")
             if v is not None:
                 cnet.setdefault(c, []).append(v)
+                cdate.setdefault(c, []).append(d)
 
     # COT extreme -> contrarian pull on the RAW score, before centring, so the tilt is
     # relative (a currency with crowded longs looks weaker vs the pack) and the board still
     # sums to zero afterwards.
     for c in ORDER:
-        rows[c]["cot_x"] = cot_extreme(cnet.get(c))
+        rows[c]["cot_x"] = cot_extreme(cnet.get(c), cdate.get(c))
         rows[c]["score_pre_cot_x"] = rows[c]["score"]
         rows[c]["score"], rows[c]["cot_adj"] = cot_reversal_adjust(
             rows[c]["score"], rows[c]["cot_x"], "fx")
