@@ -1,0 +1,99 @@
+# .github/workflows/refresh.yml
+#
+# Runs the FX Strength Desk pipeline on GitHub's servers and deploys the dashboard to Pages.
+# No PC involved. Commits nothing - the page is published via the Pages deployment API.
+name: refresh dashboard
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'pipeline mode'
+        default: 'auto'
+        type: choice
+        options: [auto, daily, cot, bootstrap]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: refresh-dashboard
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Restore pipeline state cache
+        uses: actions/cache/restore@v4
+        with:
+          path: engine/data
+          key: fxstrength-state-${{ github.run_id }}
+          restore-keys: fxstrength-state-
+
+      - name: Pin committed override files
+        run: |
+          git checkout -- \
+            engine/data/fundamentals_manual.json \
+            engine/data/commodities_manual.json \
+            engine/data/rate_expectations_manual.json \
+            engine/data/speech_tone.json
+
+      - name: Choose mode
+        id: mode
+        run: |
+          req='${{ github.event.inputs.mode }}'
+          if [ -n "$req" ] && [ "$req" != "auto" ]; then
+            echo "mode=$req" >> "$GITHUB_OUTPUT"
+          elif [ ! -f engine/data/cot.json ]; then
+            echo "mode=bootstrap" >> "$GITHUB_OUTPUT"
+          elif [ "$(date -u +%u)" = "6" ]; then
+            echo "mode=cot" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=daily" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run pipeline (${{ steps.mode.outputs.mode }})
+        working-directory: engine
+        run: python run.py ${{ steps.mode.outputs.mode }}
+
+      - name: Assemble the site
+        run: |
+          mkdir -p _site
+          cp engine/dashboard.html _site/dashboard.html
+          cp index.html            _site/index.html
+          cp update.json           _site/update.json
+          cp FXStrengthDesk-*.apk  _site/ 2>/dev/null || true
+          touch _site/.nojekyll
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Save pipeline state cache
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: engine/data
+          key: fxstrength-state-${{ github.run_id }}
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deploy
+        uses: actions/deploy-pages@v4
