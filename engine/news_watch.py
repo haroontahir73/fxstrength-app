@@ -186,8 +186,12 @@ PLAYBOOK = {
         # measured: gold -6pp vs baseline = no edge, not a short. Oil is the real leg (+9pp).
         "dxy": "UP", "gold": "mild DOWN at most (measures weak)", "silver": "mild DOWN",
         "wti": "mild UP (+9pp measured)",
+        # AUD was "DOWN" here; measured -8pp against baseline over 170 hot-inflation
+        # days, the only FX lean of 77 that came out backwards. AUD is a commodity
+        # currency - hot US inflation often comes with the commodity strength that
+        # supports it, so the dollar leg and the commodity leg cancel.
         "jpy": "DOWN (USDJPY up)", "chf": "DOWN vs USD", "eur": "DOWN", "gbp": "DOWN",
-        "aud": "DOWN", "nzd": "DOWN", "cad": "DOWN", "equities": "DOWN if it kills rate-cut hopes",
+        "aud": "no clean read (measured -8pp - AUD is a commodity currency)", "nzd": "DOWN", "cad": "DOWN", "equities": "DOWN if it kills rate-cut hopes",
         "note": "Strong US data - pushes the Fed toward keeping rates high / hiking.",
     },
     "data_surprise_cold": {

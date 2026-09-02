@@ -83,9 +83,9 @@ jobs:
 
       # Injects the decoded gold/silver/oil alerts into dashboard.html between markers.
       # Self-contained - it never touches anything build_dashboard.py owns.
-      - name: Add the decoded news block
+      - name: Add the MACRO / MICRO pages
         working-directory: engine
-        run: python commodity_watch.py --render dashboard.html
+        run: python pages.py dashboard.html
 
       - name: Assemble the site
         run: |
