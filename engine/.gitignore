@@ -33,6 +33,8 @@ data/prices_commodity.json
 data/speakers.json                  # derived from the live calendars + speech_tone.json
 data/state.json
 data/refresh.log
+data/news_seen.json                 # [cache] news_watch.py dedup state (TTL-pruned anyway)
+data/ntfy_topic.txt                 # local-test ntfy topic; CI uses the NTFY_TOPIC secret
 
 # --- COMMITTED (small, human/Claude-authored, the fx-strength-desk-daily task edits these) ---
 #   data/fundamentals_manual.json

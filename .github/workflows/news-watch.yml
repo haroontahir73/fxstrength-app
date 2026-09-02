@@ -1,0 +1,52 @@
+# .github/workflows/news-watch.yml
+#
+# Every ~15 min: scan free news feeds + the economic calendar for dollar / geopolitical
+# / Fed / Trump / data-surprise items, work out the likely market reaction (with a live
+# price check so the alert leads with what is ACTUALLY happening), and push it to an
+# ntfy.sh topic so it lands on the phone. Commits nothing.
+#
+# Setup: add a repository secret NTFY_TOPIC (Settings -> Secrets and variables -> Actions).
+# Without it the job runs and logs what it would have sent, but pushes nothing.
+name: news watch
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: news-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Restore dedup cache
+        uses: actions/cache/restore@v4
+        with:
+          path: engine/data/news_seen.json
+          key: news-seen-${{ github.run_id }}
+          restore-keys: news-seen-
+
+      - name: Run the watcher
+        working-directory: engine
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python news_watch.py
+
+      - name: Save dedup cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: engine/data/news_seen.json
+          key: news-seen-${{ github.run_id }}
