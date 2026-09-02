@@ -1051,7 +1051,39 @@ def _esc(s):
     return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def _card(e):
+_LEAN_SYM = {"GOLD": "Gold", "SILVER": "Silver", "OIL": "WTI"}
+
+
+def scorecard(e, now_px):
+    """What the market did since this call, per instrument that had a call.
+
+    The complaint that started this: a card said OIL STRONG LONG and oil drifted
+    down, with nothing on the card admitting it. A lean that is never marked is
+    just noise - so every card now carries its own result.
+    """
+    then = e.get("px") or {}
+    if not then or not now_px:
+        return ""
+    bits = []
+    for ln in e.get("parts", {}).get("leans", []):
+        if ln["dir"] == "flat" or ln["strength"] == 0:
+            continue
+        sym = _LEAN_SYM.get(ln["label"])
+        a, b = then.get(sym), (now_px.get(sym) or [None])[0]
+        if not a or not b:
+            continue
+        chg = (b - a) / a * 100
+        right = (chg > 0) == (ln["dir"] == "up")
+        mark = "OK" if abs(chg) >= 0.05 and right else ("X" if abs(chg) >= 0.05 else "flat")
+        cls = "sc-ok" if mark == "OK" else ("sc-no" if mark == "X" else "sc-fl")
+        bits.append(f'<span class="{cls}">{ln["label"].title()} {chg:+.2f}%</span>')
+    if not bits:
+        return ""
+    return ('<div class="cn-score"><b>Since this alert:</b> ' + " &nbsp; ".join(bits)
+            + "</div>")
+
+
+def _card(e, now_px=None):
     p = e.get("parts")
     if not p:                                   # entry written by an older version
         return (f'<article class="cn-card"><div class="cn-when">{_esc(e["when"])}</div>'
@@ -1081,6 +1113,12 @@ def _card(e):
         out.append(f'<div class="cn-snap">{_esc(p["snap"])}</div>')
     if p.get("reality"):
         out.append(f'<div class="cn-real">{_esc(p["reality"])}</div>')
+    if e.get("pushed") is False:
+        out.append('<div class="cn-nopush">This one did not reach the phone - '
+                   'the send failed. You are seeing it here only.</div>')
+    sc = scorecard(e, now_px or {})
+    if sc:
+        out.append(sc)
     out.append(f'<div class="cn-flip"><b>What flips it:</b> {_esc(p["flip"])}</div>')
     # No "read the story" link, by request. The decode is the product; sending the
     # reader off to the article defeats the point of having decoded it. The URL is
@@ -1116,14 +1154,20 @@ CSS = """
 .cn-real{font-size:12.5px;margin-top:8px;padding:8px 10px;border-radius:6px;
  border-left:3px solid #d99000;background:rgba(217,144,0,.10)}
 .cn-flip{font-size:12px;opacity:.65;margin-top:8px}
+.cn-score{margin-top:9px;font-size:12.5px;padding:7px 10px;border-radius:6px;background:rgba(128,128,128,.10)}
+.sc-ok{color:#12924b;font-weight:700}.sc-no{color:#d1344a;font-weight:700}.sc-fl{opacity:.6}
+.cn-nopush{margin-top:9px;font-size:12px;padding:7px 10px;border-radius:6px;border-left:3px solid #d1344a;background:rgba(209,52,74,.10)}
+@media (prefers-color-scheme:dark){.sc-ok{color:#35d07f}.sc-no{color:#ff6b7d}}
 .cn-empty{opacity:.55;font-size:13px;padding:10px 0}
 @media (prefers-color-scheme:dark){.cn-up{color:#35d07f}.cn-dn{color:#ff6b7d}}
 </style>
 """
 
 
-def render_block(feed, limit=12):
-    cards = "".join(_card(e) for e in feed[:limit]) or (
+def render_block(feed, limit=12, now_px=None):
+    if now_px is None:
+        now_px = market_snapshot()
+    cards = "".join(_card(e, now_px) for e in feed[:limit]) or (
         '<div class="cn-empty">No commodity news has cleared the filter yet. '
         'Alerts land here the moment something moves gold, silver or oil.</div>')
     return (CSS + '<section class="cn-wrap" id="commodity-news">'
@@ -1307,13 +1351,30 @@ def main():
             # Click action, so the alert turns into a doorway to the news site. The whole
             # point is that the decode replaces reading the article. The story URL is
             # still kept on the feed entry below, where the in-app card offers it quietly.
-            push(topic, title, body, "",
-                 "urgent" if any(dec[k][1] >= 3 for k in ("gold", "silver", "oil"))
-                 else "high", "coin")
+            # The return value used to be discarded, so a failed send left the alert
+            # sitting in the app feed with nothing anywhere saying the phone never got
+            # it - which is what happened to both 18:31 alerts on 2 Sep. Retry once,
+            # then record the outcome so the silence is never invisible again.
+            prio = ("urgent" if any(dec[k][1] >= 3 for k in ("gold", "silver", "oil"))
+                    else "high")
+            ok = push(topic, title, body, "", prio, "coin")
+            if not ok:
+                time.sleep(2)
+                ok = push(topic, title, body, "", prio, "coin")
+            if not ok:
+                print("!" * 70)
+                print(f"! PHONE ALERT FAILED after 2 tries: {title}")
+                print("! It is in the app feed, but the phone did not get it.")
+                print("!" * 70)
             feed_add({"when": dt.datetime.now(dt.timezone.utc).strftime("%d %b %H:%M UTC"),
                       "iso": dt.datetime.now(dt.timezone.utc).isoformat(),
                       "cat": cat, "title": title, "body": body, "link": link,
                       "talk": talk,
+                      "pushed": ok,
+                      # prices at the moment of the call, so the card can show later
+                      # whether the market agreed. A call nobody scores is worthless.
+                      "px": {k: snap[k][0] for k in ("Gold", "Silver", "WTI")
+                             if k in snap},
                       "parts": parts(cat, head, src, snap, lmap, talk)})
         fired += 1
 
