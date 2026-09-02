@@ -340,8 +340,12 @@ def _unwind_section(cat, lmap):
 
 
 def _parse_date(s):
+    # NOTE: the ".%f" variants are not optional - the TradingView calendar API stamps
+    # every event "2026-09-02T12:15:00.000Z". Without them every economic release was
+    # parsed as None and silently dropped, so data-surprise alerts never fired at all.
     for fmt in ("%a, %d %b %Y %H:%M:%S %Z", "%a, %d %b %Y %H:%M:%S %z",
-                "%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%dT%H:%M:%SZ"):
+                "%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%dT%H:%M:%SZ",
+                "%Y-%m-%dT%H:%M:%S.%fZ", "%Y-%m-%dT%H:%M:%S.%f%z"):
         try:
             d = dt.datetime.strptime(s.strip(), fmt)
             return d if d.tzinfo else d.replace(tzinfo=dt.timezone.utc)

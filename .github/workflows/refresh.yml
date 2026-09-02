@@ -77,10 +77,26 @@ jobs:
         working-directory: engine
         run: python run.py ${{ steps.mode.outputs.mode }}
 
+      # Written by the news-watch workflow; shared across workflows via the cache.
+      # Missing cache just means an empty news list, never a failed build.
+      - name: Restore the commodity news feed
+        uses: actions/cache/restore@v4
+        with:
+          path: engine/data/commodity_feed.json
+          key: commodity-state-${{ github.run_id }}
+          restore-keys: commodity-state-
+
+      # Injects the decoded gold/silver/oil alerts into dashboard.html between markers.
+      # Self-contained - it never touches anything build_dashboard.py owns.
+      - name: Add the decoded news block
+        working-directory: engine
+        run: python commodity_watch.py --render dashboard.html
+
       - name: Assemble the site
         run: |
           mkdir -p _site
           cp engine/dashboard.html _site/dashboard.html
+          cp engine/commodity-news.html _site/commodity-news.html 2>/dev/null || true
           cp index.html            _site/index.html
           cp update.json           _site/update.json
           cp FXStrengthDesk-*.apk  _site/ 2>/dev/null || true

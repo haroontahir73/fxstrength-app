@@ -38,11 +38,29 @@ jobs:
           key: news-seen-${{ github.run_id }}
           restore-keys: news-seen-
 
+      - name: Restore commodity watcher state
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            engine/data/commodity_seen.json
+            engine/data/commodity_feed.json
+          key: commodity-state-${{ github.run_id }}
+          restore-keys: commodity-state-
+
       - name: Run the watcher
         working-directory: engine
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python news_watch.py
+
+      # Gold / silver / oil, decoded into plain words with a lean per instrument.
+      # Runs even if the FX watcher above fails - they share no state.
+      - name: Run the commodity watcher
+        if: always()
+        working-directory: engine
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python commodity_watch.py
 
       - name: Save dedup cache
         if: always()
@@ -50,3 +68,13 @@ jobs:
         with:
           path: engine/data/news_seen.json
           key: news-seen-${{ github.run_id }}
+
+      # The feed file is what the dashboard job picks up to render the in-app news list.
+      - name: Save commodity watcher state
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            engine/data/commodity_seen.json
+            engine/data/commodity_feed.json
+          key: commodity-state-${{ github.run_id }}
