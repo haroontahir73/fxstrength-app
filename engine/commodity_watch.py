@@ -32,7 +32,8 @@ from pathlib import Path
 
 # reuse the plumbing that already works in the FX watcher
 from news_watch import (_get, _parse_date, market_snapshot, level_map, push,
-                        gather_items as _fx_items, VETO, UA, _GN, _q)
+                        gather_items as _fx_items, VETO, UA, _GN, _q,
+                        theme_claim)
 
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -524,6 +525,25 @@ def decoded(cat, lmap):
     return apply_regime(DECODE[cat], tag), rtext
 
 
+def market_closed(now=None):
+    """Are the metals/crude futures shut right now?
+
+    CME runs Sunday 22:00 UTC to Friday 21:00 UTC. Without this an alert fired on a
+    Saturday shows Friday's closing prices with no warning, which reads as a live
+    quote - the most misleading thing this tool could do, because weekend geopolitical
+    news is exactly when the gap on reopening matters most.
+    """
+    n = now or dt.datetime.now(dt.timezone.utc)
+    wd = n.weekday()                                   # Mon=0 .. Sun=6
+    if wd == 5:                                        # Saturday
+        return True
+    if wd == 4 and n.hour >= 21:                       # Friday after the close
+        return True
+    if wd == 6 and n.hour < 22:                        # Sunday before the reopen
+        return True
+    return False
+
+
 def _snap(snap):
     order = [("Gold", 0), ("Silver", 2), ("WTI", 2)]
     bits = []
@@ -568,6 +588,9 @@ def build(cat, headline, src, snap, lmap, when=None):
         lines.append(row)
     if p["snap"]:
         lines += ["", p["snap"]]
+        if market_closed():
+            lines.append("^ MARKETS ARE SHUT - that is the last close, not a live price. "
+                         "Expect a gap in this direction when they reopen Sunday 22:00 UTC.")
     if p["reality"]:
         lines += ["", p["reality"]]
     lines += ["", "FLIP: " + p["flip"]]
@@ -1156,6 +1179,9 @@ def main():
             continue
         if on_cooldown(cat, sev):
             print(f"  [cooldown] {cat}: {it['title'][:80]}")
+            continue
+        if not dry and not theme_claim(cat, "commodity"):
+            print(f"  [claimed by the FX watcher] {cat}: {it['title'][:70]}")
             continue
         seen[f"cat:{cat}"] = [time.time(), sev]
         emit(cat, it["title"], it["link"], it["src"])

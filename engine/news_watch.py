@@ -354,6 +354,58 @@ def _parse_date(s):
     return None
 
 
+# ---------------------------------------------------------------- cross-watcher claims
+# This file and commodity_watch.py read the SAME wires and run back to back in the same
+# job. Measured on one 8-hour sample: 7 stories fired BOTH - so a single Hormuz headline
+# buzzed the phone twice, once as an FX playbook and once as a gold/silver/oil decode.
+# Neither watcher could see the other's dedup, because each keyed on its own categories.
+# So they now claim a shared THEME: whoever alerts first blocks the other on that theme
+# for CROSS_COOLDOWN_MIN. Each watcher's own dedup and cooldown are untouched.
+THEME_FILE = DATA / "theme_claims.json"
+CROSS_COOLDOWN_MIN = 45
+
+THEMES = {
+    # FX watcher categories
+    "geo_escalation": "geo", "geo_deescalation": "geo", "energy_supply": "energy",
+    "fed_hawkish": "macro", "fed_dovish": "macro", "trump_fed": "macro",
+    "data_surprise_hot": "macro", "data_surprise_cold": "macro", "cb_surprise": "macro",
+    "tariff": "tariff", "risk_off_move": "risk",
+    # commodity watcher categories
+    "oil_supply_tight": "energy", "oil_supply_loose": "energy",
+    "oil_inv_build": "energy", "oil_inv_draw": "energy",
+    "rates_up": "macro", "rates_down": "macro", "fed_independence": "macro",
+    "inflation_hot": "macro", "inflation_cold": "macro",
+    "us_data_strong": "macro", "us_data_weak": "macro",
+    "silver_squeeze": "metals", "metal_supply": "metals", "cb_gold_buying": "metals",
+    "demand_up": "growth", "demand_down": "growth", "risk_off": "risk",
+}
+
+
+def theme_claim(cat, who):
+    """True if `who` may alert on this category's theme now.
+
+    False when the SIBLING watcher covered the same theme inside the cooldown. Returns
+    True when the same watcher claimed it - each keeps its own cooldown rules.
+    """
+    theme = THEMES.get(cat, cat)
+    try:
+        claims = json.loads(THEME_FILE.read_text(encoding="utf-8"))
+    except Exception:                                          # noqa: BLE001
+        claims = {}
+    prev = claims.get(theme)
+    if prev and prev[1] != who and (time.time() - prev[0]) / 60 < CROSS_COOLDOWN_MIN:
+        return False
+    claims[theme] = [time.time(), who]
+    cutoff = time.time() - 86400
+    claims = {k: v for k, v in claims.items() if v[0] > cutoff}
+    try:
+        THEME_FILE.parent.mkdir(exist_ok=True)
+        THEME_FILE.write_text(json.dumps(claims, indent=0), encoding="utf-8")
+    except Exception:                                          # noqa: BLE001
+        pass
+    return True
+
+
 def load_seen():
     try:
         raw = json.loads(SEEN_FILE.read_text(encoding="utf-8"))
@@ -595,6 +647,9 @@ def main():
             continue
         cat, sev, kw = hit
         seen[h] = time.time()
+        if not theme_claim(cat, "fx"):
+            print(f"  [claimed by the commodity watcher] {cat}: {it['title'][:70]}")
+            continue
         body = build_alert(cat, it["title"], it["link"], it["src"], weekend, snap, lmap)
         title = f"FX: {CAT_LABEL.get(cat, cat)}"
         prio = "urgent" if sev >= 3 else "high"

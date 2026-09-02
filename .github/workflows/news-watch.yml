@@ -64,6 +64,7 @@ jobs:
           path: |
             engine/data/commodity_seen.json
             engine/data/commodity_feed.json
+            engine/data/theme_claims.json
           key: commodity-state-${{ github.run_id }}
           restore-keys: commodity-state-
 
@@ -91,8 +92,13 @@ jobs:
           PASS=1
           while :; do
             echo "::group::pass $PASS  $(date -u +%H:%M:%S)Z"
-            python news_watch.py      || true
+            # COMMODITY FIRST, deliberately. The two watchers claim a shared theme
+            # (news_watch.theme_claim) so one event cannot buzz the phone twice, and
+            # whoever runs first wins the claim. The gold/silver/oil decode is the
+            # format that was asked for, so it gets first refusal; the FX watcher
+            # still fires on themes the decoder ignored (tariffs, BoJ, majors).
             python commodity_watch.py || true
+            python news_watch.py      || true
             # Publish the feed as soon as an alert lands, not when the job ends. The
             # cache is only written in the post-job step, so without this the phone
             # gets an alert up to ~55 min before the dashboard shows it.
@@ -123,4 +129,5 @@ jobs:
           path: |
             engine/data/commodity_seen.json
             engine/data/commodity_feed.json
+            engine/data/theme_claims.json
           key: commodity-state-${{ github.run_id }}

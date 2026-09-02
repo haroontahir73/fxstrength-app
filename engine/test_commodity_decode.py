@@ -130,6 +130,40 @@ def test_title_is_ascii():
     return bad
 
 
+def test_market_hours():
+    """CME metals/crude: Sunday 22:00 UTC to Friday 21:00 UTC."""
+    import datetime as dt
+    U = dt.timezone.utc
+    cases = [(dt.datetime(2026, 9, 2, 12, tzinfo=U), False),   # Wed midday
+             (dt.datetime(2026, 9, 4, 20, tzinfo=U), False),   # Fri before the close
+             (dt.datetime(2026, 9, 4, 22, tzinfo=U), True),    # Fri after it
+             (dt.datetime(2026, 9, 5, 12, tzinfo=U), True),    # Saturday
+             (dt.datetime(2026, 9, 6, 20, tzinfo=U), True),    # Sun before the reopen
+             (dt.datetime(2026, 9, 6, 23, tzinfo=U), False),   # Sun after it
+             (dt.datetime(2026, 9, 7, 2, tzinfo=U), False)]    # Monday
+    return [(t, want, cw.market_closed(t)) for t, want in cases
+            if cw.market_closed(t) != want]
+
+
+def test_cross_watcher_claim():
+    """One event must not buzz the phone twice, once per watcher."""
+    import news_watch as nw
+    bad = []
+    if nw.THEME_FILE.exists():
+        nw.THEME_FILE.unlink()
+    if not nw.theme_claim("geo_escalation", "commodity"):
+        bad.append("commodity could not claim a free theme")
+    if nw.theme_claim("geo_escalation", "fx"):
+        bad.append("FX alerted on a theme the commodity watcher just claimed")
+    if not nw.theme_claim("tariff", "fx"):
+        bad.append("FX blocked on an unrelated theme")
+    if not nw.theme_claim("geo_deescalation", "commodity"):
+        bad.append("a watcher blocked itself on its own claim")
+    if nw.THEME_FILE.exists():
+        nw.THEME_FILE.unlink()
+    return bad
+
+
 if __name__ == "__main__":
     fails = 0
 
@@ -152,6 +186,18 @@ if __name__ == "__main__":
     for cat, t in bad:
         fails += 1
         print(f"  FAIL  {cat}: {t!r}")
+
+    bad = test_market_hours()
+    print(f"market hours: {7 - len(bad)}/7 passed")
+    for t, want, got in bad:
+        fails += 1
+        print(f"  FAIL  {t:%a %H:%M}Z: want closed={want}, got {got}")
+
+    bad = test_cross_watcher_claim()
+    print(f"cross-watcher claim: {4 - len(bad)}/4 passed")
+    for b in bad:
+        fails += 1
+        print(f"  FAIL  {b}")
 
     print("\nALL PASS" if not fails else f"\n{fails} FAILURE(S)")
     sys.exit(1 if fails else 0)
