@@ -247,8 +247,11 @@ DECODE = {
         "emoji": "❄", "label": "INFLATION — cooling",
         "why": "Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker "
                "dollar, better for anything priced in dollars.",
-        "gold": ("up", 2, "opens the door to rate cuts"),
-        "silver": ("up", 2, "leads gold on the way up"),
+        # MEASURED: gold up on 70% of these vs a 55% baseline (+15pp, +0.50% over
+        # drift, n=204); silver +11pp, +0.53%, n=204. Best signal in the whole table,
+        # so both are strength 3. See backtest_decode.py.
+        "gold": ("up", 3, "opens the door to rate cuts - best-tested signal here"),
+        "silver": ("up", 3, "leads gold on the way up"),
         "oil": ("flat", 1, "mild help from a softer dollar"),
         "flip": "one hot print reverses the whole thing",
     },
@@ -380,9 +383,12 @@ DECODE = {
         "why": "A stronger US economy means the Fed has no reason to cut rates, and may "
                "even raise them. Money stays in the dollar and in things that pay interest, "
                "and gold pays nothing.",
-        "gold": ("down", 2, "no rate cuts coming = no fuel for gold"),
-        "silver": ("down", 2, "follows gold, though strong industry cushions it"),
-        "oil": ("up", 1, "a busier economy burns more fuel"),
+        # MEASURED (n=167): gold fell only 40% of the time vs a 45% baseline (-6pp) -
+        # no edge, so this is a mild bias, not a short signal. Silver +1pp, likewise.
+        # Oil is the real one: up 62% vs 53% baseline (+9pp, +0.40% over drift).
+        "gold": ("down", 1, "textbook drag, but measures weak - do not short on this alone"),
+        "silver": ("down", 1, "no measurable edge in the data"),
+        "oil": ("up", 2, "a busier economy burns more fuel - measured +9pp"),
         "flip": "one number is not a trend - the next weak print undoes it",
     },
     "us_data_weak": {
@@ -390,8 +396,10 @@ DECODE = {
         "why": "A weaker US economy pushes the Fed toward cutting rates. Cheaper money and "
                "a softer dollar are what gold wants. Silver is torn - it likes cheap money "
                "but it needs factories busy.",
-        "gold": ("up", 2, "brings rate cuts back onto the table"),
-        "silver": ("up", 1, "helped by cuts, hurt by weaker industry"),
+        # MEASURED (n=132): gold up 61% vs 55% baseline (+7pp). Silver only +2pp -
+        # the industrial drag really does cancel the rate-cut help.
+        "gold": ("up", 2, "brings rate cuts back onto the table - measured +7pp"),
+        "silver": ("up", 1, "cuts help, weaker industry hurts - nets to nothing measurable"),
         "oil": ("down", 1, "a slower economy burns less fuel"),
         "flip": "one number is not a trend - watch the next jobs print",
     },
@@ -419,10 +427,14 @@ IMPACT = {
     "inflation_hot": 3, "inflation_cold": 3,
     "geo_escalation": 3, "geo_deescalation": 3,
     "oil_supply_tight": 3, "oil_supply_loose": 3,
-    "oil_inv_build": 3, "oil_inv_draw": 3,      # EIA weekly - but see OIL_INV_MIN below
+    # oil_inv_* WAS 3. Demoted on evidence: across 475 EIA releases the day's oil
+    # direction beat its own baseline by +2pp either way, with ~0.00% excess move.
+    # The weekly number genuinely is noise, exactly as this category's own FLIP line
+    # says. It still shows in the feed with --all; it no longer buzzes the phone.
     "silver_squeeze": 3,
     "us_data_strong": 3, "us_data_weak": 3,
     # --- MEDIUM: real, but rarely the thing that turns a market ------------------
+    "oil_inv_build": 2, "oil_inv_draw": 2,
     "demand_up": 2, "demand_down": 2, "tariff": 2,
     "cb_gold_buying": 2, "metal_supply": 2, "risk_off": 2,
     # --- LOW: confirmation, not a catalyst --------------------------------------
@@ -780,7 +792,7 @@ RELEASE_TIER = {
     "cpi": 3, "ppi": 3, "pce": 3, "inflation rate": 3,
     "ism manufacturing": 3, "ism services": 3, "ism non-manufacturing": 3,
     "retail sales": 3, "gdp": 3,
-    "crude oil inventories": 3, "eia": 3,
+    "crude oil inventories": 2, "eia": 2,       # demoted with the categories above
 }
 
 # Percent-of-forecast is the wrong test for anything already expressed as a rate: an
@@ -798,6 +810,39 @@ def _channel(title):
         if k in t:
             return v
     return None
+
+
+def categorise_release(title, actual, forecast):
+    """(category, tier, surprise) for one economic release, or None if it does not qualify.
+
+    Split out of calendar_hits so backtest_decode.py can score history through the exact
+    same logic the live watcher uses - a re-implementation would drift and quietly make
+    the backtest meaningless.
+    """
+    if actual is None or forecast is None:
+        return None
+    ch = _channel(title)
+    if ch is None:
+        return None
+    tl = title.lower()
+    denom = abs(forecast) if abs(forecast) > 1e-9 else 1.0
+    surp = (actual - forecast) / denom
+    abs_gate = next((v for k, v in ABS_THRESHOLD.items() if k in tl), None)
+    if abs_gate is not None:
+        if abs(actual - forecast) < abs_gate:
+            return None
+    elif abs(surp) < (OIL_INV_MIN if ch == "oil_inv" else SURPRISE_MIN):
+        return None
+    tier = next((v for k, v in RELEASE_TIER.items() if k in tl), 2)
+    above = surp > 0
+    if ch == "oil_inv":
+        cat = "oil_inv_build" if above else "oil_inv_draw"
+    elif ch == "inflation":
+        cat = "inflation_hot" if above else "inflation_cold"
+    else:
+        strong = above if ch != "jobs_inv" else not above
+        cat = "us_data_strong" if strong else "us_data_weak"
+    return cat, tier, surp
 
 
 def calendar_hits(window_min=50):
@@ -820,37 +865,17 @@ def calendar_hits(window_min=50):
     out = []
     for e in rows:
         title = e.get("title", "")
-        ch = _channel(title)
-        if ch is None and e.get("importance", -1) < 1:
-            continue
-        ch = ch or "growth"
-        a, f = e.get("actual"), e.get("forecast")
-        if a is None or f is None:
-            continue
         when = _parse_date(e.get("date", ""))
         if when is None or when > now or (now - when).total_seconds() > window_min * 60:
             continue
-        denom = abs(f) if abs(f) > 1e-9 else 1.0
-        surp = (a - f) / denom
-        tl = title.lower()
-        abs_gate = next((v for k, v in ABS_THRESHOLD.items() if k in tl), None)
-        if abs_gate is not None:
-            if abs(a - f) < abs_gate:
-                continue
-        elif abs(surp) < (OIL_INV_MIN if ch == "oil_inv" else SURPRISE_MIN):
+        hit = categorise_release(title, e.get("actual"), e.get("forecast"))
+        if hit is None:
             continue
-        tier = next((v for k, v in RELEASE_TIER.items() if k in tl), 2)
+        cat, tier, surp = hit
         if tier < MIN_IMPACT:
             continue
-        above = surp > 0
-        if ch == "oil_inv":
-            cat = "oil_inv_build" if above else "oil_inv_draw"
-        elif ch == "inflation":
-            cat = "inflation_hot" if above else "inflation_cold"
-        else:
-            strong = above if ch != "jobs_inv" else not above
-            cat = "us_data_strong" if strong else "us_data_weak"
-        out.append({"title": title, "actual": a, "forecast": f, "surp": surp,
+        out.append({"title": title, "actual": e.get("actual"),
+                    "forecast": e.get("forecast"), "surp": surp,
                     "cat": cat, "when": when})
     return out
 
