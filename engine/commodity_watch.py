@@ -127,6 +127,9 @@ RULES = [
         "troops enter", "ground offensive", "attacks israel", "bombed", "warships",
         "blockade", "tanker attacked", "tanker seized", "drone attack", "shot down",
         "fighting resumes", "strikes resume", "iran strikes", "strikes send",
+        "fires on", "opens fire", "retaliates", "retaliating", "strikes back",
+        "attack on vessel", "attack on ship", "attack on tanker",
+        "sailors killed", "crew killed", "vessel hit", "ship hit",
         "strikes deepen", "strikes escalate",
     ]),
     ("geo_deescalation", 3, [
@@ -140,6 +143,7 @@ RULES = [
     # ---- oil supply ----------------------------------------------------------
     ("oil_supply_tight", 3, [
         "opec+ cut", "opec cut", "production cut", "output cut", "supply disruption",
+        "disrupts supply", "supply disrupted", "war disrupts", "halts supply",
         "pipeline attack", "refinery fire", "refinery outage", "oil embargo",
         "shut the strait", "close the strait", "strait of hormuz", "export halt",
         "halts exports", "supply shortfall", "sanctions on oil", "oil sanctions",
@@ -149,6 +153,9 @@ RULES = [
         "opec+ raises", "opec raises", "output increase", "raise production",
         "boost production", "increase output", "unwind cuts", "unwinding cuts",
         "more barrels", "supply glut", "oversupply", "record production",
+        "hold output steady", "holds output steady", "output steady",
+        "resume production", "restart production", "sanctions waiver",
+        "more oil flowed", "oil reserves deal", "control over venezuela",
         "resumes exports", "export resumes", "spare capacity", "quota increase",
     ]),
     ("oil_inv_build", 2, [
