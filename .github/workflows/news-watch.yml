@@ -118,6 +118,12 @@ jobs:
             if [ $(( PASS % 10 )) -eq 1 ]; then
               python selfcheck.py || true
             fi
+            # Every 80th pass (~4h): audit the whole system unattended. It pushes ONLY
+            # when it finds a problem - an audit that says "all clear" four times a day
+            # trains you to ignore it, so silence means healthy.
+            if [ $(( PASS % 80 )) -eq 5 ]; then
+              python audit.py --quick --notify || true
+            fi
             # Publish the feed as soon as an alert lands, not when the job ends. The
             # cache is only written in the post-job step, so without this the phone
             # gets an alert up to ~55 min before the dashboard shows it.

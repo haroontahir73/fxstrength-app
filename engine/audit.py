@@ -186,6 +186,27 @@ def check_backtests(quick):
                             f"read its output and correct DECODE")
 
 
+def notify(problems, notes):
+    """Push a summary, but only when something is actually wrong.
+
+    Runs unattended in the cloud every few hours. An audit that pushes 'all clear' four
+    times a day trains you to ignore it, so silence means healthy and a message means
+    something needs looking at.
+    """
+    import os
+    import commodity_watch as cw
+    topic = os.environ.get("NTFY_TOPIC", "").strip()
+    if not topic or not problems:
+        return False
+    body = ("The system checked itself and found:" + "\n\n"
+            + "\n".join(f"- {p}" for p in problems))
+    if notes:
+        body += ("\n\nAlso worth a look:\n"
+                 + "\n".join(f"- {n}" for n in notes[:3]))
+    return cw.push(topic, f"AUDIT: {len(problems)} problem(s) found", body,
+                   "", "high", "mag")
+
+
 def main():
     quick = "--quick" in sys.argv
     t0 = time.time()
