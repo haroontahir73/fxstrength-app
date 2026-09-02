@@ -269,21 +269,30 @@ DECODE = {
         "emoji": "\U0001f54a", "label": "GEOPOLITICS — calming down",
         "why": "The war premium that got priced in now comes back out. Everything that "
                "rallied on fear gives it back.",
-        "gold": ("down", 2, "the fear bid unwinds"),
-        "silver": ("down", 1, "follows gold down"),
-        "oil": ("down", 3, "supply worry gone, barrels flow again"),
+        # MEASURED (n=121 event-days, backtest_geo.py): the textbook "fear bid unwinds,
+        # gold down" is NOT what happens. Gold fell on only 36% of these days against a
+        # 45% baseline (-9pp); silver -10pp. Two mechanisms fight - the fear premium
+        # coming out (gold down) versus oil falling, inflation expectations easing and
+        # yields dropping (gold up) - and neither wins reliably. Claiming a direction
+        # would be inventing one. Oil is the tradeable leg: 51% vs 47%, +0.51% over drift.
+        "gold": ("flat", 0, "measured both ways - fear-out vs yields-down cancel"),
+        "silver": ("flat", 0, "same, no reliable direction"),
+        "oil": ("down", 3, "supply worry gone, barrels flow again - measured +4pp"),
         "flip": "these deals break — one broken truce and it all goes back on",
-        "regime_sensitive": True,
     },
     "oil_supply_tight": {
         "emoji": "\U0001f6e2", "label": "OIL — supply getting tighter",
         "why": "Fewer barrels reaching the market than people expected. Buyers chase what "
                "is left, so the price goes up.",
-        "gold": ("up", 1, "dearer oil = more inflation worry"),
-        "silver": ("up", 1, "mild follow"),
-        "oil": ("up", 3, "this is the direct hit"),
+        # MEASURED (n=38): the "dearer oil = inflation = gold up" step does not survive
+        # contact with the data - gold -7pp against baseline, silver -8pp. Dearer oil
+        # lifts yields as readily as it lifts inflation hedges. Oil itself is the
+        # strongest news signal in either backtest: 66% vs a 53% baseline (+13pp,
+        # +1.43% over drift).
+        "gold": ("flat", 0, "the inflation-hedge step does not hold up in the data"),
+        "silver": ("flat", 0, "measured against the call"),
+        "oil": ("up", 3, "the direct hit - best-measured news signal (+13pp)"),
         "flip": "if the disruption turns out to be small or short, it fades within days",
-        "regime_sensitive": True,
     },
     "oil_supply_loose": {
         "emoji": "\U0001f6e2", "label": "OIL — more barrels coming",

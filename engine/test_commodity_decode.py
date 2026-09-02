@@ -87,18 +87,35 @@ def test_classify():
     return bad
 
 
+YIELDS_REGIME = {"Gold": (4300, 4500, 4200, 4600, 0),      # gold below its baseline
+                 "US10Y": (4.80, 4.60, 4.5, 4.9, 2),       # yields above
+                 "WTI": (90.0, 84.0, 80, 92, 1)}           # oil above
+
+
 def test_regime_symmetry():
-    """A ceasefire in a yields-driven market must read gold UP, not down."""
+    """In a yields-driven market the fear-driven gold lean inverts - BOTH ways.
+
+    Only geo_escalation still carries a directional metals lean; geo_deescalation and
+    oil_supply_tight were measured flat (see backtest_geo.py) and so have nothing to
+    invert. The both-ways property is checked directly on apply_regime instead, because
+    it was broken for months while the one-way half kept passing.
+    """
     bad = []
-    yields_regime = {"Gold": (4300, 4500, 4200, 4600, 0),      # gold below baseline
-                     "US10Y": (4.80, 4.60, 4.5, 4.9, 2),       # yields above
-                     "WTI": (90.0, 84.0, 80, 92, 1)}           # oil above
-    for cat, key, want in (("geo_deescalation", "gold", "up"),
-                           ("geo_escalation", "gold", "down"),
-                           ("oil_supply_tight", "gold", "down")):
-        dec, _ = cw.decoded(cat, yields_regime)
-        if dec[key][0] != want:
-            bad.append((cat, key, want, dec[key][0]))
+    dec, _ = cw.decoded("geo_escalation", YIELDS_REGIME)
+    if dec["gold"][0] != "down":
+        bad.append(("geo_escalation", "gold", "down", dec["gold"][0]))
+
+    synthetic_down = {"gold": ("down", 2, ""), "silver": ("down", 2, ""),
+                      "oil": ("down", 3, ""), "regime_sensitive": True}
+    flipped = cw.apply_regime(synthetic_down, "yields")
+    if flipped["gold"][0] != "up":
+        bad.append(("synthetic down->up", "gold", "up", flipped["gold"][0]))
+
+    synthetic_up = {"gold": ("up", 2, ""), "silver": ("up", 2, ""),
+                    "oil": ("up", 3, ""), "regime_sensitive": True}
+    flipped = cw.apply_regime(synthetic_up, "yields")
+    if flipped["gold"][0] != "down":
+        bad.append(("synthetic up->down", "gold", "down", flipped["gold"][0]))
     return bad
 
 
