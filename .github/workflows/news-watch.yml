@@ -9,9 +9,16 @@
 # Without it the job runs and logs what it would have sent, but pushes nothing.
 name: news watch
 
+# SCHEDULING NOTE - why this is not simply "*/15".
+# It was, and GitHub throttled it: over one 7-hour stretch the */15 cron produced two
+# runs, with a 273-minute hole in the middle. Scheduled workflows on free/public repos
+# are best-effort and get dropped under load, worst of all on congested minutes like :00
+# and :15. So instead: ONE hourly trigger on an off-peak minute, and the job then loops
+# internally on a 5-minute beat for ~55 minutes. Even when an hour gets skipped entirely,
+# the next run's 45-minute lookback still catches the story.
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '7 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -47,20 +54,28 @@ jobs:
           key: commodity-state-${{ github.run_id }}
           restore-keys: commodity-state-
 
-      - name: Run the watcher
+      # Scan every 5 minutes for ~55 minutes, then let the next hourly run take over.
+      # Each watcher keeps its own dedup file on disk, so a story seen in one pass is
+      # not re-sent in the next. A crash in one watcher must not stop the other, or
+      # stop the loop - hence the "|| true" on each.
+      - name: Watch (5-minute beat for ~55 min)
         working-directory: engine
+        timeout-minutes: 58
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
-        run: python news_watch.py
-
-      # Gold / silver / oil, decoded into plain words with a lean per instrument.
-      # Runs even if the FX watcher above fails - they share no state.
-      - name: Run the commodity watcher
-        if: always()
-        working-directory: engine
-        env:
-          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
-        run: python commodity_watch.py
+        run: |
+          END=$(( $(date +%s) + 55*60 ))
+          PASS=1
+          while :; do
+            echo "::group::pass $PASS  $(date -u +%H:%M:%S)Z"
+            python news_watch.py      || true
+            python commodity_watch.py || true
+            echo "::endgroup::"
+            PASS=$(( PASS + 1 ))
+            [ $(( $(date +%s) + 300 )) -lt $END ] || break
+            sleep 300
+          done
+          echo "loop finished after $PASS pass(es)"
 
       - name: Save dedup cache
         if: always()
