@@ -88,6 +88,34 @@ FEEDS = [_GN.format(q=_q(x)) for x in _QUERIES] + [
     "https://www.mining.com/feed/",
 ]
 
+# Financial Juice carries the squawk headlines earlier than anyone here, and its feed
+# DOES work - the endpoint returns 41KB of real RSS. What it does not tolerate is being
+# polled: Cloudflare answers 429/1015 after roughly one request, and stays angry for a
+# while. So it is fetched on its own slow clock instead of every scan. Being rate-limited
+# is not an error here; the pull is simply skipped and the next one tries later.
+SLOW_FEEDS = {"https://www.financialjuice.com/feed.ashx": 900}   # url -> min seconds apart
+SLOW_STATE = DATA / "slow_feeds.json"
+
+
+def _slow_due():
+    """The slow feeds whose cool-off has passed, marking them as pulled now."""
+    try:
+        state = json.loads(SLOW_STATE.read_text(encoding="utf-8"))
+    except Exception:                                          # noqa: BLE001
+        state = {}
+    now, due = time.time(), []
+    for url, gap in SLOW_FEEDS.items():
+        if now - state.get(url, 0) >= gap:
+            due.append(url)
+            state[url] = now
+    if due:
+        try:
+            SLOW_STATE.parent.mkdir(exist_ok=True)
+            SLOW_STATE.write_text(json.dumps(state), encoding="utf-8")
+        except Exception:                                      # noqa: BLE001
+            pass
+    return due
+
 # ------------------------------------------------------------------ classifier
 # (category, severity 1-3, [keyword...]).  First match wins, so order = priority.
 RULES = [
@@ -815,7 +843,7 @@ def gather():
     import xml.etree.ElementTree as ET
     now = dt.datetime.now(dt.timezone.utc)
     fresh, seen_titles = [], set()
-    for url in FEEDS:
+    for url in FEEDS + _slow_due():
         raw = _get(url)
         if not raw:
             continue
