@@ -1,5 +1,91 @@
 [
  {
+  "when": "02 Sep 18:31 UTC",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Trump: Prepared to do another attack on Iran.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - panic buy is real but measures weak (+4pp, ~0% excess)\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast - measured +7pp\n\nNOW  Gold 4,424 (+1.8%)   Silver 65.71 (+1.7%)   WTI 91.19 (+1.1%)   DXY 99.57 (-0.1%)   US10Y 4.80 (-0.0%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://www.financialjuice.com/News/9747278/Trump-Prepared-to-do-another-attack-on-Iran.aspx?xy=rss",
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "FinancialJuice: Trump: Prepared to do another attack on Iran.",
+   "src": "",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "panic buy is real but measures weak (+4pp, ~0% excess)"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast - measured +7pp"
+    }
+   ],
+   "snap": "NOW  Gold 4,424 (+1.8%)   Silver 65.71 (+1.7%)   WTI 91.19 (+1.1%)   DXY 99.57 (-0.1%)   US10Y 4.80 (-0.0%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
+  "when": "02 Sep 18:31 UTC",
+  "cat": "geo_deescalation",
+  "title": "OIL STRONG SHORT | GEOPOLITICS - calming down",
+  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nFinancialJuice: Trump: Want to do a Putin summit when we're ready for a peace deal.\n\nWHY: The war premium that got priced in now comes back out. Everything that rallied on fear gives it back.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - supply worry gone, barrels flow again - measured +4pp\n\nNOW  Gold 4,424 (+1.8%)   Silver 65.71 (+1.7%)   WTI 91.19 (+1.1%)   DXY 99.57 (-0.1%)   US10Y 4.80 (-0.0%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
+  "link": "https://www.financialjuice.com/News/9747283/Trump-Want-to-do-a-Putin-summit-when-were-ready-for-a-peace-deal.aspx?xy=rss",
+  "parts": {
+   "emoji": "\ud83d\udd4a",
+   "label": "GEOPOLITICS \u2014 calming down",
+   "headline": "FinancialJuice: Trump: Want to do a Putin summit when we're ready for a peace deal.",
+   "src": "",
+   "why": "The war premium that got priced in now comes back out. Everything that rallied on fear gives it back.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured both ways - fear-out vs yields-down cancel"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "same, no reliable direction"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "supply worry gone, barrels flow again - measured +4pp"
+    }
+   ],
+   "snap": "NOW  Gold 4,424 (+1.8%)   Silver 65.71 (+1.7%)   WTI 91.19 (+1.1%)   DXY 99.57 (-0.1%)   US10Y 4.80 (-0.0%)",
+   "reality": "",
+   "flip": "these deals break \u2014 one broken truce and it all goes back on"
+  }
+ },
+ {
   "when": "02 Sep 16:58 UTC",
   "cat": "oil_supply_tight",
   "title": "OIL STRONG LONG | OIL - supply getting tighter",
