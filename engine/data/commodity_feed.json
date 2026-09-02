@@ -1,5 +1,56 @@
 [
  {
+  "when": "02 Sep 21:13 UTC",
+  "iso": "2026-09-02T21:13:37.208244+00:00",
+  "cat": "rates_up",
+  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold, silver prices rebound as ADP miss cools Fed-hike trade - Kitco PM Report - KITCO  (KITCO)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n\nNOW  Gold 4,434 (+2.0%)   Silver 65.93 (+2.0%)   WTI 90.63 (+0.5%)   DXY 99.56 (-0.1%)   US10Y 4.80 (-0.0%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOc2xCQmhpWkZDVkZQTG4zUTltNzh5b2RIbXNCZERaSjlsS3ljMVdoc2MyV1hFYnJmNGpOMGZ0YkNWSV91b0ljb0d2M1Fjc29tZTFuaVl6SXEtbi1hMUdEb3J6SE91bndES19YbFB1c0tpX3l0Z0ZqY0FEMGgxRmd1d3hfdGVTMUtBLUg4NXdxZUNuenJLN29GaVdZbkhXREJDcUZLalZhU0RaWE8zc0lfbkVnLUtJTHliS3c?oc=5",
+  "talk": false,
+  "pushed": false,
+  "px": {
+   "Gold": 4434.3,
+   "Silver": 65.93,
+   "WTI": 90.63
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Gold, silver prices rebound as ADP miss cools Fed-hike trade - Kitco PM Report - KITCO",
+   "src": "KITCO",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "same hit as gold, only bigger"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth"
+    }
+   ],
+   "snap": "NOW  Gold 4,434 (+2.0%)   Silver 65.93 (+2.0%)   WTI 90.63 (+0.5%)   DXY 99.56 (-0.1%)   US10Y 4.80 (-0.0%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "02 Sep 20:34 UTC",
   "iso": "2026-09-02T20:34:36.332147+00:00",
   "cat": "geo_escalation",
