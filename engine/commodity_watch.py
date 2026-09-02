@@ -1123,7 +1123,11 @@ def main():
         title = headline_title(cat, dec)
         print(f"\n[{cat}] {title}\n" + "-" * 60 + f"\n{body}\n" + "-" * 60)
         if not dry:
-            push(topic, title, body, link,
+            # No link on the notification, by request: passing one makes ntfy attach a
+            # Click action, so the alert turns into a doorway to the news site. The whole
+            # point is that the decode replaces reading the article. The story URL is
+            # still kept on the feed entry below, where the in-app card offers it quietly.
+            push(topic, title, body, "",
                  "urgent" if any(dec[k][1] >= 3 for k in ("gold", "silver", "oil"))
                  else "high", "coin")
             feed_add({"when": dt.datetime.now(dt.timezone.utc).strftime("%d %b %H:%M UTC"),
