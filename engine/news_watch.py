@@ -122,7 +122,11 @@ PLAYBOOK = {
     },
     "geo_deescalation": {
         "emoji": "\U0001f54a️", "risk": "RISK-ON",
-        "dxy": "DOWN", "gold": "DOWN", "silver": "DOWN", "wti": "DOWN (risk premium out)",
+        # gold/silver were "DOWN" here until the backtest: on 121 ceasefire event-days
+        # gold fell only 36% of the time against a 45% baseline (-9pp), silver -10pp.
+        # The fear premium leaving fights oil/yields falling, and neither wins.
+        "dxy": "DOWN", "gold": "no clean read (measured both ways)",
+        "silver": "no clean read", "wti": "DOWN (risk premium out)",
         "jpy": "DOWN", "chf": "DOWN", "eur": "UP", "gbp": "UP", "aud": "UP", "nzd": "UP",
         "cad": "mixed", "equities": "UP", "note": "Unwind of any prior risk-off spike.",
     },
@@ -156,7 +160,10 @@ PLAYBOOK = {
     },
     "energy_supply": {
         "emoji": "\U0001f6e2️", "risk": "INFLATION / petro-FX",
-        "dxy": "mild UP", "gold": "UP", "silver": "UP", "wti": "UP (supply) / DOWN (if a cut is cancelled)",
+        # gold/silver were "UP" on the inflation-hedge argument; measured -7pp and -8pp.
+        # Dearer oil lifts yields as readily as it lifts inflation hedges.
+        "dxy": "mild UP", "gold": "no clean read (the hedge step does not measure)",
+        "silver": "no clean read", "wti": "UP (supply) / DOWN (if a cut is cancelled)",
         "jpy": "DOWN (import cost)", "chf": "flat", "eur": "DOWN (energy importer)", "gbp": "mild DOWN",
         "aud": "mixed", "nzd": "DOWN", "cad": "UP (petro)", "equities": "DOWN (energy up = margin squeeze)",
         "note": "NOK and CAD are the cleanest petro-FX plays. Direction of WTI depends on the headline.",
@@ -176,7 +183,9 @@ PLAYBOOK = {
     },
     "data_surprise_hot": {
         "emoji": "\U0001f4c8", "risk": "USD-POSITIVE",
-        "dxy": "UP", "gold": "DOWN", "silver": "DOWN", "wti": "flat",
+        # measured: gold -6pp vs baseline = no edge, not a short. Oil is the real leg (+9pp).
+        "dxy": "UP", "gold": "mild DOWN at most (measures weak)", "silver": "mild DOWN",
+        "wti": "mild UP (+9pp measured)",
         "jpy": "DOWN (USDJPY up)", "chf": "DOWN vs USD", "eur": "DOWN", "gbp": "DOWN",
         "aud": "DOWN", "nzd": "DOWN", "cad": "DOWN", "equities": "DOWN if it kills rate-cut hopes",
         "note": "Strong US data - pushes the Fed toward keeping rates high / hiking.",
@@ -647,7 +656,9 @@ def main():
             continue
         cat, sev, kw = hit
         seen[h] = time.time()
-        if not theme_claim(cat, "fx"):
+        # `not dry` matters: a --dry-run that claimed themes would silence the real
+        # commodity alerts for the next 45 minutes while pushing nothing itself.
+        if not dry and not theme_claim(cat, "fx"):
             print(f"  [claimed by the commodity watcher] {cat}: {it['title'][:70]}")
             continue
         body = build_alert(cat, it["title"], it["link"], it["src"], weekend, snap, lmap)
