@@ -51,13 +51,17 @@ jobs:
           key: fxstrength-state-${{ github.run_id }}
           restore-keys: fxstrength-state-
 
+      # commodity_feed.json is committed by the news-watch loop the moment an alert
+      # fires, so the checkout is always at least as fresh as the restored engine/data
+      # cache. Pin it too, or an older cached copy silently wins.
       - name: Pin committed override files
         run: |
           git checkout -- \
             engine/data/fundamentals_manual.json \
             engine/data/commodities_manual.json \
             engine/data/rate_expectations_manual.json \
-            engine/data/speech_tone.json
+            engine/data/speech_tone.json \
+            engine/data/commodity_feed.json
 
       - name: Choose mode
         id: mode
@@ -76,15 +80,6 @@ jobs:
       - name: Run pipeline (${{ steps.mode.outputs.mode }})
         working-directory: engine
         run: python run.py ${{ steps.mode.outputs.mode }}
-
-      # Written by the news-watch workflow; shared across workflows via the cache.
-      # Missing cache just means an empty news list, never a failed build.
-      - name: Restore the commodity news feed
-        uses: actions/cache/restore@v4
-        with:
-          path: engine/data/commodity_feed.json
-          key: commodity-state-${{ github.run_id }}
-          restore-keys: commodity-state-
 
       # Injects the decoded gold/silver/oil alerts into dashboard.html between markers.
       # Self-contained - it never touches anything build_dashboard.py owns.

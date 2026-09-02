@@ -268,6 +268,7 @@ DECODE = {
         "silver": ("down", 1, "follows gold down"),
         "oil": ("down", 3, "supply worry gone, barrels flow again"),
         "flip": "these deals break — one broken truce and it all goes back on",
+        "regime_sensitive": True,
     },
     "oil_supply_tight": {
         "emoji": "\U0001f6e2", "label": "OIL — supply getting tighter",
@@ -277,6 +278,7 @@ DECODE = {
         "silver": ("up", 1, "mild follow"),
         "oil": ("up", 3, "this is the direct hit"),
         "flip": "if the disruption turns out to be small or short, it fades within days",
+        "regime_sensitive": True,
     },
     "oil_supply_loose": {
         "emoji": "\U0001f6e2", "label": "OIL — more barrels coming",
@@ -405,11 +407,32 @@ DECODE = {
 # calendar prints map onto the rates channel
 CAL_MAP = {True: "rates_up", False: "rates_down"}
 
+# ------------------------------------------------------------------ impact filter
+# "I don't want the low impact or medium, only those which can make a difference."
+# 3 = moves the market on its own.  2 = real but slow, or usually already in the price.
+# 1 = follows the price rather than leading it.
+IMPACT = {
+    # --- HIGH -------------------------------------------------------------------
+    "rates_up": 3, "rates_down": 3, "fed_independence": 3,
+    "inflation_hot": 3, "inflation_cold": 3,
+    "geo_escalation": 3, "geo_deescalation": 3,
+    "oil_supply_tight": 3, "oil_supply_loose": 3,
+    "oil_inv_build": 3, "oil_inv_draw": 3,      # EIA weekly - but see OIL_INV_MIN below
+    "silver_squeeze": 3,
+    "us_data_strong": 3, "us_data_weak": 3,
+    # --- MEDIUM: real, but rarely the thing that turns a market ------------------
+    "demand_up": 2, "demand_down": 2, "tariff": 2,
+    "cb_gold_buying": 2, "metal_supply": 2, "risk_off": 2,
+    # --- LOW: confirmation, not a catalyst --------------------------------------
+    "etf_inflow": 1, "etf_outflow": 1,
+}
+MIN_IMPACT = 3            # lower it with --all
+
 ARROWS = {("up", 3): "↑↑↑", ("up", 2): "↑↑", ("up", 1): "↑",
           ("down", 3): "↓↓↓", ("down", 2): "↓↓", ("down", 1): "↓",
           ("flat", 1): "→", ("flat", 0): "→", ("up", 0): "→", ("down", 0): "→"}
 
-CALL = {3: "STRONG — go hunt {side}s", 2: "look for {side}s", 1: "mild {side} drag",
+CALL = {3: "STRONG — go hunt {side}s", 2: "look for {side}s", 1: "mild {side} bias",
         0: "no clean read"}
 
 
@@ -451,13 +474,20 @@ def regime(lmap):
 
 
 def apply_regime(dec, tag):
-    """In a yields-driven regime, invert the gold/silver lean on fear-driven categories."""
+    """In a yields-driven regime, invert the gold/silver lean on fear-driven categories.
+
+    BOTH directions. This only flipped "up" to "down" at first, which quietly left the
+    more valuable half wrong: when the market is trading oil -> inflation -> rates, a
+    CEASEFIRE takes the inflation premium out, yields fall and gold RALLIES - but the
+    textbook line ("fear unwinds, gold down") was still being printed.
+    """
     out = dict(dec)
     if tag == "yields" and dec.get("regime_sensitive"):
+        flip = {"up": "down", "down": "up"}
         for k in ("gold", "silver"):
             d, s, _ = dec[k]
-            if d == "up":
-                out[k] = ("down", max(s - 1, 1), "FLIPPED - see the reality check below")
+            if d in flip:
+                out[k] = (flip[d], max(s - 1, 1), "FLIPPED - see the reality check below")
     return out
 
 
@@ -532,19 +562,20 @@ def headline_title(cat, dec=None):
     Pass the REGIME-ADJUSTED dec from decoded(), never the raw table.
     """
     dec = dec or DECODE[cat]
-    longs, shorts, strong = [], [], False
+    # Group by direction AND strength. Lumping them together produced "GOLD+OIL STRONG
+    # SHORT" for a case where oil was strong and gold only moderate - overstating half
+    # the call on the one line you read without unlocking the phone.
+    groups = {}
     for key, label in (("gold", "GOLD"), ("silver", "SILVER"), ("oil", "OIL")):
         d, s, _ = dec[key]
         if d == "flat" or s < 2:
             continue
-        (longs if d == "up" else shorts).append(label)
-        strong = strong or s >= 3
+        groups.setdefault((d, s >= 3), []).append(label)
 
     side = []
-    if shorts:
-        side.append("+".join(shorts) + (" STRONG SHORT" if strong else " SHORT"))
-    if longs:
-        side.append("+".join(longs) + (" STRONG LONG" if strong else " LONG"))
+    for (d, strong) in sorted(groups, key=lambda g: (not g[1], g[0])):
+        word = ("STRONG " if strong else "") + ("LONG" if d == "up" else "SHORT")
+        side.append("+".join(groups[(d, strong)]) + " " + word)
 
     label = dec["label"].replace("—", "-")
     if not side:
@@ -611,6 +642,30 @@ US_CTX = ("fed", "fomc", "powell", "warsh", "u.s.", "us ", " us", "america", "do
 US_GATED = ("rates_up", "rates_down", "inflation_hot", "inflation_cold")
 
 
+# A negated rate headline means the OPPOSITE of the keyword it contains, and the rate
+# channel is gold's biggest driver, so getting this backwards is the worst error the
+# decoder can make. "Fed rules out a rate cut" fired as rates_down - i.e. it told you to
+# buy gold - when it means no cuts are coming, which is gold-negative. Flip instead of
+# vetoing: "rules out a cut" genuinely IS a lean toward higher rates, and vice versa.
+NEG_BEFORE = ("rules out", "ruled out", "rule out", "ruling out", "no rate", "no need for",
+              "not raise", "will not raise", "won't raise", "wont raise", "unlikely to",
+              "against a rate", "dismisses", "denies", "ends bets on", "kills bets on",
+              "plays down", "downplays", "pours cold water on")
+NEG_AFTER = ("off the table", "is unlikely", "was ruled out", "not happening",
+             "is not coming", "not on the table")
+FLIP = {"rates_up": "rates_down", "rates_down": "rates_up",
+        "inflation_hot": "inflation_cold", "inflation_cold": "inflation_hot"}
+
+
+def _negated(title_lc, pos, kw_len):
+    """Is the keyword at `pos` sitting inside a negation?"""
+    # the window has to overlap the keyword itself, or "no rate cut" is missed: the
+    # negation ("no rate") straddles the boundary with the keyword ("rate cut").
+    before = title_lc[max(0, pos - 22):pos + kw_len]
+    after = title_lc[pos + kw_len:pos + kw_len + 26]
+    return any(n in before for n in NEG_BEFORE) or any(n in after for n in NEG_AFTER)
+
+
 def classify(title, desc=""):
     """Match on the HEADLINE, not the blurb.
 
@@ -624,10 +679,14 @@ def classify(title, desc=""):
         return None
     for cat, sev, keys in RULES:
         for k in keys:
-            if k in t:
-                if cat in US_GATED and not any(c in t for c in US_CTX):
-                    continue                    # a non-US rate story, not our business
-                return cat, sev, k
+            pos = t.find(k)
+            if pos < 0:
+                continue
+            if cat in US_GATED and not any(c in t for c in US_CTX):
+                continue                        # a non-US rate story, not our business
+            if cat in FLIP and _negated(t, pos, len(k)):
+                return FLIP[cat], sev, f"NOT {k}"
+            return cat, sev, k
     return None
 
 
@@ -685,6 +744,26 @@ KEY_RELEASES = {
     "gasoline inventories": "oil_inv", "distillate": "oil_inv",
 }
 SURPRISE_MIN = 0.10       # 10% off forecast counts (the FX watcher uses 15%)
+OIL_INV_MIN = 0.50        # EIA weekly is noisy - needs a big miss to mean anything
+
+# Which releases are worth a phone buzz. Everything else in KEY_RELEASES still gets
+# classified, but only fires when MIN_IMPACT is lowered with --all.
+RELEASE_TIER = {
+    "nonfarm payroll": 3, "non-farm payroll": 3, "unemployment rate": 3,
+    "adp employment": 3, "initial jobless": 3, "average hourly earnings": 3,
+    "cpi": 3, "ppi": 3, "pce": 3, "inflation rate": 3,
+    "ism manufacturing": 3, "ism services": 3, "ism non-manufacturing": 3,
+    "retail sales": 3, "gdp": 3,
+    "crude oil inventories": 3, "eia": 3,
+}
+
+# Percent-of-forecast is the wrong test for anything already expressed as a rate: an
+# unemployment rate of 4.3 against a 4.2 forecast is a 2.4% "miss" and would never clear
+# a 10% threshold, yet it is major news. These are judged on the absolute gap instead.
+ABS_THRESHOLD = {
+    "unemployment rate": 0.1, "inflation rate": 0.1, "cpi": 0.1, "pce": 0.1,
+    "average hourly earnings": 0.1, "gdp": 0.2, "ppi": 0.1,
+}
 
 
 def _channel(title):
@@ -727,7 +806,15 @@ def calendar_hits(window_min=50):
             continue
         denom = abs(f) if abs(f) > 1e-9 else 1.0
         surp = (a - f) / denom
-        if abs(surp) < SURPRISE_MIN:
+        tl = title.lower()
+        abs_gate = next((v for k, v in ABS_THRESHOLD.items() if k in tl), None)
+        if abs_gate is not None:
+            if abs(a - f) < abs_gate:
+                continue
+        elif abs(surp) < (OIL_INV_MIN if ch == "oil_inv" else SURPRISE_MIN):
+            continue
+        tier = next((v for k, v in RELEASE_TIER.items() if k in tl), 2)
+        if tier < MIN_IMPACT:
             continue
         above = surp > 0
         if ch == "oil_inv":
@@ -886,6 +973,10 @@ def main():
 
     argv = sys.argv[1:]
 
+    if "--all" in argv:               # include medium/low impact as well
+        global MIN_IMPACT
+        MIN_IMPACT = 1
+
     # Silence here is indistinguishable from "no news", which is how a whole day can go by
     # with nothing on the phone and nothing obviously wrong. Say it loudly instead.
     if not topic and not any(a in argv for a in ("--render", "--audit", "--replay")):
@@ -973,6 +1064,9 @@ def main():
             continue
         cat, sev, _ = hit
         seen[h] = time.time()
+        if IMPACT.get(cat, 2) < MIN_IMPACT:
+            print(f"  [impact {IMPACT.get(cat, 2)} < {MIN_IMPACT}] {cat}: {it['title'][:70]}")
+            continue
         if on_cooldown(cat, sev):
             print(f"  [cooldown] {cat}: {it['title'][:80]}")
             continue

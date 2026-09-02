@@ -22,7 +22,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write          # the loop commits the feed file when a new alert lands
 
 concurrency:
   group: news-watch
@@ -64,12 +64,22 @@ jobs:
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           END=$(( $(date +%s) + 55*60 ))
           PASS=1
           while :; do
             echo "::group::pass $PASS  $(date -u +%H:%M:%S)Z"
             python news_watch.py      || true
             python commodity_watch.py || true
+            # Publish the feed as soon as an alert lands, not when the job ends. The
+            # cache is only written in the post-job step, so without this the phone
+            # gets an alert up to ~55 min before the dashboard shows it.
+            if ! git diff --quiet -- data/commodity_feed.json; then
+              git add data/commodity_feed.json
+              git commit -m "feed: new commodity alert(s) [skip refresh]" || true
+              git push || echo "  push failed - the cache still carries the feed"
+            fi
             echo "::endgroup::"
             PASS=$(( PASS + 1 ))
             [ $(( $(date +%s) + 300 )) -lt $END ] || break
