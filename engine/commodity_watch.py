@@ -283,9 +283,9 @@ DECODE = {
     },
     "inflation_hot": {
         "emoji": "\U0001f321", "label": "INFLATION — running hot",
-        "why": "Gold is supposed to protect you from inflation, but hot inflation first "
-               "makes the Fed keep rates high — and high rates hurt gold more than the "
-               "inflation helps it. The rates channel wins in the short run.",
+        "why": "You would think high inflation is good for gold. It is not, at first. "
+               "High inflation makes the Fed keep rates high, and high rates hurt gold "
+               "more than the inflation helps it.",
         "gold": ("down", 2, "the rates reaction beats the hedge story"),
         "silver": ("down", 2, "same, amplified"),
         "oil": ("flat", 0, "usually a cause, not a victim"),
@@ -298,8 +298,8 @@ DECODE = {
         # MEASURED: gold up on 70% of these vs a 55% baseline (+15pp, +0.50% over
         # drift, n=204); silver +11pp, +0.53%, n=204. Best signal in the whole table,
         # so both are strength 3. See backtest_decode.py.
-        "gold": ("up", 3, "opens the door to rate cuts - best-tested signal here"),
-        "silver": ("up", 3, "leads gold on the way up"),
+        "gold": ("up", 3, "opens the door to rate cuts - best-tested call here (+10pp over 10y, n=503)"),
+        "silver": ("up", 3, "follows gold up (+9pp over 10y, n=503)"),
         "oil": ("flat", 1, "mild help from a softer dollar"),
         "flip": "one hot print reverses the whole thing",
     },
@@ -321,8 +321,8 @@ DECODE = {
     },
     "geo_deescalation": {
         "emoji": "\U0001f54a", "label": "GEOPOLITICS — calming down",
-        "why": "The war premium that got priced in now comes back out. Everything that "
-               "rallied on fear gives it back.",
+        "why": "Traders had pushed prices up because they were scared. Now the fear is "
+               "easing, so that extra price comes back off.",
         # MEASURED (n=121 event-days, backtest_geo.py): the textbook "fear bid unwinds,
         # gold down" is NOT what happens. Gold fell on only 36% of these days against a
         # 45% baseline (-9pp); silver -10pp. Two mechanisms fight - the fear premium
@@ -425,8 +425,9 @@ DECODE = {
     },
     "silver_squeeze": {
         "emoji": "⚡", "label": "SILVER — physical squeeze",
-        "why": "There is not enough physical silver where it is needed, so the cost of "
-               "borrowing it spikes and anyone who is short has to buy back fast.",
+        "why": "There is not enough real silver where it is needed. Anyone who sold "
+               "silver they do not hold has to buy it back fast, which forces the "
+               "price up.",
         "gold": ("up", 1, "gets pulled along"),
         "silver": ("up", 3, "this is silver's own violent move"),
         "oil": ("flat", 0, ""),
@@ -451,7 +452,7 @@ DECODE = {
         # Oil is the real one: up 62% vs 53% baseline (+9pp, +0.40% over drift).
         "gold": ("down", 1, "textbook drag, but measures weak - do not short on this alone"),
         "silver": ("down", 1, "no measurable edge in the data"),
-        "oil": ("up", 2, "a busier economy burns more fuel - measured +9pp"),
+        "oil": ("up", 1, "a busier economy burns a bit more fuel - only +3pp over 10y"),
         "flip": "one number is not a trend - the next weak print undoes it",
     },
     "us_data_weak": {
@@ -461,7 +462,7 @@ DECODE = {
                "but it needs factories busy.",
         # MEASURED (n=132): gold up 61% vs 55% baseline (+7pp). Silver only +2pp -
         # the industrial drag really does cancel the rate-cut help.
-        "gold": ("up", 2, "brings rate cuts back onto the table - measured +7pp"),
+        "gold": ("up", 1, "brings rate cuts back into view - a lean, not a signal (+4pp over 10y)"),
         "silver": ("up", 1, "cuts help, weaker industry hurts - nets to nothing measurable"),
         "oil": ("down", 1, "a slower economy burns less fuel"),
         "flip": "one number is not a trend - watch the next jobs print",

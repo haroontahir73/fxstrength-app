@@ -38,7 +38,7 @@ try:
 except Exception:                                              # noqa: BLE001
     pass
 
-CACHE = Path(__file__).parent / "data" / "backtest_calendar.json"
+CACHE = Path(__file__).parent / "data" / "backtest_calendar_long.json"
 INSTR = [("gold", "GC=F"), ("silver", "SI=F"), ("oil", "CL=F")]
 
 
@@ -87,7 +87,7 @@ def fetch_calendar(start):
 def closes(symbol):
     """{date: close} of daily closes, 5 years."""
     url = (f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
-           f"?range=5y&interval=1d")
+           f"?range=10y&interval=1d")
     req = urllib.request.Request(url, headers=cw.UA)
     d = json.loads(urllib.request.urlopen(req, timeout=30).read())
     r = d["chart"]["result"][0]
@@ -118,7 +118,7 @@ def day_return(series, days, when):
 
 
 def main():
-    start = sys.argv[1] if len(sys.argv) > 1 else "2023-01"
+    start = sys.argv[1] if len(sys.argv) > 1 else "2016-09"
     print(f"Pulling US calendar from {start} (month by month)...")
     events = fetch_calendar(start)
     print(f"  {len(events)} releases with actual + forecast\n")
