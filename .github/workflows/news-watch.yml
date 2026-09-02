@@ -24,11 +24,17 @@ on:
   schedule:
     - cron: '7 * * * *'
   workflow_dispatch:
-  # lets a change to this file start a run immediately, which is also how the ntfy
-  # secret gets verified without waiting on the scheduler
+  # A code change has to RESTART the watcher, not wait for it. The loop now runs for
+  # 5.5 hours, so without this a fix to the classifier or the decode table sits unused
+  # for most of a day while the old copy keeps alerting - which is exactly what happened
+  # to the FX playbook correction. cancel-in-progress lets the new run take over at once.
+  # engine/data/** is excluded because the loop commits the feed there on every alert;
+  # GITHUB_TOKEN pushes do not trigger workflows anyway, but this makes it explicit.
   push:
     branches: [main]
     paths:
+      - 'engine/**'
+      - '!engine/data/**'
       - '.github/workflows/news-watch.yml'
 
 permissions:
