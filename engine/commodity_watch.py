@@ -838,10 +838,17 @@ def inject(html_path, block):
     if MARK_A in html and MARK_B in html:
         html = re.sub(re.escape(MARK_A) + ".*?" + re.escape(MARK_B), lambda _: wrapped,
                       html, flags=re.S)
-    elif "</body>" in html:
-        html = html.replace("</body>", wrapped + "\n</body>")
     else:
-        html += wrapped
+        # Straight after <body>, NOT before </body>. The desk page is long, and on a
+        # phone anything appended to the end means scrolling past everything to reach
+        # the one thing you opened the app for.
+        m = re.search(r"<body[^>]*>", html, flags=re.I)
+        if m:
+            html = html[:m.end()] + wrapped + html[m.end():]
+        elif "</body>" in html:
+            html = html.replace("</body>", wrapped + "\n</body>")
+        else:
+            html = wrapped + html
     p.write_text(html, encoding="utf-8")
     print(f"  injected the news block into {p.name}")
     return True
