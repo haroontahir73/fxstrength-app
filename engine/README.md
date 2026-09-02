@@ -363,6 +363,7 @@ validate.py         per-currency AND per-pair check against realised FX moves
 backtest.py         lagged forward-return backtest of the COT leg (caches COT history)
 backtest_blend.py   forward-return backtest of the WHOLE signal, component by component
 backtest_cot_levels.py  walk-forward test of the proven-recurring-level read
+news_watch.py       breaking-news -> ntfy phone alert (its own 15-min workflow)
 build_dashboard.py  renders dashboard.html
 template.py         the HTML shell
 run.py              pipeline runner
