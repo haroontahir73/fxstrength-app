@@ -49,6 +49,10 @@ SEEN_TTL_DAYS = 4
 FEED_KEEP = 60            # alerts retained for the in-app feed
 COOLDOWN_MIN = 90         # one alert per category per this many minutes (see note below)
 
+# sha256 of the topic the phone actually subscribes to, truncated to 24 bits. Used only
+# to detect a mis-set NTFY_TOPIC secret; too short to reveal the topic itself.
+EXPECTED_TOPIC_FP = "557c95"
+
 # A single story - Warsh at Jackson Hole - was carried by 15+ outlets inside the same hour
 # during testing. Hashing the title only dedups exact repeats, so without a cooldown the
 # phone gets buzzed 15 times for one event. One alert per category per COOLDOWN_MIN fixes
@@ -1096,14 +1100,30 @@ def main():
                   "not set, is named something other than NTFY_TOPIC, or was added as an "
                   "Environment/Dependabot secret rather than an Actions repository secret.")
             sys.exit(1)
+        # Diagnosing the case where the secret IS set, the POST returns 200, and yet the
+        # phone gets nothing - i.e. the secret holds a DIFFERENT topic from the one the
+        # phone subscribes to. Comparing fingerprints answers that from outside the run,
+        # since exit codes are visible via the public /actions/runs/<id>/jobs endpoint
+        # while logs need auth. 6 hex is 24 bits: it matches ~16.7 million strings, so
+        # publishing it in a public repo identifies nothing, but a mismatch is conclusive.
+        fp = hashlib.sha256(topic.encode()).hexdigest()[:6]
+        wrong_topic = fp != EXPECTED_TOPIC_FP
         ok = push(topic, "watcher online",
                   "Commodity + FX watcher started on GitHub Actions. Scanning every 5 "
                   "minutes for the next ~5.5 hours. This is a silent status ping.",
                   "https://haroontahir73.github.io/fxstrength-app/dashboard.html",
                   "min", "satellite")
-        print(f"ping: topic set ({len(topic)} chars, starts '{topic[:4]}'),",
+        print(f"ping: topic set ({len(topic)} chars), fingerprint {fp},",
               "delivered" if ok else "POST FAILED")
-        sys.exit(0 if ok else 2)
+        if not ok:
+            sys.exit(2)
+        if wrong_topic:
+            print(f"PING WENT TO THE WRONG TOPIC. The secret's fingerprint is {fp}; the "
+                  f"topic the phone subscribes to fingerprints as {EXPECTED_TOPIC_FP}. "
+                  f"The message was delivered - just not where anyone is listening. "
+                  f"Re-save the NTFY_TOPIC secret with the correct topic.")
+            sys.exit(3)
+        sys.exit(0)
 
     if "--test" in argv:
         body = build("rates_up", "TEST - Fed's Warsh says rates may have to rise",
