@@ -157,6 +157,7 @@ RULES = [
     ("geo_escalation", 3, [
         "airstrike", "air strike", "missile strike", "attacked iran", "strikes iran",
         "strike on iran", "attack on iran", "striking iran", "us strikes", "american attack",
+        "strike iran", "strike israel", "strike russia", "hit iran",
         "bombing", "invasion", "invaded", "declares war", "act of war",
         "military strike", "military action", "retaliatory strike", "ballistic missile",
         "troops enter", "ground offensive", "attacks israel", "bombed", "warships",
@@ -636,10 +637,22 @@ def _snap(snap):
 
 
 # ------------------------------------------------------------------ alert build
-def parts(cat, headline, src, snap, lmap):
+def soften(dec, note="talk, not action yet"):
+    """One notch off every lean - intent moves markets less than the thing itself."""
+    out = dict(dec)
+    for k in ("gold", "silver", "oil"):
+        d, s, r = dec[k]
+        if d != "flat" and s > 1:
+            out[k] = (d, s - 1, f"{r} ({note})")
+    return out
+
+
+def parts(cat, headline, src, snap, lmap, talk=False):
     """The alert broken into fields, so the phone gets flat text and the in-app feed
     gets a properly laid-out card off the same decode."""
     dec, rtext = decoded(cat, lmap)
+    if talk:
+        dec = soften(dec)
     leans = []
     for key, label in (("gold", "GOLD"), ("silver", "SILVER"), ("oil", "OIL")):
         d, s, reason = dec[key]
@@ -652,11 +665,15 @@ def parts(cat, headline, src, snap, lmap):
             "reality": rtext, "flip": dec["flip"]}
 
 
-def build(cat, headline, src, snap, lmap, when=None):
+def build(cat, headline, src, snap, lmap, when=None, talk=False):
     """Flat text for the ntfy push."""
-    p = parts(cat, headline, src, snap, lmap)
+    p = parts(cat, headline, src, snap, lmap, talk)
     lines = [f"{p['emoji']} {p['label']}", ""]
     lines.append(p["headline"] + (f"  ({p['src']})" if p["src"] else ""))
+    if talk:
+        lines.append("")
+        lines.append("^ This is TALK, not something that has happened yet. "
+                     "Conviction cut one notch.")
     lines += ["", "WHY: " + p["why"], ""]
     for ln in p["leans"]:
         row = f"{ln['label']:<7}{ln['arrow']:<4} {ln['call']}"
@@ -792,6 +809,41 @@ RATE_CATS = ("rates_up", "rates_down", "fed_independence")
 OIL_INV_CTX = ("crude", "inventor", "stockpile", "barrel", "eia", "api", "petroleum")
 
 
+# TALK vs ACTION. The classifier was reading a politician's sentence as an event:
+# "Trump: Want to do a Putin summit when we're ready for a peace deal" matched
+# "peace deal" and fired OIL STRONG SHORT - go hunt shorts - off a headline that
+# says a peace deal does NOT exist. It landed in the same minute as an escalation
+# alert pointing the other way.
+# Intent is not an event. Talk still matters (oil does move when Trump threatens
+# Iran), so it is not vetoed outright - it is marked and its conviction is cut.
+TALK_MARKERS = (
+    "prepared to", "ready to", "want to", "wants to", "would like", "hopes to",
+    "aims to", "plans to", "planning to", "considering", "may ", "might ", "could ",
+    "would ", "open to", "willing to", "threatens", "threatened", "warns", "warned",
+    "vows", "vowed", "urges", "calls for", "pushes for", "when we", "if needed",
+    "says he", "says she", "said he", "said she", "suggests", "proposes", "proposal",
+    "talks about", "in talks", "seeking", "expected to", "set to", "poised to",
+)
+# Words that mean it actually happened. A de-escalation headline needs one of these,
+# because "peace deal" as an aspiration is constant background noise on the wires
+# while an actual ceasefire is a genuine, tradeable event.
+CONCRETE = (
+    "agreed", "agrees", "signed", "signs", "reached", "reaches", "announced",
+    "announces", "declared", "declares", "takes effect", "in effect", "holds",
+    "begins", "began", "started", "starts", "confirmed", "confirms", "struck",
+    "brokered", "finalised", "finalized", "implemented", "came into force",
+)
+
+
+def is_talk(title_lc):
+    """A statement of intent rather than something that happened."""
+    return any(m in title_lc for m in TALK_MARKERS)
+
+
+def is_concrete(title_lc):
+    return any(m in title_lc for m in CONCRETE)
+
+
 def _negated(title_lc, pos, kw_len):
     """Is the keyword at `pos` sitting inside a negation?"""
     # the window has to overlap the keyword itself, or "no rate cut" is missed: the
@@ -833,6 +885,11 @@ def classify(title, desc=""):
                 continue                        # "oil stocks" = share prices, not barrels
             if cat in FLIP and _negated(t_n, pos, len(k)):
                 return FLIP[cat], sev, f"NOT {k}"
+            # A ceasefire that has not happened is not a ceasefire.
+            if cat == "geo_deescalation" and is_talk(t_n) and not is_concrete(t_n):
+                continue
+            if is_talk(t_n):
+                return cat, max(sev - 1, 1), f"TALK:{k}"
             return cat, sev, k
     return None
 
@@ -1237,11 +1294,13 @@ def main():
     lmap = level_map() if (items or cal) else {}
     fired = 0
 
-    def emit(cat, head, link, src):
+    def emit(cat, head, link, src, talk=False):
         nonlocal fired
         dec, _ = decoded(cat, lmap)
-        body = build(cat, head, src, snap, lmap)
-        title = headline_title(cat, dec)
+        if talk:
+            dec = soften(dec)
+        body = build(cat, head, src, snap, lmap, talk=talk)
+        title = ("TALK | " if talk else "") + headline_title(cat, dec)
         print(f"\n[{cat}] {title}\n" + "-" * 60 + f"\n{body}\n" + "-" * 60)
         if not dry:
             # No link on the notification, by request: passing one makes ntfy attach a
@@ -1254,8 +1313,24 @@ def main():
             feed_add({"when": dt.datetime.now(dt.timezone.utc).strftime("%d %b %H:%M UTC"),
                       "iso": dt.datetime.now(dt.timezone.utc).isoformat(),
                       "cat": cat, "title": title, "body": body, "link": link,
-                      "parts": parts(cat, head, src, snap, lmap)})
+                      "talk": talk,
+                      "parts": parts(cat, head, src, snap, lmap, talk)})
         fired += 1
+
+    OPPOSITE = {"geo_escalation": "geo_deescalation", "geo_deescalation": "geo_escalation",
+                "oil_supply_tight": "oil_supply_loose", "oil_supply_loose": "oil_supply_tight",
+                "rates_up": "rates_down", "rates_down": "rates_up",
+                "inflation_hot": "inflation_cold", "inflation_cold": "inflation_hot",
+                "us_data_strong": "us_data_weak", "us_data_weak": "us_data_strong",
+                "oil_inv_build": "oil_inv_draw", "oil_inv_draw": "oil_inv_build",
+                "demand_up": "demand_down", "demand_down": "demand_up"}
+
+    def contradicts(cat):
+        """True if the opposite call went out moments ago. The market cannot be both
+        escalating and calming down, and sending both makes the whole thing untrustworthy
+        - which is exactly what happened at 18:31 on 2 Sep."""
+        prev = seen.get(f"cat:{OPPOSITE.get(cat, '')}")
+        return bool(prev) and (time.time() - prev[0]) / 60 < 30
 
     def on_cooldown(cat, sev):
         """True if this category already fired recently and nothing has moved since."""
@@ -1288,6 +1363,9 @@ def main():
         if IMPACT.get(cat, 2) < MIN_IMPACT:
             print(f"  [impact {IMPACT.get(cat, 2)} < {MIN_IMPACT}] {cat}: {it['title'][:70]}")
             continue
+        if contradicts(cat):
+            print(f"  [contradicts a fresh {OPPOSITE[cat]} alert] {cat}: {it['title'][:60]}")
+            continue
         if on_cooldown(cat, sev):
             print(f"  [cooldown] {cat}: {it['title'][:80]}")
             continue
@@ -1295,7 +1373,7 @@ def main():
             print(f"  [claimed by the FX watcher] {cat}: {it['title'][:70]}")
             continue
         seen[f"cat:{cat}"] = [time.time(), sev, lead_price(cat, snap)]
-        emit(cat, it["title"], it["link"], it["src"])
+        emit(cat, it["title"], it["link"], it["src"], talk=hit[2].startswith("TALK:"))
 
     for s in cal:
         key = f"cal:{s['title']}:{s['actual']}"

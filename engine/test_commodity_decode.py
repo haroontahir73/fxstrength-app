@@ -68,6 +68,20 @@ CASES = [
     ("Gold collapses as US-Iran strikes send Oil, US yields higher", "geo_escalation",
      "'US-Iran strikes' matched no escalation keyword"),
 
+    # --- TALK vs ACTION: intent is not an event -------------------------------------
+    # Both of these went out from the live watcher within the same minute on 2 Sep,
+    # pointing opposite ways. The second is the one that should never have fired.
+    ("FinancialJuice: Trump: Want to do a Putin summit when we are ready for a peace deal.",
+     "NO MATCH", "matched 'peace deal' in a sentence saying there ISN'T one -> OIL SHORT"),
+    ("Trump says he is prepared to do another attack on Iran", "geo_escalation",
+     "talk still counts for oil, but must be marked and softened"),
+    ("Iran and US agree ceasefire, Strait of Hormuz to reopen", "geo_deescalation",
+     "a real agreement must still fire"),
+    ("Ceasefire takes effect in the Gulf after talks", "geo_deescalation",
+     "'takes effect' is concrete even though 'talks' appears"),
+    ("Israel warns it could strike Iran if provoked", "geo_escalation",
+     "a threat is talk - fires, but softened"),
+
     # --- geopolitics ------------------------------------------------------------------
     ("Two More Oil Tankers Are Attacked in the Strait of Hormuz", "oil_supply_tight", ""),
     ("Trump confirms US striking Iran.", "geo_escalation", ""),
@@ -130,6 +144,24 @@ def test_title_is_ascii():
     return bad
 
 
+def test_talk_is_softened():
+    """A statement of intent must be flagged and lose a notch of conviction."""
+    bad = []
+    hit = cw.classify("Trump says he is prepared to do another attack on Iran")
+    if not hit or not hit[2].startswith("TALK:"):
+        bad.append("talk headline was not flagged as TALK")
+    action, _ = cw.decoded("geo_escalation", {})
+    softened = cw.soften(action)
+    if softened["oil"][1] >= action["oil"][1]:
+        bad.append("soften() did not reduce conviction")
+    if softened["oil"][0] != action["oil"][0]:
+        bad.append("soften() changed the direction, it must only reduce strength")
+    body = cw.build("geo_escalation", "x", "y", {}, {}, talk=True)
+    if "TALK" not in body:
+        bad.append("the alert body does not say it is talk")
+    return bad
+
+
 def test_market_hours():
     """CME metals/crude: Sunday 22:00 UTC to Friday 21:00 UTC."""
     import datetime as dt
@@ -186,6 +218,12 @@ if __name__ == "__main__":
     for cat, t in bad:
         fails += 1
         print(f"  FAIL  {cat}: {t!r}")
+
+    bad = test_talk_is_softened()
+    print(f"talk vs action: {4 - len(bad)}/4 passed")
+    for b in bad:
+        fails += 1
+        print(f"  FAIL  {b}")
 
     bad = test_market_hours()
     print(f"market hours: {7 - len(bad)}/7 passed")
