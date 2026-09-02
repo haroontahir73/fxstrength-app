@@ -919,9 +919,9 @@ def _card(e):
     if p.get("reality"):
         out.append(f'<div class="cn-real">{_esc(p["reality"])}</div>')
     out.append(f'<div class="cn-flip"><b>What flips it:</b> {_esc(p["flip"])}</div>')
-    if e.get("link"):
-        out.append(f'<a class="cn-link" href="{_esc(e["link"])}" target="_blank" '
-                   f'rel="noopener">read the story &rsaquo;</a>')
+    # No "read the story" link, by request. The decode is the product; sending the
+    # reader off to the article defeats the point of having decoded it. The URL is
+    # still on the feed entry if anything ever needs it.
     out.append("</article>")
     return "".join(out)
 
@@ -953,7 +953,6 @@ CSS = """
 .cn-real{font-size:12.5px;margin-top:8px;padding:8px 10px;border-radius:6px;
  border-left:3px solid #d99000;background:rgba(217,144,0,.10)}
 .cn-flip{font-size:12px;opacity:.65;margin-top:8px}
-.cn-link{display:inline-block;margin-top:8px;font-size:12px;opacity:.7}
 .cn-empty{opacity:.55;font-size:13px;padding:10px 0}
 @media (prefers-color-scheme:dark){.cn-up{color:#35d07f}.cn-dn{color:#ff6b7d}}
 </style>
