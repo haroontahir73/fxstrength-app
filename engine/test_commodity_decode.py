@@ -162,6 +162,26 @@ def test_talk_is_softened():
     return bad
 
 
+def test_track_record():
+    """Every alert must say how well that exact call has done before, or admit it cannot."""
+    bad = []
+    for (cat, key) in cw.EVIDENCE:
+        if cat not in cw.DECODE:
+            bad.append(f"EVIDENCE names {cat}, which is not a real category")
+        elif key not in ("gold", "silver", "oil"):
+            bad.append(f"EVIDENCE names instrument {key}")
+    if not cw.track_record("inflation_cold", "gold").startswith("CONFIDENT"):
+        bad.append("the best-measured call is not reported as confident")
+    if not cw.track_record("fed_independence", "gold").startswith("NOT TESTED"):
+        bad.append("an unmeasured call must say NOT TESTED, never imply evidence")
+    if not cw.track_record("us_data_weak", "silver").startswith("weak"):
+        bad.append("a measured-but-useless call must be reported as weak")
+    body = cw.build("inflation_cold", "h", "s", {}, {})
+    if "CONFIDENT" not in body:
+        bad.append("the track record is missing from the alert body")
+    return bad
+
+
 def test_market_hours():
     """CME metals/crude: Sunday 22:00 UTC to Friday 21:00 UTC."""
     import datetime as dt
@@ -221,6 +241,12 @@ if __name__ == "__main__":
 
     bad = test_talk_is_softened()
     print(f"talk vs action: {4 - len(bad)}/4 passed")
+    for b in bad:
+        fails += 1
+        print(f"  FAIL  {b}")
+
+    bad = test_track_record()
+    print(f"track record: {5 - len(bad)}/5 passed")
     for b in bad:
         fails += 1
         print(f"  FAIL  {b}")

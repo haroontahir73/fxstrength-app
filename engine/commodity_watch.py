@@ -248,6 +248,47 @@ RULES = [
     ]),
 ]
 
+# ------------------------------------------------------------------ track record
+# What each call has actually done in past cases, so an alert can say how much to trust
+# itself. Every figure below comes from a backtest in this folder, not from an opinion:
+#   backtest_decode.py  - 10 years of US releases, close-to-close on the release day
+#   backtest_geo.py     - 7.5 years of news event-days, >=2 outlets to count as an event
+# "edge" is percentage points ABOVE what that instrument does anyway over the same
+# window - the baseline, not 50%, because a trending market flatters every long call.
+# (cat, instrument) -> (times tested, hit rate %, edge in pp)
+EVIDENCE = {
+    ("inflation_cold", "gold"):   (503, 64, +10),
+    ("inflation_cold", "silver"): (503, 61, +9),
+    ("inflation_hot", "gold"):    (485, 50, +4),
+    ("inflation_hot", "silver"):  (485, 52, +4),
+    ("us_data_strong", "gold"):   (402, 48, +2),
+    ("us_data_strong", "silver"): (402, 52, +5),
+    ("us_data_strong", "oil"):    (402, 57, +3),
+    ("us_data_weak", "gold"):     (327, 58, +4),
+    ("us_data_weak", "silver"):   (327, 51, -1),
+    ("us_data_weak", "oil"):      (327, 45, -1),
+    ("oil_supply_tight", "oil"):  (54, 66, +8),
+    ("geo_escalation", "oil"):    (88, 60, +7),
+    ("geo_escalation", "gold"):   (88, 59, +4),
+    ("geo_deescalation", "oil"):  (123, 54, +6),
+}
+
+
+def track_record(cat, key):
+    """One short phrase saying how well this exact call has done before."""
+    ev = EVIDENCE.get((cat, key))
+    if not ev:
+        return "NOT TESTED - no history to judge this on"
+    n, hit, edge = ev
+    if n < 40:
+        return f"thin evidence - only {n} past cases"
+    if edge >= 7:
+        return f"CONFIDENT - right {hit}% of {n} past cases"
+    if edge >= 3:
+        return f"some evidence - right {hit}% of {n} past cases"
+    return f"weak - {hit}% of {n} past cases, no better than chance"
+
+
 # ------------------------------------------------------------------ the decoder
 # Per category: the plain-words meaning, plus a lean for each metal / oil.
 # lean = (direction, strength 0-3, short reason).  Direction: "up" | "down" | "flat".
@@ -298,8 +339,8 @@ DECODE = {
         # MEASURED: gold up on 70% of these vs a 55% baseline (+15pp, +0.50% over
         # drift, n=204); silver +11pp, +0.53%, n=204. Best signal in the whole table,
         # so both are strength 3. See backtest_decode.py.
-        "gold": ("up", 3, "opens the door to rate cuts - best-tested call here (+10pp over 10y, n=503)"),
-        "silver": ("up", 3, "follows gold up (+9pp over 10y, n=503)"),
+        "gold": ("up", 3, "opens the door to rate cuts"),
+        "silver": ("up", 3, "follows gold up"),
         "oil": ("flat", 1, "mild help from a softer dollar"),
         "flip": "one hot print reverses the whole thing",
     },
@@ -313,9 +354,9 @@ DECODE = {
         # and silver makes no claim. Oil is the leg that measures: +7pp, +0.67%.
         # This is the third independent measurement saying the same thing: on oil and
         # war news, the OIL leg carries the edge and the metals legs do not.
-        "gold": ("up", 1, "panic buy is real but measures weak (+4pp, ~0% excess)"),
+        "gold": ("up", 1, "the classic panic buy"),
         "silver": ("flat", 0, "no measurable edge - it is half an industrial metal"),
-        "oil": ("up", 3, "supply at risk = price up fast - measured +7pp"),
+        "oil": ("up", 3, "supply at risk = price up fast"),
         "flip": "any hint of a ceasefire and the whole premium comes straight out",
         "regime_sensitive": True,
     },
@@ -331,7 +372,7 @@ DECODE = {
         # would be inventing one. Oil is the tradeable leg: 51% vs 47%, +0.51% over drift.
         "gold": ("flat", 0, "measured both ways - fear-out vs yields-down cancel"),
         "silver": ("flat", 0, "same, no reliable direction"),
-        "oil": ("down", 3, "supply worry gone, barrels flow again - measured +4pp"),
+        "oil": ("down", 3, "supply worry gone, barrels flow again"),
         "flip": "these deals break — one broken truce and it all goes back on",
     },
     "oil_supply_tight": {
@@ -345,7 +386,7 @@ DECODE = {
         # +1.43% over drift).
         "gold": ("flat", 0, "the inflation-hedge step does not hold up in the data"),
         "silver": ("flat", 0, "measured against the call"),
-        "oil": ("up", 3, "the direct hit - best-measured news signal (+13pp)"),
+        "oil": ("up", 3, "the direct hit"),
         "flip": "if the disruption turns out to be small or short, it fades within days",
     },
     "oil_supply_loose": {
@@ -452,7 +493,7 @@ DECODE = {
         # Oil is the real one: up 62% vs 53% baseline (+9pp, +0.40% over drift).
         "gold": ("down", 1, "textbook drag, but measures weak - do not short on this alone"),
         "silver": ("down", 1, "no measurable edge in the data"),
-        "oil": ("up", 1, "a busier economy burns a bit more fuel - only +3pp over 10y"),
+        "oil": ("up", 1, "a busier economy burns a bit more fuel"),
         "flip": "one number is not a trend - the next weak print undoes it",
     },
     "us_data_weak": {
@@ -462,7 +503,7 @@ DECODE = {
                "but it needs factories busy.",
         # MEASURED (n=132): gold up 61% vs 55% baseline (+7pp). Silver only +2pp -
         # the industrial drag really does cancel the rate-cut help.
-        "gold": ("up", 1, "brings rate cuts back into view - a lean, not a signal (+4pp over 10y)"),
+        "gold": ("up", 1, "brings rate cuts back into view"),
         "silver": ("up", 1, "cuts help, weaker industry hurts - nets to nothing measurable"),
         "oil": ("down", 1, "a slower economy burns less fuel"),
         "flip": "one number is not a trend - watch the next jobs print",
@@ -695,7 +736,8 @@ def parts(cat, headline, src, snap, lmap, talk=False):
         call = ("no clean read" if d == "flat" or s == 0
                 else CALL[s].format(side="short" if d == "down" else "long"))
         leans.append({"label": label, "arrow": ARROWS.get((d, s), "→"), "dir": d,
-                      "strength": s, "call": call, "reason": reason})
+                      "strength": s, "call": call, "reason": reason,
+                      "record": track_record(cat, key) if d != "flat" and s else ""})
     return {"emoji": dec["emoji"], "label": dec["label"], "headline": headline,
             "src": src, "why": dec["why"], "leans": leans, "snap": _snap(snap),
             "reality": rtext, "flip": dec["flip"]}
@@ -716,6 +758,8 @@ def build(cat, headline, src, snap, lmap, when=None, talk=False):
         if ln["reason"]:
             row += f" - {ln['reason']}"
         lines.append(row)
+        if ln.get("record"):
+            lines.append(f"        [{ln['record']}]")
     if p["snap"]:
         lines += ["", p["snap"]]
         if market_closed():
@@ -1130,6 +1174,12 @@ def _card(e, now_px=None):
         cls = {"up": "cn-up", "down": "cn-dn"}.get(ln["dir"], "cn-fl")
         why = (f'<div class="cn-why">{_esc(ln["reason"])}</div>'
                if ln["reason"] else "")
+        rec = ln.get("record", "")
+        if rec:
+            rc = ("cn-rec-hi" if rec.startswith("CONFIDENT") else
+                  "cn-rec-lo" if rec.startswith(("NOT TESTED", "weak", "thin"))
+                  else "cn-rec-md")
+            why += f'<div class="cn-rec {rc}">{_esc(rec)}</div>' 
         rows += (f'<tr><td class="cn-inst">{ln["label"]}</td>'
                  f'<td class="cn-arrow {cls}">{ln["arrow"]}</td>'
                  f'<td><div class="cn-call {cls}">{_esc(ln["call"])}</div>'
@@ -1183,6 +1233,9 @@ CSS = """
 .cn-arrow{font-size:15px;font-weight:700;width:40px;letter-spacing:-1px;vertical-align:top}
 .cn-call{font-weight:600}
 .cn-why{opacity:.6;font-size:12px;line-height:1.35;margin-top:1px}
+.cn-rec{font-size:11px;margin-top:2px;letter-spacing:.02em}
+.cn-rec-hi{color:#12924b;font-weight:600}.cn-rec-md{opacity:.55}.cn-rec-lo{opacity:.45;font-style:italic}
+@media (prefers-color-scheme:dark){.cn-rec-hi{color:#35d07f}}
 .cn-up{color:#12924b}.cn-dn{color:#d1344a}.cn-fl{opacity:.5}
 .cn-snap{font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
  opacity:.7;padding:7px 9px;border-radius:6px;background:rgba(128,128,128,.12);
