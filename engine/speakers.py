@@ -24,9 +24,9 @@ Both are merged here and de-duplicated.
 TONE IS NOT AUTOMATIC
 ---------------------
 What a speaker *said* cannot be derived from a calendar row - it needs reading. Tone lives
-in data/speech_tone.json, scored -2 (very dovish) to +2 (very hawkish), filled by hand or by
-a Claude run. Unscored events are listed as pending and contribute nothing rather than being
-guessed at.
+in data/speech_tone.json, scored -2 (strongly leaning toward rate cuts) to +2 (strongly
+leaning toward rate hikes), filled by hand or by a Claude run. Unscored events are listed as
+pending and contribute nothing rather than being guessed at.
 
 Writes data/speakers.json.
 """

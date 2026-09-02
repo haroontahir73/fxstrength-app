@@ -168,22 +168,37 @@ PLAYBOOK = {
         "dxy": "depends", "gold": "UP on any policy shock", "silver": "UP",
         "wti": "flat", "jpy": "big move if BoJ / MoF", "chf": "big move if SNB",
         "eur": "big move if ECB", "gbp": "big move if BoE", "aud": "-", "nzd": "-", "cad": "-",
-        "equities": "DOWN on a hawkish shock", "note": "The acting central bank's currency moves most; read the direction from the headline.",
+        "equities": "DOWN on a rate-hike shock", "note": "The acting central bank's currency moves most; read the direction from the headline.",
     },
     "data_surprise_hot": {
         "emoji": "\U0001f4c8", "risk": "USD-POSITIVE",
         "dxy": "UP", "gold": "DOWN", "silver": "DOWN", "wti": "flat",
         "jpy": "DOWN (USDJPY up)", "chf": "DOWN vs USD", "eur": "DOWN", "gbp": "DOWN",
         "aud": "DOWN", "nzd": "DOWN", "cad": "DOWN", "equities": "DOWN if it kills rate-cut hopes",
-        "note": "Strong US data - pushes Fed pricing hawkish.",
+        "note": "Strong US data - pushes the Fed toward keeping rates high / hiking.",
     },
     "data_surprise_cold": {
         "emoji": "\U0001f4c9", "risk": "USD-NEGATIVE",
         "dxy": "DOWN", "gold": "UP", "silver": "UP", "wti": "DOWN (demand)",
         "jpy": "UP (USDJPY down)", "chf": "UP vs USD", "eur": "UP", "gbp": "UP",
         "aud": "UP", "nzd": "UP", "cad": "DOWN if its own data", "equities": "UP (cut hopes)",
-        "note": "Weak US data - pushes Fed pricing dovish.",
+        "note": "Weak US data - pushes the Fed toward cutting rates.",
     },
+}
+
+# plain-English display names (the internal keys stay as-is for the classifier)
+CAT_LABEL = {
+    "geo_escalation": "GEOPOLITICS — escalation",
+    "geo_deescalation": "GEOPOLITICS — de-escalation",
+    "trump_fed": "TRUMP vs THE FED",
+    "tariff": "TARIFFS / TRADE WAR",
+    "fed_hawkish": "FED — leaning toward higher rates",
+    "fed_dovish": "FED — leaning toward rate cuts",
+    "energy_supply": "OIL / ENERGY SUPPLY",
+    "risk_off_move": "RISK-OFF move underway",
+    "cb_surprise": "CENTRAL-BANK SURPRISE",
+    "data_surprise_hot": "US DATA — strong (USD positive)",
+    "data_surprise_cold": "US DATA — weak (USD negative)",
 }
 
 INSTR_ORDER = [("dxy", "DXY"), ("gold", "Gold"), ("silver", "Silver"), ("wti", "WTI"),
@@ -371,10 +386,10 @@ def _regime_note(snap):
     y = snap["US10Y"][1]
     if g < -0.3 and y > 0.3:
         return ("REGIME: gold is FALLING while US yields RISE - the market is trading the "
-                "oil->inflation->Fed-hawkish channel, not the safe-haven channel. In this "
-                "regime an escalation headline lifts USD and yields and PRESSURES gold. "
-                "The haven bid only takes over if the news threatens growth more than it "
-                "threatens inflation (broad war, equity crash).")
+                "oil -> inflation -> Fed-keeps-rates-high chain, not the safe-haven trade. "
+                "In this regime an escalation headline lifts USD and yields and PRESSURES "
+                "gold. The safe-haven bid only takes over if the news threatens growth more "
+                "than it threatens inflation (broad war, equity crash).")
     if g > 0.4 and (("S&P" in snap and snap["S&P"][1] < -0.4)):
         return ("REGIME: classic risk-off - gold bid, equities offered. The textbook "
                 "playbook below is the one in force right now.")
@@ -383,7 +398,7 @@ def _regime_note(snap):
 
 def build_alert(cat, headline, link, src, weekend, snap=None):
     pb = PLAYBOOK[cat]
-    lines = [f"{pb['emoji']} {cat.replace('_', ' ').upper()}  —  {pb['risk']}", ""]
+    lines = [f"{pb['emoji']} {CAT_LABEL.get(cat, cat)}  —  {pb['risk']}", ""]
     lines.append(headline + (f"  ({src})" if src else ""))
     sl = _snap_line(snap)
     if sl:
@@ -478,7 +493,7 @@ def main():
         cat, sev, kw = hit
         seen[h] = time.time()
         body = build_alert(cat, it["title"], it["link"], it["src"], weekend, snap)
-        title = f"FX ALERT: {cat.replace('_',' ')}"
+        title = f"FX: {CAT_LABEL.get(cat, cat)}"
         prio = "urgent" if sev >= 3 else "high"
         print(f"\n[{cat}/{sev}] <{kw}>\n" + "-" * 60 + f"\n{body}\n" + "-" * 60)
         if not dry:
