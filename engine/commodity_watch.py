@@ -839,16 +839,22 @@ def inject(html_path, block):
         html = re.sub(re.escape(MARK_A) + ".*?" + re.escape(MARK_B), lambda _: wrapped,
                       html, flags=re.S)
     else:
-        # Straight after <body>, NOT before </body>. The desk page is long, and on a
-        # phone anything appended to the end means scrolling past everything to reach
-        # the one thing you opened the app for.
-        m = re.search(r"<body[^>]*>", html, flags=re.I)
+        # Top of the VISIBLE content, not the top of the file. The desk page is long and
+        # on a phone the news has to be the first thing you see - but it is also a bare
+        # fragment with no <body> (it opens with <title>/<link>/<style>), so prepending
+        # blindly puts the block above the document's own head content. Anchor on the
+        # first <header> instead, and only fall back to appending.
+        m = (re.search(r"<body[^>]*>", html, flags=re.I))
         if m:
             html = html[:m.end()] + wrapped + html[m.end():]
-        elif "</body>" in html:
-            html = html.replace("</body>", wrapped + "\n</body>")
         else:
-            html = wrapped + html
+            m = re.search(r"<header[^>]*>", html, flags=re.I)
+            if m:
+                html = html[:m.start()] + wrapped + html[m.start():]
+            elif "</body>" in html:
+                html = html.replace("</body>", wrapped + "\n</body>")
+            else:
+                html += wrapped
     p.write_text(html, encoding="utf-8")
     print(f"  injected the news block into {p.name}")
     return True
