@@ -1334,12 +1334,25 @@ def main():
     seen = load_seen()
     items = gather()
     cal = calendar_hits()
-    snap = market_snapshot() if (items or cal) else {}
-    lmap = level_map() if (items or cal) else {}
     fired = 0
+
+    # Prices are fetched LAZILY - only once a story has cleared every filter and is
+    # actually going to alert. Pulling them on every pass meant 17 Yahoo symbols every
+    # 3 minutes, about 290 requests an hour, and Yahoo rate-limited us: the 18:42 alert
+    # on 2 Sep went out with no price line at all, and with no baseline stored the card
+    # could not be scored later either. Alerts happen a few times a day; prices are now
+    # pulled a few times a day.
+    _px = {}
+
+    def prices():
+        if not _px:
+            _px["snap"] = market_snapshot()
+            _px["lmap"] = level_map()
+        return _px["snap"], _px["lmap"]
 
     def emit(cat, head, link, src, talk=False):
         nonlocal fired
+        snap, lmap = prices()
         dec, _ = decoded(cat, lmap)
         if talk:
             dec = soften(dec)
@@ -1402,7 +1415,7 @@ def main():
         if age_min >= COOLDOWN_MIN or sev > prev[1]:
             return False
         # the market's vote: a real move since the last alert means a real new event
-        now_px = lead_price(cat, snap)
+        now_px = lead_price(cat, prices()[0])
         then_px = prev[2] if len(prev) > 2 else None
         if now_px and then_px:
             moved = abs(now_px - then_px) / then_px * 100
@@ -1433,7 +1446,7 @@ def main():
         if not dry and not theme_claim(cat, "commodity"):
             print(f"  [claimed by the FX watcher] {cat}: {it['title'][:70]}")
             continue
-        seen[f"cat:{cat}"] = [time.time(), sev, lead_price(cat, snap)]
+        seen[f"cat:{cat}"] = [time.time(), sev, lead_price(cat, prices()[0])]
         emit(cat, it["title"], it["link"], it["src"], talk=hit[2].startswith("TALK:"))
 
     for s in cal:
@@ -1446,7 +1459,7 @@ def main():
         head = (f"US {s['title']}: {s['actual']} vs {s['forecast']} expected - {verdict} "
                 f"({s['surp']*100:+.0f}%)")
         # a real data print always goes through - it IS the event, not coverage of it
-        seen[f"cat:{s['cat']}"] = [time.time(), 3, lead_price(s["cat"], snap)]
+        seen[f"cat:{s['cat']}"] = [time.time(), 3, lead_price(s["cat"], prices()[0])]
         emit(s["cat"], head, "", "economic calendar")
 
     if not dry:
