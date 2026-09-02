@@ -1,5 +1,48 @@
 [
  {
+  "when": "02 Sep 16:58 UTC",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nSaudi Arabia condemns deadly Iran attack on oil tanker in Strait of Hormuz - Arab News  (Arab News)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2191    mild long bias - dearer oil = more inflation worry\nSILVER \u2191    mild long bias - mild follow\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - this is the direct hit\n\nNOW  Gold 4,412 (+1.5%)   Silver 65.48 (+1.3%)   WTI 91.08 (+1.0%)   DXY 99.54 (-0.1%)   US10Y 4.80 (+0.0%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOWlFXTTVJQU5kRHlOT2V1QWw4YWJ0TUR6YVhfcGp4TkF3SzJzdG1nZnFRZHpId0t4dGp2VUVDdEpGNGNmNlVVOTVhTmFLT05CbEs2aERoS1lySFN1SXpfeW9xdEVmNkl5elJSRk4yOXRLdkpkeXVyS21KUkh5dl8xZ3pNRnd4VUdoMFpvMkQ1ak1zYldYMGxEaUhZZ3JCRk9XVDFDUHh1Vkl1V0tkS1kyRkFjX0h6RTJEVXFNSQ?oc=5",
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Saudi Arabia condemns deadly Iran attack on oil tanker in Strait of Hormuz - Arab News",
+   "src": "Arab News",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "dearer oil = more inflation worry"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "mild follow"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "this is the direct hit"
+    }
+   ],
+   "snap": "NOW  Gold 4,412 (+1.5%)   Silver 65.48 (+1.3%)   WTI 91.08 (+1.0%)   DXY 99.54 (-0.1%)   US10Y 4.80 (+0.0%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "02 Sep 16:35 UTC",
   "cat": "rates_up",
   "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
