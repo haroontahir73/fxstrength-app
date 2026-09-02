@@ -524,16 +524,39 @@ def build(cat, headline, src, snap, lmap, when=None):
 def headline_title(cat, dec=None):
     """The one line that shows on the phone's lock screen - lead with the lean.
 
+    ASCII ONLY, deliberately. ntfy sends the title as an HTTP header and non-ASCII
+    gets replaced character by character: the first live push landed on the phone as
+    "GOLD ?? - US DATA ? came in weak", which throws away the entire point of the
+    title. So the arrows become words here, and the body keeps the real arrows.
+
     Pass the REGIME-ADJUSTED dec from decoded(), never the raw table.
     """
     dec = dec or DECODE[cat]
-    parts = []
+    longs, shorts, strong = [], [], False
     for key, label in (("gold", "GOLD"), ("silver", "SILVER"), ("oil", "OIL")):
         d, s, _ = dec[key]
-        if d != "flat" and s >= 2:
-            parts.append(f"{label} {ARROWS[(d, s)]}")
-    lead = " ".join(parts) if parts else dec["label"]
-    return f"{lead} - {dec['label']}" if parts else dec["label"]
+        if d == "flat" or s < 2:
+            continue
+        (longs if d == "up" else shorts).append(label)
+        strong = strong or s >= 3
+
+    side = []
+    if shorts:
+        side.append("+".join(shorts) + (" STRONG SHORT" if strong else " SHORT"))
+    if longs:
+        side.append("+".join(longs) + (" STRONG LONG" if strong else " LONG"))
+
+    label = dec["label"].replace("—", "-")
+    if not side:
+        return _ascii(label)
+    return _ascii(", ".join(side) + " | " + label)
+
+
+def _ascii(s):
+    """Last-resort transliteration so nothing reaches the header as '?'."""
+    return (s.replace("—", "-").replace("–", "-")
+             .replace("’", "'").replace("‘", "'")
+             .encode("ascii", "ignore").decode().strip())
 
 
 # ------------------------------------------------------------------ state
@@ -849,6 +872,14 @@ def main():
             topic = tf.read_text(encoding="utf-8").strip()
 
     argv = sys.argv[1:]
+
+    # Silence here is indistinguishable from "no news", which is how a whole day can go by
+    # with nothing on the phone and nothing obviously wrong. Say it loudly instead.
+    if not topic and not any(a in argv for a in ("--render", "--audit", "--replay")):
+        print("!" * 70)
+        print("! NTFY_TOPIC is not set - alerts will be printed here and NOT sent to the")
+        print("! phone. On GitHub: Settings > Secrets and variables > Actions > NTFY_TOPIC.")
+        print("!" * 70)
 
     if "--render" in argv:
         i = argv.index("--render")
