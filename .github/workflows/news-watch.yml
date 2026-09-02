@@ -92,6 +92,8 @@ jobs:
         working-directory: engine
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python commodity_watch.py --ping
 
       - name: Watch (3-minute beat for ~5.5 hours)
@@ -99,6 +101,8 @@ jobs:
         timeout-minutes: 340
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
