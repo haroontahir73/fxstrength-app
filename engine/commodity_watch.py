@@ -260,9 +260,15 @@ DECODE = {
         "emoji": "\U0001f6a8", "label": "GEOPOLITICS — escalation",
         "why": "War scares people into buying safety, and it threatens the supply of oil "
                "coming out of the region.",
-        "gold": ("up", 2, "the classic panic buy"),
-        "silver": ("up", 1, "tags along, but it is half an industrial metal"),
-        "oil": ("up", 3, "supply at risk = price up fast"),
+        # MEASURED over 7.5 years (n=88 event-days): gold +4pp over baseline but with
+        # ~0.00% excess move, silver +3pp with a NEGATIVE excess move. The panic buy is
+        # real but weak - not a "look for longs" signal - so gold drops to a mild bias
+        # and silver makes no claim. Oil is the leg that measures: +7pp, +0.67%.
+        # This is the third independent measurement saying the same thing: on oil and
+        # war news, the OIL leg carries the edge and the metals legs do not.
+        "gold": ("up", 1, "panic buy is real but measures weak (+4pp, ~0% excess)"),
+        "silver": ("flat", 0, "no measurable edge - it is half an industrial metal"),
+        "oil": ("up", 3, "supply at risk = price up fast - measured +7pp"),
         "flip": "any hint of a ceasefire and the whole premium comes straight out",
         "regime_sensitive": True,
     },
