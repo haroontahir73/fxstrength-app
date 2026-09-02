@@ -1,5 +1,56 @@
 [
  {
+  "when": "02 Sep 20:34 UTC",
+  "iso": "2026-09-02T20:34:36.332147+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nEU struggles to find an effective response after Germany blames Russia for a failed drone attack - Los Angeles Times  (Los Angeles Times)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - panic buy is real but measures weak (+4pp, ~0% excess)\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast - measured +7pp\n\nNOW  Gold 4,432 (+1.9%)   Silver 65.87 (+1.9%)   WTI 90.64 (+0.5%)   DXY 99.55 (-0.1%)   US10Y 4.80 (-0.0%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQQUczTVBQekQ4WFFSZnQteWFOYlZHM0Z6bmQ4alA4R1JScTFTSlZXSWRENUtTU1AxWkQtcE5mZjBGQWZCSkRKWTctaWxzU2hGamRIX29tTk82Yk82MWNnUHlZVTVXUGtOYW5oUWs2NjZkSnJmbHlGcEZzYWNhUVlnVnlBc3VTUTJoRTRtS2Y1ZFRxME9HRmdZWkViQ2pqeU1MR1NLV0o3cUZLc0VHZVdYN0tNb0RnVERYcHE1eThmSFdVa1BBeXlHRg?oc=5",
+  "talk": false,
+  "pushed": false,
+  "px": {
+   "Gold": 4432.3,
+   "Silver": 65.87,
+   "WTI": 90.64
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "EU struggles to find an effective response after Germany blames Russia for a failed drone attack - Los Angeles Times",
+   "src": "Los Angeles Times",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "panic buy is real but measures weak (+4pp, ~0% excess)"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast - measured +7pp"
+    }
+   ],
+   "snap": "NOW  Gold 4,432 (+1.9%)   Silver 65.87 (+1.9%)   WTI 90.64 (+0.5%)   DXY 99.55 (-0.1%)   US10Y 4.80 (-0.0%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "02 Sep 18:31 UTC",
   "cat": "geo_escalation",
   "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
