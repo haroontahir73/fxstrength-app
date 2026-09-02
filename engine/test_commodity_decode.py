@@ -57,6 +57,17 @@ CASES = [
     ("Australian Q2 GDP 0.4% q/q (expected 0.3%, prior 0.3%)", "NO MATCH",
      "fired as 'FED - leaning toward higher rates'"),
 
+    # --- RECALL: these fired NOTHING, which is the failure you never notice ----------
+    # Found by listing commodity-relevant headlines that classified to nothing at all.
+    # Precision testing (is what it fires correct?) will never surface these.
+    ("Gold Steadies After Tumbling as Warsh Spurs Fed Rate-Hike Bets", "rates_up",
+     "outlets write 'rate-hike'; only the spaced form was matched. Bloomberg."),
+    ("Gold dips as Fed rate-hike bets rise, still heads for best month", "rates_up", ""),
+    ("Gold tests $4,311 support as Fed-hike odds hold near 66%", "rates_up",
+     "'Fed-hike' - neither the hyphen nor the 'fed hike' phrasing was covered"),
+    ("Gold collapses as US-Iran strikes send Oil, US yields higher", "geo_escalation",
+     "'US-Iran strikes' matched no escalation keyword"),
+
     # --- geopolitics ------------------------------------------------------------------
     ("Two More Oil Tankers Are Attacked in the Strait of Hormuz", "oil_supply_tight", ""),
     ("Trump confirms US striking Iran.", "geo_escalation", ""),

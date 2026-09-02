@@ -83,6 +83,7 @@ RULES = [
     ("rates_up", 3, [
         "may have to rise", "may have to raise", "rates could rise", "rate hike",
         "hike on the table", "open to a hike", "favor of a hike", "higher for longer",
+        "fed hike", "hike bets", "hike odds", "hike expectations",
         "not ready to cut", "premature to cut", "no rush to cut", "pushes back on rate cut",
         "restrictive for longer", "inflation too high", "work to do on inflation",
         "more work to do", "hawkish", "raises rates", "raised rates", "hikes rates",
@@ -120,7 +121,8 @@ RULES = [
         "military strike", "military action", "retaliatory strike", "ballistic missile",
         "troops enter", "ground offensive", "attacks israel", "bombed", "warships",
         "blockade", "tanker attacked", "tanker seized", "drone attack", "shot down",
-        "fighting resumes", "strikes resume",
+        "fighting resumes", "strikes resume", "iran strikes", "strikes send",
+        "strikes deepen", "strikes escalate",
     ]),
     ("geo_deescalation", 3, [
         "ceasefire", "cease-fire", "peace deal", "peace agreement", "truce agreed",
@@ -686,23 +688,29 @@ def classify(title, desc=""):
     de-escalation alert. The description is now only allowed to veto, never to fire.
     """
     t = title.lower()
+    # Half the wires write "rate-hike", "Fed-hike", "US-Iran strikes". Matching only the
+    # spaced form silently dropped 5 unique stories in one 3-day sample, Bloomberg among
+    # them. replace() is length-preserving, so offsets stay valid for the negation check.
+    t_n = t.replace("-", " ")
     blob = (title + " " + desc).lower()
-    if any(v in blob for v in VETO) or any(v in t for v in VETO_EXTRA):
+    if any(v in blob for v in VETO) or any(v in t_n for v in VETO_EXTRA):
         return None
     for cat, sev, keys in RULES:
         for k in keys:
             pos = t.find(k)
             if pos < 0:
+                pos = t_n.find(k)               # hyphenated variant
+            if pos < 0:
                 continue
-            if cat in US_GATED and not any(c in t for c in US_CTX):
+            if cat in US_GATED and not any(c in t_n for c in US_CTX):
                 continue                        # a non-US rate story, not our business
-            if cat in RATE_CATS and any(h in t for h in HIGHER_TOK) \
-                    and any(l in t for l in LOWER_TOK):
+            if cat in RATE_CATS and any(h in t_n for h in HIGHER_TOK) \
+                    and any(l in t_n for l in LOWER_TOK):
                 return None                     # points both ways - no lean to give
             if cat in ("oil_inv_build", "oil_inv_draw") \
-                    and not any(c in t for c in OIL_INV_CTX):
+                    and not any(c in t_n for c in OIL_INV_CTX):
                 continue                        # "oil stocks" = share prices, not barrels
-            if cat in FLIP and _negated(t, pos, len(k)):
+            if cat in FLIP and _negated(t_n, pos, len(k)):
                 return FLIP[cat], sev, f"NOT {k}"
             return cat, sev, k
     return None
