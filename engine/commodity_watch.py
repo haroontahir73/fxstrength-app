@@ -926,10 +926,12 @@ def _card(e):
     rows = ""
     for ln in p["leans"]:
         cls = {"up": "cn-up", "down": "cn-dn"}.get(ln["dir"], "cn-fl")
+        why = (f'<div class="cn-why">{_esc(ln["reason"])}</div>'
+               if ln["reason"] else "")
         rows += (f'<tr><td class="cn-inst">{ln["label"]}</td>'
                  f'<td class="cn-arrow {cls}">{ln["arrow"]}</td>'
-                 f'<td class="cn-call {cls}">{_esc(ln["call"])}</td>'
-                 f'<td class="cn-why">{_esc(ln["reason"])}</td></tr>')
+                 f'<td><div class="cn-call {cls}">{_esc(ln["call"])}</div>'
+                 f'{why}</td></tr>')
 
     src = f' <span class="cn-src">{_esc(p["src"])}</span>' if p.get("src") else ""
     out = [f'<article class="cn-card"><div class="cn-when">{_esc(e["when"])} '
@@ -963,16 +965,16 @@ CSS = """
 .cn-head{font-size:14.5px;font-weight:650;margin:0 0 6px;line-height:1.35}
 .cn-src{font-size:11px;font-weight:400;opacity:.5}
 .cn-why-p{font-size:13px;margin:0 0 10px;opacity:.85}
-.cn-leans{border-collapse:collapse;width:100%;margin:0 0 10px}
+.cn-leans{border-collapse:collapse;width:100%;table-layout:fixed;margin:0 0 10px}
 .cn-leans td{padding:3px 0;vertical-align:baseline;font-size:13px}
-.cn-inst{font-weight:700;letter-spacing:.04em;width:62px}
-.cn-arrow{font-size:15px;font-weight:700;width:44px;letter-spacing:-1px}
-.cn-call{font-weight:600;white-space:nowrap;padding-right:10px!important}
-.cn-why{opacity:.6;font-size:12px}
+.cn-inst{font-weight:700;letter-spacing:.04em;width:62px;vertical-align:top}
+.cn-arrow{font-size:15px;font-weight:700;width:40px;letter-spacing:-1px;vertical-align:top}
+.cn-call{font-weight:600}
+.cn-why{opacity:.6;font-size:12px;line-height:1.35;margin-top:1px}
 .cn-up{color:#12924b}.cn-dn{color:#d1344a}.cn-fl{opacity:.5}
 .cn-snap{font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
  opacity:.7;padding:7px 9px;border-radius:6px;background:rgba(128,128,128,.12);
- overflow-x:auto;white-space:nowrap}
+ overflow-wrap:anywhere}
 .cn-real{font-size:12.5px;margin-top:8px;padding:8px 10px;border-radius:6px;
  border-left:3px solid #d99000;background:rgba(217,144,0,.10)}
 .cn-flip{font-size:12px;opacity:.65;margin-top:8px}

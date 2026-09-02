@@ -109,7 +109,15 @@ jobs:
             # cache is only written in the post-job step, so without this the phone
             # gets an alert up to ~55 min before the dashboard shows it.
             if ! git diff --quiet -- data/commodity_feed.json; then
-              git add data/commodity_feed.json
+              # Commit the dedup state WITH the feed. The cache is only written in the
+              # post-job step, which is skipped when a run is cancelled - and engine
+              # pushes now cancel the running job deliberately. Without this, every
+              # deploy reset the dedup and re-alerted stories from the last 45 minutes.
+              # Piggy-backing on the feed commit keeps this to a few commits a day
+              # rather than one per pass.
+              for f in commodity_feed.json commodity_seen.json news_seen.json theme_claims.json; do
+                [ -f "data/$f" ] && git add "data/$f"
+              done
               git commit -m "feed: new commodity alert(s) [skip refresh]" || true
               git push || echo "  push failed - the cache still carries the feed"
             fi
