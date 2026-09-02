@@ -77,6 +77,8 @@ jobs:
             engine/data/commodity_seen.json
             engine/data/commodity_feed.json
             engine/data/theme_claims.json
+            engine/data/alert_scores.json
+            engine/data/decode_overrides.json
           key: commodity-state-${{ github.run_id }}
           restore-keys: commodity-state-
 
@@ -111,6 +113,11 @@ jobs:
             # still fires on themes the decoder ignored (tariffs, BoJ, majors).
             python commodity_watch.py || true
             python news_watch.py      || true
+            # Every 10th pass (~30 min): mark past calls against the tape, downgrade
+            # whatever is measurably not working, and report any health problem.
+            if [ $(( PASS % 10 )) -eq 1 ]; then
+              python selfcheck.py || true
+            fi
             # Publish the feed as soon as an alert lands, not when the job ends. The
             # cache is only written in the post-job step, so without this the phone
             # gets an alert up to ~55 min before the dashboard shows it.
@@ -121,7 +128,7 @@ jobs:
               # deploy reset the dedup and re-alerted stories from the last 45 minutes.
               # Piggy-backing on the feed commit keeps this to a few commits a day
               # rather than one per pass.
-              for f in commodity_feed.json commodity_seen.json news_seen.json theme_claims.json; do
+              for f in commodity_feed.json commodity_seen.json news_seen.json                        theme_claims.json alert_scores.json decode_overrides.json; do
                 [ -f "data/$f" ] && git add "data/$f"
               done
               git commit -m "feed: new commodity alert(s) [skip refresh]" || true
@@ -155,4 +162,6 @@ jobs:
             engine/data/commodity_seen.json
             engine/data/commodity_feed.json
             engine/data/theme_claims.json
+            engine/data/alert_scores.json
+            engine/data/decode_overrides.json
           key: commodity-state-${{ github.run_id }}

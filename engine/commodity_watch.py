@@ -568,6 +568,41 @@ def apply_regime(dec, tag):
     return out
 
 
+OVERRIDE_FILE = DATA / "decode_overrides.json"
+
+
+def load_overrides():
+    """Downgrades selfcheck.py has earned by marking past calls against the tape.
+
+    Written by selfcheck, read here. Only ever WEAKENS a lean - see that file for why
+    flipping a direction on a losing run is a trap rather than a correction.
+    """
+    try:
+        return json.loads(OVERRIDE_FILE.read_text(encoding="utf-8"))
+    except Exception:                                          # noqa: BLE001
+        return {}
+
+
+def apply_overrides(dec, cat, ov=None):
+    ov = load_overrides() if ov is None else ov
+    if not ov:
+        return dec
+    out = dict(dec)
+    for k in ("gold", "silver", "oil"):
+        rule = ov.get(f"{cat}.{k}")
+        if not rule:
+            continue
+        d, s, r = dec[k]
+        if d == "flat" or s == 0:
+            continue
+        new = s - int(rule.get("drop", 1))
+        if new <= 0:
+            out[k] = ("flat", 0, "switched off - it was not working (self-check)")
+        else:
+            out[k] = (d, new, f"{r} (eased by self-check)")
+    return out
+
+
 def decoded(cat, lmap):
     """The decode table for this category AFTER the live regime check has had its say.
 
@@ -575,7 +610,7 @@ def decoded(cat, lmap):
     lock screen ends up saying GOLD UP while the alert itself says short it.
     """
     tag, rtext = regime(lmap)
-    return apply_regime(DECODE[cat], tag), rtext
+    return apply_overrides(apply_regime(DECODE[cat], tag), cat), rtext
 
 
 def market_closed(now=None):
