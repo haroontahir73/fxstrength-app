@@ -561,6 +561,31 @@ def market_closed(now=None):
     return False
 
 
+# The 90-minute cooldown stops one story buzzing fifteen times - but it also blocks a
+# genuinely NEW development in the same category, and during a live conflict that is
+# exactly when the second headline matters most. So the market gets a vote: if the
+# instrument this category is really about has moved MOVE_OVERRIDE_PCT since the last
+# alert, the story is treated as a new event and goes through anyway.
+MOVE_OVERRIDE_PCT = 0.8
+_SNAP_KEY = {"gold": "Gold", "silver": "Silver", "oil": "WTI"}
+
+
+def lead_price(cat, snap):
+    """Price of the instrument this category leans on hardest, or None."""
+    dec = DECODE.get(cat)
+    if not dec or not snap:
+        return None
+    best, strength = None, 0
+    for k in ("gold", "silver", "oil"):
+        d, s, _ = dec[k]
+        if d != "flat" and s > strength:
+            best, strength = k, s
+    if not best:
+        return None
+    v = snap.get(_SNAP_KEY[best])
+    return v[0] if v else None
+
+
 def _snap(snap):
     order = [("Gold", 0), ("Silver", 2), ("WTI", 2)]
     bits = []
@@ -1193,12 +1218,23 @@ def main():
         fired += 1
 
     def on_cooldown(cat, sev):
-        """True if this category already fired recently and this item is no bigger."""
+        """True if this category already fired recently and nothing has moved since."""
         prev = seen.get(f"cat:{cat}")
         if not prev:
             return False
         age_min = (time.time() - prev[0]) / 60
-        return age_min < COOLDOWN_MIN and sev <= prev[1]
+        if age_min >= COOLDOWN_MIN or sev > prev[1]:
+            return False
+        # the market's vote: a real move since the last alert means a real new event
+        now_px = lead_price(cat, snap)
+        then_px = prev[2] if len(prev) > 2 else None
+        if now_px and then_px:
+            moved = abs(now_px - then_px) / then_px * 100
+            if moved >= MOVE_OVERRIDE_PCT:
+                print(f"  [cooldown overridden] {cat}: lead price moved {moved:.1f}% "
+                      f"since the last alert")
+                return False
+        return True
 
     for it in items:
         h = hashlib.sha1(it["title"][:120].encode("utf-8", "replace")).hexdigest()[:16]
@@ -1218,7 +1254,7 @@ def main():
         if not dry and not theme_claim(cat, "commodity"):
             print(f"  [claimed by the FX watcher] {cat}: {it['title'][:70]}")
             continue
-        seen[f"cat:{cat}"] = [time.time(), sev]
+        seen[f"cat:{cat}"] = [time.time(), sev, lead_price(cat, snap)]
         emit(cat, it["title"], it["link"], it["src"])
 
     for s in cal:
@@ -1231,7 +1267,7 @@ def main():
         head = (f"US {s['title']}: {s['actual']} vs {s['forecast']} expected - {verdict} "
                 f"({s['surp']*100:+.0f}%)")
         # a real data print always goes through - it IS the event, not coverage of it
-        seen[f"cat:{s['cat']}"] = [time.time(), 3]
+        seen[f"cat:{s['cat']}"] = [time.time(), 3, lead_price(s["cat"], snap)]
         emit(s["cat"], head, "", "economic calendar")
 
     if not dry:

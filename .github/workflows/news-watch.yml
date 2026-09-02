@@ -86,7 +86,7 @@ jobs:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python commodity_watch.py --ping
 
-      - name: Watch (5-minute beat for ~5.5 hours)
+      - name: Watch (3-minute beat for ~5.5 hours)
         working-directory: engine
         timeout-minutes: 340
         env:
@@ -123,8 +123,8 @@ jobs:
             fi
             echo "::endgroup::"
             PASS=$(( PASS + 1 ))
-            [ $(( $(date +%s) + 300 )) -lt $END ] || break
-            sleep 300
+            [ $(( $(date +%s) + 180 )) -lt $END ] || break
+            sleep 180
           done
           echo "loop finished after $PASS pass(es)"
 
