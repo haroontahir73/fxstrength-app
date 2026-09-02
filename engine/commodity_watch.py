@@ -257,20 +257,26 @@ RULES = [
 # window - the baseline, not 50%, because a trending market flatters every long call.
 # (cat, instrument) -> (times tested, hit rate %, edge in pp)
 EVIDENCE = {
-    ("inflation_cold", "gold"):   (503, 64, +10),
-    ("inflation_cold", "silver"): (503, 61, +9),
-    ("inflation_hot", "gold"):    (485, 50, +4),
-    ("inflation_hot", "silver"):  (485, 52, +4),
-    ("us_data_strong", "gold"):   (402, 48, +2),
-    ("us_data_strong", "silver"): (402, 52, +5),
-    ("us_data_strong", "oil"):    (402, 57, +3),
-    ("us_data_weak", "gold"):     (327, 58, +4),
-    ("us_data_weak", "silver"):   (327, 51, -1),
-    ("us_data_weak", "oil"):      (327, 45, -1),
-    ("oil_supply_tight", "oil"):  (54, 66, +8),
-    ("geo_escalation", "oil"):    (88, 60, +7),
-    ("geo_escalation", "gold"):   (88, 59, +4),
-    ("geo_deescalation", "oil"):  (123, 54, +6),
+    # (times tested, hit rate %, edge in pp, excess move %) - the LAST number matters:
+    # a call can be right more often than chance and still move nothing worth trading,
+    # so CONFIDENT needs both a real hit-rate edge AND a real move behind it.
+    ("inflation_cold", "gold"):   (503, 64, +10, +0.26),
+    ("inflation_cold", "silver"): (503, 61, +9, +0.20),
+    ("inflation_hot", "gold"):    (485, 50, +4, +0.19),
+    ("inflation_hot", "silver"):  (485, 52, +4, +0.37),
+    ("us_data_strong", "gold"):   (402, 48, +2, +0.07),
+    ("us_data_strong", "silver"): (402, 52, +5, +0.11),
+    ("us_data_strong", "oil"):    (402, 57, +3, +0.38),
+    ("us_data_weak", "gold"):     (327, 58, +4, +0.12),
+    ("us_data_weak", "silver"):   (327, 51, -1, +0.06),
+    ("us_data_weak", "oil"):      (327, 45, -1, -0.47),
+    # news-driven, from the 2015-2026 run. Going back to 2015 added no sample over the
+    # 2019 run - Google News caps results per query - but the figures held steady, which
+    # is itself worth something.
+    ("oil_supply_tight", "oil"):  (54, 63, +10, +1.29),
+    ("geo_escalation", "oil"):    (83, 63, +10, +0.53),
+    ("geo_escalation", "gold"):   (83, 61, +7, +0.09),
+    ("geo_deescalation", "oil"):  (113, 51, +4, +0.77),
 }
 
 
@@ -279,11 +285,16 @@ def track_record(cat, key):
     ev = EVIDENCE.get((cat, key))
     if not ev:
         return "NOT TESTED - no history to judge this on"
-    n, hit, edge = ev
+    n, hit, edge, move = ev
     if n < 40:
         return f"thin evidence - only {n} past cases"
-    if edge >= 7:
+    # Being right more often than chance is not enough. geo_escalation -> gold is right
+    # 61% of the time (+7pp) but the average move behind it is +0.09%, which is nothing
+    # to trade. CONFIDENT requires the hit rate AND the move.
+    if edge >= 7 and move >= 0.20:
         return f"CONFIDENT - right {hit}% of {n} past cases"
+    if edge >= 7:
+        return f"often right ({hit}% of {n}) but the move is tiny"
     if edge >= 3:
         return f"some evidence - right {hit}% of {n} past cases"
     return f"weak - {hit}% of {n} past cases, no better than chance"
