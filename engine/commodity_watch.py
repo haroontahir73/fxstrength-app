@@ -1407,9 +1407,6 @@ def main():
                     else "high")
             ok = push(topic, title, body, "", prio, "coin")
             if not ok:
-                time.sleep(2)
-                ok = push(topic, title, body, "", prio, "coin")
-            if not ok:
                 print("!" * 70)
                 print(f"! PHONE ALERT FAILED after 2 tries: {title}")
                 print("! It is in the app feed, but the phone did not get it.")
@@ -1419,6 +1416,9 @@ def main():
                       "cat": cat, "title": title, "body": body, "link": link,
                       "talk": talk,
                       "pushed": ok,
+                      "push_error": ("" if ok else
+                                     getattr(__import__("news_watch"),
+                                             "LAST_PUSH_ERROR", "")),
                       # prices at the moment of the call, so the card can show later
                       # whether the market agreed. A call nobody scores is worthless.
                       "px": {k: snap[k][0] for k in ("Gold", "Silver", "WTI")

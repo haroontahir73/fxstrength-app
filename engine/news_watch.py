@@ -31,6 +31,7 @@ UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 MAX_AGE_MIN = 45          # only alert on items published this recently
 SEEN_TTL_DAYS = 4         # forget dedup hashes older than this
 NTFY_BASE = "https://ntfy.sh"
+LAST_PUSH_ERROR = ""   # why the last push failed, for the feed entry
 
 # ---------------------------------------------------------------- news sources
 from urllib.parse import quote as _q
@@ -597,15 +598,30 @@ def push(topic, title, body, link, priority="high", tags="rotating_light"):
     }
     if link:
         hdr["Click"] = link
-    try:
-        req = urllib.request.Request(f"{NTFY_BASE}/{topic}",
-                                     data=body.encode("utf-8"),
-                                     headers={**UA, **hdr}, method="POST")
-        urllib.request.urlopen(req, timeout=15).read()
-        return True
-    except Exception as e:                                     # noqa: BLE001
-        print(f"  ntfy push failed: {type(e).__name__}: {e}")
-        return False
+    # Three attempts with real gaps. ntfy.sh rate-limits by IP and GitHub Actions
+    # runners share addresses with everyone else on the platform, so a push can be
+    # refused through no fault of ours and succeed a minute later. Two alerts on 2 Sep
+    # (20:34 and 21:13) were lost exactly this way. LAST_PUSH_ERROR is kept so the
+    # reason survives into the feed entry - the run logs need auth to read.
+    global LAST_PUSH_ERROR
+    LAST_PUSH_ERROR = ""
+    for attempt, wait in enumerate((0, 12, 40)):
+        if wait:
+            time.sleep(wait)
+        try:
+            req = urllib.request.Request(f"{NTFY_BASE}/{topic}",
+                                         data=body.encode("utf-8"),
+                                         headers={**UA, **hdr}, method="POST")
+            urllib.request.urlopen(req, timeout=20).read()
+            if attempt:
+                print(f"  ntfy push succeeded on attempt {attempt + 1}")
+            return True
+        except Exception as e:                                 # noqa: BLE001
+            code = getattr(e, "code", "")
+            LAST_PUSH_ERROR = f"{type(e).__name__} {code}".strip()
+            print(f"  ntfy push attempt {attempt + 1} failed: {LAST_PUSH_ERROR}: "
+                  f"{str(e)[:120]}")
+    return False
 
 
 # ---------------------------------------------------------------- main
