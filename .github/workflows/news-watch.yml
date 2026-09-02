@@ -9,17 +9,27 @@
 # Without it the job runs and logs what it would have sent, but pushes nothing.
 name: news watch
 
-# SCHEDULING NOTE - why this is not simply "*/15".
-# It was, and GitHub throttled it: over one 7-hour stretch the */15 cron produced two
-# runs, with a 273-minute hole in the middle. Scheduled workflows on free/public repos
-# are best-effort and get dropped under load, worst of all on congested minutes like :00
-# and :15. So instead: ONE hourly trigger on an off-peak minute, and the job then loops
-# internally on a 5-minute beat for ~55 minutes. Even when an hour gets skipped entirely,
-# the next run's 45-minute lookback still catches the story.
+# SCHEDULING NOTE - do not "simplify" this back to a short cron.
+# Measured on this repo: a '*/15' cron produced TWO runs in a 7-hour stretch (a 273-min
+# hole), and after switching to hourly, the scheduler delivered NOTHING between 09:44 and
+# 13:30 - not for this workflow, not for the dashboard one. Scheduled workflows on
+# free/public repos are best-effort and are dropped wholesale under load; both workflows
+# were "active" the entire time.
+#
+# So the cron is treated as unreliable by design: each run LOOPS INTERNALLY on a 5-minute
+# beat for ~5.5 hours (just under the 6h job ceiling). One trigger landing every few hours
+# is then enough for continuous coverage, which matches the worst gap actually observed.
+# The concurrency group serialises overlapping runs, so extra triggers are harmless.
 on:
   schedule:
     - cron: '7 * * * *'
   workflow_dispatch:
+  # lets a change to this file start a run immediately, which is also how the ntfy
+  # secret gets verified without waiting on the scheduler
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/news-watch.yml'
 
 permissions:
   contents: write          # the loop commits the feed file when a new alert lands
@@ -58,15 +68,22 @@ jobs:
       # Each watcher keeps its own dedup file on disk, so a story seen in one pass is
       # not re-sent in the next. A crash in one watcher must not stop the other, or
       # stop the loop - hence the "|| true" on each.
-      - name: Watch (5-minute beat for ~55 min)
+      # Silent (min-priority) proof that the secret is wired and the run really started.
+      - name: Ping the phone that the watcher is up
         working-directory: engine
-        timeout-minutes: 58
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python commodity_watch.py --ping
+
+      - name: Watch (5-minute beat for ~5.5 hours)
+        working-directory: engine
+        timeout-minutes: 340
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          END=$(( $(date +%s) + 55*60 ))
+          END=$(( $(date +%s) + 330*60 ))
           PASS=1
           while :; do
             echo "::group::pass $PASS  $(date -u +%H:%M:%S)Z"

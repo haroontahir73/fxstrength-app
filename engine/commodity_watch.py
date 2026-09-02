@@ -146,11 +146,11 @@ RULES = [
     ]),
     ("oil_inv_build", 2, [
         "crude stockpiles rise", "inventories rise", "stockpiles build", "crude build",
-        "inventory build", "bigger than expected build", "stocks jump",
+        "inventory build", "bigger than expected build", "crude stocks jump",
     ]),
     ("oil_inv_draw", 2, [
         "crude stockpiles fall", "inventories fall", "stockpiles draw", "crude draw",
-        "inventory draw", "bigger than expected draw", "stocks drop",
+        "inventory draw", "bigger than expected draw", "crude stocks drop",
     ]),
     # ---- demand --------------------------------------------------------------
     ("demand_up", 2, [
@@ -632,6 +632,7 @@ VETO_EXTRA = (
     "mortgage", "refinanc", "savings account", "credit card",
     "price-fixing", "lawsuit", "court", "denies", "denied", "dismisses claim",
     "borrowers", "here's what", "here is what", "5 things", "what it means for you",
+    "here's why", "here is why", "price forecast", "technical analysis",
 )
 
 # rates / inflation categories only matter to the metals when the story is about the US.
@@ -655,6 +656,17 @@ NEG_AFTER = ("off the table", "is unlikely", "was ruled out", "not happening",
              "is not coming", "not on the table")
 FLIP = {"rates_up": "rates_down", "rates_down": "rates_up",
         "inflation_hot": "inflation_cold", "inflation_cold": "inflation_hot"}
+
+# A headline pointing BOTH ways is not a trade lean. "Trump Pushes Rate Cuts as Markets
+# Price in Fed Hike" fired as rates_down - a STRONG LONG GOLD call - off a story whose
+# actual market content is a hike being priced. Ambiguous rate headlines now fire nothing.
+HIGHER_TOK = ("hike", "raise", "rises", "higher", "tighten")
+LOWER_TOK = ("cut", "lower", "easing", "ease", "reduction")
+RATE_CATS = ("rates_up", "rates_down", "fed_independence")
+
+# Inventory words are worthless without a crude context: "Oil Stocks Jump" is a story
+# about Chevron and Exxon share prices, and it fired as OIL SHORT (stockpiles building).
+OIL_INV_CTX = ("crude", "inventor", "stockpile", "barrel", "eia", "api", "petroleum")
 
 
 def _negated(title_lc, pos, kw_len):
@@ -684,6 +696,12 @@ def classify(title, desc=""):
                 continue
             if cat in US_GATED and not any(c in t for c in US_CTX):
                 continue                        # a non-US rate story, not our business
+            if cat in RATE_CATS and any(h in t for h in HIGHER_TOK) \
+                    and any(l in t for l in LOWER_TOK):
+                return None                     # points both ways - no lean to give
+            if cat in ("oil_inv_build", "oil_inv_draw") \
+                    and not any(c in t for c in OIL_INV_CTX):
+                continue                        # "oil stocks" = share prices, not barrels
             if cat in FLIP and _negated(t, pos, len(k)):
                 return FLIP[cat], sev, f"NOT {k}"
             return cat, sev, k
@@ -989,6 +1007,19 @@ def main():
         i = argv.index("--render")
         dash = argv[i + 1] if len(argv) > i + 1 and not argv[i + 1].startswith("-") else None
         render(dash)
+        return
+
+    if "--ping" in argv:
+        # Once per cloud run, at min priority: silent on the phone, but it proves the
+        # NTFY_TOPIC secret is wired and the watcher is actually alive. Worth having,
+        # because GitHub's scheduler drops runs silently and "no alerts" otherwise looks
+        # identical to "no news".
+        ok = push(topic, "watcher online",
+                  "Commodity + FX watcher started on GitHub Actions. Scanning every 5 "
+                  "minutes for the next ~5.5 hours. This is a silent status ping.",
+                  "https://haroontahir73.github.io/fxstrength-app/dashboard.html",
+                  "min", "satellite")
+        print("ping:", "sent" if ok else "NOT sent (no topic)")
         return
 
     if "--test" in argv:
