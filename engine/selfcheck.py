@@ -62,6 +62,53 @@ def _save(path, obj):
 
 
 SYM = {"GOLD": "Gold", "SILVER": "Silver", "OIL": "WTI"}
+YF = {"GOLD": "GC=F", "SILVER": "SI=F", "OIL": "CL=F"}
+_BARS = {}
+
+
+def bars(instr):
+    """5-minute bars for the last 60 days, cached for the run."""
+    if instr in _BARS:
+        return _BARS[instr]
+    import urllib.request
+    from bisect import bisect_left            # noqa: F401  (used by price_at)
+    try:
+        url = (f"https://query1.finance.yahoo.com/v8/finance/chart/{YF[instr]}"
+               f"?range=60d&interval=5m")
+        req = urllib.request.Request(url, headers=cw.UA)
+        r = json.loads(urllib.request.urlopen(req, timeout=40).read())["chart"]["result"][0]
+        pairs = [(a, b) for a, b in zip(r["timestamp"],
+                                        r["indicators"]["quote"][0]["close"]) if b]
+        _BARS[instr] = ([p[0] for p in pairs], [p[1] for p in pairs])
+    except Exception as e:                                     # noqa: BLE001
+        print(f"  bars({instr}) failed: {type(e).__name__}")
+        _BARS[instr] = ([], [])
+    return _BARS[instr]
+
+
+def price_at(instr, when):
+    """Price at a SPECIFIC moment, not 'now'.
+
+    Scoring against the current price made the horizon depend on when this file happened
+    to run: at a 30-minute cadence a call was marked anywhere between 4.0h and 4.5h after
+    it fired. backtest_horizon.py shows the edge is horizon-sensitive - 4h reads +0.0pp
+    while 8h reads -3.0pp - so a sloppy window quietly corrupts the verdict. Reading the
+    bar at exactly alert+HORIZON keeps every call measured the same way, and lets this run
+    on a slow clock without cost.
+    """
+    from bisect import bisect_left
+    ts, px = bars(instr)
+    if not ts:
+        return None
+    target = when.timestamp()
+    if target > ts[-1] + 900:            # not far enough in the past yet
+        return None
+    i = bisect_left(ts, target)
+    if i >= len(ts):
+        return None
+    if abs(ts[i] - target) > 3 * 3600:   # nearest bar is hours away - market was shut
+        return None
+    return px[i]
 
 
 def score_due(feed, now_px, scores):
@@ -89,7 +136,7 @@ def score_due(feed, now_px, scores):
                 continue
             sym = SYM.get(ln["label"])
             a = px.get(sym)
-            b = (now_px.get(sym) or [None])[0]
+            b = price_at(ln["label"], when + dt.timedelta(hours=HORIZON_H))
             if not a or not b:
                 continue
             chg = (b - a) / a * 100
