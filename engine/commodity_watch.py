@@ -1014,13 +1014,24 @@ def main():
         # NTFY_TOPIC secret is wired and the watcher is actually alive. Worth having,
         # because GitHub's scheduler drops runs silently and "no alerts" otherwise looks
         # identical to "no news".
+        # Exit non-zero when the topic is missing. push() returns quietly in that case,
+        # so the step passed while delivering nothing - which is indistinguishable from
+        # a working pipe when you cannot read the run logs. A failed step IS readable,
+        # via the public /actions/runs/<id>/jobs API. The workflow marks this step
+        # continue-on-error so a missing secret never stops the watcher itself.
+        if not topic:
+            print("PING FAILED: NTFY_TOPIC is empty inside the job. Either the secret is "
+                  "not set, is named something other than NTFY_TOPIC, or was added as an "
+                  "Environment/Dependabot secret rather than an Actions repository secret.")
+            sys.exit(1)
         ok = push(topic, "watcher online",
                   "Commodity + FX watcher started on GitHub Actions. Scanning every 5 "
                   "minutes for the next ~5.5 hours. This is a silent status ping.",
                   "https://haroontahir73.github.io/fxstrength-app/dashboard.html",
                   "min", "satellite")
-        print("ping:", "sent" if ok else "NOT sent (no topic)")
-        return
+        print(f"ping: topic set ({len(topic)} chars, starts '{topic[:4]}'),",
+              "delivered" if ok else "POST FAILED")
+        sys.exit(0 if ok else 2)
 
     if "--test" in argv:
         body = build("rates_up", "TEST - Fed's Warsh says rates may have to rise",

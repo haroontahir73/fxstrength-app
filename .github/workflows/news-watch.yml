@@ -36,7 +36,10 @@ permissions:
 
 concurrency:
   group: news-watch
-  cancel-in-progress: false
+  # the loop now runs for 5.5h, so a queued run would otherwise wait most of a day.
+  # newest code wins; the feed is committed mid-loop so a cancel loses nothing but the
+  # dedup cache, worth at most a couple of repeat alerts.
+  cancel-in-progress: true
 
 jobs:
   watch:
@@ -70,6 +73,7 @@ jobs:
       # stop the loop - hence the "|| true" on each.
       # Silent (min-priority) proof that the secret is wired and the run really started.
       - name: Ping the phone that the watcher is up
+        continue-on-error: true        # a missing secret must not stop the watcher
         working-directory: engine
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
