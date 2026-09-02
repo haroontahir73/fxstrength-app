@@ -39,6 +39,17 @@ SCORES = DATA / "alert_scores.json"
 OVERRIDES = DATA / "decode_overrides.json"
 HEALTH = DATA / "selfcheck_health.json"
 
+# 4h is MEASURED, not guessed - backtest_horizon.py, 673 events, hourly bars, every
+# horizon compared against the unconditional move over a window of the same length:
+#   oil     4h +7pp   (1h -1, 2h -4, 8h -5, 24h -7)  <- the one real signal
+#   gold    best 1h +1pp   silver best 2h +0pp   DXY best 8h +3pp   GBPUSD negative at all
+# Only oil shows an edge that survives the baseline. For the metals and FX every horizon
+# lands inside +/-3pp, which is noise at these sample sizes - so tuning each instrument
+# to its own "best" would be curve-fitting to randomness. One horizon, set by the only
+# instrument with a measurable signal.
+# NOTE: this is the AGGREGATE across categories. The daily backtests found strong
+# per-category edges (inflation_cold -> gold +15pp) that a blended figure hides, and
+# selfcheck scores per category+instrument, which is the level where they exist.
 HORIZON_H = 4.0          # how long to give a call before marking it
 MIN_N = 20               # never act on fewer than this many scored calls
 BAD_EXCESS_PP = -10.0    # this far below the baseline = the lean is not working

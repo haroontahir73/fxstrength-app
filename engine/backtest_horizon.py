@@ -31,6 +31,10 @@ CAL = Path(__file__).parent / "data" / "backtest_calendar.json"
 HORIZONS = [1, 2, 4, 8, 24]
 INSTR = [("gold", "Gold", "GC=F"), ("silver", "Silver", "SI=F"), ("oil", "WTI", "CL=F")]
 
+# FX is scored off the same events. One lean on the DOLLAR per category (imported from
+# backtest_fx so there is a single definition), pairs derived from it.
+from backtest_fx import USD_LEAN, PAIRS
+
 
 def hourly(symbol):
     url = (f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
@@ -92,21 +96,39 @@ def main():
     print()
 
     # horizon -> list of (won, instrument)
+    for name, yf, sign in PAIRS:
+        ts, px = hourly(yf)
+        data[name] = (ts, px)
+        print(f"  {name:<7} {len(ts)} hourly bars")
+        for h in HORIZONS:
+            base[name][h] = baseline(ts, px, h)
+    print()
+
     res = defaultdict(lambda: defaultdict(list))
     for when_ts, cat in events:
         dec = cw.DECODE.get(cat)
-        if not dec:
-            continue
-        for key, _sym, _yf in INSTR:
-            d, s, _ = dec[key]
-            if d == "flat" or s == 0:
-                continue
-            ts, px = data[key]
-            for h in HORIZONS:
-                m = move(ts, px, when_ts, h)
-                if m is None or abs(m) < 0.05:
+        if dec:
+            for key, _sym, _yf in INSTR:
+                d, s, _ = dec[key]
+                if d == "flat" or s == 0:
                     continue
-                res[h][key].append(((m > 0) == (d == "up"), d))
+                ts, px = data[key]
+                for h in HORIZONS:
+                    m = move(ts, px, when_ts, h)
+                    if m is None or abs(m) < 0.05:
+                        continue
+                    res[h][key].append(((m > 0) == (d == "up"), d))
+        lean = USD_LEAN.get(cat)
+        if lean and lean[1] > 0:
+            usd_dir = lean[0]
+            for name, _yf, sign in PAIRS:
+                want = usd_dir if sign > 0 else ("down" if usd_dir == "up" else "up")
+                ts, px = data[name]
+                for h in HORIZONS:
+                    m = move(ts, px, when_ts, h)
+                    if m is None or abs(m) < 0.02:      # FX moves smaller than metals
+                        continue
+                    res[h][name].append(((m > 0) == (want == "up"), want))
 
     print("=" * 68)
     print(f"{'horizon':<10}{'instrument':<12}{'n':>6}{'hit':>8}{'base':>8}{'EXCESS':>10}")
@@ -114,7 +136,7 @@ def main():
     totals = {}
     for h in HORIZONS:
         exc_sum, n_sum = 0.0, 0
-        for key, _sym, _yf in INSTR:
+        for key in [i[0] for i in INSTR] + [p[0] for p in PAIRS]:
             rows = res[h][key]
             if len(rows) < 30:
                 continue
@@ -133,6 +155,25 @@ def main():
         totals[h] = exc_sum / n_sum if n_sum else 0
         print(f"{'':<10}{'WEIGHTED':<12}{n_sum:>6}{'':>8}{'':>8}{totals[h]:>+9.1f}pp")
         print("-" * 68)
+
+    print("")
+    print("BEST HORIZON PER INSTRUMENT")
+    print("-" * 68)
+    per = defaultdict(dict)
+    for h in HORIZONS:
+        for key, rows in res[h].items():
+            if len(rows) < 30:
+                continue
+            n = len(rows)
+            hit = sum(1 for won, _ in rows if won) / n * 100
+            up_rate = base[key][h]
+            b = sum(up_rate if d == "up" else 100 - up_rate for _, d in rows) / n
+            per[key][h] = (hit - b, n)
+    for key in sorted(per):
+        row = per[key]
+        bh = max(row, key=lambda k: row[k][0])
+        line = "  ".join(f"{h}h {row[h][0]:+.0f}" for h in HORIZONS if h in row)
+        print(f"{key:<9} best {bh}h ({row[bh][0]:+.0f}pp, n={row[bh][1]:<4})   {line}")
 
     best = max(totals, key=lambda k: totals[k])
     print(f"\nBEST HORIZON: {best}h  (weighted excess {totals[best]:+.1f}pp)")
