@@ -1,5 +1,91 @@
 [
  {
+  "when": "02 Sep 16:35 UTC",
+  "cat": "rates_up",
+  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFed Rate Hike September 2026: Markets Brace for 25bps Move Amid Inflation Fears - Intellectia AI  (Intellectia AI)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n\nNOW  Gold 4,417 (+1.6%)   Silver 65.62 (+1.6%)   WTI 90.68 (+0.5%)   DXY 99.55 (-0.1%)   US10Y 4.80 (+0.2%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE55eVRqTHpWQzctbjlzQ0FEZThvbmg1Y0gzdlVMaEdyMXZQOVJoaDJtMEx0U0FMRXQ3WTNqMWdvcFZGb0NLeFNTV3IyN3g3TThfY3VuSzhKdWtJMFdJMmxXckZncGdBQ2s?oc=5",
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Fed Rate Hike September 2026: Markets Brace for 25bps Move Amid Inflation Fears - Intellectia AI",
+   "src": "Intellectia AI",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "same hit as gold, only bigger"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth"
+    }
+   ],
+   "snap": "NOW  Gold 4,417 (+1.6%)   Silver 65.62 (+1.6%)   WTI 90.68 (+0.5%)   DXY 99.55 (-0.1%)   US10Y 4.80 (+0.2%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
+  "when": "02 Sep 16:35 UTC",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG, GOLD LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nEU struggles to find an effective response after Germany blames Russia for a failed drone attack - Longmont Times-Call  (Longmont Times-Call)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191\u2191   look for longs - the classic panic buy\nSILVER \u2191    mild long bias - tags along, but it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n\nNOW  Gold 4,417 (+1.6%)   Silver 65.62 (+1.6%)   WTI 90.68 (+0.5%)   DXY 99.55 (-0.1%)   US10Y 4.80 (+0.2%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPSTQ4REZ6WFBheG5UQU1jaVZDWUhOLUo0TVBodTFrbzJKOVAybUhuRW02ZUtqZ1ZUbHZFRDVKSERtcDRWVzBHSmMzSEVyUG9STGFYbFZxdGNONllsZXR6SkdTM1lfWFR6R2ZubS1pSmw3RnRqUVItWTdKcTg2SFdMbg?oc=5",
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "EU struggles to find an effective response after Germany blames Russia for a failed drone attack - Longmont Times-Call",
+   "src": "Longmont Times-Call",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "the classic panic buy"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "tags along, but it is half an industrial metal"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast"
+    }
+   ],
+   "snap": "NOW  Gold 4,417 (+1.6%)   Silver 65.62 (+1.6%)   WTI 90.68 (+0.5%)   DXY 99.55 (-0.1%)   US10Y 4.80 (+0.2%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "02 Sep 12:27 UTC",
   "cat": "us_data_weak",
   "title": "GOLD \u2191\u2191 - US DATA \u2014 came in weak",
