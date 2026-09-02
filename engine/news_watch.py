@@ -61,10 +61,14 @@ RULES = [
         "ballistic missile", "troops enter", "ground offensive", "attacks israel",
         "strikes on", "bombed", "shot down", "warships", "blockade",
     ]),
-    ("geo_deescalation", 2, [
-        "ceasefire", "cease-fire", "peace deal", "peace agreement", "truce agreed",
-        "de-escalat", "sanctions lifted", "sanctions eased", "prisoner swap",
-        "withdraw troops", "hostage deal",
+    ("geo_deescalation", 3, [
+        "ceasefire", "cease-fire", "ceasefire agreed", "ceasefire deal", "ceasefire holds",
+        "peace deal", "peace agreement", "truce agreed", "truce holds", "agrees to a truce",
+        "de-escalat", "deescalat", "stand down", "halt strikes", "halts strikes",
+        "pause in fighting", "stops attacks", "ends strikes", "end to hostilities",
+        "sanctions lifted", "sanctions eased", "prisoner swap", "hostage deal",
+        "withdraw troops", "pull back forces", "diplomatic breakthrough", "reopen the strait",
+        "strait of hormuz reopen", "iran talks resume", "back to the table",
     ]),
     ("trump_fed", 3, [
         "fire powell", "remove powell", "replace powell", "oust powell", "powell resign",
@@ -260,6 +264,81 @@ def _snap_line(snap):
     return "Now: " + "  ".join(bits)
 
 
+# instruments where a "where was it before the risk premium went in" read is useful
+_LVL_SYMS = [("WTI", "CL=F", 1), ("Brent", "BZ=F", 1), ("Gold", "GC=F", 0),
+            ("US10Y", "%5ETNX", 2), ("S&P", "%5EGSPC", 0),
+            ("NZDUSD", "NZDUSD=X", 4), ("AUDUSD", "AUDUSD=X", 4), ("USDCAD", "USDCAD=X", 4),
+            ("USDJPY", "JPY=X", 2)]
+
+
+def level_map(back_days: int = 12):
+    """{name: (last, baseline ~back_days trading days ago, 20d low, 20d high, ndp)} - lets a
+    geopolitical alert say concretely where each market sat BEFORE the risk premium and where
+    a ceasefire would unwind it to. Best-effort; {} on failure."""
+    out = {}
+    for name, sym, ndp in _LVL_SYMS:
+        try:
+            u = (f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}"
+                 f"?range=2mo&interval=1d")
+            d = json.loads(_get(u, timeout=12) or b"{}")
+            r = d["chart"]["result"][0]
+            c = [x for x in r["indicators"]["quote"][0]["close"] if x is not None]
+            if len(c) < 25:
+                continue
+            last = r["meta"].get("regularMarketPrice") or c[-1]
+            base = c[-(back_days + 1)]
+            out[name] = (last, base, min(c[-20:]), max(c[-20:]), ndp)
+        except Exception:                                     # noqa: BLE001
+            continue
+    return out
+
+
+def _fmt(v, ndp):
+    return f"{v:,.{ndp}f}"
+
+
+def _unwind_section(cat, lmap):
+    """For a ceasefire: where the risk premium unwinds to. For an escalation: how much
+    premium is already in and where the headline room is."""
+    if not lmap:
+        return ""
+    rows = []
+    de = cat == "geo_deescalation"
+    hdr = ("UNWIND MAP — a confirmed & holding ceasefire takes the war premium back out:"
+           if de else "RISK PREMIUM ALREADY IN (vs ~2-3 weeks ago, before this leg):")
+    for name, sym, _ in _LVL_SYMS:
+        if name not in lmap:
+            continue
+        last, base, lo, hi, ndp = lmap[name]
+        diff = last - base
+        pct = diff / base * 100 if base else 0.0
+        if de:
+            if name in ("WTI", "Brent"):
+                rows.append(f"  {name}: {_fmt(last,ndp)} → toward {_fmt(base,ndp)} (pre-strikes), "
+                            f"then {_fmt(lo,ndp)} (the pre-war base)")
+            elif name == "Gold":
+                rows.append(f"  Gold: {_fmt(last,ndp)} → a relief bounce as yields ease, but the "
+                            f"Fed-stays-high story still caps it; {_fmt(hi,ndp)} is the ceiling")
+            elif name == "US10Y":
+                rows.append(f"  US10Y: {_fmt(last,ndp)}% → back toward {_fmt(base,ndp)}% as the "
+                            f"inflation premium comes out")
+            elif name == "S&P":
+                rows.append(f"  S&P: {_fmt(last,ndp)} → recovers toward {_fmt(hi,ndp)} (recent high)")
+            elif name in ("NZDUSD", "AUDUSD"):
+                rows.append(f"  {name}: {_fmt(last,ndp)} → risk-FX relief pop toward "
+                            f"{_fmt(hi,ndp)} (20-day high); NZD also has the RBNZ decision on top")
+            elif name == "USDCAD":
+                rows.append(f"  USDCAD: {_fmt(last,ndp)} → CAD loses its petro cushion; drifts "
+                            f"back up toward {_fmt(hi,ndp)} (20-day high)")
+            elif name == "USDJPY":
+                rows.append(f"  USDJPY: {_fmt(last,ndp)} → JPY gives back the small haven bid")
+        else:
+            arrow = "above" if diff >= 0 else "below"
+            rows.append(f"  {name}: {_fmt(last,ndp)}  ({diff:+.{ndp}f} {arrow} the {_fmt(base,ndp)} "
+                        f"level, {pct:+.1f}%)")
+    return hdr + "\n" + "\n".join(rows) if rows else ""
+
+
 def _parse_date(s):
     for fmt in ("%a, %d %b %Y %H:%M:%S %Z", "%a, %d %b %Y %H:%M:%S %z",
                 "%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%dT%H:%M:%SZ"):
@@ -377,35 +456,50 @@ def calendar_surprises():
 
 
 # ---------------------------------------------------------------- alert build + push
-def _regime_note(snap):
-    """Spot the case where a haven shock is NOT getting a haven bid because the
-    oil->inflation->Fed-hike->yields channel is dominating (gold down while yields up)."""
+def _regime_note(snap, lmap=None):
+    """Which channel is the market trading? Uses the multi-day level_map (structural, not
+    intraday noise) when available: gold BELOW its ~2wk baseline while 10y yields and oil
+    are ABOVE theirs = the oil->inflation->Fed-stays-high chain is dominating and an
+    escalation headline PRESSURES gold rather than lifting it."""
+    if lmap and all(k in lmap for k in ("Gold", "US10Y", "WTI")):
+        g_dn = lmap["Gold"][0] < lmap["Gold"][1] * 0.995
+        y_up = lmap["US10Y"][0] > lmap["US10Y"][1] + 0.03
+        oil_up = lmap["WTI"][0] > lmap["WTI"][1] * 1.02
+        sp_dn = "S&P" in lmap and lmap["S&P"][0] < lmap["S&P"][1] * 0.985
+        if y_up and oil_up and (g_dn or not sp_dn):
+            return ("REGIME: this is being traded as oil -> inflation -> Fed-keeps-rates-high, "
+                    "NOT flight-to-safety. Gold is near/below where it sat before the flare-up "
+                    "while 10y yields and oil are well above - so an escalation headline lifts "
+                    "yields and the dollar and PRESSURES gold. The safe-haven bid only takes "
+                    "over if the news threatens growth more than inflation (broad war, equity "
+                    "crash).")
+        if g_dn is False and sp_dn:
+            return ("REGIME: closer to classic risk-off - gold firm, equities heavy. The "
+                    "textbook reaction below is roughly the one in force.")
+        return ""
     if not snap or "Gold" not in snap or "US10Y" not in snap:
         return ""
-    g = snap["Gold"][1]
-    y = snap["US10Y"][1]
-    if g < -0.3 and y > 0.3:
-        return ("REGIME: gold is FALLING while US yields RISE - the market is trading the "
-                "oil -> inflation -> Fed-keeps-rates-high chain, not the safe-haven trade. "
-                "In this regime an escalation headline lifts USD and yields and PRESSURES "
-                "gold. The safe-haven bid only takes over if the news threatens growth more "
-                "than it threatens inflation (broad war, equity crash).")
-    if g > 0.4 and (("S&P" in snap and snap["S&P"][1] < -0.4)):
-        return ("REGIME: classic risk-off - gold bid, equities offered. The textbook "
-                "playbook below is the one in force right now.")
+    g, y = snap["Gold"][1], snap["US10Y"][1]
+    if g < -0.5 and y > 0.3:
+        return ("REGIME: gold FALLING while US yields RISE - traded as oil -> inflation -> "
+                "Fed-stays-high, not flight-to-safety; an escalation headline PRESSURES gold.")
     return ""
 
 
-def build_alert(cat, headline, link, src, weekend, snap=None):
+def build_alert(cat, headline, link, src, weekend, snap=None, lmap=None):
     pb = PLAYBOOK[cat]
     lines = [f"{pb['emoji']} {CAT_LABEL.get(cat, cat)}  —  {pb['risk']}", ""]
     lines.append(headline + (f"  ({src})" if src else ""))
     sl = _snap_line(snap)
     if sl:
         lines += ["", sl]
-    reg = _regime_note(snap)
+    reg = _regime_note(snap, lmap)
     if reg:
         lines += ["", reg]
+    if cat in ("geo_escalation", "geo_deescalation", "energy_supply"):
+        us = _unwind_section(cat, lmap)
+        if us:
+            lines += ["", us]
     lines.append("")
     lines.append("Textbook reaction:")
     for key, label in INSTR_ORDER:
@@ -481,6 +575,11 @@ def main():
     items = gather_items()
     cal = calendar_surprises()
     snap = market_snapshot() if (items or cal) else {}
+    # a where-was-it-before-the-premium read, only when there's a geo item to attach it to
+    geo = any(classify(i["title"] + " " + i["desc"]) and
+              classify(i["title"] + " " + i["desc"])[0]
+              in ("geo_escalation", "geo_deescalation", "energy_supply") for i in items)
+    lmap = level_map() if geo else {}
 
     # 1) news feeds
     for it in items:
@@ -492,7 +591,7 @@ def main():
             continue
         cat, sev, kw = hit
         seen[h] = time.time()
-        body = build_alert(cat, it["title"], it["link"], it["src"], weekend, snap)
+        body = build_alert(cat, it["title"], it["link"], it["src"], weekend, snap, lmap)
         title = f"FX: {CAT_LABEL.get(cat, cat)}"
         prio = "urgent" if sev >= 3 else "high"
         print(f"\n[{cat}/{sev}] <{kw}>\n" + "-" * 60 + f"\n{body}\n" + "-" * 60)
