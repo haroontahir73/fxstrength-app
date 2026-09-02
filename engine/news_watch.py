@@ -33,6 +33,38 @@ SEEN_TTL_DAYS = 4         # forget dedup hashes older than this
 NTFY_BASE = "https://ntfy.sh"
 LAST_PUSH_ERROR = ""   # why the last push failed, for the feed entry
 
+# ---------------------------------------------------------------- telegram
+# ntfy.sh limits by IP and GitHub runners share addresses with the whole platform, so
+# alerts were being refused through no fault of ours (2 Sep, 20:34 and 21:13 lost).
+# A Telegram bot has its own quota and does not care that the sender is a datacenter,
+# so it is tried FIRST and ntfy is kept as the fallback. Either one delivering is enough.
+TG_API = "https://api.telegram.org"
+
+
+def telegram_push(title, body, token=None, chat=None):
+    """Send via Telegram. Returns True on delivery, False if unconfigured or failed."""
+    token = token or os.environ.get("TELEGRAM_TOKEN", "").strip()
+    chat = chat or os.environ.get("TELEGRAM_CHAT_ID", "").strip()
+    if not token or not chat:
+        return False
+    text = (title + "\n\n" + body)[:4000]   # Telegram caps at 4096
+    data = json.dumps({"chat_id": chat, "text": text,
+                       "disable_web_page_preview": True}).encode("utf-8")
+    for attempt, wait in enumerate((0, 10)):
+        if wait:
+            time.sleep(wait)
+        try:
+            req = urllib.request.Request(f"{TG_API}/bot{token}/sendMessage", data=data,
+                                         headers={"Content-Type": "application/json"},
+                                         method="POST")
+            urllib.request.urlopen(req, timeout=20).read()
+            return True
+        except Exception as e:                                 # noqa: BLE001
+            global LAST_PUSH_ERROR
+            LAST_PUSH_ERROR = f"telegram {type(e).__name__} {getattr(e, 'code', '')}".strip()
+            print(f"  telegram attempt {attempt + 1} failed: {str(e)[:120]}")
+    return False
+
 # ---------------------------------------------------------------- news sources
 from urllib.parse import quote as _q
 
@@ -587,6 +619,13 @@ def build_alert(cat, headline, link, src, weekend, snap=None, lmap=None):
 
 
 def push(topic, title, body, link, priority="high", tags="rotating_light"):
+    """Deliver an alert. Telegram first, ntfy as the fallback - either counts as sent."""
+    if telegram_push(title, body):
+        return True
+    return _ntfy(topic, title, body, link, priority, tags)
+
+
+def _ntfy(topic, title, body, link, priority="high", tags="rotating_light"):
     if not topic:
         print("  NTFY_TOPIC not set - would have pushed:\n" + body + "\n")
         return False
