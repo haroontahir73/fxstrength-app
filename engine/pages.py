@@ -115,6 +115,26 @@ def macro_block():
                   + (f'<div class="pg-why">{why}.</div>' if why else "")
                   + "</div></div>")
 
+    # Stale data that looks live is worse than no data. The desk rebuilds on a GitHub
+    # cron, and GitHub drops crons - so say plainly how old these numbers are.
+    stale = ""
+    built = sc.get("built_at") or ""
+    if built:
+        try:
+            b = dt.datetime.fromisoformat(built)
+            if b.tzinfo is None:
+                b = b.replace(tzinfo=dt.timezone.utc)
+            age = (dt.datetime.now(dt.timezone.utc) - b).total_seconds() / 60
+            if age > 180:
+                stale = (f'<div class="pg-stale">These numbers are '
+                         f'<b>{int(age // 60)}h {int(age % 60)}m old</b>. The desk has not '
+                         f'rebuilt since. Prices in the news alerts are still live.</div>')
+            else:
+                stale = (f'<div class="pg-age">Updated {int(age)} min ago</div>'
+                         if age >= 1 else '<div class="pg-age">Updated just now</div>')
+        except Exception:                                      # noqa: BLE001
+            pass
+
     nxt = sc.get("next_high_impact") or ""
     when = ""
     if nxt:
@@ -128,7 +148,7 @@ def macro_block():
         except Exception:                                      # noqa: BLE001
             pass
 
-    return (f'<div class="pg-lead">{regime_line()}</div>'
+    return (f'{stale}<div class="pg-lead">{regime_line()}</div>'
             f'<h3 class="pg-h3">Currencies</h3>{rows}'
             f'<h3 class="pg-h3">Gold, Silver, Oil</h3>{crows}{when}'
             '<div class="pg-foot">Scores run -100 to +100. Plus means buy-side, '
@@ -160,6 +180,8 @@ CSS = """
 .pg-next{margin-top:14px;font-size:13px;padding:9px 12px;border-radius:8px;
  background:rgba(128,128,128,.10)}
 .pg-foot{margin-top:12px;font-size:11.5px;opacity:.5}
+.pg-age{font-size:11.5px;opacity:.5;margin:0 0 8px}
+.pg-stale{font-size:12.5px;margin:0 0 10px;padding:8px 11px;border-radius:7px;border-left:3px solid #d99000;background:rgba(217,144,0,.12)}
 .pg-empty{opacity:.55;font-size:13px;padding:10px 0}
 @media (prefers-color-scheme:dark){.pg-score.up{color:#35d07f}.pg-score.dn{color:#ff6b7d}
  .pg-tab.on{background:#4c6ef5;border-color:#4c6ef5}}
@@ -181,6 +203,26 @@ JS = """
     try{ localStorage.setItem('pgTab', which); }catch(e){}
   }
   window.pgShow = show;
+
+  // "12 min ago" beats "02 SEP 12:27 UTC" on a phone, and it has to be computed when
+  // the page is OPENED - the page itself may have been built hours earlier.
+  function ago(){
+    var now = Date.now();
+    var els = document.querySelectorAll('.cn-when[data-ts]');
+    for (var i=0;i<els.length;i++){
+      var t = Date.parse(els[i].getAttribute('data-ts'));
+      if (!t) continue;
+      var m = Math.round((now - t)/60000), s;
+      if (m < 1) s = 'just now';
+      else if (m < 60) s = m + ' min ago';
+      else if (m < 1440) s = Math.floor(m/60) + 'h ' + (m%60) + 'm ago';
+      else s = Math.floor(m/1440) + 'd ago';
+      var span = els[i].querySelector('.cn-ago');
+      if (span) span.textContent = s;
+    }
+  }
+  ago();
+  setInterval(ago, 60000);
   var saved='macro';
   try{ saved = localStorage.getItem('pgTab') || 'macro'; }catch(e){}
   if(document.readyState==='loading')

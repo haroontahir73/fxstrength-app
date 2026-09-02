@@ -1011,7 +1011,11 @@ def _card(e):
                  f'{why}</td></tr>')
 
     src = f' <span class="cn-src">{_esc(p["src"])}</span>' if p.get("src") else ""
-    out = [f'<article class="cn-card"><div class="cn-when">{_esc(e["when"])} '
+    # data-ts lets the page render "12 min ago" when the reader opens it, rather than
+    # freezing a relative time at build time. Falls back to the stamped UTC string.
+    ts = f' data-ts="{_esc(e.get("iso", ""))}"' if e.get("iso") else ""
+    out = [f'<article class="cn-card"><div class="cn-when"{ts}>'
+           f'<span class="cn-ago">{_esc(e["when"])}</span> '
            f'&middot; {_esc(p["label"])}</div>',
            f'<h3 class="cn-head">{p["emoji"]} {_esc(p["headline"])}{src}</h3>',
            f'<p class="cn-why-p">{_esc(p["why"])}</p>',
@@ -1248,6 +1252,7 @@ def main():
                  "urgent" if any(dec[k][1] >= 3 for k in ("gold", "silver", "oil"))
                  else "high", "coin")
             feed_add({"when": dt.datetime.now(dt.timezone.utc).strftime("%d %b %H:%M UTC"),
+                      "iso": dt.datetime.now(dt.timezone.utc).isoformat(),
                       "cat": cat, "title": title, "body": body, "link": link,
                       "parts": parts(cat, head, src, snap, lmap)})
         fired += 1

@@ -22,7 +22,7 @@ name: news watch
 # The concurrency group serialises overlapping runs, so extra triggers are harmless.
 on:
   schedule:
-    - cron: '7 * * * *'
+    - cron: '7,37 * * * *'      # twice an hour; extras just replace the pending run
   workflow_dispatch:
   # A code change has to RESTART the watcher, not wait for it. The loop now runs for
   # 5.5 hours, so without this a fix to the classifier or the decode table sits unused
@@ -42,10 +42,16 @@ permissions:
 
 concurrency:
   group: news-watch
-  # the loop now runs for 5.5h, so a queued run would otherwise wait most of a day.
-  # newest code wins; the feed is committed mid-loop so a cancel loses nothing but the
-  # dedup cache, worth at most a couple of repeat alerts.
-  cancel-in-progress: true
+  # Cancel ONLY for a deploy. This is what keeps coverage continuous:
+  #   push     -> the new code takes over at once (a stale classifier is worse than a gap)
+  #   schedule -> QUEUES behind the healthy run instead of killing it, and starts the
+  #               moment the 5.5h loop ends. With an hourly cron there is essentially
+  #               always one run pending, so the handover is seamless even when GitHub
+  #               drops most of the scheduled triggers - which it does.
+  # With cancel-in-progress: true on every event, a cron would have restarted a healthy
+  # watcher every hour, and worse, nothing would have been queued to take over when the
+  # loop ended on its own.
+  cancel-in-progress: ${{ github.event_name == 'push' }}
 
 jobs:
   watch:
@@ -119,6 +125,11 @@ jobs:
                 [ -f "data/$f" ] && git add "data/$f"
               done
               git commit -m "feed: new commodity alert(s) [skip refresh]" || true
+              # Rebase first. Without it, one push that loses a race leaves an unpushed
+              # commit behind; the next alert sees no diff against HEAD, commits nothing,
+              # and every later push fails the same way - the feed silently stops
+              # updating for the rest of the run.
+              git pull --rebase -q || git rebase --abort || true
               git push || echo "  push failed - the cache still carries the feed"
             fi
             echo "::endgroup::"
