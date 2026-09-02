@@ -75,8 +75,15 @@ _QUERIES = [
     '("central bank gold" OR "gold reserves" OR "PBoC gold" OR "gold ETF" OR "bullion demand" '
     'OR "mine supply" OR "mine strike")',
 ]
+# Direct wires on top of the Google News queries - they carry a story minutes before it
+# reaches an aggregator. Financial Juice was requested and tested first: it is behind
+# Cloudflare and returns "error code: 1015" / Access Denied to any automated client,
+# including a real browser, so it cannot be used. These are the fast ones that do work.
 FEEDS = [_GN.format(q=_q(x)) for x in _QUERIES] + [
-    "https://www.forexlive.com/feed/news/",
+    "https://www.forexlive.com/feed/news/",          # squawk-style, fastest of these
+    "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+    "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",  # WSJ markets
+    "https://www.investing.com/rss/news_1.rss",
     "https://oilprice.com/rss/main",
     "https://www.mining.com/feed/",
 ]
