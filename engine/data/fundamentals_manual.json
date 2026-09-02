@@ -3,7 +3,7 @@
   "USD": {
     "CB stance": {
       "score": 4.5,
-      "note": "Held 3.50-3.75% on 29 Jul with THREE regional presidents dissenting for a hike - first triple dissent since Sep 2016. At Jackson Hole on 28 Aug new Chair Warsh called inflation 'concerning', said underlying trends have not 'meaningfully improved' and the Fed has 'work to do'; hawk dissenter Hammack said 'now is the time to act'. Most hawkish major central bank, live hike on the table - but has not actually hiked and Warsh withheld an explicit September signal, so 4.5 not 5.",
+      "note": "Held 3.50-3.75% on 29 Jul with THREE regional presidents voting for a hike - first triple split since Sep 2016. At Jackson Hole on 28 Aug new Chair Warsh called inflation 'concerning', said underlying trends have not 'meaningfully improved' and the Fed has 'work to do'; Hammack, who wants higher rates, said 'now is the time to act'. The major central bank leaning hardest toward a hike, with a live hike on the table - but has not actually hiked and Warsh withheld an explicit September signal, so 4.5 not 5.",
       "as_of": "2026-08-28"
     },
     "Next meeting expectation": {
@@ -30,14 +30,14 @@
     },
     "Expected rate change": {
       "score": 4,
-      "note": "Tightening bias, live hike on the table.",
+      "note": "Leaning toward higher rates, live hike on the table.",
       "as_of": "2026-08-24"
     }
   },
   "GBP": {
     "CB stance": {
       "score": 2.5,
-      "note": "Neutral-to-dovish against a tightening Fed and ECB; no tightening bias signalled.",
+      "note": "Leaning slightly toward rate cuts while the Fed and ECB are still raising; no sign of wanting higher rates.",
       "as_of": "2026-08-24"
     },
     "Next meeting expectation": {
@@ -47,14 +47,14 @@
     },
     "Expected rate change": {
       "score": 2,
-      "note": "Easing bias - the weakest policy direction of the majors tracked here.",
+      "note": "Leaning toward rate cuts - the most cut-leaning of the majors tracked here.",
       "as_of": "2026-08-24"
     }
   },
   "JPY": {
     "CB stance": {
       "score": 3.5,
-      "note": "Gradual normalisation continues after years of ultra-loose policy; policy rate now 1.00%.",
+      "note": "Still slowly raising rates after years of near-zero policy; policy rate now 1.00%.",
       "as_of": "2026-08-24"
     },
     "Next meeting expectation": {
@@ -71,31 +71,31 @@
   "AUD": {
     "Expected rate change": {
       "score": 3.5,
-      "note": "Hawkish hold. Cash rate 4.35% since 11 Aug; RBA says inflation is still too high and it could hike again if upside risks materialise. Next decision 29 Sep 2026. CB stance and next-meeting expectation are derived from the scored minutes, not set here.",
+      "note": "Held rates but still leaning toward a hike. Cash rate 4.35% since 11 Aug; RBA says inflation is still too high and it could raise again if upside risks materialise. Next decision 29 Sep 2026. CB stance and next-meeting expectation are derived from the scored minutes, not set here.",
       "as_of": "2026-08-26"
     }
   },
   "NZD": {
     "CB stance": {
       "score": 3.5,
-      "note": "Actively tightening from a low base - hiked 25bp to 2.50% on 8 Jul, the most recent move of any bank tracked here. Policy still accommodative in absolute terms, direction is up.",
+      "note": "Actively raising rates from a low starting point - hiked 25bp to 2.50% on 8 Jul, the most recent move of any bank tracked here. Rates still low overall, but the direction is up.",
       "as_of": "2026-08-26"
     },
     "Next meeting expectation": {
       "score": 3.5,
-      "note": "Further tightening expected; RBNZ is among the banks with the largest expected rate increases ahead.",
+      "note": "Further rate rises expected; RBNZ is among the banks with the largest expected rate increases ahead.",
       "as_of": "2026-08-26"
     },
     "Expected rate change": {
       "score": 3.5,
-      "note": "Tightening bias confirmed by the July hike.",
+      "note": "Leaning toward higher rates, confirmed by the July hike.",
       "as_of": "2026-08-26"
     }
   },
   "CAD": {
     "CB stance": {
       "score": 3.0,
-      "note": "Held 2.25% on 15 Jul and sits among the most accommodative of the majors. Commentary points to eventual tightening but nothing near-term is signalled. LOW CONFIDENCE - inferred from cross-bank commentary rather than a direct BoC statement, so held near neutral.",
+      "note": "Held 2.25% on 15 Jul and has some of the lowest rates of the majors. Commentary points to eventual rate rises but nothing near-term is signalled. LOW CONFIDENCE - inferred from cross-bank commentary rather than a direct BoC statement, so held near neutral.",
       "as_of": "2026-08-26"
     },
     "Next meeting expectation": {
@@ -105,7 +105,7 @@
     },
     "Expected rate change": {
       "score": 3.25,
-      "note": "Mild tightening bias expected from a low base, but not imminent. LOW CONFIDENCE.",
+      "note": "A mild lean toward higher rates expected from a low starting point, but not imminent. LOW CONFIDENCE.",
       "as_of": "2026-08-26"
     }
   }
