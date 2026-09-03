@@ -1,5 +1,60 @@
 [
  {
+  "when": "03 Sep 21:22 UTC",
+  "iso": "2026-09-03T21:22:23.022069+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nVance: US investigating strike on Iran wedding 'very fully' - Middle East Eye  (Middle East Eye)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,520 (+3.5%)   Silver 67.58 (+4.4%)   WTI 91.67 (+0.7%)   DXY 98.98 (-0.6%)   US10Y 4.76 (-0.7%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPYmllcjR5ZWdHRHo0UzdSMXFiVHVieEI4UllEYWdXekh3RjhFbnR2Z3k2TnprNzVwa0Y3bFhoZTh6YVhMOERGVG1YbWZ2V3N1d0FmamlnZlBmS05saW4tZ2lJNGI4dWtWdFdYMVJSOFZSTlZpUjB5a3hYTXpPR1FobWtUY1VnWE9faFVpcE9CdkhLQQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4520.3,
+   "Silver": 67.585,
+   "WTI": 91.67
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Vance: US investigating strike on Iran wedding 'very fully' - Middle East Eye",
+   "src": "Middle East Eye",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,520 (+3.5%)   Silver 67.58 (+4.4%)   WTI 91.67 (+0.7%)   DXY 98.98 (-0.6%)   US10Y 4.76 (-0.7%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "03 Sep 19:48 UTC",
   "iso": "2026-09-03T19:48:33.453331+00:00",
   "cat": "oil_supply_tight",
