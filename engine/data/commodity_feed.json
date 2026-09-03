@@ -1,5 +1,60 @@
 [
  {
+  "when": "03 Sep 12:47 UTC",
+  "iso": "2026-09-03T12:47:42.775365+00:00",
+  "cat": "inflation_cold",
+  "title": "GOLD+SILVER STRONG LONG | INFLATION - cooling",
+  "body": "\u2744 INFLATION \u2014 cooling\n\nFinancialJuice: Fed's Waller: Finally seeing some signs of disinflation in recent data.\n\nWHY: Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - opens the door to rate cuts\n        [CONFIDENT - right 64% of 503 past cases]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up\n        [CONFIDENT - right 61% of 503 past cases]\nOIL    \u2192    no clean read - mild help from a softer dollar\n\nNOW  Gold 4,515 (+3.4%)   Silver 66.73 (+3.1%)   WTI 92.42 (+1.5%)   DXY 99.05 (-0.5%)   US10Y 4.77 (-0.6%)\n\nREALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.\n\nFLIP: one hot print reverses the whole thing",
+  "link": "https://www.financialjuice.com/News/9748559/Feds-Waller-Finally-seeing-some-signs-of-disinflation-in-recent-data.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4515.1,
+   "Silver": 66.735,
+   "WTI": 92.42
+  },
+  "parts": {
+   "emoji": "\u2744",
+   "label": "INFLATION \u2014 cooling",
+   "headline": "FinancialJuice: Fed's Waller: Finally seeing some signs of disinflation in recent data.",
+   "src": "",
+   "why": "Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "opens the door to rate cuts",
+     "record": "CONFIDENT - right 64% of 503 past cases"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "follows gold up",
+     "record": "CONFIDENT - right 61% of 503 past cases"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 1,
+     "call": "no clean read",
+     "reason": "mild help from a softer dollar",
+     "record": ""
+    }
+   ],
+   "snap": "NOW  Gold 4,515 (+3.4%)   Silver 66.73 (+3.1%)   WTI 92.42 (+1.5%)   DXY 99.05 (-0.5%)   US10Y 4.77 (-0.6%)",
+   "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
+   "flip": "one hot print reverses the whole thing"
+  }
+ },
+ {
   "when": "03 Sep 12:32 UTC",
   "iso": "2026-09-03T12:32:11.894739+00:00",
   "cat": "rates_up",
