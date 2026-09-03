@@ -1,5 +1,60 @@
 [
  {
+  "when": "03 Sep 10:47 UTC",
+  "iso": "2026-09-03T10:47:28.849765+00:00",
+  "cat": "rates_up",
+  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nWarsh shift points to an \u2018insurance\u2019 Fed hike - ING Think  (ING Think)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,470 (+2.4%)   Silver 66.06 (+2.1%)   WTI 92.99 (+2.2%)   DXY 99.26 (-0.3%)   US10Y 4.80 (-0.0%)\n\nREALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPRmJsaldYVzVmcTdMQkd4d2JZMVZHWWtjNVVBOHMwMkR2bGxhOFBDZ25VODRQbmI2NVZfQjE2R3d6UGkxN3VSQkR0QWFXSm0wWUwwSWRZM3dfSG9yM1JjU1VfX1A5SWVZYmR6TUxyMklZVUxwQTBSckNrRHNpdjU3ZDlmSC1EckJFRzFEX1FEemtCelg4WmNKVVdEUQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4470.2,
+   "Silver": 66.06,
+   "WTI": 92.99
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Warsh shift points to an \u2018insurance\u2019 Fed hike - ING Think",
+   "src": "ING Think",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "same hit as gold, only bigger",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,470 (+2.4%)   Silver 66.06 (+2.1%)   WTI 92.99 (+2.2%)   DXY 99.26 (-0.3%)   US10Y 4.80 (-0.0%)",
+   "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "03 Sep 10:38 UTC",
   "iso": "2026-09-03T10:38:01.008093+00:00",
   "cat": "geo_escalation",
