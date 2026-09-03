@@ -452,6 +452,32 @@ def theme_claim(cat, who):
     return True
 
 
+# --- confidence gate: only buzz the phone for signals we're actually sure about ----
+NEWS_THEME_COOLDOWN_MIN = 180    # one push per theme per 3h - kills 20-headlines-one-event
+STRONG_SEV2 = {"fed_hawkish", "fed_dovish", "tariff", "energy_supply", "cb_surprise"}
+NO_PUSH = {"risk_off_move"}      # "the move already happened" - not a catalyst
+
+
+def should_push(cat, sev, kw, title):
+    """sev-3 always; a strong sev-2 only when the keyword is in the HEADLINE (a passing
+    mention in the summary is not enough); everything else is logged, not pushed."""
+    if cat in NO_PUSH:
+        return False
+    if sev >= 3:
+        return True
+    return cat in STRONG_SEV2 and kw in title.lower()
+
+
+COOLDOWN_EXEMPT = {"geo_deescalation"}   # a ceasefire is rare + critical - never hold it back
+
+
+def _theme_recent(cat, theme, seen):
+    if cat in COOLDOWN_EXEMPT:
+        return False
+    t = seen.get(f"news_theme:{theme}")
+    return bool(t and (time.time() - t) / 60 < NEWS_THEME_COOLDOWN_MIN)
+
+
 def load_seen():
     try:
         raw = json.loads(SEEN_FILE.read_text(encoding="utf-8"))
@@ -518,8 +544,18 @@ def gather_items():
 
 
 # ---------------------------------------------------------------- calendar surprise
+# only these releases are worth a phone buzz - the ones that actually move a currency
+FLAGSHIP_DATA = (
+    "non farm payroll", "nonfarm payroll", "nfp", "unemployment rate", "cpi",
+    "inflation rate", "core inflation", "ppi", "producer price", "gdp growth",
+    "retail sales", "ism manufacturing", "ism services", "ism non-manufacturing",
+    "pmi", "initial jobless claims", "interest rate decision", "rate decision",
+    "average hourly earnings", "employment change", "jobs report",
+)
+
+
 def calendar_surprises():
-    """Big just-released US/major economic beats or misses in the last ~40 min."""
+    """Big just-released US/major beats or misses in the last ~40 min, FLAGSHIP releases only."""
     try:
         from fetch_calendar import API, HEADERS, COUNTRY, base_indicator
     except Exception:                                          # noqa: BLE001
@@ -544,12 +580,14 @@ def calendar_surprises():
         when = _parse_date(e.get("date", ""))
         if when is None or (now - when).total_seconds() > 40 * 60 or when > now:
             continue
+        title = e.get("title", "")
+        if not any(k in title.lower() for k in FLAGSHIP_DATA):
+            continue                               # not a market-moving release
         denom = abs(f) if abs(f) > 1e-9 else 1.0
         surp = (a - f) / denom
-        if abs(surp) < 0.15:                       # < 15% off forecast = not a surprise
+        if abs(surp) < 0.25:                       # < 25% off forecast = not a real surprise
             continue
         ccy = COUNTRY.get(e.get("country"), e.get("country"))
-        title = e.get("title", "")
         inverted = any(w in title.lower() for w in ("unemployment", "jobless", "claims"))
         hot = (surp > 0) != inverted              # True = currency-positive print
         out.append({"ccy": ccy, "title": title, "actual": a, "forecast": f,
@@ -715,6 +753,14 @@ def main():
             continue
         cat, sev, kw = hit
         seen[h] = time.time()
+        # confidence gate - only the signals we're sure about reach the phone
+        if not should_push(cat, sev, kw, it["title"]):
+            print(f"  [logged, below the push bar] {cat}/{sev}: {it['title'][:70]}")
+            continue
+        theme = THEMES.get(cat, cat)
+        if not dry and _theme_recent(cat, theme, seen):
+            print(f"  [theme '{theme}' already pushed within {NEWS_THEME_COOLDOWN_MIN}m] {it['title'][:70]}")
+            continue
         # `not dry` matters: a --dry-run that claimed themes would silence the real
         # commodity alerts for the next 45 minutes while pushing nothing itself.
         if not dry and not theme_claim(cat, "fx"):
@@ -726,6 +772,7 @@ def main():
         print(f"\n[{cat}/{sev}] <{kw}>\n" + "-" * 60 + f"\n{body}\n" + "-" * 60)
         if not dry:
             push(topic, title, body, it["link"], prio)
+            seen[f"news_theme:{theme}"] = time.time()
         fired += 1
 
     # 2) economic-calendar surprises
