@@ -1,5 +1,60 @@
 [
  {
+  "when": "03 Sep 10:03 UTC",
+  "iso": "2026-09-03T10:03:21.635240+00:00",
+  "cat": "geo_escalation",
+  "title": "TALK | OIL LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nTrump warns US is prepared to attack Iran 'anytime' after recent airstrikes - Fox News  (Fox News)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191   look for longs - supply at risk = price up fast (talk, not action yet)\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,474 (+2.5%)   Silver 66.25 (+2.4%)   WTI 91.81 (+0.9%)   DXY 99.21 (-0.4%)   US10Y 4.80 (-0.0%)\n\nREALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE45dGJKRmd4ZmxfRUFmZmFPYVJtUmI1SW1Galkxb05kNXJRRWpNOVRLblpoUGNXeXZueEw0eW9aMmxta3gzdkNhbXpGTXg1b0tJd0Y1bDlR?oc=5",
+  "talk": true,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4474.1,
+   "Silver": 66.25,
+   "WTI": 91.81
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Trump warns US is prepared to attack Iran 'anytime' after recent airstrikes - Fox News",
+   "src": "Fox News",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "supply at risk = price up fast (talk, not action yet)",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,474 (+2.5%)   Silver 66.25 (+2.4%)   WTI 91.81 (+0.9%)   DXY 99.21 (-0.4%)   US10Y 4.80 (-0.0%)",
+   "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "03 Sep 08:36 UTC",
   "iso": "2026-09-03T08:36:52.143251+00:00",
   "cat": "oil_supply_tight",
