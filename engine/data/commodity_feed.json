@@ -1,5 +1,60 @@
 [
  {
+  "when": "03 Sep 13:22 UTC",
+  "iso": "2026-09-03T13:22:16.384243+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nDonald Trump eyes Syria as future energy hub beyond Strait of Hormuz - The Jerusalem Post  (The Jerusalem Post)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,536 (+3.9%)   Silver 67.17 (+3.8%)   WTI 91.65 (+0.7%)   DXY 99.02 (-0.5%)   US10Y 4.74 (-1.1%)\n\nREALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1DcWRPUUlodWI3WG9LdnhXY2RvT3NIbVBISkhkY3F4c0hMZkd5RTd1cm1sVTV5RUJRWVZaWXAybzQzV09tMjNGelQ5RnRkclM3emc2OWI3eW9aWjVRTlpF?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4535.5,
+   "Silver": 67.17,
+   "WTI": 91.65
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Donald Trump eyes Syria as future energy hub beyond Strait of Hormuz - The Jerusalem Post",
+   "src": "The Jerusalem Post",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,536 (+3.9%)   Silver 67.17 (+3.8%)   WTI 91.65 (+0.7%)   DXY 99.02 (-0.5%)   US10Y 4.74 (-1.1%)",
+   "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "03 Sep 13:03 UTC",
   "iso": "2026-09-03T13:03:29.733127+00:00",
   "cat": "rates_up",
