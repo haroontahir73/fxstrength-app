@@ -36,5 +36,24 @@
   "_note_USD_jh_day3": "Flat. Final half-day was academic paper panels and non-Fed participants (e.g. Austria's Kocher on euro-area momentum); no new Fed policy-path content beyond what Warsh and Schmid had already delivered. Scored 0 to avoid a third count of the same message.",
 
   "GBP|MPC Member Mann Speaks|2026-08-28T14:30": 0.0,
-  "_note_GBP_mann_jh": "Flat - not about the BoE policy path. Mann spoke at Jackson Hole on 'Financial Innovation and the International Monetary System', a topical/structural address on external imbalances and cross-border spillovers, not UK rates. Mann is an MPC member known for wanting higher rates and for dissenting, but this speech carried no signal on the Bank Rate trajectory, so scored 0 per the policy-path-only rule."
+  "_note_GBP_mann_jh": "Flat - not about the BoE policy path. Mann spoke at Jackson Hole on 'Financial Innovation and the International Monetary System', a topical/structural address on external imbalances and cross-border spillovers, not UK rates. Mann is an MPC member known for wanting higher rates and for dissenting, but this speech carried no signal on the Bank Rate trajectory, so scored 0 per the policy-path-only rule.",
+
+  "NZD|RBNZ Rate Statement|2026-09-02T02:00": 2.0,
+  "NZD|RBNZ Press Conference|2026-09-02T03:00": 1.5,
+  "NZD|RBNZ Gov Breman Speaks|2026-09-02T20:10": -0.5,
+  "_note_NZD_rbnz_sep": "The 2 Sep MPS delivered a unanimous second straight 25bp hike to 2.75%, citing inflation at 4.1% (fuel-driven; 2.9% ex-fuel) and a majority of the MPC seeing upside risks - the Monetary Policy Statement itself projects a chance of one further hike before year-end, so +2. Gov Breman's press conference kept the hike option 'firmly on the table' and said the RBNZ 'remains resolved to adjust the OCR higher', but framed the next move as more a December discussion, hence +1.5. The following morning (20:10 UTC = 3 Sep NZ) at Parliament's Finance and Expenditure select committee she said that after two hikes the RBNZ 'can probably take some time to assess' how they have affected the economy - a pause hint, softer than the tightening bias but not an easing signal, so -0.5.",
+
+  "CAD|BOC Rate Statement|2026-09-02T13:45": 0.5,
+  "CAD|BOC Press Conference|2026-09-02T14:30": 0.5,
+  "_note_CAD_boc_sep": "The 2 Sep decision held the overnight rate at 2.25% for a 7th straight meeting. The statement and Macklem's opening remarks leaned on elevated upside inflation risks - CPI hovering near 3% on gasoline, Middle East energy prices, and new US-Canada tariffs after trade talks broke down ('the longer oil prices and refinery margins stay high, the greater the risk that higher energy prices spill over') - against a broadening 3.3% Q2 recovery. But the Bank explicitly gave no signal and stayed data-dependent ('prepared to adjust monetary policy as needed'), so only a mild +0.5 on each.",
+
+  "EUR|German Buba President Nagel Speaks|2026-09-01T12:30": 1.5,
+  "EUR|German Buba President Nagel Speaks|2026-09-02T00:30": 1.5,
+  "_note_EUR_nagel_sep": "Nagel backed the September ECB hike path (markets >95% priced) and 'strongly signalled' the ECB will raise rates, while welcoming the easing in core and services inflation and saying he sees no second-round effects; he stressed a meeting-by-meeting approach beyond September given volatile energy prices. Clearly leaning toward higher rates but with the good-inflation-news caveat and no commitment past September, so +1.5. The 1 Sep and 2 Sep entries are the same message.",
+
+  "USD|FOMC Member Barr Speaks|2026-09-01T13:05": 1.0,
+  "_note_USD_barr_sep": "Leaning toward higher rates, two-sided. At the Second Chance Lending Forum Barr said inflation 'remains too high - and has been for over five years' and that if it 'appears not to be moderating sufficiently, then I think we should act decisively to raise rates' at the 15-16 Sep FOMC, while adding that if the data give confidence inflation is on a path to 2% the Fed 'can take a bit more time'. Open to a hike or a hold depending on the data, so +1.",
+
+  "EUR|Boris Vujčić: Listening to households: expectations, behaviour and monetary policy|2026-09-01T16:00": 0.0,
+  "_note_EUR_vujcic_households": "Flat - a research/communications speech, not policy-path. ECB VP Vujcic argued that high-quality household expectations surveys support better policymaking and credibility, and that central banks should communicate the uncertainty around the baseline and alternative scenarios (referencing the June 2026 Eurosystem projections). Nothing on the ECB rate trajectory, so scored 0 for the record."
 }

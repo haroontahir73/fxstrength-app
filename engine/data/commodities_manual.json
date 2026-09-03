@@ -2,14 +2,14 @@
   "_help": "Per commodity, an indicator->1-5 map (5 = bullish). A bare number or {\"score\": n, \"note\": \"why\"} for auditability. Unset = held at neutral and excluded from the average, exactly like fundamentals_manual. Refreshed by the fx-strength-desk-daily task, step 2c.",
   "XAU": {
     "Real yield direction": {
-      "score": 3.5,
-      "note": "10y TIPS ~2.35% on 2026-08-30, down from 2.43% over the prior 30 days - direction is easing, which helps gold, but the level is still historically restrictive so not a full bull signal.",
-      "as_of": "2026-08-30"
+      "score": 3,
+      "note": "Two-way, net neutral. Yields spiked 1 Sep when the Iran strikes lifted oil and revived inflation fears, but the 3 Sep ADP print (38k vs 48k expected, weakest since January) pulled Treasury yields back down. No clear direction for gold either way.",
+      "as_of": "2026-09-03"
     },
     "US dollar direction": {
-      "score": 4,
-      "note": "DXY ~99.6, below a declining 200-day MA and testing channel support; bank consensus leans to a modestly weaker dollar into year-end (mid-90s) on slowing US growth and the Warsh rate path. A soft dollar is bullish gold.",
-      "as_of": "2026-08-30"
+      "score": 3.5,
+      "note": "DXY eased 0.13% to 99.55 on 3 Sep and slipped below the recovering channel off the August lows after the weak ADP print. Mildly bullish gold; Friday's payrolls is the real test.",
+      "as_of": "2026-09-03"
     },
     "Central-bank & ETF demand": {
       "score": 4,
@@ -18,20 +18,20 @@
     },
     "Safe-haven bid": {
       "score": 4,
-      "note": "US-Israel-Iran conflict in an uneasy pause with Strait of Hormuz risk still live (a ~$4/bbl war premium sits in oil); elevated geopolitical uncertainty keeps a safe-haven bid under gold.",
-      "as_of": "2026-08-30"
+      "note": "Live escalation - the US struck Iran 1 Sep and Iran retaliated - and gold is now converting it into a bid rather than being overwhelmed by the rates channel: bounced from 4348 (1 Sep) to 4482, about +3%.",
+      "as_of": "2026-09-03"
     }
   },
   "XAG": {
     "Real yield direction": {
-      "score": 4,
-      "note": "Same falling-real-yield backdrop as gold (10y TIPS 2.43% -> 2.35% over 30 days); silver is more leveraged to the move.",
-      "as_of": "2026-08-30"
+      "score": 3,
+      "note": "Same two-way picture as gold - the 1 Sep yield spike on oil largely unwound after weak ADP on 3 Sep. Silver is more leveraged to the move but there is no clear direction to be leveraged to right now.",
+      "as_of": "2026-09-03"
     },
     "US dollar direction": {
-      "score": 4,
-      "note": "Soft DXY (~99.6, below the 200-day MA, consensus lower into year-end) is bullish silver.",
-      "as_of": "2026-08-30"
+      "score": 3.5,
+      "note": "Softer DXY (99.55, below the August recovery channel) after weak ADP is mildly bullish silver.",
+      "as_of": "2026-09-03"
     },
     "Industrial demand": {
       "score": 3.5,
@@ -40,30 +40,30 @@
     },
     "Gold-silver ratio": {
       "score": 3,
-      "note": "Ratio ~66.8, well below the long-run ~80 average - silver has already closed most of the gap to gold, so it is no longer cheap on this measure. Neutral for further silver outperformance.",
-      "as_of": "2026-08-30"
+      "note": "Ratio ~67.5, well below the long-run ~80 average - silver has already closed most of the gap to gold, so it is no longer cheap on this measure. Neutral for further silver outperformance.",
+      "as_of": "2026-09-03"
     }
   },
   "WTI": {
     "OPEC+ supply policy": {
       "score": 3.5,
-      "note": "OPEC+ approved a small +188k bpd September hike (2 Aug), completing the rollback of the 2023 voluntary cuts, then signalled quotas held steady through year-end. Removing the 'more barrels coming' overhang is mildly supportive versus the prior path, though all the cut barrels are now back in the market. Next review 6 Sep.",
+      "note": "OPEC+ approved a small +188k bpd September hike (2 Aug), completing the rollback of the 2023 voluntary cuts, then signalled quotas held steady through year-end. Removing the 'more barrels coming' overhang is mildly supportive versus the prior path. Next review 6 Sep.",
       "as_of": "2026-08-30"
     },
     "Inventory trend": {
-      "score": 2.5,
-      "note": "EIA reported a 17.4Mb crude build for the week of 7 Aug (largest since Jan 2023, import-driven), then broadly flat; stocks ~428.9Mb, matching the 5-year average. Level is neutral but the month's trajectory was builds, not draws.",
-      "as_of": "2026-08-30"
+      "score": 3,
+      "note": "EIA week of 21 Aug: commercial crude +0.1Mb to 428.9Mb, roughly the 5-year average; refinery runs near 98% utilisation. The mid-August import-driven build has not repeated and EIA expects stocks below the 5-year low through year-end on high exports and low imports. Neutral-to-slightly-tight, up from the earlier build-heavy read.",
+      "as_of": "2026-09-03"
     },
     "Demand outlook": {
       "score": 2,
-      "note": "IEA sees 2026 oil demand contracting (~-80 kb/d), with the sharpest quarterly drop since Covid, as trade disruption hits advanced economies, Asia and the Middle East. Clearly bearish.",
+      "note": "IEA sees 2026 oil demand contracting (~-80 kb/d), the sharpest quarterly drop since Covid, as trade disruption hits advanced economies, Asia and the Middle East. Clearly bearish; the price spike is supply-risk driven, not demand.",
       "as_of": "2026-08-30"
     },
     "Geopolitical risk premium": {
-      "score": 3.5,
-      "note": "Only a modest ~$4/bbl war premium is priced; Hormuz/Iran risk is unresolved and asymmetric to the upside on any escalation. A mild net support.",
-      "as_of": "2026-08-30"
+      "score": 4.5,
+      "note": "Escalation is now actual, not a threat: the US launched airstrikes on Iran on 1 Sep and Iran retaliated. Brent ~$95.50 / WTI ~$91, and Strait of Hormuz risk is live and asymmetric to the upside. Raised from 3.5 to 4.5.",
+      "as_of": "2026-09-03"
     }
   }
 }

@@ -1,33 +1,33 @@
 {
   "_help": "Fallback for banks centralbank.watch does not publish probabilities for (it links out to CME FedWatch for the Fed, and omits the RBNZ). Fill hike/hold/cut as percentages plus next_meeting and src. Set \"override\": true to beat a scraped value. Leave a bank out entirely rather than guessing - a missing expectation is handled, an invented one is not.",
   "USD": {
-    "hike": 50,
-    "hold": 50,
+    "hike": 68,
+    "hold": 32,
     "cut": 0,
     "next_meeting": "September 16, 2026",
-    "src": "researched 2026-08-28 post-Warsh Jackson Hole keynote, re-checked 2026-08-30 (no cleaner post-Warsh figure available - FedWatch 403s here, centralbank.watch's new FOMC page JS-renders its numbers, and secondary reporting still quotes the pre-Warsh 58.6% hold / 41.4% hike as of Aug 25). September a coin flip: hike odds jumped to ~46-56% (from ~33-36%) after Warsh called inflation 'concerning', said the Fed has 'work to do' and that rates may need to rise, with no explicit September signal. Holding 50/50 until the 5 Sep jobs and 10 Sep CPI prints move it."
+    "src": "researched 2026-09-03 (re-check). CME FedWatch 67% hike for 16 Sep; futures price roughly 70% (Reuters/Yahoo, 3 Sep). Path: ~40% (21 Aug) -> ~57% post-Warsh (28 Aug) -> ~66-70% now. The 3 Sep ADP miss (38k vs 48k expected, weakest since January) knocked the dollar and Treasury yields but has not yet dented hike pricing. Friday's payrolls and 10 Sep CPI are the two tests."
   },
   "JPY": {
-    "hike": 54,
-    "hold": 46,
+    "hike": 62,
+    "hold": 38,
     "cut": 0,
     "next_meeting": "September 17, 2026",
-    "src": "centralbank.watch, read 2026-08-26 - the scraper misses the BoJ block, so this is transcribed by hand until the parser covers it."
+    "src": "researched 2026-09-03. centralbank.watch shows ~58% for a 25bp hike to 1.25% on 17 Sep; Bloomberg (2 Sep) says markets have 'near fully priced' the move after Gov Ueda hinted a hike is likely 'with upside price risks in mind'. Scraper still misses the BoJ block, so hand-entered; nudged slightly above the 58% scrape given Ueda's signal."
   },
   "NZD": {
-    "hike": 92,
-    "hold": 7,
-    "cut": 1,
-    "next_meeting": "September 2, 2026",
-    "src": "researched 2026-08-30 - a 25bp hike to 2.75% is now near-fully priced. Reuters poll: 27 of 31 economists (90%) expect a hike on 2 Sep, the second consecutive one; market-implied odds ~94% (investinglive/FXStreet, 25-30 Aug). Q2 inflation running hot at 3.9% and stronger growth hardened odds from the ~even split seen 27 Aug. Two-thirds of economists see a further hike next quarter, median year-end 3.00%."
+    "hike": 25,
+    "hold": 73,
+    "cut": 2,
+    "next_meeting": "October 28, 2026",
+    "src": "researched 2026-09-03. The 2 Sep MPS delivered a second straight 25bp hike to 2.75% (unanimous). No hard market-implied figure for the 28 Oct Monetary Policy Review was found; estimate from RBNZ guidance - the MPS projects only a 'chance' of one further hike before year-end, and Gov Breman told Parliament's FEC select committee on 3 Sep the RBNZ 'can probably take some time to assess' how the two hikes are working, pointing to a hold on 28 Oct with the 9 Dec MPS the live meeting for any further move. Tightening bias intact ('hike option firmly on the table')."
   },
   "CAD": {
-    "hike": 1,
-    "hold": 99,
-    "cut": 0,
-    "next_meeting": "September 2, 2026",
-    "src": "bankofcanadaodds.com, read 2026-08-30 (page last-updated 2026-08-29 23:54, policy rate correct at 2.25%). Near-certain hold: hold 99% / hike 1% / cut 0% for the 2 Sep 2026 decision. Consistent with Polymarket's 90% no-change (1 Jul). centralbank.watch has no BoC block and rateprobability.com was previously rejected as stale; this is the first credible current source found. Scores a true ~neutral 3.02, which is the correct reading - the meeting is a priced hold.",
+    "hike": 20,
+    "hold": 78,
+    "cut": 2,
+    "next_meeting": "October 28, 2026",
+    "src": "researched 2026-09-03. The 2 Sep decision held the overnight rate at 2.25% for a 7th straight meeting; the statement leaned on elevated upside inflation risks (CPI ~3% on gasoline, Middle East energy, new US-Canada tariffs) but gave no signal. Kalshi (20 Aug) had the Oct meeting at hold 84 / hike 16 / cut 4; National Bank and Scotiabank forecast an October hike to 2.50%, while a majority of economists still see a hold through 2026.",
     "override": true
   },
-  "_note_CAD": "Filled 2026-08-30 from bankofcanadaodds.com after months of no source. If that feed proves unreliable, revert to leaving CAD out - a missing expectation scores a true 0, an invented one corrupts the component."
+  "_note_CAD": "Rate-odds source rotated to public reporting after bankofcanadaodds.com; the TradingView scrape carries a stale 5.25% BoC rate and no real BoC block, so override stays true. If a cleaner current feed appears, prefer it."
 }
