@@ -1,5 +1,60 @@
 [
  {
+  "when": "03 Sep 03:05 UTC",
+  "iso": "2026-09-03T03:05:01.874133+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIranian missile, drone attack in Kuwait targets US military bases - report - The Jerusalem Post  (The Jerusalem Post)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,465 (+2.7%)   Silver 66.33 (+2.6%)   WTI 91.08 (+1.0%)   DXY 99.46 (-0.1%)   US10Y 4.80 (-0.0%)\n\nREALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1fVDZueklmYTA0cV9iS2YwSmM3c2V0VUdZRGlpRGRPamhRRlB3S0pIUGo0UEkyanFnS2dwcWtmeHdCSUx5cmFUMUUyV3BqOVgtNG0zUGktV3dMZnJmVVJVZi1UWnFkNzdVT2c?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4465.4,
+   "Silver": 66.33,
+   "WTI": 91.08
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Iranian missile, drone attack in Kuwait targets US military bases - report - The Jerusalem Post",
+   "src": "The Jerusalem Post",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,465 (+2.7%)   Silver 66.33 (+2.6%)   WTI 91.08 (+1.0%)   DXY 99.46 (-0.1%)   US10Y 4.80 (-0.0%)",
+   "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "03 Sep 02:58 UTC",
   "iso": "2026-09-03T02:58:34.971810+00:00",
   "cat": "rates_down",
