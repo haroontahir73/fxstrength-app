@@ -1,5 +1,60 @@
 [
  {
+  "when": "03 Sep 11:12 UTC",
+  "iso": "2026-09-03T11:12:47.767183+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIran accuses U.S. of war crimes after alleged strike on Iranian wedding party - KBRX  (KBRX)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,471 (+2.4%)   Silver 66.19 (+2.3%)   WTI 92.59 (+1.7%)   DXY 99.22 (-0.3%)   US10Y 4.80 (-0.0%)\n\nREALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOeHhKRzJpcWllN2RPcmRmNGZ0dzZIVTJSTmwyeXVKTWpmZ1lyV3V6eFhpWWVNYUxKa0l6SWh4b2VKd3Z1QW1QWDI4UEwtOG9tZXdGRTR4VE1hcUJkbWxYaXA4c2gxTjR1SGthNWdGMUZrNHl6RHZWalZhVF9kWVVKeUtJU3FaTUdSMDRGUWotODVXb2N0UmNST3h3NTFJS2tsLUhJUGZYRkdLejlMVFE?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4471.3,
+   "Silver": 66.185,
+   "WTI": 92.59
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Iran accuses U.S. of war crimes after alleged strike on Iranian wedding party - KBRX",
+   "src": "KBRX",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,471 (+2.4%)   Silver 66.19 (+2.3%)   WTI 92.59 (+1.7%)   DXY 99.22 (-0.3%)   US10Y 4.80 (-0.0%)",
+   "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "03 Sep 10:47 UTC",
   "iso": "2026-09-03T10:47:28.849765+00:00",
   "cat": "rates_up",
