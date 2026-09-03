@@ -1,5 +1,60 @@
 [
  {
+  "when": "03 Sep 21:48 UTC",
+  "iso": "2026-09-03T21:48:08.082734+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nDMW: 2 Filipinos dead in Strait of Hormuz attack - Inquirer.net  (Inquirer.net)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,520 (+3.5%)   Silver 67.58 (+4.4%)   WTI 91.67 (+0.7%)   DXY 99.00 (-0.6%)   US10Y 4.76 (-0.7%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPU05hcVVMNVRhV3pQM3BxdVFzbFU2QnB4VE5xQzRYaERYSXR6SHlLaEo4QXkwVEFFNjhzZWZhS09KVEVoVmNrMkF5RnFmT0JaX0lwM2k4UFhqQVFmVDNLUUwtRU9KbVVCQjNUTDVjLVNxd0pwM0N5WmxuRklxNjdycVBUdnNmZUF6dEQ4UEdXU3BSUdIBlwFBVV95cUxQdGw0ZkRiM0JTbkhfT0RIMzZ5TUlfcEZxQ2kwYVkwb2c2SEQwM2QwNWdsVlFYRXRqWmloajZ5UkNwSEcxRzZreFdKdWZyZmVoWkFvUm5DS3VCREM3RDg2ZnVsWFNVazRhRE5fWnJISV9ORFBpeXc3cERDS2RJNXhBLVAtRkNqUGFScEFDZHU2bXR0cmQycGh3?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4520.3,
+   "Silver": 67.585,
+   "WTI": 91.67
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "DMW: 2 Filipinos dead in Strait of Hormuz attack - Inquirer.net",
+   "src": "Inquirer.net",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,520 (+3.5%)   Silver 67.58 (+4.4%)   WTI 91.67 (+0.7%)   DXY 99.00 (-0.6%)   US10Y 4.76 (-0.7%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "03 Sep 21:22 UTC",
   "iso": "2026-09-03T21:22:23.022069+00:00",
   "cat": "geo_escalation",
