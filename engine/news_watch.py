@@ -78,11 +78,30 @@ _QUERIES = [
     '(surges OR plunges OR jumps OR spikes OR tumbles OR soars)',
     '(OPEC OR "oil output" OR "production cut" OR "Strait of Hormuz" OR embargo)',
 ]
-FEEDS = [_GN.format(q=_q(x)) for x in _QUERIES] + [
+FEEDS = [
+    # Financial Juice first - the user's trusted anchor. Its indexed squawk items + the
+    # session wraps are the canonical version of a story; when FJ has carried a theme the
+    # alert leads with it and the same story from other sites is treated as a duplicate.
+    _GN.format(q=_q("site:financialjuice.com")),
+] + [_GN.format(q=_q(x)) for x in _QUERIES] + [
     # direct FX news feeds (best-effort - skipped silently if they block us)
     "https://www.forexlive.com/feed/news/",
     "https://www.fxstreet.com/rss/news",
 ]
+
+# source authority - the batch is processed highest-rank first, so a Financial Juice or
+# wire headline claims the theme and lower-rank copies of the same story are then skipped.
+WIRE_RANK = {
+    "financial juice": 6, "financialjuice": 6,
+    "reuters": 5, "associated press": 5, "ap news": 5, "bloomberg": 5,
+    "cnbc": 4, "wall street journal": 4, "financial times": 4,
+    "forexlive": 3, "fxstreet": 3, "marketwatch": 3,
+}
+
+
+def _src_rank(src):
+    s = (src or "").lower()
+    return max((v for k, v in WIRE_RANK.items() if k in s), default=1)
 
 # ---------------------------------------------------------------- classifier
 # (category, severity 1-3, [keyword...]).  First match wins, order = priority.
@@ -471,11 +490,20 @@ def should_push(cat, sev, kw, title):
 COOLDOWN_EXEMPT = {"geo_deescalation"}   # a ceasefire is rare + critical - never hold it back
 
 
-def _theme_recent(cat, theme, seen):
+def _theme_gate(cat, theme, kw, seen):
+    """(send?, is_update?). One alert per theme per 3h - BUT a genuinely new angle on a
+    live theme (a RULES keyword not seen for it yet) is forwarded, flagged as an update.
+    That is the "only if another site says something different" rule."""
     if cat in COOLDOWN_EXEMPT:
-        return False
-    t = seen.get(f"news_theme:{theme}")
-    return bool(t and (time.time() - t) / 60 < NEWS_THEME_COOLDOWN_MIN)
+        return True, False
+    now = time.time()
+    recent = (now - seen.get(f"news_theme:{theme}", 0)) / 60 < NEWS_THEME_COOLDOWN_MIN
+    if not recent:
+        return True, False
+    kw_recent = (now - seen.get(f"news_theme_kw:{theme}:{kw}", 0)) / 60 < NEWS_THEME_COOLDOWN_MIN
+    if kw_recent:
+        return False, False              # same theme, same angle - already sent
+    return True, True                    # same theme, NEW angle - forward as an update
 
 
 def load_seen():
@@ -540,6 +568,9 @@ def gather_items():
                 src = se.text.strip()
             fresh.append({"title": title, "link": link, "desc": desc.strip(),
                           "src": src, "pub": pub})
+    # highest-authority source first, so Financial Juice / a wire claims a theme before
+    # the blog re-report of the same story does
+    fresh.sort(key=lambda it: -_src_rank(it["src"]))
     return fresh
 
 
@@ -758,8 +789,9 @@ def main():
             print(f"  [logged, below the push bar] {cat}/{sev}: {it['title'][:70]}")
             continue
         theme = THEMES.get(cat, cat)
-        if not dry and _theme_recent(cat, theme, seen):
-            print(f"  [theme '{theme}' already pushed within {NEWS_THEME_COOLDOWN_MIN}m] {it['title'][:70]}")
+        send, is_update = (True, False) if dry else _theme_gate(cat, theme, kw, seen)
+        if not send:
+            print(f"  [same story already sent] {theme}/{kw}: {it['title'][:70]}")
             continue
         # `not dry` matters: a --dry-run that claimed themes would silence the real
         # commodity alerts for the next 45 minutes while pushing nothing itself.
@@ -767,12 +799,23 @@ def main():
             print(f"  [claimed by the commodity watcher] {cat}: {it['title'][:70]}")
             continue
         body = build_alert(cat, it["title"], it["link"], it["src"], weekend, snap, lmap)
-        title = f"FX: {CAT_LABEL.get(cat, cat)}"
+        if is_update:
+            body = "[UPDATE — new development on a story already flagged]\n\n" + body
+        tag = "FX UPDATE" if is_update else "FX"
+        # ntfy titles are ASCII-only (push() replaces the rest); keep the source in the body
+        src_note = ""
+        if it.get("src"):
+            asc = it["src"].encode("ascii", "ignore").decode().strip()
+            src_note = f" - {asc}" if asc else ""
+        title = f"{tag}: {CAT_LABEL.get(cat, cat)}{src_note}"
         prio = "urgent" if sev >= 3 else "high"
-        print(f"\n[{cat}/{sev}] <{kw}>\n" + "-" * 60 + f"\n{body}\n" + "-" * 60)
+        print(f"\n[{cat}/{sev}] <{kw}>{' UPDATE' if is_update else ''} src={it.get('src','?')}\n"
+              + "-" * 60 + f"\n{body}\n" + "-" * 60)
         if not dry:
             push(topic, title, body, it["link"], prio)
-            seen[f"news_theme:{theme}"] = time.time()
+            now_t = time.time()
+            seen[f"news_theme:{theme}"] = now_t
+            seen[f"news_theme_kw:{theme}:{kw}"] = now_t
         fired += 1
 
     # 2) economic-calendar surprises
