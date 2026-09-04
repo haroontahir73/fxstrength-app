@@ -1,5 +1,60 @@
 [
  {
+  "when": "04 Sep 07:13 UTC",
+  "iso": "2026-09-04T07:13:19.039991+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nMilei declares \u2018Falklands are Argentinian\u2019 amid oil sanctions - creweguardian.co.uk  (creweguardian.co.uk)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,511 (+3.3%)   Silver 67.20 (+3.8%)   WTI 91.62 (+0.7%)   DXY 99.01 (-0.5%)   US10Y 4.76 (-0.7%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOS2R4b3p4Z3hjdnN3YXV3VzFHZzBMWnBhMW1TZ3JPRXVsMTh0eTY1T3RaYl9JYVg0bDlZZjJjNEY5dHBVLU5NUUwyM0N4Q1o4alRoam1XbEhWQVNoSG5DaFVWRWMtNFRibEtiTXlseVpoSGtQUWg4dmd0WTZYc0JhR3RIeC1kU2JGLWFqbUoxc1R5Qzl0UjJobUVqZEEzeHlld1ZfdlJvNFgyanA3c2tv?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4510.9,
+   "Silver": 67.2,
+   "WTI": 91.62
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Milei declares \u2018Falklands are Argentinian\u2019 amid oil sanctions - creweguardian.co.uk",
+   "src": "creweguardian.co.uk",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,511 (+3.3%)   Silver 67.20 (+3.8%)   WTI 91.62 (+0.7%)   DXY 99.01 (-0.5%)   US10Y 4.76 (-0.7%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "04 Sep 06:15 UTC",
   "iso": "2026-09-04T06:15:29.640202+00:00",
   "cat": "oil_supply_tight",
