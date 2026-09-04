@@ -147,8 +147,12 @@ def _num(s):
         return None
 
 
+_LAST_REASON = ""
+
+
 def fetch_cme(trade_date):
     """{instrument: {oi, chg, volume}} for one trade date, or {} if unavailable."""
+    global _LAST_REASON
     out, ds = {}, trade_date.strftime("%Y%m%d")
     for ac in (3, 8, 5):
         try:
@@ -156,12 +160,15 @@ def fetch_cme(trade_date):
         except urllib.error.HTTPError as e:
             body = ""
             try:
-                body = e.read()[:120].decode("utf-8", "replace")
+                body = e.read()[:200].decode("utf-8", "replace")
             except Exception:                                 # noqa: BLE001
                 pass
+            _LAST_REASON = (f"CME HTTP {e.code}" +
+                            (" - IP blocked as a scraper" if "blocked" in body.lower() else ""))
             print(f"  CME {ASSET_CLASS.get(ac, ac)}: HTTP {e.code} {body[:80]}")
             continue
         except Exception as e:                                # noqa: BLE001
+            _LAST_REASON = f"CME {type(e).__name__}"
             print(f"  CME {ASSET_CLASS.get(ac, ac)}: {type(e).__name__}")
             continue
         for cells in _parse_cme_xls(raw):
@@ -365,6 +372,7 @@ def update(force=False):
 
     state.setdefault("attempts", {}).setdefault(tkey, []).append(win)
     state["last_attempt"] = now.isoformat()
+    state["last_reason"] = _LAST_REASON or ("ok" if got else "no data returned")
     if got:
         hist.setdefault(tkey, {}).update(got)
         state["last_good"] = now.isoformat()
@@ -428,9 +436,10 @@ def render(hist, state, reads):
                   f'(source: {_esc(state.get("source", "n/a"))}).</div>')
     else:
         nxt = current_window(now) or "the next window"
-        banner = (f'<div class="oi-stale old">Latest data is {age_d} days old ({last}). '
-                  f'The source has not published or was unreachable; retrying in {nxt}. '
-                  f'Treat the reads below as stale.</div>')
+        why = state.get("last_reason")
+        why = f' Last attempt: {_esc(why)}.' if why else ""
+        banner = (f'<div class="oi-stale old">Latest data is {age_d} days old ({last}).'
+                  f'{why} Retrying in {nxt}. Treat the reads below as stale.</div>')
 
     rows = []
     for inst in ORDER:
@@ -541,7 +550,12 @@ def inject_strip(html_path, block):
         html = re.sub(re.escape(MARK_A) + ".*?" + re.escape(MARK_B),
                       lambda _: wrapped, html, flags=re.S)
     else:
-        m = re.search(r'<section>\s*<h2>\s*Pair ranking', html, flags=re.I)
+        # directly under the Strength meter. It was below "Central bank commentary" and
+        # the user could not find it on a phone - the link to the OI page has to be near
+        # the top or the page may as well not exist.
+        m = re.search(r'<section>\s*<h2>\s*What moved each score', html, flags=re.I)
+        if not m:
+            m = re.search(r'<section>\s*<h2>\s*Pair ranking', html, flags=re.I)
         if m:
             html = html[:m.start()] + wrapped + html[m.start():]
         elif "</body>" in html:
