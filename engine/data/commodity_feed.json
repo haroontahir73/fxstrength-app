@@ -1,5 +1,60 @@
 [
  {
+  "when": "04 Sep 15:41 UTC",
+  "iso": "2026-09-04T15:41:23.619382+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nThe coming verdict on Trump's Strait of Hormuz claims - Axios  (Axios)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,490 (-0.0%)   Silver 66.77 (-0.3%)   WTI 90.69 (-0.7%)   DXY 99.08 (+0.1%)   US10Y 4.77 (+0.2%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1CQ25Bb0ROcGhfY3REMUhPUEVBeG14NlpoYW1UblBvSGlfc0FGMEZ5VVVnQ2N4aDkyM0pURFNsQlhqcE1TZ0hoaHhLVkxCLXAzeTlFcUNDRWRzVUZMMzVaQkxmdjNoYVZFazU2RmdobVI0Mm5ZbTZ3?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4490.0,
+   "Silver": 66.765,
+   "WTI": 90.69
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "The coming verdict on Trump's Strait of Hormuz claims - Axios",
+   "src": "Axios",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,490 (-0.0%)   Silver 66.77 (-0.3%)   WTI 90.69 (-0.7%)   DXY 99.08 (+0.1%)   US10Y 4.77 (+0.2%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "04 Sep 15:34 UTC",
   "iso": "2026-09-04T15:34:59.962057+00:00",
   "cat": "rates_up",
