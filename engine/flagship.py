@@ -45,7 +45,8 @@ FLAGSHIP = (
 )
 FLAGSHIP_VETO = ("mba ", "redbook", "chain store", "expectations index",
                  "current conditions", "5-year", "consumer confidence",
-                 "annual revision", "benchmark revision", " revision")
+                 "annual revision", "benchmark revision", " revision",
+                 "brc ", "monitor", "flash pmi expectations")   # private surveys, not the official print
 
 
 def _is_flagship(title):
@@ -145,12 +146,26 @@ def _bar(score):
     return f'<span class="bar"><span class="fill {cls}" style="{style}"></span></span>'
 
 
+def _driver(d, score):
+    """The release that best explains the score - the biggest contributor IN the score's
+    direction when the score is clearly directional, otherwise the biggest overall. Stops
+    a beat showing next to a negative number."""
+    evs = d.get("events") or []
+    if not evs:
+        return None
+    if abs(score) >= 8:
+        same = [e for e in evs if (e["points"] >= 0) == (score >= 0)]
+        if same:
+            return same[0]
+    return evs[0]
+
+
 def _one_liner(ev):
     if not ev:
         return "no major release in the window"
     a, f = ev.get("actual"), ev.get("forecast")
-    vs = f" vs {f}" if f is not None else ""
-    return f'{_esc(ev["title"])}: {_esc(a)}{vs}  ({ev["age_d"]}d ago)'
+    vs = f" vs {f} exp" if f is not None else ""
+    return f'{_esc(ev["title"])} {_esc(a)}{vs}  ({ev["age_d"]}d ago)'
 
 
 def render_block(res):
@@ -159,7 +174,7 @@ def render_block(res):
         d = res["currencies"][c]
         s = d["score"]
         cls, word = _pill(s)
-        top = d["events"][0] if d["events"] else None
+        top = _driver(d, s)
         rows.append(
             f'<div class="mrow">'
             f'<div class="mccy">{c}<span class="mname">{NAMES[c]}</span></div>'
