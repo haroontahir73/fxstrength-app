@@ -39,6 +39,7 @@ Sources are tried in order and the page names the one that worked:
 
     python oi.py                      # fetch if a window is open, then render
     python oi.py --force              # ignore the window, try right now
+    python oi.py --merge <pull.json>  # merge a browser pull (see CME_PRODUCT_ID below)
     python oi.py --seed <workbook>    # import history from the Excel workbook
     python oi.py --render-only        # rebuild the page from stored history
 """
@@ -65,6 +66,24 @@ UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
 CME_EXPORT = ("https://www.cmegroup.com/CmeWS/exp/voiProductsViewExport.ctl"
               "?media=xls&tradeDate={date}&assetClassId={ac}&reportType=P&excluded=CEE,CEU,KCB")
 ASSET_CLASS = {3: "FX", 8: "Metals", 5: "Energy"}
+
+# The clean JSON behind the same numbers - one call returns ~34 days of daily OI + volume:
+#   https://www.cmegroup.com/CmeWS/mvc/Volume/LastTotals/{PRODUCT_ID}?days=30&isProtected
+# Verified against the user's Excel workbook: identical values on every overlapping date.
+#
+# IT ONLY WORKS FROM A REAL BROWSER SESSION. Plain urllib/curl gets HTTP 403 ("This IP
+# address is blocked due to suspected web scraping") no matter what UA or cookies you send
+# - CME blocks on the request signature, not the IP, which is why the Excel workbook could
+# always fetch it and this script cannot. Drive it through the browser tooling instead, and
+# SLOWLY: ~150 requests fired in parallel got the session blocked for several minutes, while
+# 10 requests at 2.5-3s apart run clean. Ten a day is all this needs.
+#
+# Pull with (in a browser on cmegroup.com), then feed the result to `oi.py --merge <file>`:
+#   for (const [name,id] of Object.entries(CME_PRODUCT_ID)) { ...fetch..., sleep 2500 }
+CME_PRODUCT_ID = {"Gold": 437, "Silver": 458, "Oil": 425, "EUR": 58, "GBP": 42,
+                  "JPY": 69, "AUD": 37, "NZD": 78, "CAD": 48, "CHF": 86}
+CME_LAST_TOTALS = ("https://www.cmegroup.com/CmeWS/mvc/Volume/LastTotals/{pid}"
+                   "?days={days}&isProtected")
 
 # instrument -> (CME product-name match, price symbol for the direction read)
 INSTRUMENTS = {
@@ -567,9 +586,41 @@ def inject_strip(html_path, block):
     return True
 
 
+def merge_pull(path):
+    """Merge a browser pull: {instrument: [[YYYYMMDD, oi, volume], ...]} -> oi_history.json.
+    `chg` is derived from consecutive days rather than trusted from the source, so a gap in
+    the series can never silently produce a wrong day-change."""
+    raw = json.loads(Path(path).read_text(encoding="utf-8"))
+    hist = _load(HIST_FILE, {})
+    n = 0
+    for inst, rows in raw.items():
+        if not isinstance(rows, list):
+            print(f"  skip {inst}: {rows}")
+            continue
+        prev = None
+        for ds, oi, vol in sorted(rows, key=lambda r: r[0]):
+            day = f"{ds[:4]}-{ds[4:6]}-{ds[6:]}"
+            if hist.get(day, {}).get(inst, {}).get("oi") != oi:
+                n += 1
+            hist.setdefault(day, {})[inst] = {
+                "oi": oi, "chg": (oi - prev) if prev is not None else None, "volume": vol}
+            prev = oi
+    _save(HIST_FILE, hist)
+    state = _load(STATE_FILE, {})
+    state["last_good"] = dt.datetime.now(dt.timezone.utc).isoformat()
+    state["last_good_date"] = sorted(hist)[-1]
+    state["source"] = "cme (browser pull)"
+    state["last_reason"] = "ok"
+    _save(STATE_FILE, state)
+    print(f"  merged {n} cells; history {len(hist)} days, newest {sorted(hist)[-1]}")
+    return hist, state
+
+
 def main():
     args = sys.argv[1:]
-    if "--seed" in args:
+    if "--merge" in args:
+        hist, state = merge_pull(args[args.index("--merge") + 1])
+    elif "--seed" in args:
         wb = args[args.index("--seed") + 1]
         hist = _load(HIST_FILE, {})
         for day, vals in read_workbook(wb).items():
