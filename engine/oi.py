@@ -163,6 +163,33 @@ def prev_business_day(d):
     return d
 
 
+def trade_days_behind(last, today=None):
+    """How many TRADE DATES behind the newest report that can exist - not calendar days.
+
+    There is no Saturday or Sunday trade date, and Monday's own figures do not publish
+    until Tuesday. So on a Sunday and on a Monday the newest report that can possibly
+    exist is still Friday's. Counting calendar days called that '2 days old' and '3 days
+    old' and stamped the page STALE every single weekend, when nothing was wrong at all.
+    0 = as current as it gets. 1 = the next report is due but has not landed yet.
+    """
+    if not last:
+        return None
+    if isinstance(last, str):
+        try:
+            last = dt.date.fromisoformat(last)
+        except ValueError:
+            return None
+    today = today or dt.datetime.now(dt.timezone.utc).date()
+    expected = prev_business_day(today)
+    if last >= expected:
+        return 0
+    n, d = 0, expected
+    while d > last and n < 40:
+        n += 1
+        d = prev_business_day(d)
+    return n
+
+
 def should_try(state, tkey, now=None):
     """(try?, why). Hourly retries until the preliminary report for `tkey` is captured -
     stretched to `BACKOFF_GAP_MIN` while the source is actively refusing us."""
@@ -594,21 +621,25 @@ def history_tables(hist, prices):
 def render(hist, state, reads, prices=None):
     now = dt.datetime.now(dt.timezone.utc)
     last = state.get("last_good_date") or state.get("newest") or (sorted(hist)[-1] if hist else None)
-    age_d = None
-    if last:
-        age_d = (now.date() - dt.date.fromisoformat(last)).days
-    if age_d is None:
+    behind = trade_days_behind(last, now.date())
+    weekend = now.weekday() >= 5
+    if behind is None:
         banner = ('<div class="oi-stale old">No open-interest data yet &mdash; '
                   'checking about once an hour until CME publishes.</div>')
-    elif age_d <= 1:
+    elif behind == 0:
+        extra = (' There is no Saturday or Sunday trade date, so this stands until the '
+                 'next session settles.' if weekend else '')
         banner = (f'<div class="oi-stale ok">Current &mdash; preliminary open interest for '
-                  f'trade date {last}.</div>')
+                  f'trade date {last}. This is the newest report that exists.{extra}</div>')
+    elif behind == 1:
+        banner = (f'<div class="oi-stale ok">Latest is trade date {last}. The next report is '
+                  f'due &mdash; CME publishes overnight, and it is collected as soon as it '
+                  f'lands.</div>')
     else:
         why = state.get("last_reason")
         why = f' Last check: {_esc(why)}.' if why else ""
-        banner = (f'<div class="oi-stale old">Latest data is {age_d} days old ({last}).'
-                  f'{why} Checking again about once an hour until the preliminary report '
-                  f'lands. Treat the reads below as stale.</div>')
+        banner = (f'<div class="oi-stale old">Latest is trade date {last} &mdash; '
+                  f'{behind} trading days behind.{why} Treat the reads below as stale.</div>')
 
     rows = []
     for inst in ORDER:
@@ -690,12 +721,13 @@ def strip_block(state, reads):
     fake = [i for i, r in reads.items()
             if r and r["state"] in ("SHORT COVERING", "LONG LIQUIDATION")]
     last = state.get("last_good_date") or state.get("newest") or "n/a"
-    age = ""
-    try:
-        n = (dt.datetime.now(dt.timezone.utc).date() - dt.date.fromisoformat(last)).days
-        age = " &middot; current" if n <= 1 else f' &middot; <b>{n} days old</b>'
-    except Exception:                                         # noqa: BLE001
-        pass
+    # trade days, not calendar days - see trade_days_behind(). Otherwise every Sunday and
+    # Monday this card claimed the data was days old when it was the newest that exists.
+    behind = trade_days_behind(last)
+    age = ("" if behind is None else
+           " &middot; current" if behind == 0 else
+           " &middot; next report due" if behind == 1 else
+           f' &middot; <b>{behind} trading days behind</b>')
     def _lst(x):
         return ", ".join(x) if x else "none"
     # A big tappable card sitting immediately under the MACRO / MICRO tabs. It was lower
