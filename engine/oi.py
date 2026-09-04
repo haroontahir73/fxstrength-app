@@ -618,6 +618,67 @@ def write_page(block):
     print(f"  wrote {PAGE.name}")
 
 
+def oi_pane(compact=True):
+    """The OI content as a pane for the MACRO / MICRO tab strip in pages.py.
+
+    Same data as the standalone page, trimmed for a phone: the four-state key, one summary
+    row per instrument, and the fortnight tables. Returns "" if there is nothing to show,
+    so pages.py can simply omit the tab."""
+    hist = _load(HIST_FILE, {})
+    if not hist:
+        return ""
+    state = _load(STATE_FILE, {})
+    prices = price_moves()
+    reads = analyse(hist, prices)
+    last = state.get("last_good_date") or sorted(hist)[-1]
+    try:
+        age = (dt.datetime.now(dt.timezone.utc).date() - dt.date.fromisoformat(last)).days
+    except Exception:                                         # noqa: BLE001
+        age = None
+    banner = (f'<div class="oi-stale ok">Trade date {last} &mdash; current.</div>'
+              if age is not None and age <= 1 else
+              f'<div class="oi-stale old">Trade date {last} &mdash; {age} days old. '
+              f'{_esc(state.get("last_reason", ""))}</div>')
+
+    rows = []
+    for inst in ORDER:
+        r = reads.get(inst)
+        if not r:
+            continue
+        rows.append(
+            f'<div class="oi-row">'
+            f'<div class="oi-nm">{inst}<span>{r["date"][5:]}</span></div>'
+            f'<div class="oi-num" style="color:{"#3fbe83" if r["px_chg_pct"] > 0 else "#ec6a5e"}">'
+            f'{r["px_chg_pct"]:+.2f}%</div>'
+            f'<div class="oi-num" style="color:{"#3fbe83" if r["chg"] > 0 else "#ec6a5e"}">'
+            f'{r["chg"]:+,}</div>'
+            f'<div><span class="oi-tag {r["cls"]}">{r["state"]}</span></div></div>')
+
+    return (CSS + '<div class="oi-wrap">'
+            '<p class="oi-sub">Open interest is how many futures contracts are still open. '
+            'It rises when new money opens a position and falls when someone closes one. '
+            'Price alone cannot tell you which &mdash; put the two together and you can see '
+            'whether a move is real buying or just shorts getting out.</p>'
+            + banner +
+            '<table class="oi-key">'
+            '<tr><td>price UP &middot; OI UP</td><td><b>New money long.</b> Real demand. '
+            'Look for longs.</td></tr>'
+            '<tr><td>price UP &middot; OI DOWN</td><td><b>Short covering.</b> Old shorts '
+            'closing, not new buying. Do not chase.</td></tr>'
+            '<tr><td>price DOWN &middot; OI UP</td><td><b>New money short.</b> Real selling. '
+            'Look for shorts.</td></tr>'
+            '<tr><td>price DOWN &middot; OI DOWN</td><td><b>Long liquidation.</b> A weak '
+            'selloff, holders getting out.</td></tr>'
+            '</table>'
+            f'<div class="oi-rows">{"".join(rows)}</div>'
+            + history_tables(hist, prices) +
+            '<p class="oi-sub" style="margin-top:14px">CME preliminary open interest, '
+            'published overnight &mdash; it describes <b>yesterday</b> and sets '
+            '<b>today\'s</b> bias. <a href="./open-interest.html" '
+            'style="color:#8b8df0;text-decoration:none">Open the full page &rarr;</a></p>'
+            '</div>')
+
+
 # ---------------------------------------------------------------- dashboard strip
 MARK_A, MARK_B = "<!--OI_STRIP_START-->", "<!--OI_STRIP_END-->"
 

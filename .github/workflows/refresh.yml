@@ -84,8 +84,13 @@ jobs:
 
       # Injects the decoded gold/silver/oil alerts into dashboard.html between markers.
       # Self-contained - it never touches anything build_dashboard.py owns.
-      - name: Add the MACRO / MICRO pages
+      # Now also renders the OI tab (it imports oi.py), so it has a dependency it did not
+      # have before. This step sits between "Run pipeline" and "Assemble the site", so a
+      # non-zero exit here would take the whole Pages deploy down - a missing tab is far
+      # better than no dashboard.
+      - name: Add the MACRO / MICRO / OI pages
         working-directory: engine
+        continue-on-error: true
         run: python pages.py dashboard.html
 
       # A per-currency score from ONLY the big scheduled releases (NFP, CPI, FOMC, GDP,

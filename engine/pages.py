@@ -191,15 +191,22 @@ CSS = """
 JS = """
 <script>
 (function(){
+  // N tabs, discovered from the DOM. It was hardcoded to the macro/micro pair, so adding
+  // a third pane silently broke the switcher; now any [data-pg-pane] just works.
+  function panes(){ return Array.prototype.slice.call(
+      document.querySelectorAll('[data-pg-pane]')); }
   function show(which){
-    var m=document.getElementById('pg-macro'), c=document.getElementById('pg-micro');
-    var tm=document.getElementById('pg-tab-macro'), tc=document.getElementById('pg-tab-micro');
-    if(!m||!c) return;
-    var macro = which==='macro';
-    m.style.display = macro?'block':'none';
-    c.style.display = macro?'none':'block';
-    tm.className = 'pg-tab'+(macro?' on':'');
-    tc.className = 'pg-tab'+(macro?'':' on');
+    var ps = panes();
+    if(!ps.length) return;
+    var names = ps.map(function(p){ return p.getAttribute('data-pg-pane'); });
+    if(names.indexOf(which) < 0) which = names[0];
+    ps.forEach(function(p){
+      p.style.display = (p.getAttribute('data-pg-pane')===which) ? 'block' : 'none';
+    });
+    names.forEach(function(n){
+      var t=document.getElementById('pg-tab-'+n);
+      if(t) t.className = 'pg-tab'+(n===which?' on':'');
+    });
     try{ localStorage.setItem('pgTab', which); }catch(e){}
   }
   window.pgShow = show;
@@ -240,16 +247,30 @@ def build(feed=None):
         except Exception:                                      # noqa: BLE001
             feed = []
     micro = cw.render_block(feed)
-    return (CSS + '<section class="pg-wrap">'
-            '<div class="pg-tabs">'
-            '<div class="pg-tab on" id="pg-tab-macro" onclick="pgShow(\'macro\')">'
-            'MACRO &middot; big picture</div>'
+
+    # Third tab: open interest. oi.py owns all of it - if it is missing, raises, or has no
+    # data yet, the tab is simply not rendered and MACRO / MICRO behave exactly as before.
+    oi_html = ""
+    try:
+        import oi
+        oi_html = oi.oi_pane()
+    except Exception as e:                                     # noqa: BLE001
+        print(f"  OI tab skipped ({type(e).__name__}: {e})")
+
+    tabs = ['<div class="pg-tab on" id="pg-tab-macro" onclick="pgShow(\'macro\')">'
+            'MACRO &middot; big picture</div>',
             '<div class="pg-tab" id="pg-tab-micro" onclick="pgShow(\'micro\')">'
-            'MICRO &middot; breaking news</div>'
-            '</div>'
-            f'<div id="pg-macro">{macro_block()}</div>'
-            f'<div id="pg-micro" style="display:none">{micro}</div>'
-            '</section>' + JS)
+            'MICRO &middot; breaking news</div>']
+    panes = [f'<div id="pg-macro" data-pg-pane="macro">{macro_block()}</div>',
+             f'<div id="pg-micro" data-pg-pane="micro" style="display:none">{micro}</div>']
+    if oi_html:
+        tabs.append('<div class="pg-tab" id="pg-tab-oi" onclick="pgShow(\'oi\')">'
+                    'OI &middot; real money</div>')
+        panes.append(f'<div id="pg-oi" data-pg-pane="oi" style="display:none">{oi_html}</div>')
+
+    return (CSS + '<section class="pg-wrap">'
+            f'<div class="pg-tabs">{"".join(tabs)}</div>'
+            + "".join(panes) + '</section>' + JS)
 
 
 def main():
