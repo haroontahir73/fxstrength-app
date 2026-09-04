@@ -23,22 +23,25 @@ Two extra reads from the same series:
 
 SOURCE AND SCHEDULE
 -------------------
-CME publishes preliminary volume/OI for the previous trade date overnight. This module
-tries, in order, the windows the desk asked for:
+CME publishes PRELIMINARY volume/OI for the previous trade date overnight - but not on a
+clock you can rely on, and the PC may be off when it lands. So there is no fixed window
+and no giving up: from about 05:00 UTC this checks roughly ONCE AN HOUR until the
+preliminary numbers for that trade date are in hand, then stops asking for that day.
+Attempts are recorded in oi_state.json so a 5-minute watcher loop cannot turn into a
+flood - see CME_PRODUCT_ID for why pace matters here.
 
-    pre-London (05:30-07:30 UTC)  ->  mid-London (09:30-11:30 UTC)
-    ->  New York (13:30-15:30 UTC)  ->  give up, try again tomorrow
-
-One attempt per window per trade date; the outcome is recorded in oi_state.json so a
-5-minute watcher loop does not hammer the source. If every window fails the page keeps
-the last good data and says plainly how old it is.
+PRELIMINARY ONLY. CME later reissues each day as a settled/final figure. Once a trade
+date is stored it is FROZEN (`FREEZE_STORED_DAYS`): a later pull carrying finals writes
+nothing over it. The bias was taken on the preliminary read, so that is what the history
+keeps - back-data never quietly changes underneath a decision already made on it.
 
 Sources are tried in order and the page names the one that worked:
-  1. CME's own voiProductsViewExport endpoint (what the user's Excel workbook calls)
+  1. CME's own endpoint (what the user's Excel workbook calls) - note this only works
+     from a real browser session, so in practice it arrives via `--merge` (see below)
   2. a local copy of that workbook (Open Interest.xlsm) when running on the user's PC
 
-    python oi.py                      # fetch if a window is open, then render
-    python oi.py --force              # ignore the window, try right now
+    python oi.py                      # check if due, then render
+    python oi.py --force              # check right now regardless
     python oi.py --merge <pull.json>  # merge a browser pull (see CME_PRODUCT_ID below)
     python oi.py --seed <workbook>    # import history from the Excel workbook
     python oi.py --render-only        # rebuild the page from stored history
@@ -100,10 +103,20 @@ INSTRUMENTS = {
 }
 ORDER = ["Gold", "Silver", "Oil", "EUR", "GBP", "JPY", "AUD", "NZD", "CAD", "CHF"]
 
-# UTC windows: (name, start_hour_min, end_hour_min)
-WINDOWS = [("pre-London", (5, 30), (7, 30)),
-           ("mid-London", (9, 30), (11, 30)),
-           ("New York",   (13, 30), (15, 30))]
+# RETRY POLICY
+# Not fixed windows. CME publishes the preliminary report when it publishes - and the PC
+# may be off when it does - so the rule is simply: keep trying, about once an hour, until
+# the preliminary numbers for the target trade date are in hand. No giving up at the New
+# York open, no giving up overnight. Once the day is captured, stop asking entirely.
+RETRY_GAP_MIN = 60        # ~hourly. Human pace; see CME_PRODUCT_ID on why that matters.
+FIRST_TRY_UTC = (5, 0)    # from ~05:00 UTC, i.e. before London. Just where the day starts.
+
+# PRELIMINARY ONLY - never revise.
+# CME reissues each trade date later as a final/settled figure. The desk wants the
+# preliminary read (that is what is available in time to set the day's bias) and wants it
+# FROZEN: once a day is stored it is never rewritten, so a later pull carrying finals
+# cannot quietly restate history under a decision that was already made on it.
+FREEZE_STORED_DAYS = True
 
 
 # ---------------------------------------------------------------- small helpers
@@ -134,14 +147,34 @@ def prev_business_day(d):
     return d
 
 
-def current_window(now=None):
-    """Which retry window we are in, or None."""
+def should_try(state, tkey, now=None):
+    """(try?, why). Hourly retries until the preliminary report for `tkey` is captured."""
     now = now or dt.datetime.now(dt.timezone.utc)
-    hm = (now.hour, now.minute)
-    for name, a, b in WINDOWS:
-        if a <= hm <= b:
-            return name
-    return None
+    if (now.hour, now.minute) < FIRST_TRY_UTC and not state.get("attempts", {}).get(tkey):
+        return False, "before the first attempt of the day"
+    last = state.get("last_attempt_for", {}).get(tkey)
+    if last:
+        try:
+            mins = (now - dt.datetime.fromisoformat(last)).total_seconds() / 60
+        except Exception:                                     # noqa: BLE001
+            mins = RETRY_GAP_MIN
+        if mins < RETRY_GAP_MIN:
+            return False, f"tried {mins:.0f} min ago, waiting {RETRY_GAP_MIN - mins:.0f} more"
+    return True, "due"
+
+
+def merge_days(hist, day_map, freeze=FREEZE_STORED_DAYS):
+    """Write {day: {inst: rec}} into hist. With `freeze`, a day+instrument already stored
+    is left exactly as it was - preliminary stays preliminary, finals never overwrite."""
+    written = skipped = 0
+    for day, vals in day_map.items():
+        for inst, rec in vals.items():
+            if freeze and hist.get(day, {}).get(inst) is not None:
+                skipped += 1
+                continue
+            hist.setdefault(day, {})[inst] = rec
+            written += 1
+    return written, skipped
 
 
 # ---------------------------------------------------------------- source 1: CME
@@ -395,20 +428,18 @@ def update(force=False):
     target = prev_business_day(now.date())
     tkey = target.isoformat()
 
+    # already have the preliminary read for this trade date - stop asking
     if hist.get(tkey) and not force:
-        return hist, state
-    win = current_window(now)
-    if not win and not force:
-        nxt = next((n for n, a, _ in WINDOWS if (now.hour, now.minute) < a), "pre-London tomorrow")
-        print(f"  no window open - next attempt at {nxt}")
-        return hist, state
-    win = win or "forced"
-    done = state.get("attempts", {}).get(tkey, [])
-    if win in done and not force:
-        print(f"  {win} already attempted for {tkey}")
+        print(f"  {tkey} already captured - nothing to do")
         return hist, state
 
-    print(f"  attempting {tkey} in the {win} window")
+    ok, why = should_try(state, tkey, now)
+    if not ok and not force:
+        print(f"  holding off on {tkey}: {why}")
+        return hist, state
+
+    n_try = len(state.get("attempts", {}).get(tkey, [])) + 1
+    print(f"  attempt #{n_try} for {tkey}")
     got = fetch_cme(target)
     src = "cme"
     if not got:
@@ -416,26 +447,27 @@ def update(force=False):
         if Path(wb).exists():
             try:
                 imported = read_workbook(wb)
-                for day, vals in imported.items():
-                    hist.setdefault(day, {}).update(vals)
+                w, s = merge_days(hist, imported)
                 got = imported.get(tkey, {})
                 src = "workbook"
-                print(f"  CME unavailable - imported {len(imported)} days from the workbook")
+                print(f"  CME unavailable - workbook gave {w} new cells ({s} already held)")
             except Exception as e:                            # noqa: BLE001
                 print(f"  workbook read failed: {type(e).__name__}: {e}")
 
-    state.setdefault("attempts", {}).setdefault(tkey, []).append(win)
+    state.setdefault("attempts", {}).setdefault(tkey, []).append(now.isoformat())
+    state.setdefault("last_attempt_for", {})[tkey] = now.isoformat()
     state["last_attempt"] = now.isoformat()
-    state["last_reason"] = _LAST_REASON or ("ok" if got else "no data returned")
+    state["last_reason"] = _LAST_REASON or ("ok" if got else "not published yet")
     if got:
-        hist.setdefault(tkey, {}).update(got)
+        w, s = merge_days(hist, {tkey: got})
         state["last_good"] = now.isoformat()
         state["last_good_date"] = tkey
         state["source"] = src
-        print(f"  got {len(got)} instruments for {tkey} from {src}")
+        print(f"  got {len(got)} instruments for {tkey} from {src} "
+              f"({w} written, {s} already held)")
     else:
-        remaining = [n for n, _, _ in WINDOWS if n not in state["attempts"][tkey]]
-        print(f"  nothing for {tkey}; windows left today: {remaining or 'none - retry tomorrow'}")
+        print(f"  {tkey} not published yet (attempt #{n_try}) - "
+              f"retrying in ~{RETRY_GAP_MIN} min, and again until it lands")
     # keep a year
     for d in sorted(hist)[:-260]:
         hist.pop(d, None)
@@ -538,16 +570,17 @@ def render(hist, state, reads, prices=None):
     if last:
         age_d = (now.date() - dt.date.fromisoformat(last)).days
     if age_d is None:
-        banner = '<div class="oi-stale old">No open-interest data yet. The next attempt is in the pre-London window.</div>'
+        banner = ('<div class="oi-stale old">No open-interest data yet &mdash; '
+                  'checking about once an hour until CME publishes.</div>')
     elif age_d <= 1:
-        banner = (f'<div class="oi-stale ok">Current &mdash; latest trade date {last} '
-                  f'(source: {_esc(state.get("source", "n/a"))}).</div>')
+        banner = (f'<div class="oi-stale ok">Current &mdash; preliminary open interest for '
+                  f'trade date {last}.</div>')
     else:
-        nxt = current_window(now) or "the next window"
         why = state.get("last_reason")
-        why = f' Last attempt: {_esc(why)}.' if why else ""
+        why = f' Last check: {_esc(why)}.' if why else ""
         banner = (f'<div class="oi-stale old">Latest data is {age_d} days old ({last}).'
-                  f'{why} Retrying in {nxt}. Treat the reads below as stale.</div>')
+                  f'{why} Checking again about once an hour until the preliminary report '
+                  f'lands. Treat the reads below as stale.</div>')
 
     rows = []
     for inst in ORDER:
@@ -618,67 +651,6 @@ def write_page(block):
     print(f"  wrote {PAGE.name}")
 
 
-def oi_pane(compact=True):
-    """The OI content as a pane for the MACRO / MICRO tab strip in pages.py.
-
-    Same data as the standalone page, trimmed for a phone: the four-state key, one summary
-    row per instrument, and the fortnight tables. Returns "" if there is nothing to show,
-    so pages.py can simply omit the tab."""
-    hist = _load(HIST_FILE, {})
-    if not hist:
-        return ""
-    state = _load(STATE_FILE, {})
-    prices = price_moves()
-    reads = analyse(hist, prices)
-    last = state.get("last_good_date") or sorted(hist)[-1]
-    try:
-        age = (dt.datetime.now(dt.timezone.utc).date() - dt.date.fromisoformat(last)).days
-    except Exception:                                         # noqa: BLE001
-        age = None
-    banner = (f'<div class="oi-stale ok">Trade date {last} &mdash; current.</div>'
-              if age is not None and age <= 1 else
-              f'<div class="oi-stale old">Trade date {last} &mdash; {age} days old. '
-              f'{_esc(state.get("last_reason", ""))}</div>')
-
-    rows = []
-    for inst in ORDER:
-        r = reads.get(inst)
-        if not r:
-            continue
-        rows.append(
-            f'<div class="oi-row">'
-            f'<div class="oi-nm">{inst}<span>{r["date"][5:]}</span></div>'
-            f'<div class="oi-num" style="color:{"#3fbe83" if r["px_chg_pct"] > 0 else "#ec6a5e"}">'
-            f'{r["px_chg_pct"]:+.2f}%</div>'
-            f'<div class="oi-num" style="color:{"#3fbe83" if r["chg"] > 0 else "#ec6a5e"}">'
-            f'{r["chg"]:+,}</div>'
-            f'<div><span class="oi-tag {r["cls"]}">{r["state"]}</span></div></div>')
-
-    return (CSS + '<div class="oi-wrap">'
-            '<p class="oi-sub">Open interest is how many futures contracts are still open. '
-            'It rises when new money opens a position and falls when someone closes one. '
-            'Price alone cannot tell you which &mdash; put the two together and you can see '
-            'whether a move is real buying or just shorts getting out.</p>'
-            + banner +
-            '<table class="oi-key">'
-            '<tr><td>price UP &middot; OI UP</td><td><b>New money long.</b> Real demand. '
-            'Look for longs.</td></tr>'
-            '<tr><td>price UP &middot; OI DOWN</td><td><b>Short covering.</b> Old shorts '
-            'closing, not new buying. Do not chase.</td></tr>'
-            '<tr><td>price DOWN &middot; OI UP</td><td><b>New money short.</b> Real selling. '
-            'Look for shorts.</td></tr>'
-            '<tr><td>price DOWN &middot; OI DOWN</td><td><b>Long liquidation.</b> A weak '
-            'selloff, holders getting out.</td></tr>'
-            '</table>'
-            f'<div class="oi-rows">{"".join(rows)}</div>'
-            + history_tables(hist, prices) +
-            '<p class="oi-sub" style="margin-top:14px">CME preliminary open interest, '
-            'published overnight &mdash; it describes <b>yesterday</b> and sets '
-            '<b>today\'s</b> bias. <a href="./open-interest.html" '
-            'style="color:#8b8df0;text-decoration:none">Open the full page &rarr;</a></p>'
-            '</div>')
-
-
 # ---------------------------------------------------------------- dashboard strip
 MARK_A, MARK_B = "<!--OI_STRIP_START-->", "<!--OI_STRIP_END-->"
 
@@ -743,7 +715,7 @@ def merge_pull(path):
     the series can never silently produce a wrong day-change."""
     raw = json.loads(Path(path).read_text(encoding="utf-8"))
     hist = _load(HIST_FILE, {})
-    n = 0
+    day_map = {}
     for inst, rows in raw.items():
         if not isinstance(rows, list):
             print(f"  skip {inst}: {rows}")
@@ -751,11 +723,13 @@ def merge_pull(path):
         prev = None
         for ds, oi, vol in sorted(rows, key=lambda r: r[0]):
             day = f"{ds[:4]}-{ds[4:6]}-{ds[6:]}"
-            if hist.get(day, {}).get(inst, {}).get("oi") != oi:
-                n += 1
-            hist.setdefault(day, {})[inst] = {
+            day_map.setdefault(day, {})[inst] = {
                 "oi": oi, "chg": (oi - prev) if prev is not None else None, "volume": vol}
             prev = oi
+    # A 30-day pull mostly repeats days we already hold, and by then CME has replaced the
+    # preliminary figures with finals. Freeze wins: only genuinely new days are written.
+    n, held = merge_days(hist, day_map)
+    print(f"  {n} new cells written, {held} already held (preliminary kept, finals ignored)")
     _save(HIST_FILE, hist)
     state = _load(STATE_FILE, {})
     state["last_good"] = dt.datetime.now(dt.timezone.utc).isoformat()

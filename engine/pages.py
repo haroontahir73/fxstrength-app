@@ -248,25 +248,16 @@ def build(feed=None):
             feed = []
     micro = cw.render_block(feed)
 
-    # Third tab: open interest. oi.py owns all of it - if it is missing, raises, or has no
-    # data yet, the tab is simply not rendered and MACRO / MICRO behave exactly as before.
-    oi_html = ""
-    try:
-        import oi
-        oi_html = oi.oi_pane()
-    except Exception as e:                                     # noqa: BLE001
-        print(f"  OI tab skipped ({type(e).__name__}: {e})")
-
+    # MACRO and MICRO only. Open interest deliberately lives on its OWN page
+    # (oi.py -> open-interest.html), not as a third tab here - the user asked for the two
+    # to stay separate. The switcher below is still N-tab-safe on purpose: a phone that
+    # stored pgTab='oi' while the tab briefly existed must not load with every pane hidden.
     tabs = ['<div class="pg-tab on" id="pg-tab-macro" onclick="pgShow(\'macro\')">'
             'MACRO &middot; big picture</div>',
             '<div class="pg-tab" id="pg-tab-micro" onclick="pgShow(\'micro\')">'
             'MICRO &middot; breaking news</div>']
     panes = [f'<div id="pg-macro" data-pg-pane="macro">{macro_block()}</div>',
              f'<div id="pg-micro" data-pg-pane="micro" style="display:none">{micro}</div>']
-    if oi_html:
-        tabs.append('<div class="pg-tab" id="pg-tab-oi" onclick="pgShow(\'oi\')">'
-                    'OI &middot; real money</div>')
-        panes.append(f'<div id="pg-oi" data-pg-pane="oi" style="display:none">{oi_html}</div>')
 
     return (CSS + '<section class="pg-wrap">'
             f'<div class="pg-tabs">{"".join(tabs)}</div>'
