@@ -1,5 +1,60 @@
 [
  {
+  "when": "04 Sep 11:13 UTC",
+  "iso": "2026-09-04T11:13:21.595336+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nRadev Says Bulgaria Cannot Unilaterally Lift Russian Oil Sanctions - Novinite.com  (Novinite.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,518 (+0.6%)   Silver 67.40 (+0.6%)   WTI 90.45 (-0.9%)   DXY 99.08 (+0.1%)   US10Y 4.76 (-0.7%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPaTFqQmJjYU9mU3NnRWlqU29mUXYycXQ1Q0M1Z1RlM0pQcG1FN1J2RGZMRnJuWGR5LVpCV2FYcUlTV3RMelpycGJDMDhWREpITEgtYTk2QmM4WGZiZHdEMm43R2p5eDhTanM4RjFqRGlhLVp3SnBGOEJFckFIZHpsalBhOFZaeFgyckM4R19JRld2Wjk4ZGRNX2tGSXhLYmNlODBORmxNNlVyU2M?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4517.6,
+   "Silver": 67.4,
+   "WTI": 90.45
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Radev Says Bulgaria Cannot Unilaterally Lift Russian Oil Sanctions - Novinite.com",
+   "src": "Novinite.com",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,518 (+0.6%)   Silver 67.40 (+0.6%)   WTI 90.45 (-0.9%)   DXY 99.08 (+0.1%)   US10Y 4.76 (-0.7%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "04 Sep 11:06 UTC",
   "iso": "2026-09-04T11:06:55.958581+00:00",
   "cat": "rates_up",
