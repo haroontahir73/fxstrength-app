@@ -55,7 +55,14 @@ jobs:
           (async () => {
             const status = { at: new Date().toISOString(), ok: false, note: '' };
             const out = {};
-            const b = await chromium.launch();
+            // First attempt died with ERR_HTTP2_PROTOCOL_ERROR - the connection was cut
+            // before any response, which is how anti-bot edges usually drop datacenter
+            // traffic. It can ALSO be a real HTTP/2 negotiation fault, so rule that out
+            // by forcing HTTP/1.1 before concluding we are blocked.
+            const b = await chromium.launch({
+              args: ['--disable-http2', '--disable-quic',
+                     '--disable-blink-features=AutomationControlled'],
+            });
             const ctx = await b.newContext({
               locale: 'en-US', timezoneId: 'Europe/London',
               viewport: { width: 1366, height: 768 },
@@ -101,6 +108,13 @@ jobs:
               }
             } catch (e) {
               status.note = String(e).slice(0, 200);
+              // Distinguish "CME refuses us" from "the runner cannot reach the internet".
+              // Without this a network fault reads identically to a block.
+              try {
+                const t = await p.goto('https://example.com',
+                                       { waitUntil: 'domcontentloaded', timeout: 20000 });
+                status.internet_ok = !!(t && t.status() < 400);
+              } catch (_) { status.internet_ok = false; }
             }
             fs.writeFileSync('cloud_pull.json', JSON.stringify(out));
             fs.writeFileSync('engine/data/oi_cloud_status.json', JSON.stringify(status, null, 1));
