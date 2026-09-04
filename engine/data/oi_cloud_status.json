@@ -1,0 +1,5 @@
+{
+ "at": "2026-09-04T13:24:20.143Z",
+ "ok": false,
+ "note": "Error: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.cmegroup.com/markets/metals/precious/gold.volume.html\nCall log:\n  - navigating to \"https://www.cmegroup.com/markets/metals/precious/gold."
+}
