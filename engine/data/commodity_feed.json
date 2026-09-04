@@ -1,5 +1,60 @@
 [
  {
+  "when": "04 Sep 17:42 UTC",
+  "iso": "2026-09-04T17:42:34.262580+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nKwatra briefs US Democrats on Ukraine amid Russia oil sanctions push - India Today  (India Today)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,474 (-0.4%)   Silver 66.66 (-0.5%)   WTI 91.03 (-0.3%)   DXY 99.14 (+0.1%)   US10Y 4.77 (+0.2%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPMlBjQkxUcDhaRHFjYklPX3RQdm9OaDhRUDZHWmxjZF9UdmY0VmJFcFFQUE9KUllkYno3Y2dwVjNfdThMZ1BzNmJuMlJtUXV6NUN6MU1WQV80ckRpNzNmRU1ZQnIzeFl3RzFLVHVfWmFONVJCVGcydU9PME1DZHVwa3VCRzlONVRzakN5Ym9iVmdlN1NzcnFlT3BGUUdIcllrb0VXLWVnSldlZHRBY1hkTDVqSHI1eEVHSy04VXhfYkV4cEhoUEtHaXJUWUlCaFFlczZadHVRWWwzTzhFTHJfY05CU25LSlHSAewBQVVfeXFMTnRuQWtfS1FnOWFta3ZQTTdjVmZWWTJ2Q2plaldtUk40MEVuNnh2ZDdvdXBVMmowc3lqWS1mTklnSllocklVTkFvN2ZDZ19RZ3NxSmhPZndEQmZrekoxdVc0NXYtQmtPVWdOdDB3TGRjZWM3UVFBc04ta29iYjhYUUhBNnJVMFFGR1VjQWd6enhJdlRER1VfNTRkTVB6dkxFQW5CWlY3M2NMRUJwRzVYclBPMG5KejJQLUx6ODc2ci1aaWNJQV9xYlBIMF9yNGtBX29IYjZNN3NBdkxwY1pZSzktTkpaV0VUMTRhOXI?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4474.2,
+   "Silver": 66.66,
+   "WTI": 91.03
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Kwatra briefs US Democrats on Ukraine amid Russia oil sanctions push - India Today",
+   "src": "India Today",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,474 (-0.4%)   Silver 66.66 (-0.5%)   WTI 91.03 (-0.3%)   DXY 99.14 (+0.1%)   US10Y 4.77 (+0.2%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "04 Sep 15:41 UTC",
   "iso": "2026-09-04T15:41:23.619382+00:00",
   "cat": "oil_supply_tight",
