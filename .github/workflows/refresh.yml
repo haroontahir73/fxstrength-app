@@ -104,10 +104,14 @@ jobs:
       # Daily futures open interest -> its own page + a summary strip on the desk.
       # oi.py decides for itself whether a retry window is open (pre-London / mid-London /
       # New York), so running it every pass is cheap and it will not hammer the source.
+      # RENDER ONLY - never fetch from here. Proven 2026-09-04 (oi-cloud.yml): CME cuts the
+      # connection to this runner outright, so a fetch attempt is guaranteed to fail. Letting
+      # it try anyway was ~12 pointless blocked requests a day at a host that rate-limits us.
+      # The data is captured on the PC by the oi-daily task and arrives via sync_cloud.py.
       - name: Open interest page
         working-directory: engine
         continue-on-error: true
-        run: python oi.py dashboard.html
+        run: python oi.py --render-only dashboard.html
 
       - name: Assemble the site
         run: |
