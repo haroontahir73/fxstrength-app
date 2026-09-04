@@ -1,5 +1,60 @@
 [
  {
+  "when": "04 Sep 14:02 UTC",
+  "iso": "2026-09-04T14:02:22.492795+00:00",
+  "cat": "rates_up",
+  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nUS Stock Market Today: Dow Jones Falls 0.19%, S&P 500 Edges 0.03% Higher & Nasdaq Gains 0.01% As Strong Jobs Report Lifts Fed Rate-Hike Bets; Check What Investors Should Know - The Sunday Guardian  (The Sunday Guardian)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,478 (-0.3%)   Silver 66.58 (-0.6%)   WTI 88.99 (-2.5%)   DXY 99.09 (+0.1%)   US10Y 4.77 (+0.1%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMitAJBVV95cUxObzlzaUdDZ2wxUVVfOE40R0RrVG00T0pIbTJJTnQ4Qmljc21QeEsxVWZWU3hzVFc4LVN5M2IwYmE2NFk5Y25MbWJoWTVRNWYxTS0xWTQ4cThnOWRfNFprS2Q1d19Pb3dmZmZrem5nSzVUaEdHZVVXd1NyQUxYOEViUzR3em5EckRrX241SXhDdWE0MjBjSWpaaUJmZWtxVHR6UC1yemZ4NGRIU3dKU3dFdEgzYWMxTmlUUnlkUDVWTVR4ZU9MOVFUOUphZ3RfX19wN211STZfbVJlVnR2UDFBY3hsR2toZVVHM3RoNmEwM1JSelBCVEk0RjYtd25UTm9pRDFjbC01NE5uelZNSW4wcWs5UW12OVc1ck9fSE92NHMzanpORUxDYmFZZ2NHemdYODZXUdIBugJBVV95cUxOeG1mTVUzOWd3MzQwMzE0V3BZM19BWHRDSk5HOTNOdnAwTktSTDUxbkJ3WjlGODNNUi12Vlk5WDNQeFYyRHRTWm1LRW5kUEN0cFhPaDRRWkFIV05kWkFwWjRvMHNnS2VxYVd2Q1drbTZPTEZqUHJfcHhVOG9sd1RWV1E0S09GYVBQeTNjdDNYZlgzbzRHV2trQ01DVTB1N2t2eTA4NklJemQ5clhxM21DcDY3UVhXeTBoQjUzUVNScWJrSUJKQmtkbGh5UjZ4ZVkxWWtVblg3VG1ibUhSU3dvSkhMSjUya3N0LTVEUFF3Z3Z6WXB0V3RkZWx0dFQxQzhMR1lMbTVKaTd2bHgxRnQ5MEwyeWlfN2kxbGpGMm8wS000Y3R5NXU0d3kxWDNWdkVTdlJxcDdUM2p3Zw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4477.7,
+   "Silver": 66.585,
+   "WTI": 88.99
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "US Stock Market Today: Dow Jones Falls 0.19%, S&P 500 Edges 0.03% Higher & Nasdaq Gains 0.01% As Strong Jobs Report Lifts Fed Rate-Hike Bets; Check What Investors Should Know - The Sunday Guardian",
+   "src": "The Sunday Guardian",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "same hit as gold, only bigger",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,478 (-0.3%)   Silver 66.58 (-0.6%)   WTI 88.99 (-2.5%)   DXY 99.09 (+0.1%)   US10Y 4.77 (+0.1%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "04 Sep 13:52 UTC",
   "iso": "2026-09-04T13:52:46.032914+00:00",
   "cat": "geo_escalation",
