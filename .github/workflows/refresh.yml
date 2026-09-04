@@ -87,6 +87,14 @@ jobs:
         working-directory: engine
         run: python pages.py dashboard.html
 
+      # A per-currency score from ONLY the big scheduled releases (NFP, CPI, FOMC, GDP,
+      # PMI, jobs, retail). Reads calendar.json, injects its own card between markers.
+      # continue-on-error: a bad calendar row must not be able to take the whole page down.
+      - name: Add the flagship score card
+        working-directory: engine
+        continue-on-error: true
+        run: python flagship.py dashboard.html
+
       - name: Assemble the site
         run: |
           mkdir -p _site

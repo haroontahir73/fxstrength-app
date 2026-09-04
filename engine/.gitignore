@@ -35,6 +35,7 @@ data/state.json
 data/refresh.log
 data/news_seen.json                 # [cache] news_watch.py dedup state (TTL-pruned anyway)
 data/ntfy_topic.txt                 # local-test ntfy topic; CI uses the NTFY_TOPIC secret
+data/flagship.json                  # rebuilt from calendar.json every run - a record, not a source
 
 # --- COMMITTED (small, human/Claude-authored, the fx-strength-desk-daily task edits these) ---
 #   data/fundamentals_manual.json
