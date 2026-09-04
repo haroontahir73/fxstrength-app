@@ -57,9 +57,13 @@ def _is_flagship(title):
 
 
 def _base(title):
+    """Strip only REVISION tags (prel / final / adv / flash ...). NOT q/q vs y/y - those
+    are genuinely different series released together and both count, same as the main
+    news leg. Collapsing them silently dropped the stronger GDP-QoQ print for the weaker
+    GDP-YoY one and knocked AUD from +19 to +3."""
     t = (title or "").lower()
     for tag in (" prel", " final", " adv", " 2nd est", " 3rd est", " flash", " revised",
-                " preliminary", " advance", " q/q", " m/m", " y/y", " qoq", " mom", " yoy"):
+                " preliminary", " advance", " prelim", " s.a", " sa"):
         t = t.replace(tag, "")
     return " ".join(t.split())
 
