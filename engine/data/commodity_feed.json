@@ -1,5 +1,115 @@
 [
  {
+  "when": "04 Sep 12:33 UTC",
+  "iso": "2026-09-04T12:33:21.250215+00:00",
+  "cat": "inflation_hot",
+  "title": "GOLD+SILVER SHORT | INFLATION - running hot",
+  "body": "\ud83c\udf21 INFLATION \u2014 running hot\n\nUS Average Hourly Earnings YoY: 3.1 vs 3 expected - a BEAT (+3%)  (economic calendar)\n\nWHY: You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.\n\nGOLD   \u2193\u2193   look for shorts - the rates reaction beats the hedge story\n        [some evidence - right 50% of 485 past cases]\nSILVER \u2193\u2193   look for shorts - same, amplified\n        [some evidence - right 52% of 485 past cases]\nOIL    \u2192    no clean read - usually a cause, not a victim\n\nNOW  Gold 4,512 (+0.4%)   Silver 67.53 (+0.8%)   WTI 90.36 (-1.0%)   DXY 99.04 (+0.0%)   US10Y 4.76 (-0.7%)\n\nFLIP: if inflation is coming from oil AND growth is dying, gold turns up instead",
+  "link": "",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4511.5,
+   "Silver": 67.53,
+   "WTI": 90.36
+  },
+  "parts": {
+   "emoji": "\ud83c\udf21",
+   "label": "INFLATION \u2014 running hot",
+   "headline": "US Average Hourly Earnings YoY: 3.1 vs 3 expected - a BEAT (+3%)",
+   "src": "economic calendar",
+   "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "the rates reaction beats the hedge story",
+     "record": "some evidence - right 50% of 485 past cases"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "same, amplified",
+     "record": "some evidence - right 52% of 485 past cases"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "usually a cause, not a victim",
+     "record": ""
+    }
+   ],
+   "snap": "NOW  Gold 4,512 (+0.4%)   Silver 67.53 (+0.8%)   WTI 90.36 (-1.0%)   DXY 99.04 (+0.0%)   US10Y 4.76 (-0.7%)",
+   "reality": "",
+   "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
+  }
+ },
+ {
+  "when": "04 Sep 12:33 UTC",
+  "iso": "2026-09-04T12:33:20.906713+00:00",
+  "cat": "us_data_strong",
+  "title": "US DATA - came in strong",
+  "body": "\ud83d\udcca US DATA \u2014 came in strong\n\nUS Nonfarm Payrolls Private: 127 vs 45 expected - a BEAT (+182%)  (economic calendar)\n\nWHY: A stronger US economy means the Fed has no reason to cut rates, and may even raise them. Money stays in the dollar and in things that pay interest, and gold pays nothing.\n\nGOLD   \u2193    mild short bias - textbook drag, but measures weak - do not short on this alone\n        [weak - 48% of 402 past cases, no better than chance]\nSILVER \u2193    mild short bias - no measurable edge in the data\n        [some evidence - right 52% of 402 past cases]\nOIL    \u2191    mild long bias - a busier economy burns a bit more fuel\n        [some evidence - right 57% of 402 past cases]\n\nNOW  Gold 4,512 (+0.4%)   Silver 67.53 (+0.8%)   WTI 90.36 (-1.0%)   DXY 99.04 (+0.0%)   US10Y 4.76 (-0.7%)\n\nFLIP: one number is not a trend - the next weak print undoes it",
+  "link": "",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4511.5,
+   "Silver": 67.53,
+   "WTI": 90.36
+  },
+  "parts": {
+   "emoji": "\ud83d\udcca",
+   "label": "US DATA \u2014 came in strong",
+   "headline": "US Nonfarm Payrolls Private: 127 vs 45 expected - a BEAT (+182%)",
+   "src": "economic calendar",
+   "why": "A stronger US economy means the Fed has no reason to cut rates, and may even raise them. Money stays in the dollar and in things that pay interest, and gold pays nothing.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "textbook drag, but measures weak - do not short on this alone",
+     "record": "weak - 48% of 402 past cases, no better than chance"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "no measurable edge in the data",
+     "record": "some evidence - right 52% of 402 past cases"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "a busier economy burns a bit more fuel",
+     "record": "some evidence - right 57% of 402 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,512 (+0.4%)   Silver 67.53 (+0.8%)   WTI 90.36 (-1.0%)   DXY 99.04 (+0.0%)   US10Y 4.76 (-0.7%)",
+   "reality": "",
+   "flip": "one number is not a trend - the next weak print undoes it"
+  }
+ },
+ {
   "when": "04 Sep 11:13 UTC",
   "iso": "2026-09-04T11:13:21.595336+00:00",
   "cat": "oil_supply_tight",
