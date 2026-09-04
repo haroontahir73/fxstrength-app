@@ -670,16 +670,23 @@ def strip_block(state, reads):
         pass
     def _lst(x):
         return ", ".join(x) if x else "none"
+    # A big tappable card sitting immediately under the MACRO / MICRO tabs. It was lower
+    # down the page and the user could not find it on the phone at all - on a small screen
+    # anything below the first screenful may as well not exist.
     return (
-        '<section style="margin:22px 0;padding:14px 16px;border-radius:9px;'
-        'background:var(--surface2,#1c1c23);font-size:13.5px;line-height:1.6">'
-        '<b>Open interest</b> &mdash; real money in vs out '
-        f'<span style="color:var(--mut,#8a8a94)">(trade date {last}{age})</span><br>'
-        f'<span style="color:#3fbe83">New longs:</span> {_lst(longs)} &nbsp; '
-        f'<span style="color:#ec6a5e">New shorts:</span> {_lst(shorts)} &nbsp; '
-        f'<span style="color:#e0a63a">No new money (do not chase):</span> {_lst(fake)}<br>'
-        '<a href="./open-interest.html" style="color:#8b8df0;text-decoration:none">'
-        'Full open-interest page &rarr;</a></section>')
+        '<a href="./open-interest.html" style="display:block;text-decoration:none;'
+        'color:inherit;margin:14px 0 18px;padding:13px 15px;border-radius:10px;'
+        'background:rgba(59,91,219,.10);border:1px solid rgba(120,140,255,.35);'
+        'font:14px/1.55 -apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,sans-serif">'
+        '<div style="display:flex;align-items:center;justify-content:space-between;gap:10px">'
+        '<b style="font-size:14.5px">OPEN INTEREST &middot; real money</b>'
+        '<span style="color:#8b8df0;font-weight:700;white-space:nowrap">Open &rarr;</span></div>'
+        f'<div style="font-size:12px;opacity:.6;margin-top:2px">trade date {last}{age} '
+        '&middot; last 2 weeks, day by day</div>'
+        f'<div style="margin-top:7px"><span style="color:#3fbe83">New longs:</span> '
+        f'{_lst(longs)}<br><span style="color:#ec6a5e">New shorts:</span> {_lst(shorts)}'
+        f'<br><span style="color:#e0a63a">No new money (do not chase):</span> {_lst(fake)}'
+        '</div></a>')
 
 
 def inject_strip(html_path, block):
@@ -692,9 +699,17 @@ def inject_strip(html_path, block):
         html = re.sub(re.escape(MARK_A) + ".*?" + re.escape(MARK_B),
                       lambda _: wrapped, html, flags=re.S)
     else:
-        # directly under the Strength meter. It was below "Central bank commentary" and
-        # the user could not find it on a phone - the link to the OI page has to be near
-        # the top or the page may as well not exist.
+        # THE VERY TOP, above the MACRO / MICRO block. Open interest is its own page, so
+        # this is navigation - and it has to be on the first screen. It sat lower down and
+        # the user genuinely could not find the page on his phone; below one screenful on
+        # a 375px display may as well not exist.
+        anchor = "<!--COMMODITY_NEWS_START-->"
+        if anchor in html:
+            i = html.index(anchor)
+            html = html[:i] + wrapped + html[i:]
+            p.write_text(html, encoding="utf-8")
+            print(f"  injected the OI card at the top of {p.name}")
+            return True
         m = re.search(r'<section>\s*<h2>\s*What moved each score', html, flags=re.I)
         if not m:
             m = re.search(r'<section>\s*<h2>\s*Pair ranking', html, flags=re.I)
