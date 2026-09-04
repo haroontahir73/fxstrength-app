@@ -313,6 +313,41 @@ STATES = {
 }
 
 
+TABLE_DAYS = 10          # ~2 weeks of trading days - the user reads the RUN, not one day
+
+
+def day_rows(hist, prices, inst, n=TABLE_DAYS):
+    """The last `n` trading days for one instrument, newest first.
+
+    Rule #1 is about the SEQUENCE, not a single print: days that keep closing up with OI
+    rising are the ones you hold and add into; a shrinking OI increase after a long run is
+    profit-taking starting; OI falling on a spike day is the exit. One row cannot show any
+    of that, so the page always carries a fortnight."""
+    px = {d: c for d, c in (prices.get(inst) or [])}
+    pdates = [d for d, _ in (prices.get(inst) or [])]
+    rows = []
+    for day in sorted(hist, reverse=True):
+        d = hist[day].get(inst)
+        if not d or d.get("chg") is None:
+            continue
+        chg_px = None
+        if day in px:
+            i = pdates.index(day)
+            if i > 0:
+                prev = px[pdates[i - 1]]
+                chg_px = (px[day] - prev) / prev * 100
+        state = cls = None
+        if chg_px:
+            state, cls, _ = STATES[("up" if chg_px > 0 else "down",
+                                    "up" if d["chg"] > 0 else "down")]
+        rows.append({"date": day, "oi": d["oi"], "chg": d["chg"],
+                     "px_chg_pct": round(chg_px, 2) if chg_px is not None else None,
+                     "state": state, "cls": cls})
+        if len(rows) >= n:
+            break
+    return rows
+
+
 def analyse(hist, prices):
     """Per instrument: the latest day that has BOTH an OI change and a price change."""
     days = sorted(hist)
@@ -439,10 +474,64 @@ CSS = """<style>
 .oi-stale{padding:9px 12px;border-radius:7px;font-size:12.5px;margin:10px 0}
 .oi-stale.ok{background:rgba(63,190,131,.10);color:#3fbe83}
 .oi-stale.old{background:rgba(224,166,58,.12);color:#e0a63a}
+.oi-hist{margin:26px 0 0}
+.oi-hist h3{font-size:15px;margin:22px 0 2px;font-family:"IBM Plex Mono",monospace}
+.oi-hist h3 small{font-family:"IBM Plex Sans",sans-serif;font-weight:400;font-size:11.5px;
+  color:var(--mut,#8a8a94);margin-left:8px}
+.oi-tw{width:100%;border-collapse:collapse;font-size:12.5px;
+  font-family:"IBM Plex Mono",monospace;margin-top:6px}
+.oi-tw th{text-align:right;font-weight:600;font-size:10.5px;letter-spacing:.06em;
+  color:var(--mut,#8a8a94);padding:5px 8px;border-bottom:1px solid var(--line,#2a2a31)}
+.oi-tw th:first-child,.oi-tw td:first-child{text-align:left}
+.oi-tw th:last-child,.oi-tw td:last-child{text-align:left}
+.oi-tw td{text-align:right;padding:5px 8px;border-bottom:1px solid rgba(255,255,255,.045)}
+.oi-tw tr:last-child td{border-bottom:0}
+.oi-tw .up{color:#3fbe83} .oi-tw .dn{color:#ec6a5e} .oi-tw .na{color:var(--mut,#8a8a94)}
+.oi-tw .st{font-size:10.5px;white-space:nowrap}
+@media(max-width:560px){.oi-tw .vol{display:none}}
 </style>"""
 
 
-def render(hist, state, reads):
+SHORT_STATE = {"NEW MONEY LONG": "new longs", "SHORT COVERING": "short cover",
+               "NEW MONEY SHORT": "new shorts", "LONG LIQUIDATION": "long liq"}
+
+
+def history_tables(hist, prices):
+    """A fortnight of daily rows per instrument - the run is the signal, not one print."""
+    blocks = []
+    for inst in ORDER:
+        rows = day_rows(hist, prices, inst)
+        if not rows:
+            continue
+        net = sum(r["chg"] for r in rows)
+        up = sum(1 for r in rows if r["chg"] > 0)
+        body = []
+        for r in rows:
+            pc = ("<td class='na'>&mdash;</td>" if r["px_chg_pct"] is None else
+                  f"<td class='{'up' if r['px_chg_pct'] > 0 else 'dn'}'>{r['px_chg_pct']:+.2f}%</td>")
+            st = (f"<td class='st na'>&mdash;</td>" if not r["state"] else
+                  f"<td class='st'><span class='oi-tag {r['cls']}'>"
+                  f"{SHORT_STATE.get(r['state'], r['state'])}</span></td>")
+            body.append(
+                f"<tr><td>{r['date'][5:]}</td>{pc}"
+                f"<td class='{'up' if r['chg'] > 0 else 'dn'}'>{r['chg']:+,}</td>"
+                f"<td class='vol'>{r['oi']:,}</td>{st}</tr>")
+        blocks.append(
+            f"<h3>{inst}<small>{len(rows)} days &middot; net "
+            f"{net:+,} contracts &middot; {up} of {len(rows)} days up</small></h3>"
+            "<table class='oi-tw'><thead><tr><th>Date</th><th>Price</th>"
+            "<th>OI change</th><th class='vol'>Open interest</th><th>Read</th></tr></thead>"
+            f"<tbody>{''.join(body)}</tbody></table>")
+    if not blocks:
+        return ""
+    return ('<div class="oi-hist"><h2>Last two weeks, day by day</h2>'
+            '<p class="oi-sub">Rule&nbsp;#1 is about the <b>run</b>, not one print. Days that '
+            'keep closing up with open interest rising are the ones to hold and add into. '
+            'A shrinking OI increase after a long run is profit-taking starting. OI falling '
+            'on a spike day is the exit.</p>' + "".join(blocks) + '</div>')
+
+
+def render(hist, state, reads, prices=None):
     now = dt.datetime.now(dt.timezone.utc)
     last = state.get("last_good_date") or state.get("newest") or (sorted(hist)[-1] if hist else None)
     age_d = None
@@ -504,6 +593,7 @@ def render(hist, state, reads):
             'exit signal after a long run.</td></tr>'
             '</table>'
             f'<div class="oi-rows">{"".join(rows)}</div>'
+            + history_tables(hist, prices or {}) +
             f'<p class="oi-sub" style="margin-top:16px">Price change is the futures close vs the '
             f'previous close. OI is CME preliminary open interest for that trade date, published '
             f'overnight &mdash; so the reading is about <b>yesterday\'s</b> session and sets '
@@ -639,13 +729,14 @@ def main():
         state["newest"] = sorted(hist)[-1]
         _save(STATE_FILE, state)
 
-    reads = analyse(hist, price_moves())
+    prices = price_moves()
+    reads = analyse(hist, prices)
     for inst in ORDER:
         r = reads.get(inst)
         if r:
             print(f"  {inst:7} {r['date']}  px {r['px_chg_pct']:+6.2f}%  "
                   f"OI {r['chg']:+8,}  {r['state']}")
-    write_page(render(hist, state, reads))
+    write_page(render(hist, state, reads, prices))
     target = next((a for a in args if a.endswith(".html")), "dashboard.html")
     inject_strip(target, strip_block(state, reads))
 
