@@ -119,6 +119,14 @@ ORDER = ["Gold", "Silver", "Oil", "EUR", "GBP", "JPY", "AUD", "NZD", "CAD", "CHF
 RETRY_GAP_MIN = 60        # ~hourly. Human pace; see CME_PRODUCT_ID on why that matters.
 FIRST_TRY_UTC = (5, 0)    # from ~05:00 UTC, i.e. before London. Just where the day starts.
 
+# BACK OFF WHEN WE ARE BEING REFUSED, rather than knocking every hour regardless.
+# From a runner (plain urllib, no browser) CME answers 403 every single time, so an hourly
+# retry there is ~45 pointless blocked requests a day against a host that already rate-
+# limits us. After this many consecutive refusals, drop to one polite attempt every few
+# hours; a single success resets it.
+BLOCKED_STREAK_BEFORE_BACKOFF = 3
+BACKOFF_GAP_MIN = 6 * 60
+
 # PRELIMINARY ONLY - never revise.
 # CME reissues each trade date later as a final/settled figure. The desk wants the
 # preliminary read (that is what is available in time to set the day's bias) and wants it
@@ -156,18 +164,24 @@ def prev_business_day(d):
 
 
 def should_try(state, tkey, now=None):
-    """(try?, why). Hourly retries until the preliminary report for `tkey` is captured."""
+    """(try?, why). Hourly retries until the preliminary report for `tkey` is captured -
+    stretched to `BACKOFF_GAP_MIN` while the source is actively refusing us."""
     now = now or dt.datetime.now(dt.timezone.utc)
     if (now.hour, now.minute) < FIRST_TRY_UTC and not state.get("attempts", {}).get(tkey):
         return False, "before the first attempt of the day"
+    blocked = state.get("blocked_streak", 0)
+    gap = BACKOFF_GAP_MIN if blocked >= BLOCKED_STREAK_BEFORE_BACKOFF else RETRY_GAP_MIN
     last = state.get("last_attempt_for", {}).get(tkey)
     if last:
         try:
             mins = (now - dt.datetime.fromisoformat(last)).total_seconds() / 60
         except Exception:                                     # noqa: BLE001
-            mins = RETRY_GAP_MIN
-        if mins < RETRY_GAP_MIN:
-            return False, f"tried {mins:.0f} min ago, waiting {RETRY_GAP_MIN - mins:.0f} more"
+            mins = gap
+        if mins < gap:
+            why = f"tried {mins:.0f} min ago, waiting {gap - mins:.0f} more"
+            if gap == BACKOFF_GAP_MIN:
+                why += f" (backed off - refused {blocked}x in a row)"
+            return False, why
     return True, "due"
 
 
@@ -466,6 +480,12 @@ def update(force=False):
     state.setdefault("last_attempt_for", {})[tkey] = now.isoformat()
     state["last_attempt"] = now.isoformat()
     state["last_reason"] = _LAST_REASON or ("ok" if got else "not published yet")
+    # Track refusals separately from "published nothing yet" - only the former should
+    # make us back off. A success, from any source, clears it.
+    if got:
+        state["blocked_streak"] = 0
+    elif "403" in (_LAST_REASON or "") or "blocked" in (_LAST_REASON or "").lower():
+        state["blocked_streak"] = state.get("blocked_streak", 0) + 1
     if got:
         w, s = merge_days(hist, {tkey: got})
         state["last_good"] = now.isoformat()
