@@ -61,7 +61,8 @@ jobs:
             engine/data/commodities_manual.json \
             engine/data/rate_expectations_manual.json \
             engine/data/speech_tone.json \
-            engine/data/commodity_feed.json
+            engine/data/commodity_feed.json \
+            engine/data/oi_history.json
 
       - name: Choose mode
         id: mode
@@ -95,11 +96,20 @@ jobs:
         continue-on-error: true
         run: python flagship.py dashboard.html
 
+      # Daily futures open interest -> its own page + a summary strip on the desk.
+      # oi.py decides for itself whether a retry window is open (pre-London / mid-London /
+      # New York), so running it every pass is cheap and it will not hammer the source.
+      - name: Open interest page
+        working-directory: engine
+        continue-on-error: true
+        run: python oi.py dashboard.html
+
       - name: Assemble the site
         run: |
           mkdir -p _site
           cp engine/dashboard.html _site/dashboard.html
           cp engine/commodity-news.html _site/commodity-news.html 2>/dev/null || true
+          cp engine/open-interest.html  _site/open-interest.html  2>/dev/null || true
           cp index.html            _site/index.html
           cp update.json           _site/update.json
           cp FXStrengthDesk-*.apk  _site/ 2>/dev/null || true

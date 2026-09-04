@@ -36,10 +36,15 @@ data/refresh.log
 data/news_seen.json                 # [cache] news_watch.py dedup state (TTL-pruned anyway)
 data/ntfy_topic.txt                 # local-test ntfy topic; CI uses the NTFY_TOPIC secret
 data/flagship.json                  # rebuilt from calendar.json every run - a record, not a source
+data/oi_state.json                  # [cache] oi.py retry-window bookkeeping
+open-interest.html                  # built by oi.py in the runner, copied to _site
 
 # --- COMMITTED (small, human/Claude-authored, the fx-strength-desk-daily task edits these) ---
 #   data/fundamentals_manual.json
 #   data/commodities_manual.json
 #   data/rate_expectations_manual.json
 #   data/speech_tone.json
+#   data/oi_history.json            <- seeded from the user's Excel workbook; CME may be
+#                                      unreachable from CI, so this must NOT live only in
+#                                      the cache. It is pinned in refresh.yml.
 #   dashboard.html                  <- the Action writes this; Pages serves it
