@@ -1,0 +1,128 @@
+# Open interest, captured by a REAL browser running on the GitHub runner.
+#
+# CME refuses scripted requests (403 "suspected web scraping") but serves a real browser
+# from the same address - that is why the user's Excel workbook always worked and urllib
+# never does. Headless Chrome is the test of whether that holds from a datacenter too. If
+# it does, open interest updates with his PC switched off; if not, the oi-daily task on the
+# PC stays the source and this workflow simply records the refusal and stops.
+#
+# HUMAN PACE IS A HARD RULE HERE. Ten products, strictly sequential, 2.5s apart, and it
+# aborts the moment anything comes back 403 rather than knocking again. ~150 parallel
+# requests once got the session blocked for several minutes; ten spaced out run clean.
+#
+# The outcome is committed to engine/data/oi_cloud_status.json so it can be read without
+# repo auth (the Actions log API needs a token).
+name: oi cloud capture
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: oi-cloud
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install a real browser
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm i -D playwright >/dev/null 2>&1
+          npx playwright install --with-deps chromium >/dev/null 2>&1
+
+      - name: Ask CME, at a human pace
+        run: |
+          cat > capture.js <<'JS'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+          const PRODUCTS = { Gold:437, Silver:458, Oil:425, EUR:58, GBP:42,
+                             JPY:69, AUD:37, NZD:78, CAD:48, CHF:86 };
+          const sleep = ms => new Promise(r => setTimeout(r, ms));
+          (async () => {
+            const status = { at: new Date().toISOString(), ok: false, note: '' };
+            const out = {};
+            const b = await chromium.launch();
+            const ctx = await b.newContext({
+              locale: 'en-US', timezoneId: 'Europe/London',
+              viewport: { width: 1366, height: 768 },
+              userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ' +
+                         '(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+            });
+            const p = await ctx.newPage();
+            try {
+              const r = await p.goto('https://www.cmegroup.com/markets/metals/precious/gold.volume.html',
+                                     { waitUntil: 'domcontentloaded', timeout: 60000 });
+              status.page_status = r && r.status();
+              if (!r || r.status() >= 400) {
+                status.note = 'CME refused the page itself (HTTP ' + (r && r.status()) + ')';
+              } else {
+                await p.waitForTimeout(6000);   // read the page like a person would
+                for (const [name, id] of Object.entries(PRODUCTS)) {
+                  const res = await p.evaluate(async (pid) => {
+                    const q = await fetch(
+                      'https://www.cmegroup.com/CmeWS/mvc/Volume/LastTotals/' + pid +
+                      '?days=30&isProtected&_t=' + Date.now(), { credentials: 'include' });
+                    if (!q.ok) return { status: q.status };
+                    const j = await q.json();
+                    return { status: q.status, rows: (j.vdate || [])
+                      .filter(v => v.futureOi && v.futureOi !== '-')
+                      .map(v => [v.formattedDate, parseInt(v.futureOi),
+                                 parseInt(v.futureVolume || 0)]) };
+                  }, id);
+                  if (res.status !== 200) {
+                    status.note = 'refused on ' + name + ' (HTTP ' + res.status +
+                                  ') - stopping rather than retrying';
+                    break;                    // do NOT keep knocking
+                  }
+                  out[name] = res.rows;
+                  await sleep(2500);          // human pace
+                }
+                if (!status.note) {
+                  status.ok = Object.keys(out).length === Object.keys(PRODUCTS).length;
+                  status.captured = Object.keys(out).length;
+                  const g = out.Gold || [];
+                  status.latest = g.length ? g[g.length - 1][0] : null;
+                  if (!status.ok) status.note = 'only ' + status.captured + ' of 10 products';
+                }
+              }
+            } catch (e) {
+              status.note = String(e).slice(0, 200);
+            }
+            fs.writeFileSync('cloud_pull.json', JSON.stringify(out));
+            fs.writeFileSync('engine/data/oi_cloud_status.json', JSON.stringify(status, null, 1));
+            console.log('STATUS ' + JSON.stringify(status));
+            await b.close();
+          })();
+          JS
+          node capture.js
+
+      - name: Merge anything we got
+        run: |
+          if [ -s cloud_pull.json ] && [ "$(cat cloud_pull.json)" != "{}" ]; then
+            cd engine && python oi.py --merge ../cloud_pull.json
+          else
+            echo "nothing captured - leaving the history untouched"
+          fi
+
+      - name: Record the outcome
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add engine/data/oi_cloud_status.json engine/data/oi_history.json || true
+          git diff --cached --quiet || git commit -m "oi cloud capture [skip refresh]"
+          git pull --rebase -q || git rebase --abort || true
+          git push || echo "push failed"
