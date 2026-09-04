@@ -62,6 +62,14 @@ HIST_FILE = DATA / "oi_history.json"
 STATE_FILE = DATA / "oi_state.json"
 PAGE = HERE / "open-interest.html"
 
+# LINKS MUST BE ABSOLUTE. dashboard.html is a fragment with no <base>, and the Android app
+# hands links to the browser without a document URL to resolve against - a relative
+# "./open-interest.html" resolved against the Google Fonts stylesheet host and 404'd on
+# fonts.googleapis.com. Full URLs work from the app, the browser and Pages alike.
+SITE = os.environ.get("FXS_SITE", "https://haroontahir73.github.io/fxstrength-app")
+PAGE_URL = f"{SITE}/open-interest.html"
+DASH_URL = f"{SITE}/dashboard.html"
+
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                     "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
       "Referer": "https://www.cmegroup.com/tools-information/quikstrike/volume-open-interest.html"}
@@ -645,7 +653,7 @@ def write_page(block):
                     '&display=swap">'
                     '<body style="margin:0;padding:18px 16px 40px;background:#14141a;'
                     'color:#ecedf2;font-family:\'IBM Plex Sans\',system-ui,sans-serif">'
-                    '<p style="max-width:900px;margin:0 auto 4px"><a href="./dashboard.html" '
+                    f'<p style="max-width:900px;margin:0 auto 4px"><a href="{DASH_URL}" '
                     'style="color:#8b8df0;font-size:13px;text-decoration:none">&larr; back to the '
                     'desk</a></p>' + block + "</body>", encoding="utf-8")
     print(f"  wrote {PAGE.name}")
@@ -674,7 +682,7 @@ def strip_block(state, reads):
     # down the page and the user could not find it on the phone at all - on a small screen
     # anything below the first screenful may as well not exist.
     return (
-        '<a href="./open-interest.html" style="display:block;text-decoration:none;'
+        f'<a href="{PAGE_URL}" style="display:block;text-decoration:none;'
         'color:inherit;margin:14px 0 18px;padding:13px 15px;border-radius:10px;'
         'background:rgba(59,91,219,.10);border:1px solid rgba(120,140,255,.35);'
         'font:14px/1.55 -apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,sans-serif">'
