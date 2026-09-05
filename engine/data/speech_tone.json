@@ -66,5 +66,11 @@
   "USD|FOMC Member Hammack Speaks|2026-09-03T19:00": 0.0,
   "USD|FOMC Member Goolsbee Speaks|2026-09-03T19:05": 0.0,
   "USD|FOMC Member Goolsbee Speaks|2026-09-03T19:55": 0.0,
-  "_note_USD_connecting_communities": "Flat - not policy-path. Hammack (Cleveland) gave pre-recorded opening remarks and Goolsbee (Chicago) pre-recorded closing remarks at the Fed's 'Connecting Communities: When Every Dollar Counts: Worker Perspectives on the Economy' webinar - a community-development event on financial pressure facing workers, not a rate-path speech. No monetary-policy content reported for either appearance, so both scored 0 for the record; Hammack's standing hawkish view (see her 28 Aug entry) is unaffected but not repeated here."
+  "_note_USD_connecting_communities": "Flat - not policy-path. Hammack (Cleveland) gave pre-recorded opening remarks and Goolsbee (Chicago) pre-recorded closing remarks at the Fed's 'Connecting Communities: When Every Dollar Counts: Worker Perspectives on the Economy' webinar - a community-development event on financial pressure facing workers, not a rate-path speech. No monetary-policy content reported for either appearance, so both scored 0 for the record; Hammack's standing hawkish view (see her 28 Aug entry) is unaffected but not repeated here.",
+
+  "GBP|BOE Gov Bailey Speaks|2026-09-04T08:50": 0.0,
+  "_note_GBP_bailey_lse": "Flat, not a directional signal. Bailey's LSE TRIUM keynote ('The institutional form of independent central banks: from history to contemporary challenges') argued central banks have some flexibility over how quickly they return inflation to target, warned against overly rigid forward guidance, and flagged high public debt as a pressure on bond markets - a framework/communications speech, not a call on the next Bank Rate move. Scored 0 for the record.",
+
+  "EUR|Philip R. Lane: Diversity at the European Central Bank (Chief Economist)|2026-09-04T09:10": 0.0,
+  "_note_EUR_lane_diversity": "Flat - not policy-path. Title-topic is ECB workforce diversity, not the rate outlook. Scored 0 for the record."
 }
