@@ -1,5 +1,60 @@
 [
  {
+  "when": "05 Sep 09:05 UTC",
+  "iso": "2026-09-05T09:05:52.897181+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIran says oil tanker sustained \u2018minor damage\u2019 after U.S. missile strike - Free Press Kashmir  (Free Press Kashmir)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,477 (-0.3%)   Silver 66.75 (-0.3%)   WTI 91.48 (+0.2%)   DXY 99.16 (+0.2%)   US10Y 4.78 (+0.5%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOVThSYXJIWE1UV1BtMGEwQ3BnWm1aV0dmaC1Kc1J1aHE2Ri0zVDB2N3dlVHNKSjhjUDJOQnA0b0RvbGxvY3FMTVRSd2s0dFRsMm5IUHlXYlpNOHdud2lpcWw3UzI3QU5OVFMyWGZ0eG4zSzVYbkpFY0lYNTBPVHNta0Jpdk44UkZyUFNldWJwLUIyNUltQzNsUTNKc2RKOTlyc0t6WHJ2Ri1jR3dFU0lV0gG0AUFVX3lxTE5vOGdtU2RicmpCT2hObDV4WGtyX0dZdC1wMXhkcnRIOUFvRm1rUWRfNm5abVNqalJLcnJpWml3aWNOa2lUeDRFRTNaWERRMThDc3pMMFluaXBQTUpBUm5LV3ZKTjU2R2dtM3RHdXNYY25KMTM0MlNacFUxeExYTkJFUE4wb0U1NEZPdHdLUnE0TUQtYjJCYnkyUm1TOV9fc0pfZ2RzUnVNMVdSMWZEalJxUFpydA?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4476.6,
+   "Silver": 66.748,
+   "WTI": 91.48
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Iran says oil tanker sustained \u2018minor damage\u2019 after U.S. missile strike - Free Press Kashmir",
+   "src": "Free Press Kashmir",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,477 (-0.3%)   Silver 66.75 (-0.3%)   WTI 91.48 (+0.2%)   DXY 99.16 (+0.2%)   US10Y 4.78 (+0.5%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "05 Sep 08:21 UTC",
   "iso": "2026-09-05T08:21:53.550941+00:00",
   "cat": "rates_down",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,488 (+2.8%)   Silver 66.73 (+3.1%)   WTI 89.88 (-1.2%)   DXY 99.24 (-0.3%)   US10Y 4.80 (-0.0%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "03 Sep 05:35 UTC",
-  "iso": "2026-09-03T05:35:42.260884+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIran strikes Kuwait as Trump says renewed Mideast hostilities will not last 'too long'\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,470 (+2.4%)   Silver 66.28 (+2.4%)   WTI 90.21 (-0.9%)   DXY 99.39 (-0.2%)   US10Y 4.80 (-0.0%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://www.cnbc.com/2026/09/03/us-iran-war-trump-hormuz-israel-middle-east-europe-kuwait.html",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4470.1,
-   "Silver": 66.285,
-   "WTI": 90.21
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Iran strikes Kuwait as Trump says renewed Mideast hostilities will not last 'too long'",
-   "src": "",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,470 (+2.4%)   Silver 66.28 (+2.4%)   WTI 90.21 (-0.9%)   DXY 99.39 (-0.2%)   US10Y 4.80 (-0.0%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
