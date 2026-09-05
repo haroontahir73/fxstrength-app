@@ -1,5 +1,60 @@
 [
  {
+  "when": "05 Sep 19:40 UTC",
+  "iso": "2026-09-05T19:40:15.763696+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: IRGC navy: targeted three vessels on unauthorized routes through Strait of Hormuz - statement\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,477 (-0.3%)   Silver 66.75 (-0.3%)   WTI 91.48 (+0.2%)   DXY 99.16 (+0.2%)   US10Y 4.78 (+0.5%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://www.financialjuice.com/News/9751456/IRGC-navy-targeted-three-vessels-on-unauthorized-routes-through-Strait-of-Hormuz---statement.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4476.6,
+   "Silver": 66.748,
+   "WTI": 91.48
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "FinancialJuice: IRGC navy: targeted three vessels on unauthorized routes through Strait of Hormuz - statement",
+   "src": "",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,477 (-0.3%)   Silver 66.75 (-0.3%)   WTI 91.48 (+0.2%)   DXY 99.16 (+0.2%)   US10Y 4.78 (+0.5%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "05 Sep 18:45 UTC",
   "iso": "2026-09-05T18:45:47.085003+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,534 (+3.8%)   Silver 67.10 (+3.7%)   WTI 91.99 (+1.1%)   DXY 98.96 (-0.6%)   US10Y 4.75 (-1.0%)",
    "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "03 Sep 12:47 UTC",
-  "iso": "2026-09-03T12:47:42.775365+00:00",
-  "cat": "inflation_cold",
-  "title": "GOLD+SILVER STRONG LONG | INFLATION - cooling",
-  "body": "\u2744 INFLATION \u2014 cooling\n\nFinancialJuice: Fed's Waller: Finally seeing some signs of disinflation in recent data.\n\nWHY: Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - opens the door to rate cuts\n        [CONFIDENT - right 64% of 503 past cases]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up\n        [CONFIDENT - right 61% of 503 past cases]\nOIL    \u2192    no clean read - mild help from a softer dollar\n\nNOW  Gold 4,515 (+3.4%)   Silver 66.73 (+3.1%)   WTI 92.42 (+1.5%)   DXY 99.05 (-0.5%)   US10Y 4.77 (-0.6%)\n\nREALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.\n\nFLIP: one hot print reverses the whole thing",
-  "link": "https://www.financialjuice.com/News/9748559/Feds-Waller-Finally-seeing-some-signs-of-disinflation-in-recent-data.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4515.1,
-   "Silver": 66.735,
-   "WTI": 92.42
-  },
-  "parts": {
-   "emoji": "\u2744",
-   "label": "INFLATION \u2014 cooling",
-   "headline": "FinancialJuice: Fed's Waller: Finally seeing some signs of disinflation in recent data.",
-   "src": "",
-   "why": "Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "opens the door to rate cuts",
-     "record": "CONFIDENT - right 64% of 503 past cases"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "follows gold up",
-     "record": "CONFIDENT - right 61% of 503 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 1,
-     "call": "no clean read",
-     "reason": "mild help from a softer dollar",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 4,515 (+3.4%)   Silver 66.73 (+3.1%)   WTI 92.42 (+1.5%)   DXY 99.05 (-0.5%)   US10Y 4.77 (-0.6%)",
-   "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
-   "flip": "one hot print reverses the whole thing"
   }
  }
 ]
