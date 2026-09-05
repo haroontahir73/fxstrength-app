@@ -55,5 +55,16 @@
   "_note_USD_barr_sep": "Leaning toward higher rates, two-sided. At the Second Chance Lending Forum Barr said inflation 'remains too high - and has been for over five years' and that if it 'appears not to be moderating sufficiently, then I think we should act decisively to raise rates' at the 15-16 Sep FOMC, while adding that if the data give confidence inflation is on a path to 2% the Fed 'can take a bit more time'. Open to a hike or a hold depending on the data, so +1.",
 
   "EUR|Boris Vujčić: Listening to households: expectations, behaviour and monetary policy|2026-09-01T16:00": 0.0,
-  "_note_EUR_vujcic_households": "Flat - a research/communications speech, not policy-path. ECB VP Vujcic argued that high-quality household expectations surveys support better policymaking and credibility, and that central banks should communicate the uncertainty around the baseline and alternative scenarios (referencing the June 2026 Eurosystem projections). Nothing on the ECB rate trajectory, so scored 0 for the record."
+  "_note_EUR_vujcic_households": "Flat - a research/communications speech, not policy-path. ECB VP Vujcic argued that high-quality household expectations surveys support better policymaking and credibility, and that central banks should communicate the uncertainty around the baseline and alternative scenarios (referencing the June 2026 Eurosystem projections). Nothing on the ECB rate trajectory, so scored 0 for the record.",
+
+  "USD|FOMC Member Waller Speaks|2026-09-03T12:30": -1.0,
+  "_note_USD_waller_sep3": "Leaning toward a hold, muddying the hike case. Speaking to Reuters, Waller said his call is 'heavily influenced' by the August CPI print due 11 Sep: 'if there is continued progress toward our 2% goal, then I am willing to support holding the policy rate at its current level,' though he 'would consider a rate hike' if inflation comes in hot. He conceded inflation is 'meaningfully above' target but pointed to 'signs of disinflation'. Market-moving dovish relative to expectations - CME September-hike odds fell from ~65% to roughly 50-50 after the remarks.",
+
+  "GBP|MPC Member Pill Speaks|2026-09-03T15:00": 2.0,
+  "_note_GBP_pill_sep3": "Clearly leaning toward higher rates. BoE Chief Economist Pill, speaking to the Edinburgh Chamber of Commerce, argued against a 'wait-and-see' approach ('if you follow a wait-and-see approach and then do not see, all you have done is waited') and made the case for raising rates modestly now to head off inflation persistence before it becomes costlier to reverse - warning that even as the labour market loosens, the risk of second-round wage/price effects is still very much alive.",
+
+  "USD|FOMC Member Hammack Speaks|2026-09-03T19:00": 0.0,
+  "USD|FOMC Member Goolsbee Speaks|2026-09-03T19:05": 0.0,
+  "USD|FOMC Member Goolsbee Speaks|2026-09-03T19:55": 0.0,
+  "_note_USD_connecting_communities": "Flat - not policy-path. Hammack (Cleveland) gave pre-recorded opening remarks and Goolsbee (Chicago) pre-recorded closing remarks at the Fed's 'Connecting Communities: When Every Dollar Counts: Worker Perspectives on the Economy' webinar - a community-development event on financial pressure facing workers, not a rate-path speech. No monetary-policy content reported for either appearance, so both scored 0 for the record; Hammack's standing hawkish view (see her 28 Aug entry) is unaffected but not repeated here."
 }
