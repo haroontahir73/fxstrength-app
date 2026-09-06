@@ -34,6 +34,41 @@ def bootstrap():
     run("cot")
 
 
+def _heal_cot_history():
+    """One-shot top-up when the COT history predates a schema change - specifically the
+    crypto contracts (config.COT_EXTRA) and the spreading column, both added 2026-09-06.
+    The cloud restores cot_history.json from an actions/cache that can be older than the
+    code, so without this the COT tab would miss BTC/ETH and Spread until the next weekly
+    `cot` run. Cheap check; the backfill only runs while the history is genuinely short,
+    then this no-ops on every future run."""
+    try:
+        from config import COT_EXTRA_ORDER
+    except ImportError:
+        return
+    hp = DATA / "cot_history.json"
+    if not hp.exists():
+        return
+    try:
+        hist = json.loads(hp.read_text(encoding="utf-8"))
+    except Exception:
+        return
+    weeks = sorted(hist)
+    if not weeks:
+        return
+    recent = weeks[-8:]
+    crypto_ok = (not COT_EXTRA_ORDER) or all(
+        all(s in hist.get(w, {}) for s in COT_EXTRA_ORDER) for w in recent)
+    spread_ok = "spread" in ((hist.get(weeks[-1], {}).get("EUR") or {}).get("leveraged") or {})
+    if crypto_ok and spread_ok:
+        return
+    print(f"  COT history predates crypto/spread (crypto_ok={crypto_ok} spread_ok={spread_ok})"
+          f" - backfilling 3y from CFTC")
+    try:
+        fetch_cot.backfill_cftc(3)
+    except Exception as e:
+        print(f"  heal backfill failed ({type(e).__name__}: {e}) - will retry next run")
+
+
 def run(mode):
     now = dt.datetime.now(dt.timezone.utc)
     print(f"[{now:%Y-%m-%d %H:%M UTC}] mode={mode}")
@@ -57,6 +92,7 @@ def run(mode):
     else:
         cot = json.loads(cotf.read_text(encoding="utf-8"))
         print(f"COT: reusing report {cot['currencies'].get('EUR', {}).get('report_date')}")
+    _heal_cot_history()
 
     print("Calendar:")
     cal = fetch_calendar.main()
