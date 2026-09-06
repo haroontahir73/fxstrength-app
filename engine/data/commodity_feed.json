@@ -1,5 +1,60 @@
 [
  {
+  "when": "06 Sep 11:55 UTC",
+  "iso": "2026-09-06T11:55:49.607260+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: U.S. Centcom: As of Sept. 6, U.S. forces rerouted 92 commercial ships, disabled 3 and boarded 2 to enforce blockade against Iran\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,477 (-0.3%)   Silver 66.75 (-0.3%)   WTI 91.48 (+0.2%)   DXY 99.16 (+0.2%)   US10Y 4.78 (+0.5%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://www.financialjuice.com/News/9751682/US-Centcom-As-of-Sept-6-US-forces-rerouted-92-commercial-ships-disabled-3-and-boarded-2-to-enforce-blockade-against-Iran.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4476.6,
+   "Silver": 66.748,
+   "WTI": 91.48
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "FinancialJuice: U.S. Centcom: As of Sept. 6, U.S. forces rerouted 92 commercial ships, disabled 3 and boarded 2 to enforce blockade against Iran",
+   "src": "",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,477 (-0.3%)   Silver 66.75 (-0.3%)   WTI 91.48 (+0.2%)   DXY 99.16 (+0.2%)   US10Y 4.78 (+0.5%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "06 Sep 10:07 UTC",
   "iso": "2026-09-06T10:07:41.471562+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,522 (+3.6%)   Silver 67.42 (+4.2%)   WTI 91.89 (+1.0%)   DXY 98.98 (-0.6%)   US10Y 4.76 (-0.7%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "04 Sep 01:11 UTC",
-  "iso": "2026-09-04T01:11:18.554892+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nMilei declares \u2018Falklands are Argentinean\u2019 amid oil sanctions - London Evening Standard  (London Evening Standard)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,531 (+3.8%)   Silver 67.71 (+4.6%)   WTI 91.53 (+0.6%)   DXY 98.97 (-0.6%)   US10Y 4.76 (-0.7%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPS3hnaTdoZGZJY1hWUHFPcktnME0ySUVIU2g4T2hlNHVmeUJsb1ZBQmZlU1NBV1dic3Qxd0FSaHZKY3FLSGxpZzdlOE9TaDFZYkJnVGYyQ0dNU2tpbUZMTUw0UDRPLWg0WVNxbnUwSzhGbVFmSnBtS2NTWG5vdmJvVmtMWWlRbGN2b0pZM1lVQUYxSGJHbFVMNWNLMjdJWWVLR2hhM1hGM3hIM2g3TDhDYzhB?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4531.0,
-   "Silver": 67.71,
-   "WTI": 91.53
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Milei declares \u2018Falklands are Argentinean\u2019 amid oil sanctions - London Evening Standard",
-   "src": "London Evening Standard",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,531 (+3.8%)   Silver 67.71 (+4.6%)   WTI 91.53 (+0.6%)   DXY 98.97 (-0.6%)   US10Y 4.76 (-0.7%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
