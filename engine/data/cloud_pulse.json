@@ -1,5 +1,5 @@
 {
-  "pulse": "2026-09-06T14:51:09+00:00",
+  "pulse": "2026-09-06T15:36:07+00:00",
   "reason": "published page was 45 min stale; GitHub's cron had not fired",
   "note": "written by sync_cloud.py on the local PC - a push here triggers refresh.yml"
 }
