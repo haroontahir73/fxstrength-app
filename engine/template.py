@@ -2,6 +2,7 @@
 stays readable and the generator stays about data."""
 
 TEMPLATE = r"""<title>Currency Strength Desk</title>
+<meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap">
@@ -129,7 +130,10 @@ ul.news li.empty{display:block;color:var(--mut)}
 
 .tw{overflow-x:auto;background:var(--surface);border:1px solid var(--line);
   border-radius:12px;box-shadow:var(--shadow)}
-table{border-collapse:collapse;width:100%;font-size:13px;min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+.tw table{min-width:560px}
+.oi-hist .tw{margin-top:6px}
+.oi-hist table.oi-tw{min-width:420px}
 th{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--mut);font-weight:500;padding:11px 16px;
   border-bottom:1px solid var(--line);white-space:nowrap}
@@ -148,6 +152,32 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
   margin:2px 0 0;line-height:1.4}
 .mnote.warn{color:var(--warn)} .mnote.neg{color:var(--neg)}
 .mnote.warn b,.mnote.neg b{color:inherit}
+
+.tabwrap{display:flex;flex-direction:column;gap:34px}
+.tabin{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip:rect(0 0 0 0)}
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.tabs label{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;font-weight:700;
+  font-size:15px;padding:10px 16px;cursor:pointer;color:var(--mut);
+  border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tabs label:hover{color:var(--ink2)}
+.panel{display:none;flex-direction:column;gap:34px}
+#tab-cot:checked~#p-cot,#tab-oi:checked~#p-oi,#tab-macro:checked~#p-macro,
+#tab-micro:checked~#p-micro,#tab-board:checked~#p-board{display:flex}
+#tab-cot:checked~.tabs label[for="tab-cot"],
+#tab-oi:checked~.tabs label[for="tab-oi"],
+#tab-macro:checked~.tabs label[for="tab-macro"],
+#tab-micro:checked~.tabs label[for="tab-micro"],
+#tab-board:checked~.tabs label[for="tab-board"]{color:var(--accent);border-bottom-color:var(--accent)}
+.tabin:focus-visible~.tabs{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.cotgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px}
+.cotcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px 6px;box-shadow:var(--shadow)}
+.cotcard h3{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;margin:0 0 6px;
+  display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.cotcard h3 .cnm{margin-left:0}
+.cotcard table{min-width:0;font-size:11.5px}
+.cotcard th,.cotcard td{padding:5px 6px}
+.spreadnote{font-size:12.5px;color:var(--ink2);font-family:"IBM Plex Mono",monospace;margin:0}
 
 footer{border-top:1px solid var(--line);padding-top:20px;color:var(--mut);font-size:12.5px;
   display:flex;flex-direction:column;gap:8px}
@@ -188,6 +218,26 @@ a{color:var(--accent)}
     </div>
   </header>
 
+  <div class="tabwrap">
+  <input type="radio" name="tab" id="tab-cot" class="tabin" checked>
+  <input type="radio" name="tab" id="tab-oi" class="tabin">
+  <input type="radio" name="tab" id="tab-macro" class="tabin">
+  <input type="radio" name="tab" id="tab-micro" class="tabin">
+  <input type="radio" name="tab" id="tab-board" class="tabin">
+  <nav class="tabs" role="tablist" aria-label="Dashboard views">
+    <label for="tab-cot">COT report</label>
+    <label for="tab-oi">Open interest</label>
+    <label for="tab-macro">Macro</label>
+    <label for="tab-micro">Micro</label>
+    <label for="tab-board">Strength meter</label>
+  </nav>
+
+  <div class="panel" id="p-cot">{{COT_PANEL}}</div>
+  <div class="panel" id="p-oi">{{OI_PANEL}}</div>
+  <div class="panel" id="p-macro">{{MACRO_PANEL}}</div>
+  <div class="panel" id="p-micro">{{MICRO_PANEL}}</div>
+
+  <div class="panel" id="p-board">
   <section>
     <h2>Strength meter</h2>
     <p class="sub">Blended score from &minus;100 to +100. Bars diverge from the centre line: right is
@@ -259,6 +309,8 @@ a{color:var(--accent)}
       <tbody>{{UPCOMING}}</tbody>
     </table></div>
   </section>
+  </div><!-- /p-board -->
+  </div><!-- /tabwrap -->
 
   <footer>
     <p><b>Sources.</b> Positioning and open interest from the CFTC Commitments of Traders via

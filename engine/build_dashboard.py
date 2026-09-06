@@ -3,6 +3,10 @@ import json, datetime as dt
 from pathlib import Path
 from config import (DATA, ORDER, CURRENCIES, WEIGHTS,
                     COMMODITIES, COMMODITY_ORDER, COMMODITY_WEIGHTS, ordinal)
+try:
+    from config import COT_EXTRA, COT_EXTRA_ORDER
+except ImportError:
+    COT_EXTRA, COT_EXTRA_ORDER = {}, []
 from template import TEMPLATE
 
 OUT = Path(__file__).parent / "dashboard.html"
@@ -189,6 +193,276 @@ def retr_line(retr, kind, name):
                 f'The {leg} may be failing; {ma}.</p>')
     return (f'<p class="mnote"><b>{w}:</b> {zone} &middot; {ma} &middot; '
             f'{retr["retraced_pct"]}% retraced of the {leg}.</p>')
+
+
+def _load_hist(name):
+    """A date-keyed COT history file, or {} if missing / unreadable."""
+    p = DATA / name
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def _sgn(n):
+    return f"{n:+,}" if isinstance(n, (int, float)) else "&mdash;"
+
+
+def _wk(d):
+    try:
+        return dt.date.fromisoformat(d).strftime("%d %b")
+    except Exception:
+        return esc(d)
+
+
+# which trader category is "the speculators" in each report
+FX_SPEC, CM_SPEC = "leveraged", "managed_money"
+
+
+def cot_panel():
+    """The COT tab: latest-week speculative net + spreading for every contract, then a
+    10-week history card per instrument. FX speculators = CFTC Leveraged Funds; commodity
+    speculators = Managed Money (the disaggregated report). Read straight from the weekly
+    history files - no scoring, just the raw positioning."""
+    fx = _load_hist("cot_history.json")
+    cm = _load_hist("cot_history_commodity.json")
+    if not fx:
+        return ('<section><h2>COT report</h2>'
+                '<p class="sub">No positioning history on file yet.</p></section>')
+
+    wfx = sorted(fx)[-10:]
+    wcm = sorted(cm)[-10:]
+    asof = wfx[-1]
+
+    crypto = [s for s in COT_EXTRA_ORDER if any(s in fx.get(w, {}) for w in wfx)]
+    items = ([(c, CURRENCIES[c]["name"], fx, wfx, FX_SPEC) for c in ORDER]
+             + [(s, COT_EXTRA[s]["name"], fx, wfx, FX_SPEC) for s in crypto]
+             + [(s, COMMODITIES[s]["name"], cm, wcm, CM_SPEC) for s in COMMODITY_ORDER])
+    sep_before = {}
+    if crypto:
+        sep_before[crypto[0]] = "Crypto &mdash; CME futures, Leveraged Funds"
+    if COMMODITY_ORDER:
+        sep_before[COMMODITY_ORDER[0]] = "Commodities &mdash; Managed Money"
+
+    # ---- latest-week summary table
+    srows = []
+    for code, name, hist, weeks, cat in items:
+        if code in sep_before:
+            srows.append(f'<tr><td colspan="8" class="mut" style="font-size:11px;'
+                         f'text-transform:uppercase;letter-spacing:.1em">{sep_before[code]}</td></tr>')
+        rec = hist.get(weeks[-1], {}).get(code) or {}
+        g = rec.get(cat) or {}
+        net = g.get("net")
+        if net is None:
+            continue
+        oi = rec.get("open_interest") or 0
+        pctoi = f"{net / oi * 100:+.1f}%" if oi else "&mdash;"
+        sp = g.get("spread")
+        sp_txt = f"{sp:,}" if isinstance(sp, int) else "&mdash;"
+        spc_txt = _sgn(g.get("spread_chg")) if isinstance(sp, int) else "&mdash;"
+        srows.append(
+            f'<tr><td class="pr">{code}<span class="cnm">{esc(name)}</span></td>'
+            f'<td class="num mono {"pos" if net >= 0 else "neg"}">{net:+,}</td>'
+            f'<td class="num mono {"pos" if (g.get("net_chg") or 0) >= 0 else "neg"}">{_sgn(g.get("net_chg"))}</td>'
+            f'<td class="num mono">{g.get("long", 0):,}</td>'
+            f'<td class="num mono">{g.get("short", 0):,}</td>'
+            f'<td class="num mono">{sp_txt}</td>'
+            f'<td class="num mono mut">{spc_txt}</td>'
+            f'<td class="num mono">{pctoi}</td></tr>')
+
+    # ---- per-instrument 10-week history
+    cards = []
+    for code, name, hist, weeks, cat in items:
+        rows = []
+        for wk in reversed(weeks):
+            g = (hist.get(wk, {}).get(code) or {}).get(cat) or {}
+            if "net" not in g:
+                continue
+            sp = g.get("spread")
+            rows.append(
+                f'<tr><td class="mono">{_wk(wk)}</td>'
+                f'<td class="num mono">{g.get("long", 0):,}</td>'
+                f'<td class="num mono">{g.get("short", 0):,}</td>'
+                f'<td class="num mono {"pos" if g["net"] >= 0 else "neg"}">{g["net"]:+,}</td>'
+                f'<td class="num mono mut">{_sgn(g.get("net_chg"))}</td>'
+                f'<td class="num mono">{f"{sp:,}" if isinstance(sp, int) else "&mdash;"}</td>'
+                '</tr>')
+        if not rows:
+            continue
+        cur = (hist.get(weeks[-1], {}).get(code) or {}).get(cat, {}).get("net")
+        cards.append(
+            f'<div class="cotcard"><h3>{code} <span class="cnm">{esc(name)}</span>'
+            f'<span class="mono {"pos" if (cur or 0) >= 0 else "neg"}">{_sgn(cur)}</span></h3>'
+            f'<div class="tw"><table><thead><tr><th>Week</th><th class="num">Long</th>'
+            f'<th class="num">Short</th><th class="num">Net</th><th class="num">&Delta;</th>'
+            f'<th class="num">Spr</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div></div>')
+
+    return f"""<section>
+    <h2>COT report <span class="mut" style="font-weight:400;font-size:14px">&mdash; speculative positioning, weekly</span></h2>
+    <p class="sub">Straight from the CFTC Commitments of Traders, week ending <b>{asof}</b>.
+    <b>Net</b> is speculative long minus short &mdash; Leveraged Funds for currencies, Managed
+    Money for gold/silver/crude &mdash; the directional, non-commercial money.
+    <b>Spread</b> is the spreading position (contracts held both long and short, i.e.
+    calendar / relative-value trades that carry no outright direction). <b>% OI</b> is the net
+    as a share of total open interest &mdash; above 35% is a crowded, squeeze-prone book.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Contract</th><th class="num">Net</th><th class="num">&Delta; wk</th>
+      <th class="num">Long</th><th class="num">Short</th><th class="num">Spread</th>
+      <th class="num">&Delta; spr</th><th class="num">% OI</th></tr></thead>
+      <tbody>{"".join(srows)}</tbody>
+    </table></div>
+    <h2 style="margin-top:10px">Last 10 weeks</h2>
+    <p class="sub">Non-commercial long / short / net and the weekly change, newest first.</p>
+    <div class="cotgrid">{"".join(cards)}</div>
+  </section>"""
+
+
+def _oi_weekly_fallback():
+    """Weekly OI straight from the COT report - used only when the daily preliminary feed
+    (oi_history.json via oi.py) has nothing."""
+    fx = _load_hist("cot_history.json")
+    cm = _load_hist("cot_history_commodity.json")
+    if not fx:
+        return ('<section><h2>Open interest</h2>'
+                '<p class="sub">No open-interest history on file yet.</p></section>')
+    wfx, wcm = sorted(fx)[-10:], sorted(cm)[-10:]
+    items = ([(c, CURRENCIES[c]["name"], fx, wfx) for c in ORDER]
+             + [(s, COMMODITIES[s]["name"], cm, wcm) for s in COMMODITY_ORDER])
+    cards = []
+    for code, name, hist, weeks in items:
+        cur = (hist.get(weeks[-1], {}).get(code) or {}).get("open_interest")
+        if not cur:
+            continue
+        rows = []
+        for w in reversed(weeks):
+            r = hist.get(w, {}).get(code) or {}
+            v = r.get("open_interest")
+            if not v:
+                continue
+            rows.append(f'<tr><td class="mono">{_wk(w)}</td><td class="num mono">{v:,}</td>'
+                        f'<td class="num mono {"pos" if (r.get("oi_change") or 0) >= 0 else "neg"}">'
+                        f'{_sgn(r.get("oi_change"))}</td></tr>')
+        cards.append(f'<div class="cotcard"><h3>{code} <span class="cnm">{esc(name)}</span>'
+                     f'<span class="mono">{cur:,}</span></h3><div class="tw"><table><thead><tr>'
+                     f'<th>Week</th><th class="num">OI</th><th class="num">&Delta;</th></tr></thead>'
+                     f'<tbody>{"".join(rows)}</tbody></table></div></div>')
+    return f"""<section>
+    <h2>Open interest <span class="mut" style="font-weight:400;font-size:14px">&mdash; weekly (COT report)</span></h2>
+    <p class="sub">The daily preliminary feed has nothing on file, so this is the weekly open
+    interest from the CFTC report, last 10 weeks, newest first.</p>
+    <div class="cotgrid">{"".join(cards)}</div>
+  </section>"""
+
+
+def oi_panel():
+    """The Open Interest tab: CME **preliminary** open interest, daily, last ~10 trading days
+    for gold / silver / crude and the FX majors. Built from oi.py's own daily history
+    (oi_history.json) - preliminary numbers are frozen once stored and never revised to the
+    settled figure, because the preliminary read is the one available in time to set the
+    day's bias. Falls back to the weekly COT open interest if the daily feed is empty."""
+    try:
+        hist = json.loads((DATA / "oi_history.json").read_text(encoding="utf-8"))
+    except Exception:
+        hist = {}
+    if not hist:
+        return _oi_weekly_fallback()
+
+    try:
+        import oi as _oi
+        try:
+            prices = _oi.price_moves()
+        except Exception:
+            prices = {}
+        tables = _oi.history_tables(hist, prices)
+        # each daily table is a bare <table class='oi-tw'> - wrap so it scrolls on a phone
+        tables = (tables.replace("<table class='oi-tw'>", "<div class='tw'><table class='oi-tw'>")
+                        .replace("</table>", "</table></div>"))
+        css = _oi.CSS
+        order = _oi.ORDER
+    except Exception:
+        tables, css, order = "", "", ["Gold", "Silver", "Oil", "EUR", "GBP", "JPY",
+                                      "AUD", "NZD", "CAD", "CHF"]
+
+    days = sorted(hist)
+    asof = days[-1]
+    latest = hist[asof]
+
+    srows = []
+    for inst in order:
+        d = latest.get(inst)
+        if not d or d.get("oi") is None:
+            continue
+        chg = d.get("chg") or 0
+        prev = d["oi"] - chg
+        pct = f"{chg / prev * 100:+.2f}%" if prev else "&mdash;"
+        vol = f'{d["volume"]:,}' if d.get("volume") else "&mdash;"
+        srows.append(
+            f'<tr><td class="pr">{esc(inst)}</td>'
+            f'<td class="num mono">{d["oi"]:,}</td>'
+            f'<td class="num mono {"pos" if chg >= 0 else "neg"}">{_sgn(chg)}</td>'
+            f'<td class="num mono {"pos" if chg >= 0 else "neg"}">{pct}</td>'
+            f'<td class="num mono mut">{vol}</td></tr>')
+
+    if not tables and not srows:
+        return _oi_weekly_fallback()
+
+    return f"""<section>
+    {css}
+    <h2>Open interest <span class="mut" style="font-weight:400;font-size:14px">&mdash; CME preliminary, daily</span></h2>
+    <p class="sub">CME <b>preliminary</b> open interest for the previous trade date, published
+    overnight &mdash; latest <b>{asof}</b>. This is the figure available in time to set the
+    day's bias; CME reissues each day later as a settled number, and this desk keeps the
+    <b>preliminary</b> read frozen rather than revising it. Contract volume for the day is
+    shown alongside.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Contract</th><th class="num">Open interest</th><th class="num">&Delta; day</th>
+      <th class="num">&Delta; %</th><th class="num">Volume</th></tr></thead>
+      <tbody>{"".join(srows)}</tbody>
+    </table></div>
+    {tables}
+  </section>"""
+
+
+def _pages_mod():
+    try:
+        import pages
+        return pages
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  pages.py unavailable ({type(e).__name__}: {e}) - macro/micro tabs empty")
+        return None
+
+
+def macro_panel():
+    """The Macro tab - pages.py's plain-language 'what is driving markets, which way does it
+    lean' read, one line per currency and commodity."""
+    p = _pages_mod()
+    if not p:
+        return '<section><h2>Macro</h2><p class="sub">Macro read unavailable.</p></section>'
+    try:
+        body = p.macro_block()
+    except Exception as e:                                       # noqa: BLE001
+        return f'<section><h2>Macro</h2><p class="sub">Macro read failed: {esc(e)}</p></section>'
+    return (f'<section>{p.CSS}<h2>Macro <span class="mut" style="font-weight:400;font-size:14px">'
+            f'&mdash; the big picture</span></h2>'
+            f'<div class="pg-wrap" style="margin-top:4px">{body}</div>{p.JS}</section>')
+
+
+def micro_panel():
+    """The Micro tab - the breaking-news feed, each story decoded to plain words with a lean."""
+    p = _pages_mod()
+    if not p:
+        return '<section><h2>Micro</h2><p class="sub">News feed unavailable.</p></section>'
+    try:
+        feed = json.loads((DATA / "commodity_feed.json").read_text(encoding="utf-8"))
+    except Exception:
+        feed = []
+    try:
+        body = p.cw.render_block(feed)
+    except Exception as e:                                       # noqa: BLE001
+        return f'<section><h2>Micro</h2><p class="sub">News feed failed: {esc(e)}</p></section>'
+    return (f'<section>{p.CSS}<h2>Micro <span class="mut" style="font-weight:400;font-size:14px">'
+            f'&mdash; breaking news, decoded</span></h2>'
+            f'<div class="pg-wrap" style="margin-top:4px">{body}</div>{p.JS}</section>')
 
 
 def load_commodities():
@@ -443,6 +717,8 @@ def build():
         "{{COTDATE}}": d.get("cot_report_date") or "n/a",
         "{{NEXTHIGH}}": nh_when, "{{NEXTHIGH_REL}}": nh_rel,
         "{{BUILT}}": built, "{{OISRC}}": d.get("oi_cadence", ""),
+        "{{COT_PANEL}}": cot_panel(), "{{OI_PANEL}}": oi_panel(),
+        "{{MACRO_PANEL}}": macro_panel(), "{{MICRO_PANEL}}": micro_panel(),
     }.items():
         html = html.replace(k, str(v))
     OUT.write_text(html, encoding="utf-8")

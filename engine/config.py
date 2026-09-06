@@ -28,6 +28,15 @@ COMMODITIES = {
 }
 COMMODITY_ORDER = ["XAU", "XAG", "WTI"]
 
+# Crypto — CME futures, which report in the TFF (financial) COT, same categories as the
+# currencies (Leveraged Funds = the non-commercial / speculative money). They are NOT on the
+# FX board or the commodity track — they exist only for the COT-report tab on the dashboard.
+COT_EXTRA = {
+    "BTC": {"name": "Bitcoin",  "cot": "133741"},   # BITCOIN - CME
+    "ETH": {"name": "Ethereum", "cot": "146021"},   # ETHER CASH SETTLED - CME
+}
+COT_EXTRA_ORDER = ["BTC", "ETH"]
+
 # Blend for the commodity bias. Sums to 1.0. NOT backtested the way the FX blend is.
 # Weighting rationale, 2026-08-30 (revised same day after the first cut leaned too hard on
 # positioning): TREND leads, because momentum is the one edge with real empirical support in

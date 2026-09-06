@@ -273,7 +273,18 @@ def main():
                    '<title>Macro / Micro</title>'
                    '<body style="margin:0;padding:16px;max-width:760px">'
                    + block + "</body>", encoding="utf-8")
-    cw.inject(target, block)
+    # build_dashboard.py now renders Macro and Micro as their own dashboard tabs
+    # (id="p-macro" / "p-micro"), calling macro_block() / cw.render_block() directly.
+    # When that structure is present, injecting the standalone block on top of the header
+    # would just duplicate it - so skip the inject and only refresh commodity-news.html.
+    try:
+        has_tabs = 'id="p-macro"' in Path(target).read_text(encoding="utf-8")
+    except Exception:                                             # noqa: BLE001
+        has_tabs = False
+    if has_tabs:
+        print(f"  {target} already has Macro/Micro tabs - standalone block not injected")
+    else:
+        cw.inject(target, block)
     print(f"  built macro + micro pages -> {target}")
 
 

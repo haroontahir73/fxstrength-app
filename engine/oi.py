@@ -848,7 +848,17 @@ def main():
                   f"OI {r['chg']:+8,}  {r['state']}")
     write_page(render(hist, state, reads, prices))
     target = next((a for a in args if a.endswith(".html")), "dashboard.html")
-    inject_strip(target, strip_block(state, reads))
+    # build_dashboard.py now renders a full Open interest tab (id="p-oi") from this same
+    # history, so the compact strip would be a redundant second copy - skip it when the tab
+    # is present and only refresh the standalone open-interest.html page.
+    try:
+        has_tab = 'id="p-oi"' in Path(target).read_text(encoding="utf-8")
+    except Exception:                                             # noqa: BLE001
+        has_tab = False
+    if has_tab:
+        print(f"  {target} has an Open interest tab - compact strip not injected")
+    else:
+        inject_strip(target, strip_block(state, reads))
 
 
 if __name__ == "__main__":
