@@ -166,6 +166,7 @@ def build():
            "cot_report_date": cot["currencies"].get("EUR", {}).get("report_date"),
            "next_release": cal.get("next_release"),
            "next_high_impact": cal.get("next_high_impact"),
+           "next_high_impact_event": cal.get("next_high_impact_event"),
            "upcoming": cal.get("upcoming", [])[:12],
            "oi_source": oi.get("source"), "oi_cadence": oi.get("cadence")}
     (DATA / "scores.json").write_text(json.dumps(out, indent=2), encoding="utf-8")

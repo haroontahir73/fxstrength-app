@@ -94,7 +94,7 @@ h2{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;font-size:20
 .readline.pos{color:var(--pos)} .readline.neg{color:var(--neg)} .readline.warn{color:var(--warn)}
 .readline.neu{color:var(--mut)}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:14px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;
   padding:16px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px}
 .chead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
@@ -161,6 +161,7 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
   border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
 .tabs label:hover{color:var(--ink2)}
 .panel{display:none;flex-direction:column;gap:34px}
+.metersec{border-bottom:1px solid var(--line);padding-bottom:26px}
 #tab-cot:checked~#p-cot,#tab-oi:checked~#p-oi,#tab-macro:checked~#p-macro,
 #tab-micro:checked~#p-micro,#tab-board:checked~#p-board{display:flex}
 #tab-cot:checked~.tabs label[for="tab-cot"],
@@ -212,7 +213,7 @@ a{color:var(--accent)}
       <div class="stat"><span class="k">COT as of</span>
         <span class="v mono">{{COTDATE}}</span><span class="s">weekly, Tuesday data</span></div>
       <div class="stat"><span class="k">Next high-impact</span>
-        <span class="v mono" style="font-size:13px">{{NEXTHIGH}}</span><span class="s">{{NEXTHIGH_REL}}</span></div>
+        <span class="v mono" style="font-size:13px">{{NEXTHIGH_EVENT}}</span><span class="s">{{NEXTHIGH}} &middot; {{NEXTHIGH_REL}}</span></div>
       <div class="stat"><span class="k">Commodities</span>
         <span class="v mono">{{CTOP}}</span><span class="s">{{CTOPRATING}}</span></div>
     </div>
@@ -229,16 +230,10 @@ a{color:var(--accent)}
     <label for="tab-oi">Open interest</label>
     <label for="tab-macro">Macro</label>
     <label for="tab-micro">Micro</label>
-    <label for="tab-board">Strength meter</label>
+    <label for="tab-board">Board</label>
   </nav>
 
-  <div class="panel" id="p-cot">{{COT_PANEL}}</div>
-  <div class="panel" id="p-oi">{{OI_PANEL}}</div>
-  <div class="panel" id="p-macro">{{MACRO_PANEL}}</div>
-  <div class="panel" id="p-micro">{{MICRO_PANEL}}</div>
-
-  <div class="panel" id="p-board">
-  <section>
+  <section class="metersec">
     <h2>Strength meter</h2>
     <p class="sub">Blended score from &minus;100 to +100. Bars diverge from the centre line: right is
     bullish, left is bearish. The score is a medium-term bias; the chip beside it reads it against
@@ -250,12 +245,18 @@ a{color:var(--accent)}
     horizontal support/resistance of positioning &mdash; strongest where it has held 3+ times);
     <b class="neg">COT&nbsp;turning</b> once the net actually rolls over. Each pulls the score
     a few points <em>toward the reversal</em> &mdash; crowded longs down, crowded shorts up
-    &mdash; shown as its own row in the breakdown below.
+    &mdash; shown in the <b>Board</b> tab.
     Gold, silver and crude sit below the rule &mdash; own model, wider score range, not in the
     currency centring or pair ranking.</p>
     <div class="meter">{{METER}}</div>
   </section>
 
+  <div class="panel" id="p-cot">{{COT_PANEL}}</div>
+  <div class="panel" id="p-oi">{{OI_PANEL}}</div>
+  <div class="panel" id="p-macro">{{MACRO_PANEL}}</div>
+  <div class="panel" id="p-micro">{{MICRO_PANEL}}</div>
+
+  <div class="panel" id="p-board">
   <section>
     <h2>What moved each score</h2>
     <p class="sub">Each input is scored &minus;100 to +100 on its own, then weighted. The right-hand

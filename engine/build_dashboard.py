@@ -689,6 +689,7 @@ def build():
         <td class="mono num mut">{dash(e['forecast'])}</td></tr>""")
 
     nh_when, nh_rel = fmt_when(d["next_high_impact"], now) if d.get("next_high_impact") else ("none scheduled", "")
+    nh_event = d.get("next_high_impact_event") or (nh_when if not d.get("next_high_impact") else "high-impact print")
     built = dt.datetime.fromisoformat(d["built_at"]).strftime("%d %b %Y %H:%M UTC")
 
     gsratio = cm.get("gold_silver_ratio")
@@ -716,6 +717,7 @@ def build():
         "{{TOPSPREAD}}": f"{top_pair['spread']:+.1f}" if top_pair else "",
         "{{COTDATE}}": d.get("cot_report_date") or "n/a",
         "{{NEXTHIGH}}": nh_when, "{{NEXTHIGH_REL}}": nh_rel,
+        "{{NEXTHIGH_EVENT}}": esc(nh_event),
         "{{BUILT}}": built, "{{OISRC}}": d.get("oi_cadence", ""),
         "{{COT_PANEL}}": cot_panel(), "{{OI_PANEL}}": oi_panel(),
         "{{MACRO_PANEL}}": macro_panel(), "{{MICRO_PANEL}}": micro_panel(),

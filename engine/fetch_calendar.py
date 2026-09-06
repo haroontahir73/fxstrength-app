@@ -174,11 +174,15 @@ def main():
 
     upcoming = [e for e in events if dt.datetime.fromisoformat(e["when"]) > now]
     nxt = upcoming[0]["when"] if upcoming else None
-    nxt_high = next((e["when"] for e in upcoming if e["impact"] == "High"), None)
+    nxt_high_e = next((e for e in upcoming if e["impact"] == "High"), None)
+    nxt_high = nxt_high_e["when"] if nxt_high_e else None
+    nxt_high_label = (f"{nxt_high_e['ccy']} {nxt_high_e['title']}"
+                      if nxt_high_e else None)
 
     out = {"fetched_at": now.isoformat(), "released": released,
            "news_score": news, "contributors": contrib,
            "next_release": nxt, "next_high_impact": nxt_high,
+           "next_high_impact_event": nxt_high_label,
            "upcoming": upcoming[:30], "event_count": len(events)}
     (DATA / "calendar.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
     print(f"  {len(events)} events, {len(released)} with actuals")
