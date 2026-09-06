@@ -116,7 +116,10 @@ def macro_block():
                   + "</div></div>")
 
     # Stale data that looks live is worse than no data. The desk rebuilds on a GitHub
-    # cron, and GitHub drops crons - so say plainly how old these numbers are.
+    # cron and GitHub drops crons, so this has to say how old the numbers are - and it has
+    # to be computed WHEN THE PAGE IS OPENED, not frozen at build time (a page built 3h ago
+    # was saying "Updated just now"). The JS `ago()` fills `.cn-ago` from `data-ts` on load
+    # and every 60s, and flips the row to the stale style past 3h.
     stale = ""
     built = sc.get("built_at") or ""
     if built:
@@ -124,14 +127,8 @@ def macro_block():
             b = dt.datetime.fromisoformat(built)
             if b.tzinfo is None:
                 b = b.replace(tzinfo=dt.timezone.utc)
-            age = (dt.datetime.now(dt.timezone.utc) - b).total_seconds() / 60
-            if age > 180:
-                stale = (f'<div class="pg-stale">These numbers are '
-                         f'<b>{int(age // 60)}h {int(age % 60)}m old</b>. The desk has not '
-                         f'rebuilt since. Prices in the news alerts are still live.</div>')
-            else:
-                stale = (f'<div class="pg-age">Updated {int(age)} min ago</div>'
-                         if age >= 1 else '<div class="pg-age">Updated just now</div>')
+            stale = (f'<div class="pg-age cn-when" data-ts="{b.isoformat()}" '
+                     f'data-age-label="Updated">Updated <span class="cn-ago">just now</span></div>')
         except Exception:                                      # noqa: BLE001
             pass
 
@@ -181,6 +178,7 @@ CSS = """
  background:rgba(128,128,128,.10)}
 .pg-foot{margin-top:12px;font-size:11.5px;opacity:.5}
 .pg-age{font-size:11.5px;opacity:.5;margin:0 0 8px}
+.pg-age.stale{opacity:1;color:#d99000;font-weight:600}
 .pg-stale{font-size:12.5px;margin:0 0 10px;padding:8px 11px;border-radius:7px;border-left:3px solid #d99000;background:rgba(217,144,0,.12)}
 .pg-empty{opacity:.55;font-size:13px;padding:10px 0}
 @media (prefers-color-scheme:dark){.pg-score.up{color:#35d07f}.pg-score.dn{color:#ff6b7d}
@@ -226,9 +224,15 @@ JS = """
       else s = Math.floor(m/1440) + 'd ago';
       var span = els[i].querySelector('.cn-ago');
       if (span) span.textContent = s;
+      // the macro freshness line goes amber once the page is more than 3h old
+      if (els[i].classList.contains('pg-age')) els[i].classList.toggle('stale', m > 180);
     }
   }
   ago();
+  // this script sits inside the Macro pane, so on first run the footer (and anything after
+  // it) is not parsed yet - re-run once the whole document is in.
+  if (document.readyState === 'complete') ago();
+  else addEventListener('load', ago);
   setInterval(ago, 60000);
   var saved='macro';
   try{ saved = localStorage.getItem('pgTab') || 'macro'; }catch(e){}

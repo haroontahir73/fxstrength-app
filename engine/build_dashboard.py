@@ -460,9 +460,12 @@ def micro_panel():
         body = p.cw.render_block(feed)
     except Exception as e:                                       # noqa: BLE001
         return f'<section><h2>Micro</h2><p class="sub">News feed failed: {esc(e)}</p></section>'
+    # p.JS (the tab switcher + the "X min ago" ticker) is already emitted by macro_panel() and
+    # runs page-wide, so it is not repeated here - a second copy just double-registers the
+    # setInterval. p.CSS is kept (cheap, and micro must still be styled if macro failed).
     return (f'<section>{p.CSS}<h2>Micro <span class="mut" style="font-weight:400;font-size:14px">'
             f'&mdash; breaking news, decoded</span></h2>'
-            f'<div class="pg-wrap" style="margin-top:4px">{body}</div>{p.JS}</section>')
+            f'<div class="pg-wrap" style="margin-top:4px">{body}</div></section>')
 
 
 def load_commodities():
@@ -690,7 +693,10 @@ def build():
 
     nh_when, nh_rel = fmt_when(d["next_high_impact"], now) if d.get("next_high_impact") else ("none scheduled", "")
     nh_event = d.get("next_high_impact_event") or (nh_when if not d.get("next_high_impact") else "high-impact print")
-    built = dt.datetime.fromisoformat(d["built_at"]).strftime("%d %b %Y %H:%M UTC")
+    _bt = dt.datetime.fromisoformat(d["built_at"])
+    built = (_bt.strftime("%d %b %Y %H:%M UTC")
+             + f' <span class="cn-when mut" data-ts="{_bt.isoformat()}">'
+             f'(<span class="cn-ago">just now</span>)</span>')
 
     gsratio = cm.get("gold_silver_ratio")
     pxdate = cm.get("price_asof") or "n/a"

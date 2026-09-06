@@ -42,13 +42,22 @@ def _from_cot(cot):
         oi_pct = (oi_chg / prev) if prev else 0.0
         net_chg = am["net_chg"]
         direction = 1 if net_chg > 0 else (-1 if net_chg < 0 else 0)
-        conviction = math.tanh(abs(oi_pct) * 8)          # 0..1, how much new money
-        score = direction * conviction * 100
+        # How much new money, softened - `* 8` saturated at ~13% OI change, so any busy week
+        # (a central-bank meeting, a squeeze) pinned this near +-93 regardless of content.
+        conviction = math.tanh(abs(oi_pct) * 4)          # 0..1
+        # ...but only to the extent the week's OI change was actually DIRECTIONAL. A 57k jump
+        # in open interest with the net moving only 4k is new positions opening on both sides
+        # (spreading / hedging), not conviction behind a direction. Scale by that ratio so a
+        # non-directional OI surge cannot max the leg out (this is what inverted the board on
+        # 2026-09-05: NZD short-covering and AUD/EUR OI surges all read near +-90).
+        directionality = min(1.0, abs(net_chg) / max(abs(oi_chg), 1))
+        score = direction * conviction * directionality * 100
         if oi_chg < 0:
             score *= 0.5                                  # liquidation is weaker evidence
             flow = "liquidation"
         else:
             flow = "new money"
+        score = max(-75.0, min(75.0, score))              # one week never dominates the blend
         out[ccy] = {
             "score": round(score, 1), "oi": oi, "oi_chg": oi_chg,
             "oi_pct": round(oi_pct * 100, 2), "net_chg": net_chg, "flow": flow,
