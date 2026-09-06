@@ -1,11 +1,11 @@
 {
   "_help": "Fallback for banks centralbank.watch does not publish probabilities for (it links out to CME FedWatch for the Fed, and omits the RBNZ). Fill hike/hold/cut as percentages plus next_meeting and src. Set \"override\": true to beat a scraped value. Leave a bank out entirely rather than guessing - a missing expectation is handled, an invented one is not.",
   "USD": {
-    "hike": 68,
-    "hold": 32,
+    "hike": 62,
+    "hold": 38,
     "cut": 0,
     "next_meeting": "September 16, 2026",
-    "src": "researched 2026-09-03 (re-check). CME FedWatch 67% hike for 16 Sep; futures price roughly 70% (Reuters/Yahoo, 3 Sep). Path: ~40% (21 Aug) -> ~57% post-Warsh (28 Aug) -> ~66-70% now. The 3 Sep ADP miss (38k vs 48k expected, weakest since January) knocked the dollar and Treasury yields but has not yet dented hike pricing. Friday's payrolls and 10 Sep CPI are the two tests."
+    "src": "researched 2026-09-06 (re-check). 4 Sep August NFP printed +162k vs ~53k expected (strongest since March), unemployment 4.1%, AHE +3.1% y/y - a clear beat. CME FedWatch moved to ~58% hike for 16 Sep (Briefing.com 58.2%), interest-rate swaps implied 'above 60%'. Path: ~40% (21 Aug) -> ~57% post-Warsh (28 Aug) -> dipped on the 3 Sep ADP miss -> back to ~58-62% after payrolls. 10 Sep CPI is the last test before the meeting."
   },
   "JPY": {
     "hike": 62,
