@@ -431,9 +431,9 @@ def _pct_bar(pct, cls="pos"):
 
 
 def fedwatch_panel():
-    """The Fed Watch tab - market-implied odds for each upcoming FOMC decision, rebuilt
-    from fed funds futures on every run (see fedwatch.py for the maths and why it is
-    computed rather than scraped from CME)."""
+    """The Fed Watch tab, laid out the way CME's own tool is: a target-rate probability
+    chart for the next meeting, then the meeting-by-meeting probability grid. See
+    fedwatch.py for the maths and why this is computed rather than scraped."""
     try:
         d = json.loads((DATA / "fedwatch.json").read_text(encoding="utf-8"))
     except Exception:
@@ -455,68 +455,66 @@ def fedwatch_panel():
                 f'{"up" if up else "down"} {abs(m["hike_delta"]):.0f} points '
                 f'(from {m["hike_prev"]:.0f}% to {m["hike"]:.0f}%) since the last check.</p>')
 
-    trs = []
-    for i, m in enumerate(rows):
+    # ---- chart: target-rate probabilities for the NEXT meeting (CME's headline view)
+    nxt = rows[0]
+    buckets = nxt.get("buckets") or []
+    top = max((b["prob"] for b in buckets), default=0) or 1
+    cols = "".join(
+        f'<div class="fwcol{" hi" if b["prob"] >= top - 0.01 else ""}">'
+        f'<span class="fwpct">{b["prob"]:.1f}%</span>'
+        f'<span class="fwbar" style="height:{max(3, b["prob"] / top * 100):.0f}%"></span>'
+        f'<span class="fwrange">{b["low"]:.2f}&ndash;{b["high"]:.2f}</span></div>'
+        for b in buckets)
+    chart = (f'<div class="dblock"><h4>Target rate probabilities '
+             f'<span class="mut">{esc(nxt["label"])} meeting</span></h4>'
+             f'<div class="fwchart">{cols}</div></div>') if buckets else ""
+
+    # ---- grid: every meeting against every target range that has any weight
+    steps = sorted({b["step"] for m in rows for b in (m.get("buckets") or [])})
+    labels = {}
+    for m in rows:
+        for b in (m.get("buckets") or []):
+            labels[b["step"]] = f'{b["low"]:.2f}&ndash;{b["high"]:.2f}'
+    head = "".join(f'<th class="num">{labels[k]}</th>' for k in steps)
+    grid = []
+    for m in rows:
+        by = {b["step"]: b["prob"] for b in (m.get("buckets") or [])}
+        best = max(by.values(), default=0)
+        cells = "".join(
+            (f'<td class="num mono{" fwtop" if by.get(k, 0) >= best - 0.01 and by.get(k, 0) > 0 else ""}">'
+             f'{by[k]:.1f}%</td>') if k in by else '<td class="num mut">&mdash;</td>'
+            for k in steps)
         dlt = m.get("hike_delta")
         if dlt is None:
             chip = '<span class="mut">&mdash;</span>'
         elif abs(dlt) < 0.5:
             chip = '<span class="mut">no change</span>'
         else:
-            chip = (f'<span class="chip {"neg" if dlt > 0 else "ok"}">'
-                    f'{dlt:+.0f} pts</span>')
-        # the most likely single outcome, not the direction of the drift - a 33%%
-        # chance of a rise still means "hold" is what the market actually expects
-        expect = ("raise" if m["hike"] >= 50 else
-                  "cut" if m["cut"] >= 50 else "hold")
-        trs.append(
-            f'<tr{" class=next" if i == 0 else ""}>'
-            f'<td class="pr">{esc(m["label"])}'
-            f'{" <span class=\"chip warn\">next</span>" if i == 0 else ""}</td>'
-            f'<td style="min-width:150px">{_pct_bar(m["hike"], "neg")}</td>'
-            f'<td class="num mono">{m["hike"]:.0f}%</td>'
-            f'<td class="num mono mut">{m["hold"]:.0f}%</td>'
-            f'<td class="num mono">{m["cut"]:.0f}%</td>'
-            f'<td class="num mono">{m["implied_after"]:.2f}%</td>'
-            f'<td class="mono" style="font-size:11.5px">{esc(expect)}</td>'
-            f'<td>{chip}</td></tr>')
-
-    # a compact history of the NEXT meeting's odds, newest last
-    hist = [h for h in (d.get("history") or []) if h.get("next") == rows[0]["date"]][-40:]
-    spark = ""
-    if len(hist) >= 3:
-        lo = min(h["hike"] for h in hist)
-        hi = max(h["hike"] for h in hist)
-        rng = (hi - lo) or 1
-        bars = "".join(
-            f'<i style="height:{6 + (h["hike"] - lo) / rng * 26:.0f}px" '
-            f'title="{h["hike"]:.0f}% at {esc(h["at"][11:16])} UTC"></i>' for h in hist)
-        span = (f'unchanged at {lo:.0f}%' if abs(hi - lo) < 0.5
-                else f'{lo:.0f}%&ndash;{hi:.0f}%')
-        spark = (f'<div class="dblock"><h4>Odds for {esc(rows[0]["label"])} '
-                 f'<span class="mut">last {len(hist)} checks &middot; {span}</span></h4>'
-                 f'<div class="spark">{bars}</div></div>')
+            chip = f'<span class="chip {"neg" if dlt > 0 else "ok"}">{dlt:+.0f} pts</span>'
+        is_next = m is rows[0]
+        nxt_chip = ' <span class="chip warn">next</span>' if is_next else ''
+        tr_cls = ' class="next"' if is_next else ''
+        grid.append(f'<tr{tr_cls}><td class="pr">{esc(m["label"])}{nxt_chip}</td>'
+                    f'{cells}<td>{chip}</td></tr>')
 
     tgt = (f'{d["target_low"]:.2f}&ndash;{d["target_high"]:.2f}%'
            if d.get("target_low") is not None else "&mdash;")
     return f"""<section>
     <h2>Fed Watch <span class="mut" style="font-weight:400;font-size:14px">&mdash; what the market expects the Fed to do</span></h2>
     <div class="fwlead">{lines}{flag}</div>
-    <p class="sub">Fed funds now <b>{d.get('effr', 0):.2f}%</b> (target {tgt}, as of
-    {esc(d.get('effr_as_of', ''))}). The odds below are read straight out of 30-day fed
-    funds futures &mdash; the same contracts, and the same arithmetic, CME's own FedWatch
-    uses. Rebuilt every refresh.</p>
+    <p class="sub">Where the market thinks the fed funds target will sit after each meeting.
+    Rate now <b>{d.get('effr', 0):.2f}%</b>, target {tgt}. Read straight out of 30-day fed
+    funds futures &mdash; the same contracts and the same arithmetic CME's FedWatch uses.</p>
+    {chart}
     <div class="tw"><table>
-      <thead><tr><th>Meeting</th><th>Odds of a rise</th><th class="num">Rise</th>
-      <th class="num">Hold</th><th class="num">Cut</th><th class="num">Rate after</th>
-      <th>Expected</th><th>Since last check</th></tr></thead>
-      <tbody>{"".join(trs)}</tbody>
+      <thead><tr><th>Meeting</th>{head}<th>Since last check</th></tr></thead>
+      <tbody>{"".join(grid)}</tbody>
     </table></div>
-    {spark}
-    <p class="mnote mut">Computed from CME 30-Day Fed Funds futures (via Yahoo) against the
-    New York Fed's effective rate, chained meeting by meeting. CME's own page cannot be read
-    automatically &mdash; it renders inside a session-bound widget &mdash; so this rebuilds
-    the figure from the same public inputs; it matched CME to 0.1 of a point when checked.</p>
+    <p class="mnote mut">Each column is a target range; each row adds to 100%. Computed from
+    CME 30-Day Fed Funds futures (via Yahoo) against the New York Fed's effective rate,
+    chained meeting by meeting. CME's own page cannot be read automatically &mdash; it
+    renders inside a session-bound widget &mdash; so this rebuilds the figure from the same
+    public inputs; it matched CME to 0.1 of a point when checked.</p>
   </section>"""
 
 

@@ -131,12 +131,41 @@ def implied_after(avg_rate, rate_before, meeting_day, year, month):
     return (avg_rate * n - rate_before * d_before) / d_after
 
 
+def _step_probs(delta):
+    """Split a net expected move of `delta` 25bp steps into per-step probabilities.
+
+    CME assumes the Fed moves in 25bp increments, so a net of +0.58 steps means a 58%
+    chance of one 25bp rise and 42% of no change. A net beyond +/-1 means the market is
+    pricing some chance of a double move, so the weight spills into the two-step bucket."""
+    if abs(delta) < 1e-9:
+        return {0: 1.0}
+    sign = 1 if delta > 0 else -1
+    mag = abs(delta)
+    if mag <= 1.0:
+        return {0: 1.0 - mag, sign: mag}
+    mag = min(mag, 2.0)                       # nothing here prices a triple move
+    two = mag - 1.0
+    return {sign: 1.0 - two, sign * 2: two}
+
+
+def distribution(dist, delta):
+    """Push a {step: probability} distribution through one meeting."""
+    moves = _step_probs(delta)
+    out = {}
+    for step, p in dist.items():
+        for mv, pm in moves.items():
+            if pm > 0:
+                out[step + mv] = out.get(step + mv, 0.0) + p * pm
+    return {k: v for k, v in out.items() if v > 0.0005}
+
+
 def build():
     now = dt.datetime.now(dt.timezone.utc)
     cur, lo, hi, effr_date = effr()
     mtgs = meetings()
 
     rows, rate_before = [], cur
+    dist = {0: 1.0}                     # steps away from the CURRENT target range
     for m in mtgs:
         try:
             px, sym = zq_price(m.year, m.month)
@@ -151,7 +180,20 @@ def build():
         p_move = move / STEP                       # +1.0 = a full 25bp rise priced
         p_hike = max(0.0, min(1.0, p_move)) * 100
         p_cut = max(0.0, min(1.0, -p_move)) * 100
+
+        # Carry a full distribution over TARGET RANGES through the meetings, which is what
+        # CME's own table shows. The move at this meeting is measured against the expected
+        # rate going in, not against a single path.
+        exp_before = cur + STEP * sum(k * v for k, v in dist.items())
+        dist = distribution(dist, (after - exp_before) / STEP)
+        buckets = sorted(
+            ({"step": k,
+              "low": round(lo + k * STEP, 2), "high": round(hi + k * STEP, 2),
+              "prob": round(v * 100, 1)} for k, v in dist.items()),
+            key=lambda b: b["low"])
+
         rows.append({
+            "buckets": buckets,
             "date": m.isoformat(),
             "label": m.strftime("%d %b %Y"),
             "contract": sym, "price": round(px, 4),
