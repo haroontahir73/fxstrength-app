@@ -491,9 +491,10 @@ def fedwatch_panel():
         bars = "".join(
             f'<i style="height:{6 + (h["hike"] - lo) / rng * 26:.0f}px" '
             f'title="{h["hike"]:.0f}% at {esc(h["at"][11:16])} UTC"></i>' for h in hist)
+        span = (f'unchanged at {lo:.0f}%' if abs(hi - lo) < 0.5
+                else f'{lo:.0f}%&ndash;{hi:.0f}%')
         spark = (f'<div class="dblock"><h4>Odds for {esc(rows[0]["label"])} '
-                 f'<span class="mut">last {len(hist)} checks &middot; '
-                 f'{lo:.0f}%&ndash;{hi:.0f}%</span></h4>'
+                 f'<span class="mut">last {len(hist)} checks &middot; {span}</span></h4>'
                  f'<div class="spark">{bars}</div></div>')
 
     tgt = (f'{d["target_low"]:.2f}&ndash;{d["target_high"]:.2f}%'
