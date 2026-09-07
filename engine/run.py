@@ -13,7 +13,7 @@ import json, sys, datetime as dt
 from config import DATA
 
 import fetch_cot, fetch_calendar, fetch_oi, fetch_rates, rate_expectations, speakers, fundamentals, score, build_dashboard
-import fetch_prices, fetch_fx_prices, commodities
+import fetch_prices, fetch_fx_prices, commodities, fedwatch
 
 STATE = DATA / "state.json"
 
@@ -122,6 +122,18 @@ def run(mode):
     exp = rate_expectations.main()
     have = [c for c, d in exp["currencies"].items() if "score" in d]
     print(f"  {exp['status']}; probabilities for {', '.join(have) or 'none'}")
+
+    # Fed Watch - market-implied FOMC odds, recomputed from fed funds futures every run.
+    # An add-on: a failure here must never stop the board from rebuilding, and the panel
+    # degrades to the last good fedwatch.json on its own.
+    print("Fed Watch:")
+    try:
+        fw = fedwatch.build()
+        for m in fw["meetings"][:3]:
+            d = f"  ({m['hike_delta']:+.0f})" if m.get("hike_delta") is not None else ""
+            print(f"  {m['label']}  hike {m['hike']:.0f}%  hold {m['hold']:.0f}%{d}")
+    except Exception as e:                                     # noqa: BLE001
+        print(f"  fedwatch failed ({type(e).__name__}: {e}) - panel left as-is")
 
     print("Checklist:")
     fun = fundamentals.build(cal, rates, spk, exp)

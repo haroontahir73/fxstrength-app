@@ -21,6 +21,7 @@ data/ff_archive.json                # [cache] ForexFactory speaker archive - onl
 data/ff_cache.json
 data/oi.json
 data/rates.json
+data/fedwatch.json                  # [cache] Fed Watch odds + the history the change flag compares against
 data/rate_expectations.json
 data/expectations_history.json      # [cache] accumulates 1 row/run for the rate-odds backtest
 data/fundamentals.json

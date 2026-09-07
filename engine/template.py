@@ -161,10 +161,12 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
   border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
 .tabs label:hover{color:var(--ink2)}
 .panel{display:none;flex-direction:column;gap:34px}
-#tab-cot:checked~#p-cot,#tab-oi:checked~#p-oi,#tab-macro:checked~#p-macro,
+#tab-cot:checked~#p-cot,#tab-oi:checked~#p-oi,#tab-fed:checked~#p-fed,
+#tab-macro:checked~#p-macro,
 #tab-micro:checked~#p-micro,#tab-board:checked~#p-board{display:flex}
 #tab-cot:checked~.tabs label[for="tab-cot"],
 #tab-oi:checked~.tabs label[for="tab-oi"],
+#tab-fed:checked~.tabs label[for="tab-fed"],
 #tab-macro:checked~.tabs label[for="tab-macro"],
 #tab-micro:checked~.tabs label[for="tab-micro"],
 #tab-board:checked~.tabs label[for="tab-board"]{color:var(--accent);border-bottom-color:var(--accent)}
@@ -177,6 +179,19 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 .cotcard h3 .cnm{margin-left:0}
 .cotcard table{min-width:0;font-size:11.5px}
 .cotcard th,.cotcard td{padding:5px 6px}
+.pbar{position:relative;display:block;height:10px;border-radius:3px;background:var(--surface2);
+  border:1px solid var(--line);overflow:hidden;min-width:90px}
+.pfill{position:absolute;left:0;top:0;bottom:0;border-radius:2px}
+.pfill.neg{background:var(--neg)} .pfill.pos{background:var(--pos)}
+tr.next td{background:var(--surface2)}
+.fwlead{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:10px;padding:13px 16px;box-shadow:var(--shadow)}
+.fwlead p{margin:0 0 6px;font-size:14px;line-height:1.5;color:var(--ink)}
+.fwlead p:last-child{margin-bottom:0}
+.fwlead p.mnote{font-size:12.5px}
+.spark{display:flex;align-items:flex-end;gap:2px;height:34px;padding:4px 0}
+.spark i{flex:1;min-width:2px;background:var(--accent);opacity:.65;border-radius:1px}
+.spark i:last-child{opacity:1}
 .spreadnote{font-size:12.5px;color:var(--ink2);font-family:"IBM Plex Mono",monospace;margin:0}
 
 footer{border-top:1px solid var(--line);padding-top:20px;color:var(--mut);font-size:12.5px;
@@ -221,12 +236,14 @@ a{color:var(--accent)}
   <div class="tabwrap">
   <input type="radio" name="tab" id="tab-cot" class="tabin" checked>
   <input type="radio" name="tab" id="tab-oi" class="tabin">
+  <input type="radio" name="tab" id="tab-fed" class="tabin">
   <input type="radio" name="tab" id="tab-macro" class="tabin">
   <input type="radio" name="tab" id="tab-micro" class="tabin">
   <input type="radio" name="tab" id="tab-board" class="tabin">
   <nav class="tabs" role="tablist" aria-label="Dashboard views">
     <label for="tab-cot">COT report</label>
     <label for="tab-oi">Open interest</label>
+    <label for="tab-fed">Fed Watch</label>
     <label for="tab-macro">Macro</label>
     <label for="tab-micro">Micro</label>
     <label for="tab-board">Strength desk</label>
@@ -234,6 +251,7 @@ a{color:var(--accent)}
 
   <div class="panel" id="p-cot">{{COT_PANEL}}</div>
   <div class="panel" id="p-oi">{{OI_PANEL}}</div>
+  <div class="panel" id="p-fed">{{FEDWATCH_PANEL}}</div>
   <div class="panel" id="p-macro">{{MACRO_PANEL}}</div>
   <div class="panel" id="p-micro">{{MICRO_PANEL}}</div>
 
