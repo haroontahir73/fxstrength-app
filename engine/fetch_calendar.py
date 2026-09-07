@@ -12,7 +12,7 @@ Writes data/calendar.json:
   upcoming[]     future events, soonest first
   next_release   drives the news-triggered refresh
 """
-import json, math, urllib.request, urllib.error, datetime as dt
+import json, math, collections, urllib.request, urllib.error, datetime as dt
 from config import DATA, NEWS_HALFLIFE_HOURS, NEWS_IMPACT_WEIGHT, ORDER
 
 API = "https://economic-calendar.tradingview.com/events"
@@ -54,6 +54,23 @@ def base_indicator(title):
         t = t.replace(tag, "")
     return " ".join(t.split())
 
+HORIZON_TAGS = (" mom", " yoy", " qoq", " m/m", " y/y", " q/q", " annualized",
+                " annualised", " ann", " 3 mon", " quarterly", " monthly", " weekly")
+
+
+def index_family(title):
+    """The underlying index, ignoring WHICH HORIZON it is reported on.
+
+    Used only to share weight between several readings of one publication - never for
+    dedup. Merging horizons in base_indicator() picks a winner and that was a genuine
+    bug once: GDP QoQ and GDP YoY collapsed to a single key, the weaker one won, and it
+    knocked AUD from +18 to +3 on the live page."""
+    t = base_indicator(title)
+    for tag in HORIZON_TAGS:
+        t = t.replace(tag, "")
+    return " ".join(t.split())
+
+
 LOOKBACK_DAYS = 45   # long enough that every monthly indicator has printed at least once
 LOOKAHEAD_DAYS = 10
 
@@ -76,6 +93,9 @@ def is_scoreable(title):
     return not any(k in title.lower() for k in EXCLUDE)
 
 
+PCT_SCALE_FLOOR = 0.5          # see surprise(): stops near-zero %% series pinning at +/-1
+
+
 def surprise(ev):
     """Signed -1..1 surprise, oriented so positive is bullish for the currency."""
     a, f, p = ev.get("actualRaw"), ev.get("forecastRaw"), ev.get("previousRaw")
@@ -84,7 +104,16 @@ def surprise(ev):
     base = f if f is not None else p
     if base is None:
         return None
-    scale = max(abs(base), abs(p) if p is not None else 0.0, 0.1)
+    # The scale is the SIZE OF THE NUMBER, which breaks when an indicator sits near zero:
+    # a 0.1%-growth series that prints -0.4 collapsed to the 0.1 floor and scored a maximal
+    # -1.00 for what is an ordinary monthly wobble. That is the same "near-zero value pins
+    # the score" fault that already forced fiscal balance and debt level to be manual-only.
+    # Percentage-unit series therefore get a floor set from what a miss ACTUALLY looks like:
+    # across 2,970 scored events the median %-point miss is 0.20 and the 75th percentile is
+    # 0.70, so 0.5 sits between "normal" and "notable". It only binds when the level itself
+    # is under 0.5 - CPI, unemployment, payrolls and every large-number series are untouched.
+    floor = PCT_SCALE_FLOOR if (ev.get("unit") or "").strip() == "%" else 0.1
+    scale = max(abs(base), abs(p) if p is not None else 0.0, floor)
     # tanh rather than a hard clip: with forecasts as small as 0.2, any modest beat is a
     # 100% relative miss and 20% of all events pinned at exactly +/-1.00. Compressing
     # smoothly keeps the ordering while letting genuine outliers still outrank small beats.
@@ -147,6 +176,14 @@ def main():
     num = {c: 0.0 for c in ORDER}
     den = {c: 0.0 for c in ORDER}
     contrib = {c: [] for c in ORDER}
+    # TRIED AND REJECTED 2026-09-07: sharing weight between several horizons of one
+    # publication (the Lloyds survey lands as both YoY and MoM and between them made up 99%
+    # of GBP's news reading). It looked right, but backtest_blend measured it: the news leg
+    # fell from +0.217 to +0.176 mean forward rho, 11/13 positive weeks down to 10/13, t
+    # from 2.29 to 1.97. News is the one component with real evidence, so a change that
+    # dents it is not worth a tidier-looking GBP - the redundancy apparently carries signal
+    # (a release that is bad on every horizon really is worse news). `index_family` is kept;
+    # it is the right grouping if this is ever revisited with more history.
     for rec in deduped:
         age_h = (now - dt.datetime.fromisoformat(rec["when"])).total_seconds() / 3600
         if age_h < 0 or age_h > NEWS_HALFLIFE_HOURS * 4:
