@@ -575,12 +575,23 @@ CSS = """<style>
 .oi-tw tr:last-child td{border-bottom:0}
 .oi-tw .up{color:#3fbe83} .oi-tw .dn{color:#ec6a5e} .oi-tw .na{color:var(--mut,#8a8a94)}
 .oi-tw .st{font-size:10.5px;white-space:nowrap}
+.oi-tw .oi-day{white-space:nowrap}
 @media(max-width:560px){.oi-tw .vol{display:none}}
 </style>"""
 
 
 SHORT_STATE = {"NEW MONEY LONG": "new longs", "SHORT COVERING": "short cover",
                "NEW MONEY SHORT": "new shorts", "LONG LIQUIDATION": "long liq"}
+
+
+def _daylabel(iso):
+    """"Fri 04 Sep" - the weekday is what the user actually reads; a bare 09-04 is easy to
+    misread, and ambiguous between day-first and month-first conventions."""
+    try:
+        d = dt.date.fromisoformat(iso)
+        return f"{d.strftime('%a')} {d.strftime('%d %b')}"
+    except Exception:                                          # noqa: BLE001
+        return iso[5:]
 
 
 def history_tables(hist, prices):
@@ -600,7 +611,7 @@ def history_tables(hist, prices):
                   f"<td class='st'><span class='oi-tag {r['cls']}'>"
                   f"{SHORT_STATE.get(r['state'], r['state'])}</span></td>")
             body.append(
-                f"<tr><td>{r['date'][5:]}</td>{pc}"
+                f"<tr><td class='oi-day'>{_daylabel(r['date'])}</td>{pc}"
                 f"<td class='{'up' if r['chg'] > 0 else 'dn'}'>{r['chg']:+,}</td>"
                 f"<td class='vol'>{r['oi']:,}</td>{st}</tr>")
         blocks.append(

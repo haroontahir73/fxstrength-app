@@ -384,7 +384,11 @@ def oi_panel():
                                       "AUD", "NZD", "CAD", "CHF"]
 
     days = sorted(hist)
-    asof = days[-1]
+    asof = days[-1]                        # ISO - also the key into `hist`, keep it that way
+    try:                                   # name the weekday: a bare date is easy to misread
+        asof_label = dt.date.fromisoformat(asof).strftime("%a %d %b %Y")
+    except Exception:                                          # noqa: BLE001
+        asof_label = asof
     latest = hist[asof]
 
     srows = []
@@ -410,7 +414,7 @@ def oi_panel():
     {css}
     <h2>Open interest <span class="mut" style="font-weight:400;font-size:14px">&mdash; CME preliminary, daily</span></h2>
     <p class="sub">CME <b>preliminary</b> open interest for the previous trade date, published
-    overnight &mdash; latest <b>{asof}</b>. This is the figure available in time to set the
+    overnight &mdash; latest <b>{asof_label}</b>. This is the figure available in time to set the
     day's bias; CME reissues each day later as a settled number, and this desk keeps the
     <b>preliminary</b> read frozen rather than revising it. Contract volume for the day is
     shown alongside.</p>
