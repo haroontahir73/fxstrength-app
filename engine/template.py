@@ -194,9 +194,14 @@ tr.next td{background:var(--surface2)}
   box-shadow:var(--shadow);overflow-x:auto}
 .fwcol{flex:1;min-width:62px;display:flex;flex-direction:column;align-items:center;
   justify-content:flex-end;height:100%;gap:5px}
-.fwbar{width:100%;max-width:74px;background:var(--line2);border-radius:4px 4px 0 0;min-height:3px}
+/* the bar lives in its own flexible track - as a direct flex child it was being shrunk,
+   which made the 42% bar taller than the 58% one */
+.fwtrack{flex:1 1 auto;min-height:0;width:100%;max-width:74px;display:flex;align-items:flex-end}
+.fwbar{width:100%;background:var(--line2);border-radius:4px 4px 0 0;min-height:3px}
 .fwcol.hi .fwbar{background:var(--accent)}
-.fwpct{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--mut)}
+.fwpct{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--mut);
+  height:19px;display:flex;align-items:flex-end}   /* fixed, so the highlighted column's
+     larger figure does not steal height from its bar and skew the comparison */
 .fwcol.hi .fwpct{color:var(--ink);font-size:13.5px}
 .fwrange{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--mut);
   white-space:nowrap;padding-bottom:8px}

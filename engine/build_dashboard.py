@@ -462,7 +462,8 @@ def fedwatch_panel():
     cols = "".join(
         f'<div class="fwcol{" hi" if b["prob"] >= top - 0.01 else ""}">'
         f'<span class="fwpct">{b["prob"]:.1f}%</span>'
-        f'<span class="fwbar" style="height:{max(3, b["prob"] / top * 100):.0f}%"></span>'
+        f'<span class="fwtrack"><span class="fwbar" '
+        f'style="height:{max(2, b["prob"] / top * 100):.1f}%"></span></span>'
         f'<span class="fwrange">{b["low"]:.2f}&ndash;{b["high"]:.2f}</span></div>'
         for b in buckets)
     chart = (f'<div class="dblock"><h4>Target rate probabilities '
