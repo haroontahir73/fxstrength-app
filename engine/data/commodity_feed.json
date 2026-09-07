@@ -1,5 +1,60 @@
 [
  {
+  "when": "07 Sep 01:08 UTC",
+  "iso": "2026-09-07T01:08:32.205845+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOil Extends Gains After US, Iran Strike Vessels In Strait Of Hormuz - BusinessToday Malaysia  (BusinessToday Malaysia)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,477 (+1.1%)   Silver 66.75 (+1.1%)   WTI 91.48 (-0.0%)   DXY 99.10 (-0.1%)   US10Y 4.78 (+0.5%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNbUJycWxqNWltWEpndDdyVnV6emx3X19DcXRnTm9OUWJhTkpVZWN5WS1Yd0ZRR0g2X1VGMUg1RmptV1ZwNmNjdHRlaEZabFdLTGp6TzJXYXVpM0psWFhaeExhbXkyOW1sbkxtVDZTMWpFVWVPVHgyc1pCXzR6eVVLdDV0UGkzRGtnbXh6OTBsOGJrckZUOEdwSmVscU5VQlZnbVdEQ1VHOFdCakFEelBiRw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4476.6,
+   "Silver": 66.748,
+   "WTI": 91.48
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Oil Extends Gains After US, Iran Strike Vessels In Strait Of Hormuz - BusinessToday Malaysia",
+   "src": "BusinessToday Malaysia",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,477 (+1.1%)   Silver 66.75 (+1.1%)   WTI 91.48 (-0.0%)   DXY 99.10 (-0.1%)   US10Y 4.78 (+0.5%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "07 Sep 00:58 UTC",
   "iso": "2026-09-07T00:58:40.950677+00:00",
   "cat": "geo_escalation",
@@ -3240,61 +3295,6 @@
     }
    ],
    "snap": "NOW  Gold 4,529 (+3.7%)   Silver 67.69 (+4.6%)   WTI 90.73 (-0.3%)   DXY 99.08 (+0.1%)   US10Y 4.76 (-0.7%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "04 Sep 07:13 UTC",
-  "iso": "2026-09-04T07:13:19.039991+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nMilei declares \u2018Falklands are Argentinian\u2019 amid oil sanctions - creweguardian.co.uk  (creweguardian.co.uk)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,511 (+3.3%)   Silver 67.20 (+3.8%)   WTI 91.62 (+0.7%)   DXY 99.01 (-0.5%)   US10Y 4.76 (-0.7%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOS2R4b3p4Z3hjdnN3YXV3VzFHZzBMWnBhMW1TZ3JPRXVsMTh0eTY1T3RaYl9JYVg0bDlZZjJjNEY5dHBVLU5NUUwyM0N4Q1o4alRoam1XbEhWQVNoSG5DaFVWRWMtNFRibEtiTXlseVpoSGtQUWg4dmd0WTZYc0JhR3RIeC1kU2JGLWFqbUoxc1R5Qzl0UjJobUVqZEEzeHlld1ZfdlJvNFgyanA3c2tv?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4510.9,
-   "Silver": 67.2,
-   "WTI": 91.62
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Milei declares \u2018Falklands are Argentinian\u2019 amid oil sanctions - creweguardian.co.uk",
-   "src": "creweguardian.co.uk",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,511 (+3.3%)   Silver 67.20 (+3.8%)   WTI 91.62 (+0.7%)   DXY 99.01 (-0.5%)   US10Y 4.76 (-0.7%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
   }
