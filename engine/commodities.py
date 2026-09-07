@@ -194,11 +194,23 @@ def build():
         chg_5d_pct = raw_5d * 100 if isinstance(raw_5d, (int, float)) else None
         read = directional_read(total, chg_5d_pct, "commodity")
         retr = retracement_zone(p.get("closes"), total, "commodity", p.get("dates"))
+        # The card promises that the weighted rows add up to the headline score, so the
+        # rounding residual has to go somewhere. Rounding each contribution on its own left
+        # silver showing 10.5 + 2.5 - 4.3 - 3.1 = 5.6 against a score of 5.4 (the exact sum
+        # is 5.44). Park the difference on the largest leg, which is where it is least
+        # visible and never changes a sign. FX cards do not need this - their Centring row
+        # already absorbs it.
+        contrib = {k: round(parts[k] * COMMODITY_WEIGHTS[k], 1) for k in COMMODITY_WEIGHTS}
+        residual = round(round(total, 1) - round(cot_adj, 1) - sum(contrib.values()), 1)
+        if residual and contrib:
+            big = max(contrib, key=lambda k: abs(contrib[k]))
+            contrib[big] = round(contrib[big] + residual, 1)
+
         rows[sym] = {
             "score": round(total, 1), "score_pre_cot_x": round(blended, 1),
             "cot_adj": cot_adj, "rating": label, "cls": cls,
             "parts": {k: round(v, 1) for k, v in parts.items()},
-            "contrib": {k: round(parts[k] * COMMODITY_WEIGHTS[k], 1) for k in COMMODITY_WEIGHTS},
+            "contrib": contrib,
             "crowded": legs["cot"].get("crowded", False),
             "read": read, "pullback": read["state"] == "retracement",
             "chg_5d_pct": round(chg_5d_pct, 1) if chg_5d_pct is not None else None,
