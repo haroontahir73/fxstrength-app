@@ -165,6 +165,19 @@ def main():
     dirty = git("status", "--porcelain")
     if dirty and not dry:
         raise SystemExit("clone has uncommitted changes - resolve by hand:\n" + dirty)
+
+    # The dirty check above only catches UNCOMMITTED work. A local commit that has not been
+    # pushed leaves a clean tree, sails past it, and is then destroyed by the reset below
+    # with no warning and no message. That is not hypothetical: it silently ate the
+    # five-tabs merge on 2026-09-08, and only the reflog got it back. Refuse to reset over
+    # unpushed commits and say what to do about them.
+    ahead = (git("rev-list", "--count", "origin/main..main") or "0").strip()
+    if ahead.isdigit() and int(ahead) > 0 and not dry:
+        log = git("log", "--oneline", "origin/main..main")
+        raise SystemExit(
+            f"main has {ahead} unpushed commit(s) - refusing to reset over them:\n{log}\n"
+            "Push them first (git push origin main), or move them aside onto a branch\n"
+            "(git branch keep-me main), then re-run.")
     if not dry:
         git("checkout", "-q", "main")
         git("reset", "--hard", "-q", "origin/main")
