@@ -675,6 +675,17 @@ def _empty_tab(title, why):
     return (f'<section><h2>{esc(title)}</h2><p class="sub">{esc(why)}</p></section>')
 
 
+def howto(sub_html):
+    """Wrap a long explanatory paragraph so a phone can fold it away.
+
+    These paragraphs are the point of the desk on a desktop - every number traceable, every
+    weight justified - but on a 375px screen they push the actual figures two full screens
+    down, which is the opposite of helpful. The CSS keeps them permanently open above 720px,
+    so this changes nothing for a mouse. Pass the full `<p class="sub">...</p>`.
+    """
+    return (f'<details class="howto"><summary>How to read this</summary>{sub_html}</details>')
+
+
 def _safe_panel(fn, title):
     """Render one add-on panel, turning any exception into a visible note on that tab. The
     strength board is the thing this page exists for; a new tab must never be able to take
@@ -747,9 +758,11 @@ def matrix_panel():
             f'<td class="mxbias"><span class="pill {esc(r["cls"] or "neu")}">'
             f'{esc(r["rating"] or "n/a")}</span></td>'
             f'<td class="mxsc {"pos" if sc >= 0 else "neg"}">{sc:+.1f}</td>'
-            f'<td class="mxconf"><span class="pos">{r["bull"]}</span>/'
+            f'<td class="mxconf" title="{r["bull"]} factors bullish, {r["bear"]} bearish, '
+            f'{r["flat"]} flat, of {r["covered"]} with a reading">'
+            f'<span class="pos">{r["bull"]}</span>/'
             f'<span class="neg">{r["bear"]}</span>'
-            f'<span class="mut"> of {r["covered"]}</span></td>'
+            f'<span class="mut mxof"> of {r["covered"]}</span></td>'
             + "".join(cells) + "</tr>")
 
     con = d.get("consensus") or {}
@@ -784,7 +797,7 @@ def matrix_panel():
   <section>
     <h2>Signal matrix <span class="mut" style="font-weight:400;font-size:14px">&mdash; 8
       currencies &times; 18 factors</span></h2>
-    <p class="sub">Every factor is on the same &minus;100..+100 scale as the rest of the desk,
+    {howto("""<p class="sub">Every factor is on the same &minus;100..+100 scale as the rest of the desk,
     bucketed to &plusmn;2 for colour only &mdash; <b>hover any cell for its real value</b>.
     The <b>Score</b> column is the desk's weighted score (news&nbsp;0.40, fundamentals&nbsp;0.25,
     COT&nbsp;0.15 &hellip; the weights the backtests actually established) and is the number to
@@ -792,13 +805,14 @@ def matrix_panel():
     is for and what a single score cannot tell you: <em>agreement</em>. A row marked on the left
     is one where the factors lean one way and the weighted score the other &mdash; usually one
     heavy input outvoting many light ones, and worth opening the breakdown card for.
-    A dot is <em>no reading</em>, not a neutral one.</p>
+    A dot is <em>no reading</em>, not a neutral one.</p>""")}
     {stats}
     {legend}
     <div class="mxwrap"><table class="mx">
       <thead>
         <tr><th class="grp" colspan="4"></th>{ghead}</tr>
-        <tr><th class="fac" style="text-align:left">Ccy</th><th class="fac" style="text-align:left">Bias</th>
+        <tr><th class="fac" style="text-align:left">Ccy</th>
+            <th class="fac mxbias" style="text-align:left">Bias</th>
             <th class="fac" style="text-align:right">Score</th>
             <th class="fac" style="text-align:right">Bull/bear</th>{"".join(fhead)}</tr>
       </thead>
@@ -851,14 +865,14 @@ def yields_panel():
   <section>
     <h2>Yields &amp; spreads <span class="mut" style="font-weight:400;font-size:14px">&mdash;
       carry, curve and real return</span></h2>
-    <p class="sub">Rate differentials are the most established driver in FX, and the
+    {howto("""<p class="sub">Rate differentials are the most established driver in FX, and the
     <b>2-year</b> is the part that moves spot &mdash; it prices the policy path the market
     actually expects, where the 10-year carries term premium as well. <b>Curve</b> is 10y minus
     2y; negative is an inversion. <b>Real</b> is the 10-year minus headline CPI: a high nominal
     yield with inflation above it is not a reason to own a currency. EUR is the German bund and
     CHF the Swiss confederation bond. Score blends the front-end differential (0.45), the real
     yield (0.35) and front-end momentum (0.20), each measured against the board average rather
-    than against the dollar alone, so it stays centred like the rest of the desk.</p>
+    than against the dollar alone, so it stays centred like the rest of the desk.</p>""")}
     {warn}{momnote}
     <div class="tw"><table>
       <thead><tr><th>Ccy</th><th class="num">2y</th><th class="num">10y</th>
@@ -922,7 +936,7 @@ def sentiment_panel():
   <section>
     <h2>Retail sentiment <span class="mut" style="font-weight:400;font-size:14px">&mdash;
       the crowd, read backwards</span></h2>
-    <p class="sub">Small traders are, on average and <em>at the extremes</em>, on the wrong side
+    {howto("""<p class="sub">Small traders are, on average and <em>at the extremes</em>, on the wrong side
     &mdash; so this score is <b>inverted</b>: a crowded retail long scores negative for the
     instrument. The number is the CFTC's <b>non-reportable</b> column: every account too small
     to have to file, across the whole regulated futures market, published weekly by the
@@ -930,7 +944,7 @@ def sentiment_panel():
     DailyFX/IG) on every axis except one &mdash; those describe a single broker's book, this
     describes the market. Its real limitation is cadence: <b>Tuesday data published Friday</b>,
     so this is a weekly picture, not a live one. &ldquo;Crowded&rdquo; means crowded against
-    <em>this contract's own</em> 3-year range, not some universal threshold.</p>
+    <em>this contract's own</em> 3-year range, not some universal threshold.</p>""")}
     {lead}
     <div class="tw"><table>
       <thead><tr><th>Instrument</th><th>Long / short</th><th class="num">Long</th>
@@ -1008,14 +1022,14 @@ def seasonality_panel():
   <section>
     <h2>Seasonality <span class="mut" style="font-weight:400;font-size:14px">&mdash; 15 years,
       drift removed</span></h2>
-    <p class="sub">Each cell is that month's <b>excess</b> return: the month's average minus
+    {howto("""<p class="sub">Each cell is that month's <b>excess</b> return: the month's average minus
     the instrument's <em>own</em> average month over the same fifteen years. That subtraction is
     the whole point. On raw numbers the S&amp;P has risen for fifteen years, so every one of its
     twelve months looks bullish and the table says nothing; excess asks the question seasonality
     is actually meant to ask &mdash; <em>this</em> month against a normal month for
     <em>this</em> instrument. <b>Hover any cell</b> for the raw figure, hit rate, sample size
     and t-statistic. A <span class="starred">*</span> marks |t|&nbsp;&ge;&nbsp;1.8 on the excess.
-    The current month is outlined.</p>
+    The current month is outlined.</p>""")}
     <p class="mnote warn"><b>Read the stars with suspicion.</b> This table runs 408 tests
     (34 instruments &times; 12 months), so a handful of them clear that bar by chance alone. A
     seasonal is a reason to look at something, never a reason to trade it on its own &mdash;
@@ -1082,7 +1096,7 @@ def indices_panel():
   <section>
     <h2>Indices <span class="mut" style="font-weight:400;font-size:14px">&mdash; S&amp;P 500,
       Nasdaq 100, Dow</span></h2>
-    <p class="sub">A third track, separate from the currency board for the same reason
+    {howto("""<p class="sub">A third track, separate from the currency board for the same reason
     commodities are: an index is an outright directional bet with a strong upward drift, not a
     relative call against a peer, so it must not sit in the currency centring or the pair
     ranking. Blend is trend&nbsp;0.40, CFTC Leveraged Funds&nbsp;0.20, open interest&nbsp;0.10,
@@ -1090,7 +1104,7 @@ def indices_panel():
     which is why it earns a leg here and nowhere else &mdash; and a manual overlay&nbsp;0.15 held
     at neutral until set. <b>Real yields are deliberately not a leg</b>: the link is real, but
     the trend leg already carries most of what a yield shock does to an index, and a second leg
-    moving with the same shock would let one macro event hit the score twice.</p>
+    moving with the same shock would let one macro event hit the score twice.</p>""")}
     <div class="meter">{"".join(meter)}</div>
     <div class="grid">{"".join(cards)}</div>
     <p class="mnote">COT {esc(d.get("cot_report_date") or "n/a")}, prices to

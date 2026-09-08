@@ -224,6 +224,24 @@ tr.next td{background:var(--surface2)}
 td.fwtop{font-weight:700;color:var(--ink);background:var(--posbg)}
 .spreadnote{font-size:12.5px;color:var(--ink2);font-family:"IBM Plex Mono",monospace;margin:0}
 
+/* ---- "how to read this": long explanations, out of the way on a phone -------------
+   On the desktop these paragraphs are useful and there is room for them. On a phone they
+   push the actual numbers two full screens down, which is the opposite of helpful. A
+   <details> collapses them there and leaves the desktop exactly as it was: the summary is
+   hidden and the body force-shown above 720px, so nothing changes for a mouse. */
+details.howto > summary{display:none}
+details.howto:not([open]) > .sub{display:block}
+details.howto > .sub{margin-top:-8px}
+@media (max-width:720px){
+  details.howto > summary{display:block;cursor:pointer;list-style:none;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--accent);padding:5px 0}
+  details.howto > summary::-webkit-details-marker{display:none}
+  details.howto > summary::after{content:" +"}
+  details.howto[open] > summary::after{content:" \2212"}
+  details.howto:not([open]) > .sub{display:none}
+}
+
 /* ---- signal matrix: 8 currencies x 18 factors ------------------------------------- */
 .mxwrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);
   border-radius:12px;box-shadow:var(--shadow)}
@@ -253,6 +271,22 @@ table.mx td.cell{text-align:center;font-family:"IBM Plex Mono",monospace;font-si
 table.mx tr:last-child td{border-bottom:0}
 .mxconf{font-family:"IBM Plex Mono",monospace;font-size:11px;white-space:nowrap;
   text-align:right;padding-right:10px}
+/* On a phone the frozen Ccy+Bias+Score+Bull/bear block ate ~80% of the width and only two
+   of the eighteen factor columns were reachable without a long horizontal scrub. The bias
+   PILL is the one that can go: the score right beside it already carries the same reading,
+   in colour and with a number. Dropping it buys roughly six more factor columns. */
+@media (max-width:720px){
+  /* NOT display:none - the grouped header above spans the first four columns with a
+     colspan, and removing a cell from the row would slide every group label one column
+     left. Collapse it to zero width instead and hide its contents, so the column count
+     and the colspan still agree. */
+  table.mx td.mxbias,table.mx th.mxbias{
+    width:0;max-width:0;padding:0;border-left:0;font-size:0;overflow:hidden}
+  table.mx td.mxbias > *{display:none}
+  .mxconf .mxof{display:none}
+  table.mx td.cell{width:32px;font-size:10.5px;padding:6px 3px}
+  table.mx td.mxccy{font-size:12px}
+}
 .mxlegend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:11.5px;
   color:var(--mut);font-family:"IBM Plex Mono",monospace}
 .mxlegend b{display:inline-flex;align-items:center;justify-content:center;width:26px;

@@ -30,7 +30,7 @@ Reads score.json, yields.json, sentiment.json, seasonality.json, prices_fx.json,
 fundamentals.json. Writes data/matrix.json.
 """
 import json, datetime as dt
-from config import DATA, ORDER, all_pairs
+from config import DATA, ORDER, CHECKLIST, all_pairs
 
 OUT = DATA / "matrix.json"
 
@@ -91,14 +91,29 @@ def _load(name, default):
 
 
 def _from_cat(fun_row, cat):
-    """A 1-5 checklist category to -100..+100. Unset categories return None so they show as a
-    dot rather than a neutral reading - fundamentals.py leaves judgment indicators at 3 until
-    they are set, and a wall of fake zeroes would read as information."""
+    """A 1-5 checklist category to -100..+100, or None when the category carries no
+    information at all.
+
+    fundamentals.py holds every UNSET judgment indicator at a neutral 3, and a category is the
+    average of its indicators - so a category nobody has filled in averages to exactly 3 and
+    arrives here as a confident-looking 0. That is the one thing this grid must not do: it
+    would print a wall of flat cells that look like readings and are not, and every one of them
+    would count toward the "of 18" denominator and dilute the bull/bear tally.
+
+    Geopolitics & Risk is the live example - 5 of its 5 indicators are unset for all eight
+    currencies, so before this check it rendered as a decisive 0 across the whole column.
+    A category whose indicators are ALL unset therefore returns None (a dot); one that is
+    partly set still scores, because the set half is real information.
+    """
     cats = (fun_row or {}).get("categories") or {}
     v = cats.get(cat)
     if isinstance(v, dict):
         v = v.get("score", v.get("avg_1_5"))
     if v is None:
+        return None
+    unset = set((fun_row or {}).get("unset") or [])
+    inds = CHECKLIST.get(cat) or []
+    if inds and all(i in unset for i in inds):
         return None
     try:
         return round((float(v) - 3) / 2 * 100, 1)
