@@ -398,8 +398,8 @@ a{color:var(--accent)}
     <label for="tab-cot">COT report</label>
     <label for="tab-oi">Open interest</label>
     <label for="tab-fed">Fed Watch</label>
-    <label for="tab-macro">Macro</label>
-    <label for="tab-micro">Micro</label>
+    <label for="tab-macro">Brief</label>
+    <label for="tab-micro">News</label>
   </nav>
 
   <div class="panel" id="p-mx">{{MATRIX_PANEL}}</div>

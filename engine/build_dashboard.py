@@ -541,12 +541,12 @@ def macro_panel():
     lean' read, one line per currency and commodity."""
     p = _pages_mod()
     if not p:
-        return '<section><h2>Macro</h2><p class="sub">Macro read unavailable.</p></section>'
+        return '<section><h2>Brief</h2><p class="sub">Macro read unavailable.</p></section>'
     try:
         body = p.macro_block()
     except Exception as e:                                       # noqa: BLE001
-        return f'<section><h2>Macro</h2><p class="sub">Macro read failed: {esc(e)}</p></section>'
-    return (f'<section>{p.CSS}<h2>Macro <span class="mut" style="font-weight:400;font-size:14px">'
+        return f'<section><h2>Brief</h2><p class="sub">Macro read failed: {esc(e)}</p></section>'
+    return (f'<section>{p.CSS}<h2>Brief <span class="mut" style="font-weight:400;font-size:14px">'
             f'&mdash; the big picture</span></h2>'
             f'<div class="pg-wrap" style="margin-top:4px">{body}</div>{p.JS}</section>')
 
@@ -555,7 +555,7 @@ def micro_panel():
     """The Micro tab - the breaking-news feed, each story decoded to plain words with a lean."""
     p = _pages_mod()
     if not p:
-        return '<section><h2>Micro</h2><p class="sub">News feed unavailable.</p></section>'
+        return '<section><h2>News</h2><p class="sub">News feed unavailable.</p></section>'
     try:
         feed = json.loads((DATA / "commodity_feed.json").read_text(encoding="utf-8"))
     except Exception:
@@ -563,11 +563,11 @@ def micro_panel():
     try:
         body = p.cw.render_block(feed)
     except Exception as e:                                       # noqa: BLE001
-        return f'<section><h2>Micro</h2><p class="sub">News feed failed: {esc(e)}</p></section>'
+        return f'<section><h2>News</h2><p class="sub">News feed failed: {esc(e)}</p></section>'
     # p.JS (the tab switcher + the "X min ago" ticker) is already emitted by macro_panel() and
     # runs page-wide, so it is not repeated here - a second copy just double-registers the
     # setInterval. p.CSS is kept (cheap, and micro must still be styled if macro failed).
-    return (f'<section>{p.CSS}<h2>Micro <span class="mut" style="font-weight:400;font-size:14px">'
+    return (f'<section>{p.CSS}<h2>News <span class="mut" style="font-weight:400;font-size:14px">'
             f'&mdash; breaking news, decoded</span></h2>'
             f'<div class="pg-wrap" style="margin-top:4px">{body}</div></section>')
 
