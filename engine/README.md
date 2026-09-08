@@ -397,8 +397,10 @@ disagree are marked.
 **Yields** — 2y and 10y benchmarks, the curve, the ex-post real yield and the differentials.
 The front end leads the blend because it prices the policy path rather than term premium. EUR
 is the German bund, CHF the Swiss confederation bond. Source is TradingView's scanner symbol
-endpoint. FRED would be the textbook source for real yields and breakevens but it does not
-answer from this machine or reliably from CI, so the real yield is nominal minus headline CPI.
+endpoint. FRED is the textbook source for real yields and breakevens. Its CSV graph endpoint
+times out from here, but the keyed API host `api.stlouisfed.org` is reachable and only wants a
+free API key — worth wiring up when there is one. Until then the real yield is nominal minus
+headline CPI.
 
 **Seasonality** — fifteen years of monthly returns per pair, metal and index. The headline
 figure is the **excess**: the month's average minus that instrument's *own* average month.

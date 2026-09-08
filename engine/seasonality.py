@@ -158,6 +158,9 @@ def _targets():
     t = [(f"{p}=X", p, "fx") for p in all_pairs()]
     t += [(COMMODITIES[s]["yahoo"], s, "commodity") for s in COMMODITY_ORDER]
     t += [(INDICES[s]["yahoo"], s, "index") for s in INDEX_ORDER]
+    # the dollar index gets its own kind - it is neither a cross nor an equity index, and
+    # dxy.py reads its seasonal leg from here by the label "DXY"
+    t += [("DX-Y.NYB", "DXY", "dollar")]
     return t
 
 

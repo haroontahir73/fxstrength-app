@@ -18,7 +18,7 @@ except ImportError:                                   # older config - no index 
 
 import fetch_cot, fetch_calendar, fetch_oi, fetch_rates, rate_expectations, speakers, fundamentals, score, build_dashboard
 import fetch_prices, fetch_fx_prices, commodities, fedwatch
-import fetch_index_prices, yields, seasonality, sentiment, indices, matrix, ticker
+import fetch_index_prices, fetch_dxy_price, yields, seasonality, sentiment, indices, matrix, ticker, dxy
 
 STATE = DATA / "state.json"
 
@@ -189,6 +189,10 @@ def run(mode):
         fetch_index_prices.main()
     except Exception as e:
         print(f"  fetch_index_prices failed ({type(e).__name__}: {e}) - keeping cached")
+    try:
+        fetch_dxy_price.main()
+    except Exception as e:
+        print(f"  fetch_dxy_price failed ({type(e).__name__}: {e}) - keeping cached")
 
     # Every block below is an ADD-ON TAB. Each one is wrapped on its own so that a single bad
     # feed costs its own tab and nothing else - the strength board must always rebuild. Each
@@ -255,6 +259,14 @@ def run(mode):
         print(f"  indices.build failed ({type(e).__name__}: {e}) - tab left as-is")
 
     # The matrix reads the files every other module just wrote, so it goes last.
+    # Reads scores.json for the basket leg, so it has to run after score.build().
+    print("Dollar index:")
+    try:
+        dx = dxy.build()
+        print(f"  DXY {dx['last']:.2f}  {dx['score']:+.1f}  {dx['rating']}")
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  dxy.build failed ({type(e).__name__}: {e}) - row left as-is")
+
     print("Signal matrix:")
     try:
         mx = matrix.build()

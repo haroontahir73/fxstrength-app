@@ -760,6 +760,65 @@ def ticker_strip():
     return f'<div class="tickerwrap"><div class="ticker">{"".join(chips)}</div></div>'
 
 
+def dxy_block():
+    """The dollar-index row for the strength meter, plus its breakdown card.
+
+    Sits under its own separator between the currencies and the commodities, because it is
+    neither: it is a fixed EUR-dominated basket you can trade, not a currency competing in the
+    centring. Returns ('', '') when dxy.json is missing so the meter degrades cleanly.
+    """
+    d = _load_tab("dxy.json")
+    if not d or d.get("score") is None:
+        return "", ""
+    W = d.get("weights") or {}
+    sc = d["score"]
+    chips = ""
+    if d.get("thin"):
+        chips += (' <span class="chip warn" title="ICE dollar index open interest is about '
+                  '50k against 865k for the euro - the positioning leg is weak evidence">'
+                  'thin COT</span>')
+    if d.get("missing"):
+        chips += (f' <span class="chip warn" title="the desk does not score '
+                  f'{", ".join(d["missing"])}, so the basket leg covers '
+                  f'{d.get("coverage_pct")}% of the index">basket {d.get("coverage_pct")}%</span>')
+    read = d.get("read") or {}
+    last = d.get("last")
+    row = f"""
+      <div class="mrow msep"><span>Dollar index &mdash; a tradeable EUR-dominated basket,
+      not a currency on the board</span></div>
+      <div class="mrow">
+        <div class="mccy">DXY<span class="mname">{last:.2f} &middot; ICE dollar index</span></div>
+        {bar(sc)}
+        <div class="mscore {'pos' if sc >= 0 else 'neg'}">{sc:+.1f}</div>
+        <div class="mrate"><span class="pill {esc(d['cls'])}">{esc(d['rating'])}</span>{chips}</div>
+      </div>
+      <p class="readline {esc(read.get('cls', 'neu'))}">{esc(read.get('label', ''))}</p>"""
+
+    crows = []
+    for k in ("basket", "trend", "cot", "seasonality"):
+        v = d["parts"].get(k, 0.0)
+        con = d["contrib"].get(k, 0.0)
+        crows.append(
+            f"""<div class="crow"><div class="clab"><span>{esc(k.title())}</span>
+            <span class="cw">{W.get(k, 0)*100:.0f}%</span></div>
+            {bar(v)}<div class="cval {'pos' if v >= 0 else 'neg'}">{v:+.0f}</div>
+            <div class="ccon">{con:+.1f}</div></div>""")
+    notes = "".join(f"<p>{esc(d['legs'][k].get('note', ''))}</p>"
+                    for k in ("basket", "trend", "cot", "seasonality")
+                    if d["legs"].get(k, {}).get("note"))
+    card = f"""
+      <div class="card">
+        <div class="chead"><div><span class="cccy">DXY</span>
+          <span class="cnm">ICE dollar index</span></div>
+          <div class="cbig {'pos' if sc >= 0 else 'neg'}">{sc:+.1f}</div></div>
+        <div class="comp">{"".join(crows)}</div>
+        <div class="detail"><div class="dblock">
+          <h4>Legs <span class="mut">&mdash; no open-interest leg: it would be the same thin
+          weekly ICE number the COT leg already uses</span></h4>{notes}</div></div>
+      </div>"""
+    return row, card
+
+
 def howto(sub_html):
     """Wrap a long explanatory paragraph so a phone can fold it away.
 
@@ -971,7 +1030,7 @@ def yields_panel():
     <p class="mnote">Yields and CPI from TradingView (TVC benchmarks, ECONOMICS inflation
     series), read {esc(d.get("asof") or "n/a")}. The real yield here is nominal minus headline
     CPI &mdash; the ex-post figure. The textbook version is the inflation-linked yield, but that
-    lives on FRED, which does not answer from this machine or reliably from CI; the ex-post
+    lives on FRED, which needs a free API key this desk does not have yet; the ex-post
     figure needs no second feed and moves with the same signal.</p>
   </section>"""
 
@@ -1223,6 +1282,9 @@ def build():
         <div class="mscore {'pos' if r['score']>=0 else 'neg'}">{r['score']:+.1f}{delta_chip(deltas.get(c), small=True)}</div>
         <div class="mrate"><span class="pill {r['cls']}">{esc(r['rating'])}</span>{read_chip(r.get('read'))}{cot_chip(r.get('cot_x'))}{crowd}</div>
       </div>""")
+    dxy_row, dxy_card = dxy_block()
+    if dxy_row:
+        meter.append(dxy_row)
     cm_rows = [s for s in (cm.get("ranked") or []) if s in cm.get("commodities", {})]
     if cm_rows:
         meter.append("""
@@ -1362,7 +1424,7 @@ def build():
 
     html = TEMPLATE
     for k, v in {
-        "{{METER}}": "".join(meter), "{{CARDS}}": "".join(cards),
+        "{{METER}}": "".join(meter), "{{CARDS}}": "".join(cards) + dxy_card,
         "{{COMMODITY_METER}}": cmeter, "{{COMMODITY_CARDS}}": ccards,
         "{{GSRATIO}}": gsratio if gsratio is not None else "&mdash;",
         "{{PXDATE}}": pxdate, "{{CTOP}}": ctop, "{{CTOPRATING}}": ctoprating,

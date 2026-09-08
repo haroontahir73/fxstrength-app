@@ -84,3 +84,6 @@ data/prices_index.json
 #                                      unreachable from CI, so this must NOT live only in
 #                                      the cache. It is pinned in refresh.yml.
 #   dashboard.html                  <- the Action writes this; Pages serves it
+data/prices_dxy.json
+data/dxy.json
+data/ticker.json

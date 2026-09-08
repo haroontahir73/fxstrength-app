@@ -1,12 +1,12 @@
 {
-  "fetched_at": "2026-09-08T09:43:45.116823+00:00",
+  "fetched_at": "2026-09-08T09:58:57.513448+00:00",
   "quotes": [
     {
       "label": "DXY",
       "symbol": "TVC:DXY",
       "dp": 2,
-      "last": 98.93,
-      "chg_pct": 0.02
+      "last": 98.94,
+      "chg_pct": 0.03
     },
     {
       "label": "EUR/USD",
@@ -47,22 +47,22 @@
       "label": "GOLD",
       "symbol": "TVC:GOLD",
       "dp": 0,
-      "last": 4402.0,
-      "chg_pct": -0.62
+      "last": 4403.0,
+      "chg_pct": -0.61
     },
     {
       "label": "WTI",
       "symbol": "NYMEX:CL1!",
       "dp": 2,
-      "last": 94.04,
-      "chg_pct": 2.8
+      "last": 93.68,
+      "chg_pct": 2.4
     },
     {
       "label": "VIX",
       "symbol": "TVC:VIX",
       "dp": 2,
-      "last": 15.59,
-      "chg_pct": 7.37
+      "last": 15.54,
+      "chg_pct": 7.02
     }
   ]
 }

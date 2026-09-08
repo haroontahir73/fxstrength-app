@@ -55,9 +55,13 @@ INDEX_ORDER = ["SPX", "NDX", "DJI"]
 # Government bond yields and headline inflation, per currency, as TradingView scanner symbols.
 # EUR is proxied by the German bund and CHF by the Swiss confederation bond - the standard
 # benchmarks. Read by yields.py through scanner.tradingview.com/symbol, the same host the
-# calendar already comes from. FRED would be the textbook source for real yields and
-# breakevens but it does not answer from here (nor reliably from CI), so the real yield is
-# computed ex-post as nominal minus headline CPI YoY, which needs no second feed.
+# calendar already comes from. The textbook source for real yields and breakevens is FRED
+# (DFII10, T10YIE). CORRECTION 2026-09-08: an earlier note here said FRED was unreachable.
+# That was wrong and was based on testing only the CSV graph endpoint
+# (fred.stlouisfed.org/graph/fredgraph.csv), which does time out. The KEYED API host
+# api.stlouisfed.org answers fine - it returns HTTP 400 for a missing key, which proves
+# reachability. It needs a free API key, which the desk does not have yet; until it does, the
+# real yield is computed ex-post as nominal minus headline CPI YoY, which needs no second feed.
 YIELD_SYMBOLS = {
     "USD": {"y2": "TVC:US02Y", "y10": "TVC:US10Y", "cpi": "ECONOMICS:USIRYY"},
     "EUR": {"y2": "TVC:DE02Y", "y10": "TVC:DE10Y", "cpi": "ECONOMICS:EUIRYY"},

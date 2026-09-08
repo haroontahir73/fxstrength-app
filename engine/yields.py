@@ -8,9 +8,10 @@ majors plus headline CPI, and derives:
     curve        10y minus 2y - positive is a normal upward-sloping curve, negative is an
                  inversion, which historically leads a slowdown by several quarters
     real 10y     10y minus headline CPI YoY - the ex-post real yield. The textbook figure is
-                 the inflation-linked yield (FRED's DFII10), but FRED does not answer from
-                 here or reliably from CI, and nominal-minus-CPI needs no second feed and
-                 moves with the same signal.
+                 the inflation-linked yield (FRED's DFII10). FRED's keyed API host
+                 (api.stlouisfed.org) IS reachable - only its CSV graph endpoint times out -
+                 but it needs a free API key the desk does not have yet. Until then
+                 nominal-minus-CPI needs no second feed and moves with the same signal.
     vs USD       the differential every FX pair is quoted against
     score        -100..+100, the leg that feeds the board and the factor matrix
 
