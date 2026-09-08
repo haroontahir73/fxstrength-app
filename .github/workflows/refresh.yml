@@ -81,6 +81,11 @@ jobs:
 
       - name: Run pipeline (${{ steps.mode.outputs.mode }})
         working-directory: engine
+        # FRED_API_KEY is optional: fred.py writes a "no key" file and the panel hides itself,
+        # so the pipeline is unaffected until the secret exists. Add it at
+        # Settings > Secrets and variables > Actions > New repository secret.
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: python run.py ${{ steps.mode.outputs.mode }}
 
       # Injects the decoded gold/silver/oil alerts into dashboard.html between markers.

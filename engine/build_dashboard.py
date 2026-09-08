@@ -760,6 +760,68 @@ def ticker_strip():
     return f'<div class="tickerwrap"><div class="ticker">{"".join(chips)}</div></div>'
 
 
+_FRED_ORDER = ["T5YIFR", "T10YIE", "T5YIE", "DFII10", "DFII5"]
+
+
+def fred_block():
+    """US inflation expectations and true real yields, at the top of the Yields tab.
+
+    Returns '' until a FRED API key exists, so the tab is unchanged for anyone without one.
+    Everything else on this desk is a nominal yield or a released print - all backward
+    looking. Breakevens are the only series here that say what the market EXPECTS, which is
+    why they earn a place rather than being one more rate.
+    """
+    d = _load_tab("fred.json")
+    if not d or d.get("status") != "ok" or not d.get("series"):
+        return ""
+    cells = []
+    for sid in _FRED_ORDER:
+        s = (d["series"] or {}).get(sid)
+        if not s:
+            continue
+        c20 = s.get("chg_20")
+        arrow = "" if c20 is None else ("&#9650;" if c20 > 0 else ("&#9660;" if c20 < 0 else "&mdash;"))
+        cls = "mut" if not c20 else ("pos" if c20 > 0 else "neg")
+        cells.append(
+            f'<div class="stat" title="{esc(s.get("blurb", ""))}">'
+            f'<span class="k">{esc(s["label"])}</span>'
+            f'<span class="v mono">{s["last"]:.2f}%</span>'
+            f'<span class="s"><span class="{cls}">{arrow}'
+            + (f'{abs(c20):.2f}' if c20 else '') + '</span> 20d'
+            + (f' &middot; {s["chg_250"]:+.2f} 1y' if s.get("chg_250") is not None else '')
+            + '</span></div>')
+    if not cells:
+        return ""
+    gap = d.get("real_gap")
+    gapnote = ""
+    if gap is not None:
+        wide = abs(gap) >= 0.5
+        gapnote = (
+            f'<p class="mnote{" warn" if wide else ""}">US 10-year real yield: '
+            f'<b>{d["us_real_market"]:.2f}%</b> from the market (TIPS) against '
+            f'<b>{d["us_real_ex_post"]:.2f}%</b> ex-post (nominal minus released CPI) &mdash; '
+            f'a gap of {gap:+.2f} points. '
+            + ("That is wide: realised and expected inflation disagree, which is exactly when "
+               "the ex-post figure the score uses is the misleading one."
+               if wide else
+               "Close enough that the ex-post figure the score uses is reading the same thing.")
+            + '</p>')
+    return f"""
+    <div style="margin:2px 0 6px">
+      <p class="sub" style="margin:0 0 9px"><b>US inflation expectations</b> &mdash; the one
+      thing on this desk that is forward-looking. Everything else is a nominal yield or a
+      release that already happened; a breakeven is what the market <em>expects</em> inflation
+      to average, and <b>5y5y forward</b> is the Fed's own gauge of whether long-run
+      expectations are still anchored. Hover for what each series is. From FRED.</p>
+      <div class="stats">{"".join(cells)}</div>
+      {gapnote}
+    </div>
+    <p class="mnote">These are <b>US-only</b> and deliberately do <b>not</b> feed the score.
+    The Real column below ranks eight currencies against each other on a
+    nominal-minus-CPI basis; swapping the dollar alone onto a true TIPS yield would compare
+    two different quantities and bias the carry ranking. Context here, consistency there.</p>"""
+
+
 def dxy_block():
     """The dollar-index row for the strength meter, plus its breakdown card.
 
@@ -1010,7 +1072,7 @@ def yields_panel():
     return f"""
   <section>
     <h2>Yields &amp; spreads <span class="mut" style="font-weight:400;font-size:14px">&mdash;
-      carry, curve and real return</span></h2>
+      carry, curve and real return</span></h2>{fred_block()}
     {howto("""<p class="sub">Rate differentials are the most established driver in FX, and the
     <b>2-year</b> is the part that moves spot &mdash; it prices the policy path the market
     actually expects, where the 10-year carries term premium as well. <b>Curve</b> is 10y minus

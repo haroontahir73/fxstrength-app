@@ -87,3 +87,9 @@ data/prices_index.json
 data/prices_dxy.json
 data/dxy.json
 data/ticker.json
+
+# --- FRED (US breakevens / true real yields) ---
+data/fred.json
+# THE API KEY. Never commit this - the repo is public. CI supplies it as the FRED_API_KEY
+# repo secret instead; this file is the local-only alternative.
+data/fred_key.txt

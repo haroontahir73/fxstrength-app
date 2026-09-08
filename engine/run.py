@@ -18,7 +18,7 @@ except ImportError:                                   # older config - no index 
 
 import fetch_cot, fetch_calendar, fetch_oi, fetch_rates, rate_expectations, speakers, fundamentals, score, build_dashboard
 import fetch_prices, fetch_fx_prices, commodities, fedwatch
-import fetch_index_prices, fetch_dxy_price, yields, seasonality, sentiment, indices, matrix, ticker, dxy
+import fetch_index_prices, fetch_dxy_price, yields, seasonality, sentiment, indices, matrix, ticker, dxy, fred
 
 STATE = DATA / "state.json"
 
@@ -215,6 +215,20 @@ def run(mode):
                                if yv["currencies"][c]["y2"] is not None))
     except Exception as e:                                       # noqa: BLE001
         print(f"  yields failed ({type(e).__name__}: {e}) - tab left as-is")
+
+    # Optional: needs a free FRED API key (env FRED_API_KEY, or data/fred_key.txt locally).
+    # Without one it writes a "no key" file and the panel hides itself. Reads yields.json for
+    # the market-vs-ex-post real-yield comparison, so it goes after yields.
+    print("FRED (US breakevens):")
+    try:
+        fr = fred.build()
+        if fr.get("status") == "ok":
+            be = (fr["series"].get("T10YIE") or {}).get("last")
+            fwd = (fr["series"].get("T5YIFR") or {}).get("last")
+            print(f"  10y breakeven {be}%  5y5y forward {fwd}%"
+                  + (f"  real-yield gap {fr['real_gap']:+.2f}pp" if fr.get("real_gap") is not None else ""))
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  fred failed ({type(e).__name__}: {e}) - panel left as-is")
 
     # Seasonality is 15 years of history for 34 instruments; it self-caches for a week and
     # only actually refetches on a `cot` run, so the daily pass costs one file read.
