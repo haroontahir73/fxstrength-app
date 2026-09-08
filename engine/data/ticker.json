@@ -1,0 +1,68 @@
+{
+  "fetched_at": "2026-09-08T09:43:45.116823+00:00",
+  "quotes": [
+    {
+      "label": "DXY",
+      "symbol": "TVC:DXY",
+      "dp": 2,
+      "last": 98.93,
+      "chg_pct": 0.02
+    },
+    {
+      "label": "EUR/USD",
+      "symbol": "FX:EURUSD",
+      "dp": 4,
+      "last": 1.1614,
+      "chg_pct": -0.08
+    },
+    {
+      "label": "USD/JPY",
+      "symbol": "FX:USDJPY",
+      "dp": 2,
+      "last": 153.91,
+      "chg_pct": -0.27
+    },
+    {
+      "label": "US 10Y",
+      "symbol": "TVC:US10Y",
+      "dp": 2,
+      "last": 4.8,
+      "chg_pct": 0.33
+    },
+    {
+      "label": "S&P 500",
+      "symbol": "SP:SPX",
+      "dp": 0,
+      "last": 7719.0,
+      "chg_pct": -0.38
+    },
+    {
+      "label": "NASDAQ",
+      "symbol": "NASDAQ:NDX",
+      "dp": 0,
+      "last": 29544.0,
+      "chg_pct": 0.21
+    },
+    {
+      "label": "GOLD",
+      "symbol": "TVC:GOLD",
+      "dp": 0,
+      "last": 4402.0,
+      "chg_pct": -0.62
+    },
+    {
+      "label": "WTI",
+      "symbol": "NYMEX:CL1!",
+      "dp": 2,
+      "last": 94.04,
+      "chg_pct": 2.8
+    },
+    {
+      "label": "VIX",
+      "symbol": "TVC:VIX",
+      "dp": 2,
+      "last": 15.59,
+      "chg_pct": 7.37
+    }
+  ]
+}

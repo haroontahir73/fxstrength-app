@@ -18,7 +18,7 @@ except ImportError:                                   # older config - no index 
 
 import fetch_cot, fetch_calendar, fetch_oi, fetch_rates, rate_expectations, speakers, fundamentals, score, build_dashboard
 import fetch_prices, fetch_fx_prices, commodities, fedwatch
-import fetch_index_prices, yields, seasonality, sentiment, indices, matrix
+import fetch_index_prices, yields, seasonality, sentiment, indices, matrix, ticker
 
 STATE = DATA / "state.json"
 
@@ -193,6 +193,16 @@ def run(mode):
     # Every block below is an ADD-ON TAB. Each one is wrapped on its own so that a single bad
     # feed costs its own tab and nothing else - the strength board must always rebuild. Each
     # panel degrades to its last good JSON, or hides itself, without help from here.
+    # The market strip is pure context - nothing scores off it and no module reads its
+    # file - so it is the one block that may fail without consequence.
+    print("Market strip:")
+    try:
+        tk = ticker.build()
+        print("  " + "  ".join(f"{q['label']} {q['last']:,.{q['dp']}f}"
+                               for q in tk["quotes"][:5]))
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  ticker failed ({type(e).__name__}: {e}) - strip left as-is")
+
     print("Yields:")
     try:
         yv = yields.build()

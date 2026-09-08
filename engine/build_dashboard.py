@@ -675,6 +675,91 @@ def _empty_tab(title, why):
     return (f'<section><h2>{esc(title)}</h2><p class="sub">{esc(why)}</p></section>')
 
 
+def score_deltas(target_hours=20):
+    """How far each score has moved since roughly this time yesterday.
+
+    The pipeline has always computed this - run.py prints "moved since last run" - and then
+    thrown it away into a log nobody reads. It is the first thing worth knowing about a board
+    you have already seen once, so it belongs on the page.
+
+    NOT measured against the previous run: on a 15-minute cron that is 15 minutes ago and
+    almost always zero, which would put a column of +0.0 next to every score and teach you to
+    ignore it. Instead take the most recent snapshot that is at least `target_hours` old.
+    When the history is too young for that - a fresh deploy, a lost cache - fall back to the
+    OLDEST row available and say honestly how old it actually is, rather than calling two
+    hours "yesterday".
+
+    Returns ({ccy: delta}, label). Empty when there is nothing worth comparing against.
+    """
+    hist = _load_tab("score_history.json")
+    if not isinstance(hist, list) or len(hist) < 2:
+        return {}, ""
+    now = dt.datetime.now(dt.timezone.utc)
+    rows = []
+    for row in hist:
+        try:
+            at = dt.datetime.fromisoformat(row["at"])
+            if at.tzinfo is None:
+                at = at.replace(tzinfo=dt.timezone.utc)
+            rows.append((at, row.get("scores") or {}))
+        except Exception:                                        # noqa: BLE001
+            continue
+    if len(rows) < 2:
+        return {}, ""
+    rows.sort(key=lambda r: r[0])
+    cur = rows[-1][1]
+    old = [r for r in rows[:-1] if (now - r[0]).total_seconds() >= target_hours * 3600]
+    if old:
+        base_at, base = old[-1]
+    else:
+        base_at, base = rows[0]
+    age_h = (now - base_at).total_seconds() / 3600
+    if age_h < 0.5:
+        return {}, ""
+    if age_h >= target_hours:
+        label = "vs yesterday"
+    elif age_h >= 1:
+        label = f"vs {age_h:.0f}h ago"
+    else:
+        label = f"vs {age_h * 60:.0f}m ago"
+    deltas = {c: round(cur[c] - base[c], 1)
+              for c in cur if c in base and cur[c] is not None and base[c] is not None}
+    return deltas, label
+
+
+def delta_chip(delta, small=False):
+    """The move as a coloured arrow. A move under 0.5 shows as a flat dash - below that the
+    board has not really changed and an arrow would overstate it."""
+    if delta is None:
+        return ""
+    cls = "mut" if abs(delta) < 0.5 else ("pos" if delta > 0 else "neg")
+    arrow = "&mdash;" if abs(delta) < 0.5 else ("&#9650;" if delta > 0 else "&#9660;")
+    txt = "" if abs(delta) < 0.5 else f"{abs(delta):.1f}"
+    style = "font-size:10px" if small else "font-size:11px"
+    return (f'<span class="dchip {cls}" style="{style}" title="{delta:+.1f} since the '
+            f'comparison point">{arrow}{txt}</span>')
+
+
+def ticker_strip():
+    """The live market strip across the top. Returns '' when there is nothing to show, so a
+    dead feed costs the strip and not the header."""
+    d = _load_tab("ticker.json")
+    quotes = (d or {}).get("quotes") or []
+    if not quotes:
+        return ""
+    chips = []
+    for q in quotes:
+        c = q.get("chg_pct")
+        cls = "mut" if c is None else ("pos" if c >= 0 else "neg")
+        arrow = "" if c is None else ("&#9650;" if c >= 0 else "&#9660;")
+        pct = "" if c is None else f"{abs(c):.2f}%"
+        chips.append(
+            f'<span class="tq"><span class="tqk">{esc(q["label"])}</span>'
+            f'<span class="tqv">{q["last"]:,.{q.get("dp", 2)}f}</span>'
+            f'<span class="tqc {cls}">{arrow}{pct}</span></span>')
+    return f'<div class="tickerwrap"><div class="ticker">{"".join(chips)}</div></div>'
+
+
 def howto(sub_html):
     """Wrap a long explanatory paragraph so a phone can fold it away.
 
@@ -731,6 +816,7 @@ def matrix_panel():
         sep = " gsep" if f["key"] in first_of_group else ""
         fhead.append(f'<th class="fac mono{sep}">{esc(f["label"])}</th>')
 
+    deltas, dlabel = score_deltas()
     rows = []
     for c in d["ranked"]:
         r = d["currencies"][c]
@@ -757,7 +843,8 @@ def matrix_panel():
             f'<td class="mxccy">{esc(c)}</td>'
             f'<td class="mxbias"><span class="pill {esc(r["cls"] or "neu")}">'
             f'{esc(r["rating"] or "n/a")}</span></td>'
-            f'<td class="mxsc {"pos" if sc >= 0 else "neg"}">{sc:+.1f}</td>'
+            f'<td class="mxsc {"pos" if sc >= 0 else "neg"}">{sc:+.1f}'
+            f'{delta_chip(deltas.get(c), small=True)}</td>'
             f'<td class="mxconf" title="{r["bull"]} factors bullish, {r["bear"]} bearish, '
             f'{r["flat"]} flat, of {r["covered"]} with a reading">'
             f'<span class="pos">{r["bull"]}</span>/'
@@ -813,7 +900,7 @@ def matrix_panel():
         <tr><th class="grp" colspan="4"></th>{ghead}</tr>
         <tr><th class="fac" style="text-align:left">Ccy</th>
             <th class="fac mxbias" style="text-align:left">Bias</th>
-            <th class="fac" style="text-align:right">Score</th>
+            <th class="fac" style="text-align:right">Score{f' <span class="dlabel">{esc(dlabel)}</span>' if dlabel else ''}</th>
             <th class="fac" style="text-align:right">Bull/bear</th>{"".join(fhead)}</tr>
       </thead>
       <tbody>{"".join(rows)}</tbody>
@@ -1124,6 +1211,7 @@ def build():
     cm = load_commodities()
 
     # ---- meter rows: currencies ranked, then commodities as a labelled sub-group
+    deltas, dlabel = score_deltas()
     meter = []
     for c in ranked:
         r = d["currencies"][c]
@@ -1132,7 +1220,7 @@ def build():
       <div class="mrow">
         <div class="mccy">{c}<span class="mname">{esc(CURRENCIES[c]['name'])}</span></div>
         {bar(r['score'])}
-        <div class="mscore {'pos' if r['score']>=0 else 'neg'}">{r['score']:+.1f}</div>
+        <div class="mscore {'pos' if r['score']>=0 else 'neg'}">{r['score']:+.1f}{delta_chip(deltas.get(c), small=True)}</div>
         <div class="mrate"><span class="pill {r['cls']}">{esc(r['rating'])}</span>{read_chip(r.get('read'))}{cot_chip(r.get('cot_x'))}{crowd}</div>
       </div>""")
     cm_rows = [s for s in (cm.get("ranked") or []) if s in cm.get("commodities", {})]
@@ -1289,6 +1377,7 @@ def build():
         "{{NEXTHIGH}}": nh_when, "{{NEXTHIGH_REL}}": nh_rel,
         "{{NEXTHIGH_EVENT}}": esc(nh_event),
         "{{BUILT}}": built, "{{OISRC}}": d.get("oi_cadence", ""),
+        "{{TICKER}}": ticker_strip(),
         "{{COT_PANEL}}": cot_panel(), "{{OI_PANEL}}": oi_panel(),
         "{{MACRO_PANEL}}": macro_panel(), "{{MICRO_PANEL}}": micro_panel(),
         "{{FEDWATCH_PANEL}}": fedwatch_panel(),

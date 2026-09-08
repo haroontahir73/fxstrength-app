@@ -224,6 +224,27 @@ tr.next td{background:var(--surface2)}
 td.fwtop{font-weight:700;color:var(--ink);background:var(--posbg)}
 .spreadnote{font-size:12.5px;color:var(--ink2);font-family:"IBM Plex Mono",monospace;margin:0}
 
+/* ---- live market strip ------------------------------------------------------------
+   Context, not signal. Scrolls sideways on a phone rather than wrapping to three rows. */
+.tickerwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--surface);border-radius:8px}
+.tickerwrap::-webkit-scrollbar{display:none}
+.ticker{display:flex;gap:0;white-space:nowrap;min-width:min-content}
+.tq{display:inline-flex;align-items:baseline;gap:7px;padding:9px 15px;
+  border-right:1px solid var(--line);font-family:"IBM Plex Mono",monospace}
+.tq:last-child{border-right:0}
+.tqk{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut)}
+.tqv{font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
+.tqc{font-size:11px;font-variant-numeric:tabular-nums}
+
+/* ---- since-yesterday move ---------------------------------------------------------- */
+.dchip{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+  margin-left:6px;white-space:nowrap}
+.mscore .dchip{display:block;margin:1px 0 0;font-weight:400}
+.dlabel{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--mut)}
+
 /* ---- "how to read this": long explanations, out of the way on a phone -------------
    On the desktop these paragraphs are useful and there is room for them. On a phone they
    push the actual numbers two full screens down, which is the opposite of helpful. A
@@ -352,6 +373,7 @@ a{color:var(--accent)}
       <div class="stat"><span class="k">Commodities</span>
         <span class="v mono">{{CTOP}}</span><span class="s">{{CTOPRATING}}</span></div>
     </div>
+    {{TICKER}}
   </header>
 
   <div class="tabwrap">
