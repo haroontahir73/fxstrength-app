@@ -163,13 +163,28 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 .panel{display:none;flex-direction:column;gap:34px}
 #tab-cot:checked~#p-cot,#tab-oi:checked~#p-oi,#tab-fed:checked~#p-fed,
 #tab-macro:checked~#p-macro,
-#tab-micro:checked~#p-micro,#tab-board:checked~#p-board{display:flex}
+#tab-micro:checked~#p-micro,#tab-board:checked~#p-board,
+#tab-mx:checked~#p-mx,#tab-yld:checked~#p-yld,#tab-sent:checked~#p-sent,
+#tab-seas:checked~#p-seas,#tab-idx:checked~#p-idx{display:flex}
 #tab-cot:checked~.tabs label[for="tab-cot"],
 #tab-oi:checked~.tabs label[for="tab-oi"],
 #tab-fed:checked~.tabs label[for="tab-fed"],
 #tab-macro:checked~.tabs label[for="tab-macro"],
 #tab-micro:checked~.tabs label[for="tab-micro"],
+#tab-mx:checked~.tabs label[for="tab-mx"],
+#tab-yld:checked~.tabs label[for="tab-yld"],
+#tab-sent:checked~.tabs label[for="tab-sent"],
+#tab-seas:checked~.tabs label[for="tab-seas"],
+#tab-idx:checked~.tabs label[for="tab-idx"],
 #tab-board:checked~.tabs label[for="tab-board"]{color:var(--accent);border-bottom-color:var(--accent)}
+/* eleven tabs no longer fit one line on a phone - let the strip scroll rather than wrap into
+   a three-deep block that pushes the content off the first screen */
+@media (max-width:720px){
+  .tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tabs label{padding:10px 12px;font-size:14px}
+}
 .tabin:focus-visible~.tabs{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
 .cotgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px}
 .cotcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;
@@ -208,6 +223,56 @@ tr.next td{background:var(--surface2)}
 .fwcol.hi .fwrange{color:var(--ink2);font-weight:600}
 td.fwtop{font-weight:700;color:var(--ink);background:var(--posbg)}
 .spreadnote{font-size:12.5px;color:var(--ink2);font-family:"IBM Plex Mono",monospace;margin:0}
+
+/* ---- signal matrix: 8 currencies x 18 factors ------------------------------------- */
+.mxwrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;box-shadow:var(--shadow)}
+table.mx{border-collapse:separate;border-spacing:0;width:100%;min-width:940px;font-size:12px}
+table.mx th,table.mx td{padding:6px 5px;border-bottom:1px solid var(--line)}
+table.mx th.grp{text-align:center;font-size:9.5px;letter-spacing:.09em;
+  border-bottom:1px solid var(--line2);color:var(--mut)}
+table.mx th.grp+th.grp{border-left:1px solid var(--line)}
+table.mx th.fac{text-align:center;font-size:9.5px;letter-spacing:.04em;padding:7px 3px;
+  writing-mode:horizontal-tb}
+table.mx td.gsep,table.mx th.gsep{border-left:1px solid var(--line)}
+table.mx td.mxccy{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:13px;
+  white-space:nowrap;position:sticky;left:0;background:var(--surface);z-index:1}
+table.mx td.mxbias{font-size:11.5px;white-space:nowrap}
+table.mx td.mxsc{text-align:right;font-family:"IBM Plex Mono",monospace;font-weight:600;
+  font-size:13px;font-variant-numeric:tabular-nums;padding-right:9px}
+table.mx td.cell{text-align:center;font-family:"IBM Plex Mono",monospace;font-size:11px;
+  font-weight:600;width:40px;cursor:default}
+/* the +/-2 colour buckets. Deliberately two steps each way, so a strong reading is visibly
+   different from a mild one without inventing precision the cell does not have. */
+.b2{background:var(--pos);color:#fff}
+.b1{background:var(--posbg);color:var(--pos)}
+.b0{color:var(--mut)}
+.bm1{background:var(--negbg);color:var(--neg)}
+.bm2{background:var(--neg);color:#fff}
+.bna{color:var(--line2)}
+table.mx tr:last-child td{border-bottom:0}
+.mxconf{font-family:"IBM Plex Mono",monospace;font-size:11px;white-space:nowrap;
+  text-align:right;padding-right:10px}
+.mxlegend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:11.5px;
+  color:var(--mut);font-family:"IBM Plex Mono",monospace}
+.mxlegend b{display:inline-flex;align-items:center;justify-content:center;width:26px;
+  height:18px;border-radius:3px;font-size:10.5px;margin-right:5px;vertical-align:middle}
+/* a row where the weighted score and the factor count disagree - the case the grid exists
+   to surface, flagged rather than left for the eye to find */
+tr.mxsplit td.mxccy{box-shadow:inset 3px 0 0 var(--warn)}
+
+/* ---- seasonality ------------------------------------------------------------------ */
+table.seas{min-width:820px}
+table.seas td.mo{text-align:center;font-family:"IBM Plex Mono",monospace;font-size:11px;
+  width:52px;padding:6px 4px}
+td.mo.cur{outline:2px solid var(--accent);outline-offset:-2px;border-radius:3px}
+.seasbar{display:inline-block;height:7px;border-radius:2px;vertical-align:middle}
+.starred{color:var(--accent);font-weight:700}
+
+/* ---- yields ----------------------------------------------------------------------- */
+.ycurve{display:flex;align-items:center;gap:3px}
+.ydot{width:7px;height:7px;border-radius:50%;background:var(--mut);display:inline-block}
+tr.inv td{background:var(--negbg)}
 
 footer{border-top:1px solid var(--line);padding-top:20px;color:var(--mut);font-size:12.5px;
   display:flex;flex-direction:column;gap:8px}
@@ -249,21 +314,36 @@ a{color:var(--accent)}
   </header>
 
   <div class="tabwrap">
-  <input type="radio" name="tab" id="tab-cot" class="tabin" checked>
+  <input type="radio" name="tab" id="tab-mx" class="tabin" checked>
+  <input type="radio" name="tab" id="tab-board" class="tabin">
+  <input type="radio" name="tab" id="tab-yld" class="tabin">
+  <input type="radio" name="tab" id="tab-sent" class="tabin">
+  <input type="radio" name="tab" id="tab-seas" class="tabin">
+  <input type="radio" name="tab" id="tab-idx" class="tabin">
+  <input type="radio" name="tab" id="tab-cot" class="tabin">
   <input type="radio" name="tab" id="tab-oi" class="tabin">
   <input type="radio" name="tab" id="tab-fed" class="tabin">
   <input type="radio" name="tab" id="tab-macro" class="tabin">
   <input type="radio" name="tab" id="tab-micro" class="tabin">
-  <input type="radio" name="tab" id="tab-board" class="tabin">
   <nav class="tabs" role="tablist" aria-label="Dashboard views">
+    <label for="tab-mx">Matrix</label>
+    <label for="tab-board">Strength desk</label>
+    <label for="tab-yld">Yields</label>
+    <label for="tab-sent">Sentiment</label>
+    <label for="tab-seas">Seasonality</label>
+    <label for="tab-idx">Indices</label>
     <label for="tab-cot">COT report</label>
     <label for="tab-oi">Open interest</label>
     <label for="tab-fed">Fed Watch</label>
     <label for="tab-macro">Macro</label>
     <label for="tab-micro">Micro</label>
-    <label for="tab-board">Strength desk</label>
   </nav>
 
+  <div class="panel" id="p-mx">{{MATRIX_PANEL}}</div>
+  <div class="panel" id="p-yld">{{YIELDS_PANEL}}</div>
+  <div class="panel" id="p-sent">{{SENTIMENT_PANEL}}</div>
+  <div class="panel" id="p-seas">{{SEASONALITY_PANEL}}</div>
+  <div class="panel" id="p-idx">{{INDICES_PANEL}}</div>
   <div class="panel" id="p-cot">{{COT_PANEL}}</div>
   <div class="panel" id="p-oi">{{OI_PANEL}}</div>
   <div class="panel" id="p-fed">{{FEDWATCH_PANEL}}</div>

@@ -22,7 +22,7 @@ HEADERS = {
     "Referer": "https://www.tradingview.com/",
 }
 COUNTRY = {"US": "USD", "GB": "GBP", "JP": "JPY", "EU": "EUR",
-           "AU": "AUD", "NZ": "NZD", "CA": "CAD"}
+           "AU": "AUD", "NZ": "NZD", "CA": "CAD", "CH": "CHF"}
 IMPORTANCE = {1: "High", 0: "Medium", -1: "Low"}
 
 # Indicators where a HIGHER print is bearish for the currency.

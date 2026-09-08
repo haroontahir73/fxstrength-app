@@ -1,4 +1,11 @@
 # This .gitignore sits at engine/ (the pipeline subdir); paths are engine-relative.
+#
+# NOTE ON COMMENTS. git does NOT support trailing comments in .gitignore - a `#` only starts
+# a comment at the START of a line. Every annotated pattern here used to be written as
+# `data/cot_history.json    # [cache] ...`, which git read as a literal filename ending in
+# spaces and a comment, so those files were never actually ignored. Keep every note on its
+# own line. (`git check-ignore -v <path>` says which rule, if any, matched.)
+
 # Python
 __pycache__/
 *.pyc
@@ -9,40 +16,68 @@ dashboard.html
 
 # --- pipeline state: regenerated every run, do NOT commit (git-history bloat) ---
 # The live dashboard needs none of these persisted between CI runs - each run rebuilds
-# them from source. Use actions/cache for the ones marked [cache] if you want to skip
-# the rebuild cost / keep the accumulation; everything else is fine to lose.
+# them from source. The ones marked [cache] are worth keeping in actions/cache to skip the
+# rebuild cost or preserve an accumulation; everything else is fine to lose.
 
 data/cot.json
-data/cot_history.json               # [cache] rebuildable in ~30s: run.py bootstrap (CFTC)
-data/cot_history_commodity.json     # [cache] same
+# [cache] rebuildable in ~30s: run.py bootstrap (CFTC)
+data/cot_history.json
+# [cache] same
+data/cot_history_commodity.json
 data/calendar.json
-data/calendar_history.json          # [cache] backtest_blend.py only; API paging makes a full rebuild lossy
-data/ff_archive.json                # [cache] ForexFactory speaker archive - only ever serves the current week
+# [cache] backtest_blend.py only; API paging makes a full rebuild lossy
+data/calendar_history.json
+# [cache] ForexFactory speaker archive - only ever serves the current week
+data/ff_archive.json
 data/ff_cache.json
 data/oi.json
 data/rates.json
-data/fedwatch.json                  # [cache] Fed Watch odds + the history the change flag compares against
+# [cache] Fed Watch odds + the history the change flag compares against
+data/fedwatch.json
 data/rate_expectations.json
-data/expectations_history.json      # [cache] accumulates 1 row/run for the rate-odds backtest
+# [cache] accumulates 1 row/run for the rate-odds backtest
+data/expectations_history.json
 data/fundamentals.json
 data/scores.json
-data/score_history.json             # [cache] accumulates 1 row/run for RATING_BANDS calibration
+# [cache] accumulates 1 row/run for RATING_BANDS calibration
+data/score_history.json
 data/commodities.json
-data/commodity_history.json          # [cache] accumulates 1 row/run
+# [cache] accumulates 1 row/run
+data/commodity_history.json
 data/prices_fx.json
 data/prices_commodity.json
-data/speakers.json                  # derived from the live calendars + speech_tone.json
+# derived from the live calendars + speech_tone.json
+data/speakers.json
 data/state.json
 data/refresh.log
-data/news_seen.json                 # [cache] news_watch.py dedup state (TTL-pruned anyway)
-data/ntfy_topic.txt                 # local-test ntfy topic; CI uses the NTFY_TOPIC secret
-data/flagship.json                  # rebuilt from calendar.json every run - a record, not a source
-data/oi_state.json                  # [cache] oi.py retry-window bookkeeping
-open-interest.html                  # built by oi.py in the runner, copied to _site
+# [cache] news_watch.py dedup state (TTL-pruned anyway)
+data/news_seen.json
+# local-test ntfy topic; CI uses the NTFY_TOPIC secret
+data/ntfy_topic.txt
+# rebuilt from calendar.json every run - a record, not a source
+data/flagship.json
+# [cache] oi.py retry-window bookkeeping
+data/oi_state.json
+# built by oi.py in the runner, copied to _site
+open-interest.html
+
+# --- the add-on tabs (matrix / yields / sentiment / seasonality / indices) ---
+data/yields.json
+# [cache] 1 row/run; the front-end momentum leg needs ~21 days before it reads anything
+data/yields_history.json
+# [cache] EXPENSIVE - 34 Yahoo pulls of 15 years of history, ~4 minutes. Self-caches for
+# 7 days and only force-refreshes on a `cot` run, so losing the cache costs one slow
+# Saturday rather than a slow run every 30 minutes.
+data/seasonality.json
+data/sentiment.json
+data/indices.json
+data/matrix.json
+data/prices_index.json
 
 # --- COMMITTED (small, human/Claude-authored, the fx-strength-desk-daily task edits these) ---
 #   data/fundamentals_manual.json
 #   data/commodities_manual.json
+#   data/indices_manual.json
 #   data/rate_expectations_manual.json
 #   data/speech_tone.json
 #   data/oi_history.json            <- seeded from the user's Excel workbook; CME may be

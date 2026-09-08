@@ -13,8 +13,61 @@ CURRENCIES = {
     "AUD": {"name": "Australian Dlr", "cot": "232741", "contract": "AUSTRALIAN DOLLAR"},
     "NZD": {"name": "NZ Dollar",      "cot": "112741", "contract": "NZ DOLLAR"},
     "CAD": {"name": "Canadian Dlr",   "cot": "090741", "contract": "CANADIAN DOLLAR"},
+    "CHF": {"name": "Swiss Franc",    "cot": "092741", "contract": "SWISS FRANC"},
 }
-ORDER = ["USD", "EUR", "GBP", "JPY", "AUD", "NZD", "CAD"]
+ORDER = ["USD", "EUR", "GBP", "JPY", "AUD", "NZD", "CAD", "CHF"]
+
+# Quoting precedence: in a cross, the currency EARLIER in this list is the base. This is the
+# market convention (EUR/GBP, not GBP/EUR; USD/JPY, not JPY/USD) and it decides both the pair
+# names on the board and which Yahoo ticker seasonality.py asks for.
+QUOTE_ORDER = ["EUR", "GBP", "AUD", "NZD", "USD", "CAD", "CHF", "JPY"]
+
+
+def pair_name(a: str, b: str) -> str:
+    """The two currencies written the way the market quotes them, base first."""
+    ia = QUOTE_ORDER.index(a) if a in QUOTE_ORDER else 99
+    ib = QUOTE_ORDER.index(b) if b in QUOTE_ORDER else 99
+    return f"{a}{b}" if ia <= ib else f"{b}{a}"
+
+
+def all_pairs():
+    """The 28 crosses of the 8 majors, each written base-first. Order is stable."""
+    out = []
+    for i, a in enumerate(ORDER):
+        for b in ORDER[i + 1:]:
+            out.append(pair_name(a, b))
+    return out
+
+
+# Equity indices. Like commodities these are NOT currencies - they get their own track rather
+# than a seat on the FX board. Scored on the same lightweight blend as commodities (trend,
+# CFTC positioning, open interest, overlay) because the same three inputs are the ones that
+# transfer. CFTC codes are TFF (financial) contracts, so Leveraged Funds is the speculative
+# money - the same category the FX board uses. Note DJI trades as the MICRO e-mini in the
+# report (~43k OI against the S&P's 2m), so its positioning signal is thinner than the others'.
+INDICES = {
+    "SPX": {"name": "S&P 500",    "cot": "13874A", "yahoo": "^GSPC", "tv": "TVC:SPX"},
+    "NDX": {"name": "Nasdaq 100", "cot": "209742", "yahoo": "^NDX",  "tv": "TVC:NDX"},
+    "DJI": {"name": "Dow Jones",  "cot": "124608", "yahoo": "^DJI",  "tv": "TVC:DJI"},
+}
+INDEX_ORDER = ["SPX", "NDX", "DJI"]
+
+# Government bond yields and headline inflation, per currency, as TradingView scanner symbols.
+# EUR is proxied by the German bund and CHF by the Swiss confederation bond - the standard
+# benchmarks. Read by yields.py through scanner.tradingview.com/symbol, the same host the
+# calendar already comes from. FRED would be the textbook source for real yields and
+# breakevens but it does not answer from here (nor reliably from CI), so the real yield is
+# computed ex-post as nominal minus headline CPI YoY, which needs no second feed.
+YIELD_SYMBOLS = {
+    "USD": {"y2": "TVC:US02Y", "y10": "TVC:US10Y", "cpi": "ECONOMICS:USIRYY"},
+    "EUR": {"y2": "TVC:DE02Y", "y10": "TVC:DE10Y", "cpi": "ECONOMICS:EUIRYY"},
+    "GBP": {"y2": "TVC:GB02Y", "y10": "TVC:GB10Y", "cpi": "ECONOMICS:GBIRYY"},
+    "JPY": {"y2": "TVC:JP02Y", "y10": "TVC:JP10Y", "cpi": "ECONOMICS:JPIRYY"},
+    "AUD": {"y2": "TVC:AU02Y", "y10": "TVC:AU10Y", "cpi": "ECONOMICS:AUIRYY"},
+    "NZD": {"y2": "TVC:NZ02Y", "y10": "TVC:NZ10Y", "cpi": "ECONOMICS:NZIRYY"},
+    "CAD": {"y2": "TVC:CA02Y", "y10": "TVC:CA10Y", "cpi": "ECONOMICS:CAIRYY"},
+    "CHF": {"y2": "TVC:CH02Y", "y10": "TVC:CH10Y", "cpi": "ECONOMICS:CHIRYY"},
+}
 
 # Commodities are NOT currencies - no central bank, no policy rate, no CPI/jobs checklist,
 # and not zero-sum against each other - so they get their own lightweight track rather than

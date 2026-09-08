@@ -62,6 +62,7 @@ jobs:
             engine/data/rate_expectations_manual.json \
             engine/data/speech_tone.json \
             engine/data/commodity_feed.json \
+            engine/data/indices_manual.json \
             engine/data/oi_history.json
 
       - name: Choose mode

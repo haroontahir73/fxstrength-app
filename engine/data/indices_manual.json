@@ -1,0 +1,6 @@
+{
+  "_help": "Per index, an indicator->1-5 map (5 = bullish). A bare number or {\"score\": n, \"note\": \"why\"} for auditability. Unset = held at neutral and excluded, exactly like commodities_manual.json.",
+  "SPX": {},
+  "NDX": {},
+  "DJI": {}
+}

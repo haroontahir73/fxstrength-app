@@ -18,7 +18,7 @@ from fetch_calendar import fetch
 LOOKBACK_DAYS = 220
 TITLES = ("interest rate decision", "cash rate", "official cash rate", "ocr decision")
 COUNTRY = {"US": "USD", "GB": "GBP", "JP": "JPY", "EU": "EUR",
-           "AU": "AUD", "NZ": "NZD", "CA": "CAD"}
+           "AU": "AUD", "NZ": "NZD", "CA": "CAD", "CH": "CHF"}
 
 
 def main():

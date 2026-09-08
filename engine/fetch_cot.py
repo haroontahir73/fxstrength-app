@@ -22,6 +22,10 @@ try:
     from config import COT_EXTRA
 except ImportError:                                             # older config
     COT_EXTRA = {}
+try:
+    from config import INDICES
+except ImportError:                                             # older config
+    INDICES = {}
 
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 BASE = "https://www.tradingster.com/cot/futures/fin/{}"
@@ -35,9 +39,13 @@ SOCRATA_DISAGG = "https://publicreporting.cftc.gov/resource/72hh-3qpy.json"    #
 FX_CODES = [m["cot"] for m in CURRENCIES.values()]
 CM_CODES = [m["cot"] for m in COMMODITIES.values()]
 EXTRA_CODES = [m["cot"] for m in COT_EXTRA.values()]
+# Equity indices are TFF contracts like the currencies, so they ride in the same query and the
+# same history file. Best-effort throughout: they must never gate which week is chosen.
+INDEX_CODES = [m["cot"] for m in INDICES.values()]
 _FX_BY_CODE = {m["cot"]: c for c, m in CURRENCIES.items()}
 _CM_BY_CODE = {m["cot"]: s for s, m in COMMODITIES.items()}
 _EXTRA_BY_CODE = {m["cot"]: s for s, m in COT_EXTRA.items()}
+_INDEX_BY_CODE = {m["cot"]: s for s, m in INDICES.items()}
 
 
 def _get(url, tries=3, timeout=60):
@@ -184,7 +192,13 @@ def _map_tff(r):
                                   "asset_mgr_positions_spread", "change_in_asset_mgr_spread"),
             "dealer": _cat(r, "dealer_positions_long_all", "dealer_positions_short_all",
                            "change_in_dealer_long_all", "change_in_dealer_short_all",
-                           "dealer_positions_spread_all", "change_in_dealer_spread_all")}
+                           "dealer_positions_spread_all", "change_in_dealer_spread_all"),
+            # Non-reportable = every account too small to have to report. This is the closest
+            # thing to a RETAIL crowd position that comes from a regulator rather than one
+            # broker's book, and it arrives in the same weekly pull, so sentiment.py needs no
+            # feed of its own. Read contrarian: see sentiment.py.
+            "nonrept": _cat(r, "nonrept_positions_long_all", "nonrept_positions_short_all",
+                            "change_in_nonrept_long_all", "change_in_nonrept_short_all")}
 
 
 def _map_disagg(r):
@@ -198,7 +212,9 @@ def _map_disagg(r):
                              "change_in_prod_merc_long", "change_in_prod_merc_short"),
             "swap": _cat(r, "swap_positions_long_all", "swap__positions_short_all",
                          "change_in_swap_long_all", "change_in_swap_short_all",
-                         "swap__positions_spread_all", "change_in_swap_spread_all")}
+                         "swap__positions_spread_all", "change_in_swap_spread_all"),
+            "nonrept": _cat(r, "nonrept_positions_long_all", "nonrept_positions_short_all",
+                            "change_in_nonrept_long_all", "change_in_nonrept_short_all")}
 
 
 def _socrata_recent(url, codes, days=21):
@@ -214,9 +230,9 @@ def _current_from_socrata():
     """Latest complete weekly report for every tracked contract, from CFTC. Returns
     ({ccy: row}, {sym: row}, {extra_sym: row}, report_date) or raises. `extra` (crypto) is
     best-effort - it never gates which week is chosen."""
-    fx_rows = _socrata_recent(SOCRATA_TFF, FX_CODES + EXTRA_CODES)
+    fx_rows = _socrata_recent(SOCRATA_TFF, FX_CODES + EXTRA_CODES + INDEX_CODES)
     cm_rows = _socrata_recent(SOCRATA_DISAGG, CM_CODES)
-    fx_by, extra_by = {}, {}
+    fx_by, extra_by, idx_by = {}, {}, {}
     for r in fx_rows:
         code = r["cftc_contract_market_code"]
         d = r["report_date_as_yyyy_mm_dd"][:10]
@@ -224,6 +240,8 @@ def _current_from_socrata():
             fx_by.setdefault(d, {})[_FX_BY_CODE[code]] = _map_tff(r)
         elif code in _EXTRA_BY_CODE:
             extra_by.setdefault(d, {})[_EXTRA_BY_CODE[code]] = _map_tff(r)
+        elif code in _INDEX_BY_CODE:
+            idx_by.setdefault(d, {})[_INDEX_BY_CODE[code]] = _map_tff(r)
     cm_by = {}
     for r in cm_rows:
         cm_by.setdefault(r["report_date_as_yyyy_mm_dd"][:10], {})[
@@ -231,13 +249,13 @@ def _current_from_socrata():
     # newest date that has all currencies AND all commodities
     for d in sorted(set(fx_by) & set(cm_by), reverse=True):
         if len(fx_by[d]) == len(CURRENCIES) and len(cm_by[d]) == len(COMMODITIES):
-            return fx_by[d], cm_by[d], extra_by.get(d, {}), d
+            return fx_by[d], cm_by[d], extra_by.get(d, {}), idx_by.get(d, {}), d
     raise RuntimeError("Socrata: no complete recent week for all contracts")
 
 
 def main(prefer="socrata"):
     result = {"fetched_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
-              "currencies": {}, "commodities": {}, "extra": {}, "source": None}
+              "currencies": {}, "commodities": {}, "extra": {}, "indices": {}, "source": None}
     prev_c = {}
     if (DATA / "cot.json").exists():
         try:
@@ -248,16 +266,20 @@ def main(prefer="socrata"):
     # --- primary: CFTC Socrata (one query per report, works from CI) ---
     if prefer == "socrata":
         try:
-            fx, cm, extra, rdate = _current_from_socrata()
+            fx, cm, extra, idx, rdate = _current_from_socrata()
             age = (datetime.date.today() - datetime.date.fromisoformat(rdate)).days
             if age > 12:
                 raise RuntimeError(f"Socrata latest report {rdate} is {age}d old")
             result["currencies"], result["commodities"] = fx, cm
-            result["extra"], result["source"] = extra, "cftc"
+            result["extra"], result["indices"], result["source"] = extra, idx, "cftc"
             for s in COT_EXTRA:
                 g = (extra.get(s) or {}).get("leveraged")
                 if g:
                     print(f"  {s} {rdate} OI {extra[s]['open_interest']:>9,}  lev net {g['net']:+9,} ({g['net_chg']:+,})")
+            for s in INDICES:
+                g = (idx.get(s) or {}).get("leveraged")
+                if g:
+                    print(f"  {s} {rdate} OI {idx[s]['open_interest']:>9,}  lev net {g['net']:+9,} ({g['net_chg']:+,})")
             for c in CURRENCIES:
                 g = fx[c]["leveraged"]
                 print(f"  {c} {rdate} OI {fx[c]['open_interest']:>9,}  lev net {g['net']:+9,} ({g['net_chg']:+,})")
@@ -311,9 +333,11 @@ def main(prefer="socrata"):
     cm_date = next((d.get("report_date") for d in result["commodities"].values()
                     if isinstance(d, dict) and d.get("report_date")), None)
     fx_week = dict(result["currencies"])
-    for s, row in (result.get("extra") or {}).items():           # crypto rides in the FX history file
-        if isinstance(row, dict) and row.get("report_date"):
-            fx_week[s] = row
+    # crypto and the equity indices are TFF contracts too, so they ride in the FX history file
+    for extra_map in ((result.get("extra") or {}), (result.get("indices") or {})):
+        for s, row in extra_map.items():
+            if isinstance(row, dict) and row.get("report_date"):
+                fx_week[s] = row
     _hist_merge(HIST_FX, {fx_date: fx_week})
     _hist_merge(HIST_CMDTY, {cm_date: result["commodities"]})
     print(f"wrote {DATA/'cot.json'}  (+history {fx_date} / {cm_date})")
@@ -370,7 +394,8 @@ def backfill_cftc(years=7):
     since = (datetime.date.today() - datetime.timedelta(days=365 * years + 14)).isoformat()
 
     fx_weeks = {}
-    for name, meta in list(CURRENCIES.items()) + list(COT_EXTRA.items()):
+    for name, meta in (list(CURRENCIES.items()) + list(COT_EXTRA.items())
+                       + list(INDICES.items())):
         rows = _socrata_all(SOCRATA_TFF, meta["cot"], since)
         for r in rows:
             fx_weeks.setdefault(r["report_date_as_yyyy_mm_dd"][:10], {})[name] = _map_tff(r)

@@ -7,6 +7,10 @@ try:
     from config import COT_EXTRA, COT_EXTRA_ORDER
 except ImportError:
     COT_EXTRA, COT_EXTRA_ORDER = {}, []
+try:
+    from config import INDICES, INDEX_ORDER
+except ImportError:                                   # older config - the Indices tab hides itself
+    INDICES, INDEX_ORDER = {}, []
 from template import TEMPLATE
 
 OUT = Path(__file__).parent / "dashboard.html"
@@ -650,6 +654,452 @@ def commodities_block(d):
     return "".join(meter), "".join(cards)
 
 
+# ======================================================================================
+# Add-on tabs. Every one of these follows the same contract: read its own JSON, and if it
+# is missing or unreadable return a short "not built yet" section rather than raising, so a
+# broken feed costs one tab and never the whole page.
+# ======================================================================================
+
+def _load_tab(name):
+    p = DATA / name
+    if not p.exists():
+        return None
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  {name} unreadable ({type(e).__name__}: {e}) - tab degraded")
+        return None
+
+
+def _empty_tab(title, why):
+    return (f'<section><h2>{esc(title)}</h2><p class="sub">{esc(why)}</p></section>')
+
+
+def _safe_panel(fn, title):
+    """Render one add-on panel, turning any exception into a visible note on that tab. The
+    strength board is the thing this page exists for; a new tab must never be able to take
+    it down, and a silently blank tab would be worse than one that says what broke."""
+    try:
+        return fn()
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  {title} panel failed ({type(e).__name__}: {e}) - tab shows the error")
+        return (f'<section><h2>{esc(title)}</h2><p class="sub">This tab failed to render: '
+                f'{esc(type(e).__name__)}: {esc(e)}. The rest of the page is unaffected.</p>'
+                f'</section>')
+
+
+_BCLS = {2: "b2", 1: "b1", 0: "b0", -1: "bm1", -2: "bm2"}
+
+
+def matrix_panel():
+    """The signal matrix - eight currencies against eighteen factors.
+
+    The headline per row stays the WEIGHTED score; the grid adds what the weighted score
+    cannot say, which is whether the factors agree. Rows where they disagree with the score
+    are marked, because that is the whole reason to look at a grid rather than a list.
+    """
+    d = _load_tab("matrix.json")
+    if not d or not d.get("ranked"):
+        return _empty_tab("Signal matrix", "Not built yet - runs at the end of the next refresh.")
+
+    facs = d["factors"]
+    # grouped header: one cell per group spanning its factors
+    gspans, seen = [], None
+    for f in facs:
+        if f["group"] != seen:
+            gspans.append([f["group"], 0])
+            seen = f["group"]
+        gspans[-1][1] += 1
+    ghead = "".join(f'<th class="grp mono" colspan="{n}">{esc(g)}</th>' for g, n in gspans)
+
+    fhead, first_of_group, seen = [], set(), None
+    for f in facs:
+        if f["group"] != seen:
+            first_of_group.add(f["key"])
+            seen = f["group"]
+        sep = " gsep" if f["key"] in first_of_group else ""
+        fhead.append(f'<th class="fac mono{sep}">{esc(f["label"])}</th>')
+
+    rows = []
+    for c in d["ranked"]:
+        r = d["currencies"][c]
+        cells = []
+        for f in facs:
+            v = r["cells"].get(f["key"])
+            b = r["buckets"].get(f["key"])
+            sep = " gsep" if f["key"] in first_of_group else ""
+            if b is None:
+                cells.append(f'<td class="cell bna{sep}" title="{esc(f["label"])}: '
+                             f'no reading">&middot;</td>')
+            else:
+                # "+0" is odd typography for a flat reading - a bare 0 reads better, and
+                # keeps the eye on the cells that actually carry a sign
+                cells.append(f'<td class="cell {_BCLS[b]}{sep}" '
+                             f'title="{esc(f["label"])}: {v:+.1f} on -100..+100">'
+                             f'{b:+d}</td>'.replace(">+0<", ">0<"))
+        # does the factor count point the other way from the weighted score?
+        lean = 1 if r["bull"] > r["bear"] + 2 else (-1 if r["bear"] > r["bull"] + 2 else 0)
+        sc = r["score"] or 0.0
+        split = (lean > 0 and sc <= -5) or (lean < 0 and sc >= 5)
+        rows.append(
+            f'<tr class="{"mxsplit" if split else ""}">'
+            f'<td class="mxccy">{esc(c)}</td>'
+            f'<td class="mxbias"><span class="pill {esc(r["cls"] or "neu")}">'
+            f'{esc(r["rating"] or "n/a")}</span></td>'
+            f'<td class="mxsc {"pos" if sc >= 0 else "neg"}">{sc:+.1f}</td>'
+            f'<td class="mxconf"><span class="pos">{r["bull"]}</span>/'
+            f'<span class="neg">{r["bear"]}</span>'
+            f'<span class="mut"> of {r["covered"]}</span></td>'
+            + "".join(cells) + "</tr>")
+
+    con = d.get("consensus") or {}
+    stats = f"""
+    <div class="stats">
+      <div class="stat"><span class="k">Strongest</span>
+        <span class="v mono pos">{esc(d.get("strongest") or "&mdash;")}</span>
+        <span class="s">{(d["currencies"].get(d.get("strongest"), {}).get("score") or 0):+.1f} composite</span></div>
+      <div class="stat"><span class="k">Weakest</span>
+        <span class="v mono neg">{esc(d.get("weakest") or "&mdash;")}</span>
+        <span class="s">{(d["currencies"].get(d.get("weakest"), {}).get("score") or 0):+.1f} composite</span></div>
+      <div class="stat"><span class="k">G8 consensus</span>
+        <span class="v mono">{con.get("bull", 0)} bull &middot; {con.get("bear", 0)} bear</span>
+        <span class="s">{con.get("neutral", 0)} neutral of {con.get("of", 0)}</span></div>
+      <div class="stat"><span class="k">Score spread</span>
+        <span class="v mono">{d.get("spread") if d.get("spread") is not None else "&mdash;"} pts</span>
+        <span class="s">{esc(d.get("strongest") or "")} over {esc(d.get("weakest") or "")}</span></div>
+    </div>"""
+
+    legend = ('<div class="mxlegend">'
+              '<span><b class="b2">+2</b>strong</span>'
+              '<span><b class="b1">+1</b>mild</span>'
+              '<span><b class="b0">0</b>flat</span>'
+              '<span><b class="bm1">&minus;1</b>mild</span>'
+              '<span><b class="bm2">&minus;2</b>strong</span>'
+              '<span><b class="bna">&middot;</b>no reading</span>'
+              '<span style="border-left:3px solid var(--warn);padding-left:7px">'
+              'factors disagree with the score</span>'
+              '</div>')
+
+    return f"""
+  <section>
+    <h2>Signal matrix <span class="mut" style="font-weight:400;font-size:14px">&mdash; 8
+      currencies &times; 18 factors</span></h2>
+    <p class="sub">Every factor is on the same &minus;100..+100 scale as the rest of the desk,
+    bucketed to &plusmn;2 for colour only &mdash; <b>hover any cell for its real value</b>.
+    The <b>Score</b> column is the desk's weighted score (news&nbsp;0.40, fundamentals&nbsp;0.25,
+    COT&nbsp;0.15 &hellip; the weights the backtests actually established) and is the number to
+    trade off. The column beside it counts how many factors lean each way, which is what a grid
+    is for and what a single score cannot tell you: <em>agreement</em>. A row marked on the left
+    is one where the factors lean one way and the weighted score the other &mdash; usually one
+    heavy input outvoting many light ones, and worth opening the breakdown card for.
+    A dot is <em>no reading</em>, not a neutral one.</p>
+    {stats}
+    {legend}
+    <div class="mxwrap"><table class="mx">
+      <thead>
+        <tr><th class="grp" colspan="4"></th>{ghead}</tr>
+        <tr><th class="fac" style="text-align:left">Ccy</th><th class="fac" style="text-align:left">Bias</th>
+            <th class="fac" style="text-align:right">Score</th>
+            <th class="fac" style="text-align:right">Bull/bear</th>{"".join(fhead)}</tr>
+      </thead>
+      <tbody>{"".join(rows)}</tbody>
+    </table></div>
+    <p class="mnote">Modelled on the terminal layout, with one deliberate difference: that
+    design scores each factor as a discrete &plusmn;2 and takes the plain <em>sum</em>, so every
+    factor is weighted equally on a &plusmn;36 scale. It reads well and it is worse &mdash; it
+    gives seasonality the same vote as CPI, and it collapses a 0.1% inflation beat and a 1.0%
+    beat into one cell. The grid and the colour buckets are kept; the headline stays weighted.</p>
+  </section>"""
+
+
+def yields_panel():
+    """Policy-relevant yields: 2y, 10y, the curve, the real yield and the differentials."""
+    d = _load_tab("yields.json")
+    if not d or not d.get("currencies"):
+        return _empty_tab("Yields & spreads", "Not built yet - runs on the next refresh.")
+    rows = []
+    order = d.get("ranked") or list(d["currencies"])
+    for c in order:
+        r = d["currencies"][c]
+        f = lambda v, p=2: (f"{v:.{p}f}" if v is not None else '<span class="mut">&mdash;</span>')
+        inv = ' class="inv"' if r.get("inverted") else ""
+        sc = r.get("score")
+        curve_cls = "neg" if r.get("inverted") else ""
+        rows.append(
+            f"<tr{inv}><td class='pr'>{esc(c)}</td>"
+            f"<td class='mono num'>{f(r.get('y2'))}</td>"
+            f"<td class='mono num'>{f(r.get('y10'))}</td>"
+            f"<td class='mono num {curve_cls}'>{f(r.get('curve'))}"
+            + (' <span class="chip warn">inverted</span>' if r.get("inverted") else "")
+            + f"</td><td class='mono num mut'>{f(r.get('cpi'), 1)}</td>"
+            f"<td class='mono num'>{f(r.get('real10'))}</td>"
+            f"<td class='mono num'>{f(r.get('y2_vs_usd'))}</td>"
+            f"<td class='mono num'>{f(r.get('real10_vs_usd'))}</td>"
+            f"<td class='mono num {'pos' if (sc or 0) >= 0 else 'neg'}'>"
+            + (f"{sc:+.1f}" if sc is not None else '<span class="mut">&mdash;</span>')
+            + "</td></tr>")
+    inverted = [c for c in d["currencies"] if d["currencies"][c].get("inverted")]
+    warn = (f'<p class="mnote warn"><b>Inverted:</b> {", ".join(inverted)} &mdash; the market '
+            f'is pricing a slowdown and eventual cuts in {"these" if len(inverted) > 1 else "this"} '
+            f'{"economies" if len(inverted) > 1 else "economy"}.</p>') if inverted else ""
+    hist = d.get("hist_days", 0)
+    momnote = ("" if hist > d.get("mom_days", 20) else
+               f'<p class="mnote">Front-end momentum needs {d.get("mom_days", 20) + 1} days of '
+               f'history and has {hist} &mdash; that leg is held at zero until it fills, rather '
+               f'than estimated.</p>')
+    return f"""
+  <section>
+    <h2>Yields &amp; spreads <span class="mut" style="font-weight:400;font-size:14px">&mdash;
+      carry, curve and real return</span></h2>
+    <p class="sub">Rate differentials are the most established driver in FX, and the
+    <b>2-year</b> is the part that moves spot &mdash; it prices the policy path the market
+    actually expects, where the 10-year carries term premium as well. <b>Curve</b> is 10y minus
+    2y; negative is an inversion. <b>Real</b> is the 10-year minus headline CPI: a high nominal
+    yield with inflation above it is not a reason to own a currency. EUR is the German bund and
+    CHF the Swiss confederation bond. Score blends the front-end differential (0.45), the real
+    yield (0.35) and front-end momentum (0.20), each measured against the board average rather
+    than against the dollar alone, so it stays centred like the rest of the desk.</p>
+    {warn}{momnote}
+    <div class="tw"><table>
+      <thead><tr><th>Ccy</th><th class="num">2y</th><th class="num">10y</th>
+        <th class="num">Curve</th><th class="num">CPI</th><th class="num">Real 10y</th>
+        <th class="num">2y vs USD</th><th class="num">Real vs USD</th>
+        <th class="num">Score</th></tr></thead>
+      <tbody>{"".join(rows)}</tbody>
+    </table></div>
+    <p class="mnote">Yields and CPI from TradingView (TVC benchmarks, ECONOMICS inflation
+    series), read {esc(d.get("asof") or "n/a")}. The real yield here is nominal minus headline
+    CPI &mdash; the ex-post figure. The textbook version is the inflation-linked yield, but that
+    lives on FRED, which does not answer from this machine or reliably from CI; the ex-post
+    figure needs no second feed and moves with the same signal.</p>
+  </section>"""
+
+
+def sentiment_panel():
+    """Retail crowd positioning, read contrarian."""
+    d = _load_tab("sentiment.json")
+    if not d or not d.get("instruments"):
+        return _empty_tab("Retail sentiment", "Not built yet - runs on the next refresh.")
+    rows = []
+    order = d.get("ranked") or list(d["instruments"])
+    for k in order:
+        r = d["instruments"][k]
+        lp, sp = r.get("long_pct"), r.get("short_pct")
+        bar = ""
+        if lp is not None:
+            bar = (f'<span class="pbar" title="retail {lp:.0f}% long / {sp:.0f}% short">'
+                   f'<i class="pfill pos" style="width:{lp:.0f}%"></i></span>')
+        state = r.get("state")
+        chip = (f' <span class="chip {"neg" if "long" in state else "ok"}">{esc(state)}</span>'
+                if state else "")
+        sc = r.get("score")
+        p = r.get("pctl_3y")
+        rows.append(
+            f"<tr><td class='pr'>{esc(k)}<span class='cnm'>{esc(r.get('name',''))}</span></td>"
+            f"<td>{bar}</td>"
+            f"<td class='mono num'>{lp:.0f}%</td><td class='mono num mut'>{sp:.0f}%</td>"
+            f"<td class='mono num'>{r['net_pct_oi']:+.2f}%</td>"
+            f"<td class='mono num'>"
+            + (f"{p}<span class='mut'>th</span>" if p is not None
+               else f"<span class='mut'>{r['weeks']}w</span>")
+            + f"</td><td class='mono num'>"
+            + (f"{r['flow_pp']:+.2f}" if r.get("flow_pp") is not None else "&mdash;")
+            + f"</td><td class='mono num {'pos' if (sc or 0) >= 0 else 'neg'}'>"
+            + (f"{sc:+.1f}" if sc is not None else "&mdash;") + f"{chip}</td></tr>")
+    crowded = d.get("crowded") or []
+    lead = ""
+    if crowded:
+        bits = []
+        for k in crowded:
+            r = d["instruments"][k]
+            side = "long" if "long" in (r.get("state") or "") else "short"
+            bits.append(f"<b>{esc(k)}</b> &mdash; retail {r['long_pct']:.0f}% long, "
+                        f"{r['pctl_3y']}th percentile of the last 3 years, crowded {side}")
+        lead = ('<div class="fwlead"><p>' + "</p><p>".join(bits) + "</p>"
+                '<p class="mnote">Read against the crowd, not with it &mdash; that is the whole '
+                'point of the column.</p></div>')
+    return f"""
+  <section>
+    <h2>Retail sentiment <span class="mut" style="font-weight:400;font-size:14px">&mdash;
+      the crowd, read backwards</span></h2>
+    <p class="sub">Small traders are, on average and <em>at the extremes</em>, on the wrong side
+    &mdash; so this score is <b>inverted</b>: a crowded retail long scores negative for the
+    instrument. The number is the CFTC's <b>non-reportable</b> column: every account too small
+    to have to file, across the whole regulated futures market, published weekly by the
+    regulator. That is a better measure than the usual retail-sentiment sources (Myfxbook,
+    DailyFX/IG) on every axis except one &mdash; those describe a single broker's book, this
+    describes the market. Its real limitation is cadence: <b>Tuesday data published Friday</b>,
+    so this is a weekly picture, not a live one. &ldquo;Crowded&rdquo; means crowded against
+    <em>this contract's own</em> 3-year range, not some universal threshold.</p>
+    {lead}
+    <div class="tw"><table>
+      <thead><tr><th>Instrument</th><th>Long / short</th><th class="num">Long</th>
+        <th class="num">Short</th><th class="num">Net %OI</th><th class="num">3y pctl</th>
+        <th class="num">Wk flow</th><th class="num">Score</th></tr></thead>
+      <tbody>{"".join(rows)}</tbody>
+    </table></div>
+    <p class="mnote">Week of {esc(d.get("report_date") or "n/a")}. The score is flat between
+    the 20th and 80th percentile and only ramps near the edges &mdash; positioning is
+    contrarian at extremes and noise in the middle, which is what the FX backtest already
+    found for the speculative side.</p>
+  </section>"""
+
+
+_SEAS_MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+
+def seasonality_panel():
+    """Monthly seasonal bias, de-meaned so a trending instrument does not read bullish
+    in all twelve months."""
+    d = _load_tab("seasonality.json")
+    if not d or not d.get("instruments"):
+        return _empty_tab("Seasonality", "Not built yet - runs on the next weekly refresh.")
+    cur = d.get("month")
+    inst = d["instruments"]
+    # widest excess in the table sets the bar scale, so the column is comparable across rows
+    span = max([abs(m.get("excess") or 0) for v in inst.values() for m in v.get("months", [])]
+               or [1.0]) or 1.0
+
+    def cell(m):
+        ex = m.get("excess")
+        if ex is None or not m.get("n"):
+            return '<td class="mo mut">&middot;</td>'
+        w = max(3, round(abs(ex) / span * 22))
+        col = "var(--pos)" if ex >= 0 else "var(--neg)"
+        star = ' <span class="starred" title="clears the reliability bar">*</span>' if m.get("reliable") else ""
+        klass = "mo cur" if m["month"] == cur else "mo"
+        title = (f"{m['month']}: {ex:+.2f}% excess (raw {m.get('raw'):+.2f}%), "
+                 f"hit {m.get('hit')}% of {m['n']} years, t={m.get('t'):+.2f}"
+                 + (" - tail-driven" if m.get("tail_driven") else ""))
+        return (f'<td class="{klass}" title="{esc(title)}">'
+                f'<span class="seasbar" style="width:{w}px;background:{col}"></span><br>'
+                f'<span class="{"pos" if ex >= 0 else "neg"}">{ex:+.1f}</span>{star}</td>')
+
+    def block(kind, title, note):
+        keys = [k for k, v in inst.items() if v.get("kind") == kind]
+        keys.sort(key=lambda k: -abs((inst[k].get("this_month") or {}).get("excess") or 0))
+        if not keys:
+            return ""
+        rows = []
+        for k in keys:
+            v = inst[k]
+            tm = v.get("this_month") or {}
+            sc = v.get("score")
+            flags = ""
+            if tm.get("tail_driven"):
+                flags = ' <span class="chip warn" title="a strong average produced by a few big years, not most of them">tail-driven</span>'
+            if v.get("stale"):
+                flags += ' <span class="chip warn">cached</span>'
+            rows.append(
+                f"<tr><td class='pr'>{esc(k)}{flags}</td>"
+                f"<td class='mono num {'pos' if (sc or 0) >= 0 else 'neg'}'>"
+                + (f"{sc:+.0f}" if sc is not None else "&mdash;") + "</td>"
+                + "".join(cell(m) for m in v.get("months", [])) + "</tr>")
+        return f"""
+    <h3 style="font-size:15px;margin:18px 0 0">{esc(title)}</h3>
+    <p class="mnote">{note}</p>
+    <div class="tw"><table class="seas">
+      <thead><tr><th>{esc(kind.title())}</th><th class="num">{esc(cur)} score</th>
+      {"".join(f'<th class="num">{m}</th>' for m in _SEAS_MONTHS)}</tr></thead>
+      <tbody>{"".join(rows)}</tbody></table></div>"""
+
+    return f"""
+  <section>
+    <h2>Seasonality <span class="mut" style="font-weight:400;font-size:14px">&mdash; 15 years,
+      drift removed</span></h2>
+    <p class="sub">Each cell is that month's <b>excess</b> return: the month's average minus
+    the instrument's <em>own</em> average month over the same fifteen years. That subtraction is
+    the whole point. On raw numbers the S&amp;P has risen for fifteen years, so every one of its
+    twelve months looks bullish and the table says nothing; excess asks the question seasonality
+    is actually meant to ask &mdash; <em>this</em> month against a normal month for
+    <em>this</em> instrument. <b>Hover any cell</b> for the raw figure, hit rate, sample size
+    and t-statistic. A <span class="starred">*</span> marks |t|&nbsp;&ge;&nbsp;1.8 on the excess.
+    The current month is outlined.</p>
+    <p class="mnote warn"><b>Read the stars with suspicion.</b> This table runs 408 tests
+    (34 instruments &times; 12 months), so a handful of them clear that bar by chance alone. A
+    seasonal is a reason to look at something, never a reason to trade it on its own &mdash;
+    and a <em>tail-driven</em> month pays on average out of a few big years rather than in most
+    of them, which changes how you would size it.</p>
+    {block("fx", "Currency pairs", "28 crosses of the eight majors, quoted the way the market quotes them.")}
+    {block("commodity", "Metals &amp; energy", "Front-month futures &mdash; the same contracts the commodity track scores.")}
+    {block("index", "Equity indices", "The clearest seasonal pattern on the desk, which is why it earns a scoring leg on the Indices tab and not on the FX board.")}
+  </section>"""
+
+
+def indices_panel():
+    """The equity-index track - same shape as the commodity section, own weights."""
+    d = _load_tab("indices.json")
+    if not d or not d.get("ranked"):
+        return _empty_tab("Indices", "Not built yet - runs on the next refresh.")
+    W = d.get("weights") or {}
+    meter, cards = [], []
+    for s in d["ranked"]:
+        r = d["indices"][s]
+        chips = ""
+        if r.get("crowded"):
+            chips += ' <span class="chip warn">crowded</span>'
+        if r.get("thin"):
+            chips += (' <span class="chip warn" title="micro contract, ~43k open interest - '
+                      'the positioning legs are weak evidence here">thin contract</span>')
+        read = r.get("read") or {}
+        meter.append(f"""
+      <div class="mrow">
+        <div class="mccy">{esc(s)}<span class="mname">{esc(INDICES[s]['name'])}</span></div>
+        {bar(r['score'])}
+        <div class="mscore {'pos' if r['score'] >= 0 else 'neg'}">{r['score']:+.1f}</div>
+        <div class="mrate"><span class="pill {esc(r['cls'])}">{esc(r['rating'])}</span>{chips}</div>
+      </div>
+      <p class="readline {esc(read.get('cls', 'neu'))}">{esc(read.get('label', ''))}</p>""")
+
+        crows = []
+        for k in ("trend", "cot", "oi", "seasonality", "overlay"):
+            v = r["parts"].get(k, 0.0)
+            con = r["contrib"].get(k, 0.0)
+            crows.append(
+                f"""<div class="crow"><div class="clab"><span>{esc(k.title())}</span>
+                <span class="cw">{W.get(k, 0)*100:.0f}%</span></div>
+                {bar(v)}<div class="cval {'pos' if v >= 0 else 'neg'}">{v:+.0f}</div>
+                <div class="ccon">{con:+.1f}</div></div>""")
+        if r.get("cot_adj"):
+            crows.append(f"""<div class="crow"><div class="clab"><span>COT extreme pull</span>
+                <span class="cw">after</span></div>{bar(0)}
+                <div class="cval mut">&mdash;</div>
+                <div class="ccon">{r['cot_adj']:+.1f}</div></div>""")
+        notes = "".join(f"<p>{esc(r['legs'][k].get('note', ''))}</p>"
+                        for k in ("trend", "cot", "oi", "seasonality", "overlay")
+                        if r["legs"].get(k, {}).get("note"))
+        cards.append(f"""
+      <div class="card">
+        <div class="chead"><div><span class="cccy">{esc(s)}</span>
+          <span class="cnm">{esc(INDICES[s]['name'])}</span></div>
+          <div class="cbig {'pos' if r['score'] >= 0 else 'neg'}">{r['score']:+.1f}</div></div>
+        <div class="comp">{"".join(crows)}</div>
+        <div class="detail"><div class="dblock"><h4>Legs</h4>{notes}</div></div>
+      </div>""")
+
+    return f"""
+  <section>
+    <h2>Indices <span class="mut" style="font-weight:400;font-size:14px">&mdash; S&amp;P 500,
+      Nasdaq 100, Dow</span></h2>
+    <p class="sub">A third track, separate from the currency board for the same reason
+    commodities are: an index is an outright directional bet with a strong upward drift, not a
+    relative call against a peer, so it must not sit in the currency centring or the pair
+    ranking. Blend is trend&nbsp;0.40, CFTC Leveraged Funds&nbsp;0.20, open interest&nbsp;0.10,
+    <b>seasonality&nbsp;0.15</b> &mdash; equities have the clearest seasonal pattern on this desk,
+    which is why it earns a leg here and nowhere else &mdash; and a manual overlay&nbsp;0.15 held
+    at neutral until set. <b>Real yields are deliberately not a leg</b>: the link is real, but
+    the trend leg already carries most of what a yield shock does to an index, and a second leg
+    moving with the same shock would let one macro event hit the score twice.</p>
+    <div class="meter">{"".join(meter)}</div>
+    <div class="grid">{"".join(cards)}</div>
+    <p class="mnote">COT {esc(d.get("cot_report_date") or "n/a")}, prices to
+    {esc(d.get("price_asof") or "n/a")}. The Dow trades as the <em>micro</em> e-mini in the
+    CFTC report &mdash; about 43k open interest against the S&amp;P's 2m &mdash; so its
+    positioning legs are thinner and noisier than the other two, and its row says so.</p>
+  </section>"""
+
+
 def build():
     d = json.loads((DATA / "scores.json").read_text(encoding="utf-8"))
     now = dt.datetime.now(dt.timezone.utc)
@@ -828,6 +1278,16 @@ def build():
         "{{COT_PANEL}}": cot_panel(), "{{OI_PANEL}}": oi_panel(),
         "{{MACRO_PANEL}}": macro_panel(), "{{MICRO_PANEL}}": micro_panel(),
         "{{FEDWATCH_PANEL}}": fedwatch_panel(),
+        # Add-on tabs. Each builder already degrades to a short "not built yet" section on a
+        # missing file, but wrap them anyway: a rendering bug in one new tab must not be able
+        # to stop the page that carries the strength board from being written at all.
+        **{k: _safe_panel(fn, name) for k, fn, name in (
+            ("{{MATRIX_PANEL}}", matrix_panel, "Signal matrix"),
+            ("{{YIELDS_PANEL}}", yields_panel, "Yields & spreads"),
+            ("{{SENTIMENT_PANEL}}", sentiment_panel, "Retail sentiment"),
+            ("{{SEASONALITY_PANEL}}", seasonality_panel, "Seasonality"),
+            ("{{INDICES_PANEL}}", indices_panel, "Indices"),
+        )},
     }.items():
         html = html.replace(k, str(v))
     OUT.write_text(html, encoding="utf-8")

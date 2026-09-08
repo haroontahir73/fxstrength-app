@@ -1351,5 +1351,27 @@
   "outcome": "loss",
   "talk": false,
   "at": "2026-09-08T02:51:02.943246+00:00"
+ },
+ {
+  "id": "2026-09-08T04:30:17.216799+00:00|GOLD",
+  "cat": "inflation_hot",
+  "instr": "GOLD",
+  "dir": "down",
+  "strength": 2,
+  "chg": -0.986,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-09-08T04:30:17.216799+00:00"
+ },
+ {
+  "id": "2026-09-08T04:30:17.216799+00:00|SILVER",
+  "cat": "inflation_hot",
+  "instr": "SILVER",
+  "dir": "down",
+  "strength": 2,
+  "chg": -1.693,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-09-08T04:30:17.216799+00:00"
  }
 ]

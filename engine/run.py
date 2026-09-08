@@ -14,6 +14,7 @@ from config import DATA
 
 import fetch_cot, fetch_calendar, fetch_oi, fetch_rates, rate_expectations, speakers, fundamentals, score, build_dashboard
 import fetch_prices, fetch_fx_prices, commodities, fedwatch
+import fetch_index_prices, yields, seasonality, sentiment, indices, matrix
 
 STATE = DATA / "state.json"
 
@@ -35,12 +36,14 @@ def bootstrap():
 
 
 def _heal_cot_history():
-    """One-shot top-up when the COT history predates a schema change - specifically the
-    crypto contracts (config.COT_EXTRA) and the spreading column, both added 2026-09-06.
+    """One-shot top-up when the COT history predates a schema change - the crypto contracts
+    (config.COT_EXTRA) and the spreading column, both added 2026-09-06, and the Swiss franc
+    plus the non-reportable (retail) column, added 2026-09-08 for the Sentiment tab.
     The cloud restores cot_history.json from an actions/cache that can be older than the
-    code, so without this the COT tab would miss BTC/ETH and Spread until the next weekly
-    `cot` run. Cheap check; the backfill only runs while the history is genuinely short,
-    then this no-ops on every future run."""
+    code, so without this the COT tab would miss BTC/ETH and Spread, and the Sentiment tab
+    would have no percentile to measure against, until the next weekly `cot` run. Cheap
+    check; the backfill only runs while the history is genuinely short, then this no-ops on
+    every future run."""
     try:
         from config import COT_EXTRA_ORDER
     except ImportError:
@@ -59,10 +62,16 @@ def _heal_cot_history():
     crypto_ok = (not COT_EXTRA_ORDER) or all(
         all(s in hist.get(w, {}) for s in COT_EXTRA_ORDER) for w in recent)
     spread_ok = "spread" in ((hist.get(weeks[-1], {}).get("EUR") or {}).get("leveraged") or {})
-    if crypto_ok and spread_ok:
+    # The sentiment percentile wants 3 years of non-reportable history, so check a week well
+    # back, not just the newest - a fresh weekly fetch would satisfy a last-week-only test
+    # while leaving the percentile with a handful of observations.
+    deep = weeks[max(0, len(weeks) - 130)]
+    retail_ok = bool((hist.get(deep, {}).get("EUR") or {}).get("nonrept"))
+    chf_ok = all("CHF" in hist.get(w, {}) for w in recent)
+    if crypto_ok and spread_ok and retail_ok and chf_ok:
         return
-    print(f"  COT history predates crypto/spread (crypto_ok={crypto_ok} spread_ok={spread_ok})"
-          f" - backfilling 3y from CFTC")
+    print(f"  COT history predates crypto/spread/retail/CHF (crypto={crypto_ok} "
+          f"spread={spread_ok} retail={retail_ok} chf={chf_ok}) - backfilling 3y from CFTC")
     try:
         fetch_cot.backfill_cftc(3)
     except Exception as e:
@@ -154,6 +163,39 @@ def run(mode):
         fetch_prices.main()
     except Exception as e:
         print(f"  fetch_prices failed ({type(e).__name__}: {e}) - keeping cached")
+    try:
+        fetch_index_prices.main()
+    except Exception as e:
+        print(f"  fetch_index_prices failed ({type(e).__name__}: {e}) - keeping cached")
+
+    # Every block below is an ADD-ON TAB. Each one is wrapped on its own so that a single bad
+    # feed costs its own tab and nothing else - the strength board must always rebuild. Each
+    # panel degrades to its last good JSON, or hides itself, without help from here.
+    print("Yields:")
+    try:
+        yv = yields.build()
+        print("  " + "  ".join(f"{c} {yv['currencies'][c]['y2']:.2f}/{yv['currencies'][c]['y10']:.2f}"
+                               for c in yv["ranked"][:4]
+                               if yv["currencies"][c]["y2"] is not None))
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  yields failed ({type(e).__name__}: {e}) - tab left as-is")
+
+    # Seasonality is 15 years of history for 34 instruments; it self-caches for a week and
+    # only actually refetches on a `cot` run, so the daily pass costs one file read.
+    print("Seasonality:")
+    try:
+        seasonality.build(force=(mode == "cot"))
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  seasonality failed ({type(e).__name__}: {e}) - tab left as-is")
+
+    print("Retail sentiment:")
+    try:
+        sv = sentiment.build()
+        crowded = sv.get("crowded") or []
+        print(f"  {len(sv['instruments'])} instruments"
+              + (f"; crowded: {', '.join(crowded)}" if crowded else "; none crowded"))
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  sentiment failed ({type(e).__name__}: {e}) - tab left as-is")
 
     print("Scores:")
     s = score.build()
@@ -170,6 +212,25 @@ def run(mode):
             print(f"  {sym} {d['score']:+6.1f}  {d['rating']}")
     except Exception as e:
         print(f"  commodities.build failed ({type(e).__name__}: {e}) - section left as-is")
+
+    print("Indices:")
+    try:
+        iv = indices.build()
+        for sym in iv["ranked"]:
+            d = iv["indices"][sym]
+            print(f"  {sym} {d['score']:+6.1f}  {d['rating']}")
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  indices.build failed ({type(e).__name__}: {e}) - tab left as-is")
+
+    # The matrix reads the files every other module just wrote, so it goes last.
+    print("Signal matrix:")
+    try:
+        mx = matrix.build()
+        con = mx["consensus"]
+        print(f"  {con['bull']} bull / {con['bear']} bear / {con['neutral']} neutral of "
+              f"{con['of']}; spread {mx['spread']} ({mx['strongest']} over {mx['weakest']})")
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  matrix.build failed ({type(e).__name__}: {e}) - tab left as-is")
 
     build_dashboard.build()
 

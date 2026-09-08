@@ -364,6 +364,12 @@ backtest.py         lagged forward-return backtest of the COT leg (caches COT hi
 backtest_blend.py   forward-return backtest of the WHOLE signal, component by component
 backtest_cot_levels.py  walk-forward test of the proven-recurring-level read
 news_watch.py       breaking-news -> ntfy phone alert (its own 15-min workflow)
+yields.py           2y/10y benchmarks, curve, real yield, differentials  -> Yields tab
+seasonality.py      15y monthly seasonal bias, drift removed             -> Seasonality tab
+sentiment.py        retail crowd from CFTC non-reportable, contrarian    -> Sentiment tab
+indices.py          the S&P / Nasdaq / Dow track                         -> Indices tab
+fetch_index_prices.py  index daily closes from Yahoo (feeds indices.py)
+matrix.py           8 currencies x 18 factors, the agreement grid        -> Matrix tab
 build_dashboard.py  renders dashboard.html
 template.py         the HTML shell
 run.py              pipeline runner
@@ -371,6 +377,56 @@ auto.py             change detection - what the scheduler calls
 refresh.cmd         scheduled-task wrapper
 data/               fetched JSON, manual overrides, state, log
 ```
+
+## The add-on tabs
+
+Five tabs added 2026-09-08, each with its own module and its own JSON. Every one is wrapped
+so that a bad feed costs that tab and nothing else — the strength board must always rebuild.
+
+**Matrix** — the eight currencies against eighteen factors, colour-bucketed to ±2. Modelled
+on a commercial terminal's layout, with one deliberate difference. That design scores each
+factor as a discrete ±2 and takes the plain **sum**, so all eighteen are weighted equally on a
+±36 scale. It reads well and it is worse: it gives seasonality the same vote as CPI, and it
+collapses a 0.1% inflation beat and a 1.0% beat into one cell. Here the grid and the buckets
+are kept, every cell carries its real continuous value on hover, and the headline stays the
+**weighted** score. What the grid adds that the score cannot is *agreement* — a +12 built from
+fifteen mildly bullish factors is a different trade from a +12 built from one huge news
+surprise against a bearish everything-else. Rows where the factor count and the weighted score
+disagree are marked.
+
+**Yields** — 2y and 10y benchmarks, the curve, the ex-post real yield and the differentials.
+The front end leads the blend because it prices the policy path rather than term premium. EUR
+is the German bund, CHF the Swiss confederation bond. Source is TradingView's scanner symbol
+endpoint. FRED would be the textbook source for real yields and breakevens but it does not
+answer from this machine or reliably from CI, so the real yield is nominal minus headline CPI.
+
+**Seasonality** — fifteen years of monthly returns per pair, metal and index. The headline
+figure is the **excess**: the month's average minus that instrument's *own* average month.
+That subtraction is the whole module. On raw numbers the S&P has risen for fifteen years, so
+every one of its twelve months looks bullish and the table says nothing. Reliability is a
+t-test on the excess at |t| ≥ 1.8 — an earlier cut also demanded a hit rate decisively off
+50% and that was wrong, because it deleted the September equity swoon, which is a large
+negative mean out of a few severe years with a coin-flip median. Those are flagged
+`tail_driven` instead. The tab runs 408 tests, which it says on the page.
+
+**Sentiment** — retail crowd positioning, read backwards. The number is the CFTC's
+**non-reportable** column: every account too small to have to file, across the whole regulated
+futures market. Better than Myfxbook or DailyFX/IG on every axis except cadence — those
+describe one broker's book, this describes the market, but it is Tuesday data published
+Friday. Arrives free in the COT pull `fetch_cot.py` already makes. Scored flat through the
+middle of the 3-year range and only ramping near the edges, because positioning is contrarian
+at extremes and noise in between.
+
+**Indices** — S&P 500, Nasdaq 100, Dow, on the same footing as the commodity track and for
+the same reason. Seasonality earns a 0.15 leg here and nowhere else, because equities have the
+clearest seasonal pattern on the desk. Real yields are deliberately **not** a leg: the link is
+real, but the trend leg already carries most of what a yield shock does to an index, and a
+second leg moving with the same shock would let one macro event hit the score twice. The Dow
+trades as the *micro* e-mini in the CFTC report (~43k open interest against the S&P's 2m), so
+its positioning legs are thin and the row says so.
+
+CHF joined the currency board at the same time, taking it to eight — config, calendar country
+map, policy rates and the COT history all had to learn about it.
 
 ## Commodities
 
