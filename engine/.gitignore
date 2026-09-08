@@ -93,3 +93,4 @@ data/fred.json
 # THE API KEY. Never commit this - the repo is public. CI supplies it as the FRED_API_KEY
 # repo secret instead; this file is the local-only alternative.
 data/fred_key.txt
+data/_bt_bars.json

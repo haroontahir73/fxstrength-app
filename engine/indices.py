@@ -11,11 +11,12 @@ Legs (INDEX_WEIGHTS below):
   cot          CFTC Leveraged Funds net as a share of open interest (60) + weekly flow (40).
                The TFF report, so this is the same speculative category the FX board uses.
   oi           open-interest change read against the direction of that flow
-  seasonality  this month's EXCESS return over a normal month for this index, from
-               seasonality.py. Equities have the clearest and best-documented seasonal
-               pattern of anything on this desk, which is why it earns a leg here and not on
-               the FX board.
   overlay      judgment - earnings, breadth, policy, positioning - held at a true 0 until set
+
+NO SEASONALITY LEG. It had 0.15 here, on the reasoning that equities have the clearest
+seasonal pattern on the desk. That reasoning was textbook and wrong: measured walk-forward
+over 15 years and 32 instruments it is INVERTED (hit 47.5%, t -3.50, n 3131). Removed from
+every score on 2026-09-09. The tab remains as reference, labelled with that result.
 
 WHY REAL YIELDS ARE NOT A LEG. Rising real yields compress equity multiples; that link is
 real and yields.py now computes the number. It is deliberately left OUT of the score and
@@ -38,12 +39,15 @@ OUT = DATA / "indices.json"
 CROWDED = 0.35
 THIN_OI = 100_000          # below this the positioning legs get a "thin contract" note
 
+# Seasonality was a 0.15 leg here until backtest_factors.py measured it: walk-forward over
+# 15 years and 32 instruments it is INVERTED - hit 47.5%, t -3.50, n 3131. Trading it loses,
+# and not marginally. It is out of every score. The tab stays as reference, clearly labelled.
+# Its weight went to trend and overlay, which keeps the blend summing to 1.0.
 INDEX_WEIGHTS = {
-    "trend":       0.40,
+    "trend":       0.45,
     "cot":         0.20,
     "oi":          0.10,
-    "seasonality": 0.15,
-    "overlay":     0.15,
+    "overlay":     0.25,
 }
 
 OVERLAY_INDICATORS = {
@@ -137,20 +141,6 @@ def _trend_leg(px):
                     f"20-day {mom*100:+.1f}%, last 5-day {chg_5d*100:+.1f}%"}
 
 
-def _seasonality_leg(sym, seas):
-    d = (seas.get("instruments") or {}).get(sym) or {}
-    tm = d.get("this_month") or {}
-    if d.get("score") is None:
-        return {"score": 0.0, "note": "no seasonal statistics yet"}
-    tail = " - tail-driven, pays on average not most years" if tm.get("tail_driven") else ""
-    weak = "" if tm.get("reliable") else " (below the reliability bar, scored at half)"
-    return {"score": d["score"],
-            "excess": tm.get("excess"), "hit": tm.get("hit"), "t": tm.get("t"),
-            "n": tm.get("n"), "reliable": tm.get("reliable", False),
-            "note": f"{seas.get('month')}: {tm.get('excess'):+.2f}% excess over a normal month, "
-                    f"hit {tm.get('hit')}% of {tm.get('n')} years, t={tm.get('t'):+.2f}"
-                    f"{weak}{tail}"}
-
 
 def _overlay_leg(sym, manual):
     m = manual.get(sym, {})
@@ -179,7 +169,6 @@ def _overlay_leg(sym, manual):
 def build():
     cot = _load(DATA / "cot.json", {})
     px = _load(DATA / "prices_index.json", {"symbols": {}})
-    seas = _load(DATA / "seasonality.json", {})
     manual = _load_manual()
     hist = _load(DATA / "cot_history.json", {})       # indices ride in the FX history file
 
@@ -196,7 +185,6 @@ def build():
         c = (cot.get("indices") or {}).get(sym, {})
         p = (px.get("symbols") or {}).get(sym, {})
         legs = {"cot": _cot_leg(c), "oi": _oi_leg(c), "trend": _trend_leg(p),
-                "seasonality": _seasonality_leg(sym, seas),
                 "overlay": _overlay_leg(sym, manual)}
         parts = {k: legs[k]["score"] for k in INDEX_WEIGHTS}
         blended = sum(parts[k] * INDEX_WEIGHTS[k] for k in INDEX_WEIGHTS)
@@ -243,10 +231,10 @@ def build():
 if __name__ == "__main__":
     r = build()
     print(f"  COT {r['cot_report_date']}   prices to {r['price_asof']}")
-    print(f"  {'sym':4} {'score':>7}  {'trend':>6} {'cot':>6} {'oi':>6} {'seas':>6} {'ovl':>6}   rating")
+    print(f"  {'sym':4} {'score':>7}  {'trend':>6} {'cot':>6} {'oi':>6} {'ovl':>6}   rating")
     for s in r["ranked"]:
         d = r["indices"][s]
         p = d["parts"]
         print(f"  {s:4} {d['score']:+7.1f}  {p['trend']:+6.1f} {p['cot']:+6.1f} {p['oi']:+6.1f} "
-              f"{p['seasonality']:+6.1f} {p['overlay']:+6.1f}   {d['rating']}"
+              f"{p['overlay']:+6.1f}   {d['rating']}"
               + ("  [thin contract]" if d["thin"] else ""))

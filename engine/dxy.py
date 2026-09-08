@@ -17,7 +17,10 @@ Legs:
                 is THIN - about 50k open interest against 865k for the euro - which is exactly
                 why score.py already discounts it to a quarter of the USD reading. Sized small
                 here for the same reason and flagged on the row.
-  seas    0.10  the index's own monthly seasonal excess
+
+NO SEASONALITY LEG. It had 0.10 until backtest_factors.py measured it walk-forward over 15
+years and 32 instruments: hit 47.5%, t -3.50, n 3131. Inverted, not merely weak. Removed
+rather than flipped - flipping a sign to fit a backtest is how you fit noise.
 
 NO OPEN-INTEREST LEG. The OI conviction leg everywhere else on the desk reads a change in open
 interest against the direction of positioning flow, and for the dollar index that would be the
@@ -42,7 +45,10 @@ THIN_OI = 100_000
 # ICE's published index weights. SEK has no score on this desk - see the module docstring.
 WEIGHTS_INDEX = {"EUR": 0.576, "JPY": 0.136, "GBP": 0.119, "CAD": 0.091,
                  "SEK": 0.042, "CHF": 0.036}
-LEGS = {"basket": 0.45, "trend": 0.30, "cot": 0.15, "seasonality": 0.10}
+# Seasonality was a 0.10 leg until it was measured: walk-forward, 15 years, 32 instruments,
+# hit 47.5% and t -3.50. Inverted, not merely weak. Removed; its weight went to the basket,
+# which is the leg with an actual mechanism behind it.
+LEGS = {"basket": 0.55, "trend": 0.30, "cot": 0.15}
 
 
 def _load(name, default):
@@ -119,26 +125,13 @@ def _cot_leg(cot):
                     + (f" - thin contract ({oi:,} OI), weak evidence" if thin else "")}
 
 
-def _seasonality_leg(seas):
-    d = (seas.get("instruments") or {}).get("DXY") or {}
-    tm = d.get("this_month") or {}
-    if d.get("score") is None:
-        return {"score": 0.0, "note": "no seasonal statistics yet"}
-    weak = "" if tm.get("reliable") else " (below the reliability bar, scored at half)"
-    return {"score": d["score"], "excess": tm.get("excess"), "hit": tm.get("hit"),
-            "n": tm.get("n"), "reliable": tm.get("reliable", False),
-            "note": f"{seas.get('month')}: {tm.get('excess'):+.2f}% excess over a normal month, "
-                    f"hit {tm.get('hit')}% of {tm.get('n')} years{weak}"}
-
 
 def build():
     scores = _load("scores.json", {})
     cot = _load("cot.json", {})
-    seas = _load("seasonality.json", {})
     px = ((_load("prices_dxy.json", {}) or {}).get("symbols") or {}).get("DXY", {})
 
-    legs = {"basket": _basket_leg(scores), "trend": _trend_leg(px),
-            "cot": _cot_leg(cot), "seasonality": _seasonality_leg(seas)}
+    legs = {"basket": _basket_leg(scores), "trend": _trend_leg(px), "cot": _cot_leg(cot)}
     parts = {k: legs[k]["score"] for k in LEGS}
     total = sum(parts[k] * LEGS[k] for k in LEGS)
     label, cls = commodity_rating(total)          # uncentred, like the commodity track
@@ -173,7 +166,7 @@ if __name__ == "__main__":
     r = build()
     print(f"  DXY {r['last']}  score {r['score']:+.1f}  {r['rating']}"
           + ("  [thin COT contract]" if r["thin"] else ""))
-    for k in ("basket", "trend", "cot", "seasonality"):
+    for k in ("basket", "trend", "cot"):
         print(f"    {k:12} {r['parts'][k]:+7.1f} x{r['weights'][k]:.2f} = {r['contrib'][k]:+5.1f}"
               f"   {r['legs'][k]['note']}")
     print(f"  {r['read']['label']}")

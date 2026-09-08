@@ -1238,11 +1238,28 @@ def seasonality_panel():
     <em>this</em> instrument. <b>Hover any cell</b> for the raw figure, hit rate, sample size
     and t-statistic. A <span class="starred">*</span> marks |t|&nbsp;&ge;&nbsp;1.8 on the excess.
     The current month is outlined.</p>""")}
-    <p class="mnote warn"><b>Read the stars with suspicion.</b> This table runs 408 tests
-    (34 instruments &times; 12 months), so a handful of them clear that bar by chance alone. A
-    seasonal is a reason to look at something, never a reason to trade it on its own &mdash;
-    and a <em>tail-driven</em> month pays on average out of a few big years rather than in most
-    of them, which changes how you would size it.</p>
+    <div class="fwlead" style="border-left-color:var(--neg)">
+      <p><b>This was measured, and it does not work.</b> Walk-forward over 15 years and 32
+      instruments &mdash; the seasonal profile rebuilt from earlier years only, then traded in
+      the month it predicts &mdash; trading these readings <b class="neg">loses</b> money:</p>
+      <p class="mono" style="font-size:12.5px">direction right <b>47.5%</b> of the time
+      &middot; mean <b class="neg">&minus;0.24%</b> per month &middot; t <b>&minus;3.50</b>
+      &middot; n <b>3,131</b></p>
+      <p class="mnote">A hit rate under 50% with |t| well over 2 is not "no edge" &mdash; it is
+      a reliably <em>wrong</em> one. It holds both ways the signal can be specified (raw month
+      against absolute return, and excess against excess return), so it is not an artefact of
+      how the test was set up. Not a single instrument shows a positive edge that clears
+      |t|&nbsp;=&nbsp;2.</p>
+      <p class="mnote"><b>So seasonality was removed from every score on 9 Sep 2026</b> &mdash;
+      it had been 0.15 of the Indices blend and 0.10 of DXY, and a column in the Matrix. This
+      tab stays as <em>reference</em>: useful for knowing what a month has typically done, and
+      for spotting a well-known pattern, but not as a reason to take a position. It is
+      deliberately not inverted either &mdash; flipping a sign to fit a backtest is how you fit
+      noise. Re-run <code>backtest_factors.py</code> to check this yourself.</p>
+    </div>
+    <p class="mnote warn"><b>Why the stars mislead.</b> This table runs 408 tests
+    (34 instruments &times; 12 months), so a handful clear the bar by chance alone. That is
+    most of the reason the walk-forward result above is what it is.</p>
     {block("fx", "Currency pairs", "28 crosses of the eight majors, quoted the way the market quotes them.")}
     {block("commodity", "Metals &amp; energy", "Front-month futures &mdash; the same contracts the commodity track scores.")}
     {block("index", "Equity indices", "The clearest seasonal pattern on the desk, which is why it earns a scoring leg on the Indices tab and not on the FX board.")}

@@ -1,4 +1,4 @@
-"""The signal matrix: eight currencies against eighteen factors, one grid.
+"""The signal matrix: eight currencies against seventeen factors, one grid.
 
 WHAT THIS IS FOR. The strength meter gives one number per currency and the breakdown cards
 explain it, but neither answers the question a grid answers instantly: is this currency strong
@@ -11,14 +11,13 @@ TWO NUMBERS PER ROW, AND WHY NOT ONE.
   score       the desk's existing WEIGHTED score - news 0.40, fundamentals 0.25, cot 0.15 and
               so on, the weights the backtests in config.py actually established. This stays
               the headline. It is the number to trade off.
-  confluence  how many of the eighteen factors lean each way. This is what the grid is good
+  confluence  how many of the seventeen factors lean each way. This is what the grid is good
               at and the weighted score cannot tell you: agreement.
 
 A deliberate departure from the terminal this layout is modelled on, which scores each of its
-eighteen factors as a discrete +/-2 and takes the plain SUM - every factor weighted equally on
-a +/-36 scale. That is easy to read and easy to explain, and it is worse: it hands seasonality
-the same vote as CPI, and it collapses a 0.1% inflation beat and a 1.0% beat into the same
-cell. This module keeps the readable grid and the +/-2 colour buckets, but every cell carries
+factors as a discrete +/-2 and takes the plain SUM - every factor weighted equally. That is
+easy to read and easy to explain, and it is worse: it hands a weak factor the same vote as
+CPI, and it collapses a 0.1% inflation beat and a 1.0% beat into the same cell. This module keeps the readable grid and the +/-2 colour buckets, but every cell carries
 its real continuous value underneath, and the headline stays weighted.
 
 CELLS. Every factor is on the same -100..+100 scale as the rest of the desk, bucketed for
@@ -26,8 +25,12 @@ colour only: >= +40 strong, >= +12 mild, inside +/-12 flat, and the mirror below
 factor with no data is a dot, not a zero - "no reading" and "neutral reading" are different
 statements and the grid must not blur them.
 
-Reads score.json, yields.json, sentiment.json, seasonality.json, prices_fx.json,
-fundamentals.json. Writes data/matrix.json.
+SEASONALITY IS NOT A COLUMN HERE. It was, until it was measured walk-forward: hit 47.5%,
+t -3.50 over 3131 observations. A factor that does not predict must not get a vote in the
+agreement count, so it was removed on 2026-09-09 and the grid went from 18 factors to 17.
+
+Reads scores.json, yields.json, sentiment.json, prices_fx.json, fundamentals.json.
+Writes data/matrix.json.
 """
 import json, datetime as dt
 from config import DATA, ORDER, CHECKLIST, all_pairs
@@ -38,7 +41,6 @@ OUT = DATA / "matrix.json"
 FACTORS = [
     ("trend",       "Trend",  "Technical"),
     ("momentum",    "Mom",    "Technical"),
-    ("seasonality", "Seas",   "Technical"),
     ("cot",         "COT",    "Sentiment"),
     ("crowd",       "Crowd",  "Sentiment"),
     ("oi",          "OI",     "Sentiment"),
@@ -121,30 +123,6 @@ def _from_cat(fun_row, cat):
         return None
 
 
-def _seasonal_by_ccy(seas):
-    """A currency-level seasonal from the pair table: for every pair the currency appears in,
-    take this month's excess with the sign flipped when it is the quote, then average. Scaled
-    so 1 percentage point of average excess is a full reading - tighter than the 1.5pp used
-    for a single pair, because averaging seven pairs damps the spread."""
-    inst = (seas or {}).get("instruments") or {}
-    acc = {c: [] for c in ORDER}
-    for pair in all_pairs():
-        d = inst.get(pair) or {}
-        ex = (d.get("this_month") or {}).get("excess")
-        if ex is None:
-            continue
-        base, quote = pair[:3], pair[3:]
-        if base in acc:
-            acc[base].append(ex)
-        if quote in acc:
-            acc[quote].append(-ex)
-    out = {}
-    for c in ORDER:
-        vals = acc[c]
-        out[c] = (round(max(-100.0, min(100.0, (sum(vals) / len(vals)) / 1.0 * 100)), 1)
-                  if vals else None)
-    return out
-
 
 def _trend_by_ccy(px):
     """Trend and momentum from the strength-index series fetch_fx_prices already builds.
@@ -181,11 +159,9 @@ def build():
     sc = _load("scores.json", {})
     y = _load("yields.json", {})
     sent = _load("sentiment.json", {})
-    seas = _load("seasonality.json", {})
     px = _load("prices_fx.json", {})
     fun = _load("fundamentals.json", {})
 
-    seas_c = _seasonal_by_ccy(seas)
     trend_c, mom_c = _trend_by_ccy(px)
     curve_c = _curve_by_ccy(y)
 
@@ -199,7 +175,6 @@ def build():
         cells = {
             "trend": trend_c.get(c),
             "momentum": mom_c.get(c),
-            "seasonality": seas_c.get(c),
             "cot": parts.get("cot"),
             "crowd": ((sent.get("instruments") or {}).get(c) or {}).get("score"),
             "oi": parts.get("oi"),
