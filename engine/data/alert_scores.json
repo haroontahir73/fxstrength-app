@@ -1384,5 +1384,60 @@
   "outcome": "win",
   "talk": false,
   "at": "2026-09-08T05:56:27.504568+00:00"
+ },
+ {
+  "id": "2026-09-08T06:47:33.629546+00:00|GOLD",
+  "cat": "rates_up",
+  "instr": "GOLD",
+  "dir": "down",
+  "strength": 3,
+  "chg": -0.011,
+  "outcome": "flat",
+  "talk": false,
+  "at": "2026-09-08T06:47:33.629546+00:00"
+ },
+ {
+  "id": "2026-09-08T06:47:33.629546+00:00|SILVER",
+  "cat": "rates_up",
+  "instr": "SILVER",
+  "dir": "down",
+  "strength": 3,
+  "chg": 0.098,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-09-08T06:47:33.629546+00:00"
+ },
+ {
+  "id": "2026-09-08T06:47:33.629546+00:00|OIL",
+  "cat": "rates_up",
+  "instr": "OIL",
+  "dir": "down",
+  "strength": 1,
+  "chg": 0.043,
+  "outcome": "flat",
+  "talk": false,
+  "at": "2026-09-08T06:47:33.629546+00:00"
+ },
+ {
+  "id": "2026-09-08T07:42:03.401042+00:00|GOLD",
+  "cat": "geo_escalation",
+  "instr": "GOLD",
+  "dir": "down",
+  "strength": 1,
+  "chg": -0.108,
+  "outcome": "win",
+  "talk": true,
+  "at": "2026-09-08T07:42:03.401042+00:00"
+ },
+ {
+  "id": "2026-09-08T07:42:03.401042+00:00|OIL",
+  "cat": "geo_escalation",
+  "instr": "OIL",
+  "dir": "up",
+  "strength": 2,
+  "chg": -0.414,
+  "outcome": "loss",
+  "talk": true,
+  "at": "2026-09-08T07:42:03.401042+00:00"
  }
 ]
