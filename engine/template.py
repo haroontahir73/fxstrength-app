@@ -161,22 +161,25 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
   border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
 .tabs label:hover{color:var(--ink2)}
 .panel{display:none;flex-direction:column;gap:34px}
-#tab-cot:checked~#p-cot,#tab-oi:checked~#p-oi,#tab-fed:checked~#p-fed,
+/* Eight tabs. Fed Watch folded into Rates, and Open interest + Sentiment into Positioning -
+   the ids `tab-yld` and `tab-cot` are kept for the merged pair rather than renamed, because
+   they are internal wiring and churning them buys nothing. */
+#tab-cot:checked~#p-cot,
 #tab-macro:checked~#p-macro,
 #tab-micro:checked~#p-micro,#tab-board:checked~#p-board,
-#tab-mx:checked~#p-mx,#tab-yld:checked~#p-yld,#tab-sent:checked~#p-sent,
+#tab-mx:checked~#p-mx,#tab-yld:checked~#p-yld,
 #tab-seas:checked~#p-seas,#tab-idx:checked~#p-idx{display:flex}
 #tab-cot:checked~.tabs label[for="tab-cot"],
-#tab-oi:checked~.tabs label[for="tab-oi"],
-#tab-fed:checked~.tabs label[for="tab-fed"],
 #tab-macro:checked~.tabs label[for="tab-macro"],
 #tab-micro:checked~.tabs label[for="tab-micro"],
 #tab-mx:checked~.tabs label[for="tab-mx"],
 #tab-yld:checked~.tabs label[for="tab-yld"],
-#tab-sent:checked~.tabs label[for="tab-sent"],
 #tab-seas:checked~.tabs label[for="tab-seas"],
 #tab-idx:checked~.tabs label[for="tab-idx"],
 #tab-board:checked~.tabs label[for="tab-board"]{color:var(--accent);border-bottom-color:var(--accent)}
+/* A merged tab stacks two or three sections. Give them a divider so the seam is obvious and
+   the reader knows where one subject ends and the next begins. */
+.panel > section + section{border-top:1px solid var(--line);padding-top:26px}
 /* eleven tabs no longer fit one line on a phone - let the strip scroll rather than wrap into
    a three-deep block that pushes the content off the first screen */
 @media (max-width:720px){
@@ -379,37 +382,28 @@ a{color:var(--accent)}
   <div class="tabwrap">
   <input type="radio" name="tab" id="tab-mx" class="tabin" checked>
   <input type="radio" name="tab" id="tab-board" class="tabin">
+  <input type="radio" name="tab" id="tab-cot" class="tabin">
   <input type="radio" name="tab" id="tab-yld" class="tabin">
-  <input type="radio" name="tab" id="tab-sent" class="tabin">
   <input type="radio" name="tab" id="tab-seas" class="tabin">
   <input type="radio" name="tab" id="tab-idx" class="tabin">
-  <input type="radio" name="tab" id="tab-cot" class="tabin">
-  <input type="radio" name="tab" id="tab-oi" class="tabin">
-  <input type="radio" name="tab" id="tab-fed" class="tabin">
   <input type="radio" name="tab" id="tab-macro" class="tabin">
   <input type="radio" name="tab" id="tab-micro" class="tabin">
   <nav class="tabs" role="tablist" aria-label="Dashboard views">
     <label for="tab-mx">Matrix</label>
     <label for="tab-board">Strength desk</label>
-    <label for="tab-yld">Yields</label>
-    <label for="tab-sent">Sentiment</label>
+    <label for="tab-cot">Positioning</label>
+    <label for="tab-yld">Rates</label>
     <label for="tab-seas">Seasonality</label>
     <label for="tab-idx">Indices</label>
-    <label for="tab-cot">COT report</label>
-    <label for="tab-oi">Open interest</label>
-    <label for="tab-fed">Fed Watch</label>
     <label for="tab-macro">Brief</label>
     <label for="tab-micro">News</label>
   </nav>
 
   <div class="panel" id="p-mx">{{MATRIX_PANEL}}</div>
-  <div class="panel" id="p-yld">{{YIELDS_PANEL}}</div>
-  <div class="panel" id="p-sent">{{SENTIMENT_PANEL}}</div>
+  <div class="panel" id="p-cot">{{POSITIONING_PANEL}}</div>
+  <div class="panel" id="p-yld">{{RATES_PANEL}}</div>
   <div class="panel" id="p-seas">{{SEASONALITY_PANEL}}</div>
   <div class="panel" id="p-idx">{{INDICES_PANEL}}</div>
-  <div class="panel" id="p-cot">{{COT_PANEL}}</div>
-  <div class="panel" id="p-oi">{{OI_PANEL}}</div>
-  <div class="panel" id="p-fed">{{FEDWATCH_PANEL}}</div>
   <div class="panel" id="p-macro">{{MACRO_PANEL}}</div>
   <div class="panel" id="p-micro">{{MICRO_PANEL}}</div>
 

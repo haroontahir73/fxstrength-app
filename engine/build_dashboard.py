@@ -1502,16 +1502,21 @@ def build():
         "{{NEXTHIGH_EVENT}}": esc(nh_event),
         "{{BUILT}}": built, "{{OISRC}}": d.get("oi_cadence", ""),
         "{{TICKER}}": ticker_strip(),
-        "{{COT_PANEL}}": cot_panel(), "{{OI_PANEL}}": oi_panel(),
         "{{MACRO_PANEL}}": macro_panel(), "{{MICRO_PANEL}}": micro_panel(),
-        "{{FEDWATCH_PANEL}}": fedwatch_panel(),
-        # Add-on tabs. Each builder already degrades to a short "not built yet" section on a
-        # missing file, but wrap them anyway: a rendering bug in one new tab must not be able
-        # to stop the page that carries the strength board from being written at all.
+        # Two merged tabs. Positioning answers one question - who is positioned how - from
+        # three angles: institutional (COT), conviction (open interest) and retail (the crowd).
+        # Rates puts the policy path next to the curve it prices. Each section is still built
+        # by its own function and still degrades on its own, so a dead feed costs one section
+        # rather than the whole tab.
+        "{{POSITIONING_PANEL}}": (cot_panel() + oi_panel()
+                                  + _safe_panel(sentiment_panel, "Retail sentiment")),
+        # Add-on sections. Each builder already degrades to a short "not built yet" note on a
+        # missing file, but wrap them anyway: a rendering bug in one must not be able to stop
+        # the page that carries the strength board from being written at all.
+        "{{RATES_PANEL}}": (_safe_panel(yields_panel, "Yields & spreads")
+                            + fedwatch_panel()),
         **{k: _safe_panel(fn, name) for k, fn, name in (
             ("{{MATRIX_PANEL}}", matrix_panel, "Signal matrix"),
-            ("{{YIELDS_PANEL}}", yields_panel, "Yields & spreads"),
-            ("{{SENTIMENT_PANEL}}", sentiment_panel, "Retail sentiment"),
             ("{{SEASONALITY_PANEL}}", seasonality_panel, "Seasonality"),
             ("{{INDICES_PANEL}}", indices_panel, "Indices"),
         )},
