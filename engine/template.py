@@ -285,7 +285,14 @@ table.mx tr:last-child td{border-bottom:0}
   table.mx td.mxbias > *{display:none}
   .mxconf .mxof{display:none}
   table.mx td.cell{width:32px;font-size:10.5px;padding:6px 3px}
-  table.mx td.mxccy{font-size:12px}
+  /* The table is ~940px wide against a ~390px phone viewport, so it scrolls - fine. What is
+     NOT fine is the frozen left block eating most of the 390px you can actually see: with
+     default widths, Ccy+Score+Bull/bear took ~300px and left room for two factor columns.
+     Pinning them narrow gets the block to ~125px and brings eight factors into view. */
+  table.mx td.mxccy,table.mx thead th:first-child{width:38px;padding:6px 2px 6px 7px;
+    font-size:12px}
+  table.mx td.mxsc{width:48px;padding:6px 4px;font-size:12px}
+  table.mx td.mxconf{width:40px;padding:6px 5px 6px 2px;font-size:10px}
 }
 .mxlegend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:11.5px;
   color:var(--mut);font-family:"IBM Plex Mono",monospace}
