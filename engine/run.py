@@ -11,6 +11,10 @@ falls back to a `cot` fetch when cot.json is missing.
 """
 import json, sys, datetime as dt
 from config import DATA
+try:
+    from config import INDEX_ORDER
+except ImportError:                                   # older config - no index track
+    INDEX_ORDER = []
 
 import fetch_cot, fetch_calendar, fetch_oi, fetch_rates, rate_expectations, speakers, fundamentals, score, build_dashboard
 import fetch_prices, fetch_fx_prices, commodities, fedwatch
@@ -92,14 +96,32 @@ def run(mode):
         return
 
     cotf = DATA / "cot.json"
-    if mode == "cot" or not cotf.exists():
-        if mode != "cot":
-            print("COT: cot.json missing - fetching")
-        else:
+    cot = None
+    if cotf.exists() and mode != "cot":
+        cot = json.loads(cotf.read_text(encoding="utf-8"))
+        # A cached cot.json can predate a schema change, exactly like cot_history.json can.
+        # _heal_cot_history() repairs the HISTORY but not this file, and the tabs that read
+        # the current week straight out of it then go quiet with no error: the first cloud
+        # deploy of the Sentiment tab shipped empty for precisely this reason, because the
+        # restored cot.json had no `nonrept` column and every instrument scored None.
+        # Re-fetch whenever the cached file is missing something the current code needs.
+        missing = []
+        if not (cot.get("currencies", {}).get("EUR") or {}).get("nonrept"):
+            missing.append("nonrept (Sentiment tab)")
+        if "CHF" not in (cot.get("currencies") or {}):
+            missing.append("CHF")
+        if INDEX_ORDER and not (cot.get("indices") or {}):
+            missing.append("indices (Indices tab)")
+        if missing:
+            print(f"COT: cached cot.json predates {', '.join(missing)} - refetching")
+            cot = None
+    if cot is None:
+        if mode == "cot":
             print("COT:")
+        elif not cotf.exists():
+            print("COT: cot.json missing - fetching")
         cot = fetch_cot.main()
     else:
-        cot = json.loads(cotf.read_text(encoding="utf-8"))
         print(f"COT: reusing report {cot['currencies'].get('EUR', {}).get('report_date')}")
     _heal_cot_history()
 
