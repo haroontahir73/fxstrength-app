@@ -1,5 +1,60 @@
 [
  {
+  "when": "09 Sep 01:43 UTC",
+  "iso": "2026-09-09T01:43:46.916760+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\n14 Filipino seafarers back home after Strait of Hormuz tanker attack; repatriation for 2 slain underway - news.abs-cbn.com  (news.abs-cbn.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191   look for longs - the direct hit (eased by self-check)\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,419 (-0.2%)   Silver 66.86 (+1.2%)   WTI 94.51 (+3.3%)   DXY 98.81 (-0.0%)   US10Y 4.81 (+0.5%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQWjVNSURiTVItRUpEdWF2M2xlWXY3b2FEbmgxc2pQNnBFLWdidFRSVEFRMXRFQmdmMk0ybWN5dnRPYzR6ZDJRdXZlZVBSeS1sWjZJTGFjY2pKVzk2blNRWHU3QWxtZjFfX0xQYXlCVWRWb0pNUjM5SktqbDBtWTc2SDQ5cGxYZ2gxTDNhczlMdUNmZ1Z3bHViaW9BMjFOTk9wb1JaYkNTNVlid2I0VWRYWEhVcFNNNU9aMlFuYWYwNldES0tzeVh2N182TXh2aEhVZjZ5eTFaQmxRTTYyR0sw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4419.3,
+   "Silver": 66.855,
+   "WTI": 94.51
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "14 Filipino seafarers back home after Strait of Hormuz tanker attack; repatriation for 2 slain underway - news.abs-cbn.com",
+   "src": "news.abs-cbn.com",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "the direct hit (eased by self-check)",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,419 (-0.2%)   Silver 66.86 (+1.2%)   WTI 94.51 (+3.3%)   DXY 98.81 (-0.0%)   US10Y 4.81 (+0.5%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "09 Sep 01:34 UTC",
   "iso": "2026-09-09T01:34:06.448060+00:00",
   "cat": "inflation_hot",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,477 (-0.3%)   Silver 66.75 (-0.3%)   WTI 91.48 (+0.2%)   DXY 99.16 (+0.2%)   US10Y 4.78 (+0.5%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "06 Sep 06:53 UTC",
-  "iso": "2026-09-06T06:53:01.200387+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nStrait of Hormuz Under Iran\u2019s Maritime Sanctions Pressure - WANA News Agency  (WANA News Agency)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,477 (-0.3%)   Silver 66.75 (-0.3%)   WTI 91.48 (+0.2%)   DXY 99.16 (+0.2%)   US10Y 4.78 (+0.5%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxORkE1cVhMaTdtd2lFQVR1amIwamsxRW5wQkZtbFJwbWNJRXNQMFByZTUzSmc4ZXpwa3V3X0dMN0w0cWsxMVJsZ0IzWHFPMWJ3WTB4Rzd3b1lsWmlSM241UVRFVG5SOWRmVWxSWWl6NW9ObHktR3ZPYzBzWkJqOThNQU9B?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4476.6,
-   "Silver": 66.748,
-   "WTI": 91.48
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Strait of Hormuz Under Iran\u2019s Maritime Sanctions Pressure - WANA News Agency",
-   "src": "WANA News Agency",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,477 (-0.3%)   Silver 66.75 (-0.3%)   WTI 91.48 (+0.2%)   DXY 99.16 (+0.2%)   US10Y 4.78 (+0.5%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
