@@ -78,5 +78,17 @@
   "_note_AUD_jones_intersekt": "Flat - not policy-path. Brad Jones (Assistant Governor, Financial System) sat on a panel at the Intersekt 2026 fintech festival in Melbourne, on fintech capital access, AI and the payments/financial system. Nothing on the RBA cash-rate trajectory, so scored 0 for the record.",
 
   "AUD|RBA Assist Gov Hunter Speaks|2026-09-03T05:15": 0.0,
-  "_note_AUD_hunter_housing": "Flat - not policy-path. Sarah Hunter (Assistant Governor, Economic) gave testimony to the Senate Select Committee on Intergenerational Housing Inequity in Canberra, on housing supply and affordability. No reported guidance on the cash-rate path, so scored 0 for the record. (RBA's own tightening bias is carried by the 25 Aug minutes entry.)"
+  "_note_AUD_hunter_housing": "Flat - not policy-path. Sarah Hunter (Assistant Governor, Economic) gave testimony to the Senate Select Committee on Intergenerational Housing Inequity in Canberra, on housing supply and affordability. No reported guidance on the cash-rate path, so scored 0 for the record. (RBA's own tightening bias is carried by the 25 Aug minutes entry.)",
+
+  "GBP|Monetary Policy Report Hearings|2026-09-08T13:15": -1.0,
+  "_note_GBP_mpr_hearings_sep8": "Leaning mildly toward lower rates / a comfortable hold. Treasury Committee hearing on the July hold at 3.75% with Bailey, Ramsden, Greene and Taylor. Bailey played down recession fears ('we are not on the verge of a recession', latest data 'solid') but flagged a softening jobs market and slower hiring; Ramsden called domestic inflation 'relatively benign'; Taylor backed keeping rates at a 'moderately restrictive level'. Only Greene pushed the other way, warning sustained high oil prices could bring second-round effects. Markets priced ~86% hold for the 17 Sep meeting with virtually no hike expected. Net tone softer than the BoE's prior tightening-leaning hold, hence -1.",
+
+  "AUD|RBA Deputy Gov Hauser Speaks|2026-09-08T09:30": 1.0,
+  "_note_AUD_hauser_abc730": "Leaning toward higher rates. In an ABC 7.30 interview Hauser called inflation 'the one big problem' still facing the economy, said it is 'too high' and that 'monetary policy needs to bring it down', noting the RBA hiked three times early in 2026. He said the economy is growing near trend with unemployment near historic lows, and that the RBA 'stands ready to raise interest rates further' if needed. Conditional rather than a firm commitment to hike, so +1.",
+
+  "AUD|RBA Assist Gov Hunter Speaks|2026-09-08T03:20": 1.0,
+  "_note_AUD_hunter_afr_property": "Leaning toward higher rates. At the AFR Property Summit, Sarah Hunter (Assistant Governor, Economic) said getting inflation back inside the 2-3% band may require deliberately running the economy below trend - the RBA wants to cool the housing market and broader growth, seeking softer-than-trend growth without a recession. A willingness to accept economic weakness to tame inflation, so +1. (Contrast her 3 Sep housing-inequity testimony, which was not about the policy path.)",
+
+  "EUR|Frank Elderson: Fireside chat (Board Member)|2026-09-08T15:00": 0.0,
+  "_note_EUR_elderson_fireside": "Flat - not policy-path. Elderson (Vice-Chair of the Supervisory Board) spoke at a Hertie School event in Berlin on EU banking reform and integration: euro-area bank profitability having caught up with US peers, the NPL ratio down from 6% (2015) to 2%, and accelerating mergers. Nothing on the ECB rate trajectory, so scored 0 for the record."
 }

@@ -8,11 +8,11 @@
     "src": "researched 2026-09-06 (re-check). 4 Sep August NFP printed +162k vs ~53k expected (strongest since March), unemployment 4.1%, AHE +3.1% y/y - a clear beat. CME FedWatch moved to ~58% hike for 16 Sep (Briefing.com 58.2%), interest-rate swaps implied 'above 60%'. Path: ~40% (21 Aug) -> ~57% post-Warsh (28 Aug) -> dipped on the 3 Sep ADP miss -> back to ~58-62% after payrolls. 10 Sep CPI is the last test before the meeting."
   },
   "JPY": {
-    "hike": 62,
-    "hold": 38,
+    "hike": 63,
+    "hold": 37,
     "cut": 0,
     "next_meeting": "September 17, 2026",
-    "src": "researched 2026-09-03. centralbank.watch shows ~58% for a 25bp hike to 1.25% on 17 Sep; Bloomberg (2 Sep) says markets have 'near fully priced' the move after Gov Ueda hinted a hike is likely 'with upside price risks in mind'. Scraper still misses the BoJ block, so hand-entered; nudged slightly above the 58% scrape given Ueda's signal."
+    "src": "researched 2026-09-09 (re-check). centralbank.watch BoJ tool shows 63.4% hike / 36.6% hold for the 17 Sep meeting (25bp to 1.25%), ~51bp of tightening priced across the next three meetings. Reuters/Yahoo (Aug) report the BoJ 'eyeing a September hike and a faster pace of tightening'; some desks quote 80-90% but the TONA-futures-implied figure is ~63%. Scraper still misses the BoJ block, so hand-entered."
   },
   "NZD": {
     "hike": 25,
