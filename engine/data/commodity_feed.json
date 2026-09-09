@@ -1,5 +1,60 @@
 [
  {
+  "when": "09 Sep 13:11 UTC",
+  "iso": "2026-09-09T13:11:40.700472+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOil Prices Break Above $100 Amid Strait of Hormuz Tensions - Morocco World News  (Morocco World News)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191    mild long bias - the direct hit (eased by self-check)\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,448 (+1.2%)   Silver 67.20 (+1.4%)   WTI 95.60 (+2.8%)   DXY 98.67 (-0.2%)   US10Y 4.81 (+0.0%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOXzNKMjBvYWFrSURrSlhBUS1Xdy1leWk3dmQ2OE1MSXU2WllSWUJta0lsNDdNVmg4Z21qV19aNGdydExUaHVSMWxNa3JZZHh4Z3U2VFo2UWg3MXBZa05UWHhxbDBycGpvWW1TblRPN2EyUDhFOGNDZmFPS19UbUExTm9lYVFYdk45dVpoeWdWeXd2dHFUU0EwU2V3OWlPYnBWOXVVdDNOT1V0Zw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4448.2,
+   "Silver": 67.2,
+   "WTI": 95.6
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Oil Prices Break Above $100 Amid Strait of Hormuz Tensions - Morocco World News",
+   "src": "Morocco World News",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the direct hit (eased by self-check)",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,448 (+1.2%)   Silver 67.20 (+1.4%)   WTI 95.60 (+2.8%)   DXY 98.67 (-0.2%)   US10Y 4.81 (+0.0%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "09 Sep 11:39 UTC",
   "iso": "2026-09-09T11:39:53.113739+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,477 (+1.1%)   Silver 66.75 (+1.1%)   WTI 91.48 (-0.0%)   DXY 99.18 (+0.0%)   US10Y 4.78 (+0.5%)",
    "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "07 Sep 04:10 UTC",
-  "iso": "2026-09-07T04:10:27.343866+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nOPEC+ to pause oil output increase in October - chinadailyasia.com  (chinadailyasia.com)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,477 (+1.1%)   Silver 66.75 (+1.1%)   WTI 91.48 (-0.0%)   DXY 99.16 (-0.0%)   US10Y 4.78 (+0.5%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFAySVFyTE5zaURzZTdzN2VnOVVQdXFYbGdCb3QxVUdzdUJiVHFlSkZfWlpCZ29sVnk3eVZmV2JPdmtZYk5PbXJCdXFaRmZxVzVUQmppd1FDeHE?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4476.6,
-   "Silver": 66.748,
-   "WTI": 91.48
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "OPEC+ to pause oil output increase in October - chinadailyasia.com",
-   "src": "chinadailyasia.com",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,477 (+1.1%)   Silver 66.75 (+1.1%)   WTI 91.48 (-0.0%)   DXY 99.16 (-0.0%)   US10Y 4.78 (+0.5%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
