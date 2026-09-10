@@ -223,21 +223,16 @@ def _wk(d):
 FX_SPEC, CM_SPEC = "leveraged", "managed_money"
 
 
-def cot_panel():
-    """The COT tab: latest-week speculative net + spreading for every contract, then a
-    10-week history card per instrument. FX speculators = CFTC Leveraged Funds; commodity
-    speculators = Managed Money (the disaggregated report). Read straight from the weekly
-    history files - no scoring, just the raw positioning."""
+def _cot_items(n_weeks):
+    """(items, sep_before, asof) for the last n_weeks of COT history, or (None, {}, None)
+    when there is no history. items = [(code, name, hist, weeks, category), ...] in board
+    order: FX majors, then any CME crypto, then the commodities."""
     fx = _load_hist("cot_history.json")
     cm = _load_hist("cot_history_commodity.json")
     if not fx:
-        return ('<section><h2>COT report</h2>'
-                '<p class="sub">No positioning history on file yet.</p></section>')
-
-    wfx = sorted(fx)[-10:]
-    wcm = sorted(cm)[-10:]
-    asof = wfx[-1]
-
+        return None, {}, None
+    wfx = sorted(fx)[-n_weeks:]
+    wcm = sorted(cm)[-n_weeks:]
     crypto = [s for s in COT_EXTRA_ORDER if any(s in fx.get(w, {}) for w in wfx)]
     items = ([(c, CURRENCIES[c]["name"], fx, wfx, FX_SPEC) for c in ORDER]
              + [(s, COT_EXTRA[s]["name"], fx, wfx, FX_SPEC) for s in crypto]
@@ -247,6 +242,38 @@ def cot_panel():
         sep_before[crypto[0]] = "Crypto &mdash; CME futures, Leveraged Funds"
     if COMMODITY_ORDER:
         sep_before[COMMODITY_ORDER[0]] = "Commodities &mdash; Managed Money"
+    return items, sep_before, (wfx[-1] if wfx else None)
+
+
+def _cot_hist_rows(code, hist, weeks, cat):
+    """Newest-first <tr> rows of long / short / net / weekly change / spread for one contract."""
+    rows = []
+    for wk in reversed(weeks):
+        g = (hist.get(wk, {}).get(code) or {}).get(cat) or {}
+        if "net" not in g:
+            continue
+        sp = g.get("spread")
+        rows.append(
+            f'<tr><td class="mono">{_wk(wk)}</td>'
+            f'<td class="num mono">{g.get("long", 0):,}</td>'
+            f'<td class="num mono">{g.get("short", 0):,}</td>'
+            f'<td class="num mono {"pos" if g["net"] >= 0 else "neg"}">{g["net"]:+,}</td>'
+            f'<td class="num mono mut">{_sgn(g.get("net_chg"))}</td>'
+            f'<td class="num mono">{f"{sp:,}" if isinstance(sp, int) else "&mdash;"}</td>'
+            '</tr>')
+    return rows
+
+
+def cot_panel():
+    """The COT tab: latest-week speculative net + spreading for every contract, then a
+    10-week history card per instrument (each with a "50 wk" link to a full-screen
+    drill-down - see cot_drilldowns). FX speculators = CFTC Leveraged Funds; commodity
+    speculators = Managed Money (the disaggregated report). Read straight from the weekly
+    history files - no scoring, just the raw positioning."""
+    items, sep_before, asof = _cot_items(10)
+    if not items:
+        return ('<section><h2>COT report</h2>'
+                '<p class="sub">No positioning history on file yet.</p></section>')
 
     # ---- latest-week summary table
     srows = []
@@ -274,28 +301,16 @@ def cot_panel():
             f'<td class="num mono mut">{spc_txt}</td>'
             f'<td class="num mono">{pctoi}</td></tr>')
 
-    # ---- per-instrument 10-week history
+    # ---- per-instrument 10-week history (+ "50 wk" link to the drill-down layer)
     cards = []
     for code, name, hist, weeks, cat in items:
-        rows = []
-        for wk in reversed(weeks):
-            g = (hist.get(wk, {}).get(code) or {}).get(cat) or {}
-            if "net" not in g:
-                continue
-            sp = g.get("spread")
-            rows.append(
-                f'<tr><td class="mono">{_wk(wk)}</td>'
-                f'<td class="num mono">{g.get("long", 0):,}</td>'
-                f'<td class="num mono">{g.get("short", 0):,}</td>'
-                f'<td class="num mono {"pos" if g["net"] >= 0 else "neg"}">{g["net"]:+,}</td>'
-                f'<td class="num mono mut">{_sgn(g.get("net_chg"))}</td>'
-                f'<td class="num mono">{f"{sp:,}" if isinstance(sp, int) else "&mdash;"}</td>'
-                '</tr>')
+        rows = _cot_hist_rows(code, hist, weeks, cat)
         if not rows:
             continue
         cur = (hist.get(weeks[-1], {}).get(code) or {}).get(cat, {}).get("net")
         cards.append(
             f'<div class="cotcard"><h3>{code} <span class="cnm">{esc(name)}</span>'
+            f'<a class="drill" href="#cot50-{code}">50&nbsp;wk</a>'
             f'<span class="mono {"pos" if (cur or 0) >= 0 else "neg"}">{_sgn(cur)}</span></h3>'
             f'<div class="tw"><table><thead><tr><th>Week</th><th class="num">Long</th>'
             f'<th class="num">Short</th><th class="num">Net</th><th class="num">&Delta;</th>'
@@ -316,9 +331,41 @@ def cot_panel():
       <tbody>{"".join(srows)}</tbody>
     </table></div>
     <h2 style="margin-top:10px">Last 10 weeks</h2>
-    <p class="sub">Non-commercial long / short / net and the weekly change, newest first.</p>
+    <p class="sub">Non-commercial long / short / net and the weekly change, newest first.
+    Tap <b>50&nbsp;wk</b> on any card for the full year of weekly history.</p>
     <div class="cotgrid">{"".join(cards)}</div>
   </section>"""
+
+
+def cot_drilldowns():
+    """One hidden full-screen layer per contract holding ~50 weeks of weekly COT history.
+    Opened by the "50 wk" link on each card (href="#cot50-<CODE>"), closed by the back link
+    or the browser Back button - a pure-CSS :target overlay, no script. Emitted outside the
+    tab panels so a hidden parent can never suppress it. Returns "" if anything is off -
+    the 10-week cards are the primary view and must not depend on this."""
+    try:
+        items, _sep, _asof = _cot_items(50)
+        if not items:
+            return ""
+        layers = []
+        for code, name, hist, weeks, cat in items:
+            rows = _cot_hist_rows(code, hist, weeks, cat)
+            if not rows:
+                continue
+            cats = "Leveraged Funds" if cat == FX_SPEC else "Managed Money"
+            layers.append(
+                f'<div class="cotmodal" id="cot50-{code}"><div class="mwrap">'
+                f'<div class="mhead"><a class="mback" href="#p-cot">&larr; back</a>'
+                f'<h3>{code} <span class="mut" style="font-weight:400">{esc(name)}</span></h3>'
+                f'<span class="mut mono" style="font-size:12px">last {len(rows)} weeks &middot; {cats}</span>'
+                f'</div><div class="tw"><table><thead><tr><th>Week</th><th class="num">Long</th>'
+                f'<th class="num">Short</th><th class="num">Net</th><th class="num">&Delta;</th>'
+                f'<th class="num">Spr</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
+                f'</div></div>')
+        return "".join(layers)
+    except Exception as e:                                            # noqa: BLE001
+        print(f"  cot_drilldowns failed ({type(e).__name__}: {e}) - 50-week layers omitted")
+        return ""
 
 
 def _oi_weekly_fallback():
@@ -1520,13 +1567,16 @@ def build():
         "{{BUILT}}": built, "{{OISRC}}": d.get("oi_cadence", ""),
         "{{TICKER}}": ticker_strip(),
         "{{MACRO_PANEL}}": macro_panel(), "{{MICRO_PANEL}}": micro_panel(),
-        # Two merged tabs. Positioning answers one question - who is positioned how - from
-        # three angles: institutional (COT), conviction (open interest) and retail (the crowd).
-        # Rates puts the policy path next to the curve it prices. Each section is still built
-        # by its own function and still degrades on its own, so a dead feed costs one section
-        # rather than the whole tab.
-        "{{POSITIONING_PANEL}}": (cot_panel() + oi_panel()
-                                  + _safe_panel(sentiment_panel, "Retail sentiment")),
+        # COT and Open interest are their own tabs. Retail sentiment rides on the COT tab -
+        # it is positioning data and does not warrant a tab of its own. Rates puts the policy
+        # path next to the curve it prices. Each section is still built by its own function
+        # and still degrades on its own, so a dead feed costs one section, not the tab.
+        "{{COT_PANEL}}": (cot_panel()
+                          + _safe_panel(sentiment_panel, "Retail sentiment")),
+        "{{OI_PANEL}}": oi_panel(),
+        # Per-contract 50-week COT history, one full-screen :target layer each. Outside every
+        # .panel (see template) so no hidden tab can suppress it.
+        "{{COT_DRILLDOWN}}": cot_drilldowns(),
         # Add-on sections. Each builder already degrades to a short "not built yet" note on a
         # missing file, but wrap them anyway: a rendering bug in one must not be able to stop
         # the page that carries the strength board from being written at all.

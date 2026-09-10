@@ -161,15 +161,16 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
   border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
 .tabs label:hover{color:var(--ink2)}
 .panel{display:none;flex-direction:column;gap:34px}
-/* Eight tabs. Fed Watch folded into Rates, and Open interest + Sentiment into Positioning -
-   the ids `tab-yld` and `tab-cot` are kept for the merged pair rather than renamed, because
-   they are internal wiring and churning them buys nothing. */
-#tab-cot:checked~#p-cot,
+/* Nine tabs. Fed Watch is folded into Rates; COT and Open interest are their own tabs again
+   (Retail sentiment rides along on the COT tab). The id `tab-yld` is kept for the merged
+   Rates pair rather than renamed - internal wiring, churning it buys nothing. */
+#tab-cot:checked~#p-cot,#tab-oi:checked~#p-oi,
 #tab-macro:checked~#p-macro,
 #tab-micro:checked~#p-micro,#tab-board:checked~#p-board,
 #tab-mx:checked~#p-mx,#tab-yld:checked~#p-yld,
 #tab-seas:checked~#p-seas,#tab-idx:checked~#p-idx{display:flex}
 #tab-cot:checked~.tabs label[for="tab-cot"],
+#tab-oi:checked~.tabs label[for="tab-oi"],
 #tab-macro:checked~.tabs label[for="tab-macro"],
 #tab-micro:checked~.tabs label[for="tab-micro"],
 #tab-mx:checked~.tabs label[for="tab-mx"],
@@ -195,8 +196,30 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 .cotcard h3{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;margin:0 0 6px;
   display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .cotcard h3 .cnm{margin-left:0}
+.cotcard h3 .drill{margin-left:auto;flex:none;font-family:"IBM Plex Mono",monospace;font-size:10px;
+  font-weight:600;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;
+  color:var(--accent);border:1px solid var(--line2);border-radius:999px;padding:2px 8px;white-space:nowrap}
+.cotcard h3 .drill:hover{border-color:var(--accent);background:var(--posbg)}
+.cotcard h3 .drill+.mono{margin-left:8px;flex:none}
 .cotcard table{min-width:0;font-size:11.5px}
 .cotcard th,.cotcard td{padding:5px 6px}
+/* Per-instrument 50-week drill-down. A hash link opens it; :target makes it a full-screen
+   layer over the tab, and the browser Back button (or the back link) closes it - it behaves
+   like its own page without any script. Lives outside .panel so no hidden parent can eat it. */
+/* Always fixed (so it has no in-flow position and the hash link cannot scroll-jump the page
+   to the bottom); hidden until it is the :target. */
+.cotmodal{position:fixed;inset:0;z-index:90;background:var(--bg);overflow-y:auto;
+  -webkit-overflow-scrolling:touch;padding:22px 18px 64px;
+  visibility:hidden;opacity:0;pointer-events:none}
+.cotmodal:target{visibility:visible;opacity:1;pointer-events:auto}
+.cotmodal .mwrap{max-width:620px;margin:0 auto}
+.cotmodal .mhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 14px}
+.cotmodal .mhead h3{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;
+  font-size:21px;font-weight:700;margin:0;letter-spacing:-.005em}
+.cotmodal .mback{font-family:"IBM Plex Mono",monospace;font-size:12px;text-decoration:none;
+  color:var(--accent);border:1px solid var(--line2);border-radius:999px;padding:4px 12px;flex:none}
+.cotmodal .mback:hover{border-color:var(--accent);background:var(--posbg)}
+.cotmodal table{width:100%;font-size:12px}
 .pbar{position:relative;display:block;height:10px;border-radius:3px;background:var(--surface2);
   border:1px solid var(--line);overflow:hidden;min-width:90px}
 .pfill{position:absolute;left:0;top:0;bottom:0;border-radius:2px}
@@ -383,6 +406,7 @@ a{color:var(--accent)}
   <input type="radio" name="tab" id="tab-mx" class="tabin" checked>
   <input type="radio" name="tab" id="tab-board" class="tabin">
   <input type="radio" name="tab" id="tab-cot" class="tabin">
+  <input type="radio" name="tab" id="tab-oi" class="tabin">
   <input type="radio" name="tab" id="tab-yld" class="tabin">
   <input type="radio" name="tab" id="tab-seas" class="tabin">
   <input type="radio" name="tab" id="tab-idx" class="tabin">
@@ -391,7 +415,8 @@ a{color:var(--accent)}
   <nav class="tabs" role="tablist" aria-label="Dashboard views">
     <label for="tab-mx">Matrix</label>
     <label for="tab-board">Strength desk</label>
-    <label for="tab-cot">Positioning</label>
+    <label for="tab-cot">COT</label>
+    <label for="tab-oi">Open interest</label>
     <label for="tab-yld">Rates</label>
     <label for="tab-seas">Seasonality</label>
     <label for="tab-idx">Indices</label>
@@ -400,12 +425,14 @@ a{color:var(--accent)}
   </nav>
 
   <div class="panel" id="p-mx">{{MATRIX_PANEL}}</div>
-  <div class="panel" id="p-cot">{{POSITIONING_PANEL}}</div>
+  <div class="panel" id="p-cot">{{COT_PANEL}}</div>
+  <div class="panel" id="p-oi">{{OI_PANEL}}</div>
   <div class="panel" id="p-yld">{{RATES_PANEL}}</div>
   <div class="panel" id="p-seas">{{SEASONALITY_PANEL}}</div>
   <div class="panel" id="p-idx">{{INDICES_PANEL}}</div>
   <div class="panel" id="p-macro">{{MACRO_PANEL}}</div>
   <div class="panel" id="p-micro">{{MICRO_PANEL}}</div>
+  {{COT_DRILLDOWN}}
 
   <div class="panel" id="p-board">
   <section>
