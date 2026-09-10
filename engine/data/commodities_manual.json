@@ -3,67 +3,67 @@
   "XAU": {
     "Real yield direction": {
       "score": 2,
-      "note": "Still a headwind: the 10-year sits ~4.79% (8 Sep, briefly 4.81%) with September Fed hike odds ~57-63% into the 16 Sep FOMC, and rising oil is adding a term-premium/inflation lift to yields on top of the hike bet. 10 Sep CPI is the swing factor.",
-      "as_of": "2026-09-09"
+      "note": "Still a headwind: the 10-year eased only to ~4.84-4.86% (10 Sep) near the highest since 2023, and August PPI printed hot at +0.4% m/m / +5.4% y/y (a tenth above forecast, energy +4.2% on the US-Iran conflict), which keeps a term-premium/inflation lift on yields on top of a ~57-63% September Fed hike bet. 11 Sep CPI and the 16 Sep FOMC are the swing factors.",
+      "as_of": "2026-09-10"
     },
     "US dollar direction": {
       "score": 3,
-      "note": "DXY has eased back to ~98.9 (8 Sep) from the 99.39 post-payrolls high as the hike is now largely priced and oil-driven risk aversion caps the bid. Roughly neutral for gold into the 10 Sep CPI print and the 16 Sep FOMC.",
-      "as_of": "2026-09-09"
+      "note": "DXY around the high-98s (from the 99.39 post-payrolls high). Hot PPI on 10 Sep gives the dollar a mild firming bias into CPI/FOMC, but the September hike is largely priced and oil-driven risk aversion caps the bid. Roughly neutral for gold.",
+      "as_of": "2026-09-10"
     },
     "Central-bank & ETF demand": {
-      "score": 4,
-      "note": "Structural bid intact: WGC Q2 data and survey show central banks still accumulating well above official net-purchase reports, and 2026 sell-side targets (Goldman $4,900, UBS $5,500, JPM ~$6,000 year-end) all rest on continued official-sector buying. Western ETF flows the swing factor - they turned back to outflows on the hawkish Fed repricing after the 4 Sep jobs beat, so 4 not higher.",
-      "as_of": "2026-09-06"
+      "score": 4.5,
+      "note": "Both legs now pulling the same way. WGC data: global gold ETFs added US$18bn in August (second-largest monthly inflow on record) and Q3 is the strongest quarter on record - the Western-outflow risk flagged on 6 Sep has clearly reversed, inflows are running hard through the hawkish-Fed repricing. Central banks still accumulating above official net-purchase reports; 2026 sell-side targets ($4,900-6,000 year-end) rest on continued official buying. Not a 5 only because gold is at record highs and chasing here carries drawdown risk.",
+      "as_of": "2026-09-10"
     },
     "Safe-haven bid": {
       "score": 4,
-      "note": "Escalation intensifying - the US destroyed five Iranian crude tankers on 8 Sep in retaliation for an attempted strike on a US warship, and Brent has crossed $100 for the first time since July. Gold is holding ~$4,400 despite the ~4.8% 10-year, i.e. the haven bid is offsetting the rates drag rather than being overwhelmed by it. No ceasefire signal.",
-      "as_of": "2026-09-09"
+      "note": "Still escalating - no ceasefire, US-Iran Strait of Hormuz tensions ongoing (attacks on shipping, a proposed transit-toll system), Brent holding around/above $100. Gold is holding near its record ~$4,400 despite a ~4.85% 10-year, i.e. the haven bid is offsetting the rates drag rather than being overwhelmed by it.",
+      "as_of": "2026-09-10"
     }
   },
   "XAG": {
     "Real yield direction": {
       "score": 2,
-      "note": "Same headwind as gold - 10-year ~4.79% (8 Sep) with a ~57-63% September Fed hike priced into the 16 Sep FOMC, rising oil lifting yields further. Silver is more leveraged to the move, so the drag is felt at least as much here. 10 Sep CPI is the swing factor.",
-      "as_of": "2026-09-09"
+      "note": "Same headwind as gold - 10-year ~4.84-4.86% (10 Sep), hot August PPI (+5.4% y/y), ~57-63% September Fed hike priced into the 16 Sep FOMC. Silver is more leveraged to the move, so the drag is felt at least as much here. 11 Sep CPI is the swing factor.",
+      "as_of": "2026-09-10"
     },
     "US dollar direction": {
       "score": 3,
-      "note": "DXY eased back to ~98.9 (8 Sep) from the 99.39 post-payrolls high - the hike is largely priced and oil-risk aversion caps the bid. Roughly neutral for silver.",
-      "as_of": "2026-09-09"
+      "note": "DXY in the high-98s; hot PPI gives a mild dollar-firming bias into CPI/FOMC but the hike is largely priced. Roughly neutral for silver.",
+      "as_of": "2026-09-10"
     },
     "Industrial demand": {
       "score": 3.5,
-      "note": "Structural solar/electronics/AI-datacentre demand stays firm and the gold-silver ratio (~67) still implies silver is tracking the metals bid, but 2026 global growth is slowing (IEA has oil demand contracting on trade disruption), which caps the cyclical industrial pull. Net mildly positive, unchanged.",
+      "note": "Structural solar/electronics/AI-datacentre demand stays firm and silver is tracking the metals bid, but 2026 global growth is slowing (IEA has oil demand contracting on trade disruption), which caps the cyclical industrial pull. Net mildly positive, unchanged.",
       "as_of": "2026-09-06"
     },
     "Gold-silver ratio": {
       "score": 3,
-      "note": "Ratio ~67.5, well below the long-run ~80 average - silver has already closed most of the gap to gold, so it is no longer cheap on this measure. Neutral for further silver outperformance.",
-      "as_of": "2026-09-03"
+      "note": "Ratio ~65 (XAU ~4470 / XAG ~68.4), compressed further from ~67.5 a week ago and well below the long-run ~80 average - silver has already closed most of the gap to gold and is no longer cheap on this measure. Neutral for further silver outperformance.",
+      "as_of": "2026-09-10"
     }
   },
   "WTI": {
     "OPEC+ supply policy": {
       "score": 4,
-      "note": "On 6 Sep the seven core OPEC+ members PAUSED output increases, holding October quotas at the September level (31.01 Mb/d) after four straight monthly hikes - members want to set 2027 baselines first and the Hormuz disruption has cut the group's ability to move price anyway. Removes the 'more barrels coming' overhang for Q4; supportive, though it was widely expected. Next meeting 4 Oct.",
+      "note": "On 6 Sep the seven core OPEC+ members PAUSED output increases, holding October quotas at the September level (31.01 Mb/d) after four straight monthly hikes - members want to set 2027 baselines first and the Hormuz disruption has cut the group's ability to move price anyway. Removes the 'more barrels coming' overhang for Q4; supportive, though widely expected. Next meeting 4 Oct.",
       "as_of": "2026-09-06"
     },
     "Inventory trend": {
       "score": 3.5,
-      "note": "EIA week of 28 Aug: commercial crude -4.5Mb to 424.5Mb, ~1% above the 5-year average; refinery runs still high. The mid-August build has fully reversed and EIA's STEO expects stocks near/below the 5-year low through year-end on strong exports and low imports. The 4 Sep weekly report is delayed to 10 Sep (federal closure 7 Sep). Slightly tight.",
-      "as_of": "2026-09-09"
+      "note": "API reported a small crude draw (~-0.3 Mb) for the week ending 4 Sep; the EIA weekly report was pushed to 12:00/14:00 ET on 10 Sep by the 7 Sep federal closure. The mid-August build had already fully reversed and EIA's STEO expects stocks near/below the 5-year low through year-end on strong exports and low imports. August PPI energy +4.2% underlines the tight physical picture. Slightly tight.",
+      "as_of": "2026-09-10"
     },
     "Demand outlook": {
       "score": 2,
-      "note": "Still the August IEA Oil Market Report read: 2026 demand contracting (~-80 kb/d), sharpest quarterly drop since Covid, as trade disruption hits advanced economies, Asia and the Middle East. Nothing since has reversed it - the current price strength is entirely the Hormuz supply-risk premium, not demand. Next IEA OMR mid-September.",
+      "note": "Still the August IEA Oil Market Report read: 2026 demand contracting (~-80 kb/d), sharpest quarterly drop since Covid, as trade disruption hits advanced economies, Asia and the Middle East. Nothing since has reversed it - current price strength is entirely the Hormuz supply-risk premium, not demand. Next IEA OMR due mid-September.",
       "as_of": "2026-09-06"
     },
     "Geopolitical risk premium": {
       "score": 4.5,
-      "note": "Still escalating: the US destroyed five Iranian crude tankers on 8 Sep after an attempted strike on a US warship, and Brent crossed $100 for the first time since July (WTI ~$95) on Strait of Hormuz supply fears. No ceasefire signal. Holding at 4.5 - already near the top of the range.",
-      "as_of": "2026-09-09"
+      "note": "Still elevated and escalating: US-Iran Strait of Hormuz tensions ongoing with no ceasefire signal, attacks on shipping and a proposed transit-toll regime, Brent around/above $100 (WTI ~$96). Holding at 4.5 - already near the top of the range.",
+      "as_of": "2026-09-10"
     }
   }
 }
