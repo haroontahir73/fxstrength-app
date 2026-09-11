@@ -1,5 +1,445 @@
 [
  {
+  "when": "11 Sep 10:46 UTC",
+  "iso": "2026-09-11T10:46:19.350503+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOil set for weekly gain of over 7% on supply disruptions; US diesel hits record high - Yahoo Finance  (Yahoo Finance)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,391 (+0.6%)   Silver 64.53 (+0.4%)   WTI 98.93 (-3.5%)   DXY 99.17 (+0.1%)   US10Y 4.94 (+2.2%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPWXg1QTVmeV8xSE1SRXAxVGtJQjQ3SkpkY1Z1aGprRjhUWEdCT28td0o4MC1iekNZdmZveDBnN1ExZVlyVjJtNUdqR243T21XcFJQbTFwaDR1Z1ZfdHJfYzJMQlIxci1IRmZrUFRJM0NISDlFX2R5cnd1VXQ1cHJLcmw2WWRnQmc?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4390.6,
+   "Silver": 64.535,
+   "WTI": 98.93
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Oil set for weekly gain of over 7% on supply disruptions; US diesel hits record high - Yahoo Finance",
+   "src": "Yahoo Finance",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,391 (+0.6%)   Silver 64.53 (+0.4%)   WTI 98.93 (-3.5%)   DXY 99.17 (+0.1%)   US10Y 4.94 (+2.2%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
+  "when": "11 Sep 10:36 UTC",
+  "iso": "2026-09-11T10:36:45.822512+00:00",
+  "cat": "rates_up",
+  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nInvestors brace for possible rate hike at uncertain Fed meeting - WTVB  (WTVB)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,390 (+0.6%)   Silver 64.53 (+0.4%)   WTI 99.06 (-3.3%)   DXY 99.17 (+0.1%)   US10Y 4.94 (+2.2%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNN2ZiUmY4SHBKenBvUS1TT2RzQnRfUWZFZmtxakMtNjJ2UVhSbXdsanBNTEdpSWJKaktXQU8zQ1p5Nk5yZElsTjM4eFBhaEQ2ekxXZjZ6YWxhTDdnY2lKd0VzS0tJT1hmQ3RoS1plYVBlekcxVlVuS0xFYnp3S3hlVkZld2ExWXpqS1ZlTEI3V21lbEhzbVJjNzJ3?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4390.5,
+   "Silver": 64.525,
+   "WTI": 99.06
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Investors brace for possible rate hike at uncertain Fed meeting - WTVB",
+   "src": "WTVB",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "same hit as gold, only bigger",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,390 (+0.6%)   Silver 64.53 (+0.4%)   WTI 99.06 (-3.3%)   DXY 99.17 (+0.1%)   US10Y 4.94 (+2.2%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
+  "when": "11 Sep 10:33 UTC",
+  "iso": "2026-09-11T10:33:29.602319+00:00",
+  "cat": "rates_up",
+  "title": "TALK | GOLD+SILVER SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\n\u2018That Could Result in a Rate Hike as Soon as Next Week\u2019: Schwab Strategist on Friday\u2019s CPI - 24/7 Wall St.  (24/7 Wall St.)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193   look for shorts - rates up = gold's worst enemy (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193   look for shorts - same hit as gold, only bigger (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,390 (+0.6%)   Silver 64.52 (+0.4%)   WTI 98.98 (-3.4%)   DXY 99.16 (+0.1%)   US10Y 4.94 (+2.2%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOdGowY3diOUkzZ0pGMlJhODROZkl0WkV6Nm10ZkV3cE1TVDFhclVNbVFFZHNYNjZ4SG1YRUU1UUczTEJlLWNKZm9aanYwb2xhREU0aktxVE9ZYXBtMjNCR3dzTC0wQU1mUHBPNWVITnpTVTdkQXlQbkV2enllbFRlNm9VUUZQLW4ySGhkYlBnQU54TUdJaVNRTks0RWFESXMzMk5oQnJtYnI4NzFtLTZTRjJNSjNfSmpoMnRsWFh2ek4yd0RkWFptN0J3?oc=5",
+  "talk": true,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4389.9,
+   "Silver": 64.515,
+   "WTI": 98.98
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "\u2018That Could Result in a Rate Hike as Soon as Next Week\u2019: Schwab Strategist on Friday\u2019s CPI - 24/7 Wall St.",
+   "src": "24/7 Wall St.",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "rates up = gold's worst enemy (talk, not action yet)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "same hit as gold, only bigger (talk, not action yet)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,390 (+0.6%)   Silver 64.52 (+0.4%)   WTI 98.98 (-3.4%)   DXY 99.16 (+0.1%)   US10Y 4.94 (+2.2%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
+  "when": "11 Sep 10:08 UTC",
+  "iso": "2026-09-11T10:08:05.052599+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nToday's Headlines: Military Drill in West Bank | Iran: End Yemen Blockade | Major Iranian Missile Strike - Palestine Chronicle  (Palestine Chronicle)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2193    mild short bias - FLIPPED - see the reality check below\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,386 (+0.5%)   Silver 64.48 (+0.3%)   WTI 99.67 (-2.7%)   DXY 99.15 (+0.1%)   US10Y 4.94 (+2.2%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNUkxWQy01YkEzcWFjVE9ERzZ1Z0ZLd0pPMk9kYUNkSFk5amhjNnBNdEZKOTQ3VWxETFJsN1FlUXYzWWdicVpkWnVwUmlBQmdXVVRDcTE4b3NFQ01NVnNkY0dOUHR2UVdtRW1tU0thUTYtQXhPUnc3NTVYbFRYVDdaR3RwLVl6RVNmY0hoLTl0a1U3NVc4Tnk2Rk5JcjNFZjdxbkxwbDlJN1c3SHY3UkJBNzhPaDdWUk1IS29SUzFkakZkdFVuRjFlMG9hMjFHQQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4385.9,
+   "Silver": 64.485,
+   "WTI": 99.67
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Today's Headlines: Military Drill in West Bank | Iran: End Yemen Blockade | Major Iranian Missile Strike - Palestine Chronicle",
+   "src": "Palestine Chronicle",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "FLIPPED - see the reality check below",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,386 (+0.5%)   Silver 64.48 (+0.3%)   WTI 99.67 (-2.7%)   DXY 99.15 (+0.1%)   US10Y 4.94 (+2.2%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
+  "when": "11 Sep 08:26 UTC",
+  "iso": "2026-09-11T08:26:22.344750+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nDead and injured in Russia after Ukrainian drone attack - Yahoo  (Yahoo)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2193    mild short bias - FLIPPED - see the reality check below\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,388 (+0.5%)   Silver 64.44 (+0.2%)   WTI 100.76 (-1.7%)   DXY 99.11 (+0.0%)   US10Y 4.94 (+2.2%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNOWJfbUhXbnFxS0ljRC1XbFNSMWJRMHZxQnI1QXN2b2RxLWVtcEhRYjA1TkZPV1dpRlR2ZnV4eHVCc2ZJaGpLZjU5MUNreWYwQTJCYUZvSEhUc2MzNGdsbHowNkZjZmxIa294SHdOc3JOVnhmVmtCNlRwOG1aaFJsRHBzMWhyOV8yeTdWSzRuWmVxU3ZhVE5n?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4387.6,
+   "Silver": 64.435,
+   "WTI": 100.76
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Dead and injured in Russia after Ukrainian drone attack - Yahoo",
+   "src": "Yahoo",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "FLIPPED - see the reality check below",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,388 (+0.5%)   Silver 64.44 (+0.2%)   WTI 100.76 (-1.7%)   DXY 99.11 (+0.0%)   US10Y 4.94 (+2.2%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
+  "when": "11 Sep 08:10 UTC",
+  "iso": "2026-09-11T08:10:29.217800+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nGlobal 2026 oil supply shortfall to deepen on delayed return of normal Gulf flows, IEA says - marketscreener.com  (marketscreener.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,388 (+0.5%)   Silver 64.47 (+0.3%)   WTI 100.74 (-1.7%)   DXY 99.08 (-0.0%)   US10Y 4.94 (+2.2%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQMDd2bjU2YWQwRFprT0pGSW5TdDhqQ1lNTkZibU9paC1JNmtvSlJVN3ZqdkgzOVVvejVEcUJjWC1oQVFsZ08zdnZUTS1HMkVqa2FqdnNaQ2tHTTBiTDh2UWs3N3R0WTc5S0ZhUlRXWWpSaHF5cGJuZDRZQ3h1Z1RjMDJfbzN5dWZHNloxZFo5eGhSQkV1a1loVS1pYVpkbVd1TjdoUDVSbzBzalZNWHZXdTZfSGJHMC1pbmcwNTd0YjFEQ1o1NDN1NEVHZGdvYmFLaGRQV3c5elU1WU0?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4387.6,
+   "Silver": 64.475,
+   "WTI": 100.74
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Global 2026 oil supply shortfall to deepen on delayed return of normal Gulf flows, IEA says - marketscreener.com",
+   "src": "marketscreener.com",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,388 (+0.5%)   Silver 64.47 (+0.3%)   WTI 100.74 (-1.7%)   DXY 99.08 (-0.0%)   US10Y 4.94 (+2.2%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
+  "when": "11 Sep 07:41 UTC",
+  "iso": "2026-09-11T07:41:54.348537+00:00",
+  "cat": "rates_up",
+  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nJapan's Nikkei slumps as Fed hike bets, soaring oil weigh - \u30a2\u30e9\u30d6\u30cb\u30e5\u30fc\u30b9  (\u30a2\u30e9\u30d6\u30cb\u30e5\u30fc\u30b9)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,388 (+0.5%)   Silver 64.40 (+0.2%)   WTI 100.84 (-1.6%)   DXY 99.07 (-0.0%)   US10Y 4.94 (+2.2%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNaXJRV2xlVnZ6cDZzcG9rcS1vNk5ad2h5QkptX3lkbkFIamFtOS02TDdzQ3hhMk10dUV6LWYzOW1fUFZQMGJRREJyWml4UE5BZUtBaG16b19EXzlRZVB4Vlp1Mnd5VVpiVXlJczNXcWV0dEZpXzJIQ2dzTlUteWlsU0hsN3NzaVNZUko4WkZkRkNWeUU5MVl0NVpxVl8yMUNv?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4387.7,
+   "Silver": 64.4,
+   "WTI": 100.84
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Japan's Nikkei slumps as Fed hike bets, soaring oil weigh - \u30a2\u30e9\u30d6\u30cb\u30e5\u30fc\u30b9",
+   "src": "\u30a2\u30e9\u30d6\u30cb\u30e5\u30fc\u30b9",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "same hit as gold, only bigger",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,388 (+0.5%)   Silver 64.40 (+0.2%)   WTI 100.84 (-1.6%)   DXY 99.07 (-0.0%)   US10Y 4.94 (+2.2%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
+  "when": "11 Sep 06:22 UTC",
+  "iso": "2026-09-11T06:22:37.513781+00:00",
+  "cat": "geo_deescalation",
+  "title": "OIL STRONG SHORT | GEOPOLITICS - calming down",
+  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nFinancialJuice: Iran Foreign Minister, Pakistan Army Chief discussed finding ways to restore diplomatic efforts to de-escalate conflict on all fronts - Pakistan Source\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - supply worry gone, barrels flow again\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,398 (+0.8%)   Silver 64.61 (+0.5%)   WTI 101.04 (-1.4%)   DXY 99.03 (-0.1%)   US10Y 4.94 (+2.2%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
+  "link": "https://www.financialjuice.com/News/9758848/Iran-Foreign-Minister-Pakistan-Army-Chief-discussed-finding-ways-to-restore-diplomatic-efforts-to-de-escalate-conflict-on-all-fronts---Pakistan-Source.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4398.0,
+   "Silver": 64.61,
+   "WTI": 101.04
+  },
+  "parts": {
+   "emoji": "\ud83d\udd4a",
+   "label": "GEOPOLITICS \u2014 calming down",
+   "headline": "FinancialJuice: Iran Foreign Minister, Pakistan Army Chief discussed finding ways to restore diplomatic efforts to de-escalate conflict on all fronts - Pakistan Source",
+   "src": "",
+   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured both ways - fear-out vs yields-down cancel",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "same, no reliable direction",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "supply worry gone, barrels flow again",
+     "record": "some evidence - right 51% of 113 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,398 (+0.8%)   Silver 64.61 (+0.5%)   WTI 101.04 (-1.4%)   DXY 99.03 (-0.1%)   US10Y 4.94 (+2.2%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "these deals break \u2014 one broken truce and it all goes back on"
+  }
+ },
+ {
   "when": "11 Sep 05:28 UTC",
   "iso": "2026-09-11T05:28:25.349789+00:00",
   "cat": "geo_escalation",
@@ -2857,446 +3297,6 @@
    "snap": "NOW  Gold 4,455 (+1.4%)   Silver 67.53 (+1.9%)   WTI 94.48 (+1.6%)   DXY 98.67 (-0.2%)   US10Y 4.81 (+0.5%)",
    "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "09 Sep 06:29 UTC",
-  "iso": "2026-09-09T06:29:23.065470+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nOil Prices Spike As US-Iran Strikes Threaten Global Crude Supply - TVC News  (TVC News)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2193    mild short bias - FLIPPED - see the reality check below\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,444 (+1.1%)   Silver 67.36 (+1.6%)   WTI 94.14 (+1.2%)   DXY 98.64 (-0.2%)   US10Y 4.81 (+0.5%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPXzVKNGlsMzdMTld3S0xaSFVWWW1CM2VVcEY2Sl8xZUE5WnNla3FmS0w3ZDNWbTZiaFNrSkVTcW51ZXJCM1EyRWVWQXBuUkZvRU5vRS1nVGp0M1lxSWRIYUgzdjlSNGFZRURIc1BobVJtUW9lZEZEcUwzaGdQaWRtZmlfNTB6eldvWWs4X1g0bmRIdw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4444.2,
-   "Silver": 67.36,
-   "WTI": 94.14
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Oil Prices Spike As US-Iran Strikes Threaten Global Crude Supply - TVC News",
-   "src": "TVC News",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "FLIPPED - see the reality check below",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,444 (+1.1%)   Silver 67.36 (+1.6%)   WTI 94.14 (+1.2%)   DXY 98.64 (-0.2%)   US10Y 4.81 (+0.5%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "09 Sep 04:44 UTC",
-  "iso": "2026-09-09T04:44:34.939142+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold Prices Fall Below Key Level as Fed Rate Hike Expectations Rise - News and Statistics - IndexBox  (IndexBox)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,422 (+0.6%)   Silver 66.84 (+0.8%)   WTI 93.98 (+1.0%)   DXY 98.75 (-0.1%)   US10Y 4.81 (+0.5%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPaEJSanY4N0tGcVQ0UnJIMmxQb0hOcG0zcVZURl9XemFic01mT0czalVjalNWU1I4UTJ1ZWhUaDI2U3ZHTDc2TXpXZGlNX1dVeHNMcFI3OGZpNExWVGFiY1ZMcFhkLWN4cjFCYThlZGFfemFUdTNES2VybHAtREw3ZGVR?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4422.2,
-   "Silver": 66.84,
-   "WTI": 93.98
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Gold Prices Fall Below Key Level as Fed Rate Hike Expectations Rise - News and Statistics - IndexBox",
-   "src": "IndexBox",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,422 (+0.6%)   Silver 66.84 (+0.8%)   WTI 93.98 (+1.0%)   DXY 98.75 (-0.1%)   US10Y 4.81 (+0.5%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "09 Sep 04:12 UTC",
-  "iso": "2026-09-09T04:12:12.381403+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIran strikes US base in Jordan after US attacks Iranian oil tankers - National Herald  (National Herald)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2193    mild short bias - FLIPPED - see the reality check below\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,418 (+0.6%)   Silver 66.85 (+0.8%)   WTI 94.18 (+1.2%)   DXY 98.77 (-0.1%)   US10Y 4.81 (+0.5%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPLTBrZ0dDWGZlTG5maEVLNjFqTk1SSEJUWVBaRHN5c0VPWEM5aTFDUW9Ea2tUQUpNSmw2NVpMSUJjM3o0M21HTGpZVWFNeS1EMEs2VUFfMVkxSlB5TGVWbXd0QjNmMXJaeTZOaFNEM2dNWWhIMmJBTGV6azVFTVJxM3NtN1IwS2RydDV4ZUEwNjg0NTlaYldQbElFNjRKbWhobUhyQjJvWXpFRnFUVXFvSTQtazJSU3Az?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4418.5,
-   "Silver": 66.85,
-   "WTI": 94.18
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Iran strikes US base in Jordan after US attacks Iranian oil tankers - National Herald",
-   "src": "National Herald",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "FLIPPED - see the reality check below",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,418 (+0.6%)   Silver 66.85 (+0.8%)   WTI 94.18 (+1.2%)   DXY 98.77 (-0.1%)   US10Y 4.81 (+0.5%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "09 Sep 03:52 UTC",
-  "iso": "2026-09-09T03:52:51.481968+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nlive Iran says IRGC attacked U.S. vessels and oil tankers in Persian Gulf and Strait of Hormuz - AnewZ  (AnewZ)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191    mild long bias - the direct hit (eased by self-check)\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,422 (+0.6%)   Silver 66.92 (+0.9%)   WTI 94.24 (+1.3%)   DXY 98.76 (-0.1%)   US10Y 4.81 (+0.5%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNMjJPaVlEc3E0WXd3ZUFuaXNTbllsak5BaFdRRGJGXzRRcm9xTlZxOG9lcHRIREpueUhOYm5qT2E5VmMxZFBsSFB4bi1XcDNqRnlVU2ZSUGhEREZlLUtIV01iMHJmazZQNExubnVxMldVM29EaV9zWlJINFlhVTJCS0RXWWtnbHVjWUNmdWpheDNrNldQS1VscHI5Sm1SM2lTeVRz?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4421.8,
-   "Silver": 66.915,
-   "WTI": 94.24
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "live Iran says IRGC attacked U.S. vessels and oil tankers in Persian Gulf and Strait of Hormuz - AnewZ",
-   "src": "AnewZ",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the direct hit (eased by self-check)",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,422 (+0.6%)   Silver 66.92 (+0.9%)   WTI 94.24 (+1.3%)   DXY 98.76 (-0.1%)   US10Y 4.81 (+0.5%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "09 Sep 02:22 UTC",
-  "iso": "2026-09-09T02:22:33.791891+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFed Chairman Kevin Warsh Called Inflation 'More Concerning' at His First Jackson Hole Speech. Does That Signal a Rate Hike Is Coming? - The Motley Fool  (The Motley Fool)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,418 (+0.6%)   Silver 66.69 (+0.6%)   WTI 94.34 (+1.4%)   DXY 98.78 (-0.1%)   US10Y 4.81 (+0.5%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQNXRjaDRGNTlUQWJjTXpMOXRhMXkzWWJ6VGJ2Q3lORUQ1YTdBQ09SZElHbGxnRllXenpvbnVFLVA4a0Q3dTNSQmVhM1drZWg5WjAwVHg0VGtmdkp5NFlla09KVGJwTEN5MVA5WTFCNHZsV2VsS0w0RVBtWGltLV9LcmprZkVzX1BySDMwaFVUc0lWZ2duTXlwZg?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4418.5,
-   "Silver": 66.69,
-   "WTI": 94.34
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Fed Chairman Kevin Warsh Called Inflation 'More Concerning' at His First Jackson Hole Speech. Does That Signal a Rate Hike Is Coming? - The Motley Fool",
-   "src": "The Motley Fool",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,418 (+0.6%)   Silver 66.69 (+0.6%)   WTI 94.34 (+1.4%)   DXY 98.78 (-0.1%)   US10Y 4.81 (+0.5%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "09 Sep 01:53 UTC",
-  "iso": "2026-09-09T01:53:30.684980+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIran retaliates against US allies after its oil tankers destroyed - Al-Monitor  (Al-Monitor)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2193    mild short bias - FLIPPED - see the reality check below\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,420 (-0.2%)   Silver 66.80 (+1.1%)   WTI 94.43 (+3.2%)   DXY 98.80 (-0.0%)   US10Y 4.81 (+0.5%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOc1BIbXhUMW9sVURBQTREVmtBZjd2MU9ac3E3azh0VTdfRWZXenpWeWtuX1FoTXFwRDI3NzJuUGRiNVJqYVBVaHVVS1Nfd0dXM1ZDbEVsSWRuM1NDRVR2WF9PT3FtbjBPd2xmQy1SU1RDZmlFWms5aW5FUGZuWDN3ODVScEhTWFcxOGEtVFNDcWZhR3otVlZiSjZnUm42RXp1TU1SSHlMZXdqXzBlSXJv?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4419.8,
-   "Silver": 66.8,
-   "WTI": 94.43
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Iran retaliates against US allies after its oil tankers destroyed - Al-Monitor",
-   "src": "Al-Monitor",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "FLIPPED - see the reality check below",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,420 (-0.2%)   Silver 66.80 (+1.1%)   WTI 94.43 (+3.2%)   DXY 98.80 (-0.0%)   US10Y 4.81 (+0.5%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "09 Sep 01:43 UTC",
-  "iso": "2026-09-09T01:43:46.916760+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\n14 Filipino seafarers back home after Strait of Hormuz tanker attack; repatriation for 2 slain underway - news.abs-cbn.com  (news.abs-cbn.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191   look for longs - the direct hit (eased by self-check)\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,419 (-0.2%)   Silver 66.86 (+1.2%)   WTI 94.51 (+3.3%)   DXY 98.81 (-0.0%)   US10Y 4.81 (+0.5%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQWjVNSURiTVItRUpEdWF2M2xlWXY3b2FEbmgxc2pQNnBFLWdidFRSVEFRMXRFQmdmMk0ybWN5dnRPYzR6ZDJRdXZlZVBSeS1sWjZJTGFjY2pKVzk2blNRWHU3QWxtZjFfX0xQYXlCVWRWb0pNUjM5SktqbDBtWTc2SDQ5cGxYZ2gxTDNhczlMdUNmZ1Z3bHViaW9BMjFOTk9wb1JaYkNTNVlid2I0VWRYWEhVcFNNNU9aMlFuYWYwNldES0tzeVh2N182TXh2aEhVZjZ5eTFaQmxRTTYyR0sw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4419.3,
-   "Silver": 66.855,
-   "WTI": 94.51
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "14 Filipino seafarers back home after Strait of Hormuz tanker attack; repatriation for 2 slain underway - news.abs-cbn.com",
-   "src": "news.abs-cbn.com",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "the direct hit (eased by self-check)",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,419 (-0.2%)   Silver 66.86 (+1.2%)   WTI 94.51 (+3.3%)   DXY 98.81 (-0.0%)   US10Y 4.81 (+0.5%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "09 Sep 01:34 UTC",
-  "iso": "2026-09-09T01:34:06.448060+00:00",
-  "cat": "inflation_hot",
-  "title": "GOLD+SILVER SHORT | INFLATION - running hot",
-  "body": "\ud83c\udf21 INFLATION \u2014 running hot\n\nFinancialJuice: China August CPI rises 0.4% month-on-month, above poll of 0.3%\n\nWHY: You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.\n\nGOLD   \u2193\u2193   look for shorts - the rates reaction beats the hedge story\n        [some evidence - right 50% of 485 past cases]\nSILVER \u2193\u2193   look for shorts - same, amplified\n        [some evidence - right 52% of 485 past cases]\nOIL    \u2192    no clean read - usually a cause, not a victim\n\nNOW  Gold 4,411 (-0.4%)   Silver 66.59 (+0.8%)   WTI 94.46 (+3.3%)   DXY 98.81 (-0.3%)   US10Y 4.81 (+0.5%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: if inflation is coming from oil AND growth is dying, gold turns up instead",
-  "link": "https://www.financialjuice.com/News/9754912/China-August-CPI-rises-04-month-on-month-above-poll-of-03.aspx",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4410.8,
-   "Silver": 66.59,
-   "WTI": 94.46
-  },
-  "parts": {
-   "emoji": "\ud83c\udf21",
-   "label": "INFLATION \u2014 running hot",
-   "headline": "FinancialJuice: China August CPI rises 0.4% month-on-month, above poll of 0.3%",
-   "src": "",
-   "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "the rates reaction beats the hedge story",
-     "record": "some evidence - right 50% of 485 past cases"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "same, amplified",
-     "record": "some evidence - right 52% of 485 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "usually a cause, not a victim",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 4,411 (-0.4%)   Silver 66.59 (+0.8%)   WTI 94.46 (+3.3%)   DXY 98.81 (-0.3%)   US10Y 4.81 (+0.5%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
   }
  }
 ]
