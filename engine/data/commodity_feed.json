@@ -1,5 +1,60 @@
 [
  {
+  "when": "11 Sep 04:05 UTC",
+  "iso": "2026-09-11T04:05:16.402216+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussians are complaining about airstrikes again: an oil refinery and an Ozon warehouse are on fire in Saratov \u2013 video - LIGA.net  (LIGA.net)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2193    mild short bias - FLIPPED - see the reality check below\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,345 (-1.6%)   Silver 63.58 (-6.4%)   WTI 103.28 (+7.5%)   DXY 99.15 (+0.4%)   US10Y 4.94 (+2.2%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQRW5GT1FZak8xSFowTVRmU1dMS0FJWkZVVE12cXpLOXdSNkhEYmdCOTlYTlI5b3pBajBpMkdld2FGME8tb3JDTmstVmp1VWh4dmpBMHZjUm9qVTVQYTA3dW5tNDhTUWtvRTBfYnRYUTFlU1l1UWhEVGF2QXJLN3VCeUxhcEhjX0N0em1PeDhJT3JBUElvWjdIRHYtTmIyNWVYM19EbVJwTUtHV3BVSlF2N1BIMk5qWGswaW9Ub0pGdjNJLUx1TEpjT1VFamN1SnVkSWFfWTBiV0EzRjVVQkUxdEZB0gHnAUFVX3lxTE5HRTNnMFJiblkzZ3VFY3MycW85dHRNWkl3aUNvYy1lMU9vekRkOGtTekhHNGhxUVdnZlJtVkxIMjRLclF1M2p1U2xxemppT2k3dVRRSUVWSG54SUppRW1LTFpLMzFEUnRMVU1keVpVLXdIRktOa29RTGRFQ3lraHNVOXpTcVVfMk1YSnN0OU9Ocmp6M2ZhWGZiLXJJS0tSNXhYd0hQUHhnSmI0WEZabGNjMUZXV0xJckp0LTVYOFFGRUpzY1dLR0RaejYwdl82TE13WDlLSnk2dkVubE9wbHRBWU1LMEdIVQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4344.7,
+   "Silver": 63.575,
+   "WTI": 103.28
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Russians are complaining about airstrikes again: an oil refinery and an Ozon warehouse are on fire in Saratov \u2013 video - LIGA.net",
+   "src": "LIGA.net",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "FLIPPED - see the reality check below",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,345 (-1.6%)   Silver 63.58 (-6.4%)   WTI 103.28 (+7.5%)   DXY 99.15 (+0.4%)   US10Y 4.94 (+2.2%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "11 Sep 03:55 UTC",
   "iso": "2026-09-11T03:55:42.764380+00:00",
   "cat": "rates_up",
@@ -3240,61 +3295,6 @@
     }
    ],
    "snap": "NOW  Gold 4,398 (-0.7%)   Silver 66.23 (+0.3%)   WTI 94.27 (+3.0%)   DXY 98.92 (-0.2%)   US10Y 4.81 (+0.5%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "08 Sep 21:29 UTC",
-  "iso": "2026-09-08T21:29:23.157686+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nU.S. Strikes Iranian Oil Tankers in Response to Tehran\u2019s Attacks on Navy Ships - WSJ  (WSJ)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2193    mild short bias - FLIPPED - see the reality check below\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,400 (-0.7%)   Silver 66.38 (+0.5%)   WTI 94.25 (+3.0%)   DXY 98.86 (-0.3%)   US10Y 4.81 (+0.5%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQWkx5bjVGY0Y4RGs0QURQZTRmUGZHN3JTS3Z2alRLcXlfOFNTQzBlTVFzMXpTa2lhazQ3b2FGRFdWX1l1M1JielF3NTlreHpOSXptdnlxcTkxSHN6WU40ZXJaSldoU0c0OXVibTZ0NGFvNkpHLXF6Y2hmTnVOMldrTnZNV1lpU3FuWS1Zckc1VmxkcU10bm5MaWJYalZiNUJUcDREUnVJTGtLN3VET2tNSEJwVQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4400.0,
-   "Silver": 66.375,
-   "WTI": 94.25
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "U.S. Strikes Iranian Oil Tankers in Response to Tehran\u2019s Attacks on Navy Ships - WSJ",
-   "src": "WSJ",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "FLIPPED - see the reality check below",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,400 (-0.7%)   Silver 66.38 (+0.5%)   WTI 94.25 (+3.0%)   DXY 98.86 (-0.3%)   US10Y 4.81 (+0.5%)",
    "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
