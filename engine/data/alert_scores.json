@@ -3265,5 +3265,104 @@
   "outcome": "loss",
   "talk": false,
   "at": "2026-09-11T08:10:29.217800+00:00"
+ },
+ {
+  "id": "2026-09-11T10:33:29.602319+00:00|GOLD",
+  "cat": "rates_up",
+  "instr": "GOLD",
+  "dir": "down",
+  "strength": 2,
+  "chg": 0.442,
+  "outcome": "loss",
+  "talk": true,
+  "at": "2026-09-11T10:33:29.602319+00:00"
+ },
+ {
+  "id": "2026-09-11T10:33:29.602319+00:00|SILVER",
+  "cat": "rates_up",
+  "instr": "SILVER",
+  "dir": "down",
+  "strength": 2,
+  "chg": 0.891,
+  "outcome": "loss",
+  "talk": true,
+  "at": "2026-09-11T10:33:29.602319+00:00"
+ },
+ {
+  "id": "2026-09-11T10:33:29.602319+00:00|OIL",
+  "cat": "rates_up",
+  "instr": "OIL",
+  "dir": "down",
+  "strength": 1,
+  "chg": 0.808,
+  "outcome": "loss",
+  "talk": true,
+  "at": "2026-09-11T10:33:29.602319+00:00"
+ },
+ {
+  "id": "2026-09-11T10:08:05.052599+00:00|GOLD",
+  "cat": "geo_escalation",
+  "instr": "GOLD",
+  "dir": "down",
+  "strength": 1,
+  "chg": 0.896,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-09-11T10:08:05.052599+00:00"
+ },
+ {
+  "id": "2026-09-11T10:08:05.052599+00:00|OIL",
+  "cat": "geo_escalation",
+  "instr": "OIL",
+  "dir": "up",
+  "strength": 3,
+  "chg": -0.06,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-09-11T10:08:05.052599+00:00"
+ },
+ {
+  "id": "2026-09-11T10:46:19.350503+00:00|OIL",
+  "cat": "oil_supply_tight",
+  "instr": "OIL",
+  "dir": "up",
+  "strength": 3,
+  "chg": 0.344,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-09-11T10:46:19.350503+00:00"
+ },
+ {
+  "id": "2026-09-11T10:36:45.822512+00:00|GOLD",
+  "cat": "rates_up",
+  "instr": "GOLD",
+  "dir": "down",
+  "strength": 3,
+  "chg": 0.515,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-09-11T10:36:45.822512+00:00"
+ },
+ {
+  "id": "2026-09-11T10:36:45.822512+00:00|SILVER",
+  "cat": "rates_up",
+  "instr": "SILVER",
+  "dir": "down",
+  "strength": 3,
+  "chg": 1.015,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-09-11T10:36:45.822512+00:00"
+ },
+ {
+  "id": "2026-09-11T10:36:45.822512+00:00|OIL",
+  "cat": "rates_up",
+  "instr": "OIL",
+  "dir": "down",
+  "strength": 1,
+  "chg": 0.515,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-09-11T10:36:45.822512+00:00"
  }
 ]
