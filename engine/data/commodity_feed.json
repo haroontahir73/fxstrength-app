@@ -1,5 +1,60 @@
 [
  {
+  "when": "12 Sep 00:06 UTC",
+  "iso": "2026-09-12T00:06:37.624603+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nSaudi Arabia closes oil pipeline after drone attack launched from Iraq - ABC News & Headlines \u2013 Australian Broadcasting Corporation  (ABC News & Headlines \u2013 Australian Broadcasting Corporation)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2193    mild short bias - FLIPPED - see the reality check below\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,390 (+0.6%)   Silver 65.02 (+1.1%)   WTI 99.99 (-2.4%)   DXY 99.09 (+0.0%)   US10Y 4.97 (+0.6%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOdTM2NHI2eGVCalZ4N25vQ0tKaC1XVXhXR0pkVVRVeUNHb0J5cjZpc2lvR2hSVUhzRjd2ay1nc01idFNra2YtTWtLaEdmSG9NR3V2WXQzbktPS0JPN3hua2xtenhVa2RWRGtWSE01SnRtNXJBRjIxYTYwNHhIUDY2d2RIRTMwV3V2YnJ0M05nYW15OEFDR2llSA?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4390.0,
+   "Silver": 65.02,
+   "WTI": 99.99
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Saudi Arabia closes oil pipeline after drone attack launched from Iraq - ABC News & Headlines \u2013 Australian Broadcasting Corporation",
+   "src": "ABC News & Headlines \u2013 Australian Broadcasting Corporation",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "FLIPPED - see the reality check below",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,390 (+0.6%)   Silver 65.02 (+1.1%)   WTI 99.99 (-2.4%)   DXY 99.09 (+0.0%)   US10Y 4.97 (+0.6%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "11 Sep 23:37 UTC",
   "iso": "2026-09-11T23:37:33.681392+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,452 (+1.3%)   Silver 68.00 (+2.6%)   WTI 96.10 (+3.3%)   DXY 98.74 (-0.1%)   US10Y 4.84 (+0.6%)",
    "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "10 Sep 03:00 UTC",
-  "iso": "2026-09-10T03:00:47.465002+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOil prices today: Brent holds above $100 as Iran-US attacks threaten deeper supply disruption - The Times of India  (The Times of India)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,462 (+1.5%)   Silver 68.19 (+2.9%)   WTI 96.26 (+3.5%)   DXY 98.75 (-0.0%)   US10Y 4.84 (+0.6%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMikwJBVV95cUxQUHprUUxCU0dNRUY0bTRLNGEza05kb3RDYnYwVHZybG9QZm50WGlMYU5TU09oMGJZenZxODhUcVBabzZPWnh4Uzl0dXVwQ0NWZkdtWl9fYzVhWGd4LVhjSW5hU2hBajVpb3pGSVRSaDZkak9XX0lybm44bDNYOU0xNHlwRUhPcW8zM2tCZ1FzWUZTanF3S2NvQUs3d3hCMThuMF9FNFlkVHdTc1NJMlV3ZHRyMHhHdDVBYk50ai14WER4SE1COHJKODBSYVV3OVhwLWlsTmVmMVdzaTlmTWdHSDcyLUxqY215X0hPQkl5U1BzOU5idEctTEhZb0tiVVAxQUpKYVZYSHU1RUtSVDRVTEczRdIBmAJBVV95cUxPR2Y3UUhSN0podUhfNnZwRldpUll2WVk2Z1VXcHZzNXN4ZWtnZU9yZTNDU2gxQ2x3dXRwTlZ3UGtENVpfa05Bc2xreGlaZ3c4cVplS3JDM3Noc3JTMUhNYmgxS3ZJUlhCTUZ6THhkVzhVaHJ1MU5rcjlQQXVtNUlKSXc2MjYzei1jTllNM3lYQURxVjN5UkthX1VSSWpkMXZZMm5HSWptYllJdVdieFNGOENUdDJaQzlxZzM5X0lmWGRBMDBLU2lNZGtudDJYZFBoUTVYNEk0b3pPSUdLOThZSGhuRGNCWW5OWDN5Tzc2cTh4bm00RVhHck8zWFBvN3VWcXI2QWxIODhtNW1IWTBtQ1hNOVJuMkli?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4461.5,
-   "Silver": 68.195,
-   "WTI": 96.26
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Oil prices today: Brent holds above $100 as Iran-US attacks threaten deeper supply disruption - The Times of India",
-   "src": "The Times of India",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,462 (+1.5%)   Silver 68.19 (+2.9%)   WTI 96.26 (+3.5%)   DXY 98.75 (-0.0%)   US10Y 4.84 (+0.6%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
