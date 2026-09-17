@@ -1,12 +1,6 @@
 {
   "_help": "Fallback for banks centralbank.watch does not publish probabilities for (it links out to CME FedWatch for the Fed, and omits the RBNZ). Fill hike/hold/cut as percentages plus next_meeting and src. Set \"override\": true to beat a scraped value. Leave a bank out entirely rather than guessing - a missing expectation is handled, an invented one is not.",
-  "USD": {
-    "hike": 85,
-    "hold": 15,
-    "cut": 0,
-    "next_meeting": "September 16, 2026",
-    "src": "researched 2026-09-14 (re-check, stale since 09-06). CME FedWatch now shows ~85.5% for a 25bp hike at the 16 Sep FOMC (up from ~58-62% a week ago), Kalshi/Polymarket lagging in the high-40s%. The jump followed the hot 10 Sep CPI print on top of the already-hawkish post-Jackson Hole repricing. centralbank.watch's own USD block (83.2% hike) now agrees closely and is live in the scraped feed, so this manual entry is a fallback only - kept current in case the scraper block drops out again."
-  },
+  "_note_USD": "16 Sep FOMC hiked 25bp to 3.75-4.00% (confirmed) with a hawkish dot plot (16 of 18 officials expect at least one more hike this year). That meeting has now passed, so the prior entry (which pointed at it) is stale - decision-day trap. No credible market-implied probability for the next meeting (28 Oct) was found: WebSearch turned up only the qualitative dot-plot signal, and the internal Fed Watch model (data/fedwatch.json) is currently broken post-hike (still using the pre-hike EFFR/target range as of 15 Sep, producing a nonsensical Dec reading). Left out entirely rather than guessing - re-research once a clean Oct 28 figure is available.",
   "JPY": {
     "hike": 63,
     "hold": 37,

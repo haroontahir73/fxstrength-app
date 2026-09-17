@@ -97,5 +97,9 @@
   "USD|Treasury Sec Bessent Speaks|2026-09-15T14:00": 0.0,
   "_note_USD_bessent_0915": "House Financial Services testimony on the international financial system - G20 imbalances agenda, Treasury bond buyback defense, Iran sanctions. Not about the Fed policy path - scored 0 (Treasury Secretary, not a rate-setter).",
   "GBP|Money and power: lessons from history for stablecoins and US dollar dominance – speech by Carolyn Wilkins|2026-09-15T15:00": 0.0,
-  "_note_GBP_wilkins_0915": "FPC member speech at Queen's University Belfast on dollar-denominated stablecoins reinforcing US Treasury demand and dollar dominance - a financial-stability/market-structure topic, not the BoE policy rate path. Scored 0."
+  "_note_GBP_wilkins_0915": "FPC member speech at Queen's University Belfast on dollar-denominated stablecoins reinforcing US Treasury demand and dollar dominance - a financial-stability/market-structure topic, not the BoE policy rate path. Scored 0.",
+  "USD|FOMC Statement|2026-09-16T18:00": 2.0,
+  "_note_USD_fomc_stmt_0916": "Fed hiked 25bp to 3.75-4.00%, the first hike since July 2023, citing persistent inflation. Clearly hawkish outcome.",
+  "USD|FOMC Press Conference|2026-09-16T18:30": 2.0,
+  "_note_USD_fomc_presser_0916": "Powell press conference alongside the hike; updated dot plot showed 16 of 18 officials expect at least one more hike this year (4 expect two more, only 2 see this as the last one) - a strongly hawkish forward signal, not a one-and-done."
 }
