@@ -5,8 +5,8 @@
     "hike": 63,
     "hold": 37,
     "cut": 0,
-    "next_meeting": "September 17, 2026",
-    "src": "researched 2026-09-09 (re-check). centralbank.watch BoJ tool shows 63.4% hike / 36.6% hold for the 17 Sep meeting (25bp to 1.25%), ~51bp of tightening priced across the next three meetings. Reuters/Yahoo (Aug) report the BoJ 'eyeing a September hike and a faster pace of tightening'; some desks quote 80-90% but the TONA-futures-implied figure is ~63%. Scraper still misses the BoJ block, so hand-entered."
+    "next_meeting": "September 18, 2026",
+    "src": "re-checked 2026-09-17 (decision is 17-18 Sep, statement due 18 Sep 02:30 UTC). centralbank.watch BoJ tool is unchanged at 63% hike / 37% hold via 3-month TONA futures. Other outlets (MarketPulse, Japan Times) call it 'baked in' / 'almost fully priced', and one source quoted ~88% - but the TONA-futures-implied figure on centralbank.watch itself is still 63%, so kept as-is rather than blending in a higher qualitative number. Scraper still misses the BoJ block, so hand-entered."
   },
   "EUR": {
     "hike": 30,
