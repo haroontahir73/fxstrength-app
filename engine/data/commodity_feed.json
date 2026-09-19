@@ -1,5 +1,60 @@
 [
  {
+  "when": "19 Sep 00:24 UTC",
+  "iso": "2026-09-19T00:24:45.281036+00:00",
+  "cat": "oil_supply_loose",
+  "title": "OIL STRONG SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nIraq requests OPEC production quota increase to 6 million barrels per day baseline - Energies Media  (Energies Media)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,416 (+0.4%)   Silver 66.78 (+2.0%)   WTI 95.47 (-6.3%)   DXY 100.22 (-0.0%)   US10Y 5.00 (+1.0%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBKVVBjN2ZvNmlvaHlhR2E3YmVTTmFWdlFxWmcwOUVrX0ltWnJ0ZFdaenUycE5JVHkyYUhQc21MbFdab3J3VlhHZURtUm5GcDBkdEo0U2l1V1d5cHBZdmk4WFpPSWgteHdEWGxDX3NDZw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4415.9,
+   "Silver": 66.785,
+   "WTI": 95.47
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "Iraq requests OPEC production quota increase to 6 million barrels per day baseline - Energies Media",
+   "src": "Energies Media",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "extra barrels push the price down",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,416 (+0.4%)   Silver 66.78 (+2.0%)   WTI 95.47 (-6.3%)   DXY 100.22 (-0.0%)   US10Y 5.00 (+1.0%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
   "when": "18 Sep 22:50 UTC",
   "iso": "2026-09-18T22:50:24.321481+00:00",
   "cat": "oil_supply_tight",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,302 (-0.7%)   Silver 63.42 (+0.3%)   WTI 102.13 (-3.5%)   DXY 100.33 (+0.7%)   US10Y 5.01 (+0.2%)",
    "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "16 Sep 19:59 UTC",
-  "iso": "2026-09-16T19:59:12.788970+00:00",
-  "cat": "rates_down",
-  "title": "GOLD+SILVER STRONG LONG | FED - leaning toward rate cuts",
-  "body": "\ud83d\udcb8 FED \u2014 leaning toward rate cuts\n\nFederal Reserve Signals More Interest Rate Cuts Ahead - TheStreet Pro  (TheStreet Pro)\n\nWHY: Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - cheaper money is gold's best friend\n        [NOT TESTED - no history to judge this on]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up, only harder\n        [NOT TESTED - no history to judge this on]\nOIL    \u2191    mild long bias - weaker dollar + a bit more growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,308 (-0.6%)   Silver 63.47 (+0.4%)   WTI 102.00 (-3.6%)   DXY 100.26 (+0.6%)   US10Y 5.01 (+0.2%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: a hot inflation print would kill the cut hopes",
-  "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOUDQ4am00ZzJZTWoyQ3hTZGNrMmVIM0JDbnhtYUM0bndfTEMwcDRtUFB1M3pJcGJCY2VlaTRyUlRiYXQ4NGU5TDFtUU84MUNkeEp3SzBDQ2NVT0s5Y2FyUzNFNzNxdjVLazBCRjg2TkRVZHZ1UUFHVFhueFpjclNhWjMzMDVyc0NYclh1bEgxTURqVEhNUFphTk1lRGlpeUtYYlE5Q1Rn?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4307.7,
-   "Silver": 63.47,
-   "WTI": 102.0
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb8",
-   "label": "FED \u2014 leaning toward rate cuts",
-   "headline": "Federal Reserve Signals More Interest Rate Cuts Ahead - TheStreet Pro",
-   "src": "TheStreet Pro",
-   "why": "Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "cheaper money is gold's best friend",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "follows gold up, only harder",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "weaker dollar + a bit more growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,308 (-0.6%)   Silver 63.47 (+0.4%)   WTI 102.00 (-3.6%)   DXY 100.26 (+0.6%)   US10Y 5.01 (+0.2%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "a hot inflation print would kill the cut hopes"
   }
  }
 ]
