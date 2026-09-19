@@ -1,5 +1,60 @@
 [
  {
+  "when": "19 Sep 14:02 UTC",
+  "iso": "2026-09-19T14:02:06.218084+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nChina's Gold Buying Is Ignoring 5% Yields, and the Fed Hike Is Its Real Test - Memeburn  (Memeburn)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,425 (+0.6%)   Silver 67.15 (+2.6%)   WTI 96.08 (-5.7%)   DXY 100.22 (-0.0%)   US10Y 5.00 (+1.0%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNT29yT0JrNnBHNWQzcVVTRzhvY1pNSWV6M1doSVdPVUhJRG5fR21TbHEzcUg4X3VMWkoySk9mZVBha0VSWFNjdGN1S1pBZTY2VGVTcjA3bWM1dkhiWXhTSV91N01XcDBxNVk0LWNBR3dXbDlQUHdWQUNycDgyZFRSWmJiUUcyNm55ekFheHNnLVEyY3VhRnZGUTdEOA?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4424.9,
+   "Silver": 67.149,
+   "WTI": 96.08
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "China's Gold Buying Is Ignoring 5% Yields, and the Fed Hike Is Its Real Test - Memeburn",
+   "src": "Memeburn",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,425 (+0.6%)   Silver 67.15 (+2.6%)   WTI 96.08 (-5.7%)   DXY 100.22 (-0.0%)   US10Y 5.00 (+1.0%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "19 Sep 12:23 UTC",
   "iso": "2026-09-19T12:23:42.855266+00:00",
   "cat": "rates_up",
@@ -3236,61 +3291,6 @@
      "strength": 3,
      "call": "STRONG \u2014 go hunt longs",
      "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,317 (-0.4%)   Silver 63.62 (+0.6%)   WTI 101.24 (-4.3%)   DXY 100.32 (+0.7%)   US10Y 5.01 (+0.2%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "17 Sep 01:05 UTC",
-  "iso": "2026-09-17T01:05:38.014900+00:00",
-  "cat": "oil_supply_tight",
-  "title": "TALK | OIL LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOil Falls Amid Hopes to Contain Mideast Crude Supply Disruption - WSJ  (WSJ)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191   look for longs - the direct hit (talk, not action yet)\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,317 (-0.4%)   Silver 63.62 (+0.6%)   WTI 101.24 (-4.3%)   DXY 100.32 (+0.7%)   US10Y 5.01 (+0.2%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOejgtRGt4NkpIVzEzWUxpb09SSTQ1MDB2Ml9JVnlLU0hUOEdtcVpfMUY3OGdPMDRRdjdHaC01bVlibmhxd3VWaWNaR3hyNmZlOV9adGtJa2hwa2NXZ2l2c0dDQTBnMUdTOUJuTnlKOHhNUjhKenVQeGlpZFU5MVVob0VmZEdXUGR5b0hiUGVxVGtUUTNTZHZUY2k1b0lMa0hpTmlpaXlwd3FDNFd0azBITElDdTROLXpVUk9IMA?oc=5",
-  "talk": true,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4317.1,
-   "Silver": 63.615,
-   "WTI": 101.24
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Oil Falls Amid Hopes to Contain Mideast Crude Supply Disruption - WSJ",
-   "src": "WSJ",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "the direct hit (talk, not action yet)",
      "record": "CONFIDENT - right 63% of 54 past cases"
     }
    ],
