@@ -1,5 +1,60 @@
 [
  {
+  "when": "19 Sep 15:46 UTC",
+  "iso": "2026-09-19T15:46:44.622137+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Iran's top security official outlines conditions: end war on all fronts, unfreeze Iranian funds, lift naval blockade - Al Jazeera interview\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,425 (+0.6%)   Silver 67.15 (+2.6%)   WTI 96.08 (-5.7%)   DXY 100.22 (-0.0%)   US10Y 5.00 (+1.0%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://www.financialjuice.com/News/9770507/Irans-top-security-official-outlines-conditions-end-war-on-all-fronts-unfreeze-Iranian-funds-lift-naval-blockade---Al-Jazeera-interview.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4424.9,
+   "Silver": 67.149,
+   "WTI": 96.08
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "FinancialJuice: Iran's top security official outlines conditions: end war on all fronts, unfreeze Iranian funds, lift naval blockade - Al Jazeera interview",
+   "src": "",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,425 (+0.6%)   Silver 67.15 (+2.6%)   WTI 96.08 (-5.7%)   DXY 100.22 (-0.0%)   US10Y 5.00 (+1.0%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "19 Sep 15:21 UTC",
   "iso": "2026-09-19T15:21:15.161661+00:00",
   "cat": "oil_supply_tight",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,342 (+0.2%)   Silver 64.30 (+1.7%)   WTI 102.12 (-3.5%)   DXY 100.31 (+0.0%)   US10Y 5.01 (+0.2%)",
    "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "17 Sep 01:28 UTC",
-  "iso": "2026-09-17T01:28:01.007619+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Russian air strike wounds 10 in Ukraine's Kyiv, city authorities say\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2193    mild short bias - FLIPPED - see the reality check below\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,341 (+0.2%)   Silver 64.27 (+1.6%)   WTI 101.84 (-3.8%)   DXY 100.31 (+0.0%)   US10Y 5.01 (+0.2%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://www.financialjuice.com/News/9766594/Russian-air-strike-wounds-10-in-Ukraines-Kyiv-city-authorities-say.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4341.2,
-   "Silver": 64.27,
-   "WTI": 101.84
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "FinancialJuice: Russian air strike wounds 10 in Ukraine's Kyiv, city authorities say",
-   "src": "",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "FLIPPED - see the reality check below",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,341 (+0.2%)   Silver 64.27 (+1.6%)   WTI 101.84 (-3.8%)   DXY 100.31 (+0.0%)   US10Y 5.01 (+0.2%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
