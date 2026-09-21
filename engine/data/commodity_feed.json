@@ -1,5 +1,60 @@
 [
  {
+  "when": "21 Sep 12:15 UTC",
+  "iso": "2026-09-21T12:15:29.330167+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nUnidentified projectile hits oil tanker in Strait of Hormuz, injuring two crew members - \u041c\u0435\u0436\u0430. \u041d\u043e\u0432\u0438\u043d\u0438 \u0423\u043a\u0440\u0430\u0457\u043d\u0438.  (\u041c\u0435\u0436\u0430. \u041d\u043e\u0432\u0438\u043d\u0438 \u0423\u043a\u0440\u0430\u0457\u043d\u0438.)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,410 (-0.3%)   Silver 67.22 (+1.0%)   WTI 93.36 (-6.9%)   DXY 100.19 (-0.0%)   US10Y 5.00 (+1.0%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1GLW5qRU9IWlMzN1c2STZiNXZ3QTIyQ1JlRi1iYmdndDNHUGJxd1oyTTNrS2Q1WDZmeWZGN2xGQk8ybjJKcE1XU1lwVFFyMFNGblZYUG9scHcwMmFVNlpTQlVjanBwSFFBWDNmNFZON3ZXTGM?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4409.5,
+   "Silver": 67.225,
+   "WTI": 93.36
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Unidentified projectile hits oil tanker in Strait of Hormuz, injuring two crew members - \u041c\u0435\u0436\u0430. \u041d\u043e\u0432\u0438\u043d\u0438 \u0423\u043a\u0440\u0430\u0457\u043d\u0438.",
+   "src": "\u041c\u0435\u0436\u0430. \u041d\u043e\u0432\u0438\u043d\u0438 \u0423\u043a\u0440\u0430\u0457\u043d\u0438.",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,410 (-0.3%)   Silver 67.22 (+1.0%)   WTI 93.36 (-6.9%)   DXY 100.19 (-0.0%)   US10Y 5.00 (+1.0%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "21 Sep 12:12 UTC",
   "iso": "2026-09-21T12:12:07.276059+00:00",
   "cat": "rates_up",
@@ -3240,61 +3295,6 @@
     }
    ],
    "snap": "NOW  Gold 4,408 (+0.2%)   Silver 67.15 (+2.6%)   WTI 96.79 (-5.0%)   DXY 100.51 (+0.3%)   US10Y 4.98 (+0.6%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "18 Sep 12:37 UTC",
-  "iso": "2026-09-18T12:37:37.402140+00:00",
-  "cat": "oil_supply_tight",
-  "title": "TALK | OIL LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nSaudi Aramco May Cut Crude Oil Supply to European Refiners After Pipeline Attacks - marketscreener.com  (marketscreener.com)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191   look for longs - the direct hit (talk, not action yet)\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,394 (-0.1%)   Silver 66.82 (+2.1%)   WTI 96.70 (-5.1%)   DXY 100.55 (+0.3%)   US10Y 4.98 (+0.7%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPQjdsNi1xeks0V2ZXT0NyNmtKZENicHZyckhaUkpNMV80bzBOT1lIU21scWw3NnZZRHJMdnV5NWVycURKbTZGclBiTVdISS1SS0tXbUlZczMtUTRBOG5xSWtGZFhUdmZUVzB2REl1LVNKN2NHMU1MTDJzYnprRjFpX3dBcEVKMmtxMXZ6d3cwUi15YU04azA4Q2J6SDRQal9lUHNPUzZmbU16YjBsSU5xcDMwelpWaXdPSDJPbmE1NldtVUJjeV8xWjE4ckIwanc?oc=5",
-  "talk": true,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4394.4,
-   "Silver": 66.82,
-   "WTI": 96.7
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Saudi Aramco May Cut Crude Oil Supply to European Refiners After Pipeline Attacks - marketscreener.com",
-   "src": "marketscreener.com",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "the direct hit (talk, not action yet)",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,394 (-0.1%)   Silver 66.82 (+2.1%)   WTI 96.70 (-5.1%)   DXY 100.55 (+0.3%)   US10Y 4.98 (+0.7%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
   }
