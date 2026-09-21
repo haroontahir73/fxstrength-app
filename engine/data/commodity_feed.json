@@ -1,5 +1,60 @@
 [
  {
+  "when": "21 Sep 11:20 UTC",
+  "iso": "2026-09-21T11:20:35.538964+00:00",
+  "cat": "fed_independence",
+  "title": "GOLD STRONG LONG, SILVER LONG | POLITICS vs THE FED",
+  "body": "\ud83c\udfdb POLITICS vs THE FED\n\nFinancialJuice: Fed's Goolsbee: Arguments the Fed should lower federal borrowing costs are one of the reasons Fed independence is important\n\nWHY: If people stop trusting that the Fed is independent, they stop trusting the dollar. That is the single most gold-positive story there is.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - a straight bet against trust in the dollar\n        [NOT TESTED - no history to judge this on]\nSILVER \u2191\u2191   look for longs - drags along behind gold\n        [NOT TESTED - no history to judge this on]\nOIL    \u2192    no clean read - no clean link\n\nNOW  Gold 4,383 (-0.9%)   Silver 66.37 (-0.3%)   WTI 93.61 (-6.7%)   DXY 100.30 (+0.1%)   US10Y 5.00 (+1.0%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: it fades fast if the threat turns out to be talk only",
+  "link": "https://www.financialjuice.com/News/9771689/Feds-Goolsbee-Arguments-the-Fed-should-lower-federal-borrowing-costs-are-one-of-the-reasons-Fed-independence-is-important.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4383.1,
+   "Silver": 66.37,
+   "WTI": 93.61
+  },
+  "parts": {
+   "emoji": "\ud83c\udfdb",
+   "label": "POLITICS vs THE FED",
+   "headline": "FinancialJuice: Fed's Goolsbee: Arguments the Fed should lower federal borrowing costs are one of the reasons Fed independence is important",
+   "src": "",
+   "why": "If people stop trusting that the Fed is independent, they stop trusting the dollar. That is the single most gold-positive story there is.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "a straight bet against trust in the dollar",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "drags along behind gold",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no clean link",
+     "record": ""
+    }
+   ],
+   "snap": "NOW  Gold 4,383 (-0.9%)   Silver 66.37 (-0.3%)   WTI 93.61 (-6.7%)   DXY 100.30 (+0.1%)   US10Y 5.00 (+1.0%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "it fades fast if the threat turns out to be talk only"
+  }
+ },
+ {
   "when": "21 Sep 10:42 UTC",
   "iso": "2026-09-21T10:42:02.480419+00:00",
   "cat": "oil_supply_tight",
@@ -3240,61 +3295,6 @@
     }
    ],
    "snap": "NOW  Gold 4,419 (+0.4%)   Silver 67.50 (+3.1%)   WTI 95.86 (-5.9%)   DXY 100.38 (+0.2%)   US10Y 4.95 (-1.2%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "18 Sep 09:01 UTC",
-  "iso": "2026-09-18T09:01:59.780192+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nThe bullish case for gold remains intact! Undeterred by the Fed\u2019s \u201chawkish rate hikes,\u201d Goldman Sachs and UBS Group maintain their bullish stance. - \u5bcc\u9014\u725b\u725b  (\u5bcc\u9014\u725b\u725b)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,428 (+0.6%)   Silver 67.61 (+3.3%)   WTI 95.61 (-6.2%)   DXY 100.38 (+0.2%)   US10Y 4.95 (-1.2%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQZ2ZpTGphclZFZFAyT2JLc2VMRXp3Unl5NFg5aDVIc0FreUVCdEplY1gzMHFUZHFyRHg5OHhSbGtFRkNLa1JHbEd0eDVpNVFBOUdSV1ZDNHJsaHNDUnhvQnFjSHdQOVg2dkNfYjhzblVRdmJwZGV1N2dUQWN1ZHdqcGp1NFA5VTU3eEplM1gzcHNBQUJkRVZxcl8zdms2LXFo?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4428.1,
-   "Silver": 67.605,
-   "WTI": 95.61
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "The bullish case for gold remains intact! Undeterred by the Fed\u2019s \u201chawkish rate hikes,\u201d Goldman Sachs and UBS Group maintain their bullish stance. - \u5bcc\u9014\u725b\u725b",
-   "src": "\u5bcc\u9014\u725b\u725b",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,428 (+0.6%)   Silver 67.61 (+3.3%)   WTI 95.61 (-6.2%)   DXY 100.38 (+0.2%)   US10Y 4.95 (-1.2%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
   }
