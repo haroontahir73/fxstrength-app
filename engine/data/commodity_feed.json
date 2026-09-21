@@ -1,5 +1,60 @@
 [
  {
+  "when": "21 Sep 10:42 UTC",
+  "iso": "2026-09-21T10:42:02.480419+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIran updates: Tanker reportedly struck by projectile in Strait of Hormuz - NewsNation  (NewsNation)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,389 (-0.8%)   Silver 66.67 (+0.2%)   WTI 93.02 (-7.3%)   DXY 100.30 (+0.1%)   US10Y 5.00 (+1.0%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQQVctWjR5amVoTUpKY1d6ZkVJQi1XRzVrWElrM2NWcWNTV0pVcmdoYkhocHhiQjB3Qjl4OXZPb2c5dkYwS2tiUG1MZFphbDZkTENyQmFyTGNMZ1R1cXlaRXg1RzRfY2pSVHV2RTRNQkktd1lDanczU1ZDenFtUm9reUFOMXPSAYoBQVVfeXFMUE9LS3Y4WDdCQnRlczlYaHVINXhPWV9KQmFWUFVFWVotOTg4ZTBRMFpQQl9aR2JhaWZPVjFRTTV5cmNDUEFiTlBqdTFnQzA4aFVKdUNuTVIxazhJTTYzSzFwMnZ1SUdOeDNVTnk2Q05OMERseVNLOWt2Q1dVNjRCQS1lUVVPTGJFNDBB?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4388.8,
+   "Silver": 66.67,
+   "WTI": 93.02
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Iran updates: Tanker reportedly struck by projectile in Strait of Hormuz - NewsNation",
+   "src": "NewsNation",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,389 (-0.8%)   Silver 66.67 (+0.2%)   WTI 93.02 (-7.3%)   DXY 100.30 (+0.1%)   US10Y 5.00 (+1.0%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "21 Sep 10:06 UTC",
   "iso": "2026-09-21T10:06:52.204106+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,428 (+0.6%)   Silver 67.61 (+3.3%)   WTI 95.61 (-6.2%)   DXY 100.38 (+0.2%)   US10Y 4.95 (-1.2%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "18 Sep 08:46 UTC",
-  "iso": "2026-09-18T08:46:10.020098+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOil prices fall 2% on easing fears over Saudi supply disruption - The Lufkin Daily News  (The Lufkin Daily News)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,427 (+0.6%)   Silver 67.54 (+3.2%)   WTI 95.76 (-6.0%)   DXY 100.35 (+0.1%)   US10Y 4.95 (-1.2%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQU1gwU0lnbFNqLWdvMlp5ZW8zM0tsMXlhVUoxelB2UktqWHdGUkVwM0l6T2lIOGFxNlJGSEdZUTJrVlF2MGhlRnpoYVhxTmhSWUFReTNfVDlkRkZpMWpKSDN4STFURlZoRExVMHN5blJTRlVlVVlKemhwSGVyNjh2b0VRYm1DWm1rY0laY0tPeEJFdUU0X1RQTlJDelVqWGdrUUJ5dmE3ZnRjLVh3WEdRTlhJb09zdE9Yd0tQcnNrZ0M4dnpmNnR4aWE3MXg2VDVod3gyVjdsa0RyNFVVYzI1Y0ZqR1dWVUJXMzlZNDJ0d2VQUHAx?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4427.1,
-   "Silver": 67.54,
-   "WTI": 95.76
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Oil prices fall 2% on easing fears over Saudi supply disruption - The Lufkin Daily News",
-   "src": "The Lufkin Daily News",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,427 (+0.6%)   Silver 67.54 (+3.2%)   WTI 95.76 (-6.0%)   DXY 100.35 (+0.1%)   US10Y 4.95 (-1.2%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
