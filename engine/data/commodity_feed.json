@@ -1,5 +1,60 @@
 [
  {
+  "when": "22 Sep 09:44 UTC",
+  "iso": "2026-09-22T09:44:55.550847+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIran offers to reopen Strait of Hormuz within 7 days, oil prices crash - Firstpost  (Firstpost)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,351 (-0.7%)   Silver 65.76 (-0.1%)   WTI 90.92 (-5.1%)   DXY 100.44 (+0.0%)   US10Y 4.96 (-0.7%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbVdBR1FmSVk4RHlKanNXVk9vc0JQdlpIRk9pMzVWd2hnS2Z6eVhiMG9vQjE1TXVicWFWX3JMOXRiWHJKUWxRTHRGdVRmOVRHS2ZuZWNOWERHQTQtWGl2WTF5YlBFTG54RG54VGxCejU1aERiM05WR2F6MENIdk9qbFJLWWRTTEpFZ3c3Si10V3RqOXpaaEhibk5LdHFqb2tlN0hBRXJqNnZmd3VURmRmMjlrSmwyUdIBuwFBVV95cUxPNkZpNTZzcnBtTVBNVnRqV0hiUW5YM1J0R2t5XzZ0M0JRRWF5dG0yVEhKMzdQRWoxTl9mejBFcnkwNEJDeXdJV21LLWxjYUdLYm5tZ1NOcUhuNThzSTJURUIzbWJZMGNHRy1NdE51NFhlSXlxSlNhSk5CTHVWRTJKd1luOFlpekFVMzhhZWxfN3JHbW9aZGNoU3hoUVNoc3dpdGZFM0doeWpFcTA0VlVzandyOXhMeUdVdW5z?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4351.3,
+   "Silver": 65.76,
+   "WTI": 90.92
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Iran offers to reopen Strait of Hormuz within 7 days, oil prices crash - Firstpost",
+   "src": "Firstpost",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,351 (-0.7%)   Silver 65.76 (-0.1%)   WTI 90.92 (-5.1%)   DXY 100.44 (+0.0%)   US10Y 4.96 (-0.7%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "22 Sep 09:35 UTC",
   "iso": "2026-09-22T09:35:21.290817+00:00",
   "cat": "geo_escalation",
@@ -3209,61 +3264,6 @@
    "label": "GEOPOLITICS \u2014 escalation",
    "headline": "Will shutdowns forced by US blockade damage Iran\u2019s oil wells? - iranintl.com",
    "src": "iranintl.com",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,425 (+0.6%)   Silver 67.15 (+2.6%)   WTI 96.08 (-5.7%)   DXY 100.22 (-0.0%)   US10Y 5.00 (+1.0%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "19 Sep 19:44 UTC",
-  "iso": "2026-09-19T19:44:20.095751+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Saudi-led coalition: ballistic missile launched by Yemen's Houthis toward Riyadh intercepted and destroyed on Saturday\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,425 (+0.6%)   Silver 67.15 (+2.6%)   WTI 96.08 (-5.7%)   DXY 100.22 (-0.0%)   US10Y 5.00 (+1.0%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://www.financialjuice.com/News/9770573/Saudi-led-coalition-ballistic-missile-launched-by-Yemens-Houthis-toward-Riyadh-intercepted-and-destroyed-on-Saturday.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4424.9,
-   "Silver": 67.149,
-   "WTI": 96.08
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "FinancialJuice: Saudi-led coalition: ballistic missile launched by Yemen's Houthis toward Riyadh intercepted and destroyed on Saturday",
-   "src": "",
    "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
    "leans": [
     {
