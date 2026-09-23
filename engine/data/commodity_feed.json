@@ -1,5 +1,60 @@
 [
  {
+  "when": "23 Sep 21:43 UTC",
+  "iso": "2026-09-23T21:43:44.641034+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIran won\u2019t bow to military action or sanctions and will retain nuclear program, country\u2019s president tells UNGA - Jewish Telegraphic Agency  (Jewish Telegraphic Agency)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,323 (-1.2%)   Silver 64.93 (-1.5%)   WTI 92.71 (-2.0%)   DXY 101.11 (+0.7%)   US10Y 5.11 (+3.0%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNcTl6d2xJUUl6eTNZT2ZadzlzU2xETENQeElYUzFYcXItUUtnUDBSdnFESmxBak5jVHF2NkNtN3h6eU1MSTlJdUlPWlJzOHVsMXNzU1JoZDNRYTVkZlk3dXBySjVtZTFTSU8tSWI2Y1VKWlZHUVp3Z2tXUmFReXhPdWZBMUJUWl8zWFJndWV6OV9DTjY4WXNvWVBCN3VhNnEzbm1rWUIwZmdXUHUxZF9obVZqV01mZHliNjE4Ql9wR2VSR1luaEVaYlNxWjlENnIyUDVrVFg2YjVJbFVKUEE?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4322.7,
+   "Silver": 64.93,
+   "WTI": 92.71
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Iran won\u2019t bow to military action or sanctions and will retain nuclear program, country\u2019s president tells UNGA - Jewish Telegraphic Agency",
+   "src": "Jewish Telegraphic Agency",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,323 (-1.2%)   Silver 64.93 (-1.5%)   WTI 92.71 (-2.0%)   DXY 101.11 (+0.7%)   US10Y 5.11 (+3.0%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "23 Sep 21:37 UTC",
   "iso": "2026-09-23T21:37:23.692012+00:00",
   "cat": "oil_supply_tight",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,391 (-0.8%)   Silver 66.64 (+0.1%)   WTI 93.48 (-6.8%)   DXY 100.28 (+0.1%)   US10Y 5.00 (+1.0%)",
    "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
    "flip": "a hot inflation print would kill the cut hopes"
-  }
- },
- {
-  "when": "21 Sep 11:20 UTC",
-  "iso": "2026-09-21T11:20:35.538964+00:00",
-  "cat": "fed_independence",
-  "title": "GOLD STRONG LONG, SILVER LONG | POLITICS vs THE FED",
-  "body": "\ud83c\udfdb POLITICS vs THE FED\n\nFinancialJuice: Fed's Goolsbee: Arguments the Fed should lower federal borrowing costs are one of the reasons Fed independence is important\n\nWHY: If people stop trusting that the Fed is independent, they stop trusting the dollar. That is the single most gold-positive story there is.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - a straight bet against trust in the dollar\n        [NOT TESTED - no history to judge this on]\nSILVER \u2191\u2191   look for longs - drags along behind gold\n        [NOT TESTED - no history to judge this on]\nOIL    \u2192    no clean read - no clean link\n\nNOW  Gold 4,383 (-0.9%)   Silver 66.37 (-0.3%)   WTI 93.61 (-6.7%)   DXY 100.30 (+0.1%)   US10Y 5.00 (+1.0%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: it fades fast if the threat turns out to be talk only",
-  "link": "https://www.financialjuice.com/News/9771689/Feds-Goolsbee-Arguments-the-Fed-should-lower-federal-borrowing-costs-are-one-of-the-reasons-Fed-independence-is-important.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4383.1,
-   "Silver": 66.37,
-   "WTI": 93.61
-  },
-  "parts": {
-   "emoji": "\ud83c\udfdb",
-   "label": "POLITICS vs THE FED",
-   "headline": "FinancialJuice: Fed's Goolsbee: Arguments the Fed should lower federal borrowing costs are one of the reasons Fed independence is important",
-   "src": "",
-   "why": "If people stop trusting that the Fed is independent, they stop trusting the dollar. That is the single most gold-positive story there is.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "a straight bet against trust in the dollar",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "drags along behind gold",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no clean link",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 4,383 (-0.9%)   Silver 66.37 (-0.3%)   WTI 93.61 (-6.7%)   DXY 100.30 (+0.1%)   US10Y 5.00 (+1.0%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "it fades fast if the threat turns out to be talk only"
   }
  }
 ]
