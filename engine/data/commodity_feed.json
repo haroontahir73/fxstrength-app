@@ -1,5 +1,60 @@
 [
  {
+  "when": "23 Sep 21:37 UTC",
+  "iso": "2026-09-23T21:37:23.692012+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nXi Jinping's White House visit: Shifting Chinese views & skirting Iran oil sanctions - NPR  (NPR)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,323 (-1.2%)   Silver 64.93 (-1.5%)   WTI 92.71 (-2.0%)   DXY 101.12 (+0.7%)   US10Y 5.11 (+3.0%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNSmwzQzZtSmQxa3ViaE91Vkt2Z2lLTEY5Q20tU0pLRGFjTjdIU2xLc1dfYWZRR3NZeDJMTy10SXlxWnBWamhhX0lhckRLdTVkeHlYdFo3bmVmSEpsQ3Fua296SU5qSUhWYUdMQVNZU3NaM1l1LXVwSy1zamtoN3VmX01ISUJmN1NVS2ZvTjh0UFRHQXBiLWFYQnoybnFVMVNaMVdIN1V1NjhUdlRsQVNLbHRzcW9qUXJCUG5UdTV3STZGRlk?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4322.7,
+   "Silver": 64.93,
+   "WTI": 92.71
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Xi Jinping's White House visit: Shifting Chinese views & skirting Iran oil sanctions - NPR",
+   "src": "NPR",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,323 (-1.2%)   Silver 64.93 (-1.5%)   WTI 92.71 (-2.0%)   DXY 101.12 (+0.7%)   US10Y 5.11 (+3.0%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "23 Sep 20:46 UTC",
   "iso": "2026-09-23T20:46:46.382303+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,383 (-0.9%)   Silver 66.37 (-0.3%)   WTI 93.61 (-6.7%)   DXY 100.30 (+0.1%)   US10Y 5.00 (+1.0%)",
    "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
    "flip": "it fades fast if the threat turns out to be talk only"
-  }
- },
- {
-  "when": "21 Sep 10:42 UTC",
-  "iso": "2026-09-21T10:42:02.480419+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIran updates: Tanker reportedly struck by projectile in Strait of Hormuz - NewsNation  (NewsNation)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,389 (-0.8%)   Silver 66.67 (+0.2%)   WTI 93.02 (-7.3%)   DXY 100.30 (+0.1%)   US10Y 5.00 (+1.0%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQQVctWjR5amVoTUpKY1d6ZkVJQi1XRzVrWElrM2NWcWNTV0pVcmdoYkhocHhiQjB3Qjl4OXZPb2c5dkYwS2tiUG1MZFphbDZkTENyQmFyTGNMZ1R1cXlaRXg1RzRfY2pSVHV2RTRNQkktd1lDanczU1ZDenFtUm9reUFOMXPSAYoBQVVfeXFMUE9LS3Y4WDdCQnRlczlYaHVINXhPWV9KQmFWUFVFWVotOTg4ZTBRMFpQQl9aR2JhaWZPVjFRTTV5cmNDUEFiTlBqdTFnQzA4aFVKdUNuTVIxazhJTTYzSzFwMnZ1SUdOeDNVTnk2Q05OMERseVNLOWt2Q1dVNjRCQS1lUVVPTGJFNDBB?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4388.8,
-   "Silver": 66.67,
-   "WTI": 93.02
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Iran updates: Tanker reportedly struck by projectile in Strait of Hormuz - NewsNation",
-   "src": "NewsNation",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,389 (-0.8%)   Silver 66.67 (+0.2%)   WTI 93.02 (-7.3%)   DXY 100.30 (+0.1%)   US10Y 5.00 (+1.0%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
