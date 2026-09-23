@@ -2,11 +2,12 @@
   "_help": "Fallback for banks centralbank.watch does not publish probabilities for (it links out to CME FedWatch for the Fed, and omits the RBNZ). Fill hike/hold/cut as percentages plus next_meeting and src. Set \"override\": true to beat a scraped value. Leave a bank out entirely rather than guessing - a missing expectation is handled, an invented one is not.",
   "_note_USD": "16 Sep FOMC hiked 25bp to 3.75-4.00% (confirmed) with a hawkish dot plot (16 of 18 officials expect at least one more hike this year). That meeting has now passed, so the prior entry (which pointed at it) is stale - decision-day trap. No credible market-implied probability for the next meeting (28 Oct) was found: WebSearch turned up only the qualitative dot-plot signal, and the internal Fed Watch model (data/fedwatch.json) is currently broken post-hike (still using the pre-hike EFFR/target range as of 15 Sep, producing a nonsensical Dec reading). Left out entirely rather than guessing - re-research once a clean Oct 28 figure is available.",
   "JPY": {
-    "hike": 63,
-    "hold": 37,
+    "hike": 22,
+    "hold": 78,
     "cut": 0,
-    "next_meeting": "September 18, 2026",
-    "src": "re-checked 2026-09-17 (decision is 17-18 Sep, statement due 18 Sep 02:30 UTC). centralbank.watch BoJ tool is unchanged at 63% hike / 37% hold via 3-month TONA futures. Other outlets (MarketPulse, Japan Times) call it 'baked in' / 'almost fully priced', and one source quoted ~88% - but the TONA-futures-implied figure on centralbank.watch itself is still 63%, so kept as-is rather than blending in a higher qualitative number. Scraper still misses the BoJ block, so hand-entered."
+    "next_meeting": "October 30, 2026",
+    "src": "researched 2026-09-23. Decision-day trap: the prior entry pointed at the 18 Sep meeting, which has now happened (BOJ hiked 25bp to 1.25%, 7-2 vote, fastest hike-to-hike gap of the cycle - see speech_tone.json JPY BOJ entries). Confirmed via boj.or.jp official schedule that the next Monetary Policy Meeting is 29-30 Oct 2026 (decision due 30 Oct). Market pricing has swung to a pause after the September move - public reporting puts the October hike probability at roughly 22% (78% hold), consistent with 'not back-to-back' commentary. centralbank.watch's own BoJ page gave inconsistent/self-contradictory output when queried directly (mixed up meeting dates), so not used as the source here; override true.",
+    "override": true
   },
   "EUR": {
     "hike": 30,
