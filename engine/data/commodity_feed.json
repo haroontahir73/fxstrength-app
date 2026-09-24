@@ -1,5 +1,60 @@
 [
  {
+  "when": "24 Sep 14:13 UTC",
+  "iso": "2026-09-24T14:13:45.215083+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIranian President Masoud Pezeshkian Holds Up Pictures of Bombed Girls' School, Causing US Exit at UN - Military.com  (Military.com)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,303 (-0.4%)   Silver 63.88 (-0.8%)   WTI 94.11 (+2.1%)   DXY 101.25 (+0.1%)   US10Y 5.10 (-0.3%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNWnJrY3drVDVjalVPUDNNcUxZbVJGYm9mSzFES181d3JpZnBrU3p5MTlxenVHWWhKTU9pVTlnUkZKcFVpdWxGa29QX21zRmxZZURqSGR5cVgxTzNvTk5HUmRCdkdaMkZFUjJjMER1ZjlEek1LQ3ItYzFyNzZEamc3UXh4Y3lrRm10VjB4X1NrenlPdWU1dmUtNE1QTElhMUtDeHZYUVRONlg4YlE?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4303.0,
+   "Silver": 63.875,
+   "WTI": 94.11
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Iranian President Masoud Pezeshkian Holds Up Pictures of Bombed Girls' School, Causing US Exit at UN - Military.com",
+   "src": "Military.com",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,303 (-0.4%)   Silver 63.88 (-0.8%)   WTI 94.11 (+2.1%)   DXY 101.25 (+0.1%)   US10Y 5.10 (-0.3%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "24 Sep 13:51 UTC",
   "iso": "2026-09-24T13:51:14.491851+00:00",
   "cat": "rates_down",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,352 (-0.7%)   Silver 65.70 (-0.2%)   WTI 92.94 (-3.0%)   DXY 100.49 (+0.1%)   US10Y 4.96 (-0.7%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "22 Sep 06:31 UTC",
-  "iso": "2026-09-22T06:31:18.794853+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nScott Bessent Says Trump Has 'Great Confidence' in Fed Chair Kevin Warsh After Rate Hike: 'He Will Do the - Benzinga  (Benzinga)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,354 (-0.7%)   Silver 65.78 (-0.1%)   WTI 93.75 (-2.1%)   DXY 100.47 (+0.0%)   US10Y 4.96 (-0.7%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNQTZtMFJweDNrZnBLUHpQS0hPa2szdDd3VGczbVItVGVRU1lJM21tTHBNc3phTzZaYWN0Nk0wM0Uyem5raGpSZHV1d1F6ZXFHQzFBQnNJWTZ3MXJUWDFiSUc4akFNalJEVEhWUi14dENqcFV0V2VabUpjcTNpM3R6OWtFQ1ZUZVAzNnlMd2NqbHBHZ20tMGNBTmxhNGRJNFA0WUJHdHVmcXBoNlk3UWpPZjVzTmxFTXEycFc2Tjg2eHBWRzhTNTZseS1sQXd3YmV6LS1qWFZSSjB2NkdXbTNScmw5ZFVjcG01ZDZWdVdQZC1tRTBldHcyZzN5aw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4353.8,
-   "Silver": 65.78,
-   "WTI": 93.75
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Scott Bessent Says Trump Has 'Great Confidence' in Fed Chair Kevin Warsh After Rate Hike: 'He Will Do the - Benzinga",
-   "src": "Benzinga",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,354 (-0.7%)   Silver 65.78 (-0.1%)   WTI 93.75 (-2.1%)   DXY 100.47 (+0.0%)   US10Y 4.96 (-0.7%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
