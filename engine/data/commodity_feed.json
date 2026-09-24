@@ -1,5 +1,60 @@
 [
  {
+  "when": "24 Sep 16:49 UTC",
+  "iso": "2026-09-24T16:49:14.045623+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOracle sends 'force majeure' notice about data center project \u2014 stock sinks 4%\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,311 (-0.2%)   Silver 64.28 (-0.2%)   WTI 93.74 (+1.7%)   DXY 101.19 (+0.1%)   US10Y 5.14 (+0.4%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://www.cnbc.com/2026/09/24/oracle-data-center-force-majeure.html",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4311.4,
+   "Silver": 64.28,
+   "WTI": 93.74
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Oracle sends 'force majeure' notice about data center project \u2014 stock sinks 4%",
+   "src": "",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,311 (-0.2%)   Silver 64.28 (-0.2%)   WTI 93.74 (+1.7%)   DXY 101.19 (+0.1%)   US10Y 5.14 (+0.4%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "24 Sep 16:33 UTC",
   "iso": "2026-09-24T16:33:19.995458+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,357 (-0.6%)   Silver 66.05 (+0.3%)   WTI 90.09 (-5.9%)   DXY 100.41 (-0.0%)   US10Y 4.96 (-0.7%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "22 Sep 10:48 UTC",
-  "iso": "2026-09-22T10:48:47.169340+00:00",
-  "cat": "rates_up",
-  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFed Rate Hike By Kevin Warsh Boosts Investor Confidence In Dow Jones Industrial Average (DJIA), S&P 500 - foreignpolicyjournal.com  (foreignpolicyjournal.com)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,368 (-0.4%)   Silver 66.12 (+0.5%)   WTI 89.61 (-6.4%)   DXY 100.36 (-0.1%)   US10Y 4.96 (-0.7%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQRjlMcktSbVhJNS15ZGpxWjJVS0UzVHNBMDgxbXB1ZE9ack9FN294YnQxalpvcnZWRzcwclM1SnlMajhGWmJEM0R0clZWVE5UVDRqd01OV29Ial9NY3Q5OXFTZldraVVFQUZaTVdjWmU5bzRzc3VScHlmRGtQMm8xNmxBWC1fSk9EQ2NGdkNrU3J6YnVUblFMTHp0X0lKSlBlV29nYVJFS0VFR0R5WEFReF9UdzVMc2pRX0xGT0t2dy1SdklBTEhXUVFFb1lxRzF4Nk9MQzBFNHdSTkVmNWg1Znh3?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4368.2,
-   "Silver": 66.125,
-   "WTI": 89.61
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Fed Rate Hike By Kevin Warsh Boosts Investor Confidence In Dow Jones Industrial Average (DJIA), S&P 500 - foreignpolicyjournal.com",
-   "src": "foreignpolicyjournal.com",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "same hit as gold, only bigger",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,368 (-0.4%)   Silver 66.12 (+0.5%)   WTI 89.61 (-6.4%)   DXY 100.36 (-0.1%)   US10Y 4.96 (-0.7%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
