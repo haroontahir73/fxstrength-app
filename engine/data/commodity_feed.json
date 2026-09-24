@@ -1,5 +1,60 @@
 [
  {
+  "when": "24 Sep 16:20 UTC",
+  "iso": "2026-09-24T16:20:36.355915+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: US and Iran discuss phased deal to reopen Hormuz and end US blockade - Sources.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2193    mild short bias - FLIPPED - see the reality check below\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,289 (-0.7%)   Silver 63.66 (-1.1%)   WTI 96.68 (+4.9%)   DXY 101.31 (+0.2%)   US10Y 5.16 (+0.9%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://www.financialjuice.com/News/9777766/US-and-Iran-discuss-phased-deal-to-reopen-Hormuz-and-end-US-blockade---Sources.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4288.8,
+   "Silver": 63.655,
+   "WTI": 96.68
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "FinancialJuice: US and Iran discuss phased deal to reopen Hormuz and end US blockade - Sources.",
+   "src": "",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "FLIPPED - see the reality check below",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,289 (-0.7%)   Silver 63.66 (-1.1%)   WTI 96.68 (+4.9%)   DXY 101.31 (+0.2%)   US10Y 5.16 (+0.9%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "24 Sep 14:48 UTC",
   "iso": "2026-09-24T14:48:52.220302+00:00",
   "cat": "oil_supply_tight",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,360 (-0.5%)   Silver 65.88 (+0.1%)   WTI 90.32 (-5.7%)   DXY 100.39 (-0.0%)   US10Y 4.96 (-0.7%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "22 Sep 09:44 UTC",
-  "iso": "2026-09-22T09:44:55.550847+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIran offers to reopen Strait of Hormuz within 7 days, oil prices crash - Firstpost  (Firstpost)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,351 (-0.7%)   Silver 65.76 (-0.1%)   WTI 90.92 (-5.1%)   DXY 100.44 (+0.0%)   US10Y 4.96 (-0.7%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbVdBR1FmSVk4RHlKanNXVk9vc0JQdlpIRk9pMzVWd2hnS2Z6eVhiMG9vQjE1TXVicWFWX3JMOXRiWHJKUWxRTHRGdVRmOVRHS2ZuZWNOWERHQTQtWGl2WTF5YlBFTG54RG54VGxCejU1aERiM05WR2F6MENIdk9qbFJLWWRTTEpFZ3c3Si10V3RqOXpaaEhibk5LdHFqb2tlN0hBRXJqNnZmd3VURmRmMjlrSmwyUdIBuwFBVV95cUxPNkZpNTZzcnBtTVBNVnRqV0hiUW5YM1J0R2t5XzZ0M0JRRWF5dG0yVEhKMzdQRWoxTl9mejBFcnkwNEJDeXdJV21LLWxjYUdLYm5tZ1NOcUhuNThzSTJURUIzbWJZMGNHRy1NdE51NFhlSXlxSlNhSk5CTHVWRTJKd1luOFlpekFVMzhhZWxfN3JHbW9aZGNoU3hoUVNoc3dpdGZFM0doeWpFcTA0VlVzandyOXhMeUdVdW5z?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4351.3,
-   "Silver": 65.76,
-   "WTI": 90.92
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Iran offers to reopen Strait of Hormuz within 7 days, oil prices crash - Firstpost",
-   "src": "Firstpost",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,351 (-0.7%)   Silver 65.76 (-0.1%)   WTI 90.92 (-5.1%)   DXY 100.44 (+0.0%)   US10Y 4.96 (-0.7%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
