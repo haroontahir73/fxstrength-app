@@ -8996,5 +8996,16 @@
   "outcome": "win",
   "talk": false,
   "at": "2026-09-23T18:52:07.144886+00:00"
+ },
+ {
+  "id": "2026-09-23T19:11:19.989533+00:00|OIL",
+  "cat": "oil_supply_tight",
+  "instr": "OIL",
+  "dir": "up",
+  "strength": 3,
+  "chg": 0.043,
+  "outcome": "flat",
+  "talk": false,
+  "at": "2026-09-23T19:11:19.989533+00:00"
  }
 ]
