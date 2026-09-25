@@ -1,5 +1,60 @@
 [
  {
+  "when": "25 Sep 05:41 UTC",
+  "iso": "2026-09-25T05:41:15.905130+00:00",
+  "cat": "geo_deescalation",
+  "title": "OIL STRONG SHORT | GEOPOLITICS - calming down",
+  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nIran says it's up to U.S. to end war as China presses for de-escalation\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - supply worry gone, barrels flow again\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,302 (+0.1%)   Silver 64.02 (+0.9%)   WTI 92.77 (-1.9%)   DXY 101.23 (-0.1%)   US10Y 5.16 (+0.9%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
+  "link": "https://www.cnbc.com/2026/09/25/us-iran-trump-hormuz-.html",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4301.9,
+   "Silver": 64.02,
+   "WTI": 92.77
+  },
+  "parts": {
+   "emoji": "\ud83d\udd4a",
+   "label": "GEOPOLITICS \u2014 calming down",
+   "headline": "Iran says it's up to U.S. to end war as China presses for de-escalation",
+   "src": "",
+   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured both ways - fear-out vs yields-down cancel",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "same, no reliable direction",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "supply worry gone, barrels flow again",
+     "record": "some evidence - right 51% of 113 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,302 (+0.1%)   Silver 64.02 (+0.9%)   WTI 92.77 (-1.9%)   DXY 101.23 (-0.1%)   US10Y 5.16 (+0.9%)",
+   "reality": "",
+   "flip": "these deals break \u2014 one broken truce and it all goes back on"
+  }
+ },
+ {
   "when": "25 Sep 04:34 UTC",
   "iso": "2026-09-25T04:34:46.917901+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,396 (+0.3%)   Silver 67.63 (+2.7%)   WTI 89.88 (-6.2%)   DXY 100.56 (+0.1%)   US10Y 4.97 (+0.1%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "22 Sep 19:25 UTC",
-  "iso": "2026-09-22T19:25:51.738050+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: Iran's conditions to open the Strait of Hormuz were the reason to accept Witkoff's request for meeting - IRIB News\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,396 (+0.3%)   Silver 67.63 (+2.7%)   WTI 90.32 (-5.7%)   DXY 100.59 (+0.2%)   US10Y 4.97 (+0.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://www.financialjuice.com/News/9774237/Irans-conditions-to-open-the-Strait-of-Hormuz-were-the-reason-to-accept-Witkoffs-request-for-meeting---IRIB-News.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4395.9,
-   "Silver": 67.63,
-   "WTI": 90.32
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "FinancialJuice: Iran's conditions to open the Strait of Hormuz were the reason to accept Witkoff's request for meeting - IRIB News",
-   "src": "",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,396 (+0.3%)   Silver 67.63 (+2.7%)   WTI 90.32 (-5.7%)   DXY 100.59 (+0.2%)   US10Y 4.97 (+0.1%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
