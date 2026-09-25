@@ -1,5 +1,60 @@
 [
  {
+  "when": "25 Sep 03:47 UTC",
+  "iso": "2026-09-25T03:47:12.880575+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: strait of hormuz commodity vessel crossings drop to single digits, preliminary shiptracking data shows\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,309 (+0.3%)   Silver 64.18 (+1.1%)   WTI 93.13 (-1.6%)   DXY 101.29 (-0.0%)   US10Y 5.16 (+0.9%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://www.financialjuice.com/News/9778513/strait-of-hormuz-commodity-vessel-crossings-drop-to-single-digits-preliminary-shiptracking-data-shows.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4309.0,
+   "Silver": 64.18,
+   "WTI": 93.13
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "FinancialJuice: strait of hormuz commodity vessel crossings drop to single digits, preliminary shiptracking data shows",
+   "src": "",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,309 (+0.3%)   Silver 64.18 (+1.1%)   WTI 93.13 (-1.6%)   DXY 101.29 (-0.0%)   US10Y 5.16 (+0.9%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "25 Sep 00:30 UTC",
   "iso": "2026-09-25T00:30:25.650789+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,376 (-0.2%)   Silver 66.62 (+1.2%)   WTI 91.30 (-4.7%)   DXY 100.64 (+0.2%)   US10Y 4.98 (+0.3%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "22 Sep 16:36 UTC",
-  "iso": "2026-09-22T16:36:57.279959+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nWCS crude oil discount to Mars weakens amid US refinery outages - Quantum Commodity Intelligence  (Quantum Commodity Intelligence)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,364 (-0.5%)   Silver 66.22 (+0.6%)   WTI 91.76 (-4.2%)   DXY 100.68 (+0.2%)   US10Y 4.98 (+0.3%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQTGhVdHpPTVdRcWJFci1oNzZ6Rld4NlVzRHA0ZUhlYzhjNEJWRWZkOEpLN2VYZUVnWFF6NUpZcGl2Mjk4ZGZBWWJiRlpMYVlacHZiVTlUeG55U3F4VkplME15bUt6Zmt6VEJCbnhoLWxCUS1Ec0ktNkxxcnZFbjNOSjZGQlpMMnNYcXF1b1NqMHRZUlVvR3oxMmpuajdvX1haaXdwOW1RRzdLZw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4363.6,
-   "Silver": 66.225,
-   "WTI": 91.76
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "WCS crude oil discount to Mars weakens amid US refinery outages - Quantum Commodity Intelligence",
-   "src": "Quantum Commodity Intelligence",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,364 (-0.5%)   Silver 66.22 (+0.6%)   WTI 91.76 (-4.2%)   DXY 100.68 (+0.2%)   US10Y 4.98 (+0.3%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
