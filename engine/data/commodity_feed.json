@@ -1,5 +1,60 @@
 [
  {
+  "when": "25 Sep 04:34 UTC",
+  "iso": "2026-09-25T04:34:46.917901+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Novoshakhtinsk oil refinery in Russia\u2019s Rostov region hit by drone attack, pauses operations: governor\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,305 (+0.2%)   Silver 64.04 (+0.9%)   WTI 93.08 (-1.6%)   DXY 101.28 (-0.0%)   US10Y 5.16 (+0.9%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://www.financialjuice.com/News/9778571/Novoshakhtinsk-oil-refinery-in-Russias-Rostov-region-hit-by-drone-attack-pauses-operations-governor.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4304.8,
+   "Silver": 64.04,
+   "WTI": 93.08
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "FinancialJuice: Novoshakhtinsk oil refinery in Russia\u2019s Rostov region hit by drone attack, pauses operations: governor",
+   "src": "",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,305 (+0.2%)   Silver 64.04 (+0.9%)   WTI 93.08 (-1.6%)   DXY 101.28 (-0.0%)   US10Y 5.16 (+0.9%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "25 Sep 04:18 UTC",
   "iso": "2026-09-25T04:18:54.006752+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,396 (+0.3%)   Silver 67.63 (+2.7%)   WTI 90.32 (-5.7%)   DXY 100.59 (+0.2%)   US10Y 4.97 (+0.1%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "22 Sep 17:47 UTC",
-  "iso": "2026-09-22T17:47:15.690055+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nSaudi Arabia East-West Pipeline restarts after drone attacks - qz.com  (qz.com)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,374 (-0.2%)   Silver 66.58 (+1.1%)   WTI 90.97 (-5.0%)   DXY 100.66 (+0.2%)   US10Y 4.98 (+0.3%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPZGFDNU1saXRqZ0lTX3ZIQ0l5SWpRVWVWOVI2QkF3Vk5DamMwa0xJX01fOUpsc0cwU2c2MS1rTnN5bDRTX05sQWRGdUFVR3kxOFY1UDU2cXc4RkkxTW1ORzNyUjVKLTk1V0h0SmxfSkN5cTZWZzFVUlV4d2VLeVp0cg?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4374.2,
-   "Silver": 66.575,
-   "WTI": 90.97
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Saudi Arabia East-West Pipeline restarts after drone attacks - qz.com",
-   "src": "qz.com",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,374 (-0.2%)   Silver 66.58 (+1.1%)   WTI 90.97 (-5.0%)   DXY 100.66 (+0.2%)   US10Y 4.98 (+0.3%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
