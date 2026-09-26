@@ -1,5 +1,60 @@
 [
  {
+  "when": "26 Sep 17:42 UTC",
+  "iso": "2026-09-26T17:42:40.811321+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFeb 28 Iran Attack: Mojtaba Khamenei Was Pulled From Rubble After Hospital Bombing, Says Cleric - ndtvprofit.com  (ndtvprofit.com)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQRVI0UTltbHlvZVdIYmRBanFMOGczdjkzcVE3NHFVUkxnUzNlcW5WdHMxVVdSUC1fZHJnMUIzTGoxN1V4X0ZGc1hsRkE1N0VJOGRsak8xeWE2SmNtTFhhS0k0UFJqUXVkenZSQVNsOWJvVXpQak1rVFdMMW1LZ1pCUHVHOFA1RzllYTBpSEs0MVFSRnVvRlpCLXpITWttejBUT0g5VDJzdXVFbnhFcHBKMzBjcjVVOFUzUjg0ZlZuaU9CNEVnS2ZzYV80QTZIVFRG0gHYAUFVX3lxTFBEcGVyY01va3RacWRvd21OQmNWOHNXZTBhb0VFenY2SnJsdF9xZzZJczYxQnlJaVFUTjlKbnN4ZGJ5Mi14OHh5TkdPVEZaenplRFV3TGNZcUdRbFBXUktUV0Jlc0EyU3VWQ3JuTzNpTkdaaDFVRDV1WGtyVFVPR2VkaW9LRmpOSUYwampLdWw1alhETk1na2QzU0N5di1FOVJkNzRXQk11U0ZRN1FuWmlkajZ4ZWp3Z2trMC1mRG54QWJ0OFdVZVJmaGV4YzJMU2pwb1dBdTg2dw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4321.2,
+   "Silver": 64.801,
+   "WTI": 92.41
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Feb 28 Iran Attack: Mojtaba Khamenei Was Pulled From Rubble After Hospital Bombing, Says Cleric - ndtvprofit.com",
+   "src": "ndtvprofit.com",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "26 Sep 16:06 UTC",
   "iso": "2026-09-26T16:06:21.318697+00:00",
   "cat": "oil_supply_tight",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,319 (+0.0%)   Silver 64.52 (+0.2%)   WTI 91.52 (-0.7%)   DXY 101.17 (+0.1%)   US10Y 5.11 (+3.0%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "24 Sep 01:09 UTC",
-  "iso": "2026-09-24T01:09:41.307904+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Pakistan information minister: conducted aerial and drone attacks on 10 Afghan sites used for launching and storing drones on Sept. 23\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,334 (+0.3%)   Silver 64.83 (-1.7%)   WTI 91.64 (-0.6%)   DXY 101.16 (+0.7%)   US10Y 5.11 (+3.0%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://www.financialjuice.com/News/9776408/Pakistan-information-minister-conducted-aerial-and-drone-attacks-on-10-Afghan-sites-used-for-launching-and-storing-drones-on-Sept-23.aspx?xy=1",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4333.5,
-   "Silver": 64.83,
-   "WTI": 91.64
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "FinancialJuice: Pakistan information minister: conducted aerial and drone attacks on 10 Afghan sites used for launching and storing drones on Sept. 23",
-   "src": "",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,334 (+0.3%)   Silver 64.83 (-1.7%)   WTI 91.64 (-0.6%)   DXY 101.16 (+0.7%)   US10Y 5.11 (+3.0%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
