@@ -1,5 +1,60 @@
 [
  {
+  "when": "27 Sep 17:17 UTC",
+  "iso": "2026-09-27T17:17:26.455052+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nTrump says that Iran wants a Strait of Hormuz deal \u2018because they\u2019re dying\u2019 - WPBN  (WPBN)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMi_AJBVV95cUxNM0lraVlPbzJTYUhULXJBMFBneEFtbG9TZ3prZWtlcFhQMDVEck12MXhuQ2tlODE1amhwQjFYVEM2SFBSUnlIS0JxYVBDYlhJNW9xT1FGOUtacXB0cHhnU29fR3FiUVlfd05jWi1raVc4bUNqemV6b3FXUUNJZUl2WnJwZFppc1hLbWpfYWhLc1hrMC14UDRqR3FuTGFpTE4tckthY2dpTWNRNmgwbEtPRDhjMV9XRzdYYUZKVnpGbHhOcHNHaWh3QS1hWHpNVHo0U2NnYWR4dmUteWVSejNkOFhtYzE4OHhJVjJLYTBCcXBid1ZrdmIxVU1Sc2JkVGZyS19tN25Ddlg0QTRYcmxEbE54MnZjbk0tQWY2M1RmUGF0aHpwUkl0azJVdnQybVRqblJhUVNPX09LSnJWS1JiWFF3TVF0Y3g4UXlVa2hVc0pNekpjUVl6d3FlR3IweWhUanBMbGlZVTJZOTltNTdsUnZaYVprYWpfSW9xYg?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4321.2,
+   "Silver": 64.801,
+   "WTI": 92.41
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Trump says that Iran wants a Strait of Hormuz deal \u2018because they\u2019re dying\u2019 - WPBN",
+   "src": "WPBN",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "27 Sep 15:04 UTC",
   "iso": "2026-09-27T15:04:06.479071+00:00",
   "cat": "oil_supply_tight",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,290 (-0.7%)   Silver 64.02 (-0.6%)   WTI 93.81 (+1.8%)   DXY 101.24 (+0.1%)   US10Y 5.11 (+3.0%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "24 Sep 08:33 UTC",
-  "iso": "2026-09-24T08:33:03.953471+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nSerbia's Russian-owned NIS oil firm seeks new US sanctions waiver - Reuters  (Reuters)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,303 (-0.4%)   Silver 64.18 (-0.3%)   WTI 94.39 (+2.4%)   DXY 101.10 (-0.0%)   US10Y 5.11 (+3.0%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQNlllVVlKRlVNVVB3eWZlWnkySGxQOWxidXRPRVVMM2xtZEhQd0Z0R1Rpak1RLXltQmFoVGRVU3hqaUJnSjhzbFVmWHZoRzBrMnpnNVBHWFUwaml0MTdCNjM1SDcxdHNyTWI4Z2RjbmpaZFFpWTFINEx3Q3g3NGpENzd4RER2eHpnaXJDamlXZFRMWmpTcGs1U2xLQ3FPQmNVTXNTdmdnUzVmT3BGcTNLN0JQZ0E3VjQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4302.9,
-   "Silver": 64.18,
-   "WTI": 94.39
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "Serbia's Russian-owned NIS oil firm seeks new US sanctions waiver - Reuters",
-   "src": "Reuters",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,303 (-0.4%)   Silver 64.18 (-0.3%)   WTI 94.39 (+2.4%)   DXY 101.10 (-0.0%)   US10Y 5.11 (+3.0%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
