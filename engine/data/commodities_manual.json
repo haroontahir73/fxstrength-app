@@ -1,69 +1,69 @@
 {
-  "_help": "Per commodity, an indicator->1-5 map (5 = bullish). A bare number or {\"score\": n, \"note\": \"why\"} for auditability. Unset = held at neutral and excluded from the average, exactly like fundamentals_manual. Refreshed by the fx-strength-desk-daily task, step 2c.",
-  "XAU": {
-    "Real yield direction": {
-      "score": 2,
-      "note": "Headwind eased slightly off the peak: the 10-year has pulled back from the 5.01-5.04% touch on 15 Sep to ~4.93-4.98% by 22-23 Sep - still elevated post-hike (first-since-2007 territory reached mid-month), but no longer extending. A persistent but no-longer-worsening drag, so trimmed from 1.5 to 2.",
-      "as_of": "2026-09-23"
-    },
-    "US dollar direction": {
-      "score": 2,
-      "note": "DXY firmed further to 100.74 on 23 Sep (from 99.57 a week earlier), holding above 100 amid rising rate-hike expectations for the Oct FOMC. Firmer than a week ago, so kept as a headwind rather than eased.",
-      "as_of": "2026-09-23"
-    },
-    "Central-bank & ETF demand": {
-      "score": 4,
-      "note": "Divergence continues: central banks bought a record 289 tonnes in Q2 2026 (PBoC extending an 18-month buying streak) even as Western gold ETFs saw net outflows of ~45 tonnes over the same window - but the outflow narrative flipped short-term into the 16 Sep FOMC, with GLD+GLDM taking in a combined ~$2bn over five trading days just ahead of the hike. Net still bullish on the CB leg with ETF flows choppy rather than a clean bleed, unchanged at 4.",
-      "as_of": "2026-09-22"
-    },
-    "Safe-haven bid": {
-      "score": 3,
-      "note": "Gold has recovered off the mid-Sep low ($4,263 on 15 Sep) to $4,320 (23 Sep), but the haven bid itself is fading, not strengthening: Iran has signalled it could reopen the Strait of Hormuz within a week if US pressure eases, Saudi Arabia is offering more crude via the strait, and Trump described a 3-hour US-Iran sideline meeting at UNGA as going 'very well' - oil has dropped ~15% off its highs on the de-escalation signal. Gold's bounce looks more rates/dollar-driven than haven-driven; kept at 3 rather than raised.",
-      "as_of": "2026-09-23"
-    }
+ "_help": "Per commodity, an indicator->1-5 map (5 = bullish). A bare number or {\"score\": n, \"note\": \"why\"} for auditability. Unset = held at neutral and excluded from the average, exactly like fundamentals_manual. Refreshed by the fx-strength-desk-daily task, step 2c.",
+ "XAU": {
+  "Real yield direction": {
+   "score": 1.5,
+   "note": "Headwind worsened again: the 10-year broke above the mid-Sep 5.01-5.04% peak to ~5.17% on 25 Sep (hovering near 5.2%, highest since 2007) on hawkish Fedspeak (Barr, Williams, Hammack all pointing to another hike) and energy-driven inflation expectations. The 23 Sep 'no longer extending' read is superseded, so cut back from 2 to 1.5.",
+   "as_of": "2026-09-27"
   },
-  "XAG": {
-    "Real yield direction": {
-      "score": 2,
-      "note": "Same modest easing as gold - 10-year off its 5.01-5.04% mid-Sep peak to ~4.93-4.98%, still a headwind but no longer intensifying. Silver remains more leveraged to the move than gold.",
-      "as_of": "2026-09-23"
-    },
-    "US dollar direction": {
-      "score": 2,
-      "note": "DXY at 100.74 (23 Sep), continuing to firm from 99.57 a week ago on rising Oct hike odds. Firmer headwind than last week.",
-      "as_of": "2026-09-23"
-    },
-    "Industrial demand": {
-      "score": 3.5,
-      "note": "No new industrial-demand data found this week; structural deficit story (record ~720 Moz 2026 demand vs ~830 Moz/yr mine supply, solar+EV driven) against soft broader 2026 global growth (IEA still calling for a 2.5 mb/d oil-demand contraction) is unchanged from the last read, so held at 3.5 rather than re-guessed.",
-      "as_of": "2026-09-14"
-    },
-    "Gold-silver ratio": {
-      "score": 3,
-      "note": "Ratio ~66.6 (XAU 4320.5 / XAG 64.85 per the live chart feed), close to the ~67.7 scored last week and still well below the long-run ~80 average. Neutral for further silver outperformance either way.",
-      "as_of": "2026-09-23"
-    }
+  "US dollar direction": {
+   "score": 1.5,
+   "note": "DXY held above 101 on 25 Sep (101.03), after four straight up sessions - strongest in nearly two months and a second weekly gain, up ~1.9% on the month, on Oct FOMC hike odds (~60%+). Firming headwind, cut from 2 to 1.5.",
+   "as_of": "2026-09-27"
   },
-  "WTI": {
-    "OPEC+ supply policy": {
-      "score": 4,
-      "note": "No new OPEC+ decision found this week - could not confirm whether the group met on its scheduled early-October date, so the last confirmed policy (6 Sep: seven core members paused October quotas at the September level, 31.01 Mb/d, after four straight monthly hikes) is carried forward as still in force rather than re-guessed. Held at 4.",
-      "as_of": "2026-09-14"
-    },
-    "Inventory trend": {
-      "score": 3,
-      "note": "No inventory print newer than the week ending 11 Sep found this week (423.4 Mb, ~1% above the 5-year average, -0.6 Mb draw) - stocks roughly in line with the seasonal norm rather than notably tight. Held at 3, unchanged.",
-      "as_of": "2026-09-17"
-    },
-    "Demand outlook": {
-      "score": 1.5,
-      "note": "No fresher outlook than the September IEA OMR found this week (2026 demand growth forecast cut to 2.5 mb/d weaker than the prior read). Held at 1.5, unchanged.",
-      "as_of": "2026-09-14"
-    },
-    "Geopolitical risk premium": {
-      "score": 2,
-      "note": "Sharp de-escalation this week, matching the price action (WTI fell from the ~$99-100 area to $89-92): Iran signalled it could reopen the Strait of Hormuz within seven days if the US eases military pressure and lifts its port blockade; Saudi Arabia is reportedly offering more crude via the strait after the earlier pipeline attack; and Trump said a 3-hour US-Iran meeting on the UNGA sidelines 'went very well'. No formal ceasefire yet so some premium stays, but this is a large cut from the 4.5 held while the conflict was escalating.",
-      "as_of": "2026-09-23"
-    }
+  "Central-bank & ETF demand": {
+   "score": 4,
+   "note": "Divergence continues: central banks bought a record 289 tonnes in Q2 2026 (PBoC extending an 18-month buying streak) even as Western gold ETFs saw net outflows of ~45 tonnes over the same window - but the outflow narrative flipped short-term into the 16 Sep FOMC, with GLD+GLDM taking in a combined ~$2bn over five trading days just ahead of the hike. Net still bullish on the CB leg with ETF flows choppy rather than a clean bleed, unchanged at 4.",
+   "as_of": "2026-09-22"
+  },
+  "Safe-haven bid": {
+   "score": 3,
+   "note": "Gold has recovered off the mid-Sep low ($4,263 on 15 Sep) to $4,320 (23 Sep), but the haven bid itself is fading, not strengthening: Iran has signalled it could reopen the Strait of Hormuz within a week if US pressure eases, Saudi Arabia is offering more crude via the strait, and Trump described a 3-hour US-Iran sideline meeting at UNGA as going 'very well' - oil has dropped ~15% off its highs on the de-escalation signal. Gold's bounce looks more rates/dollar-driven than haven-driven; kept at 3 rather than raised.",
+   "as_of": "2026-09-23"
   }
+ },
+ "XAG": {
+  "Real yield direction": {
+   "score": 1.5,
+   "note": "Headwind worsened again: the 10-year broke above the mid-Sep 5.01-5.04% peak to ~5.17% on 25 Sep (hovering near 5.2%, highest since 2007) on hawkish Fedspeak (Barr, Williams, Hammack all pointing to another hike) and energy-driven inflation expectations. The 23 Sep 'no longer extending' read is superseded, so cut back from 2 to 1.5. Silver more leveraged to it than gold.",
+   "as_of": "2026-09-27"
+  },
+  "US dollar direction": {
+   "score": 1.5,
+   "note": "DXY held above 101 on 25 Sep (101.03), after four straight up sessions - strongest in nearly two months and a second weekly gain, up ~1.9% on the month, on Oct FOMC hike odds (~60%+). Firming headwind, cut from 2 to 1.5.",
+   "as_of": "2026-09-27"
+  },
+  "Industrial demand": {
+   "score": 2.5,
+   "note": "Re-checked: industrial leg is ebbing - JPMorgan sees solar silver demand down ~30% in 2026 and Metals Focus/Mercom put PV demand -19% y/y on thrifting and substitution (AGBI, 'solar demand loses shine', Sep 2026). A sixth straight deficit (~46 Moz) and record-low China inventories still support, but the old 'record demand' read is superseded; cut 3.5 -> 2.5.",
+   "as_of": "2026-09-27"
+  },
+  "Gold-silver ratio": {
+   "score": 3,
+   "note": "Ratio ~66.6 (XAU 4320.5 / XAG 64.85 per the live chart feed), close to the ~67.7 scored last week and still well below the long-run ~80 average. Neutral for further silver outperformance either way.",
+   "as_of": "2026-09-23"
+  }
+ },
+ "WTI": {
+  "OPEC+ supply policy": {
+   "score": 4,
+   "note": "Re-checked: no new decision since 6 Sep, when the seven core members held October quotas at the September level (31.01 Mb/d) after completing the rollback of voluntary cuts; the group signalled quotas likely steady through year-end. Next meeting 4 Oct. Supply restraint intact, held at 4.",
+   "as_of": "2026-09-27"
+  },
+  "Inventory trend": {
+   "score": 2.5,
+   "note": "EIA week to 18 Sep: crude +3.0 Mb to 426.4 Mb vs a ~0.6 Mb draw expected, now ~2% above the 5-year average (bearish), partly offset by gasoline -1.7 Mb (6% below 5-yr) and distillates -0.4 Mb (12% below). Crude build tilts it mildly bearish, 3 -> 2.5.",
+   "as_of": "2026-09-27"
+  },
+  "Demand outlook": {
+   "score": 1.5,
+   "note": "No fresher outlook than the September IEA OMR found this week (2026 demand growth forecast cut to 2.5 mb/d weaker than the prior read). Held at 1.5, unchanged.",
+   "as_of": "2026-09-14"
+  },
+  "Geopolitical risk premium": {
+   "score": 2,
+   "note": "Sharp de-escalation this week, matching the price action (WTI fell from the ~$99-100 area to $89-92): Iran signalled it could reopen the Strait of Hormuz within seven days if the US eases military pressure and lifts its port blockade; Saudi Arabia is reportedly offering more crude via the strait after the earlier pipeline attack; and Trump said a 3-hour US-Iran meeting on the UNGA sidelines 'went very well'. No formal ceasefire yet so some premium stays, but this is a large cut from the 4.5 held while the conflict was escalating.",
+   "as_of": "2026-09-23"
+  }
+ }
 }

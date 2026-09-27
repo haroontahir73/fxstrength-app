@@ -10,27 +10,28 @@
     "override": true
   },
   "EUR": {
-    "hike": 30,
-    "hold": 70,
+    "hike": 60,
+    "hold": 40,
     "cut": 0,
     "next_meeting": "October 29, 2026",
-    "src": "researched 2026-09-10. The ECB hiked 25bp on 10 Sep (deposit to 2.50%), so the scraped centralbank.watch value (89% hike) now points at a meeting that has already happened - override to the next meeting, 29 Oct. Markets price roughly 29% for a further 25bp hike on 29 Oct (cryptobriefing/Reuters), with ECB officials briefing that October is 'in play' (Bloomberg) and inflation staff-projected at 3.0% 2026. Data-dependent, no pre-commitment.",
-    "override": true
+    "override": true,
+    "src": "researched 2026-09-27 (refresh of the 10 Sep entry). Futures pricing on 24 Sep implied ~60% for a 25bp hike to 2.75% on 29 Oct (Admiral Markets citing ECB Watch), up from ~29% after the 10 Sep hike. Other snapshots range 47-75% depending on day/source, so the 24 Sep ECB Watch figure is used as the mid. Lagarde 18 Sep leaned against automatic tightening; pricing moves daily."
   },
   "NZD": {
-    "hike": 10,
-    "hold": 88,
-    "cut": 2,
+    "hike": 75,
+    "hold": 25,
+    "cut": 0,
     "next_meeting": "October 28, 2026",
-    "src": "researched 2026-09-10 (re-check of the 3 Sep entry). centralbank.watch RBNZ tool now shows ~89% no-change for 28 Oct (0% hike / ~10% cut in the OIS-implied split). RBNZ's own OCR track still points to one more 25bp hike to 3.00% by the 9 Dec MPS, so the tightening bias is intact but October is priced as a near-certain hold - small hike tail kept for the December-live view, the tool's cut tail treated as OIS convexity rather than a real easing call."
+    "override": true,
+    "src": "researched 2026-09-27 (refresh of the 10 Sep entry). Money markets price ~75% for a 25bp OCR hike to 3.00% on 28 Oct, up from ~57% after Governor Breman said on 22 Sep that persistent higher oil would push near-term inflation above the September MPS (Pound Sterling Live, 22 Sep; FXStreet). centralbank.watch's older ~88% hold snapshot is stale."
   },
   "CAD": {
-    "hike": 12,
-    "hold": 86,
-    "cut": 2,
+    "hike": 59,
+    "hold": 41,
+    "cut": 0,
     "next_meeting": "October 28, 2026",
-    "src": "researched 2026-09-10 (re-check of the 3 Sep entry). Bond-market/prediction-market pricing for 28 Oct is a heavy hold - rateprobability/Polymarket around 6-12% for a 25bp hike, majority of economists see a hold through 2026. The 2 Sep statement held at 2.25% for a 7th meeting and leaned on upside inflation risks (CPI ~3%, energy, US-Canada tariffs) but gave no signal, so a modest hike tail is kept.",
-    "override": true
+    "override": true,
+    "src": "researched 2026-09-27 (refresh of the 10 Sep entry). As of 25 Sep, OIS pricing implied a 59% probability of a BoC hike on 28 Oct (+15bp implied from 2.25%), per money.ca/refdesk; odds were ~6% hold-dominant before 2 Sep and jumped on oil, bond yields and the Fed's 16 Sep hike. Several bank economists still expect a hold until Q1 2027."
   },
   "_note_CAD": "Rate-odds source rotated to public reporting after bankofcanadaodds.com; the TradingView scrape carries a stale 5.25% BoC rate and no real BoC block, so override stays true. If a cleaner current feed appears, prefer it."
 }
