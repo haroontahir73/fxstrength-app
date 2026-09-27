@@ -1,5 +1,60 @@
 [
  {
+  "when": "27 Sep 15:04 UTC",
+  "iso": "2026-09-27T15:04:06.479071+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nTrump: We moved a record amount of oil through the Strait of Hormuz - \u0635\u0648\u062a \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a  (\u0635\u0648\u062a \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPUDNVd2FWT1FlcEQ4RVoyTmEyLW16d2U3X1B0dEdoRkN5amVIZlhDR1U0TFVQTGRFRHBKZFU5Z3pPYVc5M3dhOFZfaTZDYnd0aW94QlJPVWk2aF94R09sSzVCeXV0cUJDcmZNMlJjUlh0TWpTOFc1YzFrWDk0ckZyQzhtM3pvWGk2a2ZZYWRCQmgzLTdPZEtLZU1vRUlHQXlzMmR2SXZEYTR4WlJvVVlIUUJuUmpKMzVhT1E?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4321.2,
+   "Silver": 64.801,
+   "WTI": 92.41
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Trump: We moved a record amount of oil through the Strait of Hormuz - \u0635\u0648\u062a \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a",
+   "src": "\u0635\u0648\u062a \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "27 Sep 12:19 UTC",
   "iso": "2026-09-27T12:19:51.140868+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,303 (-0.4%)   Silver 64.18 (-0.3%)   WTI 94.39 (+2.4%)   DXY 101.10 (-0.0%)   US10Y 5.11 (+3.0%)",
    "reality": "",
    "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
-  }
- },
- {
-  "when": "24 Sep 07:58 UTC",
-  "iso": "2026-09-24T07:58:19.330293+00:00",
-  "cat": "rates_down",
-  "title": "GOLD+SILVER STRONG LONG | FED - leaning toward rate cuts",
-  "body": "\ud83d\udcb8 FED \u2014 leaning toward rate cuts\n\nCiti sees no Fed rate cuts until June 2027, crypto in trouble? - Crypto News  (Crypto News)\n\nWHY: Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - cheaper money is gold's best friend\n        [NOT TESTED - no history to judge this on]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up, only harder\n        [NOT TESTED - no history to judge this on]\nOIL    \u2191    mild long bias - weaker dollar + a bit more growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,316 (-0.1%)   Silver 64.64 (+0.4%)   WTI 92.34 (+0.2%)   DXY 101.05 (-0.1%)   US10Y 5.11 (+3.0%)\n\nFLIP: a hot inflation print would kill the cut hopes",
-  "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNUW84cllGeE9RWUxpSl9KRDB6YUNzWGY5d2QyY0xtdTRfcHVrSHJ2bGZmYTZuelRsMzRSaVY4b21pQWRGQlRocGFNaGQtOGVGa25QWHkwMFNFNi0zMjdsYUxCY2Q4TWUzSFhQNlMyMUp4OUpfT2JhTU1ka2FDNzVLTm83akVKejBf?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4316.2,
-   "Silver": 64.64,
-   "WTI": 92.34
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb8",
-   "label": "FED \u2014 leaning toward rate cuts",
-   "headline": "Citi sees no Fed rate cuts until June 2027, crypto in trouble? - Crypto News",
-   "src": "Crypto News",
-   "why": "Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "cheaper money is gold's best friend",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "follows gold up, only harder",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "weaker dollar + a bit more growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,316 (-0.1%)   Silver 64.64 (+0.4%)   WTI 92.34 (+0.2%)   DXY 101.05 (-0.1%)   US10Y 5.11 (+3.0%)",
-   "reality": "",
-   "flip": "a hot inflation print would kill the cut hopes"
   }
  }
 ]
