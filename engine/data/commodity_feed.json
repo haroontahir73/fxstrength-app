@@ -1,5 +1,60 @@
 [
  {
+  "when": "28 Sep 12:05 UTC",
+  "iso": "2026-09-28T12:05:53.815149+00:00",
+  "cat": "oil_supply_loose",
+  "title": "OIL STRONG SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nSaudi Aramco Resumes Exports from East-West Oil Pipeline - marketscreener.com  (marketscreener.com)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,183 (-3.2%)   Silver 61.63 (-4.1%)   WTI 95.75 (+3.6%)   DXY 101.15 (+0.2%)   US10Y 5.18 (+0.4%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPU3l4cmR5TEU4UjhDNG5pNDY5bjdwOTdRcHNRbTJPcjc0eXF1TV90QkdyUHFnalZLc2VCaDNfN2xQeFBNVVJIUUhsUW1fVXRnVHZKbUdZQkhraVJFcVlQTHlpb3V6RW1IT2xHSEZ3SENGdUZ3ZGFhbEt4RXdFMW5PN1c1RWlfX0RET1JnUnY4MDlzQl9TSGM1QnlkZ0MzRkN5R2Iybm0taVVicjZualE?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4183.2,
+   "Silver": 61.63,
+   "WTI": 95.75
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "Saudi Aramco Resumes Exports from East-West Oil Pipeline - marketscreener.com",
+   "src": "marketscreener.com",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "extra barrels push the price down",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,183 (-3.2%)   Silver 61.63 (-4.1%)   WTI 95.75 (+3.6%)   DXY 101.15 (+0.2%)   US10Y 5.18 (+0.4%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
   "when": "28 Sep 11:04 UTC",
   "iso": "2026-09-28T11:04:41.862188+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,309 (-0.2%)   Silver 64.18 (-0.3%)   WTI 95.34 (+3.5%)   DXY 101.29 (+0.2%)   US10Y 5.16 (+0.9%)",
    "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
    "flip": "a hot inflation print would kill the cut hopes"
-  }
- },
- {
-  "when": "24 Sep 18:09 UTC",
-  "iso": "2026-09-24T18:09:34.329807+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nBahrain Leads Countries\u2019 Call for Full Reopening of Strait of Hormuz Without Tolls - gCaptain  (gCaptain)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,301 (-0.4%)   Silver 64.06 (-0.5%)   WTI 95.24 (+3.3%)   DXY 101.33 (+0.2%)   US10Y 5.16 (+0.9%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNMU9ZWHFvaHV1QUZ1OG1xM3RKdHQ3ZDNTSUE2M25VVWgzM1ZISkVwbFg0MUtqU241SUFZdUhONFlsTWZLdXBTZXlJZ1VoTUxLVTdCclRPNnJKbnlSd2pIS2phNzdKRWJMc1Z6S1RjUzNQNFpZRVZDT3V2X0FKX3lSV2FEbndDeWh4V1M1YWcxTkVjemEwcFZ1djlyT3gxd3ZuWTJDTGF3?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4300.9,
-   "Silver": 64.06,
-   "WTI": 95.24
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Bahrain Leads Countries\u2019 Call for Full Reopening of Strait of Hormuz Without Tolls - gCaptain",
-   "src": "gCaptain",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,301 (-0.4%)   Silver 64.06 (-0.5%)   WTI 95.24 (+3.3%)   DXY 101.33 (+0.2%)   US10Y 5.16 (+0.9%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
