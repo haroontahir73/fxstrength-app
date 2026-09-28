@@ -1,5 +1,610 @@
 [
  {
+  "when": "28 Sep 19:23 UTC",
+  "iso": "2026-09-28T19:23:02.356829+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nBond yields crank higher and undercut US stocks as uncertainty drags on about the Strait of Hormuz - AP News  (AP News)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,166 (-3.6%)   Silver 61.40 (-4.4%)   WTI 92.73 (+0.3%)   DXY 101.21 (+0.2%)   US10Y 5.24 (+1.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQRVVRNDh4OTNhYkdoZ3J2aWdBbFpXSjRacGpDWWl0dDUwNXB5d09KMUYweEpLSURiREdvM09IZ3Zhc0k3dVp3NWo3by1UU19BY2JjOU1pdXlxa1FFTzA0NTFIdXNMQmFlS3FubzByZ1JvX1l4eWFxRWtlUzQxNy10cEFGUXFCeFdNUGV5SEFrV1MtNEZkQkE?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4165.7,
+   "Silver": 61.4,
+   "WTI": 92.73
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Bond yields crank higher and undercut US stocks as uncertainty drags on about the Strait of Hormuz - AP News",
+   "src": "AP News",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,166 (-3.6%)   Silver 61.40 (-4.4%)   WTI 92.73 (+0.3%)   DXY 101.21 (+0.2%)   US10Y 5.24 (+1.1%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
+  "when": "28 Sep 17:57 UTC",
+  "iso": "2026-09-28T17:57:18.161406+00:00",
+  "cat": "oil_supply_loose",
+  "title": "OIL STRONG SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nEXCLUSIVE: US to grant sanctions waiver for flights between Iran and Iraq's Najaf, source says - Reuters  (Reuters)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,170 (-3.5%)   Silver 61.76 (-3.9%)   WTI 92.65 (+0.3%)   DXY 101.12 (+0.2%)   US10Y 5.24 (+1.0%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQOHIxYnY3TE1lQ1JIaWFqTGo2bE5IZ20wamRnZUhEMVdaZWdfWVRQVUpUQjFTSUg1elR2a1dMb1RwNTNnMmg1QXExOGthdmlQbkIweWwyS3JNaXVocWlPRU9kLWRQWmRQSlY1dHVWQ014b1cxT2dPY3pvUmNpMENwN29NV0E3VWpmaEU5N0h6WDFzcjBmNTBQSjlKRlRRQ2dpZEdHX3JUSGh5aTZiTjc0S0FTMmpfeUFld1VXZjd0LXloZw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4170.1,
+   "Silver": 61.76,
+   "WTI": 92.65
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "EXCLUSIVE: US to grant sanctions waiver for flights between Iran and Iraq's Najaf, source says - Reuters",
+   "src": "Reuters",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "extra barrels push the price down",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,170 (-3.5%)   Silver 61.76 (-3.9%)   WTI 92.65 (+0.3%)   DXY 101.12 (+0.2%)   US10Y 5.24 (+1.0%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
+  "when": "28 Sep 17:38 UTC",
+  "iso": "2026-09-28T17:38:12.009332+00:00",
+  "cat": "rates_down",
+  "title": "TALK | GOLD+SILVER LONG | FED - leaning toward rate cuts",
+  "body": "\ud83d\udcb8 FED \u2014 leaning toward rate cuts\n\nFinancialJuice: Fed's Cook: Highly attentive to AI potentially causing a temporary rise in unemployment; Fed has limited tools, rate cuts could fuel inflation\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.\n\nGOLD   \u2191\u2191   look for longs - cheaper money is gold's best friend (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\nSILVER \u2191\u2191   look for longs - follows gold up, only harder (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2191    mild long bias - weaker dollar + a bit more growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,169 (-3.5%)   Silver 61.77 (-3.9%)   WTI 92.81 (+0.4%)   DXY 101.11 (+0.1%)   US10Y 5.24 (+1.0%)\n\nFLIP: a hot inflation print would kill the cut hopes",
+  "link": "https://www.financialjuice.com/News/9782068/Feds-Cook-Highly-attentive-to-AI-potentially-causing-a-temporary-rise-in-unemployment-Fed-has-limited-tools-rate-cuts-could-fuel-inflation.aspx?xy=rss",
+  "talk": true,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4169.0,
+   "Silver": 61.77,
+   "WTI": 92.81
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb8",
+   "label": "FED \u2014 leaning toward rate cuts",
+   "headline": "FinancialJuice: Fed's Cook: Highly attentive to AI potentially causing a temporary rise in unemployment; Fed has limited tools, rate cuts could fuel inflation",
+   "src": "",
+   "why": "Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "cheaper money is gold's best friend (talk, not action yet)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "follows gold up, only harder (talk, not action yet)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "weaker dollar + a bit more growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,169 (-3.5%)   Silver 61.77 (-3.9%)   WTI 92.81 (+0.4%)   DXY 101.11 (+0.1%)   US10Y 5.24 (+1.0%)",
+   "reality": "",
+   "flip": "a hot inflation print would kill the cut hopes"
+  }
+ },
+ {
+  "when": "28 Sep 17:22 UTC",
+  "iso": "2026-09-28T17:22:22.185316+00:00",
+  "cat": "oil_supply_loose",
+  "title": "OIL STRONG SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nDonald Trump administration weighs limited sanctions waiver for Iran-Iraq flights - jpost.com  (jpost.com)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,174 (-3.4%)   Silver 61.90 (-3.7%)   WTI 91.62 (-0.9%)   DXY 101.11 (+0.1%)   US10Y 5.25 (+1.2%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9HWFFjd3RlSE9DSkowSFhOSnRQR2JPaV84ODJLRnVPd214RDRmY25idDhZeFlXaUxwS3VvVElCWmtsRXdoTVlCWG4xTmF1Nzc1RC1wbmcwdEszSjRtR29JYXkzR3FZY2Y2d1E?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4174.2,
+   "Silver": 61.895,
+   "WTI": 91.62
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "Donald Trump administration weighs limited sanctions waiver for Iran-Iraq flights - jpost.com",
+   "src": "jpost.com",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "extra barrels push the price down",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,174 (-3.4%)   Silver 61.90 (-3.7%)   WTI 91.62 (-0.9%)   DXY 101.11 (+0.1%)   US10Y 5.25 (+1.2%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
+  "when": "28 Sep 17:06 UTC",
+  "iso": "2026-09-28T17:06:28.347965+00:00",
+  "cat": "geo_deescalation",
+  "title": "OIL STRONG SHORT | GEOPOLITICS - calming down",
+  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nOil Rebounds as US-Iran Peace Deal Stalls, Hormuz Risks Persist - ChemAnalyst  (ChemAnalyst)\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - supply worry gone, barrels flow again\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,163 (-3.7%)   Silver 61.58 (-4.2%)   WTI 92.95 (+0.6%)   DXY 101.16 (+0.2%)   US10Y 5.25 (+1.3%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
+  "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQRWpLTDhwdnlOd3dqMF9XT1g4QzlNbzVreDVleTRPR092Q3J0QWRqc1RKRFBxTVNOajVuZ2tmNHZmVVhsT2lRVXo0N2RTLVBvTnBtbHJMLWNFMXl6MWZrcXBiZUFkcHN0VVFwdkFZOGQ0RFJ2TjJfV01ZcG5POG81NVFhcnlxejZkLUFxaHVjMnVINE0wSUlYUjU4WmxudUI5WGR0RTJPdTJ5THVDdURiQUhqcw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4162.9,
+   "Silver": 61.575,
+   "WTI": 92.95
+  },
+  "parts": {
+   "emoji": "\ud83d\udd4a",
+   "label": "GEOPOLITICS \u2014 calming down",
+   "headline": "Oil Rebounds as US-Iran Peace Deal Stalls, Hormuz Risks Persist - ChemAnalyst",
+   "src": "ChemAnalyst",
+   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured both ways - fear-out vs yields-down cancel",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "same, no reliable direction",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "supply worry gone, barrels flow again",
+     "record": "some evidence - right 51% of 113 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,163 (-3.7%)   Silver 61.58 (-4.2%)   WTI 92.95 (+0.6%)   DXY 101.16 (+0.2%)   US10Y 5.25 (+1.3%)",
+   "reality": "",
+   "flip": "these deals break \u2014 one broken truce and it all goes back on"
+  }
+ },
+ {
+  "when": "28 Sep 16:50 UTC",
+  "iso": "2026-09-28T16:50:32.727819+00:00",
+  "cat": "oil_supply_loose",
+  "title": "TALK | OIL SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nFinancialJuice: US considering sanctions waiver for flights between Iran and Iraq's holy city of Najaf - Source\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193   look for shorts - extra barrels push the price down (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,168 (-3.5%)   Silver 61.69 (-4.0%)   WTI 92.84 (+0.5%)   DXY 101.12 (+0.1%)   US10Y 5.24 (+1.1%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://www.financialjuice.com/News/9782032/US-considering-sanctions-waiver-for-flights-between-Iran-and-Iraqs-holy-city-of-Najaf---Source.aspx?xy=rss",
+  "talk": true,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4168.3,
+   "Silver": 61.685,
+   "WTI": 92.84
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "FinancialJuice: US considering sanctions waiver for flights between Iran and Iraq's holy city of Najaf - Source",
+   "src": "",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "extra barrels push the price down (talk, not action yet)",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,168 (-3.5%)   Silver 61.69 (-4.0%)   WTI 92.84 (+0.5%)   DXY 101.12 (+0.1%)   US10Y 5.24 (+1.1%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
+  "when": "28 Sep 16:31 UTC",
+  "iso": "2026-09-28T16:31:31.895697+00:00",
+  "cat": "silver_squeeze",
+  "title": "SILVER STRONG LONG | SILVER - physical squeeze",
+  "body": "\u26a1 SILVER \u2014 physical squeeze\n\nFirst Majestic Silver at Mining Forum Americas 2026: growth, cash and silver shortage - Investing.com India  (Investing.com India)\n\nWHY: There is not enough real silver where it is needed. Anyone who sold silver they do not hold has to buy it back fast, which forces the price up.\n\nGOLD   \u2191    mild long bias - gets pulled along\n        [NOT TESTED - no history to judge this on]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - this is silver's own violent move\n        [NOT TESTED - no history to judge this on]\nOIL    \u2192    no clean read\n\nNOW  Gold 4,164 (-3.6%)   Silver 61.70 (-4.0%)   WTI 93.40 (+1.1%)   DXY 101.14 (+0.2%)   US10Y 5.26 (+1.5%)\n\nFLIP: squeezes end abruptly and give most of it back \u2014 do not chase late",
+  "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOZHhpcXZIS0xLNTBlUXpiZUFRVzFleFJqSkJ5U2FVbnZiQ1FfdG9Zdi1RU1d1NXFRZjg5alhaRHB3MkVEOUtYTWU0emo2ZFUyTmlNdzR4VC1BbklDc2d5RV96c2NwMUJ6Tm95cW01NEl5allGRjdPYmVLZkNQejdsRVZvM09NY28zaHE2eTFaeDZXblRoZ3RZV2NyTjY0d1VMZi1KLTQwY0ZWRmFWODEzbzFFcnFPM2VKeExVRG9WNmNWQmdOZktwRzBjbjl5dGpCbGQwNWdBSmlHTmpE?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4163.6,
+   "Silver": 61.7,
+   "WTI": 93.4
+  },
+  "parts": {
+   "emoji": "\u26a1",
+   "label": "SILVER \u2014 physical squeeze",
+   "headline": "First Majestic Silver at Mining Forum Americas 2026: growth, cash and silver shortage - Investing.com India",
+   "src": "Investing.com India",
+   "why": "There is not enough real silver where it is needed. Anyone who sold silver they do not hold has to buy it back fast, which forces the price up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "gets pulled along",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "this is silver's own violent move",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "",
+     "record": ""
+    }
+   ],
+   "snap": "NOW  Gold 4,164 (-3.6%)   Silver 61.70 (-4.0%)   WTI 93.40 (+1.1%)   DXY 101.14 (+0.2%)   US10Y 5.26 (+1.5%)",
+   "reality": "",
+   "flip": "squeezes end abruptly and give most of it back \u2014 do not chase late"
+  }
+ },
+ {
+  "when": "28 Sep 15:59 UTC",
+  "iso": "2026-09-28T15:59:44.491377+00:00",
+  "cat": "geo_deescalation",
+  "title": "OIL STRONG SHORT | GEOPOLITICS - calming down",
+  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nOil rises as Iran-US remain divided on ceasefire terms, keeping Strait of Hormuz reopening uncertain | World News - Hindustan Times  (Hindustan Times)\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - supply worry gone, barrels flow again\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,152 (-3.9%)   Silver 61.38 (-4.5%)   WTI 95.48 (+3.3%)   DXY 101.22 (+0.2%)   US10Y 5.27 (+1.6%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
+  "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPbHBLdzZmbkdGblJLSU1nREJNMWFuTWtHQ2U0a1hsenBJcXBvVk4xdEoxRU5MV0FCMEc3N2l5VjJEejE1NGNUNWdzNFdwek52cWotbDZjQkllOHRhNF9CSVlkbXFIdTQxSnBsQ3RjNWtnNGcyV0JaQWlDeHQ3dUN6RjRkdHI1T2N0clVLV0xFRnlGMWVHbFQzbEN1Nmp5c1IwSS1iaENzd2Q2VXJ3SUpEdVFuSDBMaUxiSGJmMkdyWlVDZm9vSmxnUDR1ekZ1QU10MndHbEdmelRGN0k1Y2NjLTZEVmRNaGduSTdmeGtuaDNtc0lG0gH6AUFVX3lxTE1tUTZ6b19uTU9mQzVJRE10RjRxWVZOa1N4VEt5S192MGJnSXNpQ1UtSFA2YlFyVnRqZm1QRXhXVXhPbTVlOFhYbjlqOVpHWEhYM0JXa0dQZVlyRm9yLVZ2TUJqTUlOQWJNLVhPa3A4Q2pBNG4ycW5XcVloXzBSdWdKRGNQODk4eUZFM2JUTno1ZG55NlVkdlhYZmdxX0h2SzhCaEVUdFhqT21xTGFUOUtmU2FFTEk4SzAwbnZDQURfNXFPR1ZfcTJ4M1I0NFhpS2JuN2gyN3NrZ1Jlc2U2dThHOHptdDhVYmpRWGQ2eEt6NFFWTDdHdi1yYlE?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4151.5,
+   "Silver": 61.375,
+   "WTI": 95.48
+  },
+  "parts": {
+   "emoji": "\ud83d\udd4a",
+   "label": "GEOPOLITICS \u2014 calming down",
+   "headline": "Oil rises as Iran-US remain divided on ceasefire terms, keeping Strait of Hormuz reopening uncertain | World News - Hindustan Times",
+   "src": "Hindustan Times",
+   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured both ways - fear-out vs yields-down cancel",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "same, no reliable direction",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "supply worry gone, barrels flow again",
+     "record": "some evidence - right 51% of 113 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,152 (-3.9%)   Silver 61.38 (-4.5%)   WTI 95.48 (+3.3%)   DXY 101.22 (+0.2%)   US10Y 5.27 (+1.6%)",
+   "reality": "",
+   "flip": "these deals break \u2014 one broken truce and it all goes back on"
+  }
+ },
+ {
+  "when": "28 Sep 15:11 UTC",
+  "iso": "2026-09-28T15:11:59.773242+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nU.K. base at center of foiled terror plot has been used by U.S. Air Force to strike Iran - NBC4 Washington  (NBC4 Washington)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,151 (-3.9%)   Silver 61.30 (-4.6%)   WTI 95.62 (+3.5%)   DXY 101.24 (+0.3%)   US10Y 5.27 (+1.6%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNY1ZSMmxxTjB3aWNRSEFNelBaQ3cyRGk0d05WZFhNcUFlZ3RxRkJObjRwZ3pDbDU0NkwxUFZQYnNWdThtRVR1dlBveVBaSFQyWTRzejY2SW1YcVFlSGt0RkZVMmNZVEQ2X2NnN0tBa2RGYktCQ1RCQUVPY3FSM05uMlVEdFk2dWp2ODB0Vzh3aWVBTUhoT3p4M2hwOFl4cFdDWkNzSzNXNHNzM2hPTkJkbFdsdXk4Z9IBvgFBVV95cUxQMWZoLWdzQzdVNWJQdURxa3dmdFBrTUt0MWdOOVRFWWt1c1R1YUFLVXZzMmlNRGhtYkpSUDBYV0VNYjYzQ2t1Um9FWlJGX2lIX1ZjY0tKcHVMMmgwQ25rMldJWFZXVks0VWdhS1EySzFVTmdVdFIzRE9yT0hRV2tpRmNUX21rWk9JUmN0MnpsandBdU9NVW05RllXQ0UwYUNPWU0xSHNwcng3T0ZZZFZSNDZ4OEZZV2I0a19KOXFn?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4151.1,
+   "Silver": 61.3,
+   "WTI": 95.62
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "U.K. base at center of foiled terror plot has been used by U.S. Air Force to strike Iran - NBC4 Washington",
+   "src": "NBC4 Washington",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,151 (-3.9%)   Silver 61.30 (-4.6%)   WTI 95.62 (+3.5%)   DXY 101.24 (+0.3%)   US10Y 5.27 (+1.6%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
+  "when": "28 Sep 15:02 UTC",
+  "iso": "2026-09-28T15:02:27.215208+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nDrones Used in Saudi Pipeline Attack Entered Iraq From Iran - iranwire.com  (iranwire.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,148 (-4.0%)   Silver 61.20 (-4.7%)   WTI 95.03 (+2.8%)   DXY 101.28 (+0.3%)   US10Y 5.26 (+1.4%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPS3dTOTZuZkpnS1pHQUJoUUVIdGo5UzdoZmM2dkREcWtXLWM3d0t6dUMwWG9CVXl3REZsN3IyLXp0MGRHOXViU0lXZWlWNEdGUm9PeGJoaHpSMVFPdndZU0NiRXBnTHFiN01peWQyVjZ1ZlNjeXNGTUM4dTJCQUJSYmx4RklrRzhOVzh3UWZiRmdkR0dVdE1RRXg5dC0?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4147.7,
+   "Silver": 61.195,
+   "WTI": 95.03
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Drones Used in Saudi Pipeline Attack Entered Iraq From Iran - iranwire.com",
+   "src": "iranwire.com",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,148 (-4.0%)   Silver 61.20 (-4.7%)   WTI 95.03 (+2.8%)   DXY 101.28 (+0.3%)   US10Y 5.26 (+1.4%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
+  "when": "28 Sep 14:37 UTC",
+  "iso": "2026-09-28T14:37:03.049997+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nDrones Used in Saudi Pipeline Attack Entered Iraq From Iran - IranWire  (IranWire)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,175 (-3.4%)   Silver 61.74 (-3.9%)   WTI 94.07 (+1.8%)   DXY 101.16 (+0.2%)   US10Y 5.24 (+1.0%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPS3dTOTZuZkpnS1pHQUJoUUVIdGo5UzdoZmM2dkREcWtXLWM3d0t6dUMwWG9CVXl3REZsN3IyLXp0MGRHOXViU0lXZWlWNEdGUm9PeGJoaHpSMVFPdndZU0NiRXBnTHFiN01peWQyVjZ1ZlNjeXNGTUM4dTJCQUJSYmx4RklrRzhOVzh3UWZiRmdkR0dVdE1RRXg5dC0?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4175.2,
+   "Silver": 61.745,
+   "WTI": 94.07
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Drones Used in Saudi Pipeline Attack Entered Iraq From Iran - IranWire",
+   "src": "IranWire",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,175 (-3.4%)   Silver 61.74 (-3.9%)   WTI 94.07 (+1.8%)   DXY 101.16 (+0.2%)   US10Y 5.24 (+1.0%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "28 Sep 13:29 UTC",
   "iso": "2026-09-28T13:29:31.271983+00:00",
   "cat": "rates_up",
@@ -2692,611 +3297,6 @@
    "snap": "NOW  Gold 4,330 (+0.7%)   Silver 65.06 (+2.5%)   WTI 92.74 (-2.0%)   DXY 101.10 (-0.2%)   US10Y 5.16 (+0.9%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "25 Sep 09:41 UTC",
-  "iso": "2026-09-25T09:41:32.642744+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussia\u2019s Novoshakhtinsk oil refinery suspends operations after drone attack, governor says - kslm.news  (kslm.news)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,328 (+0.7%)   Silver 65.03 (+2.5%)   WTI 92.79 (-1.9%)   DXY 101.12 (-0.2%)   US10Y 5.16 (+0.9%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOeFBld1E1SF9Bd0wzdXpJSnJ6b1QyX3ZTZGxydWtfSF9ZTnFfSTFGWEtFREJDTGg5S0JOZ0ExYVJsLVhNbVJ2ai1nTVBNaHhxWkZjM0xlaUJMNFowLVZZc0l6c0dzVGFwM05WNzVNamlmX1lrOTBvbWxhSTRqZVpXRWNLdkZwZjU0Y1pUNDhDeXJpNkNuam1NTGY2bmNxc1FFdERMWjBQdjhvaTRuU3NURlRZZWtEVk9kNWxtUXpJU3NPUXFDRm9mMlR3?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4327.9,
-   "Silver": 65.03,
-   "WTI": 92.79
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Russia\u2019s Novoshakhtinsk oil refinery suspends operations after drone attack, governor says - kslm.news",
-   "src": "kslm.news",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,328 (+0.7%)   Silver 65.03 (+2.5%)   WTI 92.79 (-1.9%)   DXY 101.12 (-0.2%)   US10Y 5.16 (+0.9%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "25 Sep 09:28 UTC",
-  "iso": "2026-09-25T09:28:56.699437+00:00",
-  "cat": "rates_up",
-  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold on track for weekly loss as Fed rate hike expectations build - marketscreener.com  (marketscreener.com)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,329 (+0.7%)   Silver 64.99 (+2.4%)   WTI 92.82 (-1.9%)   DXY 101.06 (-0.2%)   US10Y 5.16 (+0.9%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPMzRpME92YVRDVXo3OGVwcjJFSUsybEVJenluNklhQjlqdU8zWVlLRjJLc2R6RVZrOXhoNkUxWTBnMWw2YUI2VVBfclFMLWpkaXZ5QmNrdHZsb2ZtMC1FdHpKMEwxNEltbEZSM0NxZGd1NkoyUkpKVFdqdVh0dENtWm1qb3ZESEQtMVdoSlhBT1EweEFCUS1FQzJLY2l3TE51WnFOVGotSjV5NFZreFpyS1VFVGo2cGxDeFE?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4328.7,
-   "Silver": 64.99,
-   "WTI": 92.82
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Gold on track for weekly loss as Fed rate hike expectations build - marketscreener.com",
-   "src": "marketscreener.com",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "same hit as gold, only bigger",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,329 (+0.7%)   Silver 64.99 (+2.4%)   WTI 92.82 (-1.9%)   DXY 101.06 (-0.2%)   US10Y 5.16 (+0.9%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "25 Sep 08:00 UTC",
-  "iso": "2026-09-25T08:00:13.275365+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussia's Novoshakhtinsk oil refinery suspends operations after drone attack, governor says - Reuters  (Reuters)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,314 (+0.4%)   Silver 64.23 (+1.2%)   WTI 93.49 (-1.2%)   DXY 101.14 (-0.1%)   US10Y 5.16 (+0.9%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOWmJrZWtQT3Z3cktEN05uUGFFOVRmQkdQaTFSMk1TQ1c5Z2h6MkJHb3JzZVMycUx4aEU2RzhMTlJMTmRORW9nVXJrdmJzX1dyaEVrdDg1VDdEdVd4d3lSRFk5OHRKS2pLRkRfaEVTSlNyc2cxaW1GaGNOUkR6OWFEOHFxWEE0Wk0wd05CRFN5Wm1GNFVEa3RvQkpQNzJ3alIyakN3RVZCRWMtZTloSElMYkQ3WTNxNEtrRi1oZmhXbmE?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4313.9,
-   "Silver": 64.235,
-   "WTI": 93.49
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Russia's Novoshakhtinsk oil refinery suspends operations after drone attack, governor says - Reuters",
-   "src": "Reuters",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,314 (+0.4%)   Silver 64.23 (+1.2%)   WTI 93.49 (-1.2%)   DXY 101.14 (-0.1%)   US10Y 5.16 (+0.9%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "25 Sep 06:57 UTC",
-  "iso": "2026-09-25T06:57:03.687121+00:00",
-  "cat": "rates_up",
-  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold Holds $4,250 as Hawkish Fed and Bond Selloff Keep Bulls on the Defensive - FXLeaders  (FXLeaders)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,313 (+0.4%)   Silver 64.25 (+1.3%)   WTI 92.99 (-1.7%)   DXY 101.15 (-0.1%)   US10Y 5.16 (+0.9%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNcDQ0S0Z3Nlc3U3EtZlF5OW9PVUVHY2RiSEd0Q2Z3YnE5clBQWVdOc2JZR0szQ0tIdGMtRENtcTZSRU5ZbFF6YmxONUJHTExJQzFDVE5fYkgwNHNtR2FzNWpTN2N2TmVOZ1pFZVB4RTZIOWJmenpUVE8yVjRtVHFxS1dsVEdPbUU?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4313.1,
-   "Silver": 64.255,
-   "WTI": 92.99
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Gold Holds $4,250 as Hawkish Fed and Bond Selloff Keep Bulls on the Defensive - FXLeaders",
-   "src": "FXLeaders",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "same hit as gold, only bigger",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,313 (+0.4%)   Silver 64.25 (+1.3%)   WTI 92.99 (-1.7%)   DXY 101.15 (-0.1%)   US10Y 5.16 (+0.9%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "25 Sep 06:12 UTC",
-  "iso": "2026-09-25T06:12:51.919588+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussia reported a nighttime drone attack on an oil refinery and enterprises in four regions \u2014 what is known - \u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0456 \u041d\u0430\u0446\u0456\u043e\u043d\u0430\u043b\u044c\u043d\u0456 \u041d\u043e\u0432\u0438\u043d\u0438 (\u0423\u041d\u041d)  (\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0456 \u041d\u0430\u0446\u0456\u043e\u043d\u0430\u043b\u044c\u043d\u0456 \u041d\u043e\u0432\u0438\u043d\u0438 (\u0423\u041d\u041d))\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,306 (+0.2%)   Silver 64.14 (+1.1%)   WTI 92.71 (-2.0%)   DXY 101.22 (-0.1%)   US10Y 5.16 (+0.9%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOd2M1c3hSSkxrQWNrZ2hUUWFvTXhic0MtOVU2UkV3ZWFRUEN3VTNRMl9PUjgtU044NjhfUjFIaWdZeVpMSlJ5MU81MWdTSEhxSG1DdTZLWE84aGJORzRPWF9BcG5kY2NJc3RMREdod3ltMnFKcU9DZ2tCb2MtV0VyUWZqY2tUSUZ3YldLdU56V1VCZ2ttMmZicDdPYUdvVGJkMUZ2ZnJoeWlfem1Ya1RGNUtJZ2FGOGgwaXZZOGJpTmxMcnlBcnhv0gHGAUFVX3lxTE91LXM2YVVTSzRjTGJheTk2aEV6cmNtVXI1TWxqdDFtSEFQWjJKaVVsdlVfZHN6cFJIbUNIUllxaFlqNlBIM1dvanZZUlBRVGROeXFmRjRKclR4WlBJWEJ2cVM4Z0dwbHlUY25oTno4ZnlMcW8wOENWQ09TUGxfRFhhV0ZlQkVlMEY5SUV1Yk5wN1Ixd0FBSTQzT0dJalBmcHczTU90QmZOaHcwU0dkSEZFVS1DUURzUmZOSDVaNmhaT1NuSmp2dw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4306.3,
-   "Silver": 64.14,
-   "WTI": 92.71
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Russia reported a nighttime drone attack on an oil refinery and enterprises in four regions \u2014 what is known - \u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0456 \u041d\u0430\u0446\u0456\u043e\u043d\u0430\u043b\u044c\u043d\u0456 \u041d\u043e\u0432\u0438\u043d\u0438 (\u0423\u041d\u041d)",
-   "src": "\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0456 \u041d\u0430\u0446\u0456\u043e\u043d\u0430\u043b\u044c\u043d\u0456 \u041d\u043e\u0432\u0438\u043d\u0438 (\u0423\u041d\u041d)",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,306 (+0.2%)   Silver 64.14 (+1.1%)   WTI 92.71 (-2.0%)   DXY 101.22 (-0.1%)   US10Y 5.16 (+0.9%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "25 Sep 05:41 UTC",
-  "iso": "2026-09-25T05:41:15.905130+00:00",
-  "cat": "geo_deescalation",
-  "title": "OIL STRONG SHORT | GEOPOLITICS - calming down",
-  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nIran says it's up to U.S. to end war as China presses for de-escalation\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - supply worry gone, barrels flow again\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,302 (+0.1%)   Silver 64.02 (+0.9%)   WTI 92.77 (-1.9%)   DXY 101.23 (-0.1%)   US10Y 5.16 (+0.9%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
-  "link": "https://www.cnbc.com/2026/09/25/us-iran-trump-hormuz-.html",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4301.9,
-   "Silver": 64.02,
-   "WTI": 92.77
-  },
-  "parts": {
-   "emoji": "\ud83d\udd4a",
-   "label": "GEOPOLITICS \u2014 calming down",
-   "headline": "Iran says it's up to U.S. to end war as China presses for de-escalation",
-   "src": "",
-   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured both ways - fear-out vs yields-down cancel",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "same, no reliable direction",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "supply worry gone, barrels flow again",
-     "record": "some evidence - right 51% of 113 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,302 (+0.1%)   Silver 64.02 (+0.9%)   WTI 92.77 (-1.9%)   DXY 101.23 (-0.1%)   US10Y 5.16 (+0.9%)",
-   "reality": "",
-   "flip": "these deals break \u2014 one broken truce and it all goes back on"
-  }
- },
- {
-  "when": "25 Sep 04:34 UTC",
-  "iso": "2026-09-25T04:34:46.917901+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Novoshakhtinsk oil refinery in Russia\u2019s Rostov region hit by drone attack, pauses operations: governor\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,305 (+0.2%)   Silver 64.04 (+0.9%)   WTI 93.08 (-1.6%)   DXY 101.28 (-0.0%)   US10Y 5.16 (+0.9%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://www.financialjuice.com/News/9778571/Novoshakhtinsk-oil-refinery-in-Russias-Rostov-region-hit-by-drone-attack-pauses-operations-governor.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4304.8,
-   "Silver": 64.04,
-   "WTI": 93.08
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "FinancialJuice: Novoshakhtinsk oil refinery in Russia\u2019s Rostov region hit by drone attack, pauses operations: governor",
-   "src": "",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,305 (+0.2%)   Silver 64.04 (+0.9%)   WTI 93.08 (-1.6%)   DXY 101.28 (-0.0%)   US10Y 5.16 (+0.9%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "25 Sep 04:18 UTC",
-  "iso": "2026-09-25T04:18:54.006752+00:00",
-  "cat": "rates_up",
-  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold steadies near $4,275, set for weekly loss as Fed hike bets rise - Investing.com  (Investing.com)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,305 (+0.2%)   Silver 64.02 (+0.9%)   WTI 93.08 (-1.6%)   DXY 101.27 (-0.0%)   US10Y 5.16 (+0.9%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNZ2hLQlFlSnVyQkJFUllmeFBWd2dOZm44ZmRsRGFOWnF5MnRNWnFHdkR0bnp4VkEwVUIydFo1LXBwd1lpdjVQT0lqLTNJX0RaQUpBNml0aXZUTG9HMXlCVmVrdnFaajctN3NjM0NfWlVtaElXZUJBZm1zcFFCR1BMUjAwR21wRng1LWtYY293bDc1RHRILXZGbTlCenRjMFE4OHRYbGJNcExXVmVMdVBhRzNQWmxEdXZWRmlN?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4305.4,
-   "Silver": 64.02,
-   "WTI": 93.08
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Gold steadies near $4,275, set for weekly loss as Fed hike bets rise - Investing.com",
-   "src": "Investing.com",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "same hit as gold, only bigger",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,305 (+0.2%)   Silver 64.02 (+0.9%)   WTI 93.08 (-1.6%)   DXY 101.27 (-0.0%)   US10Y 5.16 (+0.9%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "25 Sep 03:47 UTC",
-  "iso": "2026-09-25T03:47:12.880575+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: strait of hormuz commodity vessel crossings drop to single digits, preliminary shiptracking data shows\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,309 (+0.3%)   Silver 64.18 (+1.1%)   WTI 93.13 (-1.6%)   DXY 101.29 (-0.0%)   US10Y 5.16 (+0.9%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://www.financialjuice.com/News/9778513/strait-of-hormuz-commodity-vessel-crossings-drop-to-single-digits-preliminary-shiptracking-data-shows.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4309.0,
-   "Silver": 64.18,
-   "WTI": 93.13
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "FinancialJuice: strait of hormuz commodity vessel crossings drop to single digits, preliminary shiptracking data shows",
-   "src": "",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,309 (+0.3%)   Silver 64.18 (+1.1%)   WTI 93.13 (-1.6%)   DXY 101.29 (-0.0%)   US10Y 5.16 (+0.9%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "25 Sep 00:30 UTC",
-  "iso": "2026-09-25T00:30:25.650789+00:00",
-  "cat": "rates_up",
-  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold Slips as Iran Tensions Reinforce Expectations for Another Fed Hike - tokenpost.com  (tokenpost.com)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,303 (-0.4%)   Silver 64.11 (-0.4%)   WTI 93.90 (+1.9%)   DXY 101.30 (+0.2%)   US10Y 5.16 (+0.9%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9iVEZzaDdDVjhLdUhfZUVzY3lmYnF2OVNrclFDS0V5VVVKdFZHMHFWYkJsaVdmZkV2OTdEaWlUMHF2UEk0UUtOa3p3dFA3SGV4YXoyVHdLVGxJUQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4302.6,
-   "Silver": 64.115,
-   "WTI": 93.9
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Gold Slips as Iran Tensions Reinforce Expectations for Another Fed Hike - tokenpost.com",
-   "src": "tokenpost.com",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "same hit as gold, only bigger",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,303 (-0.4%)   Silver 64.11 (-0.4%)   WTI 93.90 (+1.9%)   DXY 101.30 (+0.2%)   US10Y 5.16 (+0.9%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "24 Sep 22:45 UTC",
-  "iso": "2026-09-24T22:45:52.936183+00:00",
-  "cat": "rates_up",
-  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFed rate hike boosts yields on 4 leveraged muni funds, making them more attractive than MUB ETF. - pluang.com  (pluang.com)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,306 (-0.3%)   Silver 64.19 (-0.3%)   WTI 94.36 (+2.4%)   DXY 101.25 (+0.1%)   US10Y 5.16 (+0.9%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMzVjNVl0a0l0a0JpYXdRTERsXzZSNmF4ajBmbzdYa3dMWERDNEJoeXJZWmp1azExcFVkNkhTNTRLMGZFeVJXTjlQUk1WNUNhRVZsdjItLVRiNS1SY3dycEZsS0dZeXNpN09tb3dIczBJaG1PWTVpSjZFeUhQUE0yMVBKcVdteTlRbmctM2ZqZ3h6TVJMemNEel80UnVrQ0NWX3FVTGZUYTI?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4306.5,
-   "Silver": 64.19,
-   "WTI": 94.36
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Fed rate hike boosts yields on 4 leveraged muni funds, making them more attractive than MUB ETF. - pluang.com",
-   "src": "pluang.com",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "same hit as gold, only bigger",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,306 (-0.3%)   Silver 64.19 (-0.3%)   WTI 94.36 (+2.4%)   DXY 101.25 (+0.1%)   US10Y 5.16 (+0.9%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
