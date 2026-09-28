@@ -1,5 +1,60 @@
 [
  {
+  "when": "28 Sep 21:53 UTC",
+  "iso": "2026-09-28T21:53:41.605112+00:00",
+  "cat": "rates_up",
+  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nBitcoin faces pressure as rising Treasury yields follow Fed rate hike and Senate's CLARITY Act rejection. - Pluang  (Pluang)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,148 (-4.0%)   Silver 61.03 (-5.0%)   WTI 93.29 (+1.0%)   DXY 101.19 (+0.2%)   US10Y 5.24 (+1.1%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPNGVNdDh6ZVROOEM2eXAwd3Z3THNJd1BfZ1ItcjBWWUIxTlREUDJ6VjU2MnZlU3N4ekRlZ2M0aU91WEFkclRwVFk2cklJdjNTYVVpV25mM3RQcEM0ZWlrQ0dCc3dENWhscEZDV00tY0dlUjA0WnVMWjJBVk1HSUItWHBLSDFmN200Ri05bVgxTHdST1FVWnZlSDBHUm5fWGdnbEdIZkNSOFM5VjU1dFE?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4148.5,
+   "Silver": 61.03,
+   "WTI": 93.29
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Bitcoin faces pressure as rising Treasury yields follow Fed rate hike and Senate's CLARITY Act rejection. - Pluang",
+   "src": "Pluang",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "same hit as gold, only bigger",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,148 (-4.0%)   Silver 61.03 (-5.0%)   WTI 93.29 (+1.0%)   DXY 101.19 (+0.2%)   US10Y 5.24 (+1.1%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "28 Sep 21:15 UTC",
   "iso": "2026-09-28T21:15:06.846488+00:00",
   "cat": "oil_supply_loose",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,314 (+0.4%)   Silver 64.42 (+1.5%)   WTI 93.22 (-1.5%)   DXY 100.95 (-0.3%)   US10Y 5.19 (+0.5%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "25 Sep 12:50 UTC",
-  "iso": "2026-09-25T12:50:57.168705+00:00",
-  "cat": "rates_up",
-  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold rises, but on track for weekly loss as Fed rate hike expectations build - TradingView  (TradingView)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,335 (+0.9%)   Silver 65.19 (+2.7%)   WTI 92.48 (-2.3%)   DXY 101.00 (-0.3%)   US10Y 5.18 (+0.4%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNOHBpMlFyNjNDaEVJUGpkclJTcWEySk1uSHVMYUNqa1ZvTktQQzRzLVVfVGVLSU14bVN6OVB2bVNMMmJFVDZiaWlCc1ZfYkhXc1NrT09QMERMbjFJQm1xN1pEYkh6cTJUTHVmRTVlUnpkQzZoWmFoU3FTWmpyWFFyb216NFk0S3NWMkcwUXZORE5wOVc3RGIwNS01bTc4MUhtdURzTzhHSFNNUGo2VnpYRFl2VlR3QlVaMXFUbDZUU2ltWUdzOVZ2QXRoRHcweG9RY1BqeXhrQUR2SDQ5QVE?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4335.1,
-   "Silver": 65.195,
-   "WTI": 92.48
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Gold rises, but on track for weekly loss as Fed rate hike expectations build - TradingView",
-   "src": "TradingView",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "same hit as gold, only bigger",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,335 (+0.9%)   Silver 65.19 (+2.7%)   WTI 92.48 (-2.3%)   DXY 101.00 (-0.3%)   US10Y 5.18 (+0.4%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
