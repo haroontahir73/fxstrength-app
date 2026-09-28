@@ -1,5 +1,60 @@
 [
  {
+  "when": "28 Sep 19:45 UTC",
+  "iso": "2026-09-28T19:45:14.609324+00:00",
+  "cat": "rates_up",
+  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nNomi Prins: Fed rate hike doesn\u2019t change Gold\u2019s long-term outlook - FXStreet  (FXStreet)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,165 (-3.6%)   Silver 61.41 (-4.4%)   WTI 92.94 (+0.6%)   DXY 101.20 (+0.2%)   US10Y 5.24 (+1.1%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNV2RkMHBvblBvdk1lMS1oWDBvOXdLOUQ0N1Blc2NTXy0ydHhDNW5QWG5TLWE0ektWVTAxaHlnZUNBTHU1LVJKSWxhd0pEOUtycGNVUjRtMDZ1MDhGbHVhQldXOERZR2JiWGVTTDZoTUJ6bjJvOGdVSEM3bWhBMllyVjJGaFB6ajJxTzFHN1c1MGR4Y2JVdjZFSlNBV1FodmNDbmZHSDlxZUxDZ1F4d2c?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4165.2,
+   "Silver": 61.405,
+   "WTI": 92.94
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Nomi Prins: Fed rate hike doesn\u2019t change Gold\u2019s long-term outlook - FXStreet",
+   "src": "FXStreet",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "same hit as gold, only bigger",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,165 (-3.6%)   Silver 61.41 (-4.4%)   WTI 92.94 (+0.6%)   DXY 101.20 (+0.2%)   US10Y 5.24 (+1.1%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "28 Sep 19:23 UTC",
   "iso": "2026-09-28T19:23:02.356829+00:00",
   "cat": "oil_supply_tight",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,341 (+1.0%)   Silver 65.36 (+3.0%)   WTI 93.02 (-1.7%)   DXY 101.05 (-0.2%)   US10Y 5.16 (+0.9%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "25 Sep 09:50 UTC",
-  "iso": "2026-09-25T09:50:59.899497+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOne seafarer killed in latest Strait of Hormuz attack \u2014 SMI DIGITAL - shipmanagementinternational.com  (shipmanagementinternational.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,330 (+0.7%)   Silver 65.06 (+2.5%)   WTI 92.74 (-2.0%)   DXY 101.10 (-0.2%)   US10Y 5.16 (+0.9%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxObmVIdzJSakVWcjN5U2hsdVpCQUhLUU0xZ04wN2MydEpicFkwMHVoT1dZMlJEemR2MzJDZVNXVjRxd21zMDhGSjdVMHkzNlowWGJpdG5Yd0U0dnFwZkUyR3ltODVuZkVRTDBNNWhlaWJ0RGs0b1UySG9rdlFqTHF3MTFQMFVpbmtIMG1KU2lTV3RVNG5rd1pjcU5CNzlwRzYtcFliaWxZamZ1a1lUcVk0ZnRLNDk5d0I3VEtfUko2TWJMOGY1cHZHS2ZGSTRmbHR6dmdybVRtdjRhYkZwWi0zdUFB?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4329.6,
-   "Silver": 65.06,
-   "WTI": 92.74
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "One seafarer killed in latest Strait of Hormuz attack \u2014 SMI DIGITAL - shipmanagementinternational.com",
-   "src": "shipmanagementinternational.com",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,330 (+0.7%)   Silver 65.06 (+2.5%)   WTI 92.74 (-2.0%)   DXY 101.10 (-0.2%)   US10Y 5.16 (+0.9%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
