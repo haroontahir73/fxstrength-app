@@ -1,5 +1,60 @@
 [
  {
+  "when": "28 Sep 01:53 UTC",
+  "iso": "2026-09-28T01:53:31.392013+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFire reported at oil depot in Russia's Krasnodar Krai amid drone attack - kyivindependent.com  (kyivindependent.com)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,246 (-1.7%)   Silver 63.04 (-1.9%)   WTI 93.46 (+1.1%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNUHZTUHV0RENna3BBZHpMNXUzc3d3VjMwMjhOUENaQWtyNTl4Z2hJT1haWFJrVmtNX0U3YmpObk8zYWxnYjcxUWdhck1wejBWdWRuNWFGY0Vac29NeDd6RzZJR0k3Q1R5M3ZXU1dZaVV0cGVWZHBIbC0xUllYalBtUmc0c3lpVDV6MG95anFTQXEyMzU3YndQT00yQU85RHl5?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4246.2,
+   "Silver": 63.04,
+   "WTI": 93.46
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Fire reported at oil depot in Russia's Krasnodar Krai amid drone attack - kyivindependent.com",
+   "src": "kyivindependent.com",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,246 (-1.7%)   Silver 63.04 (-1.9%)   WTI 93.46 (+1.1%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "28 Sep 01:12 UTC",
   "iso": "2026-09-28T01:12:26.639211+00:00",
   "cat": "geo_deescalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,303 (-0.4%)   Silver 63.88 (-0.8%)   WTI 94.11 (+2.1%)   DXY 101.25 (+0.1%)   US10Y 5.10 (-0.3%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "24 Sep 13:51 UTC",
-  "iso": "2026-09-24T13:51:14.491851+00:00",
-  "cat": "rates_down",
-  "title": "GOLD+SILVER STRONG LONG | FED - leaning toward rate cuts",
-  "body": "\ud83d\udcb8 FED \u2014 leaning toward rate cuts\n\nFed Rate Cut Delayed as Strong Jobs Data Tests Bitcoin - Cryptonews  (Cryptonews)\n\nWHY: Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - cheaper money is gold's best friend\n        [NOT TESTED - no history to judge this on]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up, only harder\n        [NOT TESTED - no history to judge this on]\nOIL    \u2191    mild long bias - weaker dollar + a bit more growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,303 (-0.3%)   Silver 63.77 (-1.0%)   WTI 94.44 (+2.5%)   DXY 101.29 (+0.2%)   US10Y 5.09 (-0.4%)\n\nFLIP: a hot inflation print would kill the cut hopes",
-  "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5JWXVqZWRINWRXMmgzX0hieThYcEN4Vkh4U2pDZkR1TmVUdmE2WEdsTEFXNHNNMC03TFVubE9CSHo4WWNjLUxVMmF2ZmRjU2JQSDB5c3doUHpPdWlxanhjVmEwS2w?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4303.3,
-   "Silver": 63.77,
-   "WTI": 94.44
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb8",
-   "label": "FED \u2014 leaning toward rate cuts",
-   "headline": "Fed Rate Cut Delayed as Strong Jobs Data Tests Bitcoin - Cryptonews",
-   "src": "Cryptonews",
-   "why": "Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "cheaper money is gold's best friend",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "follows gold up, only harder",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "weaker dollar + a bit more growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,303 (-0.3%)   Silver 63.77 (-1.0%)   WTI 94.44 (+2.5%)   DXY 101.29 (+0.2%)   US10Y 5.09 (-0.4%)",
-   "reality": "",
-   "flip": "a hot inflation print would kill the cut hopes"
   }
  }
 ]
