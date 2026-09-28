@@ -18,8 +18,8 @@
   },
   "Safe-haven bid": {
    "score": 3,
-   "note": "Gold has recovered off the mid-Sep low ($4,263 on 15 Sep) to $4,320 (23 Sep), but the haven bid itself is fading, not strengthening: Iran has signalled it could reopen the Strait of Hormuz within a week if US pressure eases, Saudi Arabia is offering more crude via the strait, and Trump described a 3-hour US-Iran sideline meeting at UNGA as going 'very well' - oil has dropped ~15% off its highs on the de-escalation signal. Gold's bounce looks more rates/dollar-driven than haven-driven; kept at 3 rather than raised.",
-   "as_of": "2026-09-23"
+   "note": "Hormuz talks stalled again over the weekend (Iran won't soften demands, Trump rejected its plan), which should help the haven leg - but gold slipped from ~$4,320 to ~$4,213 over the week as yields and the dollar dominated. Mixed, held at 3.",
+   "as_of": "2026-09-28"
   }
  },
  "XAG": {
@@ -40,8 +40,8 @@
   },
   "Gold-silver ratio": {
    "score": 3,
-   "note": "Ratio ~66.6 (XAU 4320.5 / XAG 64.85 per the live chart feed), close to the ~67.7 scored last week and still well below the long-run ~80 average. Neutral for further silver outperformance either way.",
-   "as_of": "2026-09-23"
+   "note": "Ratio ~67.9 (XAU 4213 / XAG 62.0 on the 28 Sep feed), up slightly from ~66.6 but still well below the long-run ~80 average. Neutral, unchanged.",
+   "as_of": "2026-09-28"
   }
  },
  "WTI": {
@@ -57,13 +57,13 @@
   },
   "Demand outlook": {
    "score": 1.5,
-   "note": "No fresher outlook than the September IEA OMR found this week (2026 demand growth forecast cut to 2.5 mb/d weaker than the prior read). Held at 1.5, unchanged.",
-   "as_of": "2026-09-14"
+   "note": "Re-checked: the September IEA OMR is still the latest - 2026 demand to fall 2.5 mb/d (940 kb/d steeper than August) as the US-Iran impasse delays normal flows; EIA sees -1.7 mb/d, only OPEC sees growth. Held at 1.5.",
+   "as_of": "2026-09-28"
   },
   "Geopolitical risk premium": {
-   "score": 2,
-   "note": "Sharp de-escalation this week, matching the price action (WTI fell from the ~$99-100 area to $89-92): Iran signalled it could reopen the Strait of Hormuz within seven days if the US eases military pressure and lifts its port blockade; Saudi Arabia is reportedly offering more crude via the strait after the earlier pipeline attack; and Trump said a 3-hour US-Iran meeting on the UNGA sidelines 'went very well'. No formal ceasefire yet so some premium stays, but this is a large cut from the 4.5 held while the conflict was escalating.",
-   "as_of": "2026-09-23"
+   "score": 3,
+   "note": "Talks stalled again: Trump rejected Iran's seven-day Hormuz reopening proposal (blockade lifted, assets unfrozen, war ended 'on all fronts') and Iran said on 27 Sep it won't soften its demands - Brent back above $106, WTI ~$94 (Bloomberg). Strait still shut, so the 23 Sep de-escalation cut is partly reversed, 2 -> 3.",
+   "as_of": "2026-09-28"
   }
  }
 }

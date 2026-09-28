@@ -171,5 +171,9 @@
  "EUR|Philip R. Lane: The outlook for the euro area economy (Chief Economist)|2026-09-24T09:00": 0,
  "_note_EUR_lane_sep24": "No policy-path signal. Lausanne lecture was a slide deck on energy-price scenarios, growth, AI trade and fiscal stance; reporting (and a Swiss newspaper interview) has Lane saying growth stays steady-but-moderate if the energy shock does not intensify and inflation falls toward target from mid-2027, with no comment on further hikes. Scored 0.",
  "GBP|No bank too big to fail, and none too small to resolve − speech by Ruth Smith|2026-09-23T09:00": 0,
- "_note_GBP_ruthsmith_sep23": "Not about the policy path. BoE speech on bank resolution regime ('no bank too big to fail, none too small to resolve') - financial-stability/regulation, not interest rates. Scored 0."
+ "_note_GBP_ruthsmith_sep23": "Not about the policy path. BoE speech on bank resolution regime ('no bank too big to fail, none too small to resolve') - financial-stability/regulation, not interest rates. Scored 0.",
+ "JPY|Monetary Policy Meeting Minutes|2026-09-27T23:50": 1,
+ "_note_JPY_minutes_jul_2026-09-28": "Minutes of the 30-31 Jul hold (released 28 Sep): many members said the focus is shifting to upside inflation risks and anchoring underlying inflation at 2%, some argued for faster hikes (Reuters). Leaning toward higher rates, +1 - backward-looking, since the BoJ has already hiked again in Sep.",
+ "USD|FOMC Member Schmid Speaks|2026-09-25T13:20": 1,
+ "_note_USD_schmid_2026-09-25": "Schmid (KC Fed, 25 Sep) said inflation remains above 2% and the problem is not yet fixed; he backed the 16 Sep hike citing inflation broader than energy. Leaning toward higher rates, +1 (no explicit call for the next hike; also spoke on AI concentration risk)."
 }
