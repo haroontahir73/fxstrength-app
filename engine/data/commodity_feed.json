@@ -1,5 +1,60 @@
 [
  {
+  "when": "28 Sep 09:41 UTC",
+  "iso": "2026-09-28T09:41:21.246781+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nEight US Marines Injured In Iranian Strike In Strait Of Hormuz - Report - i24news.tv  (i24news.tv)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,177 (-3.3%)   Silver 61.52 (-4.2%)   WTI 95.53 (+3.4%)   DXY 101.10 (+0.1%)   US10Y 5.18 (+0.4%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOOUJWS2VKZUk0N2dOYmZHZTduSzFZa0V4bXU4clNfZVh3TGdlVkcxczFseVdfTTZJVnlwaG9HcGU3UUUtcUNpdVFVZGlfc1l5MEd1SzYtY1VXdVd1V3VYcEx2VjJSWlVoR0lfczdoNjBuZjVIMkFfUGxqSjdlandqYXhfVGNrT0J4U3Roek1laEZmbkFicEh2dzBKclFINk9kTlJSMC0tVFppUnRPVnBFeW5SSkR6RXBWa3JtRTAteldxdERYRXVr?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4177.4,
+   "Silver": 61.52,
+   "WTI": 95.53
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Eight US Marines Injured In Iranian Strike In Strait Of Hormuz - Report - i24news.tv",
+   "src": "i24news.tv",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,177 (-3.3%)   Silver 61.52 (-4.2%)   WTI 95.53 (+3.4%)   DXY 101.10 (+0.1%)   US10Y 5.18 (+0.4%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "28 Sep 08:56 UTC",
   "iso": "2026-09-28T08:56:28.342565+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,296 (-0.5%)   Silver 63.94 (-0.7%)   WTI 95.46 (+3.6%)   DXY 101.34 (+0.2%)   US10Y 5.16 (+0.9%)",
    "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "24 Sep 17:37 UTC",
-  "iso": "2026-09-24T17:37:47.285717+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nGhana Oil Output Recovers as New Jubilee and Sankofa Wells Boost Production - Modern Ghana  (Modern Ghana)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,296 (-0.5%)   Silver 63.88 (-0.8%)   WTI 94.88 (+3.0%)   DXY 101.29 (+0.2%)   US10Y 5.15 (+0.7%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5zZVpHSzJfV083QzVvRF9kOXhKd3VtR0ZjMWJ3VjZlOTI5Ulc4M2J0b3NrSm5wRDJicjctQjhleUkzakxTRVdCYVJvRlR5c2R5UWMwTWVxME1weTZYWnVWM3J6b9IBXEFVX3lxTE11MTJIaURheVFBU3ZBV3FuMUhMaVM1Z1psbWlRSGNOaV83T0oyZFd5NzljSWpKdjhEWTB0ek1faVp3YVR0VlRpOGVialFoVmt3R2JDYUk3aEZSWTNH?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4295.9,
-   "Silver": 63.885,
-   "WTI": 94.88
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "Ghana Oil Output Recovers as New Jubilee and Sankofa Wells Boost Production - Modern Ghana",
-   "src": "Modern Ghana",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,296 (-0.5%)   Silver 63.88 (-0.8%)   WTI 94.88 (+3.0%)   DXY 101.29 (+0.2%)   US10Y 5.15 (+0.7%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
