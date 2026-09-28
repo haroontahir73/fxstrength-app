@@ -1,5 +1,60 @@
 [
  {
+  "when": "28 Sep 13:06 UTC",
+  "iso": "2026-09-28T13:06:57.074159+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIndia so far navigated crude oil supply disruptions due to West Asia conflict: Union Minister Puri - The New Indian Express  (The New Indian Express)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,185 (-3.1%)   Silver 61.68 (-4.0%)   WTI 94.07 (+1.8%)   DXY 101.17 (+0.2%)   US10Y 5.22 (+0.6%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOZElJeGptQmliWGFtSkRwX3JZajM5X1ItMUFDZXNicmZWT2l5RFFTRjQxT1BFSU9iTVNLZEdjOVYzLVVTNHJBeWFWNmJibkFyNFVCenFUczByb0cwNTdDMEd1LVVSRldzV3FVQmwwMmJYVWpsVUZSUl82TDQxejV6MllPVUFkZGxpZTI2cWhIejhsYVpoTEM0d2wybjZ5U2txbWFEVm9LMXpPckw1SXlzb0M0V1lodmhCU0dvTFU5ZlNwZHBvT3pNVWxEeFE2enAtUDF3S3FQR09OX1hiX2kzcDh30gHvAUFVX3lxTE5BQ1BKQW9tckFRNzREcHFLMjNOYUN1RVhPUEE3ZFFjMUVGS0pMY1VPMEIzc1JlbVpSRmJ3ZmJ4bndkVHBMRk9HcC1UZFVHTlh4N2YyYVBHcEx1dkdIdWZxV05JQnA4UjhSQlo4NzhJR3R3c0xNTUdkRFFrOUNsYUNKUFVhdDNzbFlLSXpCamp3Y1JIM2o1V2otd1otMTV4cEI5TG5EcWR1WjRhVEg2NHhTZkFmQW9Fa0x4U0w2VVZRNGZLRlA5eWJMSEhpNERKQUJzSlUzcmpBd25rX3Z0TjBpT0xieU9rLVZ4dEtCSjJJ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4185.1,
+   "Silver": 61.68,
+   "WTI": 94.07
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "India so far navigated crude oil supply disruptions due to West Asia conflict: Union Minister Puri - The New Indian Express",
+   "src": "The New Indian Express",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,185 (-3.1%)   Silver 61.68 (-4.0%)   WTI 94.07 (+1.8%)   DXY 101.17 (+0.2%)   US10Y 5.22 (+0.6%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "28 Sep 12:41 UTC",
   "iso": "2026-09-28T12:41:07.567657+00:00",
   "cat": "oil_supply_tight",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,307 (-0.3%)   Silver 64.25 (-0.2%)   WTI 94.86 (+2.9%)   DXY 101.25 (+0.2%)   US10Y 5.16 (+0.9%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "24 Sep 21:00 UTC",
-  "iso": "2026-09-24T21:00:45.868327+00:00",
-  "cat": "rates_up",
-  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nThree FOMC Voters Back Additional Rate Hikes to Cool Inflation - marketscreener.com  (marketscreener.com)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,307 (-0.3%)   Silver 64.25 (-0.2%)   WTI 94.82 (+2.9%)   DXY 101.26 (+0.2%)   US10Y 5.16 (+0.9%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxON29IWjZpUGF1V29aU0YxaDRKOVJwc3F1bFp6RmU1b0JHWDBLNk05dDRRcnRmUVZVUzkxU0JLd2ItczVPc3E2SjZENGE5RXhBUDRqcVRRdWJ1SE5hQVVnZjA4RHZFaE1qMW15azl3YmVEY2FIYlJyM2hvY3hFdHBtcHdMbUNSOUhpMlY2SFV1b0lULXJjMTlRNWwySGoyQTRlSUtzZlVnaGpNd3FuWmJmSWI0cm1wUQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4307.0,
-   "Silver": 64.25,
-   "WTI": 94.82
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Three FOMC Voters Back Additional Rate Hikes to Cool Inflation - marketscreener.com",
-   "src": "marketscreener.com",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "same hit as gold, only bigger",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,307 (-0.3%)   Silver 64.25 (-0.2%)   WTI 94.82 (+2.9%)   DXY 101.26 (+0.2%)   US10Y 5.16 (+0.9%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
