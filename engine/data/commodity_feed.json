@@ -1,5 +1,60 @@
 [
  {
+  "when": "28 Sep 22:00 UTC",
+  "iso": "2026-09-28T22:00:10.168606+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: Iran's Araqchi: conditions set by supreme leader must be met for Strait of Hormuz to reopen - IRNA\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,148 (-4.0%)   Silver 61.03 (-5.0%)   WTI 93.29 (+1.0%)   DXY 101.19 (+0.2%)   US10Y 5.24 (+1.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://www.financialjuice.com/News/9782401/Irans-Araqchi-conditions-set-by-supreme-leader-must-be-met-for-Strait-of-Hormuz-to-reopen---IRNA.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4148.5,
+   "Silver": 61.03,
+   "WTI": 93.29
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "FinancialJuice: Iran's Araqchi: conditions set by supreme leader must be met for Strait of Hormuz to reopen - IRNA",
+   "src": "",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,148 (-4.0%)   Silver 61.03 (-5.0%)   WTI 93.29 (+1.0%)   DXY 101.19 (+0.2%)   US10Y 5.24 (+1.1%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "28 Sep 21:53 UTC",
   "iso": "2026-09-28T21:53:41.605112+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,300 (+0.1%)   Silver 64.17 (+1.1%)   WTI 93.64 (-1.0%)   DXY 100.97 (-0.3%)   US10Y 5.21 (+0.9%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "25 Sep 13:44 UTC",
-  "iso": "2026-09-25T13:44:40.068664+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nMore Than 33 Million Barrels of Crude Shipped Through Strait of Hormuz Since Sunday - \u06a9\u0648\u0631\u062f\u0633\u062a\u0627\u0646 24  (\u06a9\u0648\u0631\u062f\u0633\u062a\u0627\u0646 24)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,314 (+0.4%)   Silver 64.42 (+1.5%)   WTI 93.22 (-1.5%)   DXY 100.95 (-0.3%)   US10Y 5.19 (+0.5%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNakNJLUhhQ05YaXBhYjNuYVV6eWJ4RmdYQlplem9PR2tKS21lX3hpcVRZaEZvcnVmTXN6SE1POE5GSTNRZ214aWlUenQxRnQwZ1NxcjFyUlBwSG1jc09sRXhXQ05xVnBKRTJKUWRmNV9Jam5nT2ozUWlUOExWdk5EMGFJbklkY0FqSEVOVm1kVkVUSmg5dUpjbzRXMGRGY28zRFQ2NDBTS2NMWFZSZlhobnI1V3Q0cWpUWmY5bkpRSVlRbkcwQkE?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4314.3,
-   "Silver": 64.415,
-   "WTI": 93.22
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "More Than 33 Million Barrels of Crude Shipped Through Strait of Hormuz Since Sunday - \u06a9\u0648\u0631\u062f\u0633\u062a\u0627\u0646 24",
-   "src": "\u06a9\u0648\u0631\u062f\u0633\u062a\u0627\u0646 24",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,314 (+0.4%)   Silver 64.42 (+1.5%)   WTI 93.22 (-1.5%)   DXY 100.95 (-0.3%)   US10Y 5.19 (+0.5%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
