@@ -10272,5 +10272,27 @@
   "outcome": "win",
   "talk": false,
   "at": "2026-09-25T16:38:04.281195+00:00"
+ },
+ {
+  "id": "2026-09-27T17:17:26.455052+00:00|OIL",
+  "cat": "oil_supply_tight",
+  "instr": "OIL",
+  "dir": "up",
+  "strength": 3,
+  "chg": 0.931,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-09-27T17:17:26.455052+00:00"
+ },
+ {
+  "id": "2026-09-27T19:14:15.885658+00:00|OIL",
+  "cat": "oil_supply_tight",
+  "instr": "OIL",
+  "dir": "up",
+  "strength": 3,
+  "chg": 1.255,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-09-27T19:14:15.885658+00:00"
  }
 ]
