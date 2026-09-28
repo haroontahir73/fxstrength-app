@@ -1,5 +1,60 @@
 [
  {
+  "when": "28 Sep 12:41 UTC",
+  "iso": "2026-09-28T12:41:07.567657+00:00",
+  "cat": "oil_supply_tight",
+  "title": "TALK | OIL LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOil prices rise as Trump rejects Iranian proposal to reopen Strait of Hormuz\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191   look for longs - the direct hit (talk, not action yet)\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,183 (-3.2%)   Silver 61.77 (-3.9%)   WTI 95.07 (+2.9%)   DXY 101.14 (+0.2%)   US10Y 5.21 (+0.5%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://www.cnbc.com/2026/09/28/oil-price-today-wti-brent-trump-iran.html",
+  "talk": true,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4183.1,
+   "Silver": 61.765,
+   "WTI": 95.07
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Oil prices rise as Trump rejects Iranian proposal to reopen Strait of Hormuz",
+   "src": "",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "the direct hit (talk, not action yet)",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,183 (-3.2%)   Silver 61.77 (-3.9%)   WTI 95.07 (+2.9%)   DXY 101.14 (+0.2%)   US10Y 5.21 (+0.5%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "28 Sep 12:05 UTC",
   "iso": "2026-09-28T12:05:53.815149+00:00",
   "cat": "oil_supply_loose",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,307 (-0.3%)   Silver 64.25 (-0.2%)   WTI 94.82 (+2.9%)   DXY 101.26 (+0.2%)   US10Y 5.16 (+0.9%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "24 Sep 19:38 UTC",
-  "iso": "2026-09-24T19:38:27.940417+00:00",
-  "cat": "rates_down",
-  "title": "GOLD+SILVER STRONG LONG | FED - leaning toward rate cuts",
-  "body": "\ud83d\udcb8 FED \u2014 leaning toward rate cuts\n\nCitigroup delays Fed rate cut forecast to June 2027 after jobs surprise - Cryptonews.net  (Cryptonews.net)\n\nWHY: Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - cheaper money is gold's best friend\n        [NOT TESTED - no history to judge this on]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up, only harder\n        [NOT TESTED - no history to judge this on]\nOIL    \u2191    mild long bias - weaker dollar + a bit more growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,309 (-0.2%)   Silver 64.18 (-0.3%)   WTI 95.34 (+3.5%)   DXY 101.29 (+0.2%)   US10Y 5.16 (+0.9%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: a hot inflation print would kill the cut hopes",
-  "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE44cmowdjliM0tJQ05ITmNsSnl6alNXdVJSVTQ4NlZfWEtJWHdHaHVDa1JDNy02QnFjWV9PdWUzWFY1ZmJXWkRQZjN2NVNxOEdaY0lKa3V3NnI?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4308.7,
-   "Silver": 64.18,
-   "WTI": 95.34
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb8",
-   "label": "FED \u2014 leaning toward rate cuts",
-   "headline": "Citigroup delays Fed rate cut forecast to June 2027 after jobs surprise - Cryptonews.net",
-   "src": "Cryptonews.net",
-   "why": "Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "cheaper money is gold's best friend",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "follows gold up, only harder",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "weaker dollar + a bit more growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,309 (-0.2%)   Silver 64.18 (-0.3%)   WTI 95.34 (+3.5%)   DXY 101.29 (+0.2%)   US10Y 5.16 (+0.9%)",
-   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
-   "flip": "a hot inflation print would kill the cut hopes"
   }
  }
 ]
