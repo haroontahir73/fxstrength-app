@@ -1,5 +1,60 @@
 [
  {
+  "when": "29 Sep 20:39 UTC",
+  "iso": "2026-09-29T20:39:17.441800+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nTrump claims US took more oil out of Strait of Hormuz than ever before - Anadolu Ajans\u0131  (Anadolu Ajans\u0131)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,209 (-2.6%)   Silver 61.78 (+0.9%)   WTI 88.95 (-3.9%)   DXY 101.44 (+0.2%)   US10Y 5.25 (+0.3%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQam13NVFkOVA4emU3LVJpV2FpMmV3YS0tc1MzRmhGMmoyLTdXODVFcGRlelY4Y0t6emN1d0doT1FUeVlOYksxaVFnaXgtQU5PbHV5aTk0M0FiQ3NTNUtqOUQ1ZnpGY2lEYzBTdHAwLXB0ZVRud2NvaXRBc1dqMG10MDNWSUtvUUNFY2NNVU9SOUluUG91N2FlN1E3TkFodlhqWi1zeFNPRmFIbWtWdWVjdXB3?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4208.9,
+   "Silver": 61.78,
+   "WTI": 88.95
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Trump claims US took more oil out of Strait of Hormuz than ever before - Anadolu Ajans\u0131",
+   "src": "Anadolu Ajans\u0131",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,209 (-2.6%)   Silver 61.78 (+0.9%)   WTI 88.95 (-3.9%)   DXY 101.44 (+0.2%)   US10Y 5.25 (+0.3%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "29 Sep 20:20 UTC",
   "iso": "2026-09-29T20:20:09.124602+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "26 Sep 16:06 UTC",
-  "iso": "2026-09-26T16:06:21.318697+00:00",
-  "cat": "oil_supply_tight",
-  "title": "TALK | OIL LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nUS-Iran war news updates: Donald Trump rejects Iran's proposal to reopen the Strait of Hormuz - ABC7 San Francisco  (ABC7 San Francisco)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191   look for longs - the direct hit (talk, not action yet)\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNbTJ2X1U5dUZ6X2FsU0VRTkx6WWVpbHNocERkaVVmSF9BWVc3ekh4WlpCYXpZcHp6Rk55WGZycE9NTDFYdzllSzZ0MW9KMlNIS1p6Z1RRQVBxWjlaRWVuaVltcDZTTWpHS0thTHdWdkxudjdORjMyT0RJbElNZ3FpUVBBejFsZEpQTURULWRzX0gyT2duZDVYRk5uVTNLaG53bE1uZkxScllxU212c3M1cFhSN2NaVGdj0gG-AUFVX3lxTE4tUTdfRXoxbERmQktkWE9qWGQzdTZkTENqVHZBSFptell3bHhDYlBjdlYyV0JKM1ZMdFd6aG1hNnZqcnVXOUo5V1hyeXJZVnJ1aVdLY0llS1piOGVORHlyNDdEV3ZmYTVJRmpieW4yTDliRjNQalg1amdJV2NDbGN5b00yS3hIZ2xXT0M3NUtOdTdkSkxhSm5lR2M1YS1pb25GWC1VVGRwNzE3eUh6el9NbFdOanRDeVRyZUs4Q1E?oc=5",
-  "talk": true,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4321.2,
-   "Silver": 64.801,
-   "WTI": 92.41
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "US-Iran war news updates: Donald Trump rejects Iran's proposal to reopen the Strait of Hormuz - ABC7 San Francisco",
-   "src": "ABC7 San Francisco",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "the direct hit (talk, not action yet)",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
