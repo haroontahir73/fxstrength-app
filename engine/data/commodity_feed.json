@@ -1,5 +1,60 @@
 [
  {
+  "when": "29 Sep 11:35 UTC",
+  "iso": "2026-09-29T11:35:44.792081+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nEight US Marines injured by an Iranian missile in the Strait of Hormuz; Pentagon keeps the attack under wraps - \u0635\u0648\u062a \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a  (\u0635\u0648\u062a \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,193 (-3.0%)   Silver 61.31 (+0.2%)   WTI 91.74 (-0.9%)   DXY 101.33 (+0.1%)   US10Y 5.24 (+1.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNd3FlOXhGTW1nTm5HYmNFWjFPTnZxUzBwMWVxVUhrdjliRmNMSGhicURxRVFwbXlJeHJuTXh6M1AydFNPRGdxTEdIR1N0XzRiMmJicThRaHBmLTRhVmVoUnJSSVFSWWVWX1JxUktRdmMyZ0t5WTJEbVdxZmhSY1BnUlkxTk9UU0tqNlZSYTc0N0l3Skdvd2xnZjhUNG5CNGphczZBNDVjR3ByWDlYNXI5RTZVZTZfYWM3MDlPSFAzWWxiSUh2TDVNOXRRTzU5RDFzWGQ3ZFY2Z05oa1VJdl90cHc4Q2RlMWxRQmtZVzVpTlMyUFdYNFM0?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4192.7,
+   "Silver": 61.315,
+   "WTI": 91.74
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Eight US Marines injured by an Iranian missile in the Strait of Hormuz; Pentagon keeps the attack under wraps - \u0635\u0648\u062a \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a",
+   "src": "\u0635\u0648\u062a \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,193 (-3.0%)   Silver 61.31 (+0.2%)   WTI 91.74 (-0.9%)   DXY 101.33 (+0.1%)   US10Y 5.24 (+1.1%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "29 Sep 08:54 UTC",
   "iso": "2026-09-29T08:54:57.686454+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,320 (+0.5%)   Silver 64.71 (+2.0%)   WTI 92.44 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "26 Sep 00:08 UTC",
-  "iso": "2026-09-26T00:08:30.032933+00:00",
-  "cat": "oil_supply_tight",
-  "title": "TALK | OIL LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIran Says It Offered the US a New Proposal to Open the Strait of Hormuz - The Maritime Executive  (The Maritime Executive)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191   look for longs - the direct hit (talk, not action yet)\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,320 (+0.5%)   Silver 64.71 (+2.0%)   WTI 92.44 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPeFltT1ptTDJVeEppV3dMTFh4bWF1Y0E0RExYOGszc19HM1NuamNUaWJsR2N5RFQxeEt5ZWhMRTI5LWJFYVlpaG9ZQXRab2RLWFY3UDdjbmpuU3p2bXVQVXBSeFdBTGxqX2ZONFpJaTJTX0JVTkIydmFoM3MwQXNxUEFBelB6NFlvSkNwZmgzcVFIT2xaMFEyUUNRcC10YWMzVGtBZmJpanhPUGVMcFdz?oc=5",
-  "talk": true,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4320.5,
-   "Silver": 64.71,
-   "WTI": 92.44
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Iran Says It Offered the US a New Proposal to Open the Strait of Hormuz - The Maritime Executive",
-   "src": "The Maritime Executive",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "the direct hit (talk, not action yet)",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,320 (+0.5%)   Silver 64.71 (+2.0%)   WTI 92.44 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
