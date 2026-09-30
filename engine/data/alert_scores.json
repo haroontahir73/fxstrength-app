@@ -11614,5 +11614,38 @@
   "outcome": "win",
   "talk": false,
   "at": "2026-09-30T10:21:14.255596+00:00"
+ },
+ {
+  "id": "2026-09-30T12:16:20.526015+00:00|GOLD",
+  "cat": "us_data_strong",
+  "instr": "GOLD",
+  "dir": "down",
+  "strength": 1,
+  "chg": -0.635,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-09-30T12:16:20.526015+00:00"
+ },
+ {
+  "id": "2026-09-30T12:16:20.526015+00:00|SILVER",
+  "cat": "us_data_strong",
+  "instr": "SILVER",
+  "dir": "down",
+  "strength": 1,
+  "chg": -0.623,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-09-30T12:16:20.526015+00:00"
+ },
+ {
+  "id": "2026-09-30T12:16:20.526015+00:00|OIL",
+  "cat": "us_data_strong",
+  "instr": "OIL",
+  "dir": "up",
+  "strength": 1,
+  "chg": 0.915,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-09-30T12:16:20.526015+00:00"
  }
 ]

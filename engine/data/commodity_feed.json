@@ -1,5 +1,60 @@
 [
  {
+  "when": "30 Sep 16:27 UTC",
+  "iso": "2026-09-30T16:27:01.786543+00:00",
+  "cat": "inflation_hot",
+  "title": "GOLD+SILVER SHORT | INFLATION - running hot",
+  "body": "\ud83c\udf21 INFLATION \u2014 running hot\n\nGold price rockets to session highs as US economy rises 2.2% in Q2, PCE inflation rises 0.2% in August - kitco.com  (kitco.com)\n\nWHY: You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.\n\nGOLD   \u2193\u2193   look for shorts - the rates reaction beats the hedge story\n        [some evidence - right 50% of 485 past cases]\nSILVER \u2193\u2193   look for shorts - same, amplified\n        [some evidence - right 52% of 485 past cases]\nOIL    \u2192    no clean read - usually a cause, not a victim\n\nNOW  Gold 4,192 (+0.3%)   Silver 60.66 (-0.0%)   WTI 91.52 (+2.4%)   DXY 101.40 (+0.0%)   US10Y 5.29 (+0.6%)\n\nFLIP: if inflation is coming from oil AND growth is dying, gold turns up instead",
+  "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQaDhNaGdLUHVaVmhwUjUzUVA5UTRibDYwbEVEU0wtc3N2NzlObTNzYlZlZVRFSXBQZDliNTZvMU9ZNjRoSWp5LWswY0hKU05tNURON0R1VnZRQmtzR29wdFAzRmhocHE4OGlJcFk3WFVhcFliRVphV3d0bG1YaDh3SUhiWEhiMnAtUUdvX2RyU09uazJPWjMyaXBiRmtqR3otaF9xQ09STTY2STh2NXBFeEJmamlOOGMtNG1TejRB?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4192.0,
+   "Silver": 60.66,
+   "WTI": 91.52
+  },
+  "parts": {
+   "emoji": "\ud83c\udf21",
+   "label": "INFLATION \u2014 running hot",
+   "headline": "Gold price rockets to session highs as US economy rises 2.2% in Q2, PCE inflation rises 0.2% in August - kitco.com",
+   "src": "kitco.com",
+   "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "the rates reaction beats the hedge story",
+     "record": "some evidence - right 50% of 485 past cases"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "same, amplified",
+     "record": "some evidence - right 52% of 485 past cases"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "usually a cause, not a victim",
+     "record": ""
+    }
+   ],
+   "snap": "NOW  Gold 4,192 (+0.3%)   Silver 60.66 (-0.0%)   WTI 91.52 (+2.4%)   DXY 101.40 (+0.0%)   US10Y 5.29 (+0.6%)",
+   "reality": "",
+   "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
+  }
+ },
+ {
   "when": "30 Sep 15:23 UTC",
   "iso": "2026-09-30T15:23:21.187278+00:00",
   "cat": "oil_supply_tight",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,178 (-3.3%)   Silver 61.62 (-4.1%)   WTI 94.17 (+1.9%)   DXY 101.22 (+0.2%)   US10Y 5.23 (+0.8%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "28 Sep 13:06 UTC",
-  "iso": "2026-09-28T13:06:57.074159+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIndia so far navigated crude oil supply disruptions due to West Asia conflict: Union Minister Puri - The New Indian Express  (The New Indian Express)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,185 (-3.1%)   Silver 61.68 (-4.0%)   WTI 94.07 (+1.8%)   DXY 101.17 (+0.2%)   US10Y 5.22 (+0.6%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOZElJeGptQmliWGFtSkRwX3JZajM5X1ItMUFDZXNicmZWT2l5RFFTRjQxT1BFSU9iTVNLZEdjOVYzLVVTNHJBeWFWNmJibkFyNFVCenFUczByb0cwNTdDMEd1LVVSRldzV3FVQmwwMmJYVWpsVUZSUl82TDQxejV6MllPVUFkZGxpZTI2cWhIejhsYVpoTEM0d2wybjZ5U2txbWFEVm9LMXpPckw1SXlzb0M0V1lodmhCU0dvTFU5ZlNwZHBvT3pNVWxEeFE2enAtUDF3S3FQR09OX1hiX2kzcDh30gHvAUFVX3lxTE5BQ1BKQW9tckFRNzREcHFLMjNOYUN1RVhPUEE3ZFFjMUVGS0pMY1VPMEIzc1JlbVpSRmJ3ZmJ4bndkVHBMRk9HcC1UZFVHTlh4N2YyYVBHcEx1dkdIdWZxV05JQnA4UjhSQlo4NzhJR3R3c0xNTUdkRFFrOUNsYUNKUFVhdDNzbFlLSXpCamp3Y1JIM2o1V2otd1otMTV4cEI5TG5EcWR1WjRhVEg2NHhTZkFmQW9Fa0x4U0w2VVZRNGZLRlA5eWJMSEhpNERKQUJzSlUzcmpBd25rX3Z0TjBpT0xieU9rLVZ4dEtCSjJJ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4185.1,
-   "Silver": 61.68,
-   "WTI": 94.07
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "India so far navigated crude oil supply disruptions due to West Asia conflict: Union Minister Puri - The New Indian Express",
-   "src": "The New Indian Express",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,185 (-3.1%)   Silver 61.68 (-4.0%)   WTI 94.07 (+1.8%)   DXY 101.17 (+0.2%)   US10Y 5.22 (+0.6%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
