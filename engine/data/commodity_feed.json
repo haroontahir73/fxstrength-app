@@ -1,5 +1,60 @@
 [
  {
+  "when": "30 Sep 18:50 UTC",
+  "iso": "2026-09-30T18:50:10.954406+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nEXCLUSIVE: Truflation Says Another Fed Hike Is Hard To Justify - State Street SPDR S&P 500 ETF Trust (ARC - Benzinga  (Benzinga)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,186 (+0.2%)   Silver 60.62 (-0.1%)   WTI 90.80 (+1.6%)   DXY 101.44 (+0.1%)   US10Y 5.29 (+0.8%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOU3RpNHBqQXNacld4VkVXeXRhU2M5RDZTRllSR0NkWTFfVk5RUnNLTzd6UEhjSzFoUXVzVEk0V2MwTDhMd29oUF9lMS1MTm1oWG1jUGRvWTFHelBrS2ZJR05iUkVsNVJaWnhDYlg5WEVOOVdyVVNENzNVeW9zMWZ5aHhROF9SdVB6SHFnUkw1VkNwLWJZb1Rkb0c1XzQtekdqNlU2ZnE1VW1zQ01XRjNScmtn?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4186.0,
+   "Silver": 60.615,
+   "WTI": 90.8
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "EXCLUSIVE: Truflation Says Another Fed Hike Is Hard To Justify - State Street SPDR S&P 500 ETF Trust (ARC - Benzinga",
+   "src": "Benzinga",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,186 (+0.2%)   Silver 60.62 (-0.1%)   WTI 90.80 (+1.6%)   DXY 101.44 (+0.1%)   US10Y 5.29 (+0.8%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "30 Sep 18:27 UTC",
   "iso": "2026-09-30T18:27:55.521736+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,151 (-3.9%)   Silver 61.30 (-4.6%)   WTI 95.62 (+3.5%)   DXY 101.24 (+0.3%)   US10Y 5.27 (+1.6%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "28 Sep 15:02 UTC",
-  "iso": "2026-09-28T15:02:27.215208+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nDrones Used in Saudi Pipeline Attack Entered Iraq From Iran - iranwire.com  (iranwire.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,148 (-4.0%)   Silver 61.20 (-4.7%)   WTI 95.03 (+2.8%)   DXY 101.28 (+0.3%)   US10Y 5.26 (+1.4%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPS3dTOTZuZkpnS1pHQUJoUUVIdGo5UzdoZmM2dkREcWtXLWM3d0t6dUMwWG9CVXl3REZsN3IyLXp0MGRHOXViU0lXZWlWNEdGUm9PeGJoaHpSMVFPdndZU0NiRXBnTHFiN01peWQyVjZ1ZlNjeXNGTUM4dTJCQUJSYmx4RklrRzhOVzh3UWZiRmdkR0dVdE1RRXg5dC0?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4147.7,
-   "Silver": 61.195,
-   "WTI": 95.03
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Drones Used in Saudi Pipeline Attack Entered Iraq From Iran - iranwire.com",
-   "src": "iranwire.com",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,148 (-4.0%)   Silver 61.20 (-4.7%)   WTI 95.03 (+2.8%)   DXY 101.28 (+0.3%)   US10Y 5.26 (+1.4%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
