@@ -1,5 +1,60 @@
 [
  {
+  "when": "30 Sep 06:47 UTC",
+  "iso": "2026-09-30T06:47:45.913512+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussia Hits Kyiv With Ballistic Missiles, Killing 2 Women as Child Dies in Wider Region - Kyiv Post  (Kyiv Post)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,213 (+0.8%)   Silver 61.42 (+1.2%)   WTI 89.72 (+0.4%)   DXY 101.32 (-0.1%)   US10Y 5.25 (+0.3%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9wSmYxYnJMRVJqTTdnQjhFUEFCS2lfcXVYWF9LWkc5ekRld2kyQk9rZ3dTd0tWeG1lSUtoTGlBSUtkUi0wWVJnQnNlYw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4213.2,
+   "Silver": 61.425,
+   "WTI": 89.72
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Russia Hits Kyiv With Ballistic Missiles, Killing 2 Women as Child Dies in Wider Region - Kyiv Post",
+   "src": "Kyiv Post",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,213 (+0.8%)   Silver 61.42 (+1.2%)   WTI 89.72 (+0.4%)   DXY 101.32 (-0.1%)   US10Y 5.25 (+0.3%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "30 Sep 06:31 UTC",
   "iso": "2026-09-30T06:31:54.687414+00:00",
   "cat": "oil_supply_tight",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "27 Sep 19:14 UTC",
-  "iso": "2026-09-27T19:14:15.885658+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nTrump says that Iran wants a Strait of Hormuz deal \u2018because they\u2019re dying\u2019 - fox23.com  (fox23.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMi9AJBVV95cUxQdWtIQzFxaXhQR3ZJVWlBTzNxVURYQ1dSV0RMT0ZVS05zX2NGWXdnc0Vabk9WMHlRZjVMR082R1NFQ0xpVUFTaktRcWdDNnp2NXNraVVLbEg2b3RSQ21RNGl1eGZ0cV9VcFRwbGtQZWl4bFdQZ2FOWV9xaUw1Q2JyUTFqbUJHNzJNRXJiS0pHRVNYUGZaS1BDS3NFY1h6MV8xQTdKcC12aG5ndGxLMTI4ejJYWkhCcTVRQkxxRHVIX0FFRzVhMFNFR2VBaHpocXpiZGhHZkpzOHNuS0JGX0VPakFMX3JPU0Y2bmxpU1U0amxOS0xVUXlHdnpmLXlpYWp2eEdvMVlBRmx4MmU4LXdGTDJSanFVamotTlppTFFxaEZvOFlfYzBXRmdES3czd3cxbzBscXRzV0JONHpYOFNQWVZ6d2JlNUhPSDItbVBtRm5kRURpNUNhamVCUENIODZtZEd2OE40OXlJOTRNb3VjNW50WWs?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4321.2,
-   "Silver": 64.801,
-   "WTI": 92.41
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Trump says that Iran wants a Strait of Hormuz deal \u2018because they\u2019re dying\u2019 - fox23.com",
-   "src": "fox23.com",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
