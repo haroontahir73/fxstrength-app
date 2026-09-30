@@ -1,5 +1,60 @@
 [
  {
+  "when": "30 Sep 06:31 UTC",
+  "iso": "2026-09-30T06:31:54.687414+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nTrump says Iran will \u201cgive up\u201d, claims US took record oil out of Strait of Hormuz - Khabarhub  (Khabarhub)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,212 (+0.8%)   Silver 61.45 (+1.3%)   WTI 89.25 (-0.1%)   DXY 101.25 (-0.1%)   US10Y 5.25 (+0.3%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5DY2tKWUV0YzZWVUp6bE9xTHZYT2FzV1k2dEdueVVta2IwTDVlUEozZV9TaTRtYUZuTDZoQjBzeVN2UGduUlNxZ1BDT0VScWlTSTNONXhtSjg?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4212.1,
+   "Silver": 61.455,
+   "WTI": 89.25
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Trump says Iran will \u201cgive up\u201d, claims US took record oil out of Strait of Hormuz - Khabarhub",
+   "src": "Khabarhub",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,212 (+0.8%)   Silver 61.45 (+1.3%)   WTI 89.25 (-0.1%)   DXY 101.25 (-0.1%)   US10Y 5.25 (+0.3%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "30 Sep 06:22 UTC",
   "iso": "2026-09-30T06:22:23.266505+00:00",
   "cat": "rates_up",
@@ -3209,61 +3264,6 @@
    "label": "OIL \u2014 supply getting tighter",
    "headline": "Trump says that Iran wants a Strait of Hormuz deal \u2018because they\u2019re dying\u2019 - fox23.com",
    "src": "fox23.com",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "27 Sep 17:17 UTC",
-  "iso": "2026-09-27T17:17:26.455052+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nTrump says that Iran wants a Strait of Hormuz deal \u2018because they\u2019re dying\u2019 - WPBN  (WPBN)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMi_AJBVV95cUxNM0lraVlPbzJTYUhULXJBMFBneEFtbG9TZ3prZWtlcFhQMDVEck12MXhuQ2tlODE1amhwQjFYVEM2SFBSUnlIS0JxYVBDYlhJNW9xT1FGOUtacXB0cHhnU29fR3FiUVlfd05jWi1raVc4bUNqemV6b3FXUUNJZUl2WnJwZFppc1hLbWpfYWhLc1hrMC14UDRqR3FuTGFpTE4tckthY2dpTWNRNmgwbEtPRDhjMV9XRzdYYUZKVnpGbHhOcHNHaWh3QS1hWHpNVHo0U2NnYWR4dmUteWVSejNkOFhtYzE4OHhJVjJLYTBCcXBid1ZrdmIxVU1Sc2JkVGZyS19tN25Ddlg0QTRYcmxEbE54MnZjbk0tQWY2M1RmUGF0aHpwUkl0azJVdnQybVRqblJhUVNPX09LSnJWS1JiWFF3TVF0Y3g4UXlVa2hVc0pNekpjUVl6d3FlR3IweWhUanBMbGlZVTJZOTltNTdsUnZaYVprYWpfSW9xYg?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4321.2,
-   "Silver": 64.801,
-   "WTI": 92.41
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Trump says that Iran wants a Strait of Hormuz deal \u2018because they\u2019re dying\u2019 - WPBN",
-   "src": "WPBN",
    "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
    "leans": [
     {
