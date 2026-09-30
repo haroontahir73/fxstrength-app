@@ -1,5 +1,60 @@
 [
  {
+  "when": "30 Sep 04:45 UTC",
+  "iso": "2026-09-30T04:45:34.734445+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nTrump says Iran will \u201cgive up\u201d, claims US took record oil out of Strait of Hormuz - english.nepalnews.com  (english.nepalnews.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,213 (+0.8%)   Silver 61.49 (+1.4%)   WTI 89.51 (+0.1%)   DXY 101.43 (+0.1%)   US10Y 5.25 (+0.3%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPV1plQWxWREVDb3RiOG85azNuUVI1WEhhQ2dFNWpNWnRxQVo0RmVQU05UVEtHX3ZuV1dyTENIT2NJUUhPbHJ4dzh1NzJacEZEMTl5MGdMc09rd1h3ZXkyMVJCV0lEMHRjSmdMWTIzTms4NXpvMm1wYUpRNmdtVlhTbXNhaTVYUk5aOW9MM1EwR3M0RmpYdXQxcGt2Y3ZJWVZCalk0S1RVcm91WG14SDhsQzJ3b1VaOUZDTTFVQVpyT05YeGs?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4213.3,
+   "Silver": 61.495,
+   "WTI": 89.51
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Trump says Iran will \u201cgive up\u201d, claims US took record oil out of Strait of Hormuz - english.nepalnews.com",
+   "src": "english.nepalnews.com",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,213 (+0.8%)   Silver 61.49 (+1.4%)   WTI 89.51 (+0.1%)   DXY 101.43 (+0.1%)   US10Y 5.25 (+0.3%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "30 Sep 02:22 UTC",
   "iso": "2026-09-30T02:22:23.243492+00:00",
   "cat": "oil_supply_tight",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "27 Sep 12:19 UTC",
-  "iso": "2026-09-27T12:19:51.140868+00:00",
-  "cat": "rates_up",
-  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nWhy the Fed\u2019s rate hike just came at the worst possible moment - Washington Examiner  (Washington Examiner)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPTXdSMVVzN0FwN3Z1WFRSeG1SZzRWalgzMllFM21yb1hOenBYLVFXeGZpUDc1QW5lQ3lsb3JPZTBWSUQwY3JIZnlZdzJzQVVaa1hGRUN6S0NtTm1kd0N6dkVBRUY3RGJUeXNhMGJCMkdqajVCYVN0OXFFenl4SlFhT09tZVZFYUw4X1loUi1CYw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4321.2,
-   "Silver": 64.801,
-   "WTI": 92.41
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Why the Fed\u2019s rate hike just came at the worst possible moment - Washington Examiner",
-   "src": "Washington Examiner",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "same hit as gold, only bigger",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,321 (+0.5%)   Silver 64.80 (+2.1%)   WTI 92.41 (-2.3%)   DXY 101.03 (-0.3%)   US10Y 5.18 (+0.4%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
