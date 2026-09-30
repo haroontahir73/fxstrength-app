@@ -2,14 +2,14 @@
  "_help": "Per commodity, an indicator->1-5 map (5 = bullish). A bare number or {\"score\": n, \"note\": \"why\"} for auditability. Unset = held at neutral and excluded from the average, exactly like fundamentals_manual. Refreshed by the fx-strength-desk-daily task, step 2c.",
  "XAU": {
   "Real yield direction": {
-   "score": 1.5,
-   "note": "Headwind worsened again: the 10-year broke above the mid-Sep 5.01-5.04% peak to ~5.17% on 25 Sep (hovering near 5.2%, highest since 2007) on hawkish Fedspeak (Barr, Williams, Hammack all pointing to another hike) and energy-driven inflation expectations. The 23 Sep 'no longer extending' read is superseded, so cut back from 2 to 1.5.",
-   "as_of": "2026-09-27"
+   "score": 1,
+   "note": "10-year hit 5.244% on 29 Sep (highest since 2007) as markets priced ~70% odds of another Fed hike in October; Williams/Barr/Goolsbee all kept a further hike on the table. Headwind still building, cut 1.5 -> 1.",
+   "as_of": "2026-09-30"
   },
   "US dollar direction": {
    "score": 1.5,
-   "note": "DXY held above 101 on 25 Sep (101.03), after four straight up sessions - strongest in nearly two months and a second weekly gain, up ~1.9% on the month, on Oct FOMC hike odds (~60%+). Firming headwind, cut from 2 to 1.5.",
-   "as_of": "2026-09-27"
+   "note": "DXY firmed again to ~101.2 on 29 Sep (+0.2%) on Oct hike odds ~70%; still near two-month highs. Headwind, held at 1.5.",
+   "as_of": "2026-09-30"
   },
   "Central-bank & ETF demand": {
    "score": 4,
@@ -24,14 +24,14 @@
  },
  "XAG": {
   "Real yield direction": {
-   "score": 1.5,
-   "note": "Headwind worsened again: the 10-year broke above the mid-Sep 5.01-5.04% peak to ~5.17% on 25 Sep (hovering near 5.2%, highest since 2007) on hawkish Fedspeak (Barr, Williams, Hammack all pointing to another hike) and energy-driven inflation expectations. The 23 Sep 'no longer extending' read is superseded, so cut back from 2 to 1.5. Silver more leveraged to it than gold.",
-   "as_of": "2026-09-27"
+   "score": 1,
+   "note": "10-year hit 5.244% on 29 Sep (highest since 2007) as markets priced ~70% odds of another Fed hike in October; Williams/Barr/Goolsbee all kept a further hike on the table. Headwind still building, cut 1.5 -> 1. Silver more leveraged to it than gold.",
+   "as_of": "2026-09-30"
   },
   "US dollar direction": {
    "score": 1.5,
-   "note": "DXY held above 101 on 25 Sep (101.03), after four straight up sessions - strongest in nearly two months and a second weekly gain, up ~1.9% on the month, on Oct FOMC hike odds (~60%+). Firming headwind, cut from 2 to 1.5.",
-   "as_of": "2026-09-27"
+   "note": "DXY firmed again to ~101.2 on 29 Sep (+0.2%) on Oct hike odds ~70%; still near two-month highs. Headwind, held at 1.5.",
+   "as_of": "2026-09-30"
   },
   "Industrial demand": {
    "score": 2.5,
@@ -52,8 +52,8 @@
   },
   "Inventory trend": {
    "score": 2.5,
-   "note": "EIA week to 18 Sep: crude +3.0 Mb to 426.4 Mb vs a ~0.6 Mb draw expected, now ~2% above the 5-year average (bearish), partly offset by gasoline -1.7 Mb (6% below 5-yr) and distillates -0.4 Mb (12% below). Crude build tilts it mildly bearish, 3 -> 2.5.",
-   "as_of": "2026-09-27"
+   "note": "EIA week to 25 Sep: crude +0.9 Mb to 427.3 Mb vs a 0.3 Mb draw expected (second straight surprise build, ~2% above 5-yr avg; Cushing +0.55 Mb), but gasoline -1.7 Mb and distillates -2.3 Mb (14% below 5-yr). Mixed, crude side mildly bearish - held at 2.5.",
+   "as_of": "2026-09-30"
   },
   "Demand outlook": {
    "score": 1.5,

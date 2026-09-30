@@ -6,7 +6,7 @@
     "hold": 78,
     "cut": 0,
     "next_meeting": "October 30, 2026",
-    "src": "researched 2026-09-23. Decision-day trap: the prior entry pointed at the 18 Sep meeting, which has now happened (BOJ hiked 25bp to 1.25%, 7-2 vote, fastest hike-to-hike gap of the cycle - see speech_tone.json JPY BOJ entries). Confirmed via boj.or.jp official schedule that the next Monetary Policy Meeting is 29-30 Oct 2026 (decision due 30 Oct). Market pricing has swung to a pause after the September move - public reporting puts the October hike probability at roughly 22% (78% hold), consistent with 'not back-to-back' commentary. centralbank.watch's own BoJ page gave inconsistent/self-contradictory output when queried directly (mixed up meeting dates), so not used as the source here; override true.",
+    "src": "re-checked 2026-09-30: OIS snapshots put the 30 Oct hike odds at ~17-38% depending on source/day (rateprobability/centralbank.watch), and a former BoJ executive director told Japan Times (28 Sep) 20-30%; 22% hike / 78% hold kept as the mid. Next MPM 29-30 Oct confirmed on boj.or.jp. Prior: researched 2026-09-23 after the 18 Sep hike to 1.25%.",
     "override": true
   },
   "EUR": {
