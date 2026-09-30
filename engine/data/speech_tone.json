@@ -175,5 +175,13 @@
  "JPY|Monetary Policy Meeting Minutes|2026-09-27T23:50": 1,
  "_note_JPY_minutes_jul_2026-09-28": "Minutes of the 30-31 Jul hold (released 28 Sep): many members said the focus is shifting to upside inflation risks and anchoring underlying inflation at 2%, some argued for faster hikes (Reuters). Leaning toward higher rates, +1 - backward-looking, since the BoJ has already hiked again in Sep.",
  "USD|FOMC Member Schmid Speaks|2026-09-25T13:20": 1,
- "_note_USD_schmid_2026-09-25": "Schmid (KC Fed, 25 Sep) said inflation remains above 2% and the problem is not yet fixed; he backed the 16 Sep hike citing inflation broader than energy. Leaning toward higher rates, +1 (no explicit call for the next hike; also spoke on AI concentration risk)."
+ "_note_USD_schmid_2026-09-25": "Schmid (KC Fed, 25 Sep) said inflation remains above 2% and the problem is not yet fixed; he backed the 16 Sep hike citing inflation broader than energy. Leaning toward higher rates, +1 (no explicit call for the next hike; also spoke on AI concentration risk).",
+ "AUD|RBA Rate Statement|2026-09-29T04:30": 2,
+ "_note_rba_stmt_0929": "RBA hiked 25bp to 4.60% (4th hike of 2026, 15-year high) on energy-driven inflation expected to last longer; board weighed hold vs hike and chose to tighten. Clear tightening action = +2.",
+ "AUD|RBA Press Conference|2026-09-29T05:30": 0,
+ "_note_rba_presser_0929": "Bullock kept optionality ('will raise again if needed') but said if inflation comes down 'no more rate hikes may be needed' and policy is already restrictive; AUD fell ~0.70->0.698 on the presser. Tempered the hike - balanced, 0.",
+ "EUR|ECB President Lagarde Speaks|2026-09-28T13:30": 0,
+ "_note_lagarde_0928": "ECON hearing: no dangerous second-round effects yet so a 'moderate'/measured response remains appropriate; higher long-term yields will slow growth and inflation more than projected, pushing back on aggressive hike pricing. Still hiking but leaning against more - balanced, 0.",
+ "GBP|MPC Member Ramsden Speaks|2026-09-28T10:00": 1,
+ "_note_ramsden_0928": "QT speech (MMF Society): 'were upside pressures on the inflation outlook to continue to build, there could be a case for increasing Bank Rate', echoing wage-price-spiral worries from energy. Conditional hike signal = leaning hawkish +1."
 }

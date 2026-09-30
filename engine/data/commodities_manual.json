@@ -13,8 +13,8 @@
   },
   "Central-bank & ETF demand": {
    "score": 4,
-   "note": "Divergence continues: central banks bought a record 289 tonnes in Q2 2026 (PBoC extending an 18-month buying streak) even as Western gold ETFs saw net outflows of ~45 tonnes over the same window - but the outflow narrative flipped short-term into the 16 Sep FOMC, with GLD+GLDM taking in a combined ~$2bn over five trading days just ahead of the hike. Net still bullish on the CB leg with ETF flows choppy rather than a clean bleed, unchanged at 4.",
-   "as_of": "2026-09-22"
+   "note": "Re-checked 30 Sep: no newer monthly data - CB buying still record pace (Q2 289t, +62% y/y) while the ~$2bn pre-FOMC ETF inflow bet on a $4,300-4,400 floor has since been broken (gold ~$4,175), so ETF flows likely choppy/negative again. CB leg dominates, held at 4.",
+   "as_of": "2026-09-30"
   },
   "Safe-haven bid": {
    "score": 3,
