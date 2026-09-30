@@ -1,5 +1,60 @@
 [
  {
+  "when": "30 Sep 19:53 UTC",
+  "iso": "2026-09-30T19:53:49.148673+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nStrait of Hormuz crisis pushes Gulf countries to seek alternative routes for oil and gas export - Anadolu Ajans\u0131  (Anadolu Ajans\u0131)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,183 (+0.1%)   Silver 60.63 (-0.1%)   WTI 90.53 (+1.3%)   DXY 101.51 (+0.1%)   US10Y 5.29 (+0.7%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBsS0pwNEphbXhYRjZaaUgtQk4tQVA0NjBael9DbHVENWhPNU5FYzZ4QnpWeldoZzNUZld0QjQycGxnWG15YjF6VTgyU3kxYm5XclFCVTVnQTVCRkE?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4183.3,
+   "Silver": 60.63,
+   "WTI": 90.53
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Strait of Hormuz crisis pushes Gulf countries to seek alternative routes for oil and gas export - Anadolu Ajans\u0131",
+   "src": "Anadolu Ajans\u0131",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,183 (+0.1%)   Silver 60.63 (-0.1%)   WTI 90.53 (+1.3%)   DXY 101.51 (+0.1%)   US10Y 5.29 (+0.7%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "30 Sep 18:50 UTC",
   "iso": "2026-09-30T18:50:10.954406+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,152 (-3.9%)   Silver 61.38 (-4.5%)   WTI 95.48 (+3.3%)   DXY 101.22 (+0.2%)   US10Y 5.27 (+1.6%)",
    "reality": "",
    "flip": "these deals break \u2014 one broken truce and it all goes back on"
-  }
- },
- {
-  "when": "28 Sep 15:11 UTC",
-  "iso": "2026-09-28T15:11:59.773242+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nU.K. base at center of foiled terror plot has been used by U.S. Air Force to strike Iran - NBC4 Washington  (NBC4 Washington)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,151 (-3.9%)   Silver 61.30 (-4.6%)   WTI 95.62 (+3.5%)   DXY 101.24 (+0.3%)   US10Y 5.27 (+1.6%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNY1ZSMmxxTjB3aWNRSEFNelBaQ3cyRGk0d05WZFhNcUFlZ3RxRkJObjRwZ3pDbDU0NkwxUFZQYnNWdThtRVR1dlBveVBaSFQyWTRzejY2SW1YcVFlSGt0RkZVMmNZVEQ2X2NnN0tBa2RGYktCQ1RCQUVPY3FSM05uMlVEdFk2dWp2ODB0Vzh3aWVBTUhoT3p4M2hwOFl4cFdDWkNzSzNXNHNzM2hPTkJkbFdsdXk4Z9IBvgFBVV95cUxQMWZoLWdzQzdVNWJQdURxa3dmdFBrTUt0MWdOOVRFWWt1c1R1YUFLVXZzMmlNRGhtYkpSUDBYV0VNYjYzQ2t1Um9FWlJGX2lIX1ZjY0tKcHVMMmgwQ25rMldJWFZXVks0VWdhS1EySzFVTmdVdFIzRE9yT0hRV2tpRmNUX21rWk9JUmN0MnpsandBdU9NVW05RllXQ0UwYUNPWU0xSHNwcng3T0ZZZFZSNDZ4OEZZV2I0a19KOXFn?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4151.1,
-   "Silver": 61.3,
-   "WTI": 95.62
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "U.K. base at center of foiled terror plot has been used by U.S. Air Force to strike Iran - NBC4 Washington",
-   "src": "NBC4 Washington",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,151 (-3.9%)   Silver 61.30 (-4.6%)   WTI 95.62 (+3.5%)   DXY 101.24 (+0.3%)   US10Y 5.27 (+1.6%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
