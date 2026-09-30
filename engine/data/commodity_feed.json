@@ -1,5 +1,60 @@
 [
  {
+  "when": "30 Sep 18:27 UTC",
+  "iso": "2026-09-30T18:27:55.521736+00:00",
+  "cat": "geo_escalation",
+  "title": "TALK | OIL LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussia threatens NATO with a nuclear strike if the alliance tries to blockade Kaliningrad - Meduza  (Meduza)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191   look for longs - supply at risk = price up fast (talk, not action yet)\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,182 (+0.0%)   Silver 60.51 (-0.3%)   WTI 90.64 (+1.4%)   DXY 101.43 (+0.1%)   US10Y 5.30 (+0.9%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPSXZldkVIY3l5V2l0YjBidGlGRENWc0lfLUw0QTl6ajduUDR1UmNKMUlGX01mMlJRM05IM3V0UVVPcGhzZ1hJQ0FsMU5acmdGdVhnb2xPaXB5MVdJMjlPYUkzVHlWNTBwWVdFTFZ3T181SjA4SW85bi1YSmdPMldQYnpSN2Z5U3YxdHljMElwOVprdThnQVRqVzFVMjc0TFFwR1JXS1MtWnEyRV8zSDJFQmxnR0pQZHhIbHBudy1tSlgtWFRp0gHKAUFVX3lxTE96TW1CdVhncU5ER1hsQ1pLUlZLWThGVVN0dU1nUE9ZTDZRaHRDeU1VREtxcFh2dzUwTkNxaGdvS2VVeGpySTJ1UE9NSllTcHF6MDhsY1ZNd1Qwc2VfTWtvVXQ5Q2dVajBKX1VobmgyX1MwdDVpU0xaTHRFSm1LbnRNc1Zmb3ZkT25GNk1WQVNKeTl5Nl9Ic0FQQWZGdWFTQ0hxdU44SWh5ei1yQUdxTUpYbWlZOVBGN0ZkYTZDN2RaX3dEMjA3aDJPU3c?oc=5",
+  "talk": true,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4181.6,
+   "Silver": 60.505,
+   "WTI": 90.64
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Russia threatens NATO with a nuclear strike if the alliance tries to blockade Kaliningrad - Meduza",
+   "src": "Meduza",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "supply at risk = price up fast (talk, not action yet)",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,182 (+0.0%)   Silver 60.51 (-0.3%)   WTI 90.64 (+1.4%)   DXY 101.43 (+0.1%)   US10Y 5.30 (+0.9%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "30 Sep 16:30 UTC",
   "iso": "2026-09-30T16:30:21.374538+00:00",
   "cat": "rates_up",
@@ -3240,61 +3295,6 @@
     }
    ],
    "snap": "NOW  Gold 4,148 (-4.0%)   Silver 61.20 (-4.7%)   WTI 95.03 (+2.8%)   DXY 101.28 (+0.3%)   US10Y 5.26 (+1.4%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "28 Sep 14:37 UTC",
-  "iso": "2026-09-28T14:37:03.049997+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nDrones Used in Saudi Pipeline Attack Entered Iraq From Iran - IranWire  (IranWire)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,175 (-3.4%)   Silver 61.74 (-3.9%)   WTI 94.07 (+1.8%)   DXY 101.16 (+0.2%)   US10Y 5.24 (+1.0%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPS3dTOTZuZkpnS1pHQUJoUUVIdGo5UzdoZmM2dkREcWtXLWM3d0t6dUMwWG9CVXl3REZsN3IyLXp0MGRHOXViU0lXZWlWNEdGUm9PeGJoaHpSMVFPdndZU0NiRXBnTHFiN01peWQyVjZ1ZlNjeXNGTUM4dTJCQUJSYmx4RklrRzhOVzh3UWZiRmdkR0dVdE1RRXg5dC0?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4175.2,
-   "Silver": 61.745,
-   "WTI": 94.07
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Drones Used in Saudi Pipeline Attack Entered Iraq From Iran - IranWire",
-   "src": "IranWire",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,175 (-3.4%)   Silver 61.74 (-3.9%)   WTI 94.07 (+1.8%)   DXY 101.16 (+0.2%)   US10Y 5.24 (+1.0%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
   }
