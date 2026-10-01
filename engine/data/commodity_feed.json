@@ -1,5 +1,60 @@
 [
  {
+  "when": "01 Oct 19:36 UTC",
+  "iso": "2026-10-01T19:36:39.633738+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: Local sources: Supertanker with a capacity of 2.5 million barrels, illegally transiting the Strait of Hormuz, struck approximately 8 kilometers off the coast of Oman, currently on fire - Mehr News\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,208 (+0.5%)   Silver 61.31 (+2.0%)   WTI 93.14 (+3.0%)   DXY 102.06 (+0.6%)   US10Y 5.24 (-1.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://www.financialjuice.com/News/9788203/Local-sources-Supertanker-with-a-capacity-of-25-million-barrels-illegally-transiting-the-Strait-of-Hormuz-struck-approximately-8-kilometers-off-the-coast-of-Oman-currently-on-fire---Mehr-News.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4207.7,
+   "Silver": 61.315,
+   "WTI": 93.14
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "FinancialJuice: Local sources: Supertanker with a capacity of 2.5 million barrels, illegally transiting the Strait of Hormuz, struck approximately 8 kilometers off the coast of Oman, currently on fire - Mehr News",
+   "src": "",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,208 (+0.5%)   Silver 61.31 (+2.0%)   WTI 93.14 (+3.0%)   DXY 102.06 (+0.6%)   US10Y 5.24 (-1.1%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "01 Oct 18:01 UTC",
   "iso": "2026-10-01T18:01:17.375229+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,185 (+0.4%)   Silver 61.30 (+0.1%)   WTI 90.46 (-2.3%)   DXY 101.50 (+0.3%)   US10Y 5.27 (+0.5%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "29 Sep 16:44 UTC",
-  "iso": "2026-09-29T16:44:04.545370+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: Local sources report that a drone has fired upon a violating ship in the southern route of the Strait of Hormuz - Fars News\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,186 (+0.4%)   Silver 61.32 (+0.2%)   WTI 90.33 (-2.5%)   DXY 101.49 (+0.3%)   US10Y 5.27 (+0.6%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://www.financialjuice.com/News/9783900/Local-sources-report-that-a-drone-has-fired-upon-a-violating-ship-in-the-southern-route-of-the-Strait-of-Hormuz---Fars-News.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4185.8,
-   "Silver": 61.32,
-   "WTI": 90.33
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "FinancialJuice: Local sources report that a drone has fired upon a violating ship in the southern route of the Strait of Hormuz - Fars News",
-   "src": "",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,186 (+0.4%)   Silver 61.32 (+0.2%)   WTI 90.33 (-2.5%)   DXY 101.49 (+0.3%)   US10Y 5.27 (+0.6%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
