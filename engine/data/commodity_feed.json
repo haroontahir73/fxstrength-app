@@ -1,5 +1,60 @@
 [
  {
+  "when": "01 Oct 23:58 UTC",
+  "iso": "2026-10-01T23:58:04.574665+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nDallas Fed's Logan estimates at least two more 25-bp rate hikes are needed - TradingView  (TradingView)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,209 (+0.5%)   Silver 61.47 (+2.3%)   WTI 92.93 (+2.8%)   DXY 102.00 (+0.5%)   US10Y 5.24 (-1.1%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQcUkwYlBlNTNPOWdDOEhBV0RWZFBaZU12dXFDZkt2ZFR3d05nWDRVSkFBOEk5TG9wMWNPMjFheGVBZWVxNmZJVjM5M0s5Zi1qMlgxVjdwa3VHSTZUN1EteU5oQUZuNVBET3VuSjZqSFdNX1M3UEpadDRBSWNHS0N5Y2FpN04wUkJNQnFzSlNyVVFKVXdLRXNJSmN3Yzg2R0pzcWxmWGh0T1NweXlad2swZ2pLaVR0SzZRRGZLSFVxOGpWb2htc3VsV3o1Ymt0QnJNNDY0?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4208.7,
+   "Silver": 61.47,
+   "WTI": 92.93
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Dallas Fed's Logan estimates at least two more 25-bp rate hikes are needed - TradingView",
+   "src": "TradingView",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,209 (+0.5%)   Silver 61.47 (+2.3%)   WTI 92.93 (+2.8%)   DXY 102.00 (+0.5%)   US10Y 5.24 (-1.1%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "01 Oct 23:35 UTC",
   "iso": "2026-10-01T23:35:56.350553+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,213 (-2.5%)   Silver 61.88 (+1.1%)   WTI 89.42 (-3.4%)   DXY 101.38 (+0.2%)   US10Y 5.25 (+0.3%)",
    "reality": "",
    "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
-  }
- },
- {
-  "when": "29 Sep 22:18 UTC",
-  "iso": "2026-09-29T22:18:17.977100+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFed\u2019s Barr signals more rate hikes as October odds fall to 50% - Crypto News  (Crypto News)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,215 (-2.4%)   Silver 62.03 (+1.3%)   WTI 88.64 (-4.3%)   DXY 101.38 (+0.2%)   US10Y 5.25 (+0.3%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFAyTFhOVkhuNjlPbERRS3RqVWtEQlFMVnNHMldJbTlfS19pRUNCZHllTlJRaGJVMDd5bmVCbGpTQ2thS1ZwS1BweEpIVi1mc1Rza2xCUW01NmFWWGp3QVBrczlfOVkyaDZsV0ItX1lNNGRraTJ0V0RVdA?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4215.4,
-   "Silver": 62.035,
-   "WTI": 88.64
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Fed\u2019s Barr signals more rate hikes as October odds fall to 50% - Crypto News",
-   "src": "Crypto News",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,215 (-2.4%)   Silver 62.03 (+1.3%)   WTI 88.64 (-4.3%)   DXY 101.38 (+0.2%)   US10Y 5.25 (+0.3%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
