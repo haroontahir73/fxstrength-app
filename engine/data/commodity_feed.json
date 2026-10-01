@@ -1,5 +1,60 @@
 [
  {
+  "when": "01 Oct 11:23 UTC",
+  "iso": "2026-10-01T11:23:28.676278+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIndian oil refiners hiring oil tankers to transit Strait of Hormuz in change of tack - ThePrint  (ThePrint)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,200 (+0.3%)   Silver 61.16 (+1.8%)   WTI 92.16 (+1.9%)   DXY 101.80 (+0.3%)   US10Y 5.29 (+0.7%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNdlhHMkZoYUJnUi1iaDJmRkJmU0kzS0FpdnpFRXFNbjlpeGs3elZWLWxQejVrRnJ6YjkxVzFQbXNLZ0ZVVXZjd19YVWRmSzFkU0xjRmg1Mk5TOVN4ZUZySmVzQXJZVVp6bGZNMmVRYmh2dDdvQmloay1NcjYycTU1aUhuRTFSVVpDdFYtU2hnMVVERDZVU1huZE9EdmJNRy1IYkIyRWo4S3RjMHM4Q0VsT05HTFBVNEpYaGhZ0gHAAUFVX3lxTE1vVjhhSXQ4QlZNX0tsTlJMZXFTcXJBS1g5U0o0VlFUR2dGYlY5bUUxUVhnbEswN3V1SXJCUGNCYlllZWVVNkNGdnR1STlHOWlNeXpHUzRyS0NLT1dtZy1EcnJCY1B5RFNNMGRyaWtrQ09tMVdEd2JQQlUyc3hNZ1E1SDRCdWVEdmItclZiTHI0b1N6NS1PUTl1azVqLU83RlZMa1VFeVlsVExFQ0VTdXZxZ2NzYUxhbFlIVW9vV1d5OQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4200.2,
+   "Silver": 61.155,
+   "WTI": 92.16
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Indian oil refiners hiring oil tankers to transit Strait of Hormuz in change of tack - ThePrint",
+   "src": "ThePrint",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,200 (+0.3%)   Silver 61.16 (+1.8%)   WTI 92.16 (+1.9%)   DXY 101.80 (+0.3%)   US10Y 5.29 (+0.7%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "01 Oct 10:39 UTC",
   "iso": "2026-10-01T10:39:28.628453+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,170 (-3.5%)   Silver 60.96 (-0.4%)   WTI 93.00 (+0.4%)   DXY 101.39 (+0.2%)   US10Y 5.24 (+1.1%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "29 Sep 07:09 UTC",
-  "iso": "2026-09-29T07:09:16.181765+00:00",
-  "cat": "rates_up",
-  "title": "GOLD+SILVER STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold drops 3.4% amid rising U.S. Treasury yields; Bitcoin slips near $83,000 as Fed rate hike fears grow. - pluang.com  (pluang.com)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - same hit as gold, only bigger\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,171 (-3.5%)   Silver 61.17 (-0.1%)   WTI 94.03 (+1.5%)   DXY 101.29 (+0.1%)   US10Y 5.24 (+1.1%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOZlV0M2hhN3V2REItelZNbWNVM0t5TTgwQ0NZUko3eUhtWDRzcWI4a1l3d2dCMDJOd3diNEt4UFh3OGp6cktJY3hVNEhaSUpIbl9kQVlOM2M0RHkxTXhRbmloSG1KUDlRNzdtaW1tY0RnT3VMWGh5Q01nSWtlZW40N3hrcUNBR3FKY2c?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4170.8,
-   "Silver": 61.17,
-   "WTI": 94.03
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Gold drops 3.4% amid rising U.S. Treasury yields; Bitcoin slips near $83,000 as Fed rate hike fears grow. - pluang.com",
-   "src": "pluang.com",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "same hit as gold, only bigger",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,171 (-3.5%)   Silver 61.17 (-0.1%)   WTI 94.03 (+1.5%)   DXY 101.29 (+0.1%)   US10Y 5.24 (+1.1%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
