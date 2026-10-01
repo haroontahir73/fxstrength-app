@@ -1,5 +1,60 @@
 [
  {
+  "when": "01 Oct 06:27 UTC",
+  "iso": "2026-10-01T06:27:13.841408+00:00",
+  "cat": "inflation_cold",
+  "title": "GOLD+SILVER STRONG LONG | INFLATION - cooling",
+  "body": "\u2744 INFLATION \u2014 cooling\n\nUS core inflation falls to 3.0 percent: what investors need to know before the Fed decision on October 28 - CryptoTicker  (CryptoTicker)\n\nWHY: Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - opens the door to rate cuts\n        [CONFIDENT - right 64% of 503 past cases]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up\n        [CONFIDENT - right 61% of 503 past cases]\nOIL    \u2192    no clean read - mild help from a softer dollar\n\nNOW  Gold 4,220 (+0.8%)   Silver 61.65 (+2.6%)   WTI 89.58 (-0.9%)   DXY 101.59 (+0.1%)   US10Y 5.29 (+0.7%)\n\nFLIP: one hot print reverses the whole thing",
+  "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5yRTlVdGczLW1sNkxycDFfRDZ3THItTzJIWTlfRG85RHN2RnJpaVBhZW1IVGNSMWRTazd3MUF5eHZfaDhmQXpyQldkb3VhelNqbHY4T3ZCdjJGOGVla0FJdTdTUnBVaE80LVZkTnh4T0RLUGNkb1E?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4220.4,
+   "Silver": 61.645,
+   "WTI": 89.58
+  },
+  "parts": {
+   "emoji": "\u2744",
+   "label": "INFLATION \u2014 cooling",
+   "headline": "US core inflation falls to 3.0 percent: what investors need to know before the Fed decision on October 28 - CryptoTicker",
+   "src": "CryptoTicker",
+   "why": "Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "opens the door to rate cuts",
+     "record": "CONFIDENT - right 64% of 503 past cases"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "follows gold up",
+     "record": "CONFIDENT - right 61% of 503 past cases"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 1,
+     "call": "no clean read",
+     "reason": "mild help from a softer dollar",
+     "record": ""
+    }
+   ],
+   "snap": "NOW  Gold 4,220 (+0.8%)   Silver 61.65 (+2.6%)   WTI 89.58 (-0.9%)   DXY 101.59 (+0.1%)   US10Y 5.29 (+0.7%)",
+   "reality": "",
+   "flip": "one hot print reverses the whole thing"
+  }
+ },
+ {
   "when": "01 Oct 06:08 UTC",
   "iso": "2026-10-01T06:08:18.268890+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,152 (-3.9%)   Silver 60.95 (-0.4%)   WTI 93.44 (+0.9%)   DXY 101.21 (+0.0%)   US10Y 5.24 (+1.1%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "28 Sep 22:00 UTC",
-  "iso": "2026-09-28T22:00:10.168606+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: Iran's Araqchi: conditions set by supreme leader must be met for Strait of Hormuz to reopen - IRNA\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,148 (-4.0%)   Silver 61.03 (-5.0%)   WTI 93.29 (+1.0%)   DXY 101.19 (+0.2%)   US10Y 5.24 (+1.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://www.financialjuice.com/News/9782401/Irans-Araqchi-conditions-set-by-supreme-leader-must-be-met-for-Strait-of-Hormuz-to-reopen---IRNA.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4148.5,
-   "Silver": 61.03,
-   "WTI": 93.29
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "FinancialJuice: Iran's Araqchi: conditions set by supreme leader must be met for Strait of Hormuz to reopen - IRNA",
-   "src": "",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,148 (-4.0%)   Silver 61.03 (-5.0%)   WTI 93.29 (+1.0%)   DXY 101.19 (+0.2%)   US10Y 5.24 (+1.1%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
