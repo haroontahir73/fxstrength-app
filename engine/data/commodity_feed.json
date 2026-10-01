@@ -1,5 +1,60 @@
 [
  {
+  "when": "01 Oct 02:36 UTC",
+  "iso": "2026-10-01T02:36:52.469555+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Four killed, six wounded in Pakistani air strike on Afghanistan: Afghan provincial official\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,183 (-0.1%)   Silver 61.11 (+1.7%)   WTI 90.07 (-0.4%)   DXY 101.59 (+0.1%)   US10Y 5.29 (+0.7%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://www.financialjuice.com/News/9786760/Four-killed-six-wounded-in-Pakistani-air-strike-on-Afghanistan-Afghan-provincial-official.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4183.3,
+   "Silver": 61.11,
+   "WTI": 90.07
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "FinancialJuice: Four killed, six wounded in Pakistani air strike on Afghanistan: Afghan provincial official",
+   "src": "",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,183 (-0.1%)   Silver 61.11 (+1.7%)   WTI 90.07 (-0.4%)   DXY 101.59 (+0.1%)   US10Y 5.29 (+0.7%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "01 Oct 02:20 UTC",
   "iso": "2026-10-01T02:20:36.653210+00:00",
   "cat": "inflation_cold",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,166 (-3.6%)   Silver 61.40 (-4.4%)   WTI 92.73 (+0.3%)   DXY 101.21 (+0.2%)   US10Y 5.24 (+1.1%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "28 Sep 17:57 UTC",
-  "iso": "2026-09-28T17:57:18.161406+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nEXCLUSIVE: US to grant sanctions waiver for flights between Iran and Iraq's Najaf, source says - Reuters  (Reuters)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,170 (-3.5%)   Silver 61.76 (-3.9%)   WTI 92.65 (+0.3%)   DXY 101.12 (+0.2%)   US10Y 5.24 (+1.0%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQOHIxYnY3TE1lQ1JIaWFqTGo2bE5IZ20wamRnZUhEMVdaZWdfWVRQVUpUQjFTSUg1elR2a1dMb1RwNTNnMmg1QXExOGthdmlQbkIweWwyS3JNaXVocWlPRU9kLWRQWmRQSlY1dHVWQ014b1cxT2dPY3pvUmNpMENwN29NV0E3VWpmaEU5N0h6WDFzcjBmNTBQSjlKRlRRQ2dpZEdHX3JUSGh5aTZiTjc0S0FTMmpfeUFld1VXZjd0LXloZw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4170.1,
-   "Silver": 61.76,
-   "WTI": 92.65
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "EXCLUSIVE: US to grant sanctions waiver for flights between Iran and Iraq's Najaf, source says - Reuters",
-   "src": "Reuters",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,170 (-3.5%)   Silver 61.76 (-3.9%)   WTI 92.65 (+0.3%)   DXY 101.12 (+0.2%)   US10Y 5.24 (+1.0%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
