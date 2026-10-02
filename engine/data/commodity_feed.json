@@ -1,5 +1,60 @@
 [
  {
+  "when": "02 Oct 00:17 UTC",
+  "iso": "2026-10-02T00:17:00.927946+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nUS sanctions target Iran\u2019s auto, rail sectors as blockade chokes ship lanes By Reuters - Investing.com  (Investing.com)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,205 (+0.4%)   Silver 61.34 (+2.1%)   WTI 92.96 (+2.8%)   DXY 102.01 (+0.5%)   US10Y 5.24 (-1.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNVkxZN3BqU0lrcm5KY2QtRGFvV3k4TndibjgyM1plSU4zYTM4QWFZc0dsYUUxY1ZUNGxGOHFlUkt6WmE2Q3VXT1VJcElQSnRreWE4MXNaSkladm55aDQ1REZhYzRHejJ6WmhpNXZLTm9YTnNzYkJtTEJpODMzTWdsOElYdmtjSU5fRENxQkpFUUNjdjlHMVNWNHN4bzZwdzF0MGFGMDZ4eHlJMnU4RFcyTERURERDZ19PT19BSXNQeXN2Z1o4N25FaHhNRUJHU1c4NXc?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4205.0,
+   "Silver": 61.345,
+   "WTI": 92.96
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "US sanctions target Iran\u2019s auto, rail sectors as blockade chokes ship lanes By Reuters - Investing.com",
+   "src": "Investing.com",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,205 (+0.4%)   Silver 61.34 (+2.1%)   WTI 92.96 (+2.8%)   DXY 102.01 (+0.5%)   US10Y 5.24 (-1.1%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "01 Oct 23:58 UTC",
   "iso": "2026-10-01T23:58:04.574665+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,217 (-2.4%)   Silver 61.84 (+1.0%)   WTI 89.29 (-3.6%)   DXY 101.42 (+0.2%)   US10Y 5.25 (+0.3%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "29 Sep 23:12 UTC",
-  "iso": "2026-09-29T23:12:37.231919+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nFinancialJuice: uk vehicle output increased 5.7% yoy to 40,872 units in august: smmt\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,213 (-2.5%)   Silver 61.88 (+1.1%)   WTI 89.42 (-3.4%)   DXY 101.38 (+0.2%)   US10Y 5.25 (+0.3%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://www.financialjuice.com/News/9784449/uk-vehicle-output-increased-57-yoy-to-40872-units-in-august-smmt.aspx",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4212.8,
-   "Silver": 61.88,
-   "WTI": 89.42
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "FinancialJuice: uk vehicle output increased 5.7% yoy to 40,872 units in august: smmt",
-   "src": "",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,213 (-2.5%)   Silver 61.88 (+1.1%)   WTI 89.42 (-3.4%)   DXY 101.38 (+0.2%)   US10Y 5.25 (+0.3%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
