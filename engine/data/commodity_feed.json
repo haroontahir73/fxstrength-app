@@ -1,5 +1,60 @@
 [
  {
+  "when": "02 Oct 13:03 UTC",
+  "iso": "2026-10-02T13:03:43.006973+00:00",
+  "cat": "geo_escalation",
+  "title": "TALK | OIL LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nTrump vows to hit Iran 'very hard' if linked to plane attack - FOX 9 Minneapolis-St. Paul  (FOX 9 Minneapolis-St. Paul)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191   look for longs - supply at risk = price up fast (talk, not action yet)\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,236 (+0.8%)   Silver 61.80 (+1.8%)   WTI 89.40 (-3.7%)   DXY 101.86 (-0.2%)   US10Y 5.18 (-1.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1QMGF2TVhFSlBkck1OZkVUZTZWMUNwem9fV0lMU0tCN1RMOWhINFBNTmZpajBzUlppUzVMa3k5aUhvRlhlZUh0aXFvbkVSUXFXOERiZ0NIMm81UzjSAWBBVV95cUxNaVF2OUZiUG5aVHJUWDg3LWw5WmxaNWQ4MHNIRDRtbGNWc21CZDN0MjJnZTNmdUJjeXdiOHhWUFRvYzNEMFpZTGNfWEJ5elFwUm1QMTJBak5RU3d6MnluQ0g?oc=5",
+  "talk": true,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4235.8,
+   "Silver": 61.795,
+   "WTI": 89.4
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Trump vows to hit Iran 'very hard' if linked to plane attack - FOX 9 Minneapolis-St. Paul",
+   "src": "FOX 9 Minneapolis-St. Paul",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "supply at risk = price up fast (talk, not action yet)",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,236 (+0.8%)   Silver 61.80 (+1.8%)   WTI 89.40 (-3.7%)   DXY 101.86 (-0.2%)   US10Y 5.18 (-1.1%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "02 Oct 12:47 UTC",
   "iso": "2026-10-02T12:47:48.161515+00:00",
   "cat": "rates_up",
@@ -3208,61 +3263,6 @@
    "emoji": "\u2744",
    "label": "INFLATION \u2014 cooling",
    "headline": "US PCE Price Index YoY: 3.4 vs 3.7 expected - a MISS (-8%)",
-   "src": "economic calendar",
-   "why": "Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "opens the door to rate cuts",
-     "record": "CONFIDENT - right 64% of 503 past cases"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "follows gold up",
-     "record": "CONFIDENT - right 61% of 503 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 1,
-     "call": "no clean read",
-     "reason": "mild help from a softer dollar",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 4,215 (+0.9%)   Silver 60.99 (+0.5%)   WTI 90.46 (+1.2%)   DXY 101.25 (-0.1%)   US10Y 5.25 (+0.3%)",
-   "reality": "",
-   "flip": "one hot print reverses the whole thing"
-  }
- },
- {
-  "when": "30 Sep 12:32 UTC",
-  "iso": "2026-09-30T12:32:44.951797+00:00",
-  "cat": "inflation_cold",
-  "title": "GOLD+SILVER STRONG LONG | INFLATION - cooling",
-  "body": "\u2744 INFLATION \u2014 cooling\n\nUS PCE Price Index MoM: 0.3 vs 0.4 expected - a MISS (-25%)  (economic calendar)\n\nWHY: Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - opens the door to rate cuts\n        [CONFIDENT - right 64% of 503 past cases]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up\n        [CONFIDENT - right 61% of 503 past cases]\nOIL    \u2192    no clean read - mild help from a softer dollar\n\nNOW  Gold 4,215 (+0.9%)   Silver 60.99 (+0.5%)   WTI 90.46 (+1.2%)   DXY 101.25 (-0.1%)   US10Y 5.25 (+0.3%)\n\nFLIP: one hot print reverses the whole thing",
-  "link": "",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4215.4,
-   "Silver": 60.99,
-   "WTI": 90.46
-  },
-  "parts": {
-   "emoji": "\u2744",
-   "label": "INFLATION \u2014 cooling",
-   "headline": "US PCE Price Index MoM: 0.3 vs 0.4 expected - a MISS (-25%)",
    "src": "economic calendar",
    "why": "Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.",
    "leans": [
