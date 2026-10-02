@@ -1,5 +1,60 @@
 [
  {
+  "when": "02 Oct 17:51 UTC",
+  "iso": "2026-10-02T17:51:44.295634+00:00",
+  "cat": "oil_supply_loose",
+  "title": "OIL STRONG SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nGold Resilient Despite High Yields, Silver Shifts to Oversupply, Copper Most Interesting: Deutsche Bank - indexbox.io  (indexbox.io)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,166 (-0.9%)   Silver 60.48 (-0.4%)   WTI 91.58 (-1.4%)   DXY 101.92 (-0.2%)   US10Y 5.28 (+0.9%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQS2ZVaURPbUJ4NUEzbzlWd1Y5cHM3azZMQVdnNU5XeVBQdFNjQld6RWV1Wkd2R3c0UVhKYTIzR1FOVm9adWR0TEx0SGlDRnFZY3pUaS00TFRKRFVqZkkyUHo1YlRhNEVic1JlcGdmSGZyZ3lBQk9BYy1OUUJ4b0tNZGFadXFIZDRKR0tHbHFWY0daWWlSSUU2aV90YjUxSjQ0SmdfRVNLd05iX19Wb3pYVldtT3MxU2U5aUhnSTBFZzl1cEVuMHdjOUZB?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4165.8,
+   "Silver": 60.48,
+   "WTI": 91.58
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "Gold Resilient Despite High Yields, Silver Shifts to Oversupply, Copper Most Interesting: Deutsche Bank - indexbox.io",
+   "src": "indexbox.io",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "extra barrels push the price down",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,166 (-0.9%)   Silver 60.48 (-0.4%)   WTI 91.58 (-1.4%)   DXY 101.92 (-0.2%)   US10Y 5.28 (+0.9%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
   "when": "02 Oct 13:03 UTC",
   "iso": "2026-10-02T13:03:43.006973+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,215 (+0.9%)   Silver 60.99 (+0.5%)   WTI 90.46 (+1.2%)   DXY 101.25 (-0.1%)   US10Y 5.25 (+0.3%)",
    "reality": "",
    "flip": "one number is not a trend - watch the next jobs print"
-  }
- },
- {
-  "when": "30 Sep 12:32 UTC",
-  "iso": "2026-09-30T12:32:45.347626+00:00",
-  "cat": "inflation_cold",
-  "title": "GOLD+SILVER STRONG LONG | INFLATION - cooling",
-  "body": "\u2744 INFLATION \u2014 cooling\n\nUS PCE Price Index YoY: 3.4 vs 3.7 expected - a MISS (-8%)  (economic calendar)\n\nWHY: Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - opens the door to rate cuts\n        [CONFIDENT - right 64% of 503 past cases]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up\n        [CONFIDENT - right 61% of 503 past cases]\nOIL    \u2192    no clean read - mild help from a softer dollar\n\nNOW  Gold 4,215 (+0.9%)   Silver 60.99 (+0.5%)   WTI 90.46 (+1.2%)   DXY 101.25 (-0.1%)   US10Y 5.25 (+0.3%)\n\nFLIP: one hot print reverses the whole thing",
-  "link": "",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4215.4,
-   "Silver": 60.99,
-   "WTI": 90.46
-  },
-  "parts": {
-   "emoji": "\u2744",
-   "label": "INFLATION \u2014 cooling",
-   "headline": "US PCE Price Index YoY: 3.4 vs 3.7 expected - a MISS (-8%)",
-   "src": "economic calendar",
-   "why": "Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "opens the door to rate cuts",
-     "record": "CONFIDENT - right 64% of 503 past cases"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "follows gold up",
-     "record": "CONFIDENT - right 61% of 503 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 1,
-     "call": "no clean read",
-     "reason": "mild help from a softer dollar",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 4,215 (+0.9%)   Silver 60.99 (+0.5%)   WTI 90.46 (+1.2%)   DXY 101.25 (-0.1%)   US10Y 5.25 (+0.3%)",
-   "reality": "",
-   "flip": "one hot print reverses the whole thing"
   }
  }
 ]
