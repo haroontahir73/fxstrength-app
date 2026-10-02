@@ -1,5 +1,60 @@
 [
  {
+  "when": "02 Oct 09:22 UTC",
+  "iso": "2026-10-02T09:22:39.008536+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nBREAKING NEWS: Japan announces further sanctions against Russia over Ukraine invasion - Japan Wire by Kyodo News  (Japan Wire by Kyodo News)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,215 (+0.3%)   Silver 61.40 (+1.1%)   WTI 89.19 (-4.0%)   DXY 101.93 (-0.2%)   US10Y 5.24 (-1.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE4tSXBORWh6QTFfVmRxS0xWNU1sakpiZ1B6RjczYXA1QllhbEFtY0hOTy1BMW40S1hOVzdfeVVFRllocVVsTlVQSWQzQm1JaUdkZGE3b29GRUlldw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4214.8,
+   "Silver": 61.395,
+   "WTI": 89.19
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "BREAKING NEWS: Japan announces further sanctions against Russia over Ukraine invasion - Japan Wire by Kyodo News",
+   "src": "Japan Wire by Kyodo News",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,215 (+0.3%)   Silver 61.40 (+1.1%)   WTI 89.19 (-4.0%)   DXY 101.93 (-0.2%)   US10Y 5.24 (-1.1%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "02 Oct 08:03 UTC",
   "iso": "2026-10-02T08:03:45.260540+00:00",
   "cat": "oil_supply_tight",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,222 (+1.0%)   Silver 61.12 (+0.7%)   WTI 90.70 (+1.5%)   DXY 101.22 (-0.1%)   US10Y 5.25 (+0.3%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "30 Sep 12:16 UTC",
-  "iso": "2026-09-30T12:16:20.526015+00:00",
-  "cat": "us_data_strong",
-  "title": "US DATA - came in strong",
-  "body": "\ud83d\udcca US DATA \u2014 came in strong\n\nUS ADP Employment Change: 90 vs 70 expected - a BEAT (+29%)  (economic calendar)\n\nWHY: A stronger US economy means the Fed has no reason to cut rates, and may even raise them. Money stays in the dollar and in things that pay interest, and gold pays nothing.\n\nGOLD   \u2193    mild short bias - textbook drag, but measures weak - do not short on this alone\n        [weak - 48% of 402 past cases, no better than chance]\nSILVER \u2193    mild short bias - no measurable edge in the data\n        [some evidence - right 52% of 402 past cases]\nOIL    \u2191    mild long bias - a busier economy burns a bit more fuel\n        [some evidence - right 57% of 402 past cases]\n\nNOW  Gold 4,218 (+0.9%)   Silver 61.02 (+0.6%)   WTI 90.67 (+1.4%)   DXY 101.26 (-0.1%)   US10Y 5.25 (+0.3%)\n\nFLIP: one number is not a trend - the next weak print undoes it",
-  "link": "",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4218.1,
-   "Silver": 61.015,
-   "WTI": 90.67
-  },
-  "parts": {
-   "emoji": "\ud83d\udcca",
-   "label": "US DATA \u2014 came in strong",
-   "headline": "US ADP Employment Change: 90 vs 70 expected - a BEAT (+29%)",
-   "src": "economic calendar",
-   "why": "A stronger US economy means the Fed has no reason to cut rates, and may even raise them. Money stays in the dollar and in things that pay interest, and gold pays nothing.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "textbook drag, but measures weak - do not short on this alone",
-     "record": "weak - 48% of 402 past cases, no better than chance"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "no measurable edge in the data",
-     "record": "some evidence - right 52% of 402 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "a busier economy burns a bit more fuel",
-     "record": "some evidence - right 57% of 402 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,218 (+0.9%)   Silver 61.02 (+0.6%)   WTI 90.67 (+1.4%)   DXY 101.26 (-0.1%)   US10Y 5.25 (+0.3%)",
-   "reality": "",
-   "flip": "one number is not a trend - the next weak print undoes it"
   }
  }
 ]
