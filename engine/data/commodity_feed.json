@@ -1,5 +1,225 @@
 [
  {
+  "when": "02 Oct 12:31 UTC",
+  "iso": "2026-10-02T12:31:31.887198+00:00",
+  "cat": "us_data_weak",
+  "title": "US DATA - came in weak",
+  "body": "\ud83d\udcca US DATA \u2014 came in weak\n\nUS Unemployment Rate: 4.2 vs 4.1 expected - a BEAT (+2%)  (economic calendar)\n\nWHY: A weaker US economy pushes the Fed toward cutting rates. Cheaper money and a softer dollar are what gold wants. Silver is torn - it likes cheap money but it needs factories busy.\n\nGOLD   \u2191    mild long bias - brings rate cuts back into view\n        [some evidence - right 58% of 327 past cases]\nSILVER \u2191    mild long bias - cuts help, weaker industry hurts - nets to nothing measurable\n        [weak - 51% of 327 past cases, no better than chance]\nOIL    \u2193    mild short bias - a slower economy burns less fuel\n        [weak - 45% of 327 past cases, no better than chance]\n\nNOW  Gold 4,211 (+0.2%)   Silver 61.35 (+1.0%)   WTI 89.65 (-3.5%)   DXY 102.08 (-0.0%)   US10Y 5.24 (-1.1%)\n\nFLIP: one number is not a trend - watch the next jobs print",
+  "link": "",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4211.1,
+   "Silver": 61.355,
+   "WTI": 89.65
+  },
+  "parts": {
+   "emoji": "\ud83d\udcca",
+   "label": "US DATA \u2014 came in weak",
+   "headline": "US Unemployment Rate: 4.2 vs 4.1 expected - a BEAT (+2%)",
+   "src": "economic calendar",
+   "why": "A weaker US economy pushes the Fed toward cutting rates. Cheaper money and a softer dollar are what gold wants. Silver is torn - it likes cheap money but it needs factories busy.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "brings rate cuts back into view",
+     "record": "some evidence - right 58% of 327 past cases"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "cuts help, weaker industry hurts - nets to nothing measurable",
+     "record": "weak - 51% of 327 past cases, no better than chance"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "a slower economy burns less fuel",
+     "record": "weak - 45% of 327 past cases, no better than chance"
+    }
+   ],
+   "snap": "NOW  Gold 4,211 (+0.2%)   Silver 61.35 (+1.0%)   WTI 89.65 (-3.5%)   DXY 102.08 (-0.0%)   US10Y 5.24 (-1.1%)",
+   "reality": "",
+   "flip": "one number is not a trend - watch the next jobs print"
+  }
+ },
+ {
+  "when": "02 Oct 12:31 UTC",
+  "iso": "2026-10-02T12:31:31.367947+00:00",
+  "cat": "inflation_cold",
+  "title": "GOLD+SILVER STRONG LONG | INFLATION - cooling",
+  "body": "\u2744 INFLATION \u2014 cooling\n\nUS Average Hourly Earnings MoM: 0.1 vs 0.3 expected - a MISS (-67%)  (economic calendar)\n\nWHY: Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - opens the door to rate cuts\n        [CONFIDENT - right 64% of 503 past cases]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up\n        [CONFIDENT - right 61% of 503 past cases]\nOIL    \u2192    no clean read - mild help from a softer dollar\n\nNOW  Gold 4,211 (+0.2%)   Silver 61.35 (+1.0%)   WTI 89.65 (-3.5%)   DXY 102.08 (-0.0%)   US10Y 5.24 (-1.1%)\n\nFLIP: one hot print reverses the whole thing",
+  "link": "",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4211.1,
+   "Silver": 61.355,
+   "WTI": 89.65
+  },
+  "parts": {
+   "emoji": "\u2744",
+   "label": "INFLATION \u2014 cooling",
+   "headline": "US Average Hourly Earnings MoM: 0.1 vs 0.3 expected - a MISS (-67%)",
+   "src": "economic calendar",
+   "why": "Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "opens the door to rate cuts",
+     "record": "CONFIDENT - right 64% of 503 past cases"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "follows gold up",
+     "record": "CONFIDENT - right 61% of 503 past cases"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 1,
+     "call": "no clean read",
+     "reason": "mild help from a softer dollar",
+     "record": ""
+    }
+   ],
+   "snap": "NOW  Gold 4,211 (+0.2%)   Silver 61.35 (+1.0%)   WTI 89.65 (-3.5%)   DXY 102.08 (-0.0%)   US10Y 5.24 (-1.1%)",
+   "reality": "",
+   "flip": "one hot print reverses the whole thing"
+  }
+ },
+ {
+  "when": "02 Oct 12:31 UTC",
+  "iso": "2026-10-02T12:31:30.816449+00:00",
+  "cat": "inflation_cold",
+  "title": "GOLD+SILVER STRONG LONG | INFLATION - cooling",
+  "body": "\u2744 INFLATION \u2014 cooling\n\nUS Average Hourly Earnings YoY: 3 vs 3.2 expected - a MISS (-6%)  (economic calendar)\n\nWHY: Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - opens the door to rate cuts\n        [CONFIDENT - right 64% of 503 past cases]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up\n        [CONFIDENT - right 61% of 503 past cases]\nOIL    \u2192    no clean read - mild help from a softer dollar\n\nNOW  Gold 4,211 (+0.2%)   Silver 61.35 (+1.0%)   WTI 89.65 (-3.5%)   DXY 102.08 (-0.0%)   US10Y 5.24 (-1.1%)\n\nFLIP: one hot print reverses the whole thing",
+  "link": "",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4211.1,
+   "Silver": 61.355,
+   "WTI": 89.65
+  },
+  "parts": {
+   "emoji": "\u2744",
+   "label": "INFLATION \u2014 cooling",
+   "headline": "US Average Hourly Earnings YoY: 3 vs 3.2 expected - a MISS (-6%)",
+   "src": "economic calendar",
+   "why": "Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "opens the door to rate cuts",
+     "record": "CONFIDENT - right 64% of 503 past cases"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "follows gold up",
+     "record": "CONFIDENT - right 61% of 503 past cases"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 1,
+     "call": "no clean read",
+     "reason": "mild help from a softer dollar",
+     "record": ""
+    }
+   ],
+   "snap": "NOW  Gold 4,211 (+0.2%)   Silver 61.35 (+1.0%)   WTI 89.65 (-3.5%)   DXY 102.08 (-0.0%)   US10Y 5.24 (-1.1%)",
+   "reality": "",
+   "flip": "one hot print reverses the whole thing"
+  }
+ },
+ {
+  "when": "02 Oct 12:31 UTC",
+  "iso": "2026-10-02T12:31:30.312551+00:00",
+  "cat": "us_data_weak",
+  "title": "US DATA - came in weak",
+  "body": "\ud83d\udcca US DATA \u2014 came in weak\n\nUS Nonfarm Payrolls Private: 46 vs 85 expected - a MISS (-46%)  (economic calendar)\n\nWHY: A weaker US economy pushes the Fed toward cutting rates. Cheaper money and a softer dollar are what gold wants. Silver is torn - it likes cheap money but it needs factories busy.\n\nGOLD   \u2191    mild long bias - brings rate cuts back into view\n        [some evidence - right 58% of 327 past cases]\nSILVER \u2191    mild long bias - cuts help, weaker industry hurts - nets to nothing measurable\n        [weak - 51% of 327 past cases, no better than chance]\nOIL    \u2193    mild short bias - a slower economy burns less fuel\n        [weak - 45% of 327 past cases, no better than chance]\n\nNOW  Gold 4,211 (+0.2%)   Silver 61.35 (+1.0%)   WTI 89.65 (-3.5%)   DXY 102.08 (-0.0%)   US10Y 5.24 (-1.1%)\n\nFLIP: one number is not a trend - watch the next jobs print",
+  "link": "",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4211.1,
+   "Silver": 61.355,
+   "WTI": 89.65
+  },
+  "parts": {
+   "emoji": "\ud83d\udcca",
+   "label": "US DATA \u2014 came in weak",
+   "headline": "US Nonfarm Payrolls Private: 46 vs 85 expected - a MISS (-46%)",
+   "src": "economic calendar",
+   "why": "A weaker US economy pushes the Fed toward cutting rates. Cheaper money and a softer dollar are what gold wants. Silver is torn - it likes cheap money but it needs factories busy.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "brings rate cuts back into view",
+     "record": "some evidence - right 58% of 327 past cases"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "cuts help, weaker industry hurts - nets to nothing measurable",
+     "record": "weak - 51% of 327 past cases, no better than chance"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "a slower economy burns less fuel",
+     "record": "weak - 45% of 327 past cases, no better than chance"
+    }
+   ],
+   "snap": "NOW  Gold 4,211 (+0.2%)   Silver 61.35 (+1.0%)   WTI 89.65 (-3.5%)   DXY 102.08 (-0.0%)   US10Y 5.24 (-1.1%)",
+   "reality": "",
+   "flip": "one number is not a trend - watch the next jobs print"
+  }
+ },
+ {
   "when": "02 Oct 11:19 UTC",
   "iso": "2026-10-02T11:19:07.357187+00:00",
   "cat": "oil_supply_tight",
@@ -3077,226 +3297,6 @@
    "snap": "NOW  Gold 4,215 (+0.9%)   Silver 60.99 (+0.5%)   WTI 90.46 (+1.2%)   DXY 101.25 (-0.1%)   US10Y 5.25 (+0.3%)",
    "reality": "",
    "flip": "one hot print reverses the whole thing"
-  }
- },
- {
-  "when": "30 Sep 12:32 UTC",
-  "iso": "2026-09-30T12:32:44.152444+00:00",
-  "cat": "us_data_strong",
-  "title": "US DATA - came in strong",
-  "body": "\ud83d\udcca US DATA \u2014 came in strong\n\nUS GDP Sales QoQ Final: 2.8 vs 2.2 expected - a BEAT (+27%)  (economic calendar)\n\nWHY: A stronger US economy means the Fed has no reason to cut rates, and may even raise them. Money stays in the dollar and in things that pay interest, and gold pays nothing.\n\nGOLD   \u2193    mild short bias - textbook drag, but measures weak - do not short on this alone\n        [weak - 48% of 402 past cases, no better than chance]\nSILVER \u2193    mild short bias - no measurable edge in the data\n        [some evidence - right 52% of 402 past cases]\nOIL    \u2191    mild long bias - a busier economy burns a bit more fuel\n        [some evidence - right 57% of 402 past cases]\n\nNOW  Gold 4,215 (+0.9%)   Silver 60.99 (+0.5%)   WTI 90.46 (+1.2%)   DXY 101.25 (-0.1%)   US10Y 5.25 (+0.3%)\n\nFLIP: one number is not a trend - the next weak print undoes it",
-  "link": "",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4215.4,
-   "Silver": 60.99,
-   "WTI": 90.46
-  },
-  "parts": {
-   "emoji": "\ud83d\udcca",
-   "label": "US DATA \u2014 came in strong",
-   "headline": "US GDP Sales QoQ Final: 2.8 vs 2.2 expected - a BEAT (+27%)",
-   "src": "economic calendar",
-   "why": "A stronger US economy means the Fed has no reason to cut rates, and may even raise them. Money stays in the dollar and in things that pay interest, and gold pays nothing.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "textbook drag, but measures weak - do not short on this alone",
-     "record": "weak - 48% of 402 past cases, no better than chance"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "no measurable edge in the data",
-     "record": "some evidence - right 52% of 402 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "a busier economy burns a bit more fuel",
-     "record": "some evidence - right 57% of 402 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,215 (+0.9%)   Silver 60.99 (+0.5%)   WTI 90.46 (+1.2%)   DXY 101.25 (-0.1%)   US10Y 5.25 (+0.3%)",
-   "reality": "",
-   "flip": "one number is not a trend - the next weak print undoes it"
-  }
- },
- {
-  "when": "30 Sep 12:32 UTC",
-  "iso": "2026-09-30T12:32:43.737002+00:00",
-  "cat": "inflation_cold",
-  "title": "GOLD+SILVER STRONG LONG | INFLATION - cooling",
-  "body": "\u2744 INFLATION \u2014 cooling\n\nUS Core PCE Prices QoQ Final: 3.3 vs 3.6 expected - a MISS (-8%)  (economic calendar)\n\nWHY: Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - opens the door to rate cuts\n        [CONFIDENT - right 64% of 503 past cases]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up\n        [CONFIDENT - right 61% of 503 past cases]\nOIL    \u2192    no clean read - mild help from a softer dollar\n\nNOW  Gold 4,215 (+0.9%)   Silver 60.99 (+0.5%)   WTI 90.46 (+1.2%)   DXY 101.25 (-0.1%)   US10Y 5.25 (+0.3%)\n\nFLIP: one hot print reverses the whole thing",
-  "link": "",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4215.4,
-   "Silver": 60.99,
-   "WTI": 90.46
-  },
-  "parts": {
-   "emoji": "\u2744",
-   "label": "INFLATION \u2014 cooling",
-   "headline": "US Core PCE Prices QoQ Final: 3.3 vs 3.6 expected - a MISS (-8%)",
-   "src": "economic calendar",
-   "why": "Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "opens the door to rate cuts",
-     "record": "CONFIDENT - right 64% of 503 past cases"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "follows gold up",
-     "record": "CONFIDENT - right 61% of 503 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 1,
-     "call": "no clean read",
-     "reason": "mild help from a softer dollar",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 4,215 (+0.9%)   Silver 60.99 (+0.5%)   WTI 90.46 (+1.2%)   DXY 101.25 (-0.1%)   US10Y 5.25 (+0.3%)",
-   "reality": "",
-   "flip": "one hot print reverses the whole thing"
-  }
- },
- {
-  "when": "30 Sep 12:32 UTC",
-  "iso": "2026-09-30T12:32:43.324993+00:00",
-  "cat": "inflation_cold",
-  "title": "GOLD+SILVER STRONG LONG | INFLATION - cooling",
-  "body": "\u2744 INFLATION \u2014 cooling\n\nUS PCE Prices QoQ Final: 5 vs 5.3 expected - a MISS (-6%)  (economic calendar)\n\nWHY: Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - opens the door to rate cuts\n        [CONFIDENT - right 64% of 503 past cases]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up\n        [CONFIDENT - right 61% of 503 past cases]\nOIL    \u2192    no clean read - mild help from a softer dollar\n\nNOW  Gold 4,215 (+0.9%)   Silver 60.99 (+0.5%)   WTI 90.46 (+1.2%)   DXY 101.25 (-0.1%)   US10Y 5.25 (+0.3%)\n\nFLIP: one hot print reverses the whole thing",
-  "link": "",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4215.4,
-   "Silver": 60.99,
-   "WTI": 90.46
-  },
-  "parts": {
-   "emoji": "\u2744",
-   "label": "INFLATION \u2014 cooling",
-   "headline": "US PCE Prices QoQ Final: 5 vs 5.3 expected - a MISS (-6%)",
-   "src": "economic calendar",
-   "why": "Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "opens the door to rate cuts",
-     "record": "CONFIDENT - right 64% of 503 past cases"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "follows gold up",
-     "record": "CONFIDENT - right 61% of 503 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 1,
-     "call": "no clean read",
-     "reason": "mild help from a softer dollar",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 4,215 (+0.9%)   Silver 60.99 (+0.5%)   WTI 90.46 (+1.2%)   DXY 101.25 (-0.1%)   US10Y 5.25 (+0.3%)",
-   "reality": "",
-   "flip": "one hot print reverses the whole thing"
-  }
- },
- {
-  "when": "30 Sep 12:32 UTC",
-  "iso": "2026-09-30T12:32:42.942716+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold Jumps As Fed Hike Bets Dip - RTTNews  (RTTNews)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,215 (+0.9%)   Silver 60.99 (+0.5%)   WTI 90.46 (+1.2%)   DXY 101.25 (-0.1%)   US10Y 5.25 (+0.3%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE05cXQwNFk3SUdsc0RtamVMelRRZGZJUVBtWFdEeFp3TDZzMnZ1STNEcDJCbXFTRHhhZDFWMzhBY1RSc3Z1UnZhV3BRQWxtVEJVMVVtWElPeW9IbFVaXzJCT1VvSkRBeDY1dWVweVFMUlJwWndsS2xj?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4215.4,
-   "Silver": 60.99,
-   "WTI": 90.46
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Gold Jumps As Fed Hike Bets Dip - RTTNews",
-   "src": "RTTNews",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,215 (+0.9%)   Silver 60.99 (+0.5%)   WTI 90.46 (+1.2%)   DXY 101.25 (-0.1%)   US10Y 5.25 (+0.3%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
