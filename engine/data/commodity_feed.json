@@ -1,5 +1,60 @@
 [
  {
+  "when": "03 Oct 20:29 UTC",
+  "iso": "2026-10-03T20:29:37.717061+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nEXCLUSIVE: Ukraine will hit Russian refineries in response to Moscow's 'new doctrine' of airstrikes, Zelenskiy says - Reuters  (Reuters)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,162 (-1.0%)   Silver 60.41 (-0.5%)   WTI 91.11 (-1.9%)   DXY 101.92 (-0.2%)   US10Y 5.28 (+0.8%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOQ0JETXJlUlJGblZwbTljbXFFb0JkS2REVzBWUVdPUE5uN0xSRGpVZVBpS3B3Qnh1VkFWQjdYUzdOWnFFZkd4aVRFQmViaEJkVkVzTUxUMDJKdWh5UWJfaExXMi1UbTlLd1AxVnJ2UF9BUUZFc2g0ZEFTOWJGTi1WS3h0YlNtYzFRY0FTam5WbllJVXdGbUp1S0tQcGgtdmppSHpIMGg5dUtuLVN3SjJFME9MYTNSci1maHptc3RVVVk5d3k4NmgwS0oxZUZ5alpUNmYzR09R?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4162.3,
+   "Silver": 60.415,
+   "WTI": 91.11
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "EXCLUSIVE: Ukraine will hit Russian refineries in response to Moscow's 'new doctrine' of airstrikes, Zelenskiy says - Reuters",
+   "src": "Reuters",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,162 (-1.0%)   Silver 60.41 (-0.5%)   WTI 91.11 (-1.9%)   DXY 101.92 (-0.2%)   US10Y 5.28 (+0.8%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "03 Oct 18:58 UTC",
   "iso": "2026-10-03T18:58:17.855113+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,182 (+0.1%)   Silver 60.59 (-0.1%)   WTI 90.33 (+1.1%)   DXY 101.49 (+0.1%)   US10Y 5.29 (+0.7%)",
    "reality": "",
    "flip": "one hot print reverses the whole thing"
-  }
- },
- {
-  "when": "30 Sep 23:00 UTC",
-  "iso": "2026-09-30T23:00:52.122898+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFinancialJuice: Fed's Kashkari: modest fed rate hike range unlikely to curb hyperscaler investment much\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,185 (+0.1%)   Silver 60.70 (+0.1%)   WTI 90.03 (+0.7%)   DXY 101.46 (+0.1%)   US10Y 5.29 (+0.7%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://www.financialjuice.com/News/9786424/Feds-Kashkari-modest-fed-rate-hike-range-unlikely-to-curb-hyperscaler-investment-much.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4184.9,
-   "Silver": 60.705,
-   "WTI": 90.03
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "FinancialJuice: Fed's Kashkari: modest fed rate hike range unlikely to curb hyperscaler investment much",
-   "src": "",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,185 (+0.1%)   Silver 60.70 (+0.1%)   WTI 90.03 (+0.7%)   DXY 101.46 (+0.1%)   US10Y 5.29 (+0.7%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
