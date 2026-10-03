@@ -1,5 +1,60 @@
 [
  {
+  "when": "03 Oct 11:12 UTC",
+  "iso": "2026-10-03T11:12:09.922971+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nTradFi News | Fed October Rate Hike Odds Fall to 17% After Weak U.S. Jobs Report - Binance  (Binance)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,162 (-1.0%)   Silver 60.41 (-0.5%)   WTI 91.11 (-1.9%)   DXY 101.92 (-0.2%)   US10Y 5.28 (+0.8%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE10dERadzU0blBZb1FablV1d25qVmJ6RGlwNnJIZkNfS1lBMWYtSG5JeFd3Wk8yVVJwZ21sR1ZfVHIzZkpjOTJIbzI5TXQyVW1NRGpJR0stMjRwTF9XZ0JGODdpYVE?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4162.3,
+   "Silver": 60.415,
+   "WTI": 91.11
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "TradFi News | Fed October Rate Hike Odds Fall to 17% After Weak U.S. Jobs Report - Binance",
+   "src": "Binance",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,162 (-1.0%)   Silver 60.41 (-0.5%)   WTI 91.11 (-1.9%)   DXY 101.92 (-0.2%)   US10Y 5.28 (+0.8%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "03 Oct 09:50 UTC",
   "iso": "2026-10-03T09:50:13.208281+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,186 (+0.2%)   Silver 60.62 (-0.1%)   WTI 90.80 (+1.6%)   DXY 101.44 (+0.1%)   US10Y 5.29 (+0.8%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "30 Sep 18:27 UTC",
-  "iso": "2026-09-30T18:27:55.521736+00:00",
-  "cat": "geo_escalation",
-  "title": "TALK | OIL LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussia threatens NATO with a nuclear strike if the alliance tries to blockade Kaliningrad - Meduza  (Meduza)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191   look for longs - supply at risk = price up fast (talk, not action yet)\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,182 (+0.0%)   Silver 60.51 (-0.3%)   WTI 90.64 (+1.4%)   DXY 101.43 (+0.1%)   US10Y 5.30 (+0.9%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPSXZldkVIY3l5V2l0YjBidGlGRENWc0lfLUw0QTl6ajduUDR1UmNKMUlGX01mMlJRM05IM3V0UVVPcGhzZ1hJQ0FsMU5acmdGdVhnb2xPaXB5MVdJMjlPYUkzVHlWNTBwWVdFTFZ3T181SjA4SW85bi1YSmdPMldQYnpSN2Z5U3YxdHljMElwOVprdThnQVRqVzFVMjc0TFFwR1JXS1MtWnEyRV8zSDJFQmxnR0pQZHhIbHBudy1tSlgtWFRp0gHKAUFVX3lxTE96TW1CdVhncU5ER1hsQ1pLUlZLWThGVVN0dU1nUE9ZTDZRaHRDeU1VREtxcFh2dzUwTkNxaGdvS2VVeGpySTJ1UE9NSllTcHF6MDhsY1ZNd1Qwc2VfTWtvVXQ5Q2dVajBKX1VobmgyX1MwdDVpU0xaTHRFSm1LbnRNc1Zmb3ZkT25GNk1WQVNKeTl5Nl9Ic0FQQWZGdWFTQ0hxdU44SWh5ei1yQUdxTUpYbWlZOVBGN0ZkYTZDN2RaX3dEMjA3aDJPU3c?oc=5",
-  "talk": true,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4181.6,
-   "Silver": 60.505,
-   "WTI": 90.64
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Russia threatens NATO with a nuclear strike if the alliance tries to blockade Kaliningrad - Meduza",
-   "src": "Meduza",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "supply at risk = price up fast (talk, not action yet)",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,182 (+0.0%)   Silver 60.51 (-0.3%)   WTI 90.64 (+1.4%)   DXY 101.43 (+0.1%)   US10Y 5.30 (+0.9%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
