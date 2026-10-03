@@ -1,5 +1,60 @@
 [
  {
+  "when": "03 Oct 05:58 UTC",
+  "iso": "2026-10-03T05:58:18.516705+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFive Indians rescued after Kuwait-flagged tanker hit by projectile in Strait of Hormuz - Telegraph India  (Telegraph India)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,162 (-1.0%)   Silver 60.41 (-0.5%)   WTI 91.11 (-1.9%)   DXY 101.92 (-0.2%)   US10Y 5.28 (+0.8%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOT3Z5aGpjNUJCMUlONkhlZjRfdDc5aFVOZVJPUGRZSjJjSmtwNFp5cS1Vc2xsM3BTVW1Kekk4bUFURk5nT1pPbFRMelhEUFlqV3dxdl8ya1VxV3ppRUhwWXpONXZEUGFEN3pxaVVkckZFbXlkRUpKYjJDTXBvbG5iMnZsQTVQakViM2lCS0tQOXFrOF9oZ2h1X3lJaEVZcEt3MV9VUFF2VlU3VDB0WlJXY0VOWmFzNDFLSmN3aU0wcWl1ZVh1UF9seWE0R1EzS0lp0gHWAUFVX3lxTE1vV0lkdWlvNzFLVGo0Q19rcDlSRUxjdTViR1BCUzgxckRwc2ZSeDMyVHRMZnBtSUxTbTdxWlMtSDVoOWQ2NkdqaGdQQmp1ZUt5Rk82QXotSHZUWWQ1enJIQm5XSzlBSzhzaUFBWlVLRWtOb21xXzdBVmFnRkJwWmJMdlc5NEhLVlVPUTZocWR2MC1YLW56dVVuejA3MVg3Ym42QnBpcy12N2MyMjZxWExmcHNIa3diTDdfNnpMS3BtMFRyLTl6emNjYjJqcFh0TUVOaENVTHc?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4162.3,
+   "Silver": 60.415,
+   "WTI": 91.11
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Five Indians rescued after Kuwait-flagged tanker hit by projectile in Strait of Hormuz - Telegraph India",
+   "src": "Telegraph India",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,162 (-1.0%)   Silver 60.41 (-0.5%)   WTI 91.11 (-1.9%)   DXY 101.92 (-0.2%)   US10Y 5.28 (+0.8%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "03 Oct 02:08 UTC",
   "iso": "2026-10-03T02:08:34.458356+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,192 (+0.3%)   Silver 60.66 (-0.0%)   WTI 91.52 (+2.4%)   DXY 101.40 (+0.0%)   US10Y 5.29 (+0.6%)",
    "reality": "",
    "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
-  }
- },
- {
-  "when": "30 Sep 15:23 UTC",
-  "iso": "2026-09-30T15:23:21.187278+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIs Iran losing its leverage over the Strait of Hormuz? - aljazeera.com  (aljazeera.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,194 (+0.3%)   Silver 60.84 (+0.3%)   WTI 91.49 (+2.4%)   DXY 101.27 (-0.1%)   US10Y 5.28 (+0.4%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQclg2QUFjcWhrSGJicV9BQWRqN3JSOGtBRW9UQW9DOWFMRzduaDR1TWZ3M2lqSkFFekd1RTdYdUJRSlJHUzE0LUc5LUc3Um1OdlVrQzJyZVRSbE9pY01BMkVjQS1ES1l4V0NCMllCWjVhay1FYlg1MHhCckdNN2wxemlvcjduNTRlc09jRXVEZFg0SFhoZ3J4aDZoNTRxWktfTU1GRlF1V25pcGvSAbABQVVfeXFMT0J6bVI5TUJoVnVmbGJaLXVGa3FxLVFpVTh2Wlh4aVl2QW1sMXQ4eDFBS3B4TlgySVo3Z3piSVBmNVE3SHAwQTh1YUEzeEdUaDhQZk9wY3hYeTVKRTVFUDRUSXZsYnh4dFR5QWdSZFAtYnAtUDN4WG4xTkVtamRHTEV6a29PdHFFVTM2M3JZWldHbXJuQk9wREFjUjlCVl9FWjU0ZG1Ga2Vxb25zdDVuZnA?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4194.0,
-   "Silver": 60.84,
-   "WTI": 91.49
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Is Iran losing its leverage over the Strait of Hormuz? - aljazeera.com",
-   "src": "aljazeera.com",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,194 (+0.3%)   Silver 60.84 (+0.3%)   WTI 91.49 (+2.4%)   DXY 101.27 (-0.1%)   US10Y 5.28 (+0.4%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
