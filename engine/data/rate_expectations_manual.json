@@ -10,28 +10,28 @@
     "override": true
   },
   "EUR": {
-    "hike": 60,
-    "hold": 40,
+    "hike": 20,
+    "hold": 80,
     "cut": 0,
     "next_meeting": "October 29, 2026",
     "override": true,
-    "src": "researched 2026-09-27 (refresh of the 10 Sep entry). Futures pricing on 24 Sep implied ~60% for a 25bp hike to 2.75% on 29 Oct (Admiral Markets citing ECB Watch), up from ~29% after the 10 Sep hike. Other snapshots range 47-75% depending on day/source, so the 24 Sep ECB Watch figure is used as the mid. Lagarde 18 Sep leaned against automatic tightening; pricing moves daily."
+    "src": "researched 2026-10-06: LSEG data (Bloomberg/Reuters on Nagel, 5 Oct) price ~20% for a 29 Oct hike and ~80% for December; economists mostly see the ECB skipping October after Lagarde's 'measured response' (28 Sep). Prior: 60% on 24 Sep."
   },
   "NZD": {
-    "hike": 75,
-    "hold": 25,
+    "hike": 80,
+    "hold": 20,
     "cut": 0,
     "next_meeting": "October 28, 2026",
     "override": true,
-    "src": "researched 2026-09-27 (refresh of the 10 Sep entry). Money markets price ~75% for a 25bp OCR hike to 3.00% on 28 Oct, up from ~57% after Governor Breman said on 22 Sep that persistent higher oil would push near-term inflation above the September MPS (Pound Sterling Live, 22 Sep; FXStreet). centralbank.watch's older ~88% hold snapshot is stale."
+    "src": "researched 2026-10-06: markets priced ~80% for a 25bp OCR hike to 3.00% on 28 Oct as of 1 Oct (Vantage Markets, FXStreet 28 Sep 'hike bets keep building'). centralbank.watch's ~88% hold snapshot is stale. Prior: 75% on 27 Sep."
   },
   "CAD": {
-    "hike": 59,
-    "hold": 41,
+    "hike": 35,
+    "hold": 65,
     "cut": 0,
     "next_meeting": "October 28, 2026",
     "override": true,
-    "src": "researched 2026-09-27 (refresh of the 10 Sep entry). As of 25 Sep, OIS pricing implied a 59% probability of a BoC hike on 28 Oct (+15bp implied from 2.25%), per money.ca/refdesk; odds were ~6% hold-dominant before 2 Sep and jumped on oil, bond yields and the Fed's 16 Sep hike. Several bank economists still expect a hold until Q1 2027."
+    "src": "researched 2026-10-06: snapshots conflict - money.ca/refdesk OIS as of 2 Oct imply ~74% hold (+7bp), other trackers (bluegamma etc.) show ~41-43% hike; 35/65 used as the mid. Odds fell from 59% on 25 Sep as US yields/oil eased and Williams signalled no urgency."
   },
   "_note_CAD": "Rate-odds source rotated to public reporting after bankofcanadaodds.com; the TradingView scrape carries a stale 5.25% BoC rate and no real BoC block, so override stays true. If a cleaner current feed appears, prefer it."
 }
