@@ -1,5 +1,60 @@
 [
  {
+  "when": "06 Oct 03:35 UTC",
+  "iso": "2026-10-06T03:35:25.533088+00:00",
+  "cat": "oil_supply_loose",
+  "title": "OIL STRONG SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nFinancialJuice: Trump: BD to invest more than $1 billion to boost production of various products, including needles made from American steel\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,156 (-0.0%)   Silver 61.10 (+0.4%)   WTI 89.72 (+0.3%)   DXY 102.15 (-0.0%)   US10Y 5.31 (+0.6%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://www.financialjuice.com/News/9792842/Trump-BD-to-invest-more-than-1-billion-to-boost-production-of-various-products-including-needles-made-from-American-steel.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4156.4,
+   "Silver": 61.1,
+   "WTI": 89.72
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "FinancialJuice: Trump: BD to invest more than $1 billion to boost production of various products, including needles made from American steel",
+   "src": "",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "extra barrels push the price down",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,156 (-0.0%)   Silver 61.10 (+0.4%)   WTI 89.72 (+0.3%)   DXY 102.15 (-0.0%)   US10Y 5.31 (+0.6%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
   "when": "05 Oct 23:03 UTC",
   "iso": "2026-10-05T23:03:26.359520+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,211 (+0.2%)   Silver 61.35 (+1.0%)   WTI 89.65 (-3.5%)   DXY 102.08 (-0.0%)   US10Y 5.24 (-1.1%)",
    "reality": "",
    "flip": "one number is not a trend - watch the next jobs print"
-  }
- },
- {
-  "when": "02 Oct 11:19 UTC",
-  "iso": "2026-10-02T11:19:07.357187+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOPEC+ delays oil capacity review after Iran war disrupts expansion plans, sources say - marketscreener.com  (marketscreener.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,216 (+0.3%)   Silver 61.39 (+1.1%)   WTI 89.22 (-3.9%)   DXY 102.06 (-0.0%)   US10Y 5.24 (-1.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNU1hPMXBFaFdHUjJ2M1V2QWY3V3RpOVJ3aFN0dEFYZGpCalR6V1dNV0VYcDB0Zi1NTnpXTXBuNFJiWGYzWXNjRXJSMXlxRVE2WWc4TmJJQUdNZXNUNEdQbUhSTUU4ampDYXI5SnF4azhKSnNLR0paUkxwWTU0VkZOSmZlVDJWUzloVHlRR0pvX0lWYVU4SVlPLXB2Zkl4dlR0QlBETHIwZ0Y5aDlEM0NuME1tT0NyaE95cFRJMkhSSE5oVlFfS3RPZVNuZ3I1QXkzT2c?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4216.4,
-   "Silver": 61.39,
-   "WTI": 89.22
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "OPEC+ delays oil capacity review after Iran war disrupts expansion plans, sources say - marketscreener.com",
-   "src": "marketscreener.com",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,216 (+0.3%)   Silver 61.39 (+1.1%)   WTI 89.22 (-3.9%)   DXY 102.06 (-0.0%)   US10Y 5.24 (-1.1%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
