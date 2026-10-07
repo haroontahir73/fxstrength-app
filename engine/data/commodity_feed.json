@@ -1,5 +1,60 @@
 [
  {
+  "when": "07 Oct 12:44 UTC",
+  "iso": "2026-10-07T12:44:50.116369+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nTSX futures slip as oil, yields fuel rate-hike fears ahead of Fed minutes - Kitco  (Kitco)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,105 (-2.0%)   Silver 59.34 (-3.0%)   WTI 90.17 (+0.8%)   DXY 102.45 (+0.6%)   US10Y 5.34 (+1.4%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOcWtCMTU3UkxaT2JMRHJKT0tpN1lwcHFMOXFwcFN6R2RxbXMyUHM4S0p4RGhERUxkMXZaTklKU29kVmtSakVxSEFjWVBoclU5STI4STRvWklfMjJCN0dSSUp1aTAweks3SWV4NFpWTVNxSjNCRzBsdjRqRzNITUJyVWpUVTAyVEZNckFKRF9rRnVuOFNoMDNFMnp4Q3NZeExnVlVtRGJZZE9kbEhyTU5LaTk1b3YxSi1u?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4104.9,
+   "Silver": 59.345,
+   "WTI": 90.17
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "TSX futures slip as oil, yields fuel rate-hike fears ahead of Fed minutes - Kitco",
+   "src": "Kitco",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,105 (-2.0%)   Silver 59.34 (-3.0%)   WTI 90.17 (+0.8%)   DXY 102.45 (+0.6%)   US10Y 5.34 (+1.4%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "07 Oct 11:27 UTC",
   "iso": "2026-10-07T11:27:47.473274+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,162 (-1.0%)   Silver 60.41 (-0.5%)   WTI 91.11 (-1.9%)   DXY 101.92 (-0.2%)   US10Y 5.28 (+0.8%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "03 Oct 22:51 UTC",
-  "iso": "2026-10-03T22:51:39.429107+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nIraq's Najaf airport to resume Iran flights after US sanctions waiver - turkiyetoday.com  (turkiyetoday.com)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,162 (-1.0%)   Silver 60.41 (-0.5%)   WTI 91.11 (-1.9%)   DXY 101.92 (-0.2%)   US10Y 5.28 (+0.8%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxObDRNR2NpYTlPc1hZQXhlc2V3c29wbHdPNllvTVFMQlFCbHNma3dtV3UzRTVZeVhFc0E4TUVmTS1NZmhScWRNTHhWZEtXWThYc1BOVXZRZ2RSU29wY1Bkb1FyMU9tWTRkdnFESmZHZ29QNXZWTWY5QnUtelVJTkFKR3l5N2dxQUFvSVpDTXBFR2E5Yk9RcFFLVENzMFFXMGhnVVUtQW45QTRheU1F?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4162.3,
-   "Silver": 60.415,
-   "WTI": 91.11
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "Iraq's Najaf airport to resume Iran flights after US sanctions waiver - turkiyetoday.com",
-   "src": "turkiyetoday.com",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,162 (-1.0%)   Silver 60.41 (-0.5%)   WTI 91.11 (-1.9%)   DXY 101.92 (-0.2%)   US10Y 5.28 (+0.8%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
