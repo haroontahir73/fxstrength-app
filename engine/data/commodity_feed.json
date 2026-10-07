@@ -1,5 +1,60 @@
 [
  {
+  "when": "07 Oct 11:27 UTC",
+  "iso": "2026-10-07T11:27:47.473274+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nOil tanker burns off Russia\u2019s Sochi after naval drone attack, sending smoke billowing over the coast. Photos and videos. - Meduza  (Meduza)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,146 (-1.0%)   Silver 60.38 (-1.3%)   WTI 89.96 (+0.6%)   DXY 102.33 (+0.5%)   US10Y 5.27 (-0.8%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPaWVTOXdiOU5FekFWWndCNXpueFB3akdKejBDYVRQbHY1MVlhcHpxclJHejdFVG1BY0dQQzBnam9Ha3c2Wm41em1jSjhjSHNzQjZrdE80NWwtYXZyQ05yaFJPaXVlMGtXajV5ekZQLU8tQUZsMThaSmladVVRRW82OTFEUGIzVF9xX2gtb252TVhaRmFSNVJ4dER4a2xJRjJQVWtpblVlV1VUZGVIOVF5UmpzZll1YzQzRWhzNzVZWDVnMmxBUlNRMThCTWtlWndsUXJYUzdFc1JoeDctZ1FMTHZ0c29uTmx4RHI1cTBB0gHzAUFVX3lxTE9YMENCOHlCQ05icEczelBha0tiWWJ5V1R6UjI2aE5pUGh1R0Q1VDRWUEFjUWVHUE0yYW5KeUJNcExsM3FUSE94QnNUQWZ5bUJ6TzFfWTNid2xmNWJUVTZ2WXliWWlWYUg5eXNLdzVYajRiLXI2Qm9rYTRZa0lPZWlhSmNTQm9kN0lwVHNMbmQybmpwMjRPNnhKWThMaHM3MDBiVjFpb2hBckVhSkxJZFdfaTQzVmpha1J3bngta2ZlZGVLRzBMdUdGWTItTTB2ZlNtcHN4cU55d0JrYXY2Wm5ieXZ3bTZTeHl0aTNKZEpMX2pKTQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4146.0,
+   "Silver": 60.375,
+   "WTI": 89.96
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Oil tanker burns off Russia\u2019s Sochi after naval drone attack, sending smoke billowing over the coast. Photos and videos. - Meduza",
+   "src": "Meduza",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,146 (-1.0%)   Silver 60.38 (-1.3%)   WTI 89.96 (+0.6%)   DXY 102.33 (+0.5%)   US10Y 5.27 (-0.8%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "07 Oct 10:13 UTC",
   "iso": "2026-10-07T10:13:52.973213+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,162 (-1.0%)   Silver 60.41 (-0.5%)   WTI 91.11 (-1.9%)   DXY 101.92 (-0.2%)   US10Y 5.28 (+0.8%)",
    "reality": "",
    "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
-  }
- },
- {
-  "when": "03 Oct 20:32 UTC",
-  "iso": "2026-10-03T20:32:48.240124+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIraq says it transported 2 million barrels of crude through Strait of Hormuz - Reuters  (Reuters)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,162 (-1.0%)   Silver 60.41 (-0.5%)   WTI 91.11 (-1.9%)   DXY 101.92 (-0.2%)   US10Y 5.28 (+0.8%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPRWFXeUhOM2ZldTc1dEhPdGxOcjZ4MldhbHl1aWI3UE40akNDQnA3SWNHS2FrNjYtTFJDR2VVeUxsWnkxRXpMbU1jZUFlZFg5Y0xpSndJNUs4WTZWdDE1dXFJczJMUEVMRUVkMHVrZnFkdEMtMXZjSWRWdS1fb0R2enktclJCNlMwalZCREplbW5QdXlMT1lGbU43a2llczVqbS1pNW45RjN2ak1LV3JaOGxHWVhzLW56eTN4SGFiUQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4162.3,
-   "Silver": 60.415,
-   "WTI": 91.11
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Iraq says it transported 2 million barrels of crude through Strait of Hormuz - Reuters",
-   "src": "Reuters",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,162 (-1.0%)   Silver 60.41 (-0.5%)   WTI 91.11 (-1.9%)   DXY 101.92 (-0.2%)   US10Y 5.28 (+0.8%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
