@@ -14122,5 +14122,27 @@
   "outcome": "loss",
   "talk": false,
   "at": "2026-10-07T03:28:30.228836+00:00"
+ },
+ {
+  "id": "2026-10-07T04:45:22.705647+00:00|GOLD",
+  "cat": "geo_escalation",
+  "instr": "GOLD",
+  "dir": "up",
+  "strength": 1,
+  "chg": -0.374,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-10-07T04:45:22.705647+00:00"
+ },
+ {
+  "id": "2026-10-07T04:45:22.705647+00:00|OIL",
+  "cat": "geo_escalation",
+  "instr": "OIL",
+  "dir": "up",
+  "strength": 3,
+  "chg": -0.764,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-10-07T04:45:22.705647+00:00"
  }
 ]

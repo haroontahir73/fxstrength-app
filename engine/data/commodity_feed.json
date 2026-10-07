@@ -1,5 +1,60 @@
 [
  {
+  "when": "07 Oct 10:01 UTC",
+  "iso": "2026-10-07T10:01:00.466753+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOil prices rise amid concerns over Mideast, U.S. supply disruptions - Investing.com  (Investing.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,145 (-1.0%)   Silver 60.48 (-1.1%)   WTI 90.00 (+0.6%)   DXY 102.29 (+0.5%)   US10Y 5.27 (-0.8%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUVJuT21mMDh1YUZrdG1FanFXY0phb0xqWjdRRzVHZEpBTkQwMDVrTXBTZ0E1c1hUVGM4RG9qT1h5a1hhNXZWX1h6QktxQkhQbnk4WWREUWM4eVZ5cWdWNWM4SjZ3UzZmMHVzOUdQa2FyTzUycnJscy0zTGVmS3VmR2xqWDFOMzdBVGtTdHotN3BCekltQ05zQzZxVGVsaU5BazFHcEhn?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4144.8,
+   "Silver": 60.485,
+   "WTI": 90.0
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Oil prices rise amid concerns over Mideast, U.S. supply disruptions - Investing.com",
+   "src": "Investing.com",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,145 (-1.0%)   Silver 60.48 (-1.1%)   WTI 90.00 (+0.6%)   DXY 102.29 (+0.5%)   US10Y 5.27 (-0.8%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "07 Oct 07:24 UTC",
   "iso": "2026-10-07T07:24:11.265774+00:00",
   "cat": "oil_supply_tight",
@@ -3209,61 +3264,6 @@
    "label": "GEOPOLITICS \u2014 escalation",
    "headline": "EXCLUSIVE: Ukraine will hit Russian refineries in response to Moscow's 'new doctrine' of airstrikes, Zelenskiy says - Reuters",
    "src": "Reuters",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,162 (-1.0%)   Silver 60.41 (-0.5%)   WTI 91.11 (-1.9%)   DXY 101.92 (-0.2%)   US10Y 5.28 (+0.8%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "03 Oct 18:58 UTC",
-  "iso": "2026-10-03T18:58:17.855113+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Yemen's Houthis: Attack on Aramco facility in Saudi Arabia's Riyadh with ballistic missiles and drones\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,162 (-1.0%)   Silver 60.41 (-0.5%)   WTI 91.11 (-1.9%)   DXY 101.92 (-0.2%)   US10Y 5.28 (+0.8%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://www.financialjuice.com/News/9790565/Yemens-Houthis-Attack-on-Aramco-facility-in-Saudi-Arabias-Riyadh-with-ballistic-missiles-and-drones.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4162.3,
-   "Silver": 60.415,
-   "WTI": 91.11
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "FinancialJuice: Yemen's Houthis: Attack on Aramco facility in Saudi Arabia's Riyadh with ballistic missiles and drones",
-   "src": "",
    "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
    "leans": [
     {
