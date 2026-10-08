@@ -1,5 +1,60 @@
 [
  {
+  "when": "08 Oct 16:33 UTC",
+  "iso": "2026-10-08T16:33:08.104008+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nTrump rules out U.S. military action against Iran before midterm elections - Haaretz  (Haaretz)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,143 (+0.1%)   Silver 59.19 (-1.2%)   WTI 91.27 (+3.4%)   DXY 102.29 (+0.1%)   US10Y 5.26 (-0.4%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPbVlrX1dDbWloNHhrSGlIQlFIVTFIeHRTUW03bW0zV180ZkhOWktQTjRkY1JWbmJPZklBbG81bVZUbThpYVNCdFh5TXBVYzBhSnJjMFFGTVRnOVQwb29pcmF0ZFBMN1pzNFFGZ3IxTkNaWXpRUENtZ0o5YUZhbWRsTUgzQ2pnaXFYSnl4R1lodktTSmhtSjVKb1gweUZlV2JJaldhU2w1RTg0TFFETjlIT1JLd3JUU0p6cDdndUhqa25KRllUNnZkOXBzUV9SQ25VVHMydVlFb3Yzb3h1T21z?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4143.4,
+   "Silver": 59.185,
+   "WTI": 91.27
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Trump rules out U.S. military action against Iran before midterm elections - Haaretz",
+   "src": "Haaretz",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,143 (+0.1%)   Silver 59.19 (-1.2%)   WTI 91.27 (+3.4%)   DXY 102.29 (+0.1%)   US10Y 5.26 (-0.4%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "08 Oct 15:35 UTC",
   "iso": "2026-10-08T15:35:08.228767+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,166 (+0.1%)   Silver 61.51 (+2.5%)   WTI 90.74 (-0.4%)   DXY 102.18 (+0.2%)   US10Y 5.32 (+0.9%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "05 Oct 12:06 UTC",
-  "iso": "2026-10-05T12:06:13.595254+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold Rebounds Modestly as Fed Rate-Hike Odds Collapse and Banks Trim 2026 Targets - AD HOC NEWS  (AD HOC NEWS)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,183 (+0.5%)   Silver 62.00 (+3.4%)   WTI 90.25 (-0.9%)   DXY 102.24 (+0.3%)   US10Y 5.28 (+0.8%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPX2p2WTZndVNQMHVQMm4zX1U2SmlMUnV0WjZlZWhyOGo2Tk9hcFI1NU9WNDFhRVZaTXdTVDdvVTJCUGluLTR6Y0FnOGQ4QTJaU0dvNm9IUTQxYWlRNF9GdEpQQkMzTkFPY3Z1VnA5WGN4dmkweGs4T0FhQlYxVkhtaUFadzgzRGw4SUpoSElJQnM2SlhOd0Qxcnh6T1NqSHg1OXJ4OWQ4bTJIa1NTVGZmZ1NXYTlOUkprZ2Y2WTVXUjBkSHRESGYzRWUwcHZ6ZXdlMFpRRDM2Y19KNjRVd2c?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4182.6,
-   "Silver": 62.0,
-   "WTI": 90.25
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Gold Rebounds Modestly as Fed Rate-Hike Odds Collapse and Banks Trim 2026 Targets - AD HOC NEWS",
-   "src": "AD HOC NEWS",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,183 (+0.5%)   Silver 62.00 (+3.4%)   WTI 90.25 (-0.9%)   DXY 102.24 (+0.3%)   US10Y 5.28 (+0.8%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
