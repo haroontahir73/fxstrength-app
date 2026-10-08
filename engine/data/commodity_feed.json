@@ -1,5 +1,60 @@
 [
  {
+  "when": "08 Oct 10:00 UTC",
+  "iso": "2026-10-08T10:00:26.019101+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFed officials see potential for one more rate hike by end-2026 - Azernews.az  (Azernews.az)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,146 (+0.1%)   Silver 59.13 (-1.3%)   WTI 91.95 (+4.2%)   DXY 102.39 (+0.1%)   US10Y 5.28 (+0.2%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFA4RzJxekQtdE1nWU4ySVI0ZF80bzAxNDEwcnNWZnZocmRQQjNXM2xZT0pTMm15R1U0ejRnemhsUjJKM01FT25MR0xUN2xZSWRLTXc3YQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4146.4,
+   "Silver": 59.13,
+   "WTI": 91.95
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Fed officials see potential for one more rate hike by end-2026 - Azernews.az",
+   "src": "Azernews.az",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,146 (+0.1%)   Silver 59.13 (-1.3%)   WTI 91.95 (+4.2%)   DXY 102.39 (+0.1%)   US10Y 5.28 (+0.2%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "08 Oct 09:47 UTC",
   "iso": "2026-10-08T09:47:39.535060+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,181 (+0.5%)   Silver 61.70 (+2.9%)   WTI 90.07 (-1.1%)   DXY 102.29 (+0.4%)   US10Y 5.28 (+0.8%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "05 Oct 06:56 UTC",
-  "iso": "2026-10-05T06:56:05.287559+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold gains as October Fed rate hike prospects fade - The Standard (HK)  (The Standard (HK))\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,180 (+0.4%)   Silver 61.66 (+2.8%)   WTI 90.06 (-1.2%)   DXY 102.34 (+0.4%)   US10Y 5.28 (+0.8%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPUUNScGhXeDdtX2JuY2ZmMlBQel96MmxJcVNkeDRKWUk5SG9rX0ZpS3JYV3JmZzF1TmFTUV9faV9fOWZLX0JjTV95SHdtcHhuWHZISkd0TEd1T05MSjA2VVFGdDhubFhpMjBnVGJrMkpJN3hISGdrZnR6ZEVqbUFxWmpWWGZwYWtFNmY5NmpXNE4wY2dXSGh5T0NsUm5lc212dk1XTlJaVQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4179.9,
-   "Silver": 61.655,
-   "WTI": 90.06
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Gold gains as October Fed rate hike prospects fade - The Standard (HK)",
-   "src": "The Standard (HK)",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,180 (+0.4%)   Silver 61.66 (+2.8%)   WTI 90.06 (-1.2%)   DXY 102.34 (+0.4%)   US10Y 5.28 (+0.8%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
