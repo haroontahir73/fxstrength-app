@@ -1,69 +1,69 @@
 {
- "_help": "Per commodity, an indicator->1-5 map (5 = bullish). A bare number or {\"score\": n, \"note\": \"why\"} for auditability. Unset = held at neutral and excluded from the average, exactly like fundamentals_manual. Refreshed by the fx-strength-desk-daily task, step 2c.",
- "XAU": {
-  "Real yield direction": {
-   "score": 1,
-   "note": "10-year hit 5.244% on 29 Sep (highest since 2007) as markets priced ~70% odds of another Fed hike in October; Williams/Barr/Goolsbee all kept a further hike on the table. Headwind still building, cut 1.5 -> 1.",
-   "as_of": "2026-09-30"
+  "_help": "Per commodity, an indicator->1-5 map (5 = bullish). A bare number or {\"score\": n, \"note\": \"why\"} for auditability. Unset = held at neutral and excluded from the average, exactly like fundamentals_manual. Refreshed by the fx-strength-desk-daily task, step 2c.",
+  "XAU": {
+    "Real yield direction": {
+      "score": 1,
+      "note": "7 Oct: 10-year ended at 5.295%, a new cycle high, and the Fed minutes showed most officials see another hike by year end. Headwind intact, held at 1.",
+      "as_of": "2026-10-08"
+    },
+    "US dollar direction": {
+      "score": 1.5,
+      "note": "7 Oct: DXY +0.4% to 102.25 with yields; gold closed at a two-month low ($4,110). Waller's 'hikes need not be consecutive' gave only brief relief on 8 Oct. Held at 1.5.",
+      "as_of": "2026-10-08"
+    },
+    "Central-bank & ETF demand": {
+      "score": 4,
+      "note": "Re-checked 30 Sep: no newer monthly data - CB buying still record pace (Q2 289t, +62% y/y) while the ~$2bn pre-FOMC ETF inflow bet on a $4,300-4,400 floor has since been broken (gold ~$4,175), so ETF flows likely choppy/negative again. CB leg dominates, held at 4.",
+      "as_of": "2026-09-30"
+    },
+    "Safe-haven bid": {
+      "score": 2.5,
+      "note": "Hormuz tanker attacks hit their highest weekly level of the war and the US reportedly drew up Iran strike options (7-8 Oct), yet gold fell to a two-month low - the haven bid is being overpowered by yields. Cut 3 -> 2.5.",
+      "as_of": "2026-10-08"
+    }
   },
-  "US dollar direction": {
-   "score": 1.5,
-   "note": "6 Oct: gold pinned near two-month lows (~$4,150) on a stronger dollar and surging Treasury yields despite softer US jobs data and lower October hike odds. Still a headwind, held at 1.5.",
-   "as_of": "2026-10-06"
+  "XAG": {
+    "Real yield direction": {
+      "score": 1,
+      "note": "7 Oct: 10-year ended at 5.295%, a new cycle high, and the Fed minutes showed most officials see another hike by year end. Headwind intact, held at 1. Silver more leveraged to it.",
+      "as_of": "2026-10-08"
+    },
+    "US dollar direction": {
+      "score": 1.5,
+      "note": "7 Oct: DXY +0.4% to 102.25 with yields; gold closed at a two-month low ($4,110). Waller's 'hikes need not be consecutive' gave only brief relief on 8 Oct. Held at 1.5.",
+      "as_of": "2026-10-08"
+    },
+    "Industrial demand": {
+      "score": 2.5,
+      "note": "Re-checked: industrial leg is ebbing - JPMorgan sees solar silver demand down ~30% in 2026 and Metals Focus/Mercom put PV demand -19% y/y on thrifting and substitution (AGBI, 'solar demand loses shine', Sep 2026). A sixth straight deficit (~46 Moz) and record-low China inventories still support, but the old 'record demand' read is superseded; cut 3.5 -> 2.5.",
+      "as_of": "2026-09-27"
+    },
+    "Gold-silver ratio": {
+      "score": 3,
+      "note": "Ratio ~70.2 (XAU 4149 / XAG 59.1 on the 8 Oct feed), up from ~67.9 as silver underperforms, but still below the long-run ~80. Neutral, held at 3.",
+      "as_of": "2026-10-08"
+    }
   },
-  "Central-bank & ETF demand": {
-   "score": 4,
-   "note": "Re-checked 30 Sep: no newer monthly data - CB buying still record pace (Q2 289t, +62% y/y) while the ~$2bn pre-FOMC ETF inflow bet on a $4,300-4,400 floor has since been broken (gold ~$4,175), so ETF flows likely choppy/negative again. CB leg dominates, held at 4.",
-   "as_of": "2026-09-30"
-  },
-  "Safe-haven bid": {
-   "score": 3,
-   "note": "Hormuz talks stalled again over the weekend (Iran won't soften demands, Trump rejected its plan), which should help the haven leg - but gold slipped from ~$4,320 to ~$4,213 over the week as yields and the dollar dominated. Mixed, held at 3.",
-   "as_of": "2026-09-28"
+  "WTI": {
+    "OPEC+ supply policy": {
+      "score": 4,
+      "note": "OPEC+ core seven held November quotas at the September level (31.1 Mb/d) on 4 Oct, extending the pause through year-end; next meeting 1 Nov. Restraint intact, held at 4.",
+      "as_of": "2026-10-06"
+    },
+    "Inventory trend": {
+      "score": 3.5,
+      "note": "EIA week to 2 Oct: crude -3.2 Mb vs a 1.7 Mb build expected (424.1 Mb, ~1% above 5-yr), gasoline +0.4 Mb, distillates flat at 12% below 5-yr; Storm Isaias shut ~25% of Gulf output. Turned mildly bullish, 2.5 -> 3.5.",
+      "as_of": "2026-10-08"
+    },
+    "Demand outlook": {
+      "score": 1.5,
+      "note": "Re-checked: the September IEA OMR is still the latest - 2026 demand to fall 2.5 mb/d (940 kb/d steeper than August) as the US-Iran impasse delays normal flows; EIA sees -1.7 mb/d, only OPEC sees growth. Held at 1.5.",
+      "as_of": "2026-09-28"
+    },
+    "Geopolitical risk premium": {
+      "score": 3.5,
+      "note": "Hormuz tanker attacks at their highest weekly level since the war began, a tanker hit north of Qatar (7 Oct) and reports of Pentagon strike options; Oman-Iran talks 'advanced' but confidence eroding. WTI +3% to ~$91. 3 -> 3.5.",
+      "as_of": "2026-10-08"
+    }
   }
- },
- "XAG": {
-  "Real yield direction": {
-   "score": 1,
-   "note": "10-year hit 5.244% on 29 Sep (highest since 2007) as markets priced ~70% odds of another Fed hike in October; Williams/Barr/Goolsbee all kept a further hike on the table. Headwind still building, cut 1.5 -> 1. Silver more leveraged to it than gold.",
-   "as_of": "2026-09-30"
-  },
-  "US dollar direction": {
-   "score": 1.5,
-   "note": "6 Oct: gold pinned near two-month lows (~$4,150) on a stronger dollar and surging Treasury yields despite softer US jobs data and lower October hike odds. Still a headwind, held at 1.5.",
-   "as_of": "2026-10-06"
-  },
-  "Industrial demand": {
-   "score": 2.5,
-   "note": "Re-checked: industrial leg is ebbing - JPMorgan sees solar silver demand down ~30% in 2026 and Metals Focus/Mercom put PV demand -19% y/y on thrifting and substitution (AGBI, 'solar demand loses shine', Sep 2026). A sixth straight deficit (~46 Moz) and record-low China inventories still support, but the old 'record demand' read is superseded; cut 3.5 -> 2.5.",
-   "as_of": "2026-09-27"
-  },
-  "Gold-silver ratio": {
-   "score": 3,
-   "note": "Ratio ~67.9 (XAU 4213 / XAG 62.0 on the 28 Sep feed), up slightly from ~66.6 but still well below the long-run ~80 average. Neutral, unchanged.",
-   "as_of": "2026-09-28"
-  }
- },
- "WTI": {
-  "OPEC+ supply policy": {
-   "score": 4,
-   "note": "OPEC+ core seven held November quotas at the September level (31.1 Mb/d) on 4 Oct, extending the pause through year-end; next meeting 1 Nov. Restraint intact, held at 4.",
-   "as_of": "2026-10-06"
-  },
-  "Inventory trend": {
-   "score": 2.5,
-   "note": "EIA week to 25 Sep: crude +0.9 Mb to 427.3 Mb vs a 0.3 Mb draw expected (second straight surprise build, ~2% above 5-yr avg; Cushing +0.55 Mb), but gasoline -1.7 Mb and distillates -2.3 Mb (14% below 5-yr). Mixed, crude side mildly bearish - held at 2.5.",
-   "as_of": "2026-09-30"
-  },
-  "Demand outlook": {
-   "score": 1.5,
-   "note": "Re-checked: the September IEA OMR is still the latest - 2026 demand to fall 2.5 mb/d (940 kb/d steeper than August) as the US-Iran impasse delays normal flows; EIA sees -1.7 mb/d, only OPEC sees growth. Held at 1.5.",
-   "as_of": "2026-09-28"
-  },
-  "Geopolitical risk premium": {
-   "score": 3,
-   "note": "Talks stalled again: Trump rejected Iran's seven-day Hormuz reopening proposal (blockade lifted, assets unfrozen, war ended 'on all fronts') and Iran said on 27 Sep it won't soften its demands - Brent back above $106, WTI ~$94 (Bloomberg). Strait still shut, so the 23 Sep de-escalation cut is partly reversed, 2 -> 3.",
-   "as_of": "2026-09-28"
-  }
- }
 }

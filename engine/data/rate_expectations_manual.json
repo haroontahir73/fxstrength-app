@@ -2,11 +2,11 @@
   "_help": "Fallback for banks centralbank.watch does not publish probabilities for (it links out to CME FedWatch for the Fed, and omits the RBNZ). Fill hike/hold/cut as percentages plus next_meeting and src. Set \"override\": true to beat a scraped value. Leave a bank out entirely rather than guessing - a missing expectation is handled, an invented one is not.",
   "_note_USD": "16 Sep FOMC hiked 25bp to 3.75-4.00% (confirmed) with a hawkish dot plot (16 of 18 officials expect at least one more hike this year). That meeting has now passed, so the prior entry (which pointed at it) is stale - decision-day trap. No credible market-implied probability for the next meeting (28 Oct) was found: WebSearch turned up only the qualitative dot-plot signal, and the internal Fed Watch model (data/fedwatch.json) is currently broken post-hike (still using the pre-hike EFFR/target range as of 15 Sep, producing a nonsensical Dec reading). Left out entirely rather than guessing - re-research once a clean Oct 28 figure is available.",
   "JPY": {
-    "hike": 22,
-    "hold": 78,
+    "hike": 15,
+    "hold": 85,
     "cut": 0,
     "next_meeting": "October 30, 2026",
-    "src": "re-checked 2026-09-30: OIS snapshots put the 30 Oct hike odds at ~17-38% depending on source/day (rateprobability/centralbank.watch), and a former BoJ executive director told Japan Times (28 Sep) 20-30%; 22% hike / 78% hold kept as the mid. Next MPM 29-30 Oct confirmed on boj.or.jp. Prior: researched 2026-09-23 after the 18 Sep hike to 1.25%.",
+    "src": "researched 2026-10-08: OIS implies ~12% for a 30 Oct hike rising to ~90% by December (KuCoin/market wrap), another tracker shows 83% no-change; 15/85 used as the mid. Most economists expect a hold. Prior: 22% on 30 Sep.",
     "override": true
   },
   "EUR": {
