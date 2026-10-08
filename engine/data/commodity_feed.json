@@ -1,5 +1,60 @@
 [
  {
+  "when": "08 Oct 09:47 UTC",
+  "iso": "2026-10-08T09:47:39.535060+00:00",
+  "cat": "geo_escalation",
+  "title": "TALK | OIL LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nTrump says he doesn't want Iran deal as U.S. reportedly prepares for 'massive bombing'\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191   look for longs - supply at risk = price up fast (talk, not action yet)\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,148 (+0.2%)   Silver 59.17 (-1.2%)   WTI 91.59 (+3.7%)   DXY 102.34 (+0.1%)   US10Y 5.28 (+0.2%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://www.cnbc.com/2026/10/08/us-iran-war-trump-hormuz.html",
+  "talk": true,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4147.7,
+   "Silver": 59.175,
+   "WTI": 91.59
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Trump says he doesn't want Iran deal as U.S. reportedly prepares for 'massive bombing'",
+   "src": "",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "supply at risk = price up fast (talk, not action yet)",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,148 (+0.2%)   Silver 59.17 (-1.2%)   WTI 91.59 (+3.7%)   DXY 102.34 (+0.1%)   US10Y 5.28 (+0.2%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "08 Oct 07:55 UTC",
   "iso": "2026-10-08T07:55:41.297341+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,180 (+0.4%)   Silver 61.66 (+2.8%)   WTI 90.06 (-1.2%)   DXY 102.34 (+0.4%)   US10Y 5.28 (+0.8%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "05 Oct 06:00 UTC",
-  "iso": "2026-10-05T06:00:10.363229+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nOPEC+ Hold Oil Output Steady in November Amid Middle East Tensions | - Business Post Nigeria  (Business Post Nigeria)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,166 (+0.1%)   Silver 61.37 (+2.3%)   WTI 89.83 (-1.4%)   DXY 102.34 (+0.4%)   US10Y 5.28 (+0.8%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPOG5TSDE2UGt3Q3d5eWdiczVISGJrdlZsMS02X3VpNGk1SFRGM290RjdTTjFSeDhadm81TkZpRVZwS1NWQ2ZTay1iWHZ1eFRIMm9EMzFxaG5qZFI2eFp3cEpOdXZGSG94WmFGZGxHU1ExZEF3TmV1UnNScWd6ZXo5YXM2TTNxcGlCY3YxeWw3X0dPM0Z4MHJSdlZ6Rk0zamc?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4165.9,
-   "Silver": 61.37,
-   "WTI": 89.83
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "OPEC+ Hold Oil Output Steady in November Amid Middle East Tensions | - Business Post Nigeria",
-   "src": "Business Post Nigeria",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,166 (+0.1%)   Silver 61.37 (+2.3%)   WTI 89.83 (-1.4%)   DXY 102.34 (+0.4%)   US10Y 5.28 (+0.8%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
