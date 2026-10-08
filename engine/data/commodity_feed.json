@@ -1,5 +1,60 @@
 [
  {
+  "when": "08 Oct 21:12 UTC",
+  "iso": "2026-10-08T21:12:36.062218+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold gains on geopolitics as Fed hike bets shift to December - FXStreet  (FXStreet)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,158 (+0.4%)   Silver 59.43 (-0.8%)   WTI 91.18 (+3.3%)   DXY 102.13 (-0.1%)   US10Y 5.23 (-0.9%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOMEpqRXZsZVRJclFZMUVXcTI3VGphSktHNTJ4d0todzhKT0xsc1YzYl9jLXExNEpNcUJjMVhlNFdrRXJaVHNMakdlME5wNlAxRi1HSWdUREtKNTRlUTF3VF9OWXltSHJJYWgwTjhGdlJpbmVNcVhZVnMtdENYQVhFODQ0dldFLThHNTVFS1MyVlJZcnFacDNZRDFmZ0FicUtiU2RKVk9n?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4158.3,
+   "Silver": 59.43,
+   "WTI": 91.18
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Gold gains on geopolitics as Fed hike bets shift to December - FXStreet",
+   "src": "FXStreet",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,158 (+0.4%)   Silver 59.43 (-0.8%)   WTI 91.18 (+3.3%)   DXY 102.13 (-0.1%)   US10Y 5.23 (-0.9%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "08 Oct 19:48 UTC",
   "iso": "2026-10-08T19:48:25.607275+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,168 (+0.1%)   Silver 61.40 (+2.4%)   WTI 89.30 (-2.0%)   DXY 102.12 (+0.2%)   US10Y 5.31 (+0.6%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "05 Oct 20:38 UTC",
-  "iso": "2026-10-05T20:38:32.067090+00:00",
-  "cat": "silver_squeeze",
-  "title": "TALK | SILVER LONG | SILVER - physical squeeze",
-  "body": "\u26a1 SILVER \u2014 physical squeeze\n\nSilver shortage could flip to surplus in 2027: Deutsche - Mining.com  (Mining.com)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: There is not enough real silver where it is needed. Anyone who sold silver they do not hold has to buy it back fast, which forces the price up.\n\nGOLD   \u2191    mild long bias - gets pulled along\n        [NOT TESTED - no history to judge this on]\nSILVER \u2191\u2191   look for longs - this is silver's own violent move (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2192    no clean read\n\nNOW  Gold 4,168 (+0.1%)   Silver 61.42 (+2.4%)   WTI 89.18 (-2.1%)   DXY 102.16 (+0.2%)   US10Y 5.31 (+0.6%)\n\nFLIP: squeezes end abruptly and give most of it back \u2014 do not chase late",
-  "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxONjdmWFB2ajNsNmJJR1U4MVQ4aUx4Z1gyWmZMeEFLSkRyZ0lRdlFTZFE3LTg1aTlFV0dPdDhxMTdVN280WlhMeHd1WHZ0UFFmMGdwdE9vMmtFQzFPekNRd3lDOW84SUFGVkwxWEdXUjlBU0Qwc0o3ZThGU0U2SnNHbzcteGc?oc=5",
-  "talk": true,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4168.5,
-   "Silver": 61.42,
-   "WTI": 89.18
-  },
-  "parts": {
-   "emoji": "\u26a1",
-   "label": "SILVER \u2014 physical squeeze",
-   "headline": "Silver shortage could flip to surplus in 2027: Deutsche - Mining.com",
-   "src": "Mining.com",
-   "why": "There is not enough real silver where it is needed. Anyone who sold silver they do not hold has to buy it back fast, which forces the price up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "gets pulled along",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "this is silver's own violent move (talk, not action yet)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 4,168 (+0.1%)   Silver 61.42 (+2.4%)   WTI 89.18 (-2.1%)   DXY 102.16 (+0.2%)   US10Y 5.31 (+0.6%)",
-   "reality": "",
-   "flip": "squeezes end abruptly and give most of it back \u2014 do not chase late"
   }
  }
 ]
