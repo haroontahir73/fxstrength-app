@@ -1,5 +1,60 @@
 [
  {
+  "when": "09 Oct 01:42 UTC",
+  "iso": "2026-10-09T01:42:32.665832+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nWTI slips below $90.50 as Trump signals no pre-election strike on Iran - FXStreet  (FXStreet)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,191 (+1.2%)   Silver 60.23 (+0.5%)   WTI 90.99 (+3.1%)   DXY 102.00 (-0.1%)   US10Y 5.23 (-0.9%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPbnMtSjR5cjRZdmJBZGpRRjI5TDVLaDdzM1lQTDB2U1ZzNmgyNVc5cEVUbGh1WTZOdTJidzRiUHFYXy1rWWgtbUFfUmJPYUtOZkw3QmZBak1CSTVuNjFDQVpHUVlUdGlMNDNhaThDb1pRcGlIQWtucjRiWjNQNVU0SHVrdVRXZG1vQy1aNVRwaGdmNWIxd1VqaGtuaTdxZXFDVjJPZVlEckoyUThfTXllVQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4190.6,
+   "Silver": 60.225,
+   "WTI": 90.99
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "WTI slips below $90.50 as Trump signals no pre-election strike on Iran - FXStreet",
+   "src": "FXStreet",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,191 (+1.2%)   Silver 60.23 (+0.5%)   WTI 90.99 (+3.1%)   DXY 102.00 (-0.1%)   US10Y 5.23 (-0.9%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "09 Oct 01:29 UTC",
   "iso": "2026-10-09T01:29:46.523273+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,150 (-0.2%)   Silver 60.86 (-0.0%)   WTI 89.89 (+0.5%)   DXY 102.17 (+0.0%)   US10Y 5.31 (+0.6%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "06 Oct 03:35 UTC",
-  "iso": "2026-10-06T03:35:25.533088+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nFinancialJuice: Trump: BD to invest more than $1 billion to boost production of various products, including needles made from American steel\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,156 (-0.0%)   Silver 61.10 (+0.4%)   WTI 89.72 (+0.3%)   DXY 102.15 (-0.0%)   US10Y 5.31 (+0.6%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://www.financialjuice.com/News/9792842/Trump-BD-to-invest-more-than-1-billion-to-boost-production-of-various-products-including-needles-made-from-American-steel.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4156.4,
-   "Silver": 61.1,
-   "WTI": 89.72
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "FinancialJuice: Trump: BD to invest more than $1 billion to boost production of various products, including needles made from American steel",
-   "src": "",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,156 (-0.0%)   Silver 61.10 (+0.4%)   WTI 89.72 (+0.3%)   DXY 102.15 (-0.0%)   US10Y 5.31 (+0.6%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
