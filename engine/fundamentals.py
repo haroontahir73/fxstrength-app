@@ -76,17 +76,25 @@ def _rate_scores(rates):
     span = (hi - lo) or 1.0
     for ccy, r in vals.items():
         d = rates["currencies"][ccy]
+        # A rate fetch_rates could not confirm this run is carried rather than blanked
+        # (see that file). Say so in the basis, so a remembered number is never read as a
+        # freshly confirmed one.
+        carried = " - CARRIED, not confirmed this run" if d.get("stale") else ""
         out[ccy]["Policy rate"] = {
             "score": round(1 + 4 * (r - lo) / span, 2),
-            "basis": f"{r:.2f}% ({d['title']}, {d['as_of']}); range across G7 {lo:.2f}-{hi:.2f}%",
-            "when": d["as_of"],
+            "basis": (f"{r:.2f}% ({d.get('title', 'rate decision')}, {d.get('as_of', 'n/a')})"
+                      f"; range across G7 {lo:.2f}-{hi:.2f}%{carried}"),
+            "when": d.get("as_of", ""),
+            "stale": bool(d.get("stale")),
         }
         diff = d.get("diff_vs_usd")
-        if diff is not None:
+        if diff is not None and rates.get("usd_rate") is not None:
+            usd_note = " (USD carried)" if rates.get("usd_rate_carried") else ""
             out[ccy]["Rate differential vs USD"] = {
                 "score": round(max(1.0, min(5.0, 3 + 2 * math.tanh(diff / 2))), 2),
-                "basis": f"{diff:+.2f}pp vs USD {rates['usd_rate']:.2f}%",
-                "when": d["as_of"],
+                "basis": f"{diff:+.2f}pp vs USD {rates['usd_rate']:.2f}%{usd_note}{carried}",
+                "when": d.get("as_of", ""),
+                "stale": bool(d.get("stale")) or bool(rates.get("usd_rate_carried")),
             }
     return out
 

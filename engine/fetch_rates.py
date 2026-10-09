@@ -20,20 +20,44 @@ TITLES = ("interest rate decision", "cash rate", "official cash rate", "ocr deci
 COUNTRY = {"US": "USD", "GB": "GBP", "JP": "JPY", "EU": "EUR",
            "AU": "AUD", "NZ": "NZD", "CA": "CAD", "CH": "CHF"}
 
+# A policy rate is a FACT with a date on it, not a reading that decays: the ECB's 2.15%
+# stays 2.15% until the ECB moves it. So when the fetch cannot confirm it, the last
+# confirmed value is a far better answer than None - which is what this used to write.
+# None here is not neutral: fundamentals.py drops both interest-rate indicators to unset,
+# so a transient API outage quietly removed real evidence from the checklist and changed
+# the board. Carried-over values are marked `stale` with a day count so freshness.py and
+# the page can both say the number is remembered rather than confirmed.
+CARRY_MAX_DAYS = 120   # past this a remembered rate is withdrawn rather than carried
+
+
+def _cached():
+    p = DATA / "rates.json"
+    if not p.exists():
+        return None
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:                                          # noqa: BLE001
+        return None
+
 
 def main():
     now = dt.datetime.now(dt.timezone.utc)
     # The API caps a response at 2000 rows and truncates from the START of the range,
     # so a long window silently returns the OLDEST events. Page it in slices instead.
     rows, step = [], 40
+    slices = failed = 0
     start = now - dt.timedelta(days=LOOKBACK_DAYS)
     while start < now:
         end = min(start + dt.timedelta(days=step), now)
+        slices += 1
         try:
             rows.extend(fetch(start, end))
         except Exception as e:
+            failed += 1
             print(f"  slice {start:%Y-%m-%d} failed: {type(e).__name__}: {e}")
         start = end
+    if failed:
+        print(f"  {failed}/{slices} slices failed")
     latest = {}
     for ev in sorted(rows, key=lambda e: e["date"]):
         ccy = COUNTRY.get(ev.get("country"))
@@ -44,12 +68,48 @@ def main():
                            "when": ev["date"][:10],
                            "previous": ev.get("previousRaw")}
 
+    prev = _cached() or {}
+    prev_ccy = prev.get("currencies") or {}
+
     usd = latest.get("USD", {}).get("rate")
-    out = {"fetched_at": now.isoformat(), "usd_rate": usd, "currencies": {}}
+    # Carry the USD rate too - every diff_vs_usd depends on it, so losing it alone would
+    # blank the rate-differential indicator for all eight currencies.
+    usd_carried = False
+    if usd is None and prev_ccy.get("USD", {}).get("rate") is not None:
+        usd, usd_carried = prev_ccy["USD"]["rate"], True
+
+    out = {"fetched_at": now.isoformat(), "usd_rate": usd,
+           "usd_rate_carried": usd_carried, "currencies": {}}
+    carried = []
     for ccy in ORDER:
         d = latest.get(ccy)
         if not d:
-            out["currencies"][ccy] = {"rate": None, "note": "no decision found in window"}
+            # Nothing confirmed this run. Keep the last confirmed rate rather than
+            # overwriting a fact with None - but only while it is recent enough to
+            # still plausibly be the current policy rate.
+            old = prev_ccy.get(ccy) or {}
+            age_d = None
+            if old.get("rate") is not None:
+                try:
+                    age_d = (now.date() - dt.date.fromisoformat(old["as_of"])).days
+                except Exception:                              # noqa: BLE001
+                    age_d = None
+            if old.get("rate") is not None and (age_d is None or age_d <= CARRY_MAX_DAYS):
+                kept = dict(old)
+                kept.update({"stale": True, "carried_at": now.isoformat(),
+                             "stale_days": age_d,
+                             "note": f"no decision in window this run - carrying the last "
+                                     f"confirmed rate"
+                                     + (f" ({age_d}d old)" if age_d is not None else "")})
+                # the differential still has to be against whatever USD we ended up with
+                if usd is not None and kept.get("rate") is not None:
+                    kept["diff_vs_usd"] = round(kept["rate"] - usd, 2)
+                out["currencies"][ccy] = kept
+                carried.append(ccy)
+                continue
+            why = ("no decision found in window" if not old.get("rate") else
+                   f"last confirmed rate is {age_d}d old (>{CARRY_MAX_DAYS}d) - withdrawn")
+            out["currencies"][ccy] = {"rate": None, "note": why}
             continue
         diff = (d["rate"] - usd) if usd is not None else None
         moved = (d["rate"] - d["previous"]) if d["previous"] is not None else None
@@ -58,6 +118,11 @@ def main():
             "last_move": round(moved, 2) if moved is not None else None,
             "as_of": d["when"], "title": d["title"],
         }
+    if carried:
+        out["degraded"] = True
+        out["degraded_why"] = f"carried last confirmed rate for {', '.join(carried)}"
+        print(f"  carried previous rates for {', '.join(carried)}"
+              + ("  (USD too)" if usd_carried else ""))
     (DATA / "rates.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
     return out
 

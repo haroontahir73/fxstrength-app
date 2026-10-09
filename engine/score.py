@@ -46,13 +46,31 @@ def cot_score(cot):
         basket_den += oi
     if basket_den and out.get("USD"):
         basket = -basket_num / basket_den
+        # The dollar-index contract may be absent from the report (a partial Socrata week,
+        # a tradingster miss). It is the minority leg at 25%, and the basket - which is the
+        # other seven contracts, already a position on the dollar - is the part that
+        # matters. So fall back to the basket alone rather than failing: reading
+        # cot['currencies']['USD'] unconditionally here raised KeyError and took the whole
+        # score build down, i.e. one missing contract cost the entire board.
+        usd_row = (cot.get("currencies") or {}).get("USD") or {}
+        usd_oi = usd_row.get("open_interest")
+        has_own = bool(usd_row.get(COT_CATEGORY)) and bool(usd_oi)
         own = out["USD"]["score"]
-        out["USD"]["score"] = round(0.75 * basket + 0.25 * own, 1)
+        if has_own:
+            out["USD"]["score"] = round(0.75 * basket + 0.25 * own, 1)
+            out["USD"]["own_contract"] = round(own, 1)
+            out["USD"]["note"] = (f"inverse basket {basket:+.0f} (75%) blended with "
+                                  f"dollar-index contract {own:+.0f} (25%); index OI only "
+                                  f"{usd_oi:,}")
+        else:
+            out["USD"]["score"] = round(basket, 1)
+            out["USD"]["own_contract"] = None
+            out["USD"]["degraded"] = True
+            out["USD"]["note"] = (f"inverse basket {basket:+.0f} (100%); the dollar-index "
+                                  f"contract is missing from this report, so its usual 25% "
+                                  f"share is carried by the basket")
+            print("  USD COT: dollar-index contract missing - scoring from the basket alone")
         out["USD"]["basket"] = round(basket, 1)
-        out["USD"]["own_contract"] = round(own, 1)
-        out["USD"]["note"] = (f"inverse basket {basket:+.0f} (75%) blended with dollar-index "
-                              f"contract {own:+.0f} (25%); index OI only "
-                              f"{cot['currencies']['USD']['open_interest']:,}")
     return out
 
 
@@ -66,12 +84,21 @@ def build():
 
     cots = cot_score(cot)
     rows = {}
+    # A currency can be absent from a cached input written before it joined the board
+    # (CHF did exactly that on 2026-09-08). Missing evidence is a true 0 for that leg,
+    # not a reason to abandon the whole build.
+    missing_legs = []
     for ccy in ORDER:
+        fun_row = (fun.get("currencies") or {}).get(ccy) or {}
+        oi_row = (oi.get("currencies") or {}).get(ccy) or {}
+        for name, row in (("checklist", fun_row), ("open interest", oi_row)):
+            if not row:
+                missing_legs.append(f"{ccy} {name}")
         parts = {
-            "fundamentals": fun["currencies"][ccy]["score"],
+            "fundamentals": fun_row.get("score", 0.0),
             "cot": cots[ccy]["score"],
-            "oi": oi["currencies"][ccy]["score"],
-            "news": cal["news_score"].get(ccy, 0.0),
+            "oi": oi_row.get("score", 0.0),
+            "news": (cal.get("news_score") or {}).get(ccy, 0.0),
             # 1-5 centred on 3 -> -100..100; absent probabilities score a true 0, not a guess
             "expectations": round((exp["currencies"].get(ccy, {}).get("score", 3.0) - 3) / 2 * 100, 1),
         }
@@ -81,16 +108,22 @@ def build():
             "score": round(total, 1), "rating": label, "cls": cls,
             "parts": {k: round(v, 1) for k, v in parts.items()},
             "contrib": {k: round(parts[k] * WEIGHTS[k], 1) for k in WEIGHTS},
-            "cot": cots[ccy], "oi": oi["currencies"][ccy],
-            "fundamentals": {"avg_1_5": fun["currencies"][ccy]["avg_1_5"],
-                             "categories": fun["currencies"][ccy]["categories"],
-                             "coverage": fun["currencies"][ccy]["coverage"],
-                             "unset": fun["currencies"][ccy]["unset"],
-                             "notes": {k: v for k, v in fun["currencies"][ccy]["indicators"].items()
+            "cot": cots[ccy],
+            "oi": oi_row or {"score": 0.0, "note": "no open-interest data for this currency"},
+            # 3.0 is the checklist's own neutral, so a missing row reads as "nothing
+            # measured" rather than 0.00/5, which would look like a maximally bearish read
+            "fundamentals": {"avg_1_5": fun_row.get("avg_1_5", 3.0),
+                             "categories": fun_row.get("categories") or {},
+                             "coverage": fun_row.get("coverage", 0),
+                             "unset": fun_row.get("unset") or [],
+                             "notes": {k: v for k, v in (fun_row.get("indicators") or {}).items()
                                        if v.get("src") == "manual"}},
-            "news_drivers": cal["contributors"].get(ccy, []),
+            "news_drivers": (cal.get("contributors") or {}).get(ccy, []),
             "expectations": exp["currencies"].get(ccy, {}),
         }
+
+    if missing_legs:
+        print("  missing input rows scored as 0: " + ", ".join(missing_legs))
 
     # weekly COT-net history for the positioning-extreme / trend-turn read
     chp = DATA / "cot_history.json"
@@ -160,7 +193,21 @@ def build():
                           "spread": round(spread, 1), "warnings": warn})
     pairs.sort(key=lambda p: -p["spread"])
 
+    # Per-input freshness, stored WITH the scores. `built_at` is when this HTML was
+    # written; these rows are how old the evidence behind it is. Without them a rebuild
+    # that reused a cached calendar and week-old rates published a page stamped with the
+    # current minute and looked exactly like a healthy one.
+    try:
+        import freshness
+        fresh_rows = freshness.collect()
+        fresh_sum = freshness.summary(fresh_rows)
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  freshness check failed ({type(e).__name__}: {e})")
+        fresh_rows, fresh_sum = [], {"state": "unknown", "stale": [], "degraded": []}
+
     out = {"built_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+           "inputs": fresh_rows, "freshness": fresh_sum,
+           "missing_legs": missing_legs,
            "weights": WEIGHTS, "currencies": rows, "ranked": ranked,
            "pairs": pairs[:12],
            "cot_report_date": cot["currencies"].get("EUR", {}).get("report_date"),

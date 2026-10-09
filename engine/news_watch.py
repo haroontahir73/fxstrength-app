@@ -694,6 +694,48 @@ def push(topic, title, body, link, priority="high", tags="rotating_light"):
     return _ntfy(topic, title, body, link, priority, tags)
 
 
+def deliver(topic, title, body, link="", priority="high", tags="rotating_light",
+            key=None, who="fx", meta=None):
+    """push(), and if the phone did not get it, put it on the durable retry queue.
+
+    The in-call retries in telegram_push/_ntfy cover a few seconds of trouble. They do
+    not cover an ntfy IP rate-limit that outlasts the pass, or the process being
+    cancelled mid-send (an engine push cancels the running watcher on purpose). Anything
+    that survives those has to be on disk, which is what alert_queue is for.
+
+    Returns (delivered, queued).
+    """
+    ok = push(topic, title, body, link, priority, tags)
+    if ok:
+        return True, False
+    try:
+        import alert_queue
+        alert_queue.enqueue(
+            key or hashlib.sha1(title.encode("utf-8", "replace")).hexdigest()[:16],
+            who, title, body, link, priority, tags,
+            meta={**(meta or {}), "error": LAST_PUSH_ERROR})
+        return False, True
+    except Exception as e:                                     # noqa: BLE001
+        print(f"  could not queue the failed alert: {type(e).__name__}: {e}")
+        return False, False
+
+
+def drain_queue(topic):
+    """Resend anything the phone missed earlier. Call at the START of a pass."""
+    try:
+        import alert_queue
+    except Exception:                                          # noqa: BLE001
+        return (0, 0, 0)
+
+    def _send(e):
+        if e.get("topic_required") and not topic and not os.environ.get("TELEGRAM_TOKEN"):
+            return False
+        return push(topic, e.get("title", ""), e.get("body", ""), e.get("link", ""),
+                    e.get("priority", "high"), e.get("tags", "rotating_light"))
+
+    return alert_queue.drain(_send)
+
+
 def _ntfy(topic, title, body, link, priority="high", tags="rotating_light"):
     if not topic:
         print("  NTFY_TOPIC not set - would have pushed:\n" + body + "\n")
@@ -765,6 +807,10 @@ def main():
     seen = load_seen()
     fired = 0
 
+    # Anything the phone missed on an earlier pass goes out before anything new.
+    if not dry:
+        drain_queue(topic)
+
     items = gather_items()
     cal = calendar_surprises()
     snap = market_snapshot() if (items or cal) else {}
@@ -812,10 +858,24 @@ def main():
         print(f"\n[{cat}/{sev}] <{kw}>{' UPDATE' if is_update else ''} src={it.get('src','?')}\n"
               + "-" * 60 + f"\n{body}\n" + "-" * 60)
         if not dry:
-            push(topic, title, body, it["link"], prio)
-            now_t = time.time()
-            seen[f"news_theme:{theme}"] = now_t
-            seen[f"news_theme_kw:{theme}:{kw}"] = now_t
+            # The return value used to be discarded outright, so a failed send left no
+            # trace anywhere and the story was already marked seen - the alert was simply
+            # gone. Now a miss is queued and retried on a later pass.
+            ok, queued = deliver(topic, title, body, it["link"], prio, key=h, who="fx",
+                                 meta={"cat": cat, "sev": sev, "kw": kw,
+                                       "headline": it["title"][:160]})
+            if not ok:
+                print("!" * 70)
+                print(f"! PHONE ALERT FAILED: {title}")
+                print("! " + ("queued for retry on a later pass."
+                              if queued else "NOT QUEUED - this alert is lost."))
+                print("!" * 70)
+            # The theme cooldown starts once the alert is either delivered or safely
+            # queued; a lost send must not also silence the theme for 3 hours.
+            if ok or queued:
+                now_t = time.time()
+                seen[f"news_theme:{theme}"] = now_t
+                seen[f"news_theme_kw:{theme}:{kw}"] = now_t
         fired += 1
 
     # 2) economic-calendar surprises
@@ -833,7 +893,12 @@ def main():
             body += f"\n\nNote: this is {s['ccy']} data - the direct hit is on {s['ccy']}, not the broad USD."
         print(f"[{cat}] {head}")
         if not dry:
-            push(topic, f"FX ALERT: {s['ccy']} data surprise", body, "", "high", "chart_with_upwards_trend")
+            ok, queued = deliver(topic, f"FX ALERT: {s['ccy']} data surprise", body, "",
+                                 "high", "chart_with_upwards_trend", key=h, who="fx",
+                                 meta={"cat": cat, "headline": head[:160]})
+            if not ok:
+                print(f"  ! data-surprise alert failed - "
+                      + ("queued for retry" if queued else "NOT QUEUED, lost"))
         fired += 1
 
     if not dry:

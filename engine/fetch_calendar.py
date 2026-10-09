@@ -74,6 +74,11 @@ def index_family(title):
 LOOKBACK_DAYS = 45   # long enough that every monthly indicator has printed at least once
 LOOKAHEAD_DAYS = 10
 
+# How long a cached calendar may be reused before the news leg is withdrawn rather than
+# re-decayed. Past 4 half-lives the decay factor is under 7%, so the leg is saying almost
+# nothing anyway; carrying it further only lends false precision to a dead feed.
+CACHE_MAX_AGE_H = NEWS_HALFLIFE_HOURS * 4
+
 
 def fetch(frm, to):
     q = (f"{API}?from={frm.strftime('%Y-%m-%dT%H:%M:%S.000Z')}"
@@ -123,6 +128,127 @@ def surprise(ev):
     return z
 
 
+def score_news(released, now):
+    """Per-currency time-decayed surprise score from a list of released events.
+
+    Pulled out of main() because the decay is measured against `now`: a stored score is
+    only correct for the moment it was computed. Reusing a cached calendar's `news_score`
+    unchanged therefore re-asserts a reading that has since decayed - on the leg carrying
+    40% of the blend. This function lets the cached path recompute instead (see _reuse).
+    """
+    # Keep only the LATEST revision of each indicator per currency.
+    latest = {}
+    for rec in sorted(released, key=lambda r: r["when"]):
+        latest[(rec["ccy"], base_indicator(rec["title"]))] = rec
+    deduped = list(latest.values())
+
+    # A weighted MEAN, not a sum. Summing rewarded whichever currency simply publishes more
+    # data - the US had 42 scored events in the window against 3 for the euro area, which
+    # pinned USD at the tanh ceiling regardless of what the prints actually said.
+    num = {c: 0.0 for c in ORDER}
+    den = {c: 0.0 for c in ORDER}
+    contrib = {c: [] for c in ORDER}
+    # TRIED AND REJECTED 2026-09-07: sharing weight between several horizons of one
+    # publication (the Lloyds survey lands as both YoY and MoM and between them made up 99%
+    # of GBP's news reading). It looked right, but backtest_blend measured it: the news leg
+    # fell from +0.217 to +0.176 mean forward rho, 11/13 positive weeks down to 10/13, t
+    # from 2.29 to 1.97. News is the one component with real evidence, so a change that
+    # dents it is not worth a tidier-looking GBP - the redundancy apparently carries signal
+    # (a release that is bad on every horizon really is worse news). `index_family` is kept;
+    # it is the right grouping if this is ever revisited with more history.
+    for rec in deduped:
+        if rec.get("surprise") is None or rec["ccy"] not in num:
+            continue
+        age_h = (now - dt.datetime.fromisoformat(rec["when"])).total_seconds() / 3600
+        if age_h < 0 or age_h > NEWS_HALFLIFE_HOURS * 4:
+            continue
+        decay = 0.5 ** (age_h / NEWS_HALFLIFE_HOURS)
+        w = NEWS_IMPACT_WEIGHT.get(rec["impact"], 0.15) * decay
+        num[rec["ccy"]] += rec["surprise"] * w
+        den[rec["ccy"]] += w
+        contrib[rec["ccy"]].append({**rec, "points": round(rec["surprise"] * w * 100, 1),
+                                    "age_h": round(age_h, 1)})
+
+    # Confidence grows with how much evidence there is and saturates, so a lone Low-impact
+    # print cannot swing the score the way one CBI survey was swinging GBP to -50.
+    news = {}
+    for c in ORDER:
+        if den[c] <= 0:
+            news[c] = 0.0
+            continue
+        mean = num[c] / den[c]
+        confidence = math.tanh(den[c] / 1.5)
+        news[c] = round(mean * confidence * 100, 1)
+    for c in contrib:
+        contrib[c].sort(key=lambda r: -abs(r["points"]))
+        del contrib[c][8:]
+    return news, contrib
+
+
+def _empty(now, why):
+    """An empty-but-valid calendar: news leg a true 0, and SAID to be degraded."""
+    return {"fetched_at": now.isoformat(), "data_as_of": now.isoformat(),
+            "released": [], "news_score": {c: 0.0 for c in ORDER},
+            "contributors": {c: [] for c in ORDER},
+            "next_release": None, "next_high_impact": None,
+            "upcoming": [], "event_count": 0,
+            "degraded": True, "degraded_why": why, "news_leg_withdrawn": True}
+
+
+def _reuse(cached, now):
+    """Reuse a cached calendar after a failed fetch, WITHOUT re-asserting its news score.
+
+    The stored score was decayed to the moment it was computed. Handing it back unchanged
+    tells the blend that evidence from hours ago is as live as evidence from this minute,
+    and because the build timestamp is written fresh every run there was nothing on the
+    page to contradict that. So: recompute the decay from the cached events against the
+    current clock, and carry the real data age through in `data_as_of` / `degraded`.
+    """
+    out = dict(cached)
+    stamp = cached.get("data_as_of") or cached.get("fetched_at")
+    try:
+        as_of = dt.datetime.fromisoformat(stamp)
+    except Exception:                                          # noqa: BLE001
+        as_of = None
+    age_h = (now - as_of).total_seconds() / 3600 if as_of else None
+
+    if age_h is not None and age_h > CACHE_MAX_AGE_H:
+        print(f"  cached calendar is {age_h:.0f}h old (>{CACHE_MAX_AGE_H:.0f}h) - "
+              f"withdrawing the news leg rather than carrying a dead score")
+        out = _empty(now, f"calendar unreachable; last data {age_h:.0f}h old")
+        out["data_as_of"] = stamp or now.isoformat()
+        (DATA / "calendar.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
+        return out
+
+    before = dict(cached.get("news_score") or {})
+    if cached.get("released"):
+        news, contrib = score_news(cached["released"], now)
+        out["news_score"], out["contributors"] = news, contrib
+        how = "re-decayed from cached events"
+    else:
+        # An old-format cache with no event list. Decay what is there by the elapsed
+        # half-lives: less precise than recomputing, but it is the same direction of
+        # travel and never OVERstates the evidence.
+        f = 0.5 ** ((age_h or 0) / NEWS_HALFLIFE_HOURS)
+        out["news_score"] = {c: round(v * f, 1) for c, v in before.items()}
+        out["contributors"] = {c: [] for c in ORDER}
+        how = f"no cached events - blanket decay x{f:.2f}"
+
+    out["degraded"] = True
+    out["degraded_why"] = "calendar fetch failed; reusing cached events"
+    out["news_rescored_at"] = now.isoformat()
+    out["data_as_of"] = stamp or now.isoformat()
+    moved = {c: (before.get(c), out["news_score"].get(c)) for c in out["news_score"]
+             if abs((before.get(c) or 0) - (out["news_score"].get(c) or 0)) >= 1}
+    print(f"  reusing cached calendar.json ({how}; data {age_h:.0f}h old)"
+          if age_h is not None else f"  reusing cached calendar.json ({how})")
+    if moved:
+        print("  news re-decayed: " + "  ".join(
+            f"{c} {a:+.0f}->{b:+.0f}" for c, (a, b) in moved.items()))
+    (DATA / "calendar.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
+    return out
+
+
 def main():
     now = dt.datetime.now(dt.timezone.utc)
     try:
@@ -131,15 +257,14 @@ def main():
         print(f"  calendar fetch FAILED: {type(e).__name__}: {e}")
         cached = DATA / "calendar.json"
         if cached.exists():
-            print("  reusing cached calendar.json")
-            return json.loads(cached.read_text(encoding="utf-8"))
+            try:
+                return _reuse(json.loads(cached.read_text(encoding="utf-8")), now)
+            except Exception as e2:                            # noqa: BLE001
+                print(f"  cached calendar unusable ({type(e2).__name__}: {e2})")
         # cold start with no cache: emit an empty-but-valid calendar so the rest of the
         # pipeline still produces a dashboard (news leg = 0). It self-heals next run.
         print("  no cache - writing an empty calendar so the build can proceed")
-        empty = {"fetched_at": now.isoformat(), "released": [],
-                 "news_score": {c: 0.0 for c in ORDER}, "contributors": {c: [] for c in ORDER},
-                 "next_release": None, "next_high_impact": None,
-                 "upcoming": [], "event_count": 0, "degraded": True}
+        empty = _empty(now, "calendar unreachable and no cache on disk")
         (DATA / "calendar.json").write_text(json.dumps(empty, indent=2), encoding="utf-8")
         return empty
 
@@ -164,50 +289,7 @@ def main():
         events.append(rec)
     events.sort(key=lambda e: e["when"])
 
-    # Keep only the LATEST revision of each indicator per currency.
-    latest = {}
-    for rec in sorted(released, key=lambda r: r["when"]):
-        latest[(rec["ccy"], base_indicator(rec["title"]))] = rec
-    deduped = list(latest.values())
-
-    # A weighted MEAN, not a sum. Summing rewarded whichever currency simply publishes more
-    # data - the US had 42 scored events in the window against 3 for the euro area, which
-    # pinned USD at the tanh ceiling regardless of what the prints actually said.
-    num = {c: 0.0 for c in ORDER}
-    den = {c: 0.0 for c in ORDER}
-    contrib = {c: [] for c in ORDER}
-    # TRIED AND REJECTED 2026-09-07: sharing weight between several horizons of one
-    # publication (the Lloyds survey lands as both YoY and MoM and between them made up 99%
-    # of GBP's news reading). It looked right, but backtest_blend measured it: the news leg
-    # fell from +0.217 to +0.176 mean forward rho, 11/13 positive weeks down to 10/13, t
-    # from 2.29 to 1.97. News is the one component with real evidence, so a change that
-    # dents it is not worth a tidier-looking GBP - the redundancy apparently carries signal
-    # (a release that is bad on every horizon really is worse news). `index_family` is kept;
-    # it is the right grouping if this is ever revisited with more history.
-    for rec in deduped:
-        age_h = (now - dt.datetime.fromisoformat(rec["when"])).total_seconds() / 3600
-        if age_h < 0 or age_h > NEWS_HALFLIFE_HOURS * 4:
-            continue
-        decay = 0.5 ** (age_h / NEWS_HALFLIFE_HOURS)
-        w = NEWS_IMPACT_WEIGHT.get(rec["impact"], 0.15) * decay
-        num[rec["ccy"]] += rec["surprise"] * w
-        den[rec["ccy"]] += w
-        contrib[rec["ccy"]].append({**rec, "points": round(rec["surprise"] * w * 100, 1),
-                                    "age_h": round(age_h, 1)})
-
-    # Confidence grows with how much evidence there is and saturates, so a lone Low-impact
-    # print cannot swing the score the way one CBI survey was swinging GBP to -50.
-    news = {}
-    for c in ORDER:
-        if den[c] <= 0:
-            news[c] = 0.0
-            continue
-        mean = num[c] / den[c]
-        confidence = math.tanh(den[c] / 1.5)
-        news[c] = round(mean * confidence * 100, 1)
-    for c in contrib:
-        contrib[c].sort(key=lambda r: -abs(r["points"]))
-        del contrib[c][8:]
+    news, contrib = score_news(released, now)
 
     upcoming = [e for e in events if dt.datetime.fromisoformat(e["when"]) > now]
     nxt = upcoming[0]["when"] if upcoming else None
@@ -216,7 +298,8 @@ def main():
     nxt_high_label = (f"{nxt_high_e['ccy']} {nxt_high_e['title']}"
                       if nxt_high_e else None)
 
-    out = {"fetched_at": now.isoformat(), "released": released,
+    out = {"fetched_at": now.isoformat(), "data_as_of": now.isoformat(),
+           "degraded": False, "released": released,
            "news_score": news, "contributors": contrib,
            "next_release": nxt, "next_high_impact": nxt_high,
            "next_high_impact_event": nxt_high_label,

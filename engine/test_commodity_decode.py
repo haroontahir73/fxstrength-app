@@ -7,7 +7,7 @@ so run this after touching RULES, VETO_EXTRA or the DECODE table.
 
     python test_commodity_decode.py
 """
-import sys
+import sys, pathlib, shutil
 import commodity_watch as cw
 
 # (headline, expected category or "NO MATCH", why this case exists)
@@ -198,21 +198,32 @@ def test_market_hours():
 
 
 def test_cross_watcher_claim():
-    """One event must not buzz the phone twice, once per watcher."""
+    """One event must not buzz the phone twice, once per watcher.
+
+    Runs against a TEMPORARY claims file. This test used to unlink the real
+    data/theme_claims.json - which is live, committed cross-watcher state - both before
+    and after, so simply running the suite on a machine that had been alerting wiped the
+    claims and let the very double-buzz this test guards against happen on the next pass.
+    A test must not destroy the state it is testing.
+    """
     import news_watch as nw
+    import tempfile
     bad = []
-    if nw.THEME_FILE.exists():
-        nw.THEME_FILE.unlink()
-    if not nw.theme_claim("geo_escalation", "commodity"):
-        bad.append("commodity could not claim a free theme")
-    if nw.theme_claim("geo_escalation", "fx"):
-        bad.append("FX alerted on a theme the commodity watcher just claimed")
-    if not nw.theme_claim("tariff", "fx"):
-        bad.append("FX blocked on an unrelated theme")
-    if not nw.theme_claim("geo_deescalation", "commodity"):
-        bad.append("a watcher blocked itself on its own claim")
-    if nw.THEME_FILE.exists():
-        nw.THEME_FILE.unlink()
+    real = nw.THEME_FILE
+    tmpdir = tempfile.mkdtemp()
+    nw.THEME_FILE = pathlib.Path(tmpdir) / "theme_claims.json"
+    try:
+        if not nw.theme_claim("geo_escalation", "commodity"):
+            bad.append("commodity could not claim a free theme")
+        if nw.theme_claim("geo_escalation", "fx"):
+            bad.append("FX alerted on a theme the commodity watcher just claimed")
+        if not nw.theme_claim("tariff", "fx"):
+            bad.append("FX blocked on an unrelated theme")
+        if not nw.theme_claim("geo_deescalation", "commodity"):
+            bad.append("a watcher blocked itself on its own claim")
+    finally:
+        nw.THEME_FILE = real
+        shutil.rmtree(tmpdir, ignore_errors=True)
     return bad
 
 
