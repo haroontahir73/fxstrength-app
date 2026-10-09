@@ -1,5 +1,60 @@
 [
  {
+  "when": "09 Oct 06:17 UTC",
+  "iso": "2026-10-09T06:17:55.085214+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: Apple asks for parts output cuts for iPhone 18 Pro and Max - Nikkei $AAPL\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,220 (+1.5%)   Silver 60.63 (+2.7%)   WTI 90.42 (-1.2%)   DXY 102.03 (-0.1%)   US10Y 5.23 (-0.9%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://www.financialjuice.com/News/9798425/Apple-asks-for-parts-output-cuts-for-iPhone-18-Pro-and-Max---Nikkei-AAPL.aspx",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4220.0,
+   "Silver": 60.63,
+   "WTI": 90.42
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "FinancialJuice: Apple asks for parts output cuts for iPhone 18 Pro and Max - Nikkei $AAPL",
+   "src": "",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,220 (+1.5%)   Silver 60.63 (+2.7%)   WTI 90.42 (-1.2%)   DXY 102.03 (-0.1%)   US10Y 5.23 (-0.9%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "09 Oct 05:11 UTC",
   "iso": "2026-10-09T05:11:34.810143+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,192 (+0.8%)   Silver 61.70 (+1.4%)   WTI 88.93 (-0.6%)   DXY 101.83 (-0.3%)   US10Y 5.26 (-0.9%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "06 Oct 16:12 UTC",
-  "iso": "2026-10-06T16:12:51.595807+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIndia condemns strike on oil tanker owned by Dubai company in Strait of Hormuz - thenationalnews.com  (thenationalnews.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,192 (+0.8%)   Silver 61.70 (+1.4%)   WTI 88.93 (-0.6%)   DXY 101.83 (-0.3%)   US10Y 5.26 (-0.9%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNSkNhYnREZXlfTXFFY1pOX2tlWDJweE92bjJDQXJIR1hwYlpUemllSGhDTEhsSFVtVXJ0VzlGX2gwaDVSUnNYbFN6dDI2YlRWLWdZbHN1ME01a25FLUlfZjRScE1VQzRWN0xwMEhyb1hHYzUyN1l2SG9qYmU3Z2hyQmdYNFJmbmRSbm13OGZWYTJrMWJMaEdSNTZJTWFzWnVjZVFrSUpjU2szWmQ1YTh0d1Biam9faThUWHhobG94a1BxT0NXc0s5Z3QzMA?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4191.8,
-   "Silver": 61.695,
-   "WTI": 88.93
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "India condemns strike on oil tanker owned by Dubai company in Strait of Hormuz - thenationalnews.com",
-   "src": "thenationalnews.com",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,192 (+0.8%)   Silver 61.70 (+1.4%)   WTI 88.93 (-0.6%)   DXY 101.83 (-0.3%)   US10Y 5.26 (-0.9%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
