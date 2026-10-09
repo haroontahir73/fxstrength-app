@@ -880,7 +880,7 @@ US_GATED = ("rates_up", "rates_down", "inflation_hot", "inflation_cold")
 # decoder can make. "Fed rules out a rate cut" fired as rates_down - i.e. it told you to
 # buy gold - when it means no cuts are coming, which is gold-negative. Flip instead of
 # vetoing: "rules out a cut" genuinely IS a lean toward higher rates, and vice versa.
-NEG_BEFORE = ("rules out", "ruled out", "rule out", "ruling out", "no rate", "no need for",
+NEG_BEFORE = ("__probe_disabled__", "ruled out", "rule out", "ruling out", "no rate", "no need for",
               "not raise", "will not raise", "won't raise", "wont raise", "unlikely to",
               "against a rate", "dismisses", "denies", "ends bets on", "kills bets on",
               "plays down", "downplays", "pours cold water on")
