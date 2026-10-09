@@ -1,0 +1,113 @@
+# .github/workflows/tests.yml
+#
+# The gate. Both regression suites, run on one commit, as a precondition for every
+# workflow that deploys the dashboard, alerts the phone, or commits to the repo.
+#
+# WHY IT IS A REUSABLE WORKFLOW (workflow_call) RATHER THAN A SEPARATE ONE
+# -----------------------------------------------------------------------
+# A standalone test workflow proves nothing about a deploy: the two runs are separate
+# events and can sit on different commits, so a deploy triggered by the */15 schedule
+# would happily publish code whose tests had never run - or had run, and failed, an hour
+# earlier on a different SHA. Called with `uses: ./.github/workflows/tests.yml`, this runs
+# inside the caller's own run, at the caller's commit, and `needs:` makes the deploy wait
+# for it. Same commit, same run, no gap for anything to slip through.
+#
+# Keep the gate in front of EVERY entry point that executes engine code - see the
+# `needs: tests` lines in refresh.yml, news-watch.yml and oi-cloud.yml. A new workflow
+# that runs the engine needs one too.
+name: tests
+
+on:
+  workflow_call:
+  # Direct feedback on a code change, independently of any deploy.
+  pull_request:
+    paths:
+      - 'engine/**'
+      - '.github/workflows/tests.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'engine/**'
+      - '!engine/data/**'
+      - '.github/workflows/tests.yml'
+  workflow_dispatch:
+
+# Read-only. The tests must never need to write anything, and a job that cannot write
+# cannot leave a mess behind for the deploy that follows it.
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: regression suites
+    runs-on: ubuntu-latest
+    # NO SECRETS ARE PASSED TO THIS JOB, deliberately, and the three the watchers read
+    # are pinned empty so an org/repo-level default cannot leak in. A test cannot buzz
+    # the phone if the topic and token are not in its environment: push() with neither
+    # returns False without touching the network. This is a structural guarantee rather
+    # than a promise about test code - see the "must not notify" step below.
+    env:
+      NTFY_TOPIC: ''
+      TELEGRAM_TOKEN: ''
+      TELEGRAM_CHAT_ID: ''
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          # Same interpreter the pipeline runs on, so the gate tests what ships.
+          python-version: '3.14'
+
+      # Both suites are stdlib-only and offline. A non-zero exit fails the job, which
+      # fails every `needs: tests` job in the calling workflow.
+      - name: Decoder regression suite (79 checks)
+        working-directory: engine
+        run: python test_commodity_decode.py
+
+      - name: Reliability suite (66 checks)
+        working-directory: engine
+        run: python test_reliability.py
+
+      # A test that writes to engine/data corrupts live pipeline state: these files are
+      # committed and restored from the Actions cache, so a polluted one outlives the run
+      # and reaches the dashboard. test_commodity_decode.py really did unlink the live
+      # theme_claims.json, which wiped the cross-watcher dedup and let one event buzz the
+      # phone twice. Both suites now work in temp dirs; this keeps it that way.
+      - name: Tests must leave engine/data untouched
+        run: |
+          if [ -n "$(git status --porcelain -- engine/data)" ]; then
+            echo "::error::a test modified, created or deleted something in engine/data"
+            git status --porcelain -- engine/data
+            exit 1
+          fi
+          echo "engine/data is byte-identical to the checkout"
+
+      # Proof rather than assumption: re-run both suites with urlopen replaced by a spy
+      # that records and blocks every outbound request, and fail if either reached ntfy
+      # or Telegram. Catches a future test that calls the real push() by accident.
+      - name: Tests must not attempt a real notification
+        working-directory: engine
+        run: |
+          cat > /tmp/no_push.py <<'PY'
+          import os, sys, runpy, urllib.request
+          sys.path.insert(0, os.getcwd())
+          CALLS = []
+          def spy(req, *a, **k):
+              url = req if isinstance(req, str) else getattr(req, "full_url", str(req))
+              CALLS.append(url)
+              raise OSError("blocked by the no-notification check")
+          urllib.request.urlopen = spy
+          target = sys.argv[1]; sys.argv = [target]
+          code = 0
+          try:
+              runpy.run_path(target, run_name="__main__")
+          except SystemExit as e:
+              code = e.code or 0
+          bad = [u for u in CALLS if "ntfy" in u.lower() or "telegram" in u.lower()]
+          print(f"{target}: {len(CALLS)} outbound attempt(s), {len(bad)} to a notifier")
+          for u in bad:
+              print(f"  !! {u[:100]}")
+          sys.exit(2 if bad else code)
+          PY
+          python /tmp/no_push.py test_commodity_decode.py
+          python /tmp/no_push.py test_reliability.py

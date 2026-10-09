@@ -32,7 +32,15 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # THE GATE. Runs inside this same run, at this same commit, and the deploy below
+  # cannot start until it passes - so a scheduled refresh can never publish code whose
+  # tests failed. Applies to workflow_dispatch too: there is no path to Pages that
+  # skips this job.
+  tests:
+    uses: ./.github/workflows/tests.yml
+
   refresh:
+    needs: tests
     runs-on: ubuntu-latest
     environment:
       name: github-pages

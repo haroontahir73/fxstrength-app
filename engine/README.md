@@ -321,6 +321,40 @@ python test_reliability.py        # freshness, outages, delivery, corrections - 
 Both are stdlib-only and run offline. `test_reliability.py` works against a temporary
 data directory, so running it never touches live pipeline state.
 
+### They gate every deploy
+
+`.github/workflows/tests.yml` is a reusable workflow (`workflow_call`) that runs both
+suites. Every workflow that executes engine code calls it as a job and depends on it:
+
+| Workflow | Gated job | What it would otherwise do |
+|---|---|---|
+| `refresh.yml` | `refresh` | publish `dashboard.html` to GitHub Pages |
+| `news-watch.yml` | `watch` | classify headlines, buzz the phone, commit the feed |
+| `oi-cloud.yml` | `capture` | run `oi.py --merge` and push to `main` |
+
+It has to be `workflow_call` rather than a standalone test workflow. A separate run
+proves nothing about a deploy: the two are different events and can sit on different
+commits, so the `*/15` schedule would publish code whose tests had never run, or had
+failed an hour earlier on a different SHA. Called with `uses:`, it runs **inside the
+caller's run at the caller's commit**, and `needs: tests` makes the deploy wait. There is
+no path to Pages, to the phone or to a commit that skips it — `workflow_dispatch`
+included. A new workflow that runs the engine needs its own `needs: tests`.
+
+Two properties the gate enforces on the tests themselves, so they stay trustworthy:
+
+- **No secrets reach the test job**, and `NTFY_TOPIC` / `TELEGRAM_TOKEN` /
+  `TELEGRAM_CHAT_ID` are pinned empty so a repo-level default cannot leak in. A step then
+  re-runs both suites with `urlopen` replaced by a spy and fails if either tried to reach
+  ntfy or Telegram. Measured: both make **zero** outbound requests.
+- **`engine/data` must be byte-identical** after a run. Those files are committed and
+  restored from the Actions cache, so a polluted one outlives the job and reaches the
+  dashboard.
+
+For the watcher the gate is a deliberate tradeoff, and it matches that workflow's own
+rule that a stale classifier is worse than a gap: if the suites fail, no alerts go out at
+all rather than a broken decoder sending calls that point the wrong way. Fix the test
+rather than routing around it.
+
 ## Refresh
 
 `auto.py` runs every 15 minutes from a Windows scheduled task named **FX Strength Desk**.

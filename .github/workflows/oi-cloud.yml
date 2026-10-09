@@ -25,7 +25,14 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # THE GATE. Manual-dispatch only, but it runs `oi.py --merge` and pushes the result to
+  # main, so it executes engine code and changes committed state. Gated for the same
+  # reason as the other two: no entry point into the engine without the suites.
+  tests:
+    uses: ./.github/workflows/tests.yml
+
   capture:
+    needs: tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

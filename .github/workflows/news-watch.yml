@@ -54,7 +54,18 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'push' }}
 
 jobs:
+  # THE GATE. The watcher classifies headlines and buzzes the phone, and it commits the
+  # feed back to the repo, so it is a deploy in every sense that matters. It waits.
+  #
+  # The tradeoff is deliberate and matches this file's own rule that "a stale classifier
+  # is worse than a gap": if the suites fail, the watcher does not run and no alerts go
+  # out, rather than a broken decoder sending calls that point the wrong way. A failing
+  # gate therefore costs coverage - fix the test, do not route around it.
+  tests:
+    uses: ./.github/workflows/tests.yml
+
   watch:
+    needs: tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
