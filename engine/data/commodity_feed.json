@@ -1,5 +1,60 @@
 [
  {
+  "when": "09 Oct 15:59 UTC",
+  "iso": "2026-10-09T15:59:58.954272+00:00",
+  "cat": "geo_deescalation",
+  "title": "GEOPOLITICS - calming down",
+  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nThe Kyiv Independent: Russia wants sanctions lifted in exchange for halting strikes on Ukrainian energy infrastructure - Meduza  (Meduza)\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193    mild short bias - supply worry gone, barrels flow again (eased by self-check)\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,215 (+1.4%)   Silver 61.13 (+3.5%)   WTI 92.13 (+0.7%)   DXY 102.30 (+0.2%)   US10Y 5.26 (+0.6%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
+  "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPdTItU3VQdGJaTDFhUTZqUW5BMHM4UDM1Y3RfOUxibjJNanFoQW5NNVJ6QVhLcUM0cTBZaXVPNnNTcHo2Q1ZiZjBYZWtXMENNREdjWDdrc2N4NWFIREJxZENRRjNlanV1dXRONGJEcFlHT2U3emZHbG1iaXVpT2hUUklrdG1tMUlTNWJrcFBVWHdoeUFJdkY1LVptZkZraXpneS0ycDl3UlcwU2FJY0hvMVp3d25QTVowT2ZwTUlqTUZDTXkyQkFMNV9XSzJuQ05XTGUzdkVVZ1h0UEY2eXpqMzFYOXhtcGdDZ1HSAe8BQVVfeXFMT2toVW9CcVpFakJhSTJtbEdNOURWQkFrRnF4S2xoYVZNcjNwQUk0TDBIY2EtOUdBWmUyNW9iWjdmVGVON1Q5X2ZOQjlSMGNtNWhOOGlRRGhJTllMZEp5V3BTdVh6WWZETkcxVVVOYXRqTVNUeURSbkh3bHhDMXNHQjRiZ1pKYmFneW05RjBLZ0FpLVJMQ3hBekxGazhhQXVPMERiTUlkM0lLcDdXWGZvWFdtQ2NhSUdRTVpEWW1yWXJzb29hak96QUdXUDlydXdsQzZSNzQxbTc5dTR0eGIwd2NYQXNZejlFa09hZUYxSXc?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4214.6,
+   "Silver": 61.135,
+   "WTI": 92.13
+  },
+  "parts": {
+   "emoji": "\ud83d\udd4a",
+   "label": "GEOPOLITICS \u2014 calming down",
+   "headline": "The Kyiv Independent: Russia wants sanctions lifted in exchange for halting strikes on Ukrainian energy infrastructure - Meduza",
+   "src": "Meduza",
+   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured both ways - fear-out vs yields-down cancel",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "same, no reliable direction",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "supply worry gone, barrels flow again (eased by self-check)",
+     "record": "some evidence - right 51% of 113 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,215 (+1.4%)   Silver 61.13 (+3.5%)   WTI 92.13 (+0.7%)   DXY 102.30 (+0.2%)   US10Y 5.26 (+0.6%)",
+   "reality": "",
+   "flip": "these deals break \u2014 one broken truce and it all goes back on"
+  }
+ },
+ {
   "when": "09 Oct 14:23 UTC",
   "iso": "2026-10-09T14:23:09.629862+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,166 (-0.5%)   Silver 61.01 (-0.3%)   WTI 90.21 (+0.9%)   DXY 102.03 (+0.2%)   US10Y 5.27 (-0.8%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "07 Oct 02:11 UTC",
-  "iso": "2026-10-07T02:11:44.026559+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Saudi-led coalition: intercepted and destroyed ballistic missile launched by Houthis north of Riyadh\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,173 (-0.3%)   Silver 61.24 (+0.1%)   WTI 90.39 (+1.1%)   DXY 102.02 (+0.2%)   US10Y 5.27 (-0.8%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://www.financialjuice.com/News/9794540/Saudi-led-coalition-intercepted-and-destroyed-ballistic-missile-launched-by-Houthis-north-of-Riyadh.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4172.6,
-   "Silver": 61.245,
-   "WTI": 90.39
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "FinancialJuice: Saudi-led coalition: intercepted and destroyed ballistic missile launched by Houthis north of Riyadh",
-   "src": "",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,173 (-0.3%)   Silver 61.24 (+0.1%)   WTI 90.39 (+1.1%)   DXY 102.02 (+0.2%)   US10Y 5.27 (-0.8%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
