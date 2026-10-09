@@ -264,6 +264,97 @@ To set a manual score, edit `data/fundamentals_manual.json`:
 
 Values are 1–5. They override the auto value for that indicator and survive rebuilds.
 
+## When a feed fails
+
+Every input can fail, and the rule throughout is the same: **never present remembered or
+degraded data as if it were current, and never throw away good data to represent a
+failure.** `python freshness.py` prints where every input stands; the dashboard shows the
+same thing next to the build time, and `test_reliability.py` holds a failing case for
+each row below.
+
+| Failure | What happens |
+|---|---|
+| Calendar fetch fails | The cached events are **re-scored against the current clock**, not reused as they stand. The news leg is 40% of the blend and time-decayed, so handing back a stored score re-asserts evidence that has since decayed. Past 4 half-lives (`CACHE_MAX_AGE_H`) the leg is withdrawn to 0 instead of carried. |
+| Policy-rate fetch fails | The **last confirmed rate is kept**, marked `stale` with a day count, and `diff_vs_usd` recomputed against whatever USD rate is in force. A rate is a fact with a date on it, not a decaying reading — writing `None` over it dropped both interest-rate indicators to unset and moved the board. Past `CARRY_MAX_DAYS` (120) it is withdrawn rather than carried. |
+| A COT contract is missing | USD falls back to the **basket alone** (the other seven contracts are already positions on the dollar) instead of raising `KeyError` and taking the whole board down for the sake of the minority 25% leg. A currency missing from a cached checklist or OI file costs that leg, not the build. |
+| A phone alert fails to send | It goes on a **durable retry queue** (`alert_queue.py`, `data/alert_queue.json`) and is resent at the start of a later pass, with widening backoff. Both watchers previously marked a story seen before trying to deliver it and saved that state either way, so a failed alert was never retried. An alert older than `MAX_AGE_H` (6h) is dropped rather than delivered late, and the drop stays on record for the health report. |
+
+Freshness budgets live in `freshness.py: INPUTS`. A budget is "how old can this be before
+it is suspect", not a cadence — COT is weekly by nature, so its budget is in days.
+
+### What the build timestamp does not tell you
+
+`built_at` is when the HTML was written. It is stamped fresh every run whatever the run
+managed to fetch, so a page assembled from a cached calendar and carried-over rates used
+to look identical to a healthy one. `scores.json` now carries an `inputs` row per input
+with its real as-of time, and the page names anything past its budget.
+
+## Self-correction, and what constrains it
+
+`selfcheck.py` can downgrade a decode lean that is measurably not working (see the file's
+own header for the scoring). Three constraints stop it acting twice on one body of
+evidence:
+
+- **A second notch must be earned.** `MIN_NEW_N` (15) newly scored calls since the last
+  notch, and `MIN_HOURS_BETWEEN` (24h). The calls behind a verdict are already on file
+  when a notch is applied, so without this the next run read the same numbers and cut the
+  lean again — two notches, the floor, off one sample, 30 minutes apart.
+- **Every change is on the record.** `data/override_history.json` keeps the action, the
+  before/after notch and the evidence it acted on. `python selfcheck.py --history` prints
+  it. The override file alone says what the state is and nothing about how it got there.
+- **It is reversible.** Recovery restores one notch at a time rather than deleting the
+  override outright, and `python selfcheck.py --rollback <cat.instrument>` (or `all`)
+  undoes a notch by hand. The gap between `RECOVER_EXCESS_PP` (−2pp) and
+  `BAD_EXCESS_PP` (−10pp) is deliberate hysteresis, so a lean sitting near the threshold
+  cannot flap between downgraded and restored every run.
+
+Still true, and unchanged: it can only ever **weaken** a lean, never flip or strengthen
+one. Flipping stays a human decision.
+
+## Tests
+
+```
+python test_commodity_decode.py   # the news decoder - 79 checks
+python test_reliability.py        # freshness, outages, delivery, corrections - 66 checks
+```
+
+Both are stdlib-only and run offline. `test_reliability.py` works against a temporary
+data directory, so running it never touches live pipeline state.
+
+### They gate every deploy
+
+`.github/workflows/tests.yml` is a reusable workflow (`workflow_call`) that runs both
+suites. Every workflow that executes engine code calls it as a job and depends on it:
+
+| Workflow | Gated job | What it would otherwise do |
+|---|---|---|
+| `refresh.yml` | `refresh` | publish `dashboard.html` to GitHub Pages |
+| `news-watch.yml` | `watch` | classify headlines, buzz the phone, commit the feed |
+| `oi-cloud.yml` | `capture` | run `oi.py --merge` and push to `main` |
+
+It has to be `workflow_call` rather than a standalone test workflow. A separate run
+proves nothing about a deploy: the two are different events and can sit on different
+commits, so the `*/15` schedule would publish code whose tests had never run, or had
+failed an hour earlier on a different SHA. Called with `uses:`, it runs **inside the
+caller's run at the caller's commit**, and `needs: tests` makes the deploy wait. There is
+no path to Pages, to the phone or to a commit that skips it — `workflow_dispatch`
+included. A new workflow that runs the engine needs its own `needs: tests`.
+
+Two properties the gate enforces on the tests themselves, so they stay trustworthy:
+
+- **No secrets reach the test job**, and `NTFY_TOPIC` / `TELEGRAM_TOKEN` /
+  `TELEGRAM_CHAT_ID` are pinned empty so a repo-level default cannot leak in. A step then
+  re-runs both suites with `urlopen` replaced by a spy and fails if either tried to reach
+  ntfy or Telegram. Measured: both make **zero** outbound requests.
+- **`engine/data` must be byte-identical** after a run. Those files are committed and
+  restored from the Actions cache, so a polluted one outlives the job and reaches the
+  dashboard.
+
+For the watcher the gate is a deliberate tradeoff, and it matches that workflow's own
+rule that a stale classifier is worse than a gap: if the suites fail, no alerts go out at
+all rather than a broken decoder sending calls that point the wrong way. Fix the test
+rather than routing around it.
+
 ## Refresh
 
 `auto.py` runs every 15 minutes from a Windows scheduled task named **FX Strength Desk**.
@@ -364,6 +455,9 @@ backtest.py         lagged forward-return backtest of the COT leg (caches COT hi
 backtest_blend.py   forward-return backtest of the WHOLE signal, component by component
 backtest_cot_levels.py  walk-forward test of the proven-recurring-level read
 news_watch.py       breaking-news -> ntfy phone alert (its own 15-min workflow)
+alert_queue.py      durable retry queue for alerts the phone did not get
+freshness.py        per-input as-of/age/budget -> scores.json + the page
+test_reliability.py failing cases for freshness, outages, delivery, corrections
 yields.py           2y/10y benchmarks, curve, real yield, differentials  -> Yields tab
 seasonality.py      15y monthly seasonal bias, drift removed             -> Seasonality tab
 sentiment.py        retail crowd from CFTC non-reportable, contrarian    -> Sentiment tab

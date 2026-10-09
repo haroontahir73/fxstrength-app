@@ -32,6 +32,7 @@ from pathlib import Path
 
 # reuse the plumbing that already works in the FX watcher
 from news_watch import (_get, _parse_date, market_snapshot, level_map, push,
+                        deliver, drain_queue,
                         gather_items as _fx_items, VETO, UA, _GN, _q,
                         theme_claim)
 
@@ -1432,6 +1433,10 @@ def main():
 
     dry = "--dry-run" in argv
     seen = load_seen()
+    # Anything the phone missed earlier goes out before anything new. This watcher runs
+    # first in the workflow loop, so it is usually the one that clears the backlog.
+    if not dry:
+        drain_queue(topic)
     items = gather()
     cal = calendar_hits()
     fired = 0
@@ -1450,7 +1455,7 @@ def main():
             _px["lmap"] = level_map()
         return _px["snap"], _px["lmap"]
 
-    def emit(cat, head, link, src, talk=False):
+    def emit(cat, head, link, src, talk=False, key=None):
         nonlocal fired
         snap, lmap = prices()
         dec, _ = decoded(cat, lmap)
@@ -1470,17 +1475,27 @@ def main():
             # then record the outcome so the silence is never invisible again.
             prio = ("urgent" if any(dec[k][1] >= 3 for k in ("gold", "silver", "oil"))
                     else "high")
-            ok = push(topic, title, body, "", prio, "coin")
+            # Recording `pushed: false` on the feed entry made the loss visible after the
+            # fact but did nothing about it: the story was already marked seen, so no
+            # later pass would ever try again. deliver() puts a miss on the durable retry
+            # queue instead - see alert_queue.py.
+            ok, queued = deliver(topic, title, body, "", prio, "coin",
+                                 key=key or hashlib.sha1(
+                                     head[:120].encode("utf-8", "replace")).hexdigest()[:16],
+                                 who="commodity",
+                                 meta={"cat": cat, "headline": head[:160], "talk": talk})
             if not ok:
                 print("!" * 70)
                 print(f"! PHONE ALERT FAILED after 2 tries: {title}")
-                print("! It is in the app feed, but the phone did not get it.")
+                print("! It is in the app feed, and " + ("it is queued for retry on a "
+                      "later pass." if queued else "COULD NOT BE QUEUED - it is lost."))
                 print("!" * 70)
             feed_add({"when": dt.datetime.now(dt.timezone.utc).strftime("%d %b %H:%M UTC"),
                       "iso": dt.datetime.now(dt.timezone.utc).isoformat(),
                       "cat": cat, "title": title, "body": body, "link": link,
                       "talk": talk,
                       "pushed": ok,
+                      "queued_for_retry": (not ok) and queued,
                       "push_error": ("" if ok else
                                      getattr(__import__("news_watch"),
                                              "LAST_PUSH_ERROR", "")),
@@ -1547,7 +1562,8 @@ def main():
             print(f"  [claimed by the FX watcher] {cat}: {it['title'][:70]}")
             continue
         seen[f"cat:{cat}"] = [time.time(), sev, lead_price(cat, prices()[0])]
-        emit(cat, it["title"], it["link"], it["src"], talk=hit[2].startswith("TALK:"))
+        emit(cat, it["title"], it["link"], it["src"],
+             talk=hit[2].startswith("TALK:"), key=h)
 
     for s in cal:
         key = f"cal:{s['title']}:{s['actual']}"
@@ -1560,7 +1576,7 @@ def main():
                 f"({s['surp']*100:+.0f}%)")
         # a real data print always goes through - it IS the event, not coverage of it
         seen[f"cat:{s['cat']}"] = [time.time(), 3, lead_price(s["cat"], prices()[0])]
-        emit(s["cat"], head, "", "economic calendar")
+        emit(s["cat"], head, "", "economic calendar", key=h)
 
     if not dry:
         save_seen(seen)

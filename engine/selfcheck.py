@@ -21,6 +21,8 @@ into nonsense. Flipping stays a human decision, and this file flags the candidat
 
     python selfcheck.py            # score, correct, report
     python selfcheck.py --report   # print the scorecard, change nothing
+    python selfcheck.py --history  # every automatic change to a lean, with its evidence
+    python selfcheck.py --rollback rates_up.silver   # undo one notch by hand (or `all`)
 """
 import json, os, sys, time
 import datetime as dt
@@ -38,6 +40,7 @@ DATA = Path(__file__).parent / "data"
 SCORES = DATA / "alert_scores.json"
 OVERRIDES = DATA / "decode_overrides.json"
 HEALTH = DATA / "selfcheck_health.json"
+HISTORY = DATA / "override_history.json"
 
 # 4h is MEASURED, not guessed - backtest_horizon.py, 673 events, hourly bars, every
 # horizon compared against the unconditional move over a window of the same length:
@@ -55,6 +58,21 @@ MIN_N = 20               # never act on fewer than this many scored calls
 BAD_EXCESS_PP = -10.0    # this far below the baseline = the lean is not working
 MIN_MOVE_PCT = 0.05      # smaller than this is noise, scored as flat and ignored
 ALERT_GAP_H = 6          # once per issue per this many hours
+
+# --- what it takes to downgrade the SAME lean a second time ---------------------------
+# A downgrade used to need only "excess is still bad", which the previous downgrade had
+# no way of changing: the scored calls behind the verdict were already on file, so the
+# next run read the same numbers and cut the lean again. Two notches - the floor - off a
+# single body of evidence, in two runs 30 minutes apart, with nothing recorded about
+# either decision and no way back.
+#
+# A second notch now has to be earned by evidence the first notch did not see:
+MIN_NEW_N = 15           # at least this many NEWLY scored calls since the last notch
+MIN_HOURS_BETWEEN = 24   # and at least this long, so a busy hour cannot stack notches
+# Rollback: a lean that has recovered gets its notch back one at a time rather than
+# having the override deleted outright, so the climb back is as gradual as the descent.
+RECOVER_EXCESS_PP = -2.0   # above this it is performing again
+MAX_DROP = 2               # the floor, unchanged
 
 
 def _load(path, default):
@@ -207,29 +225,96 @@ def summarise(scores):
     return out
 
 
-def apply_corrections(summary, overrides):
-    """Downgrade what is measurably not working. Weaken only, never flip."""
+def _hours_since(iso, now):
+    try:
+        return (now - dt.datetime.fromisoformat(iso)).total_seconds() / 3600
+    except Exception:                                          # noqa: BLE001
+        return None
+
+
+def _log(history, key, action, s, before, after, why):
+    """Every automatic change to a lean, on the record.
+
+    Without this the only evidence a correction had happened was the override file's
+    current contents, which says what the state is and nothing about how it got there -
+    so a lean cut twice off one sample was indistinguishable from one cut twice on two.
+    """
+    history.setdefault(key, []).insert(0, {
+        "at": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "action": action, "drop_before": before, "drop_after": after,
+        "n": s["n"], "hit": round(s["hit"], 1), "base": round(s["base"], 1),
+        "excess": round(s["excess"], 1), "why": why})
+    del history[key][40:]
+
+
+def apply_corrections(summary, overrides, history=None, now=None):
+    """Downgrade what is measurably not working. Weaken only, never flip.
+
+    Three constraints on top of that, each closing a way the old version could act twice
+    on one body of evidence (see the constants above):
+      1. a second notch needs MIN_NEW_N calls scored SINCE the first, and a day's gap
+      2. every change is written to override_history.json
+      3. recovery steps a notch back at a time instead of deleting the override
+    """
     changed = []
+    history = history if history is not None else {}
+    now = now or dt.datetime.now(dt.timezone.utc)
     for (cat, instr), s in summary.items():
         key = f"{cat}.{instr.lower()}"
         if s["n"] < MIN_N:
             continue
-        if s["excess"] > BAD_EXCESS_PP:
-            # working, or at least not measurably broken - drop any old override
-            if key in overrides:
+        cur_rule = overrides.get(key) or {}
+        cur = cur_rule.get("drop", 0)
+
+        # --- recovering: give a notch back, one run at a time ---------------------
+        if s["excess"] > RECOVER_EXCESS_PP:
+            if not cur:
+                continue
+            new = cur - 1
+            if new <= 0:
                 del overrides[key]
-                changed.append(f"{key}: override removed, it is performing again "
-                               f"({s['hit']:.0f}% vs {s['base']:.0f}% base, n={s['n']})")
+            else:
+                overrides[key] = {**cur_rule, "drop": new, "n": s["n"],
+                                  "hit": round(s["hit"], 1), "base": round(s["base"], 1),
+                                  "excess": round(s["excess"], 1),
+                                  "at": now.isoformat(), "direction": "restored"}
+            _log(history, key, "restore", s, cur, new,
+                 f"excess {s['excess']:+.1f}pp is above {RECOVER_EXCESS_PP:+.0f}pp")
+            changed.append(f"{key}: RESTORED one notch (now {new}) - it is performing "
+                           f"again ({s['hit']:.0f}% vs {s['base']:.0f}% base, n={s['n']})")
             continue
-        cur = overrides.get(key, {}).get("drop", 0)
-        if cur >= 2:
+
+        # --- in the dead band: measurably poor but not bad enough to act on --------
+        if s["excess"] > BAD_EXCESS_PP:
+            continue
+
+        # --- downgrading --------------------------------------------------------
+        if cur >= MAX_DROP:
             continue                     # already at the floor
+        if cur:
+            # the evidence that earned the LAST notch cannot earn another one
+            seen_n = cur_rule.get("n", 0)
+            new_n = s["n"] - seen_n
+            hrs = _hours_since(cur_rule.get("at", ""), now)
+            if new_n < MIN_NEW_N:
+                print(f"  [held] {key}: already eased {cur} notch(es) on n={seen_n}; "
+                      f"only {new_n} new call(s) since, need {MIN_NEW_N}")
+                continue
+            if hrs is not None and hrs < MIN_HOURS_BETWEEN:
+                print(f"  [held] {key}: last eased {hrs:.1f}h ago, "
+                      f"need {MIN_HOURS_BETWEEN}h between notches")
+                continue
         overrides[key] = {"drop": cur + 1, "n": s["n"], "hit": round(s["hit"], 1),
                           "base": round(s["base"], 1), "excess": round(s["excess"], 1),
-                          "at": dt.datetime.now(dt.timezone.utc).isoformat()}
-        changed.append(f"{key}: DOWNGRADED one notch - {s['hit']:.0f}% vs "
+                          "at": now.isoformat(), "direction": "downgraded",
+                          "prev_n": cur_rule.get("n") if cur else None}
+        _log(history, key, "downgrade", s, cur, cur + 1,
+             (f"{s['n'] - cur_rule.get('n', 0)} new calls since the last notch"
+              if cur else f"excess {s['excess']:+.1f}pp over {s['n']} calls"))
+        changed.append(f"{key}: DOWNGRADED one notch (now {cur + 1}) - {s['hit']:.0f}% vs "
                        f"{s['base']:.0f}% baseline ({s['excess']:+.0f}pp) over "
-                       f"{s['n']} scored calls")
+                       f"{s['n']} scored calls"
+                       + (f", {s['n'] - cur_rule.get('n', 0)} of them new" if cur else ""))
     return changed
 
 
@@ -247,10 +332,27 @@ def health(feed, now_px):
     recent.sort(reverse=True)
 
     day = [e for w, e in recent if (now - w).total_seconds() < 86400]
-    failed = [e for e in day if e.get("pushed") is False]
+    # An alert that failed to send is now retried from a durable queue, so the thing worth
+    # waking someone for is one the queue GAVE UP on - a failure still waiting its turn is
+    # the system working. Both are reported, with different weight.
+    try:
+        import alert_queue
+        q_pending, q_dead = alert_queue.pending(), alert_queue.dead(24)
+    except Exception:                                          # noqa: BLE001
+        q_pending, q_dead = [], []
+
+    if q_dead:
+        issues.append(("push", f"{len(q_dead)} alert(s) in the last 24h were given up on "
+                               f"after retries and never reached the phone. Newest: "
+                               f"{q_dead[0].get('title', '')[:60]}"))
+    failed = [e for e in day if e.get("pushed") is False and not e.get("queued_for_retry")]
     if failed:
-        issues.append(("push", f"{len(failed)} alert(s) in the last 24h never reached "
-                               f"the phone. Newest: {failed[0].get('title','')[:60]}"))
+        issues.append(("push_unqueued", f"{len(failed)} alert(s) in the last 24h failed to "
+                                        f"send and were not queued for retry. Newest: "
+                                        f"{failed[0].get('title','')[:60]}"))
+    if len(q_pending) >= 5:
+        issues.append(("queue", f"{len(q_pending)} alert(s) are waiting in the retry queue "
+                                f"- delivery has been failing for a while."))
 
     noprice = [e for e in day if not e.get("px")]
     if len(noprice) >= 2:
@@ -302,12 +404,82 @@ def report(summary):
               f"{s['base']:>6.0f}%{s['excess']:>+8.0f}pp{s['avg']:>+10.2f}%{flag}")
 
 
+def rollback(key):
+    """Undo one notch of an automatic downgrade, by hand.
+
+    The corrections were irreversible in practice: nothing recorded what had been changed
+    and the only way back was to edit decode_overrides.json and work out from the numbers
+    inside it what the lean used to be. `--rollback <key>` (or `--rollback all`) steps a
+    notch back and records that it was done by hand, so the history reads as a sequence
+    of decisions rather than a current state of unknown origin.
+    """
+    overrides = _load(OVERRIDES, {})
+    history = _load(HISTORY, {})
+    keys = list(overrides) if key == "all" else [key]
+    done = []
+    for k in keys:
+        rule = overrides.get(k)
+        if not rule:
+            print(f"  {k}: no override in force")
+            continue
+        before = rule.get("drop", 0)
+        after = before - 1
+        if after <= 0:
+            del overrides[k]
+        else:
+            overrides[k] = {**rule, "drop": after, "direction": "rolled back by hand",
+                            "at": dt.datetime.now(dt.timezone.utc).isoformat()}
+        history.setdefault(k, []).insert(0, {
+            "at": dt.datetime.now(dt.timezone.utc).isoformat(),
+            "action": "rollback", "drop_before": before, "drop_after": after,
+            "why": "manual rollback"})
+        done.append(f"{k}: {before} -> {after}")
+    if done:
+        _save(OVERRIDES, overrides)
+        _save(HISTORY, history)
+        print("rolled back:")
+        for line in done:
+            print("  " + line)
+    else:
+        print("nothing to roll back")
+    return done
+
+
+def show_history():
+    history = _load(HISTORY, {})
+    overrides = _load(OVERRIDES, {})
+    if not history:
+        print("  no automatic corrections on record yet")
+        return
+    for key in sorted(history):
+        cur = overrides.get(key, {}).get("drop", 0)
+        print(f"\n{key}  (currently eased {cur} notch(es))")
+        for row in history[key]:
+            n = row.get("n")
+            ev = f"n={n}" if n is not None else ""
+            print(f"  {row['at'][:16]}  {row['action']:<9} "
+                  f"{row.get('drop_before')}->{row.get('drop_after')}  "
+                  f"{ev:<8} {row.get('why', '')}")
+
+
 def main():
     topic = os.environ.get("NTFY_TOPIC", "").strip()
     if not topic:
         tf = DATA / "ntfy_topic.txt"
         if tf.exists():
             topic = tf.read_text(encoding="utf-8").strip()
+
+    if "--rollback" in sys.argv:
+        i = sys.argv.index("--rollback")
+        if len(sys.argv) <= i + 1:
+            print("usage: selfcheck.py --rollback <cat.instrument | all>")
+            return
+        rollback(sys.argv[i + 1])
+        return
+
+    if "--history" in sys.argv:
+        show_history()
+        return
 
     feed = _load(cw.FEED_FILE, [])
     scores = _load(SCORES, [])
@@ -332,17 +504,23 @@ def main():
         return
 
     overrides = _load(OVERRIDES, {})
-    changed = apply_corrections(summary, overrides)
+    history = _load(HISTORY, {})
+    changed = apply_corrections(summary, overrides, history)
     if changed:
         _save(OVERRIDES, overrides)
+        _save(HISTORY, history)
         print("\nCORRECTIONS APPLIED:")
         for c in changed:
             print("  " + c)
-        cw.push(topic, "SELF-CHECK: decode corrected",
-                "The watcher marked its own calls against the tape and changed this:\n\n"
-                + "\n".join("- " + c for c in changed)
-                + "\n\nOnly ever weakened, never flipped - a losing run can be luck.",
-                "", "default", "wrench")
+        cw.deliver(topic, "SELF-CHECK: decode corrected",
+                   "The watcher marked its own calls against the tape and changed this:\n\n"
+                   + "\n".join("- " + c for c in changed)
+                   + f"\n\nOnly ever weakened a notch at a time, never flipped - a losing "
+                     f"run can be luck. A second notch needs {MIN_NEW_N} newly scored "
+                     f"calls and {MIN_HOURS_BETWEEN}h since the last one. Every change is "
+                     f"in data/override_history.json, and `selfcheck.py --rollback <key>` "
+                     f"undoes one.",
+                   "", "default", "wrench", who="selfcheck")
 
     issues = health(feed, now_px)
     if issues:

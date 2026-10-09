@@ -939,6 +939,58 @@ def howto(sub_html):
     return (f'<details class="howto"><summary>How to read this</summary>{sub_html}</details>')
 
 
+def _age_str(h):
+    if h is None:
+        return "unknown"
+    if h < 1:
+        return f"{h * 60:.0f} min"
+    if h < 48:
+        return f"{h:.0f}h"
+    return f"{h / 24:.1f}d"
+
+
+def freshness_note(d):
+    """What the build timestamp cannot say: how old the EVIDENCE is.
+
+    "Built <now>" is written every run regardless of what the run managed to fetch, so a
+    page assembled from a cached calendar and week-old policy rates looked exactly like a
+    healthy one. scores.json now carries a row per input (see freshness.py); anything past
+    its budget is named here, next to the build time, rather than left in a log.
+    """
+    rows = d.get("inputs") or []
+    s = d.get("freshness") or {}
+    if not rows:
+        return ""
+    bad = [r for r in rows if r.get("stale") or r.get("degraded")]
+    if not bad:
+        oldest = s.get("oldest_input_h")
+        return (f' <span class="chip ok">all inputs fresh</span>'
+                + (f' <span class="mut">oldest {_age_str(oldest)}</span>' if oldest else ""))
+    items = []
+    for r in sorted(bad, key=lambda r: -(r.get("age_h") or 0)):
+        if r.get("missing"):
+            state = "missing"
+        elif r.get("stale"):
+            state = f'{_age_str(r.get("age_h"))} old, past its {_age_str(r.get("budget_h"))} budget'
+        else:
+            state = "current but running on fallback data"
+        why = r.get("why")
+        items.append(f'<li><b>{esc(r["label"])}</b> &mdash; {esc(state)}'
+                     + (f' <span class="mut">({esc(why)})</span>' if why else "")
+                     + f' <span class="mut">feeds {esc(r.get("feeds", ""))}</span></li>')
+    n_stale = sum(1 for r in bad if r.get("stale"))
+    n_deg = len(bad) - n_stale
+    label = ", ".join(p for p in (f"{n_stale} stale" if n_stale else "",
+                                  f"{n_deg} degraded" if n_deg else "") if p)
+    return (f' <span class="chip warn">inputs: {esc(label)}</span>'
+            f'<details class="howto"><summary>Which inputs are not current</summary>'
+            f'<ul style="margin:6px 0 0;padding-left:18px;font-size:13px">'
+            f'{"".join(items)}</ul>'
+            f'<p class="mut" style="font-size:12.5px;margin:8px 0 0">The build time above is '
+            f'when this page was written, not how old the evidence is. The scores these '
+            f'inputs feed are carrying data from earlier, or from a fallback.</p></details>')
+
+
 def _safe_panel(fn, title):
     """Render one add-on panel, turning any exception into a visible note on that tab. The
     strength board is the thing this page exists for; a new tab must never be able to take
@@ -1536,7 +1588,8 @@ def build():
     _bt = dt.datetime.fromisoformat(d["built_at"])
     built = (_bt.strftime("%d %b %Y %H:%M UTC")
              + f' <span class="cn-when mut" data-ts="{_bt.isoformat()}">'
-             f'(<span class="cn-ago">just now</span>)</span>')
+             f'(<span class="cn-ago">just now</span>)</span>'
+             + freshness_note(d))
 
     gsratio = cm.get("gold_silver_ratio")
     pxdate = cm.get("price_asof") or "n/a"

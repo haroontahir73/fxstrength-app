@@ -54,7 +54,18 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'push' }}
 
 jobs:
+  # THE GATE. The watcher classifies headlines and buzzes the phone, and it commits the
+  # feed back to the repo, so it is a deploy in every sense that matters. It waits.
+  #
+  # The tradeoff is deliberate and matches this file's own rule that "a stale classifier
+  # is worse than a gap": if the suites fail, the watcher does not run and no alerts go
+  # out, rather than a broken decoder sending calls that point the wrong way. A failing
+  # gate therefore costs coverage - fix the test, do not route around it.
+  tests:
+    uses: ./.github/workflows/tests.yml
+
   watch:
+    needs: tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -79,6 +90,8 @@ jobs:
             engine/data/theme_claims.json
             engine/data/alert_scores.json
             engine/data/decode_overrides.json
+            engine/data/alert_queue.json
+            engine/data/override_history.json
           key: commodity-state-${{ github.run_id }}
           restore-keys: commodity-state-
 
@@ -138,7 +151,7 @@ jobs:
               # deploy reset the dedup and re-alerted stories from the last 45 minutes.
               # Piggy-backing on the feed commit keeps this to a few commits a day
               # rather than one per pass.
-              for f in commodity_feed.json commodity_seen.json news_seen.json                        theme_claims.json alert_scores.json decode_overrides.json; do
+              for f in commodity_feed.json commodity_seen.json news_seen.json                        theme_claims.json alert_scores.json decode_overrides.json                        alert_queue.json override_history.json; do
                 [ -f "data/$f" ] && git add "data/$f"
               done
               git commit -m "feed: new commodity alert(s) [skip refresh]" || true
@@ -174,4 +187,6 @@ jobs:
             engine/data/theme_claims.json
             engine/data/alert_scores.json
             engine/data/decode_overrides.json
+            engine/data/alert_queue.json
+            engine/data/override_history.json
           key: commodity-state-${{ github.run_id }}
