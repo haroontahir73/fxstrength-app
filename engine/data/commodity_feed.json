@@ -1,5 +1,60 @@
 [
  {
+  "when": "09 Oct 13:41 UTC",
+  "iso": "2026-10-09T13:41:10.316516+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nSilver Is Headed for a Sixth Straight Year of Supply Shortfall - The Manila Times  (The Manila Times)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,215 (+1.4%)   Silver 61.06 (+3.4%)   WTI 90.93 (-0.6%)   DXY 102.28 (+0.1%)   US10Y 5.26 (+0.5%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPRHk3dHVmaEtaRGszelVkaDdkRno2bENyODVraVZlWXpERTY0NnkzR3J4M1RVcjV5bmxRd3RTZVJZWWlLY3lGb0NCYXA4akRNT2dpSnB4Z1JhbjdBdnpNbnBXYlpnMURtN1Q2bTllZmJWbGhjVjNoNjZwUzFUazlkTHJrT280RUQ3TThkUmotQVRjSGgybEIwZkI0VzZROGJzMDFZWW9KTmtlcVBsd0gxenFqcFBxUnh5RzVhb3dDZWZja0ZEVlZMMnBvVGVsVlBYV2fSAdcBQVVfeXFMTi1vakZuTjNub0p0ak9Hak5BTHRZTFNPRUl5cDdDRVh0ZGN0ZVVsT29ITng4STh3SXo5X3JDQTJNbmtVUUpEdFRWSlB2UFU2SEdvUi1ydThKb2N3RmpNSms2ZzRINXMwRmhUY2c0eFB5aUxvbnhNdVlDUHhJZGE0UnB2dlhqX2lScGcyaV9uc2xndXc1Ti0yQzNrNVQzYzZsbVZKMjAtbU1SQUR2RFVEcklzOTNTQXZHSTFoQmhSV0stVWJncGtHUzZqeUY3X1hSUGhpLXdtSW8?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4215.3,
+   "Silver": 61.065,
+   "WTI": 90.93
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Silver Is Headed for a Sixth Straight Year of Supply Shortfall - The Manila Times",
+   "src": "The Manila Times",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,215 (+1.4%)   Silver 61.06 (+3.4%)   WTI 90.93 (-0.6%)   DXY 102.28 (+0.1%)   US10Y 5.26 (+0.5%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "09 Oct 11:47 UTC",
   "iso": "2026-10-09T11:47:06.099292+00:00",
   "cat": "rates_up",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,179 (+0.5%)   Silver 61.50 (+1.0%)   WTI 90.31 (+1.0%)   DXY 101.98 (+0.1%)   US10Y 5.27 (-0.8%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "07 Oct 00:36 UTC",
-  "iso": "2026-10-07T00:36:35.703551+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: No casualties reported in missile strike on Yemen's Aden international airport: Aden security authority media office\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,190 (+0.8%)   Silver 61.70 (+1.4%)   WTI 90.30 (+1.0%)   DXY 101.94 (+0.1%)   US10Y 5.27 (-0.8%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://www.financialjuice.com/News/9794499/No-casualties-reported-in-missile-strike-on-Yemens-Aden-international-airport-Aden-security-authority-media-office.aspx",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4189.7,
-   "Silver": 61.705,
-   "WTI": 90.3
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "FinancialJuice: No casualties reported in missile strike on Yemen's Aden international airport: Aden security authority media office",
-   "src": "",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,190 (+0.8%)   Silver 61.70 (+1.4%)   WTI 90.30 (+1.0%)   DXY 101.94 (+0.1%)   US10Y 5.27 (-0.8%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
