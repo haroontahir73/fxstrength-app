@@ -1,5 +1,60 @@
 [
  {
+  "when": "09 Oct 21:53 UTC",
+  "iso": "2026-10-09T21:53:11.105033+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nOil Prices Steady After Trump Appears to Rule Out Iran Strikes Before Midterms - Moomoo  (Moomoo)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,220 (+1.5%)   Silver 61.11 (+3.5%)   WTI 91.66 (+0.2%)   DXY 102.23 (+0.1%)   US10Y 5.24 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOSEdvM3RVa0lDc0ZVbUdNZmRxaDA1bjYtRno2azE1QXlaUWxPQ1QwSVdSN3B6RFVSLTlKUjdjMThVVFFqWTZYRElsQWU3Y2R2OXVXaHMtXzNmc3dDSU80c2hXa0g3SG1VNmR1QXhOSFROVzkyVmJlSkt0N3lNTEJFRDRPa1ItNFJneU9iZEtaeDh6QldzQmV5YVJEWjJyZkp3U0hV?oc=5",
+  "talk": false,
+  "pushed": true,
+  "push_error": "",
+  "px": {
+   "Gold": 4220.3,
+   "Silver": 61.11,
+   "WTI": 91.66
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Oil Prices Steady After Trump Appears to Rule Out Iran Strikes Before Midterms - Moomoo",
+   "src": "Moomoo",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,220 (+1.5%)   Silver 61.11 (+3.5%)   WTI 91.66 (+0.2%)   DXY 102.23 (+0.1%)   US10Y 5.24 (+0.2%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "09 Oct 17:20 UTC",
   "iso": "2026-10-09T17:20:53.145292+00:00",
   "cat": "geo_escalation",
@@ -3242,61 +3297,6 @@
    "snap": "NOW  Gold 4,145 (-1.0%)   Silver 60.43 (-1.2%)   WTI 89.88 (+0.5%)   DXY 102.27 (+0.4%)   US10Y 5.27 (-0.8%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "07 Oct 10:01 UTC",
-  "iso": "2026-10-07T10:01:00.466753+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOil prices rise amid concerns over Mideast, U.S. supply disruptions - Investing.com  (Investing.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,145 (-1.0%)   Silver 60.48 (-1.1%)   WTI 90.00 (+0.6%)   DXY 102.29 (+0.5%)   US10Y 5.27 (-0.8%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUVJuT21mMDh1YUZrdG1FanFXY0phb0xqWjdRRzVHZEpBTkQwMDVrTXBTZ0E1c1hUVGM4RG9qT1h5a1hhNXZWX1h6QktxQkhQbnk4WWREUWM4eVZ5cWdWNWM4SjZ3UzZmMHVzOUdQa2FyTzUycnJscy0zTGVmS3VmR2xqWDFOMzdBVGtTdHotN3BCekltQ05zQzZxVGVsaU5BazFHcEhn?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4144.8,
-   "Silver": 60.485,
-   "WTI": 90.0
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Oil prices rise amid concerns over Mideast, U.S. supply disruptions - Investing.com",
-   "src": "Investing.com",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,145 (-1.0%)   Silver 60.48 (-1.1%)   WTI 90.00 (+0.6%)   DXY 102.29 (+0.5%)   US10Y 5.27 (-0.8%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
