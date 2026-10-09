@@ -1,0 +1,37 @@
+# TEMPORARY PROBE - delete this branch when the question below is answered.
+#
+# Does `uses: ./.github/workflows/tests.yml` actually resolve and execute as a CALLED
+# workflow, and does `needs:` on it really gate a downstream job?
+#
+# A pull_request run of tests.yml proves only that tests.yml runs on its own. It says
+# nothing about workflow_call resolution, which is the mechanism every deploy now depends
+# on. This probe exercises exactly that and nothing else: it deploys nothing, runs no
+# watcher, sends no notification, writes no data, and is granted read-only contents.
+name: ci probe (workflow_call)
+
+on:
+  push:
+    branches: ['ci-probe/**']
+
+permissions:
+  contents: read
+
+jobs:
+  # Identical call site to the one refresh.yml / news-watch.yml / oi-cloud.yml use.
+  tests:
+    uses: ./.github/workflows/tests.yml
+
+  # Stands in for a deploy job, without being one.
+  downstream:
+    needs: tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Only reachable if the called workflow resolved AND passed
+        run: |
+          echo "PROBE: the called workflow completed successfully"
+          echo "PROBE: this needs:-gated job then ran"
+          echo "caller sha   = ${{ github.sha }}"
+          echo "caller ref   = ${{ github.ref }}"
+          echo "tests result = ${{ needs.tests.result }}"
