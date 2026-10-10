@@ -1,5 +1,61 @@
 [
  {
+  "when": "10 Oct 13:44 UTC",
+  "iso": "2026-10-10T13:44:40.289511+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nDid Oil Supply Disruptions Just Shift Northern Oil and Gas Stock Investment Narrative? - Simply Wall Street  (Simply Wall Street)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,216 (+1.4%)   Silver 61.05 (+3.4%)   WTI 91.85 (+0.4%)   DXY 102.23 (+0.1%)   US10Y 5.24 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOVm5lSlFMSnJVaE82cnc2SnBvU2VJV0RUTjZoTy03ejlWOHZ6NW1pTmFhcDZaRkdqRE1xWVc4NU5xUEdkM0ZYVmpMcXNwelNhLS15UE5vc2tlb1UzZTFSenRQanJxTjI4WHJHUVBhWFUwV0xvSnVPVWpORmM4TXRmRC00US1jSjU5WEltYUo0QzVDM0wxQVpSWm10QVVPSnFDRUdETkdHb25UNnp3VkY5S3UtbldPT01LaTlXRlNjQ2FnZEx0OVhwVEUzUHpZV2vSAdQBQVVfeXFMUG9FZGRZVDhsU2VMT2w5ZjZnZVRyMlAwYTRNWE1RZEZIV2JwU2pLUGZVWlpmbU1YZUJoOW1DNGhHbENWRFdfYkVyQVJnRFIyXzBCekR1SnJIY0o5bTJhV1ZxdEdCYjdRRFV3V2tQWXFFTU5wdXlrRXNtREhLZ2Zvc1pyRHRtcmE4aEg2N0gyenRQcWFMa2tYTVBacG1TMnFYaWk0SXhfeEVQbWFjbk5aVkYyb1R0VEhna3Q3ZHFjS0V2UTlWNUIwOWpaSUxFQmQ0UlBJSlg?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4216.3,
+   "Silver": 61.048,
+   "WTI": 91.85
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Did Oil Supply Disruptions Just Shift Northern Oil and Gas Stock Investment Narrative? - Simply Wall Street",
+   "src": "Simply Wall Street",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,216 (+1.4%)   Silver 61.05 (+3.4%)   WTI 91.85 (+0.4%)   DXY 102.23 (+0.1%)   US10Y 5.24 (+0.2%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "10 Oct 13:03 UTC",
   "iso": "2026-10-10T13:03:39.384294+00:00",
   "cat": "geo_escalation",
@@ -3248,61 +3304,6 @@
    "snap": "NOW  Gold 4,136 (-1.2%)   Silver 60.15 (-1.7%)   WTI 88.67 (-0.9%)   DXY 102.30 (+0.5%)   US10Y 5.32 (+0.9%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "07 Oct 17:04 UTC",
-  "iso": "2026-10-07T17:04:14.600277+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nChina's turn to Iraqi crude shows growing impact of Iran oil blockade - Iran International  (Iran International)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,135 (-1.3%)   Silver 60.09 (-1.8%)   WTI 88.83 (-0.7%)   DXY 102.31 (+0.5%)   US10Y 5.32 (+1.0%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE4yRVJiOWMxSUxMaHdGSVJCYjItdldIV0NPUDNybUVJR093YVJQVUxaQ3BrZkZMaHB6X3NpRmVScWQ2cGFqUHotYUVfUnV5QzEtMkE?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4134.7,
-   "Silver": 60.09,
-   "WTI": 88.83
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "China's turn to Iraqi crude shows growing impact of Iran oil blockade - Iran International",
-   "src": "Iran International",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,135 (-1.3%)   Silver 60.09 (-1.8%)   WTI 88.83 (-0.7%)   DXY 102.31 (+0.5%)   US10Y 5.32 (+1.0%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
