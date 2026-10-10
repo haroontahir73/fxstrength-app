@@ -1,5 +1,61 @@
 [
  {
+  "when": "10 Oct 02:13 UTC",
+  "iso": "2026-10-10T02:13:11.655102+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nPutin tells Trump peace talks are unlikely, cites Ukraine drone attacks - Al Jazeera  (Al Jazeera)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,220 (+1.5%)   Silver 61.11 (+3.5%)   WTI 91.66 (+0.2%)   DXY 102.23 (+0.1%)   US10Y 5.24 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOS21icGllSk12TlZ5V2dyYnpGZE9vOXZMME0xeDlwc2YxajQ5UTF3RXBQTV9XTkY4VVRfNGxzcU9wOHJZTU9nbERrTENuMWpxU1ktaVpydk5WbVhSRXNiLU1BbENxVWlRZEEzZUE1c1ZwOXAzeEFBSmNNT3pMMmNhUmw0alRmUkVGODRCbnh5czJGOUE5SnUwdFpoYU4ycE9DSldubUU5Wjk4dlRFVXVRNV9n0gG3AUFVX3lxTE1aRTJOT1R1M3lvZXkwZ1NOQXZwajdxTmxOZFhtODNBTS0wZTZkRWdDWVAxU1h3TS1MWVFRb053a0tnVGRiUHpjV3VOUDJZcDE4RjdYZ21kenI4dkN0N0gyV0NyLVdQX015aEt5dUdBc2xSZk94aW9zLWVlemlKUnl6cV9jVzdLdGRlZmsyclFTNzZLeDZwNXE2WXdlRTBCd094UVZZUjJPZ3F5b3NzQW1SdHo4SFAydw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4220.3,
+   "Silver": 61.11,
+   "WTI": 91.66
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Putin tells Trump peace talks are unlikely, cites Ukraine drone attacks - Al Jazeera",
+   "src": "Al Jazeera",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,220 (+1.5%)   Silver 61.11 (+3.5%)   WTI 91.66 (+0.2%)   DXY 102.23 (+0.1%)   US10Y 5.24 (+0.2%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "10 Oct 02:06 UTC",
   "iso": "2026-10-10T02:06:44.502869+00:00",
   "cat": "oil_supply_tight",
@@ -3243,61 +3299,6 @@
    "snap": "NOW  Gold 4,105 (-2.0%)   Silver 59.34 (-3.0%)   WTI 90.17 (+0.8%)   DXY 102.45 (+0.6%)   US10Y 5.34 (+1.4%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "07 Oct 11:27 UTC",
-  "iso": "2026-10-07T11:27:47.473274+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nOil tanker burns off Russia\u2019s Sochi after naval drone attack, sending smoke billowing over the coast. Photos and videos. - Meduza  (Meduza)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,146 (-1.0%)   Silver 60.38 (-1.3%)   WTI 89.96 (+0.6%)   DXY 102.33 (+0.5%)   US10Y 5.27 (-0.8%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPaWVTOXdiOU5FekFWWndCNXpueFB3akdKejBDYVRQbHY1MVlhcHpxclJHejdFVG1BY0dQQzBnam9Ha3c2Wm41em1jSjhjSHNzQjZrdE80NWwtYXZyQ05yaFJPaXVlMGtXajV5ekZQLU8tQUZsMThaSmladVVRRW82OTFEUGIzVF9xX2gtb252TVhaRmFSNVJ4dER4a2xJRjJQVWtpblVlV1VUZGVIOVF5UmpzZll1YzQzRWhzNzVZWDVnMmxBUlNRMThCTWtlWndsUXJYUzdFc1JoeDctZ1FMTHZ0c29uTmx4RHI1cTBB0gHzAUFVX3lxTE9YMENCOHlCQ05icEczelBha0tiWWJ5V1R6UjI2aE5pUGh1R0Q1VDRWUEFjUWVHUE0yYW5KeUJNcExsM3FUSE94QnNUQWZ5bUJ6TzFfWTNid2xmNWJUVTZ2WXliWWlWYUg5eXNLdzVYajRiLXI2Qm9rYTRZa0lPZWlhSmNTQm9kN0lwVHNMbmQybmpwMjRPNnhKWThMaHM3MDBiVjFpb2hBckVhSkxJZFdfaTQzVmpha1J3bngta2ZlZGVLRzBMdUdGWTItTTB2ZlNtcHN4cU55d0JrYXY2Wm5ieXZ3bTZTeHl0aTNKZEpMX2pKTQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4146.0,
-   "Silver": 60.375,
-   "WTI": 89.96
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Oil tanker burns off Russia\u2019s Sochi after naval drone attack, sending smoke billowing over the coast. Photos and videos. - Meduza",
-   "src": "Meduza",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,146 (-1.0%)   Silver 60.38 (-1.3%)   WTI 89.96 (+0.6%)   DXY 102.33 (+0.5%)   US10Y 5.27 (-0.8%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
