@@ -1,5 +1,61 @@
 [
  {
+  "when": "10 Oct 04:12 UTC",
+  "iso": "2026-10-10T04:12:03.189717+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nUS Backs 1.25B Barrels of Gulf Oil Through Hormuz Amid Iran Blockade - News and Statistics - IndexBox  (IndexBox)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,220 (+1.5%)   Silver 61.11 (+3.5%)   WTI 91.66 (+0.2%)   DXY 102.23 (+0.1%)   US10Y 5.24 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOd0pTeklRMEdQYXp3QnhZV1lFYWxBNEJMZWlhNXFVUHBDVGxxb1RIZnI0MzM0dkl0aFN0RlVLQVhncTcwZmMxRFU2RFFNbjkxV2s0aWdsYXppR09NOU55Qm9uQ2ZkekdCY0NjbFZRSW5sdzRfcTljN0xKbTZCN2RPdklyV3ZCd3hoVlY5b1U5S2ZPelRMdi0wU1pWeXBwQW1peFhEYVlHM3lhUQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4220.3,
+   "Silver": 61.11,
+   "WTI": 91.66
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "US Backs 1.25B Barrels of Gulf Oil Through Hormuz Amid Iran Blockade - News and Statistics - IndexBox",
+   "src": "IndexBox",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,220 (+1.5%)   Silver 61.11 (+3.5%)   WTI 91.66 (+0.2%)   DXY 102.23 (+0.1%)   US10Y 5.24 (+0.2%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "10 Oct 04:05 UTC",
   "iso": "2026-10-10T04:05:00.818333+00:00",
   "cat": "rates_up",
@@ -3243,61 +3299,6 @@
     }
    ],
    "snap": "NOW  Gold 4,130 (-1.4%)   Silver 60.01 (-1.9%)   WTI 89.55 (+0.1%)   DXY 102.31 (+0.5%)   US10Y 5.31 (+0.8%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "07 Oct 13:26 UTC",
-  "iso": "2026-10-07T13:26:49.437237+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nRubio states that the Iranian regime has 'lost complete control' of the Strait of Hormuz as the flow of oil returns to normal - voz.us  (voz.us)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,120 (-1.6%)   Silver 60.08 (-1.8%)   WTI 90.17 (+0.8%)   DXY 102.39 (+0.5%)   US10Y 5.35 (+1.5%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPRF8tWDZObE5rWkRNQkVmZndySW9yS1k2a180LXdJemNubUVvcWNzNlI2WG1YX3dhVW0xVkhtNlgyS2wzZ293X0o3ZXRSYUdtZE1SbDJUT1lWNzdZRXBlRW1HakpTdEs5WkRHVmpKcG83SFN2MncyaDBwSm9wSHd3TGlYOE1NWDVmbHZrRHNWQ250UHF6OGF6NmZRQk5NTE94QlJKbGkyZDVpYXVSbm9qZVY1LXpGNmYyTElISzVDUWgxMkx4bGZIOUoxbzZYTXlhaGkxQU1iNkdna0F3LXRvSjJuaGQ0aXlGS09odXFSWFRGTWV0TkRwMFZ2NG8?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4119.6,
-   "Silver": 60.075,
-   "WTI": 90.17
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Rubio states that the Iranian regime has 'lost complete control' of the Strait of Hormuz as the flow of oil returns to normal - voz.us",
-   "src": "voz.us",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,120 (-1.6%)   Silver 60.08 (-1.8%)   WTI 90.17 (+0.8%)   DXY 102.39 (+0.5%)   US10Y 5.35 (+1.5%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
   }
