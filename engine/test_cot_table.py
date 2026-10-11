@@ -469,8 +469,13 @@ def test_positioning():
           and ct.positioning([5] * 156, 5)["strength"] == 0)
     check(g, "short history -> not ranked", ct.positioning(list(range(40)), 39)["state"] == "short-history")
     check(g, "missing value -> no colour", ct.positioning(win, None)["state"] == "no-data")
-    check(g, "age fade: latest full, each week weaker, old ~ plain",
-          ct.age_fade(0) == 1 and 0 < ct.age_fade(2) < ct.age_fade(1) < 1 and ct.age_fade(20) < 0.01)
+    check(g, "age fade: latest full, each week x0.75 (100, 75, 56, 42 ...)",
+          ct.age_fade(0) == 1 and ct.age_fade(1) == 0.75 and abs(ct.age_fade(3) - 0.421875) < 1e-9)
+    check(g, "age fade never drops below the 15% floor (reached at 7 weeks)",
+          ct.age_fade(6) > 0.15 and ct.age_fade(7) == 0.15 and ct.age_fade(49) == 0.15)
+    ext, low = ct.positioning(win, 156), ct.positioning(win, 10)
+    check(g, "an old extreme stays visibly tinted; an old low reading stays plain",
+          ext["strength"] * ct.age_fade(40) > 0.14 and low["strength"] * ct.age_fade(40) < 0.005)
     # longs and shorts against their own distributions: NC long at its 3y high while NC
     # short sits at its 3y low in the same week
     s = ct.empty_store()
@@ -517,6 +522,7 @@ def test_render():
         ct._write(data / ct.OUT_NAME, s)
         now = dt.datetime(2026, 10, 11, 12, tzinfo=UTC)
         html = bd.cot_report_tables(now=now)
+        check(g, "machine-readable report marker for the Pi checker", 'data-cot-report="2026-10-06"' in html)
         check(g, "both titles + report date", ct.FX_TITLE in html and ct.CM_TITLE.replace("&", "&amp;") in html
               and "October 6, 2026" in html)
         check(g, "grouped headers, clear Total / Net Difference labels",
@@ -576,7 +582,8 @@ def test_render():
               "The <b>Max / Min</b> rows cover the 50 reports shown" in flat and "3-year window" in flat
               and "last 156 reports" in flat)
         check(g, "legend spells out the fade as x0.75 per week",
-              "multiplies the colour strength by 0.75" in flat and "100% &rarr; 75% &rarr; 56% &rarr; 42%" in flat)
+              "multiplies the colour strength by 0.75" in flat and "100% &rarr; 75% &rarr; 56% &rarr; 42%" in flat
+              and "never below 15%" in flat)
         check(g, "a Show-percentiles toggle and a percentile label in every Long/Short cell",
               'class="crpct"' in wti and "Show percentiles" in wti
               and wti.count('<span class="pp">') == wti.count('<td class="x'))

@@ -462,7 +462,9 @@ def cot_report_tables(today=None, now=None):
     sv = _ct.status_view(store, now)
     date_txt = _cr_long_date(t["report_date"])
     groups = "".join(_cotrep_group(g, date_txt) for g in t["groups"])
-    return f"""<section class="crsec">
+    # data-cot-report: a stable marker the Raspberry Pi checker reads to confirm that a
+    # triggered refresh really published the new week (pi/cot_pi_check.py).
+    return f"""<section class="crsec" data-cot-report="{esc(t['report_date'])}">
     <h2>COT report tables <span class="mut" style="font-weight:400;font-size:14px">&mdash; Legacy report: Non-Commercial vs Commercial</span></h2>
     <p class="sub">Source: {esc(_ct.SOURCE)}. Futures used as proxies for the spot pairs;
     <b>USD</b> is the ICE US Dollar Index future, not a pair. A separate, broader cut from the
@@ -523,8 +525,9 @@ _CR_LEGEND = ("""<div class="crleg">
       Max, and the 50-week Max can be only mid-coloured.</p>
       <p>Faint = low, light = moderate, strong = high, darkest = extreme (the percentile, shaded
       continuously). <b>Age fade</b>: each week back multiplies the colour strength by """ +
-      f"{_ct.AGE_FADE:g}" + """ (""" + _CR_FADE_STEPS + """ &hellip;), so older weeks drift towards
-      the plain background; the percentile itself never fades &mdash; hover or tap a figure, or
+      f"{_ct.AGE_FADE:g}" + """ (""" + _CR_FADE_STEPS + """ &hellip;) but never below """ +
+      f"{_ct.AGE_FADE_FLOOR:.0%}" + """, so an old extreme stays visible as a faint tint while a
+      low reading still looks plain; the percentile itself never fades &mdash; hover or tap a figure, or
       switch on <i>Show percentiles</i>. These colours mark positioning extremes, <b>not</b>
       buy/sell signals.</p>
     </div>""")

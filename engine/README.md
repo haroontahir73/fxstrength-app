@@ -375,7 +375,8 @@ one. Flipping stays a human decision.
 python test_commodity_decode.py   # the news decoder - 79 checks
 python test_reliability.py        # freshness, outages, delivery, corrections - 66 checks
 python test_publish_state.py      # feed publishing against real git - 88 checks
-python test_cot_table.py          # Legacy COT tables + 50-week reports - 139 checks
+python test_cot_table.py          # Legacy COT tables + 50-week reports - 142 checks
+python ../pi/test_pi_check.py     # the Raspberry Pi report trigger - 35 checks
 ```
 
 All are stdlib-only and run offline. `test_reliability.py` works against a temporary
@@ -638,9 +639,14 @@ renderer is in `build_dashboard.py`; the module docstring is the full specificat
   percentile among its own last 156 reports up to that week (point in time, mid-rank, longs
   and shorts separately). A figure can be dark without being the 50-week Max.
 - **Shading**: strength = (percentile/100)², continuous — longs red, shorts blue. **Age
-  fade** multiplies that by 0.75 per week back (100%, 75%, 56%, 42%, 32%, 24% …). The
+  fade** multiplies that by 0.75 per week back (100%, 75%, 56%, 42%, 32%, 24% …), never
+  below 15%, so an old extreme stays a faint tint while an old low reading looks plain. The
   percentile itself never fades: hover/tap any figure, or *Show percentiles* labels every
   one. Positioning extremes, not signals.
+- **Raspberry Pi trigger** (`pi/`, guide in `pi/README.md`): the Pi only watches for a new
+  CFTC week and triggers this tested refresh build once (`cot_legacy_fetch=true`), then
+  confirms the run succeeded and the page shows the week; GitHub fetches, tests, builds
+  and publishes. Without the Pi the schedule below still picks the report up.
 - **Updating**: Friday 15:30 US Eastern release (DST by hand); a one-time ~4-year backfill;
   a daily re-check until the next report is due, then every 30 min, every 3 h once a day late;
   a failed fetch keeps the last good data and flags it; first-seen is stamped only when a new

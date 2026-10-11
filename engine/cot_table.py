@@ -53,8 +53,10 @@ extreme the darkest. Longs shade red, shorts blue. The words on hover / tap are 
 for the same number: low < 40th, moderate 40-70th, high 70-90th, extreme >= 90th.
 Fewer than MIN_RANK_WEEKS reports, a flat range or a missing value -> no colour, and the
 hover says why. AGE FADE is applied afterwards and separately:
-    shown = strength x AGE_FADE ** (weeks before the latest report)
-so the latest report is full strength and older weeks fade towards the plain background.
+    shown = strength x max(AGE_FADE_FLOOR, AGE_FADE ** (weeks before the latest report))
+so the latest report is full strength and older weeks fade - but never below 15% of their
+own strength, so an old extreme stays visible as a faint tint (a low reading, whose own
+strength is tiny, still looks plain).
 The hover / tap always gives the true, unfaded percentile. These show positioning extremes,
 not buy/sell signals.
 
@@ -95,7 +97,8 @@ KEEP_WEEKS = 520                         # storage cap per contract (10 years)
 ROW_LIMIT = 20000                        # a response this long may be truncated -> rejected
 
 SHADE_GAMMA = 2.0                        # strength = (pct/100)**gamma: faint low, dark extreme
-AGE_FADE = 0.75                          # shown strength x this per week of age
+AGE_FADE = 0.75                          # shown strength x this per week of age...
+AGE_FADE_FLOOR = 0.15                    # ...but never below this (reached at 7 weeks old)
 BANDS = ((90.0, "extreme"), (70.0, "high"), (40.0, "moderate"), (0.0, "low"))
 
 RECHECK_H = 24                           # not due yet: one re-check a day (revisions)
@@ -401,7 +404,7 @@ def positioning(window, x):
 
 
 def age_fade(age):
-    return AGE_FADE ** max(0, age)
+    return max(AGE_FADE_FLOOR, AGE_FADE ** max(0, age))
 
 
 SERIES = ("nc_long", "nc_short", "comm_long", "comm_short")

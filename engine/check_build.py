@@ -15,7 +15,7 @@ Checks, for the COT report tables and all 16 50-week reports:
   * each report: one layer per market, 3 tables of the expected weeks (newest first, full
     dates), every value, Max/Min over the weeks shown and the 13-week average, the chart
     (one point per week per series), legend wording;
-  * shading: every Long/Short cell's colour strength = (pct/100)^2 x 0.75^age from an
+  * shading: every Long/Short cell's colour strength = (pct/100)^2 x max(0.15, 0.75^age) from an
     independent point-in-time percentile over 156 reports (52 minimum, mid-rank), and its
     hover/tap text carries the unfaded percentile;
   * history: with --require-history N, every market must have at least N weekly reports
@@ -27,7 +27,7 @@ import datetime as dt
 from pathlib import Path
 
 REVERSED = {"090741", "092741", "097741"}              # CAD, CHF, JPY futures
-RANK, MIN_RANK, GAMMA, FADE, SHOW, AVG = 156, 52, 2.0, 0.75, 50, 13
+RANK, MIN_RANK, GAMMA, FADE, FLOOR, SHOW, AVG = 156, 52, 2.0, 0.75, 0.15, 50, 13
 
 FAILS, OKS = [], []
 
@@ -103,10 +103,11 @@ def main():
             have[d] = have.get(d, 0) + 1
     latest = max(d for d, n in have.items() if n >= len(ALL_ROWS) - 1)
     pretty = lambda d: f"{dt.date.fromisoformat(d):%B} {dt.date.fromisoformat(d).day}, {dt.date.fromisoformat(d).year}"  # noqa: E731
-    sec = re.search(r'<section class="crsec">(.*?)</section>', page, re.S)
+    sec = re.search(r'<section class="crsec" data-cot-report="([0-9-]+)">(.*?)</section>', page, re.S)
     if not ok(sec is not None, "COT report tables section present"):
         return finish()
-    S = sec.group(1)
+    S = sec.group(2)
+    ok(sec.group(1) == latest, f"page marker data-cot-report={sec.group(1)} is the latest complete week {latest}")
     ok(S.count(pretty(latest)) >= 2, f"summary tables dated {pretty(latest)}")
     ok("Commitment of Traders Report for the Major Currency Pairs" in S
        and "Commitment of Traders Report for the Major Commodities &amp; Indexes" in S, "both table titles")
@@ -190,7 +191,7 @@ def main():
                             bad_c.append((d, col, "coloured but not ranked"))
                         continue
                     p = pctl(win, sides[idx[d]][k])
-                    want = (p / 100) ** GAMMA * FADE ** age
+                    want = (p / 100) ** GAMMA * max(FLOOR, FADE ** age)
                     got = re.search(r"--a:([0-9.]+)", attrs)
                     got = float(got.group(1)) if got else 0.0
                     if abs(got - want) > 0.0015 and not (want < 0.005 and got == 0.0):
@@ -202,7 +203,7 @@ def main():
                     if ("xl" in attrs) != (col == 1) or ("xs" in attrs) != (col == 2):
                         bad_c.append((d, col, "wrong hue"))
             ok(not bad_v, f"{label} {tname}: every weekly figure matches CFTC", bad_v[:2])
-            ok(not bad_c, f"{label} {tname}: colour = (pct/100)^2 x 0.75^age on every Long/Short cell", bad_c[:3])
+            ok(not bad_c, f"{label} {tname}: colour = (pct/100)^2 x max(0.15, 0.75^age) on every Long/Short cell", bad_c[:3])
             ok(not bad_t, f"{label} {tname}: hover/tap text carries the true percentile", bad_t[:2])
             # reference rows
             vals = [group(sides[idx[d]][a_], sides[idx[d]][b_]) for d in shown]

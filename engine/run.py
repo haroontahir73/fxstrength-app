@@ -9,7 +9,7 @@
 Every mode ends by rebuilding dashboard.html. Safe to run against an empty data/ - `daily`
 falls back to a `cot` fetch when cot.json is missing.
 """
-import json, sys, datetime as dt
+import json, os, sys, datetime as dt
 from config import DATA
 try:
     from config import INDEX_ORDER
@@ -251,10 +251,12 @@ def run(mode):
     # The classic Non-Commercial vs Commercial tables + per-contract 50-week reports on the
     # COT tab (CFTC Legacy, futures only). Display only - nothing scores off it. build()
     # decides for itself whether a fetch is due (release schedule, retries, backfill), so it
-    # is NOT forced on `cot` runs - those fire every 15 minutes all Saturday.
+    # is NOT forced on `cot` runs - those fire every 15 minutes all Saturday. It IS forced
+    # when the Raspberry Pi triggered this run because it saw a new CFTC report
+    # (refresh.yml input cot_legacy_fetch -> COT_LEGACY_FETCH=1).
     print("COT report tables (CFTC Legacy):")
     try:
-        cot_table.build()
+        cot_table.build(force=os.environ.get("COT_LEGACY_FETCH") == "1")
     except Exception as e:                                       # noqa: BLE001
         print(f"  cot_table failed ({type(e).__name__}: {e}) - tables left as-is")
 

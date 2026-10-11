@@ -102,6 +102,14 @@ jobs:
         working-directory: engine
         run: python check_layout.py dashboard.html --out ../build-check
 
+      # Measurement only (never fails the build): this page vs the live one on an emulated
+      # mid-range phone - size, download, first paint, load, long tasks, and how fast
+      # opening the COT tab / a report / tapping a figure reaches the screen.
+      - name: Phone loading + interaction (this build vs live)
+        working-directory: engine
+        continue-on-error: true
+        run: python measure_phone.py dashboard.html --baseline https://haroontahir73.github.io/fxstrength-app/dashboard.html --out ../build-check
+
       - name: Keep the built page, the CFTC store and the screenshots
         if: always()
         run: |
