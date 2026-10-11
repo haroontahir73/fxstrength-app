@@ -39,6 +39,7 @@ BACKOFF_MIN = (2, 5, 15, 45)     # then hourly
 MAX_ATTEMPTS = 8
 MAX_AGE_H = 6.0                  # past this the alert is no longer news
 DEAD_KEEP = 30
+DELIVERED_TTL_H = 48            # how long a delivery tombstone is kept (see drain)
 
 
 def _load():
@@ -50,6 +51,8 @@ def _load():
         return {"pending": d, "dead": []}
     d.setdefault("pending", [])
     d.setdefault("dead", [])
+    if not isinstance(d.get("delivered"), dict):
+        d["delivered"] = {}
     return d
 
 
@@ -57,6 +60,9 @@ def _save(d):
     try:
         DATA.mkdir(exist_ok=True)
         d["dead"] = d.get("dead", [])[:DEAD_KEEP]
+        cutoff = time.time() - DELIVERED_TTL_H * 3600
+        d["delivered"] = {k: v for k, v in (d.get("delivered") or {}).items()
+                          if isinstance(v, (int, float)) and v >= cutoff}
         QUEUE_FILE.write_text(json.dumps(d, indent=1), encoding="utf-8")
     except Exception as e:                                     # noqa: BLE001
         print(f"  could not write {QUEUE_FILE.name}: {type(e).__name__}")
@@ -133,6 +139,12 @@ def drain(send, now=None):
             e["last_error"] = f"{type(ex).__name__}"
         if ok:
             delivered += 1
+            # A tombstone, not just a removal. publish_state.py merges this file with
+            # main's copy, which can be OLDER and still list this alert as pending -
+            # without a record that it went out, the merge would resurrect it and the
+            # phone would get it twice. Keyed by instance (key + when it first failed)
+            # so a later, different alert reusing the key is not mistaken for this one.
+            d["delivered"][f"{e.get('key')}|{e.get('first_seen_iso')}"] = time.time()
             print(f"  retry DELIVERED after {e.get('attempts', 1)} attempt(s)"
                   f" ({age_h * 60:.0f} min late): {e.get('title', '')[:60]}")
             continue

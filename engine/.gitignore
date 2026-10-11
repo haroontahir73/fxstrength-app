@@ -94,3 +94,5 @@ data/fred.json
 # repo secret instead; this file is the local-only alternative.
 data/fred_key.txt
 data/_bt_bars.json
+# publish_state.py bookkeeping - carried in the Actions cache, never committed
+data/publish_status.json

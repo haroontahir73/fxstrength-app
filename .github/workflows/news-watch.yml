@@ -92,8 +92,19 @@ jobs:
             engine/data/decode_overrides.json
             engine/data/alert_queue.json
             engine/data/override_history.json
+            engine/data/publish_status.json
           key: commodity-state-${{ github.run_id }}
           restore-keys: commodity-state-
+
+      # The restored cache can be OLDER than main: a run cancelled by a deploy never saves
+      # it, but may already have published. Merge main's copy of the watcher state in
+      # BEFORE the first pass, so stories already alerted on stay seen (no duplicate
+      # phone alert) and nothing already published is dropped. Data files only - the
+      # code in the working tree stays exactly the commit the test gate passed.
+      - name: Merge newer watcher state from main
+        continue-on-error: true        # not fatal: every publish merges main in anyway
+        working-directory: engine
+        run: python publish_state.py --sync-in
 
       # Scan every 5 minutes for ~55 minutes, then let the next hourly run take over.
       # Each watcher keeps its own dedup file on disk, so a story seen in one pass is
@@ -143,31 +154,29 @@ jobs:
             fi
             # Publish the feed as soon as an alert lands, not when the job ends. The
             # cache is only written in the post-job step, so without this the phone
-            # gets an alert up to ~55 min before the dashboard shows it.
-            if ! git diff --quiet -- data/commodity_feed.json; then
-              # Commit the dedup state WITH the feed. The cache is only written in the
-              # post-job step, which is skipped when a run is cancelled - and engine
-              # pushes now cancel the running job deliberately. Without this, every
-              # deploy reset the dedup and re-alerted stories from the last 45 minutes.
-              # Piggy-backing on the feed commit keeps this to a few commits a day
-              # rather than one per pass.
-              for f in commodity_feed.json commodity_seen.json news_seen.json                        theme_claims.json alert_scores.json decode_overrides.json                        alert_queue.json override_history.json; do
-                [ -f "data/$f" ] && git add "data/$f"
-              done
-              git commit -m "feed: new commodity alert(s) [skip refresh]" || true
-              # Rebase first. Without it, one push that loses a race leaves an unpushed
-              # commit behind; the next alert sees no diff against HEAD, commits nothing,
-              # and every later push fails the same way - the feed silently stops
-              # updating for the rest of the run.
-              git pull --rebase -q || git rebase --abort || true
-              git push || echo "  push failed - the cache still carries the feed"
-            fi
+            # gets an alert up to ~55 min before the dashboard shows it. The dedup
+            # state rides along, so a deploy that cancels this run cannot reset it.
+            #
+            # NO REBASE. This used to commit on the checked-out SHA and `pull --rebase`.
+            # A scheduled run gets the SHA from when it was CREATED, which can be an hour
+            # before it starts; if the previous loop pushed in that gap, the first
+            # commit conflicted on the data files, the rebase aborted, and no feed
+            # update reached main for the whole run (run 38081932047, 2026-10-10).
+            # publish_state.py instead builds each commit on main's CURRENT tip,
+            # replacing only the watcher's own files after merging them field by field,
+            # and retries from a fresh fetch if main moves. It exits at once, with no
+            # network, on a pass where the feed did not change.
+            python publish_state.py || true
             echo "::endgroup::"
             PASS=$(( PASS + 1 ))
             [ $(( $(date +%s) + 180 )) -lt $END ] || break
             sleep 180
           done
           echo "loop finished after $PASS pass(es)"
+          # One last attempt - and a RED run if the feed still has not reached main.
+          # A green run with a frozen dashboard feed is how the 5.5h stall went unseen.
+          # The cache-save steps below are `if: always()`, so the state is kept either way.
+          python publish_state.py --final
 
       - name: Save dedup cache
         if: always()
@@ -189,4 +198,5 @@ jobs:
             engine/data/decode_overrides.json
             engine/data/alert_queue.json
             engine/data/override_history.json
+            engine/data/publish_status.json
           key: commodity-state-${{ github.run_id }}

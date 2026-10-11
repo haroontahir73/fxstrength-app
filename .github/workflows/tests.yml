@@ -68,6 +68,13 @@ jobs:
         working-directory: engine
         run: python test_reliability.py
 
+      # Real git, against throwaway repos: reproduces the queued-run feed stall, then
+      # proves the publisher survives it, a concurrent push, a failed push and an older
+      # cache - without losing an entry, re-sending an alert or touching code.
+      - name: Publish-state suite (64 checks)
+        working-directory: engine
+        run: python test_publish_state.py
+
       # A test that writes to engine/data corrupts live pipeline state: these files are
       # committed and restored from the Actions cache, so a polluted one outlives the run
       # and reaches the dashboard. test_commodity_decode.py really did unlink the live
@@ -111,3 +118,4 @@ jobs:
           PY
           python /tmp/no_push.py test_commodity_decode.py
           python /tmp/no_push.py test_reliability.py
+          python /tmp/no_push.py test_publish_state.py
