@@ -76,16 +76,17 @@ def measure(pw, path, label):
                 nodes: document.getElementsByTagName('*').length}; }""")
     res = {"label": label, "raw_kb": round(raw / 1024), "wire_kb": round(wire / 1024), **nav}
 
-    def timed(js):
-        return pg.evaluate(f"async () => {{ const t = performance.now(); {js}; await window.__frame(); "
-                           f"return performance.now() - t; }}")
+    def timed(js, need=None):
+        """ms until the effect of `js` reaches the screen; None if `need` is not on the page
+        (the live page has no Legacy report yet, so some interactions do not exist there)."""
+        guard = f"if (!document.querySelector({json.dumps(need)})) return null; " if need else ""
+        return pg.evaluate(f"async () => {{ {guard}const t = performance.now(); {js}; "
+                           f"await window.__frame(); return performance.now() - t; }}")
     res["open_cot_tab_ms"] = timed("const t2 = document.getElementById('tab-cot'); if (t2) t2.click()")
-    has = pg.evaluate("() => !!document.getElementById('cot50-WTI')")
-    if has:
-        res["open_report_ms"] = timed("location.hash = '#cot50-WTI'")
-        res["tap_figure_ms"] = timed("document.querySelector('#cot50-WTI td.x').focus()")
-        res["show_percentiles_ms"] = timed("document.querySelector('#cot50-WTI .crpct').click()")
-        res["close_report_ms"] = timed("location.hash = '#p-cot'")
+    res["open_report_ms"] = timed("location.hash = '#cot50-WTI'", "#cot50-WTI")
+    res["tap_figure_ms"] = timed("document.querySelector('#cot50-WTI td.x').focus()", "#cot50-WTI td.x")
+    res["show_percentiles_ms"] = timed("document.querySelector('#cot50-WTI .crpct').click()", "#cot50-WTI .crpct")
+    res["close_report_ms"] = timed("location.hash = '#p-cot'", "#cot50-WTI")
     pg.wait_for_timeout(500)
     lt = pg.evaluate("() => window.__lt")
     res["long_tasks"] = len(lt)
