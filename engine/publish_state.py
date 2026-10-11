@@ -277,6 +277,16 @@ def _git(repo, *args, input=None, env=None, check=True):
     return p
 
 
+def _reason(err):
+    """The line of a git error worth reporting. git's LAST line is often filler
+    ("and the repository exists."), so prefer the fatal:/error:/rejected line."""
+    lines = [l.strip() for l in (err or "").splitlines() if l.strip()]
+    for l in lines:
+        if l.startswith(("fatal:", "error:", "remote: error", "!")) or "rejected" in l:
+            return l[:160]
+    return (lines[-1] if lines else "push failed")[:160]
+
+
 def _out(p):
     return p.stdout.decode("utf-8", "replace").strip()
 
@@ -500,8 +510,7 @@ def publish(repo=None, data=None, final=False, before_push=None, sleep=time.slee
             # only a lost race is retried at once; "[remote rejected]" (permissions,
             # protection) is a real failure and gets the backoff like any other
             raced = "non-fast-forward" in err or "fetch first" in err
-            errors.append("main moved during the push" if raced else
-                          (err.strip().splitlines() or ["push failed"])[-1][:160])
+            errors.append("main moved during the push" if raced else _reason(err))
             if raced:
                 continue                               # refetch + remerge at once
         except GitError as e:

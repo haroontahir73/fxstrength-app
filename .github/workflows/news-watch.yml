@@ -92,9 +92,20 @@ jobs:
             engine/data/decode_overrides.json
             engine/data/alert_queue.json
             engine/data/override_history.json
-            engine/data/publish_status.json
           key: commodity-state-${{ github.run_id }}
           restore-keys: commodity-state-
+
+      # publish_state.py's bookkeeping gets a cache of its OWN on purpose. actions/cache
+      # versions an entry by its exact path list, so adding a file to the state cache
+      # above would make the next run miss that cache entirely and start from the last
+      # committed state - which is exactly what happened on the first run after PR #1
+      # ("Cache not found for input keys: commodity-state-..."). Leave that list alone.
+      - name: Restore publish status
+        uses: actions/cache/restore@v4
+        with:
+          path: engine/data/publish_status.json
+          key: publish-status-${{ github.run_id }}
+          restore-keys: publish-status-
 
       # The restored cache can be OLDER than main: a run cancelled by a deploy never saves
       # it, but may already have published. Merge main's copy of the watcher state in
@@ -198,5 +209,11 @@ jobs:
             engine/data/decode_overrides.json
             engine/data/alert_queue.json
             engine/data/override_history.json
-            engine/data/publish_status.json
           key: commodity-state-${{ github.run_id }}
+
+      - name: Save publish status
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: engine/data/publish_status.json
+          key: publish-status-${{ github.run_id }}
