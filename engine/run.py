@@ -19,6 +19,7 @@ except ImportError:                                   # older config - no index 
 import fetch_cot, fetch_calendar, fetch_oi, fetch_rates, rate_expectations, speakers, fundamentals, score, build_dashboard
 import fetch_prices, fetch_fx_prices, commodities, fedwatch
 import fetch_index_prices, fetch_dxy_price, yields, seasonality, sentiment, indices, matrix, ticker, dxy, fred
+import cot_table
 
 STATE = DATA / "state.json"
 
@@ -246,6 +247,16 @@ def run(mode):
               + (f"; crowded: {', '.join(crowded)}" if crowded else "; none crowded"))
     except Exception as e:                                       # noqa: BLE001
         print(f"  sentiment failed ({type(e).__name__}: {e}) - tab left as-is")
+
+    # The classic Non-Commercial vs Commercial tables + per-contract 50-week reports on the
+    # COT tab (CFTC Legacy, futures only). Display only - nothing scores off it. build()
+    # decides for itself whether a fetch is due (release schedule, retries, backfill), so it
+    # is NOT forced on `cot` runs - those fire every 15 minutes all Saturday.
+    print("COT report tables (CFTC Legacy):")
+    try:
+        cot_table.build()
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  cot_table failed ({type(e).__name__}: {e}) - tables left as-is")
 
     print("Scores:")
     s = score.build()

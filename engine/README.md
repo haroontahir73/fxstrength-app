@@ -375,15 +375,16 @@ one. Flipping stays a human decision.
 python test_commodity_decode.py   # the news decoder - 79 checks
 python test_reliability.py        # freshness, outages, delivery, corrections - 66 checks
 python test_publish_state.py      # feed publishing against real git - 88 checks
+python test_cot_table.py          # Legacy COT tables + 50-week reports - 136 checks
 ```
 
-Both are stdlib-only and run offline. `test_reliability.py` works against a temporary
+All are stdlib-only and run offline. `test_reliability.py` works against a temporary
 data directory, so running it never touches live pipeline state.
 
 ### They gate every deploy
 
-`.github/workflows/tests.yml` is a reusable workflow (`workflow_call`) that runs both
-suites. Every workflow that executes engine code calls it as a job and depends on it:
+`.github/workflows/tests.yml` is a reusable workflow (`workflow_call`) that runs every
+suite. Every workflow that executes engine code calls it as a job and depends on it:
 
 | Workflow | Gated job | What it would otherwise do |
 |---|---|---|
@@ -403,11 +404,12 @@ Two properties the gate enforces on the tests themselves, so they stay trustwort
 
 - **No secrets reach the test job**, and `NTFY_TOPIC` / `TELEGRAM_TOKEN` /
   `TELEGRAM_CHAT_ID` are pinned empty so a repo-level default cannot leak in. A step then
-  re-runs both suites with `urlopen` replaced by a spy and fails if either tried to reach
-  ntfy or Telegram. Measured: both make **zero** outbound requests.
+  re-runs every suite with `urlopen` replaced by a spy and fails if any tried to reach
+  ntfy or Telegram. Measured: none makes a single outbound request.
 - **`engine/data` must be byte-identical** after a run. Those files are committed and
   restored from the Actions cache, so a polluted one outlives the job and reaches the
-  dashboard.
+  dashboard. Gitignored files count too (`git status --ignored`): most generated state, such
+  as `cot_legacy.json`, is ignored, and a plain status would not see a test writing it.
 
 For the watcher the gate is a deliberate tradeoff, and it matches that workflow's own
 rule that a stale classifier is worse than a gap: if the suites fail, no alerts go out at
@@ -518,6 +520,7 @@ alert_queue.py      durable retry queue for alerts the phone did not get
 publish_state.py    publishes the watcher's feed + state to main without rebasing
 freshness.py        per-input as-of/age/budget -> scores.json + the page
 test_reliability.py failing cases for freshness, outages, delivery, corrections
+cot_table.py        Legacy COT tables + 50-week reports (CFTC 6dca-aqww)     -> COT tab
 yields.py           2y/10y benchmarks, curve, real yield, differentials  -> Yields tab
 seasonality.py      15y monthly seasonal bias, drift removed             -> Seasonality tab
 sentiment.py        retail crowd from CFTC non-reportable, contrarian    -> Sentiment tab
@@ -583,6 +586,41 @@ its positioning legs are thin and the row says so.
 
 CHF joined the currency board at the same time, taking it to eight — config, calendar country
 map, policy rates and the COT history all had to learn about it.
+
+**COT report tables** (added 2026-10-11, top of the COT tab) — the two classic weekly
+summaries, *Major Currency Pairs* and *Major Commodities & Indexes*, plus a 50-week report for
+every row. Source for every figure, current and historical: the CFTC **Legacy report, Futures
+Only** (Socrata `6dca-aqww`); rows not marked `FutOnly` are rejected. A separate view — the
+Leveraged Funds / Managed Money figures and every score are untouched, and Legacy
+Non-Commercial is never relabelled as either. `cot_table.py` holds the data and the maths, the
+renderer is in `build_dashboard.py`; the module docstring is the full specification.
+
+- **Storage** `data/cot_legacy.json` (gitignored, in the refresh cache): the ORIGINAL futures
+  positions per contract and week, validated against CFTC's own identity (non-commercial +
+  spreading + commercial + non-reportable = open interest, each side). History accumulates;
+  a fetch never drops older weeks (cap 520).
+- **Pairs**: CAD, CHF and JPY long and short are swapped in both groups for USDCAD, USDCHF and
+  USDJPY — in the tables, every historical week, the comparisons and the shading. USD is the
+  ICE US Dollar Index future, not a pair. Each commodity/index is one named contract (code and
+  CFTC name on the page); the Dow is the $5 e-mini (`124603`), never also the micro.
+- **Labels**: *Total (L+S)* is a group's long + short, not open interest; *Net Difference* is
+  Non-Commercial net − Commercial net, not the market's combined net; *% Chng* is N/A when the
+  previous difference is zero.
+- **50-week reports** live in the existing `cot50-<KEY>` layers, so a market has one layer
+  holding both its Legacy report and its LF/MM history; opened from the table row and from the
+  card's *50 wk* link. Laid out like the oil sheet: Non-Commercial, Commercial and Net
+  Difference tables with Max/Min (over the reports shown) and 13-wk Avg rows, plus a net
+  chart. Missing weeks are counted and marked, never filled.
+- **Shading**: each Long/Short column is ranked against its own last 156 reports, point in
+  time (mid-rank percentile); colour strength = (percentile/100)², continuous — longs red,
+  shorts blue — then faded ×0.75 per week of age. Hover or tap shows the true percentile.
+  Positioning extremes, not signals.
+- **Updating**: Friday 15:30 US Eastern release (DST by hand); a one-time ~4-year backfill;
+  a daily re-check until the next report is due, then every 30 min, every 3 h once a day late;
+  a failed fetch keeps the last good data and flags it; first-seen is stamped only when a new
+  report date appears. Runs inside the CI-gated refresh build — not the watcher's publisher.
+- `test_cot_table.py` reproduces the published 29 Sep 2026 table from CFTC (the table's NZD
+  commercial short is a typo: 54,797 vs CFTC's 64,797) and the oil sheet's 13-wk averages.
 
 ## Commodities
 
