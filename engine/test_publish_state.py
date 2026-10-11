@@ -517,13 +517,174 @@ def test_queue_never_resends():
         shutil.rmtree(d, ignore_errors=True)
 
 
+def test_allowlist_enforced():
+    """Only the watcher's own state files may ever be published - whatever else the
+    runner has changed locally, and even if the merge table is widened by mistake."""
+    g = "allowlist"
+    root, origin, A = world()
+    r, data = runner_at(root, origin, A)
+    # local changes to things the publisher must NEVER publish
+    write_state(data, feed=[entry("a1", 0), entry("e1", 300)],
+                extra={"cloud_pulse.json": {"at": "RUNNER-LOCAL"},
+                       "fundamentals_manual.json": {"USD": {"CB stance": 5}},
+                       "stray.json": {"junk": True}})
+    (r / "engine" / "code.py").write_text("VERSION = 99\n")
+    with captured():
+        rc = ps.publish(repo=r, data=data, sleep=NOSLEEP)
+    pushed = git(origin, "diff", "--name-only", "main^", "main").stdout.split()
+    allowed = {f"engine/data/{n}" for n in ps.ALLOWED}
+    check(g, "publish succeeds", rc == 0)
+    check(g, "the commit touches only allowlisted files", pushed and set(pushed) <= allowed,
+          str(pushed))
+    check(g, "a locally edited pulse file is not published",
+          read_remote(origin, "engine/data/cloud_pulse.json") == {"at": "A"})
+    check(g, "a locally created manual file is not published",
+          read_remote(origin, "engine/data/fundamentals_manual.json") is None)
+    check(g, "a stray new data file is not published",
+          read_remote(origin, "engine/data/stray.json") is None)
+    check(g, "a local code edit is not published",
+          git(origin, "show", "main:engine/code.py").stdout == "VERSION = 1\n")
+
+    # widen the merge table by mistake: both guards must refuse, nothing may reach main
+    tip = git(origin, "rev-parse", "main").stdout.strip()
+    real = ps.FILES
+    ps.FILES = dict(real, **{"cloud_pulse.json": (ps.merge_seen, 1)})
+    try:
+        write_state(data, feed=[entry("a2", 0)] + json.loads((data / "commodity_feed.json").read_text()))
+        with captured():
+            rc2 = ps.publish(repo=r, data=data, sleep=NOSLEEP)
+        st = ps.load_status(data)
+        refused_sync = False
+        try:
+            ps.sync_in(repo=r, data=data)
+        except ps.AllowlistError:
+            refused_sync = True
+    finally:
+        ps.FILES = real
+    check(g, "a widened merge table is refused at publish", rc2 == 2 and
+          "non-allowlisted" in (st.get("last_error") or ""), str(st.get("last_error")))
+    check(g, "...and nothing reached main", git(origin, "rev-parse", "main").stdout.strip() == tip)
+    check(g, "...and sync-in refuses too, before writing anything", refused_sync and
+          json.loads((data / "cloud_pulse.json").read_text()) == {"at": "RUNNER-LOCAL"})
+    # the commit-level guard, on its own: a commit that changes code must be refused
+    (r / "engine" / "code.py").write_text("VERSION = 99\n")
+    git(r, "add", "engine/code.py")
+    git(r, *ID, "commit", "-q", "-m", "bad")
+    bad_commit = git(r, "rev-parse", "HEAD").stdout.strip()
+    try:
+        ps._assert_allowlisted(r, git(r, "rev-parse", "HEAD^").stdout.strip(), bad_commit,
+                               "engine/data")
+        caught = False
+    except ps.AllowlistError:
+        caught = True
+    check(g, "the commit-level guard refuses a commit that changes code", caught)
+    shutil.rmtree(root, ignore_errors=True)
+
+    # ...and it is wired into publish(): simulate a regression that builds the tree from
+    # the runner's HEAD instead of main's tip. The merged FILE NAMES are all allowlisted,
+    # so only the commit-level guard can see that the commit would revert newer code.
+    root, origin, A = world()
+    other_writer(root, origin, "dev", {"engine/code.py": "VERSION = 2\n"}, "newer code on main")
+    r, data = runner_at(root, origin, A)
+    write_state(data, feed=[entry("w1", 0), entry("e1", 300)])
+    tip = git(origin, "rev-parse", "main").stdout.strip()
+    real_git = ps._git
+
+    def wrong_base(repo, *args, **kw):
+        if args and args[0] == "read-tree":
+            args = ("read-tree", "HEAD")
+        return real_git(repo, *args, **kw)
+    ps._git = wrong_base
+    try:
+        with captured():
+            rc = ps.publish(repo=r, data=data, sleep=NOSLEEP)
+    finally:
+        ps._git = real_git
+    st = ps.load_status(data)
+    check(g, "a tree built from the wrong base is refused inside publish()",
+          rc == 2 and "non-allowlisted path" in (st.get("last_error") or ""),
+          str(st.get("last_error")))
+    check(g, "...so main keeps its newer code", git(origin, "rev-parse", "main").stdout.strip() == tip
+          and git(origin, "show", "main:engine/code.py").stdout == "VERSION = 2\n")
+    shutil.rmtree(root, ignore_errors=True)
+
+
+def test_merge_updates_local_state():
+    """Merging main's state must update the files the watchers ACTUALLY read for dedup and
+    retries - proven through their own loaders, not by inspecting the JSON."""
+    g = "local state after merge"
+    import commodity_watch as cw, news_watch as nw, alert_queue as aq
+    now = time.time()
+
+    def qe(key, mins_ago):
+        t = BASE - dt.timedelta(minutes=mins_ago)
+        return {"key": key, "who": "fx", "title": f"T-{key}", "body": "b", "link": "",
+                "priority": "high", "tags": "x", "topic_required": True,
+                "first_seen": t.timestamp(), "first_seen_iso": t.isoformat(),
+                "attempts": 1, "due_at": 0, "last_error": "", "meta": {}}
+    q_old = qe("kq", 20)          # pending in the stale cache, already DELIVERED on main
+    p_new = qe("kp", 10)          # pending only on main (a run that was then cancelled)
+    remote_state = {
+        "engine/data/commodity_seen.json": {"h1": now - 18000, "hc": now - 120},
+        "engine/data/news_seen.json": {"hn": now - 120},
+        "engine/data/theme_claims.json": {"geo": [now - 60, "commodity"]},
+        "engine/data/alert_queue.json": {
+            "pending": [p_new], "dead": [],
+            "delivered": {f"kq|{q_old['first_seen_iso']}": now - 300}},
+    }
+    stale_cache = {"alert_queue.json": {"pending": [q_old], "dead": [], "delivered": {}},
+                   "news_seen.json": {}, "theme_claims.json": {}}
+
+    def loaders(data):
+        real = (cw.SEEN_FILE, nw.SEEN_FILE, nw.THEME_FILE, aq.QUEUE_FILE)
+        cw.SEEN_FILE, nw.SEEN_FILE = data / "commodity_seen.json", data / "news_seen.json"
+        nw.THEME_FILE, aq.QUEUE_FILE = data / "theme_claims.json", data / "alert_queue.json"
+        return real
+
+    def restore(real):
+        cw.SEEN_FILE, nw.SEEN_FILE, nw.THEME_FILE, aq.QUEUE_FILE = real
+
+    for label, via_publish in (("sync-in", False), ("publish", True)):
+        root, origin, A = world()
+        other_writer(root, origin, "prev-run", remote_state, "state from a later-cancelled run")
+        r, data = runner_at(root, origin, A)
+        write_state(data, extra=stale_cache)
+        if via_publish:
+            write_state(data, feed=[entry("lp", 0), entry("e1", 300)])
+            with captured():
+                ps.publish(repo=r, data=data, sleep=NOSLEEP)
+        else:
+            with captured():
+                ps.sync_in(repo=r, data=data)
+        real = loaders(data)
+        try:
+            check(g, f"[{label}] commodity_watch.load_seen() knows main's hash",
+                  "hc" in cw.load_seen())
+            check(g, f"[{label}] news_watch.load_seen() knows main's FX hash (no FX re-alert)",
+                  "hn" in nw.load_seen())
+            check(g, f"[{label}] theme_claim() sees main's fresh claim (no cross-watcher double buzz)",
+                  nw.theme_claim("geo_escalation", "fx") is False)
+            pend = [e["key"] for e in aq.pending()]
+            check(g, f"[{label}] alert_queue.pending() adopted main's retry", "kp" in pend, str(pend))
+            check(g, f"[{label}] ...and dropped the one main already delivered", "kq" not in pend, str(pend))
+            sent = []
+            with captured():
+                aq.drain(lambda e: sent.append(e["key"]) or True)
+            check(g, f"[{label}] drain() sends main's pending retry once, the delivered one never",
+                  sent == ["kp"], str(sent))
+        finally:
+            restore(real)
+        shutil.rmtree(root, ignore_errors=True)
+
+
 # ======================================================================================
 if __name__ == "__main__":
     live = HERE / "data"
     before = {p.name: p.read_bytes() for p in live.glob("*.json")} if live.exists() else {}
     for fn in (test_queued_run, test_cache_older_than_main, test_concurrent_update,
                test_failed_push_is_visible_and_recovers, test_code_is_never_touched,
-               test_idle_pass_is_free, test_merge_rules, test_queue_never_resends):
+               test_idle_pass_is_free, test_merge_rules, test_queue_never_resends,
+               test_allowlist_enforced, test_merge_updates_local_state):
         try:
             fn()
         except Exception as e:                                 # noqa: BLE001

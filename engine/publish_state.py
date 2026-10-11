@@ -63,6 +63,15 @@ WHEN THIS RUNS
 
 Failures are recorded in data/publish_status.json (cached, never committed), surfaced as
 Actions annotations, and reported by selfcheck.py once they persist.
+
+KNOWN LIMITS (deliberate, and documented in engine/README.md)
+--------------------------------------------------------------
+  * A retry delivered AFTER a run's last publish, in a run that is then CANCELLED (an
+    engine push cancels the watcher on purpose), leaves its delivery tombstone only in
+    that run's unsaved state. The next run can send that alert once more. It needs a
+    deploy to land inside that window, and queued alerts expire after 6 hours.
+  * Unions cannot see deletions. An entry removed BY HAND from one of these files on main
+    is put back by the next publish if the watcher's copy still has it.
 """
 import hashlib, json, os, subprocess, sys, tempfile, time
 import datetime as dt
@@ -258,11 +267,41 @@ FILES = {
     "decode_overrides.json": (None, 1),
     "alert_queue.json":      (merge_queue, 1),
 }
+# THE ALLOWLIST. Frozen at import, kept separate from the merge table above so that a
+# later edit to FILES (or a bug) cannot widen what this is permitted to publish. Every
+# publish is checked against it twice: the files merged, and the commit actually built.
+ALLOWED = frozenset(FILES)
 
 
 # ------------------------------------------------------------------ git plumbing
 class GitError(RuntimeError):
     pass
+
+
+class AllowlistError(GitError):
+    """Refused: the publish would touch something other than the watcher's own files."""
+
+
+def _check_names(names):
+    bad = sorted(set(names) - ALLOWED)
+    if bad:
+        raise AllowlistError(f"refusing to publish non-allowlisted file(s): {bad}")
+
+
+def _assert_allowlisted(repo, tip, commit, rel):
+    """Last line of defence, on the commit itself: it may change ONLY allowlisted paths.
+
+    The tree is built from the tip with just the merged files swapped in, so this cannot
+    fail today. It is here so that it cannot START failing silently - any future change
+    that lets another path into the commit is refused before it reaches main."""
+    changed = _out(_git(repo, "diff-tree", "--no-commit-id", "--name-only", "-r",
+                        tip, commit)).splitlines()
+    allowed = {f"{rel}/{n}" for n in ALLOWED}
+    bad = [c for c in changed if c not in allowed]
+    if bad:
+        raise AllowlistError(f"refusing to publish: commit would change non-allowlisted "
+                             f"path(s) {bad[:5]}")
+    return changed
 
 
 def _git(repo, *args, input=None, env=None, check=True):
@@ -443,6 +482,7 @@ def sync_in(repo=None, data=None):
     rel = data.resolve().relative_to(Path(repo).resolve()).as_posix()
     tip = _fetch_tip(repo)
     merged = merge_all(data, lambda n: _remote_bytes(repo, tip, f"{rel}/{n}"))
+    _check_names(merged)
     adopted = _write_local(data, merged)
     if adopted:
         print(f"  sync-in: merged newer state from main {tip[:9]} into "
@@ -475,6 +515,7 @@ def publish(repo=None, data=None, final=False, before_push=None, sleep=time.slee
         try:
             tip = _fetch_tip(repo)
             merged = merge_all(data, lambda n: _remote_bytes(repo, tip, f"{rel}/{n}"))
+            _check_names(merged)
             _write_local(data, merged)                 # carry on from the merged state
             with tempfile.TemporaryDirectory() as td:
                 env = {"GIT_INDEX_FILE": str(Path(td) / "index")}
@@ -493,6 +534,7 @@ def publish(repo=None, data=None, final=False, before_push=None, sleep=time.slee
                 return 0
             commit = _out(_git(repo, "commit-tree", tree, "-p", tip, "-m", COMMIT_MSG,
                                env=_identity(repo)))
+            _assert_allowlisted(repo, tip, commit, rel)
             if before_push:
                 before_push(attempt)
             p = _git(repo, "push", "-q", REMOTE, f"{commit}:refs/heads/{BRANCH}",
@@ -513,6 +555,9 @@ def publish(repo=None, data=None, final=False, before_push=None, sleep=time.slee
             errors.append("main moved during the push" if raced else _reason(err))
             if raced:
                 continue                               # refetch + remerge at once
+        except AllowlistError as e:
+            errors.append(str(e)[:200])
+            break                                      # retrying cannot change the answer
         except GitError as e:
             errors.append(str(e)[:160])
         except Exception as e:                         # noqa: BLE001

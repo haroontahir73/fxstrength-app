@@ -71,7 +71,7 @@ jobs:
       # Real git, against throwaway repos: reproduces the queued-run feed stall, then
       # proves the publisher survives it, a concurrent push, a failed push and an older
       # cache - without losing an entry, re-sending an alert or touching code.
-      - name: Publish-state suite (64 checks)
+      - name: Publish-state suite (88 checks)
         working-directory: engine
         run: python test_publish_state.py
 

@@ -322,6 +322,27 @@ pushes it, starting again from a fresh fetch if `main` moved meanwhile. So:
   instead of green with a frozen feed. Status is in `data/publish_status.json` (cached
   between runs, never committed).
 
+**Only the watcher's own files can be published.** `publish_state.ALLOWED` is a frozen
+allowlist of the eight state files. It is checked twice per publish: the merged file names
+(also before `--sync-in` writes anything), and the commit actually built, via
+`git diff-tree` against the tip. A refusal is recorded and surfaced like any other failure,
+and never reaches `main`.
+
+**Merging also updates what the watchers read.** The merged result is written back to the
+working tree, so the next pass's dedup (`load_seen`, `theme_claim`) and retries
+(`alert_queue`) run from it. The tests prove this through those loaders themselves.
+
+### Known limits
+
+- **A retry can be sent twice after a deploy-cancelled run.** If a queued alert is
+  delivered after a run's last publish, and that run is then cancelled (an engine push
+  cancels the watcher on purpose), its delivery tombstone exists only in that run's
+  unsaved state. The next run can send that alert once more. It needs a deploy inside
+  that window, and queued alerts expire after 6 hours.
+- **Hand deletions are undone.** The merges are unions, and a union cannot see a deletion.
+  An entry removed by hand from one of these files on `main` comes back on the next
+  publish if the watcher's copy still has it.
+
 A pass with no new feed entry exits immediately with no network call, so this does not
 add commits or traffic. `test_publish_state.py` reproduces the incident against real git
 and covers a concurrent push, a failed push, an older cache and duplicate prevention.
@@ -353,7 +374,7 @@ one. Flipping stays a human decision.
 ```
 python test_commodity_decode.py   # the news decoder - 79 checks
 python test_reliability.py        # freshness, outages, delivery, corrections - 66 checks
-python test_publish_state.py      # feed publishing against real git - 64 checks
+python test_publish_state.py      # feed publishing against real git - 88 checks
 ```
 
 Both are stdlib-only and run offline. `test_reliability.py` works against a temporary
