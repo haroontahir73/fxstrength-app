@@ -289,6 +289,64 @@ managed to fetch, so a page assembled from a cached calendar and carried-over ra
 to look identical to a healthy one. `scores.json` now carries an `inputs` row per input
 with its real as-of time, and the page names anything past its budget.
 
+## How the watcher publishes its feed
+
+The news-watch loop alerts the phone, then publishes the in-app feed (and the dedup state
+riding with it) to `main` so the dashboard can show it. That publish is
+`publish_state.py`, and it deliberately **never rebases**.
+
+It used to `git commit` on the checked-out SHA and `git pull --rebase`. A scheduled run is
+handed the SHA from when it was *created*, which can be an hour before it actually starts
+behind the previous 5.5-hour loop. If that loop pushed in the gap, the new run's first
+commit conflicted on the data files, the rebase aborted, and **no feed update reached
+`main` for the entire run** while the run itself stayed green. That happened on
+2026-10-10 (run 38081932047: created 19:59Z, started 21:18Z, previous loop pushed 20:46Z).
+
+`publish_state.py` instead fetches `main`'s current tip, merges each watcher-owned file
+field by field, builds a commit **on that tip** with only those files replaced, and
+pushes it, starting again from a fresh fetch if `main` moved meanwhile. So:
+
+- **It cannot conflict, and it cannot revert anything else.** `cloud_pulse.json`, the
+  manual override files and all code are taken from the tip untouched.
+- **The watcher keeps running exactly the commit its tests passed.** HEAD, the index and
+  the working tree's code are never touched; only the data files change.
+- **Nothing is lost and nothing is sent twice.** The cache can be *older* than `main` (a
+  run cancelled by a deploy never saves it but may already have published), so neither
+  side simply wins. Feed entries, scores and history are unioned; a story either side
+  has seen stays seen; a retry delivered on one side leaves a tombstone so the other
+  side's older copy cannot resurrect it; a newer logged override removal beats an older
+  override. A `--sync-in` step merges `main` in before the first pass for the same reason.
+- **A stuck publish is loud.** Each failure is an Actions warning; three in a row or 30
+  minutes failing is an Actions error and a `publish` issue in `selfcheck.py`'s health
+  report; and the run ends **red** (`publish_state.py --final`) if the feed never made it,
+  instead of green with a frozen feed. Status is in `data/publish_status.json` (cached
+  between runs, never committed).
+
+**Only the watcher's own files can be published.** `publish_state.ALLOWED` is a frozen
+allowlist of the eight state files. It is checked twice per publish: the merged file names
+(also before `--sync-in` writes anything), and the commit actually built, via
+`git diff-tree` against the tip. A refusal is recorded and surfaced like any other failure,
+and never reaches `main`.
+
+**Merging also updates what the watchers read.** The merged result is written back to the
+working tree, so the next pass's dedup (`load_seen`, `theme_claim`) and retries
+(`alert_queue`) run from it. The tests prove this through those loaders themselves.
+
+### Known limits
+
+- **A retry can be sent twice after a deploy-cancelled run.** If a queued alert is
+  delivered after a run's last publish, and that run is then cancelled (an engine push
+  cancels the watcher on purpose), its delivery tombstone exists only in that run's
+  unsaved state. The next run can send that alert once more. It needs a deploy inside
+  that window, and queued alerts expire after 6 hours.
+- **Hand deletions are undone.** The merges are unions, and a union cannot see a deletion.
+  An entry removed by hand from one of these files on `main` comes back on the next
+  publish if the watcher's copy still has it.
+
+A pass with no new feed entry exits immediately with no network call, so this does not
+add commits or traffic. `test_publish_state.py` reproduces the incident against real git
+and covers a concurrent push, a failed push, an older cache and duplicate prevention.
+
 ## Self-correction, and what constrains it
 
 `selfcheck.py` can downgrade a decode lean that is measurably not working (see the file's
@@ -316,6 +374,7 @@ one. Flipping stays a human decision.
 ```
 python test_commodity_decode.py   # the news decoder - 79 checks
 python test_reliability.py        # freshness, outages, delivery, corrections - 66 checks
+python test_publish_state.py      # feed publishing against real git - 88 checks
 ```
 
 Both are stdlib-only and run offline. `test_reliability.py` works against a temporary
@@ -456,6 +515,7 @@ backtest_blend.py   forward-return backtest of the WHOLE signal, component by co
 backtest_cot_levels.py  walk-forward test of the proven-recurring-level read
 news_watch.py       breaking-news -> ntfy phone alert (its own 15-min workflow)
 alert_queue.py      durable retry queue for alerts the phone did not get
+publish_state.py    publishes the watcher's feed + state to main without rebasing
 freshness.py        per-input as-of/age/budget -> scores.json + the page
 test_reliability.py failing cases for freshness, outages, delivery, corrections
 yields.py           2y/10y benchmarks, curve, real yield, differentials  -> Yields tab

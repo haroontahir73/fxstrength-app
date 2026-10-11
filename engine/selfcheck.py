@@ -354,6 +354,18 @@ def health(feed, now_px):
         issues.append(("queue", f"{len(q_pending)} alert(s) are waiting in the retry queue "
                                 f"- delivery has been failing for a while."))
 
+    # The feed reaching main is separate from the phone getting the alert. A run that
+    # cannot publish used to stay green with the dashboard feed frozen for hours (run
+    # 38081932047: no feed update for 5.5h). publish_state.py records every failure;
+    # this turns a persistent one into a health issue instead of a log line.
+    try:
+        import publish_state
+        stuck = publish_state.status_problem()
+    except Exception:                                          # noqa: BLE001
+        stuck = None
+    if stuck:
+        issues.append(("publish", stuck))
+
     noprice = [e for e in day if not e.get("px")]
     if len(noprice) >= 2:
         issues.append(("prices", f"{len(noprice)} alert(s) in the last 24h went out with "
