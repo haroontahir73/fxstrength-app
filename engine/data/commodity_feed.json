@@ -1,5 +1,61 @@
 [
  {
+  "when": "11 Oct 17:24 UTC",
+  "iso": "2026-10-11T17:24:01.764032+00:00",
+  "cat": "geo_deescalation",
+  "title": "GEOPOLITICS - calming down",
+  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nTrump announces Ukraine energy ceasefire with Russia, surprising Zelenskiy - Reuters  (Reuters)\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193    mild short bias - supply worry gone, barrels flow again (eased by self-check)\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,216 (+1.4%)   Silver 61.05 (+3.4%)   WTI 91.85 (+0.4%)   DXY 102.23 (+0.1%)   US10Y 5.24 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
+  "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPTEo5WEZxUk5OcWNWU1Z1Z0g4SGlFQmxKckFxbS05WFd6UUxDNE0xa0NZRzZoR004Tms3azQ3aTVfUVIwNXlTU1ljcW9HLTREUGZBVVFiWlpVWXI3V1c3Zmt2UEJ2ME43azRMb0Vlei1iQUNPbzk4bV94bkRGTzBmREMydnBCRzVSclBoVkhrWkx4TFJ2YWdsRS1COGVOWU9pRDJqSUFNRk1pUnpQM2dlQ3o0eGpYSHYzbWdDX3dtQWtYT2Zz?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4216.3,
+   "Silver": 61.048,
+   "WTI": 91.85
+  },
+  "parts": {
+   "emoji": "\ud83d\udd4a",
+   "label": "GEOPOLITICS \u2014 calming down",
+   "headline": "Trump announces Ukraine energy ceasefire with Russia, surprising Zelenskiy - Reuters",
+   "src": "Reuters",
+   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured both ways - fear-out vs yields-down cancel",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "same, no reliable direction",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "supply worry gone, barrels flow again (eased by self-check)",
+     "record": "some evidence - right 51% of 113 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,216 (+1.4%)   Silver 61.05 (+3.4%)   WTI 91.85 (+0.4%)   DXY 102.23 (+0.1%)   US10Y 5.24 (+0.2%)",
+   "reality": "",
+   "flip": "these deals break \u2014 one broken truce and it all goes back on"
+  }
+ },
+ {
   "when": "11 Oct 15:49 UTC",
   "iso": "2026-10-11T15:49:59.012870+00:00",
   "cat": "oil_supply_tight",
@@ -3262,61 +3318,6 @@
    "snap": "NOW  Gold 4,148 (+0.2%)   Silver 59.42 (-0.8%)   WTI 91.33 (+3.5%)   DXY 102.36 (+0.1%)   US10Y 5.28 (+0.2%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "08 Oct 06:25 UTC",
-  "iso": "2026-10-08T06:25:33.292127+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nDrone attack ignites massive fire at oil refinery in Russia\u2019s Salavat - The New Voice of Ukraine  (The New Voice of Ukraine)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,145 (+0.1%)   Silver 59.60 (-0.5%)   WTI 90.34 (+2.3%)   DXY 102.30 (+0.1%)   US10Y 5.28 (+0.2%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOcWVFQ2R2Y1J6SFRGWEJVTHhvX2hxcDlLcTdmdkVjTHFadkV5ek5Xc2VyQWYwbE9BTzRTUEdLckhnSGFMblpySWVGR09ZUG5UXzVkMFZ1akMzT21GTGJtMU1wUTZrcUNDSE9xc01lQ00wTzZRRkxhTmRFSjA2VHRfRE9aSzM4SXhOT0VSYTZnOUs0c19OZ2pVU0dyVU9tZENjbnplMXVKMEdfcE1qTlk3Z3RKeUw2UdIBqwFBVV95cUxOT2JqSWxIbktFbktqOHJjcnRaNUVLeGVwNFBLNHBiY3JWejRseFg0cHBLMnN3TGoya0tOM0R3aDNsOE5PTDNnZk1lWDdRQXdSUzU5VEp0X2VibDRHQjk5T3dUQ3lCdElWX1FadFJfc1FUdFdVU3FOdC0xczMxQTI3SjV5b1ZOSkVkaW9NOVlYeXplcTQydHZ2QWVHS2hNblk4VXIzc2RNVjdMV0k?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4144.7,
-   "Silver": 59.605,
-   "WTI": 90.34
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Drone attack ignites massive fire at oil refinery in Russia\u2019s Salavat - The New Voice of Ukraine",
-   "src": "The New Voice of Ukraine",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,145 (+0.1%)   Silver 59.60 (-0.5%)   WTI 90.34 (+2.3%)   DXY 102.30 (+0.1%)   US10Y 5.28 (+0.2%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
