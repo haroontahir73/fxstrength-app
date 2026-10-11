@@ -1,0 +1,117 @@
+# .github/workflows/build-check.yml
+#
+# A FULL dashboard build of the proposed change, with real data, before it can reach
+# production - so a merge is never the first time the whole page is built.
+#
+# Isolated on purpose:
+#   * starts from the committed state only - no Actions cache restored or saved, so it runs
+#     the same path an empty production cache would: run.py bootstrap (deep LF/MM history),
+#     the one-time ~4-year CFTC Legacy backfill, every add-on, build_dashboard, then the
+#     pages / flagship / OI render steps exactly as refresh.yml runs them;
+#   * read-only token, no secrets referenced, notifier variables pinned empty, and the run
+#     is wrapped so any attempt to reach ntfy or Telegram is blocked AND fails the job;
+#   * deploys nothing, commits nothing, writes no production cache.
+# Then it verifies the result: check_build.py re-derives every COT table/report figure and
+# colour from the stored CFTC rows; check_layout.py drives the page at desktop and phone
+# size. The built page, the CFTC store and screenshots are kept as the run's artifact.
+name: build check
+
+on:
+  pull_request:
+    paths:
+      - 'engine/**'
+      - '.github/workflows/**'
+      - 'index.html'
+      - 'update.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: full build (real data, no deploy)
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      NTFY_TOPIC: ''
+      TELEGRAM_TOKEN: ''
+      TELEGRAM_CHAT_ID: ''
+      FRED_API_KEY: ''
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Full pipeline from an empty state (notifications blocked)
+        working-directory: engine
+        run: |
+          cat > /tmp/guarded_run.py <<'PY'
+          import os, sys, runpy, urllib.request
+          sys.path.insert(0, os.getcwd())
+          real, hits = urllib.request.urlopen, []
+          def guard(req, *a, **k):
+              url = req if isinstance(req, str) else getattr(req, "full_url", str(req))
+              if "ntfy" in url.lower() or "telegram" in url.lower():
+                  hits.append(url)
+                  raise OSError("blocked: the build check never notifies")
+              return real(req, *a, **k)
+          urllib.request.urlopen = guard
+          sys.argv = ["run.py"] + sys.argv[1:]
+          code = 0
+          try:
+              runpy.run_path("run.py", run_name="__main__")
+          except SystemExit as e:
+              code = e.code or 0
+          print(f"notification attempts blocked: {len(hits)}")
+          sys.exit(3 if hits else code)
+          PY
+          python /tmp/guarded_run.py bootstrap
+
+      - name: Add the MACRO / MICRO / OI pages
+        working-directory: engine
+        continue-on-error: true
+        run: python pages.py dashboard.html
+
+      - name: Add the flagship score card
+        working-directory: engine
+        continue-on-error: true
+        run: python flagship.py dashboard.html
+
+      - name: Open interest page
+        working-directory: engine
+        continue-on-error: true
+        run: python oi.py --render-only dashboard.html
+
+      - name: Verify COT tables + all 16 reports against the CFTC data
+        working-directory: engine
+        run: python check_build.py dashboard.html --data data --require-history 200
+
+      - name: Install a headless browser for the layout check
+        run: |
+          pip install playwright==1.56.0
+          python -m playwright install --with-deps chromium
+
+      - name: Desktop + phone layout check and screenshots
+        working-directory: engine
+        run: python check_layout.py dashboard.html --out ../build-check
+
+      - name: Keep the built page, the CFTC store and the screenshots
+        if: always()
+        run: |
+          mkdir -p build-check
+          cp engine/dashboard.html build-check/ 2>/dev/null || true
+          cp engine/data/cot_legacy.json build-check/ 2>/dev/null || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-check
+          path: build-check
+          retention-days: 14

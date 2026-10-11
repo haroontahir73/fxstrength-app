@@ -568,9 +568,18 @@ def test_render():
         check(g, "full dates with year", "October 6, 2026" in wti and "July 14, 2026" in wti)
         check(g, "a not-yet-ranked figure still answers on hover / tap",
               'tabindex="0"' in wti and "not ranked" in wti)
+        flat = " ".join(wti.split())
         check(g, "legend wording and not-a-signal note",
-              "<b>Red</b> = unusually high long positioning" in wti and "<b>blue</b> = unusually high short positioning" in wti
-              and "<b>faded colour</b> = older report" in wti and "not</b> buy/sell signals" in wti)
+              "<b>Red</b> = unusually high long positioning" in flat and "<b>blue</b> = unusually high short positioning" in flat
+              and "<b>faded colour</b> = older report" in flat and "<b>not</b> buy/sell signals" in flat)
+        check(g, "legend separates the 50-report Max/Min from the 3-year colour window",
+              "The <b>Max / Min</b> rows cover the 50 reports shown" in flat and "3-year window" in flat
+              and "last 156 reports" in flat)
+        check(g, "legend spells out the fade as x0.75 per week",
+              "multiplies the colour strength by 0.75" in flat and "100% &rarr; 75% &rarr; 56% &rarr; 42%" in flat)
+        check(g, "a Show-percentiles toggle and a percentile label in every Long/Short cell",
+              'class="crpct"' in wti and "Show percentiles" in wti
+              and wti.count('<span class="pp">') == wti.count('<td class="x'))
         check(g, "net chart present", "<svg" in wti and "Non-Commercial net" in wti)
         check(g, "shortfall shown, not padded", "Only 13 of 50 weekly reports" in wti)
         check(g, "contract, source, latest date and direction shown",

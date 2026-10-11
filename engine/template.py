@@ -341,6 +341,17 @@ table.cotrep{min-width:1100px;width:100%;border-collapse:collapse;font-size:12.5
   background:color-mix(in srgb,var(--cr-xs) calc(var(--a,0) * 100%),var(--cr-cell))}
 .cotrep td.xw{color:#fff}
 .cotrep td.x:focus{box-shadow:inset 0 0 0 2px var(--accent)}
+/* percentile labels: hidden until the report's "Show percentiles" toggle is on */
+.cotrep td.x .pp{display:none;font-size:10px;line-height:1.15;font-weight:500;opacity:.85}
+.crpct{position:absolute;opacity:0;pointer-events:none}
+.crpctl{align-self:flex-start;font:600 12px "IBM Plex Mono",monospace;cursor:pointer;
+  border:1px solid var(--line2);border-radius:999px;padding:5px 12px;color:var(--accent);
+  background:var(--surface)}
+.crpctl::before{content:"\25CB  "}
+.crpct:checked+.crpctl{background:var(--accent);color:#fff;border-color:var(--accent)}
+.crpct:checked+.crpctl::before{content:"\25CF  "}
+.crpct:focus-visible+.crpctl{outline:2px solid var(--accent);outline-offset:2px}
+.crpct:checked~.crscroll td.x .pp{display:block}
 /* tap (phones have no hover): the cell takes focus and shows its percentile underneath */
 .cotrep td.x:focus::after{content:attr(title);display:block;white-space:normal;min-width:150px;max-width:190px;
   margin:4px auto 0;font-size:10.5px;line-height:1.3;font-weight:500;text-align:left}

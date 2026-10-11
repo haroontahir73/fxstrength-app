@@ -78,7 +78,7 @@ jobs:
       # Legacy COT tables + 50-week reports: reproduces a published week and the oil sheet's
       # 13-wk average from fixed CFTC rows; reversal, validation, release schedule, restart
       # recovery, positioning shading and the renderer. Offline.
-      - name: COT table suite (136 checks)
+      - name: COT table suite (139 checks)
         working-directory: engine
         run: python test_cot_table.py
 

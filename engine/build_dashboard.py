@@ -324,14 +324,16 @@ def _cr_poscell(value, pos, age, who, kind, date):
                "short-history": f"only {pos.get('n', 0) if pos else 0} reports of history - not ranked",
                "flat": f"no variation over {pos.get('n', 0) if pos else 0} reports - not ranked"
                }.get((pos or {}).get("state"), "not ranked")
-        return f'<td class="x" tabindex="0" title="{who}: {why}">{_cr_num(value)}</td>'
+        return (f'<td class="x" tabindex="0" title="{who}: {why}">{_cr_num(value)}'
+                f'<span class="pp">not ranked</span></td>')
     shown = pos["strength"] * _ct.age_fade(age)
     tip = f"{who}: {_ord(pos['pct'])} percentile of its last {pos['n']} reports - {pos['state']}"
     if age:
         tip += f" (colour faded: {age} week{'s' if age != 1 else ''} old)"
     cls = f"x x{kind}" + (" xw" if shown >= 0.55 else "")
     style = f' style="--a:{shown:.3f}"' if shown >= 0.005 else ""
-    return f'<td class="{cls}" tabindex="0"{style} title="{_cr_attr(tip)}">{_cr_num(value)}</td>'
+    return (f'<td class="{cls}" tabindex="0"{style} title="{_cr_attr(tip)}">{_cr_num(value)}'
+            f'<span class="pp">{_ord(pos["pct"])} pct</span></td>')
 
 
 def _cr_cells(w):
@@ -509,16 +511,22 @@ def _cr_chart(rows):
             f'</figure>')
 
 
+_CR_FADE_STEPS = " &rarr; ".join(f"{_ct.AGE_FADE ** k:.0%}" for k in range(6))
 _CR_LEGEND = ("""<div class="crleg">
       <p class="crlg1"><span class="crsw crsw-l"></span><b>Red</b> = unusually high long positioning;
       <span class="crsw crsw-s"></span><b>blue</b> = unusually high short positioning;
       <span class="crsw crsw-f"></span><b>faded colour</b> = older report.</p>
-      <p>Each Long and Short figure is shaded by where it sits in its <b>own</b> history &mdash;
-      longs and shorts ranked separately, against the """ + str(_ct.RANK_WEEKS) + """ reports
-      up to that week: faint = low, light = moderate, strong = high, darkest = extreme. The
-      latest report shows full colour; each older week is faded further (&times;""" +
-      f"{_ct.AGE_FADE:g}" + """ per week). Hover or tap a figure for its exact percentile.
-      These colours mark positioning extremes, <b>not</b> buy/sell signals.</p>
+      <p><b>Two different windows.</b> The <b>Max / Min</b> rows cover the 50 reports shown.
+      The <b>colours</b> use a longer, 3-year window: each Long and Short figure is ranked
+      against its <b>own</b> last """ + str(_ct.RANK_WEEKS) + """ reports up to that week (about 3
+      years), longs and shorts separately. So a figure can be dark without being the 50-week
+      Max, and the 50-week Max can be only mid-coloured.</p>
+      <p>Faint = low, light = moderate, strong = high, darkest = extreme (the percentile, shaded
+      continuously). <b>Age fade</b>: each week back multiplies the colour strength by """ +
+      f"{_ct.AGE_FADE:g}" + """ (""" + _CR_FADE_STEPS + """ &hellip;), so older weeks drift towards
+      the plain background; the percentile itself never fades &mdash; hover or tap a figure, or
+      switch on <i>Show percentiles</i>. These colours mark positioning extremes, <b>not</b>
+      buy/sell signals.</p>
     </div>""")
 
 
@@ -558,10 +566,10 @@ def _cr_group_table(row, rows, side):
     g = lambda k: (lambda r: (r.get(side) or {}).get(k))                       # noqa: E731
     refs = _cr_ref_rows(rows, [g("long"), g("short"), g("total"), None, None, g("net")])
     # the average row's % columns come from its own averaged long and total
-    rl, rt = _cr_stats(rows, g("long"))[2], _cr_stats(rows, g("total"))[2]
-    if rl is not None and rt:
-        pl = _ct._rnd(rl / rt * 100)
-        refs[2] = refs[2].replace("<td></td><td></td>", f"<td>{pl}%</td><td>{100 - pl}%</td>", 1)
+    rl, rs, rt = (_cr_stats(rows, g(k))[2] for k in ("long", "short", "total"))
+    if rl is not None and rs is not None and rt:
+        pl, ps = _ct._rnd(rl / rt * 100), _ct._rnd(rs / rt * 100)
+        refs[2] = refs[2].replace("<td></td><td></td>", f"<td>{pl}%</td><td>{ps}%</td>", 1)
     body = []
     for w in rows:
         s = w.get(side) or {}
@@ -638,6 +646,7 @@ def _cr_report(row, store, upto):
       {"".join(f'<p class="crnote">{n}</p>' for n in notes)}
       {_cr_chart(rows)}
       {_CR_LEGEND}
+      <input type="checkbox" class="crpct" id="pp-{esc(row["code"])}"><label class="crpctl" for="pp-{esc(row["code"])}">Show percentiles</label>
       {_cr_group_table(row, rows, "nc")}
       {_cr_group_table(row, rows, "comm")}
       {_cr_diff_table(row, rows)}

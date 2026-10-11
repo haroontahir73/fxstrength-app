@@ -375,7 +375,7 @@ one. Flipping stays a human decision.
 python test_commodity_decode.py   # the news decoder - 79 checks
 python test_reliability.py        # freshness, outages, delivery, corrections - 66 checks
 python test_publish_state.py      # feed publishing against real git - 88 checks
-python test_cot_table.py          # Legacy COT tables + 50-week reports - 136 checks
+python test_cot_table.py          # Legacy COT tables + 50-week reports - 139 checks
 ```
 
 All are stdlib-only and run offline. `test_reliability.py` works against a temporary
@@ -410,6 +410,28 @@ Two properties the gate enforces on the tests themselves, so they stay trustwort
   restored from the Actions cache, so a polluted one outlives the job and reaches the
   dashboard. Gitignored files count too (`git status --ignored`): most generated state, such
   as `cot_legacy.json`, is ignored, and a plain status would not see a test writing it.
+
+### The full build check (`build-check.yml`)
+
+The suites above are offline. A pull request that touches `engine/**` or a workflow also
+gets a **full build with real data** before it can be merged: from the committed state only
+(no cache restored or saved), `run.py bootstrap` runs every fetch exactly as an empty
+production cache would - including the one-time ~4-year CFTC Legacy backfill - then the
+pages / flagship / OI render steps as in `refresh.yml`. Read-only token, no secrets,
+notifier variables empty, and any attempt to reach ntfy or Telegram is blocked and fails the
+job; nothing is deployed, committed or cached. Then:
+
+- `check_build.py dashboard.html --require-history 200` re-derives every COT summary cell,
+  every figure of all 16 50-week reports, the Max/Min/13-wk rows, the chart and every Long/
+  Short colour and percentile from the stored CFTC rows with its own arithmetic (it does not
+  call `cot_table.py`), checks every internal link resolves, and that each market has 200+
+  weeks stored (the backfill ran);
+- `check_layout.py` opens the page at 1280×900 and 390×844: tables fit or scroll in their
+  box with the first column pinned, no page-level sideways scroll, every report opens from
+  its link with a drawn chart, header and date column stay pinned, tapping a shaded figure
+  shows its percentile, *Show percentiles* reveals every label. Screenshots are kept.
+
+The built page, the CFTC store and the screenshots are the run's `build-check` artifact.
 
 For the watcher the gate is a deliberate tradeoff, and it matches that workflow's own
 rule that a stale classifier is worse than a gap: if the suites fail, no alerts go out at
@@ -611,10 +633,14 @@ renderer is in `build_dashboard.py`; the module docstring is the full specificat
   card's *50 wk* link. Laid out like the oil sheet: Non-Commercial, Commercial and Net
   Difference tables with Max/Min (over the reports shown) and 13-wk Avg rows, plus a net
   chart. Missing weeks are counted and marked, never filled.
-- **Shading**: each Long/Short column is ranked against its own last 156 reports, point in
-  time (mid-rank percentile); colour strength = (percentile/100)², continuous — longs red,
-  shorts blue — then faded ×0.75 per week of age. Hover or tap shows the true percentile.
-  Positioning extremes, not signals.
+- **Two windows, on purpose**: the *Max / Min* rows cover the 50 reports shown; the *13-wk
+  Avg* the latest 13; the **colours** a longer 3-year window — each Long/Short figure's
+  percentile among its own last 156 reports up to that week (point in time, mid-rank, longs
+  and shorts separately). A figure can be dark without being the 50-week Max.
+- **Shading**: strength = (percentile/100)², continuous — longs red, shorts blue. **Age
+  fade** multiplies that by 0.75 per week back (100%, 75%, 56%, 42%, 32%, 24% …). The
+  percentile itself never fades: hover/tap any figure, or *Show percentiles* labels every
+  one. Positioning extremes, not signals.
 - **Updating**: Friday 15:30 US Eastern release (DST by hand); a one-time ~4-year backfill;
   a daily re-check until the next report is due, then every 30 min, every 3 h once a day late;
   a failed fetch keeps the last good data and flags it; first-seen is stamped only when a new
