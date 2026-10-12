@@ -364,11 +364,12 @@ table.cotrep{min-width:1100px;width:100%;border-collapse:collapse;font-size:12.5
    layer over the tab, and the browser Back button (or the back link) closes it - it behaves
    like its own page without any script. Lives outside .panel so no hidden parent can eat it. */
 /* Always fixed (so it has no in-flow position and the hash link cannot scroll-jump the page
-   to the bottom); hidden until it is the :target. */
+   to the bottom). A CLOSED layer is display:none, not just invisible: with 16 markets x 50
+   weeks of tables, laying out the closed layers was most of the page's load time on a
+   phone (measure_phone.py). Only the :target layer is laid out. */
 .cotmodal{position:fixed;inset:0;z-index:90;background:var(--bg);overflow-y:auto;
-  -webkit-overflow-scrolling:touch;padding:22px 18px 64px;
-  visibility:hidden;opacity:0;pointer-events:none}
-.cotmodal:target{visibility:visible;opacity:1;pointer-events:auto}
+  -webkit-overflow-scrolling:touch;padding:22px 18px 64px;display:none}
+.cotmodal:target{display:block}
 .cotmodal .mwrap{max-width:620px;margin:0 auto}
 .cotmodal .mhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 14px}
 .cotmodal .mhead h3{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;

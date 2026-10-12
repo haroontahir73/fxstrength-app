@@ -108,7 +108,7 @@ jobs:
       - name: Phone loading + interaction (this build vs live)
         working-directory: engine
         continue-on-error: true
-        run: python measure_phone.py dashboard.html --baseline https://haroontahir73.github.io/fxstrength-app/dashboard.html --out ../build-check
+        run: python measure_phone.py dashboard.html --baseline https://haroontahir73.github.io/fxstrength-app/dashboard.html --ab-closed-layout --runs 3 --out ../build-check
 
       - name: Keep the built page, the CFTC store and the screenshots
         if: always()

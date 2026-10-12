@@ -41,20 +41,47 @@ Every 15 minutes the timer starts one check:
 
 The GitHub token is read from a root-only file that systemd hands to the service alone. It is only ever sent to `api.github.com` in a request header. It is **never** printed, logged, saved in the state file or put in a URL, and everything the checker prints passes through a scrubber.
 
+## Opening a terminal on the Pi
+
+**A. On the Pi itself** (keyboard and screen attached, Raspberry Pi OS desktop): click the
+raspberry menu → *Accessories* → *Terminal*, or press `Ctrl`+`Alt`+`T`. To get the commands
+onto the Pi, open this chat or the GitHub page in the Pi's web browser and copy them.
+
+**B. From your Windows PC** - only if SSH is already turned on on the Pi:
+1. Press `Win`, type `PowerShell`, open *Windows PowerShell* (or *Terminal*). Windows 10/11
+   include the `ssh` command.
+2. Type `ssh <your-pi-user>@<pi-name>.local` - for example `ssh pi@raspberrypi.local`. If the
+   name does not resolve, use the Pi's IP address instead (shown on your router's device
+   list, or by `hostname -I` in a terminal on the Pi).
+3. The first time, it shows the Pi's fingerprint and asks to continue: type `yes`. Then
+   type the Pi user's password (nothing is shown while you type). You are now in a terminal
+   on the Pi; paste with right-click. `exit` ends the session.
+
+If `ssh` answers *Connection refused* or times out, SSH is off on the Pi. Turning it on
+(Raspberry Pi Configuration → Interfaces → SSH, or `sudo raspi-config` → Interface Options)
+is a change to the Pi - your choice, and not needed for the inspection: option A works
+without it.
+
 ## Setup, step by step
 
 You need a Raspberry Pi with Raspberry Pi OS (or any systemd Linux), Python 3.9+, internet access, and your normal login with `sudo`.
 
-1. **Check the Pi.** Run this on the Pi and send me the output. It prints no secrets.
+1. **Check the Pi.** Open a terminal on the Pi (see *Opening a terminal on the Pi* above), paste
+   these lines and send me the output. They only read, change nothing, and never print the
+   contents of any file that could hold a secret - for the crontab they say only whether
+   one exists and whether it mentions this project.
    ```bash
-   echo "== $(hostname) / $(whoami) / $(uname -m)"; grep PRETTY /etc/os-release; python3 --version; \
-   systemctl --version | head -1; timedatectl | grep -E 'Time zone|synchronized'; \
-   systemctl list-timers --all --no-pager | grep -iE 'fx|cot|strength' || echo "no fx/cot timers"; \
-   systemctl list-units --type=service --all --no-pager | grep -iE 'fx|cot|strength' || echo "no fx/cot services"; \
-   crontab -l 2>/dev/null | sed -E 's/(gh[pousr]_|github_pat_)[A-Za-z0-9_]+/***/g; s#://[^/@ ]+@#://***@#g' || echo "no crontab"; \
-   ls -d ~/fxstrength* 2>/dev/null || echo "no fxstrength folder"; df -h / | tail -1; \
-   curl -s -o /dev/null -w 'CFTC %{http_code}\n' 'https://publicreporting.cftc.gov/resource/6dca-aqww.json?$limit=1'; \
-   curl -s -o /dev/null -w 'GitHub %{http_code}\n' https://api.github.com/zen
+   echo "Pi: $(hostname), user $(whoami), $(uname -m)"
+   grep PRETTY_NAME /etc/os-release
+   python3 --version
+   systemctl --version | head -1
+   timedatectl | grep -E 'Time zone|synchronized'
+   if crontab -l >/dev/null 2>&1; then echo "crontab: exists"; if crontab -l 2>/dev/null | grep -qiE 'fx|cot|strength'; then echo "crontab: has jobs mentioning fx/cot/strength"; else echo "crontab: no fx/cot/strength jobs"; fi; else echo "crontab: none"; fi
+   systemctl list-unit-files --no-pager | grep -iE 'fx|cot|strength' || echo "systemd: no fx/cot/strength services or timers"
+   ls -d ~/fxstrength* 2>/dev/null || echo "home: no fxstrength folder"
+   df -h / | tail -1
+   curl -s -o /dev/null -w 'CFTC reachable: HTTP %{http_code}\n' 'https://publicreporting.cftc.gov/resource/6dca-aqww.json?$limit=1'
+   curl -s -o /dev/null -w 'GitHub reachable: HTTP %{http_code}\n' https://api.github.com/zen
    ```
 2. **Get the code.** The repository is public, so no credentials are needed.
    ```bash

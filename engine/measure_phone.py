@@ -102,19 +102,36 @@ def main():
     ap.add_argument("page")
     ap.add_argument("--baseline", default=None, help="URL of the live page to compare with")
     ap.add_argument("--out", default=".")
+    ap.add_argument("--runs", type=int, default=3, help="loads per page; the median is reported")
+    ap.add_argument("--ab-closed-layout", action="store_true",
+                    help="also measure this build with closed reports laid out (the old CSS)")
     a = ap.parse_args()
     from playwright.sync_api import sync_playwright
+    pages = []
+    if a.baseline:
+        try:
+            tmp = Path(tempfile.mkdtemp()) / "dashboard.html"
+            req = urllib.request.Request(a.baseline, headers={"User-Agent": "fxstrength-measure"})
+            tmp.write_bytes(urllib.request.urlopen(req, timeout=60).read())
+            pages.append((tmp, "live page"))
+        except Exception as e:                           # noqa: BLE001
+            print(f"baseline not measured: {type(e).__name__}: {e}")
+    if a.ab_closed_layout:
+        old = Path(tempfile.mkdtemp()) / "dashboard.html"
+        old.write_text(Path(a.page).read_text(encoding="utf-8").replace(
+            "</head>", "<style>.cotmodal:not(:target){display:block!important;visibility:hidden;"
+                       "opacity:0;pointer-events:none}</style></head>", 1), encoding="utf-8")
+        pages.append((old, "build, old CSS"))
+    pages.append((Path(a.page), "this build"))
     rows = []
     with sync_playwright() as pw:
-        if a.baseline:
-            try:
-                tmp = Path(tempfile.mkdtemp()) / "dashboard.html"
-                req = urllib.request.Request(a.baseline, headers={"User-Agent": "fxstrength-measure"})
-                tmp.write_bytes(urllib.request.urlopen(req, timeout=60).read())
-                rows.append(measure(pw, tmp, "live production page"))
-            except Exception as e:                       # noqa: BLE001
-                print(f"baseline not measured: {type(e).__name__}: {e}")
-        rows.append(measure(pw, a.page, "this build"))
+        for path, label in pages:
+            runs = [measure(pw, path, label) for _ in range(max(1, a.runs))]
+            med = {}
+            for k in runs[0]:
+                vals = [r[k] for r in runs if isinstance(r.get(k), (int, float))]
+                med[k] = sorted(vals)[len(vals) // 2] if vals else runs[0][k]
+            rows.append(med)
     keys = ["raw_kb", "wire_kb", "fcp", "dcl", "load", "nodes", "long_tasks", "long_task_ms",
             "open_cot_tab_ms", "open_report_ms", "tap_figure_ms", "show_percentiles_ms",
             "close_report_ms", "heap_mb"]
@@ -124,7 +141,8 @@ def main():
              "open_cot_tab_ms": "open COT tab (ms)", "open_report_ms": "open a 50-week report (ms)",
              "tap_figure_ms": "tap a figure (ms)", "show_percentiles_ms": "show percentiles (ms)",
              "close_report_ms": "close report (ms)", "heap_mb": "JS heap (MB)"}
-    print(f"\nPhone profile: 390x844 @3x, CPU {CPU}x slower, 150 ms RTT, 1.6 Mbit/s\n")
+    print(f"\nPhone profile: 390x844 @3x, CPU {CPU}x slower, 150 ms RTT, 1.6 Mbit/s "
+          f"(median of {max(1, a.runs)} loads each)\n")
     print(f"{'':28}" + "".join(f"{r['label']:>24}" for r in rows))
     for k in keys:
         print(f"{names[k]:28}" + "".join(f"{str(r.get(k, '-')):>24}" for r in rows))

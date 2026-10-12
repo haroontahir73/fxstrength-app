@@ -430,7 +430,18 @@ job; nothing is deployed, committed or cached. Then:
 - `check_layout.py` opens the page at 1280×900 and 390×844: tables fit or scroll in their
   box with the first column pinned, no page-level sideways scroll, every report opens from
   its link with a drawn chart, header and date column stay pinned, tapping a shaded figure
-  shows its percentile, *Show percentiles* reveals every label. Screenshots are kept.
+  shows its percentile, *Show percentiles* reveals every label. It also taps a summary row
+  for real (the page must not move; Back must close the report and return to the same
+  place), uses each report's back link, opens every card's *50 wk* link (Leveraged Funds /
+  Managed Money history) and checks only the open report is laid out. Screenshots are kept.
+- `measure_phone.py` (measurement only) loads the live page, this build, and this build with
+  closed reports laid out (the old CSS) on an emulated mid-range phone - CPU 4x slower,
+  slow 4G - three times each, and prints the medians: size, download, first paint, DOM ready,
+  main-thread long tasks, and how fast opening the tab / a report / tapping a figure /
+  *Show percentiles* reaches the screen.
+
+Closed 50-week reports are `display:none` until opened (`:target`), so only the open one is
+laid out; before that change, laying out all of them was most of the page's phone load time.
 
 The built page, the CFTC store and the screenshots are the run's `build-check` artifact.
 

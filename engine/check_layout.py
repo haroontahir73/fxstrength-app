@@ -62,6 +62,42 @@ def main():
                 ok(pin[2] > 0 and abs(pin[0] - pin[1]) <= 2, "phone: pair column stays pinned while scrolling", pin)
             if sec:
                 sec.screenshot(path=str(out / f"summary_{name}.png"))
+            # A real tap on a summary link: the report opens over the page without moving it,
+            # and Back closes it and returns to the same place.
+            if keys:
+                pg.evaluate("() => window.scrollTo(0, document.querySelector('.crsec').getBoundingClientRect().top + window.scrollY + 250)")
+                y0 = pg.evaluate("() => Math.round(window.scrollY)")
+                pg.click(f'.crsec a[href="#{keys[0]}"]')
+                pg.wait_for_timeout(200)
+                st = pg.evaluate(f"""() => ({{y: Math.round(window.scrollY),
+                    d: getComputedStyle(document.getElementById({json.dumps(keys[0])})).display}})""")
+                ok(st["d"] == "block" and abs(st["y"] - y0) <= 2,
+                   f"{name}: tapping a summary row opens its report without moving the page", (y0, st))
+                pg.go_back()
+                pg.wait_for_timeout(250)
+                st = pg.evaluate(f"""() => ({{y: Math.round(window.scrollY),
+                    d: getComputedStyle(document.getElementById({json.dumps(keys[0])})).display}})""")
+                ok(st["d"] == "none" and abs(st["y"] - y0) <= 2,
+                   f"{name}: Back closes the report and returns to the same place", (y0, st))
+                pg.goto(f"{url}#{keys[0]}")
+                pg.wait_for_timeout(150)
+                pg.click(f'#{keys[0]} a.mback')
+                pg.wait_for_timeout(150)
+                d = pg.evaluate(f"() => getComputedStyle(document.getElementById({json.dumps(keys[0])})).display")
+                ok(d == "none", f"{name}: the report's back link closes it", d)
+            # The existing per-instrument cards' "50 wk" links (Leveraged Funds / Managed Money
+            # history) must still open their layer - the same layer as the Legacy report.
+            drills = pg.evaluate("() => [...new Set([...document.querySelectorAll('a.drill')].map(a => a.getAttribute('href').slice(1)))]")
+            for k in drills:
+                pg.goto(f"{url}#{k}")
+                pg.wait_for_timeout(100)
+                st = pg.evaluate(f"""() => {{ const L = document.getElementById({json.dumps(k)});
+                    if (!L) return null; const t = L.querySelector('.crlf table, .tw table');
+                    return {{d: getComputedStyle(L).display, rows: t ? t.querySelectorAll('tbody tr').length : 0,
+                             h: t ? Math.round(t.getBoundingClientRect().height) : 0}}; }}""")
+                ok(bool(st) and st["d"] == "block" and st["rows"] > 0 and st["h"] > 0,
+                   f"{name}: card '50 wk' link {k} opens its weekly history", st)
+            res[f"{name}_card_links"] = len(drills)
             for k in keys:
                 pg.goto(f"{url}#{k}")
                 pg.wait_for_timeout(120)
@@ -71,13 +107,23 @@ def main():
                     const cs = getComputedStyle(L);
                     const svg = L.querySelector('.crchart svg'); const r = svg ? svg.getBoundingClientRect() : null;
                     const boxes = [...L.querySelectorAll('.crrep .crscroll')];
-                    return {{vis: cs.visibility, over: [L.scrollWidth, L.clientWidth],
+                    const open = [...document.querySelectorAll('.cotmodal')].filter(m => getComputedStyle(m).display !== 'none').length;
+                    const cell = L.querySelector('td.x[title]');
+                    L.scrollTop = 400; const sc = L.scrollTop; L.scrollTop = 0;
+                    return {{vis: cs.visibility, disp: cs.display, open, scrolled: sc,
+                             tall: [L.scrollHeight, L.clientHeight],
+                             hover: cell ? cell.getAttribute('title') : null,
+                             over: [L.scrollWidth, L.clientWidth],
                              chart: r ? [Math.round(r.width), Math.round(r.height)] : null,
                              boxes: boxes.map(x => [x.scrollWidth, x.clientWidth, x.scrollHeight, x.clientHeight])}}; }}""")
                 if not info:
                     ok(False, f"{name}: {k} layer exists")
                     continue
-                ok(info["vis"] == "visible", f"{name}: {k} opens from its link")
+                ok(info["vis"] == "visible" and info["disp"] == "block", f"{name}: {k} opens from its link")
+                ok(info["open"] == 1, f"{name}: {k} only the open report is laid out (closed ones display:none)", info["open"])
+                ok(info["tall"][0] <= info["tall"][1] or info["scrolled"] > 0, f"{name}: {k} the report scrolls", info["tall"])
+                ok(bool(info["hover"]) and ("percentile" in info["hover"] or "not ranked" in info["hover"]),
+                   f"{name}: {k} hover text on Long/Short figures", info["hover"])
                 ok(info["over"][0] <= info["over"][1] + 1, f"{name}: {k} no sideways page scroll", info["over"])
                 ok(info["chart"] and info["chart"][0] > 200 and info["chart"][1] > 40, f"{name}: {k} chart drawn", info["chart"])
                 ok(len(info["boxes"]) == 3, f"{name}: {k} three tables", info["boxes"])
