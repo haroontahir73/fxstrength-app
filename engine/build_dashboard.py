@@ -564,7 +564,23 @@ def _cr_ref_rows(rows, cols):
     return out
 
 
-def _cr_group_table(row, rows, side):
+def _cr_id(anchor):
+    return f' id="{_cr_attr(anchor)}"' if anchor else ""
+
+
+_CR_JUMPS = (("nc", "Non-Commercial"), ("comm", "Commercial"), ("net", "Net Difference"))
+
+
+def _cr_jumps(key):
+    """Links to the report's three tables. Plain #anchors, no script: the layer stays open
+    because `.cotmodal:has(:target)` keeps showing it while one of its sections is the
+    target (template.py). Shown only where :has() is supported - elsewhere a jump would
+    close the report, so the links are hidden rather than broken."""
+    links = " &middot; ".join(f'<a href="#cot50-{_cr_attr(key)}-{s}">{t}</a>' for s, t in _CR_JUMPS)
+    return f'<nav class="crjump" aria-label="Sections of this report">Jump to: {links}</nav>'
+
+
+def _cr_group_table(row, rows, side, anchor=""):
     """One trader group's 50-week table, oil-sheet layout: reference rows, then the weeks."""
     g = lambda k: (lambda r: (r.get(side) or {}).get(k))                       # noqa: E731
     refs = _cr_ref_rows(rows, [g("long"), g("short"), g("total"), None, None, g("net")])
@@ -595,11 +611,11 @@ def _cr_group_table(row, rows, side):
             f'<span>{_CR_GSUB[side]}</span></th></tr>'
             f'<tr class="g2"><th class="lbl">Date</th>'
             + "".join(f"<th>{c}</th>" for c in _CR_GCOLS) + "</tr>" + "".join(refs) + "</thead>")
-    return (f'<div class="crtw crscroll"><table class="cotrep cr7">{head}'
+    return (f'<div class="crtw crscroll"{_cr_id(anchor)}><table class="cotrep cr7">{head}'
             f'<tbody>{"".join(body)}</tbody></table></div>')
 
 
-def _cr_diff_table(row, rows):
+def _cr_diff_table(row, rows, anchor=""):
     """Net Difference (NC net - Comm net) and its weekly change, same reference rows."""
     gets = [lambda r: r["nc"]["net"], lambda r: r["comm"]["net"], lambda r: r.get("diff"),
             None, lambda r: r.get("change"), None]
@@ -614,7 +630,7 @@ def _cr_diff_table(row, rows):
             f'<tr class="g2"><th class="lbl">Date</th><th>Non-Comm Net</th><th>Comm Net</th>'
             f'<th>Difference</th><th>Diff. Prev. Week</th><th>Change</th><th>% Chng</th></tr>'
             + "".join(refs) + "</thead>")
-    return (f'<div class="crtw crscroll"><table class="cotrep cr7">{head}'
+    return (f'<div class="crtw crscroll"{_cr_id(anchor)}><table class="cotrep cr7">{head}'
             f'<tbody>{body}</tbody></table></div>')
 
 
@@ -640,6 +656,7 @@ def _cr_report(row, store, upto):
                  "Long and Short as CFTC publishes them.")
     return f"""<section class="crrep">
       <h4>CFTC Legacy report &mdash; Non-Commercial vs Commercial, last {len(rows)} weeks</h4>
+      {_cr_jumps(row["key"])}
       <dl class="crmeta">
         <dt>Latest report</dt><dd>{_cr_long_date(rows[0]["date"])}</dd>
         <dt>Source</dt><dd>{esc(_ct.SOURCE)}</dd>
@@ -650,9 +667,9 @@ def _cr_report(row, store, upto):
       {_cr_chart(rows)}
       {_CR_LEGEND}
       <input type="checkbox" class="crpct" id="pp-{esc(row["code"])}"><label class="crpctl" for="pp-{esc(row["code"])}">Show percentiles</label>
-      {_cr_group_table(row, rows, "nc")}
-      {_cr_group_table(row, rows, "comm")}
-      {_cr_diff_table(row, rows)}
+      {_cr_group_table(row, rows, "nc", f"cot50-{row['key']}-nc")}
+      {_cr_group_table(row, rows, "comm", f"cot50-{row['key']}-comm")}
+      {_cr_diff_table(row, rows, f"cot50-{row['key']}-net")}
       <p class="crnote"><b>Max. / Min.</b> are over the {len(rows)} reports shown; the
       <b>{min(AVG_WEEKS, len(rows))}-wk Avg</b> is the mean of the latest {min(AVG_WEEKS, len(rows))}
       (its % Long / % Short from the averaged Long and Total). {_CR_DEFS}</p>
