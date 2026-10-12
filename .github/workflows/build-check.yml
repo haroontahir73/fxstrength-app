@@ -98,9 +98,20 @@ jobs:
           pip install playwright==1.56.0
           python -m playwright install --with-deps chromium
 
+      # Desktop, narrow window, then two real-phone runs (mobile emulation, touch, real taps):
+      # a phone browser opening dashboard.html, and the Android app's wrapper around it.
       - name: Desktop + phone layout check and screenshots
         working-directory: engine
         run: python check_layout.py dashboard.html --out ../build-check
+
+      # Before/after only (never fails the build): the same real-phone checks against the
+      # page currently live, so a change to phone rendering shows up side by side.
+      - name: Real-phone checks on the live page (before)
+        working-directory: engine
+        continue-on-error: true
+        run: |
+          curl -fsS -o /tmp/live.html https://haroontahir73.github.io/fxstrength-app/dashboard.html
+          python check_layout.py /tmp/live.html --device-only --out ../build-check/live-before
 
       # Measurement only (never fails the build): this page vs the live one on an emulated
       # mid-range phone - size, download, first paint, load, long tasks, and how fast

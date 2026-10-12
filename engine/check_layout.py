@@ -9,6 +9,13 @@ every report opens from its link, is visible, has a drawn chart, keeps its heade
 column pinned while its tables scroll, shows the percentile when a shaded figure is tapped,
 and reveals every percentile label with "Show percentiles". Writes layout.json and PNGs to
 --out; exit 1 on any failure.
+
+The 390x844 pass above is a narrow WINDOW: it ignores <meta viewport>, so it cannot show
+how a phone renders the page. Two real-phone passes follow (mobile emulation + touch, every
+interaction a real tap), each over all 16 reports: `phone_browser` (dashboard.html opened
+in a phone browser) and `android_app` (the page inside the Android app's own wrapper,
+reproduced from the app's DashboardRepo.wrap). `--device-only` runs just those two, e.g.
+against the live page for a before/after.
 """
 import argparse, json, re, sys
 from pathlib import Path
@@ -22,12 +29,123 @@ def ok(cond, what, detail=""):
         print(f"  FAIL {what}" + (f"  ({detail})" if detail else ""))
 
 
+APP_HEAD = ('<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" '
+            'content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body>')
+
+
+def app_wrap(html):
+    """What the Android app (com.hbt.fxstrength, DashboardRepo.wrap) does with the page it
+    fetches: anything not starting with <!doctype / <html is put inside this shell."""
+    low = html.lstrip().lower()
+    return html if low.startswith("<!doctype") or low.startswith("<html") else APP_HEAD + html + "</body></html>"
+
+
+def device_phone(b, page_path, keys, out, label="device"):
+    """A real phone, not a narrow window: mobile emulation (the page's <meta viewport> is
+    honoured or ignored exactly as on a handset - without one Chrome lays the page out
+    980 px wide and shrinks it), touch input, and every interaction a real tap."""
+    url = page_path.as_uri()
+    ctx = b.new_context(viewport={"width": 390, "height": 844}, device_scale_factor=3,
+                        is_mobile=True, has_touch=True)
+    pg = ctx.new_page()
+    pg.goto(url)
+    vw = pg.evaluate("() => [window.innerWidth, document.documentElement.scrollWidth]")
+    ok(vw[0] == 390, f"{label}: page laid out at the phone's width (390), not desktop width", vw)
+    ok(vw[1] <= vw[0] + 1, f"{label}: no page-level sideways scroll", vw)
+    pg.tap('label[for="tab-cot"]')
+    pg.wait_for_timeout(250)
+    m = pg.evaluate("""() => { const t = document.querySelector('.crsec .crtw');
+        const l = t.querySelector('tbody td.lbl'); const x0 = l.getBoundingClientRect().left;
+        t.scrollLeft = 400; const r = [t.scrollWidth > t.clientWidth, x0, l.getBoundingClientRect().left, t.scrollLeft];
+        t.scrollLeft = 0; return r; }""")
+    ok(m[0] and m[3] > 0 and abs(m[1] - m[2]) <= 2, f"{label}: summary table scrolls sideways, market column pinned", m)
+    link = '.crsec a[href="#cot50-WTI"]'
+    pg.locator(link).scroll_into_view_if_needed()
+    pg.screenshot(path=str(out / f"{label}_summary.png"))
+    for k in keys:
+        pg.goto(url)
+        pg.tap('label[for="tab-cot"]')
+        pg.locator(f'.crsec a[href="#{k}"]').scroll_into_view_if_needed()
+        y0 = pg.evaluate("() => Math.round(window.scrollY)")
+        pg.tap(f'.crsec a[href="#{k}"]')
+        pg.wait_for_timeout(200)
+        info = pg.evaluate(f"""() => {{
+            const L = document.getElementById({json.dumps(k)});
+            const svg = L.querySelector('.crchart svg').getBoundingClientRect();
+            const boxes = [...L.querySelectorAll('.crrep .crscroll')];
+            const nc = boxes[0].querySelector('table');
+            const cap = (nc.querySelector('caption') || nc.querySelector('thead tr')).textContent;
+            const hr = [...nc.querySelectorAll('tr')].find(r => r.cells[0] && r.cells[0].textContent.trim() === 'Date');
+            const hdr = hr ? [...hr.cells].map(t => t.textContent.trim()) : [];
+            const ref = [...nc.querySelectorAll('tr.mx, tr.mn, tr.av')].length;
+            const wk = [...nc.querySelectorAll('tbody tr')].filter(r => !/\\b(mx|mn|av)\\b/.test(r.className)).length;
+            return {{d: getComputedStyle(L).display, y: Math.round(window.scrollY), cap, hdr, ref, wk,
+                     n: boxes.length, comm: boxes[1] ? boxes[1].textContent.includes('Commercial') : false,
+                     chart: [Math.round(svg.width), Math.round(svg.height), Math.round(svg.right)],
+                     over: [L.scrollWidth, L.clientWidth]}}; }}""")
+        ok(info["d"] == "block" and abs(info["y"] - y0) <= 2, f"{label}: tapping {k} opens its report without moving the page", (y0, info["d"], info["y"]))
+        ok("Non-Commercial" in info["cap"] and info["hdr"][:7] == ["Date", "Long", "Short", "Total (L+S)", "% Long", "% Short", "Net Positions"]
+           and info["ref"] == 3 and info["wk"] == 50, f"{label}: {k} Non-Commercial table complete (7 columns, Max/Min/13-wk Avg, 50 weeks)",
+           (info["cap"][:40], info["hdr"], info["ref"], info["wk"]))
+        ok(info["n"] == 3 and info["comm"], f"{label}: {k} separate Commercial and Net Difference tables", info["n"])
+        ok(info["chart"][0] > 200 and info["chart"][1] > 40 and info["chart"][2] <= 391, f"{label}: {k} chart drawn inside the screen", info["chart"])
+        ok(info["over"][0] <= info["over"][1] + 1, f"{label}: {k} no sideways scroll of the report", info["over"])
+        pin = pg.evaluate(f"""() => {{
+            const box = document.getElementById({json.dumps(k)}).querySelector('.crrep .crscroll');
+            box.scrollTop = 500; box.scrollLeft = 160;
+            const b = box.getBoundingClientRect(), th = box.querySelector('thead').getBoundingClientRect(),
+                  lb = box.querySelector('tbody td.lbl').getBoundingClientRect();
+            const r = [Math.round(th.top - b.top), Math.round(lb.left - b.left), box.scrollTop, box.scrollLeft];
+            box.scrollTop = 0; box.scrollLeft = 0; return r; }}""")
+        ok(pin[2] > 0 and pin[3] > 0 and 0 <= pin[0] <= 3 and 0 <= pin[1] <= 3,
+           f"{label}: {k} table scrolls with header and date column pinned", pin)
+        cell = f'#{k} .crrep .crscroll td.x[title*="percentile"]'
+        pg.locator(cell).first.scroll_into_view_if_needed()
+        pg.locator(cell).first.tap()
+        pg.wait_for_timeout(120)
+        tap = pg.evaluate("""() => { const c = document.activeElement;
+            return c && c.matches('td.x') ? getComputedStyle(c, '::after').content : null; }""")
+        ok(bool(tap) and "percentile" in tap, f"{label}: {k} tapping a shaded figure shows its percentile", tap)
+        if k == "cot50-WTI":
+            pg.screenshot(path=str(out / f"{label}_WTI_tap.png"))
+        pg.locator(f"#{k} .crpctl").tap()
+        lab = pg.evaluate(f"""() => {{ const ps = [...document.getElementById({json.dumps(k)}).querySelectorAll('td.x .pp')];
+            return [ps.length, ps.filter(p => getComputedStyle(p).display === 'block').length]; }}""")
+        ok(lab[0] > 0 and lab[0] == lab[1], f"{label}: {k} 'Show percentiles' (tapped) reveals every label", lab)
+        if k == "cot50-WTI":
+            pg.evaluate("() => document.getElementById('cot50-WTI').scrollTop = 0")
+            pg.screenshot(path=str(out / f"{label}_WTI_top.png"))
+            pg.locator("#cot50-WTI .crrep .crscroll").first.scroll_into_view_if_needed()
+            pg.screenshot(path=str(out / f"{label}_WTI_noncommercial.png"))
+        pg.locator(f"#{k} .crpctl").tap()
+        pg.locator(f"#{k} a.mback").tap()
+        pg.wait_for_timeout(150)
+        d = pg.evaluate(f"() => getComputedStyle(document.getElementById({json.dumps(k)})).display")
+        ok(d == "none", f"{label}: {k} back link (tapped) closes the report", d)
+    # The phone's own Back button, from a tapped-open report.
+    pg.goto(url)
+    pg.tap('label[for="tab-cot"]')
+    pg.locator(link).scroll_into_view_if_needed()
+    y0 = pg.evaluate("() => Math.round(window.scrollY)")
+    pg.tap(link)
+    pg.wait_for_timeout(200)
+    pg.go_back()
+    pg.wait_for_timeout(250)
+    st = pg.evaluate("() => [getComputedStyle(document.getElementById('cot50-WTI')).display, Math.round(window.scrollY)]")
+    ok(st[0] == "none" and abs(st[1] - y0) <= 2, f"{label}: Back closes the report and returns to the same place", (y0, st))
+    ctx.close()
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("page")
     ap.add_argument("--out", default="build-check")
     ap.add_argument("--chromium", default=None, help="explicit browser binary (optional)")
+    ap.add_argument("--device-only", action="store_true",
+                    help="only the real-phone checks (e.g. against the live page, for a before/after)")
     a = ap.parse_args()
+    if a.device_only:
+        return device_main(a)
     from playwright.sync_api import sync_playwright
     page_path = Path(a.page).resolve()
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
@@ -157,9 +275,40 @@ def main():
                     big.screenshot(path=str(out / f"{k}_{name}.png"))
                     big.close()
             pg.close()
+        run_devices(b, page_path, html, keys, out)
         b.close()
     (out / "layout.json").write_text(json.dumps({"passed": len(OKS), "failed": FAILS, "metrics": res}, indent=1))
     print(f"\ncheck_layout: {len(OKS)} passed, {len(FAILS)} failed")
+    return 1 if FAILS else 0
+
+
+def run_devices(b, page_path, html, keys, out):
+    """The page as a phone browser opens it, and as the Android app shows it (its wrapper)."""
+    device_phone(b, page_path, keys, out, "phone_browser")
+    wrapped = page_path.with_name(page_path.stem + ".app-wrapped.html")
+    wrapped.write_text(app_wrap(html), encoding="utf-8")
+    try:
+        device_phone(b, wrapped, keys, out, "android_app")
+    finally:
+        wrapped.unlink()
+
+
+def device_main(a):
+    from playwright.sync_api import sync_playwright
+    page_path = Path(a.page).resolve()
+    out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
+    html = page_path.read_text(encoding="utf-8")
+    keys = re.findall(r'<td class="lbl"><a href="#(cot50-[^"]+)"', html)
+    ok(len(keys) == 16, f"16 report links in the summary tables ({len(keys)})")
+    with sync_playwright() as pw:
+        b = pw.chromium.launch(executable_path=a.chromium) if a.chromium else pw.chromium.launch()
+        try:
+            run_devices(b, page_path, html, keys, out)
+        except Exception as e:                       # noqa: BLE001 - a broken page is a result
+            ok(False, f"device checks ran to the end ({type(e).__name__}: {str(e)[:160]})")
+        b.close()
+    (out / "layout.json").write_text(json.dumps({"passed": len(OKS), "failed": FAILS}, indent=1))
+    print(f"\ncheck_layout (device): {len(OKS)} passed, {len(FAILS)} failed")
     return 1 if FAILS else 0
 
 
