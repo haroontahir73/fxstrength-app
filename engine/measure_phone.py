@@ -118,11 +118,22 @@ def main():
             print(f"baseline not measured: {type(e).__name__}: {e}")
     if a.ab_closed_layout:
         old = Path(tempfile.mkdtemp()) / "dashboard.html"
-        old.write_text(Path(a.page).read_text(encoding="utf-8").replace(
-            "</head>", "<style>.cotmodal:not(:target){display:block!important;visibility:hidden;"
-                       "opacity:0;pointer-events:none}</style></head>", 1), encoding="utf-8")
+        # The dashboard has no </head> (the template opens with <title>), so the override
+        # is put first; !important + higher specificity win regardless of order.
+        css = ("<style>.cotmodal:not(:target){display:block!important;visibility:hidden;"
+               "opacity:0;pointer-events:none}</style>")
+        old.write_text(css + Path(a.page).read_text(encoding="utf-8"), encoding="utf-8")
         pages.append((old, "build, old CSS"))
     pages.append((Path(a.page), "this build"))
+    if a.ab_closed_layout:                       # prove the A/B really differs
+        from playwright.sync_api import sync_playwright as _sp
+        with _sp() as pw:
+            for path, label in pages[-2:]:
+                b = pw.chromium.launch(); pg = b.new_page()
+                pg.goto(Path(path).resolve().as_uri())
+                n = pg.evaluate("() => [...document.querySelectorAll('.cotmodal')].filter(m => getComputedStyle(m).display !== 'none').length")
+                print(f"{label}: closed report layers laid out = {n}")
+                b.close()
     rows = []
     with sync_playwright() as pw:
         for path, label in pages:
