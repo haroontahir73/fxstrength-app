@@ -1,5 +1,61 @@
 [
  {
+  "when": "12 Oct 15:09 UTC",
+  "iso": "2026-10-12T15:09:59.770939+00:00",
+  "cat": "geo_deescalation",
+  "title": "GEOPOLITICS - calming down",
+  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nFinancialJuice: EU's Kallas: Ceasefire cannot work only if one party honors it.\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193    mild short bias - supply worry gone, barrels flow again (eased by self-check)\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,188 (-0.7%)   Silver 60.64 (-0.0%)   WTI 93.82 (+2.1%)   DXY 102.47 (+0.3%)   US10Y 5.24 (-0.1%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
+  "link": "https://www.financialjuice.com/News/9801749/EUs-Kallas-Ceasefire-cannot-work-only-if-one-party-honors-it.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4187.7,
+   "Silver": 60.64,
+   "WTI": 93.82
+  },
+  "parts": {
+   "emoji": "\ud83d\udd4a",
+   "label": "GEOPOLITICS \u2014 calming down",
+   "headline": "FinancialJuice: EU's Kallas: Ceasefire cannot work only if one party honors it.",
+   "src": "",
+   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured both ways - fear-out vs yields-down cancel",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "same, no reliable direction",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "supply worry gone, barrels flow again (eased by self-check)",
+     "record": "some evidence - right 51% of 113 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,188 (-0.7%)   Silver 60.64 (-0.0%)   WTI 93.82 (+2.1%)   DXY 102.47 (+0.3%)   US10Y 5.24 (-0.1%)",
+   "reality": "",
+   "flip": "these deals break \u2014 one broken truce and it all goes back on"
+  }
+ },
+ {
   "when": "12 Oct 14:38 UTC",
   "iso": "2026-10-12T14:38:12.703447+00:00",
   "cat": "oil_supply_tight",
@@ -3279,61 +3335,6 @@
    "snap": "NOW  Gold 4,158 (+0.4%)   Silver 59.43 (-0.8%)   WTI 91.18 (+3.3%)   DXY 102.13 (-0.1%)   US10Y 5.23 (-0.9%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "08 Oct 19:48 UTC",
-  "iso": "2026-10-08T19:48:25.607275+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nTrump says US won't strike Iran before midterms as blockade continues - WJAC  (WJAC)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,155 (+0.4%)   Silver 59.38 (-0.9%)   WTI 91.30 (+3.4%)   DXY 102.13 (-0.1%)   US10Y 5.23 (-0.9%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxNbEZRVWd4M2tJVzJwT0tDQ0ZCN0FQTWZVWVlaU0JKdlhwT0g3djlMQnVFZ0JVRWV0UnhNdGtFR1l4YzBScXIzT09PaExORzBJQ3g1WUxySUVMUWtQcU9kUHNEdlhYVzJmMDhZd1Y0cXZiSHVPQXk1cUtnSGl1UHJmclljZkhPU3c1YTRDZ3dsYjJ4dUVSaFdTX00xN0RkTllPRkx1S3JBbzhGeXNYSWoxYlJCa0NGVFRiNmpCMHRoc0J4bDYtcnF2R1VvUFltQjVNdU4tSENzdmpHQ3dPOEplX0lpaUc3SU9HaDB2NHNOMXdLd0lBX1ZLcmlSbFFwSjI5TFJMZmFfdDdaWGtJbFl4eGdzcUoyblBwTE1POElKT2N6UFhOYk1wUGZhYUdSRnNJN19NcWhreTY?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4155.4,
-   "Silver": 59.385,
-   "WTI": 91.3
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Trump says US won't strike Iran before midterms as blockade continues - WJAC",
-   "src": "WJAC",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,155 (+0.4%)   Silver 59.38 (-0.9%)   WTI 91.30 (+3.4%)   DXY 102.13 (-0.1%)   US10Y 5.23 (-0.9%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
