@@ -1,5 +1,61 @@
 [
  {
+  "when": "12 Oct 06:03 UTC",
+  "iso": "2026-10-12T06:03:44.572627+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nSupertanker hits mine in Strait of Hormuz as Iran accuses US of oil smuggling - T\u00fcrkiye Today  (T\u00fcrkiye Today)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,215 (-0.0%)   Silver 61.30 (+1.0%)   WTI 90.81 (-1.1%)   DXY 102.23 (+0.0%)   US10Y 5.24 (+0.2%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPNmkwVmFLV1RzWEpBQ0ZucUlJZ05hOVpBd1h1b1dycWJkc1JZTHcwUzZWWU02WkY2NV9JUktkNEphTUdrclJLM0ZlTmlYUTBWUDY0UzFSclBKVmdPMk9uNWlzMldYM0hibVBldWdsaExJYWQ5THpZLTNGZjhka25XS1pPWEsyWS1yREJvN0twSVZQckRoSVFnX2FlWWl0Vk5iaUwyajdscHZBcU95WTUwZ0c4NldnSkhQWkhSZUhR?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4215.3,
+   "Silver": 61.295,
+   "WTI": 90.81
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Supertanker hits mine in Strait of Hormuz as Iran accuses US of oil smuggling - T\u00fcrkiye Today",
+   "src": "T\u00fcrkiye Today",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,215 (-0.0%)   Silver 61.30 (+1.0%)   WTI 90.81 (-1.1%)   DXY 102.23 (+0.0%)   US10Y 5.24 (+0.2%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "12 Oct 05:01 UTC",
   "iso": "2026-10-12T05:01:08.594555+00:00",
   "cat": "rates_up",
@@ -3270,61 +3326,6 @@
     }
    ],
    "snap": "NOW  Gold 4,143 (+0.1%)   Silver 59.19 (-1.2%)   WTI 91.27 (+3.4%)   DXY 102.29 (+0.1%)   US10Y 5.26 (-0.4%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "08 Oct 15:35 UTC",
-  "iso": "2026-10-08T15:35:08.228767+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIn Omsk, even before the drone attack on the oil refinery, there was a rush at gas stations - UA.NEWS  (UA.NEWS)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,140 (-0.0%)   Silver 59.12 (-1.3%)   WTI 92.85 (+5.2%)   DXY 102.27 (+0.0%)   US10Y 5.30 (+0.5%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOM1VkdjlzQ3F3RVQtZDZ6Um9KOWlQSEtvem0weFVhcUVRTFpoLUh2enVZdmdCdUc2MVBxZy1Lb3BXTmlhbUNja3lOTmhQOF9hU3owRVRhN1luT21Sd3Zlb25JcUNGbFk1NG1Jc21yQ3dNNGtpbmxlcDNXM25RbC1UM1l0MFZFa1A0MnJJTjZvQm5jdw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4139.8,
-   "Silver": 59.125,
-   "WTI": 92.85
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "In Omsk, even before the drone attack on the oil refinery, there was a rush at gas stations - UA.NEWS",
-   "src": "UA.NEWS",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,140 (-0.0%)   Silver 59.12 (-1.3%)   WTI 92.85 (+5.2%)   DXY 102.27 (+0.0%)   US10Y 5.30 (+0.5%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
