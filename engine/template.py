@@ -371,6 +371,14 @@ table.cotrep{min-width:1100px;width:100%;border-collapse:collapse;font-size:12.5
 .cotmodal{position:fixed;inset:0;z-index:90;background:var(--bg);overflow-y:auto;
   -webkit-overflow-scrolling:touch;padding:22px 18px 64px;display:none}
 .cotmodal:target{display:block}
+/* A report's "Jump to" links target one of its own tables; the layer stays open while any
+   of its sections is the target. Browsers without :has() drop this rule - and never show
+   the links (.crjump below), so a jump can never close a report there. */
+.cotmodal:has(:target){display:block}
+.crjump{display:none;margin:4px 0 14px;font:600 12.5px/1.9 "IBM Plex Mono",monospace;color:var(--mut)}
+@supports selector(:has(*)){.crjump{display:block}}
+.crjump a{color:var(--accent);text-decoration:none;border-bottom:1px dotted currentColor;padding:2px 1px}
+.crrep .crscroll[id]{scroll-margin-top:10px}
 .cotmodal .mwrap{max-width:620px;margin:0 auto}
 .cotmodal .mhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 14px}
 .cotmodal .mhead h3{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;

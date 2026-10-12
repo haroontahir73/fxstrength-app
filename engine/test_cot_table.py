@@ -554,8 +554,18 @@ def test_render():
         ct._write(data / ct.OUT_NAME, s)
 
         lay = bd.cot_drilldowns()
-        ids = re.findall(r'id="(cot50-[^"]+)"', lay)
+        allids = re.findall(r'id="(cot50-[^"]+)"', lay)
+        ids = [i for i in allids if not re.search(r"-(nc|comm|net)$", i)]
         check(g, "one layer per instrument, no duplicate ids", len(ids) == len(set(ids)) == 16, ids)
+        secs = [i for i in allids if i not in ids]
+        legacy_keys = set(re.findall(r'href="#cot50-([^"]+)-nc"', lay))
+        check(g, "jump links: each Legacy report has its 3 section anchors, all unique",
+              len(secs) == len(set(secs)) == 3 * len(legacy_keys) and legacy_keys
+              and all(f"cot50-{k}-{s}" in secs for k in legacy_keys for s in ("nc", "comm", "net")),
+              (len(secs), sorted(legacy_keys)))
+        check(g, "jump links point only at anchors that exist",
+              set(re.findall(r'class="crjump".*?</nav>', lay, re.S)) and
+              all(h in secs for h in re.findall(r'href="#(cot50-[^"]+-(?:nc|comm|net))"', lay)))
         m = re.search(r'id="cot50-WTI".*?(?=<div class="cotmodal|$)', lay, re.S)
         wti = m.group(0) if m else ""
         check(g, "oil report: Non-Commercial, Commercial and Net Difference tables",

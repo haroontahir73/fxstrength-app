@@ -90,6 +90,28 @@ def device_phone(b, page_path, keys, out, label="device"):
         ok(info["n"] == 3 and info["comm"], f"{label}: {k} separate Commercial and Net Difference tables", info["n"])
         ok(info["chart"][0] > 200 and info["chart"][1] > 40 and info["chart"][2] <= 391, f"{label}: {k} chart drawn inside the screen", info["chart"])
         ok(info["over"][0] <= info["over"][1] + 1, f"{label}: {k} no sideways scroll of the report", info["over"])
+        jumps = pg.evaluate(f"() => [...document.querySelectorAll('#{k} .crjump a')].map(a => a.getAttribute('href'))")
+        if jumps:
+            ok(jumps == [f"#{k}-nc", f"#{k}-comm", f"#{k}-net"], f"{label}: {k} jump links to its three sections", jumps)
+            for h in jumps:
+                pg.locator(f'#{k} .crjump a[href="{h}"]').tap()
+                pg.wait_for_timeout(200)
+                j = pg.evaluate(f"""() => {{ const L = document.getElementById({json.dumps(k)});
+                    const t = document.getElementById({json.dumps(h[1:])});
+                    return {{d: getComputedStyle(L).display, top: Math.round(t.getBoundingClientRect().top),
+                             open: [...document.querySelectorAll('.cotmodal')].filter(m => getComputedStyle(m).display !== 'none').length,
+                             title: t.querySelector('thead tr').textContent.trim().slice(0, 60)}}; }}""")
+                ok(j["d"] == "block" and j["open"] == 1 and 0 <= j["top"] <= 40,
+                   f"{label}: {k} 'Jump to' {h.rsplit('-', 1)[1]} keeps the report open and brings that table to the top", j)
+                if k == "cot50-WTI" and h.endswith("-comm"):
+                    pg.screenshot(path=str(out / f"{label}_WTI_jump_commercial.png"))
+            pg.go_back()
+            pg.wait_for_timeout(200)
+            j = pg.evaluate(f"""() => [getComputedStyle(document.getElementById({json.dumps(k)})).display, location.hash]""")
+            ok(j[0] == "block" and j[1] == f"#{k}-comm", f"{label}: {k} Back after a jump stays in the report (previous section)", j)
+            pg.evaluate(f"() => document.getElementById({json.dumps(k)}).scrollTop = 0")
+            if k == "cot50-WTI":
+                pg.screenshot(path=str(out / f"{label}_WTI_jumplinks.png"))
         pin = pg.evaluate(f"""() => {{
             const box = document.getElementById({json.dumps(k)}).querySelector('.crrep .crscroll');
             box.scrollTop = 500; box.scrollLeft = 160;
