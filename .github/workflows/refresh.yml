@@ -21,6 +21,13 @@ on:
         default: 'auto'
         type: choice
         options: [auto, daily, cot, bootstrap]
+      cot_legacy_fetch:
+        # Set by the Raspberry Pi checker (pi/cot_pi_check.py) when it sees a new CFTC
+        # report: fetch the Legacy COT report in this run instead of waiting for the
+        # schedule-based poll. Everything else in the run is unchanged.
+        description: 'fetch the CFTC Legacy COT report now (Pi trigger)'
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -94,6 +101,7 @@ jobs:
         # Settings > Secrets and variables > Actions > New repository secret.
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          COT_LEGACY_FETCH: ${{ github.event.inputs.cot_legacy_fetch == 'true' && '1' || '' }}
         run: python run.py ${{ steps.mode.outputs.mode }}
 
       # Injects the decoded gold/silver/oil alerts into dashboard.html between markers.

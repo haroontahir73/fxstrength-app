@@ -1,0 +1,15 @@
+# Every 15 minutes; the checker itself decides whether anything is due, so most runs
+# finish in well under a second without touching the network.
+[Unit]
+Description=FX Strength Desk: COT check every 15 minutes
+
+[Timer]
+OnBootSec=3min
+OnCalendar=*:0/15
+RandomizedDelaySec=90
+AccuracySec=30s
+# A run missed while the Pi was off happens at boot (catch-up after downtime).
+Persistent=true
+
+[Install]
+WantedBy=timers.target

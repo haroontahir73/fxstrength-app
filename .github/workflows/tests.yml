@@ -23,12 +23,14 @@ on:
   pull_request:
     paths:
       - 'engine/**'
+      - 'pi/**'
       - '.github/workflows/tests.yml'
   push:
     branches: [main]
     paths:
       - 'engine/**'
       - '!engine/data/**'
+      - 'pi/**'
       - '.github/workflows/tests.yml'
   workflow_dispatch:
 
@@ -75,6 +77,18 @@ jobs:
         working-directory: engine
         run: python test_publish_state.py
 
+      # Legacy COT tables + 50-week reports: reproduces a published week and the oil sheet's
+      # 13-wk average from fixed CFTC rows; reversal, validation, release schedule, restart
+      # recovery, positioning shading and the renderer. Offline.
+      - name: COT table suite (142 checks)
+        working-directory: engine
+        run: python test_cot_table.py
+
+      # The Raspberry Pi trigger (pi/cot_pi_check.py) against a fake CFTC / GitHub / Pages:
+      # schedule, trigger-once, retries, confirmation, downtime, overlap, token hygiene.
+      - name: Pi checker suite (35 checks)
+        run: python pi/test_pi_check.py
+
       # A test that writes to engine/data corrupts live pipeline state: these files are
       # committed and restored from the Actions cache, so a polluted one outlives the run
       # and reaches the dashboard. test_commodity_decode.py really did unlink the live
@@ -82,15 +96,17 @@ jobs:
       # phone twice. Both suites now work in temp dirs; this keeps it that way.
       - name: Tests must leave engine/data untouched
         run: |
-          if [ -n "$(git status --porcelain -- engine/data)" ]; then
+          # --ignored as well: most generated state (cot_legacy.json among it) is
+          # gitignored, so a plain status would not see a test writing it.
+          if [ -n "$(git status --porcelain --ignored -- engine/data)" ]; then
             echo "::error::a test modified, created or deleted something in engine/data"
-            git status --porcelain -- engine/data
+            git status --porcelain --ignored -- engine/data
             exit 1
           fi
           echo "engine/data is byte-identical to the checkout"
 
-      # Proof rather than assumption: re-run both suites with urlopen replaced by a spy
-      # that records and blocks every outbound request, and fail if either reached ntfy
+      # Proof rather than assumption: re-run every suite with urlopen replaced by a spy
+      # that records and blocks every outbound request, and fail if any reached ntfy
       # or Telegram. Catches a future test that calls the real push() by accident.
       - name: Tests must not attempt a real notification
         working-directory: engine
@@ -119,3 +135,5 @@ jobs:
           python /tmp/no_push.py test_commodity_decode.py
           python /tmp/no_push.py test_reliability.py
           python /tmp/no_push.py test_publish_state.py
+          python /tmp/no_push.py test_cot_table.py
+          python /tmp/no_push.py ../pi/test_pi_check.py

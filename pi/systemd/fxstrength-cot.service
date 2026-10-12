@@ -1,0 +1,30 @@
+# Installed by pi/install.sh, which fills in @USER@, @CHECKER@ and @MODE@.
+# A one-shot check started by fxstrength-cot.timer; see pi/README.md.
+[Unit]
+Description=FX Strength Desk: check for a new CFTC COT report and trigger the tested GitHub build
+Documentation=https://github.com/haroontahir73/fxstrength-app/blob/main/pi/README.md
+Wants=network-online.target
+After=network-online.target time-sync.target
+
+[Service]
+Type=oneshot
+User=@USER@
+# dry-run = never triggers (safe to install before PR #3 is merged); live = triggers
+Environment=FXCOT_MODE=@MODE@
+ExecStart=/usr/bin/python3 @CHECKER@
+# /var/lib/fxstrength-cot: state.json + lock, owned by @USER@, survives reboots
+StateDirectory=fxstrength-cot
+StateDirectoryMode=0700
+# The GitHub token: root-only file on disk, handed to this service alone at start-up.
+LoadCredential=github_token:/etc/fxstrength-cot/github_token
+TimeoutStartSec=5min
+Nice=10
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes

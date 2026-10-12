@@ -1,5 +1,5 @@
 """Render scores.json into a self-contained dashboard HTML file."""
-import json, datetime as dt
+import json, math, datetime as dt
 from pathlib import Path
 from config import (DATA, ORDER, CURRENCIES, WEIGHTS,
                     COMMODITIES, COMMODITY_ORDER, COMMODITY_WEIGHTS, ordinal)
@@ -12,6 +12,7 @@ try:
 except ImportError:                                   # older config - the Indices tab hides itself
     INDICES, INDEX_ORDER = {}, []
 from template import TEMPLATE
+import cot_table as _ct
 
 OUT = Path(__file__).parent / "dashboard.html"
 PART_LABEL = {"fundamentals": "Checklist", "expectations": "Rate odds",
@@ -264,6 +265,474 @@ def _cot_hist_rows(code, hist, weeks, cat):
     return rows
 
 
+# ---- the classic COT tables + per-contract 50-week Legacy reports (cot_table.py) --------
+# Laid out like the weekly "Commitment of Traders Report" sheets: olive header bars, peach
+# row labels, a long/short-share tint on the % cells, green/red net and difference cells
+# and an orange heat on % Chng. Each row label opens that instrument's 50-week layer
+# (cot_drilldowns), which now carries the Legacy report next to the existing history.
+
+_COTREP_COLS = ("Long", "Short", "Total (L+S)", "% Long", "% Short", "Net (L&minus;S)")
+_GRP_NAME = {"nc": "Non-Commercial", "comm": "Commercial"}
+
+
+def _cr_num(n):
+    """1,234 / -1,234 - the published tables print no plus sign."""
+    return f"{n:,}" if isinstance(n, int) else "&mdash;"
+
+
+def _cr_gb(n, extra=""):
+    """Green for positive, red for negative, plain for zero - the sheets' good/bad cells."""
+    tone = ("good" if n > 0 else "bad" if n < 0 else "") if isinstance(n, int) else ""
+    cls = " ".join(c for c in (tone, extra) if c)
+    return f'<td{f" class={chr(34)}{cls}{chr(34)}" if cls else ""}>{_cr_num(n)}</td>'
+
+
+def _cr_share(pl):
+    """Tint for a group's % Long / % Short pair: long-heavy green, short-heavy red,
+    balanced (45-55%) blue."""
+    if pl is None:
+        return ""
+    return ("l2" if pl >= 70 else "l1" if pl > 55 else
+            "s2" if pl <= 30 else "s1" if pl < 45 else "mid")
+
+
+def _cr_heat(w):
+    """% Chng: heat by the size of the weekly move, sign in the number. N/A when the
+    previous difference was zero; a dash when there is no previous report at all."""
+    p = w.get("pct_change")
+    if p is None:
+        na = w.get("prev_diff") == 0
+        return f'<td class="mut">{"N/A" if na else "&mdash;"}</td>'
+    a = abs(p)
+    h = "h4" if a >= 50 else "h3" if a >= 25 else "h2" if a >= 10 else "h1" if a >= 3 else "h0"
+    return f'<td class="{h}">{p}%</td>'
+
+
+def _ord(p):
+    """97.4 -> '97th'. Clamped to 1st..99th: a mid-rank percentile never reaches 0 or 100,
+    and '100th' would read as more certain than it is."""
+    n = min(99, max(1, int(math.floor(p + 0.5)))) if p is not None else None
+    return ordinal(n)
+
+
+def _cr_poscell(value, pos, age, who, kind, date):
+    """A Long / Short figure in a 50-week report, shaded by where it sits in its own
+    history (red = long, blue = short), faded by age. The hover / tap text always gives
+    the true, unfaded percentile."""
+    if not pos or pos.get("pct") is None:
+        why = {"no-data": "no data",
+               "short-history": f"only {pos.get('n', 0) if pos else 0} reports of history - not ranked",
+               "flat": f"no variation over {pos.get('n', 0) if pos else 0} reports - not ranked"
+               }.get((pos or {}).get("state"), "not ranked")
+        return (f'<td class="x" tabindex="0" title="{who}: {why}">{_cr_num(value)}'
+                f'<span class="pp">not ranked</span></td>')
+    shown = pos["strength"] * _ct.age_fade(age)
+    tip = f"{who}: {_ord(pos['pct'])} percentile of its last {pos['n']} reports - {pos['state']}"
+    if age:
+        tip += f" (colour faded: {age} week{'s' if age != 1 else ''} old)"
+    cls = f"x x{kind}" + (" xw" if shown >= 0.55 else "")
+    style = f' style="--a:{shown:.3f}"' if shown >= 0.005 else ""
+    return (f'<td class="{cls}" tabindex="0"{style} title="{_cr_attr(tip)}">{_cr_num(value)}'
+            f'<span class="pp">{_ord(pos["pct"])} pct</span></td>')
+
+
+def _cr_cells(w):
+    """The 16 value cells of one summary-table row."""
+    cells = []
+    for side in ("nc", "comm"):
+        s = w.get(side) or {}
+        pl, ps = s.get("pct_long"), s.get("pct_short")
+        k = _cr_share(pl)
+        cells += [f'<td class="gs">{_cr_num(s.get("long"))}</td>',
+                  f'<td>{_cr_num(s.get("short"))}</td>',
+                  f'<td>{_cr_num(s.get("total"))}</td>',
+                  f'<td class="p {k}">{"&mdash;" if pl is None else f"{pl}%"}</td>',
+                  f'<td class="p {k}">{"&mdash;" if ps is None else f"{ps}%"}</td>',
+                  _cr_gb(s.get("net"), "net")]
+    cells += [_cr_gb(w.get("diff"), "gs net"), _cr_gb(w.get("prev_diff")),
+              _cr_gb(w.get("change"), "gs"), _cr_heat(w)]
+    return "".join(cells)
+
+
+def _cr_thead(first):
+    sub = "".join(f'<th{" class=gs" if i == 0 else ""}>{c}</th>'
+                  for _ in range(2) for i, c in enumerate(_COTREP_COLS))
+    return (f'<thead><tr class="g1"><th rowspan="2" class="lbl">{first}</th>'
+            f'<th colspan="6" class="gs">Non-Commercial (Hedge Funds, Banks &amp; Institutions)</th>'
+            f'<th colspan="6" class="gs">Commercial (Corporations Hedging)</th>'
+            f'<th class="gs">Net Difference</th><th colspan="3" class="gs">Compared to Prev. Week</th></tr>'
+            f'<tr class="g2">{sub}<th class="gs">NC &minus; Comm</th><th>Diff. Prev. Week</th>'
+            f'<th class="gs">Change</th><th>% Chng</th></tr></thead>')
+
+
+def _cr_long_date(iso, fmt=None):
+    try:
+        d = dt.date.fromisoformat(str(iso)[:10])
+        return d.strftime(fmt) if fmt else f"{d:%B} {d.day}, {d.year}"
+    except Exception:                                            # noqa: BLE001
+        return esc(iso) or "&mdash;"
+
+
+def _cr_attr(s):
+    return esc(s).replace('"', "&quot;")
+
+
+def _cr_when(iso):
+    try:
+        t = dt.datetime.fromisoformat(iso)
+        return f"{t:%a %d %b %H:%M} UTC"
+    except Exception:                                            # noqa: BLE001
+        return "&mdash;"
+
+
+_CR_DEFS = ("<b>Total (L+S)</b> is that group&rsquo;s long + short, spreading excluded &mdash; "
+            "not open interest. <b>Net Difference</b> is the Non-Commercial net minus the "
+            "Commercial net &mdash; not the market&rsquo;s combined net position.")
+
+
+def _cr_contracts(g):
+    items = "".join(
+        f'<li><b>{esc(r["label"])}</b> {esc(r.get("contract") or "not in the CFTC data")} '
+        f'<span class="mono">({esc(r["code"])})</span> &mdash; {esc(r.get("desc"))}</li>'
+        for r in g.get("rows", []))
+    return f'<ul class="crkey">{items}</ul>'
+
+
+def _cotrep_group(g, date_txt):
+    """One of the two tables (currency pairs / commodities & indexes)."""
+    body = []
+    for r in g.get("rows", []):
+        name = esc(r.get("label")) + ("<sup>*</sup>" if r.get("reversed") else "")
+        if r.get("has_history"):
+            name = (f'<a href="#cot50-{_cr_attr(r["key"])}" title="{_cr_attr(r.get("contract"))} '
+                    f'- 50-week report">{name}</a>')
+        lbl = f'<td class="lbl">{name}</td>'
+        if r.get("missing"):
+            body.append(f'<tr>{lbl}<td colspan="16" class="gs miss">not in this week&rsquo;s '
+                        f'CFTC report</td></tr>')
+        else:
+            body.append(f"<tr>{lbl}{_cr_cells(r)}</tr>")
+    first = esc(g.get("label_col")).replace(" ", "<br>", 1)
+    foot = (f'<tfoot><tr><td colspan="17"><sup>*</sup> {esc(g["note"])}</td></tr></tfoot>'
+            if g.get("note") else "")
+    return (f'<div class="crg"><div class="crhead"><h3 class="crt">{esc(g.get("title"))}</h3>'
+            f'<span class="crt crd">{date_txt}</span></div>'
+            f'<div class="crtw"><table class="cotrep">{_cr_thead(first)}'
+            f'<tbody>{"".join(body)}</tbody>{foot}</table></div>{_cr_contracts(g)}</div>')
+
+
+def _cr_store():
+    try:
+        return _ct.load(DATA / _ct.OUT_NAME)
+    except Exception:                                            # noqa: BLE001
+        return None
+
+
+def _cr_status(sv):
+    """Freshness line + chips: report date, scheduled release, when this build first saw
+    it, last check; flags an overdue report and a failing fetch."""
+    bits = [f"Positions as of Tuesday <b>{_cr_long_date(sv.get('report_date'))}</b>"]
+    if sv.get("released_at"):
+        bits.append(f"scheduled release {_cr_when(sv['released_at'])}")
+    if sv.get("report_first_seen_at"):
+        bits.append(f"first fetched {_cr_when(sv['report_first_seen_at'])}")
+    if sv.get("checked_at"):
+        bits.append(f"last checked {_cr_when(sv['checked_at'])}")
+    chips = ""
+    if sv.get("failing"):
+        chips += (f' <span class="chip neg">CFTC fetch failing since '
+                  f'{_cr_when(sv.get("last_error_at"))} &mdash; showing the last good report</span>')
+    if sv.get("overdue"):
+        chips += (f' <span class="chip warn">report for {_cr_long_date(sv.get("next_report"))} '
+                  f'not published yet &mdash; due {_cr_when(sv.get("next_due_at"))} '
+                  f'(holiday or CFTC delay)</span>')
+    return f'<p class="crstat mono">{" &middot; ".join(bits)}{chips}</p>'
+
+
+def cot_report_tables(today=None, now=None):
+    """The two classic COT summary tables (Non-Commercial vs Commercial, CFTC Legacy
+    futures-only) at the top of the COT tab."""
+    store = _cr_store()
+    t = _ct.summary(store) if store else None
+    if not t:
+        return _empty_tab("COT report tables",
+                          "Not built yet - filled from the CFTC on the next refresh.")
+    if now is None and today is not None:
+        now = dt.datetime.combine(today, dt.time(12), dt.timezone.utc)
+    sv = _ct.status_view(store, now)
+    date_txt = _cr_long_date(t["report_date"])
+    groups = "".join(_cotrep_group(g, date_txt) for g in t["groups"])
+    # data-cot-report: a stable marker the Raspberry Pi checker reads to confirm that a
+    # triggered refresh really published the new week (pi/cot_pi_check.py).
+    return f"""<section class="crsec" data-cot-report="{esc(t['report_date'])}">
+    <h2>COT report tables <span class="mut" style="font-weight:400;font-size:14px">&mdash; Legacy report: Non-Commercial vs Commercial</span></h2>
+    <p class="sub">Source: {esc(_ct.SOURCE)}. Futures used as proxies for the spot pairs;
+    <b>USD</b> is the ICE US Dollar Index future, not a pair. A separate, broader cut from the
+    Leveraged Funds / Managed Money figures further down, and it does not feed the scores.
+    {_CR_DEFS} <b>Tap a pair or contract</b> for its 50-week report.</p>
+    {_cr_status(sv)}
+    {groups}
+  </section>"""
+
+
+# ---- 50-week report: chart, legend, table ------------------------------------------------
+def _cr_chart(rows):
+    """Inline SVG of Non-Commercial and Commercial net over the report's weeks, x by date
+    (so a missing week shows as a longer segment, never an invented point)."""
+    pts = [(dt.date.fromisoformat(r["date"]), r["nc"]["net"], r["comm"]["net"])
+           for r in reversed(rows)]
+    if len(pts) < 2:
+        return ""
+    W, H, L, R, T, B = 1000, 240, 124, 140, 26, 30     # wide margins: phone-size labels fit
+    d0, d1 = pts[0][0], pts[-1][0]
+    span = max(1, (d1 - d0).days)
+    vals = [v for p in pts for v in p[1:]] + [0]
+    lo, hi = min(vals), max(vals)
+    if hi == lo:
+        hi, lo = hi + 1, lo - 1
+    x = lambda d: L + (W - L - R) * (d - d0).days / span                      # noqa: E731
+    y = lambda v: T + (H - T - B) * (hi - v) / (hi - lo)                       # noqa: E731
+    line = lambda i: " ".join(f"{x(p[0]):.1f},{y(p[i]):.1f}" for p in pts)     # noqa: E731
+    last = pts[-1]
+    grid = "".join(
+        f'<line x1="{L}" x2="{W - R}" y1="{y(v):.1f}" y2="{y(v):.1f}" class="{c}"/>'
+        f'<text x="{L - 8}" y="{y(v) + 4:.1f}" text-anchor="end">{v:,}</text>'
+        for v, c in ((hi, "gl"), (0, "zl"), (lo, "gl")) if not (c == "gl" and v == 0))
+    return (f'<figure class="crchart"><svg viewBox="0 0 {W} {H}" role="img" '
+            f'aria-label="Non-Commercial and Commercial net positions, {len(pts)} weeks">'
+            f'{grid}'
+            f'<polyline class="ncl" points="{line(1)}"/><polyline class="cml" points="{line(2)}"/>'
+            f'<circle class="ncd" cx="{x(last[0]):.1f}" cy="{y(last[1]):.1f}" r="4"/>'
+            f'<circle class="cmd" cx="{x(last[0]):.1f}" cy="{y(last[2]):.1f}" r="4"/>'
+            f'<text class="ncv" x="{x(last[0]) + 8:.1f}" y="{y(last[1]) + 4:.1f}">{last[1]:,}</text>'
+            f'<text class="cmv" x="{x(last[0]) + 8:.1f}" y="{y(last[2]) + 4:.1f}">{last[2]:,}</text>'
+            f'<text x="{L}" y="{H - 6}">{d0:%d %b %Y}</text>'
+            f'<text x="{W - R}" y="{H - 6}" text-anchor="end">{d1:%d %b %Y}</text>'
+            f'</svg><figcaption><span class="k ncl"></span>Non-Commercial net '
+            f'<span class="k cml"></span>Commercial net &middot; weekly, oldest left</figcaption>'
+            f'</figure>')
+
+
+_CR_FADE_STEPS = " &rarr; ".join(f"{_ct.AGE_FADE ** k:.0%}" for k in range(6))
+_CR_LEGEND = ("""<div class="crleg">
+      <p class="crlg1"><span class="crsw crsw-l"></span><b>Red</b> = unusually high long positioning;
+      <span class="crsw crsw-s"></span><b>blue</b> = unusually high short positioning;
+      <span class="crsw crsw-f"></span><b>faded colour</b> = older report.</p>
+      <p><b>Two different windows.</b> The <b>Max / Min</b> rows cover the 50 reports shown.
+      The <b>colours</b> use a longer, 3-year window: each Long and Short figure is ranked
+      against its <b>own</b> last """ + str(_ct.RANK_WEEKS) + """ reports up to that week (about 3
+      years), longs and shorts separately. So a figure can be dark without being the 50-week
+      Max, and the 50-week Max can be only mid-coloured.</p>
+      <p>Faint = low, light = moderate, strong = high, darkest = extreme (the percentile, shaded
+      continuously). <b>Age fade</b>: each week back multiplies the colour strength by """ +
+      f"{_ct.AGE_FADE:g}" + """ (""" + _CR_FADE_STEPS + """ &hellip;) but never below """ +
+      f"{_ct.AGE_FADE_FLOOR:.0%}" + """, so an old extreme stays visible as a faint tint while a
+      low reading still looks plain; the percentile itself never fades &mdash; hover or tap a figure, or
+      switch on <i>Show percentiles</i>. These colours mark positioning extremes, <b>not</b>
+      buy/sell signals.</p>
+    </div>""")
+
+
+_CR_GCOLS = ("Long", "Short", "Total (L+S)", "% Long", "% Short", "Net Positions")
+_CR_GSUB = {"nc": "(Hedge Funds, Banks &amp; Institutions)", "comm": "(Corporations Hedging)"}
+AVG_WEEKS = 13
+
+
+def _cr_stats(rows, get):
+    """(max, min over the shown window, average of the latest AVG_WEEKS, n avg) for one
+    column; None where there is no value."""
+    vals = [v for v in (get(r) for r in rows) if v is not None]
+    recent = [v for v in (get(r) for r in rows[:AVG_WEEKS]) if v is not None]
+    return (max(vals) if vals else None, min(vals) if vals else None,
+            _ct._rnd(sum(recent) / len(recent)) if recent else None, len(recent))
+
+
+def _cr_ref_rows(rows, cols):
+    """The Max / Min / average reference rows. `cols` = list of (getter or None, is_pct
+    pair) - None leaves the cell blank. Never age-faded."""
+    n = len(rows)
+    navg = min(AVG_WEEKS, n)
+    stats = [(_cr_stats(rows, g) if g else None) for g in cols]
+    out = []
+    for i, (cls, label) in enumerate((("mx", f"Max. ({n} wks)"), ("mn", f"Min. ({n} wks)"),
+                                      ("av", f"{navg}-wk Avg"))):
+        tds = "".join(f"<td>{_cr_num(s[i]) if s and s[i] is not None else ''}</td>" for s in stats)
+        title = (f"highest of the {n} reports shown" if cls == "mx" else
+                 f"lowest of the {n} reports shown" if cls == "mn" else
+                 f"average of the latest {navg} reports")
+        out.append(f'<tr class="ref {cls}"><th class="lbl" title="{title}">{label}</th>{tds}</tr>')
+    return out
+
+
+def _cr_group_table(row, rows, side):
+    """One trader group's 50-week table, oil-sheet layout: reference rows, then the weeks."""
+    g = lambda k: (lambda r: (r.get(side) or {}).get(k))                       # noqa: E731
+    refs = _cr_ref_rows(rows, [g("long"), g("short"), g("total"), None, None, g("net")])
+    # the average row's % columns come from its own averaged long and total
+    rl, rs, rt = (_cr_stats(rows, g(k))[2] for k in ("long", "short", "total"))
+    if rl is not None and rs is not None and rt:
+        pl, ps = _ct._rnd(rl / rt * 100), _ct._rnd(rs / rt * 100)
+        refs[2] = refs[2].replace("<td></td><td></td>", f"<td>{pl}%</td><td>{ps}%</td>", 1)
+    body = []
+    for w in rows:
+        s = w.get(side) or {}
+        pos = w.get("pos") or {}
+        pl, ps = s.get("pct_long"), s.get("pct_short")
+        gap = (f' <span class="crgap" title="{w["missing_before"]} weekly report(s) missing '
+               f'before this one - not filled">+{w["missing_before"]}w gap</span>'
+               if w.get("missing_before") else "")
+        body.append(
+            f'<tr><td class="lbl wk">{_cr_long_date(w["date"])}{gap}</td>'
+            + _cr_poscell(s.get("long"), pos.get(f"{side}_long"), w.get("age", 0),
+                          f"{_GRP_NAME[side]} long", "l", w["date"])
+            + _cr_poscell(s.get("short"), pos.get(f"{side}_short"), w.get("age", 0),
+                          f"{_GRP_NAME[side]} short", "s", w["date"])
+            + f'<td>{_cr_num(s.get("total"))}</td>'
+            + f'<td class="pc">{"&mdash;" if pl is None else f"{pl}%"}</td>'
+            + f'<td class="pc">{"&mdash;" if ps is None else f"{ps}%"}</td>'
+            + _cr_gb(s.get("net"), "net") + "</tr>")
+    head = (f'<thead><tr class="g0"><th colspan="7">{esc(row["label"])} {_GRP_NAME[side]} '
+            f'<span>{_CR_GSUB[side]}</span></th></tr>'
+            f'<tr class="g2"><th class="lbl">Date</th>'
+            + "".join(f"<th>{c}</th>" for c in _CR_GCOLS) + "</tr>" + "".join(refs) + "</thead>")
+    return (f'<div class="crtw crscroll"><table class="cotrep cr7">{head}'
+            f'<tbody>{"".join(body)}</tbody></table></div>')
+
+
+def _cr_diff_table(row, rows):
+    """Net Difference (NC net - Comm net) and its weekly change, same reference rows."""
+    gets = [lambda r: r["nc"]["net"], lambda r: r["comm"]["net"], lambda r: r.get("diff"),
+            None, lambda r: r.get("change"), None]
+    refs = _cr_ref_rows(rows, gets)
+    body = "".join(
+        f'<tr><td class="lbl wk">{_cr_long_date(w["date"])}</td>'
+        + _cr_gb(w["nc"]["net"]) + _cr_gb(w["comm"]["net"]) + _cr_gb(w.get("diff"), "net")
+        + _cr_gb(w.get("prev_diff")) + _cr_gb(w.get("change")) + _cr_heat(w) + "</tr>"
+        for w in rows)
+    head = (f'<thead><tr class="g0"><th colspan="7">{esc(row["label"])} Net Difference '
+            f'<span>(Non-Commercial net &minus; Commercial net)</span></th></tr>'
+            f'<tr class="g2"><th class="lbl">Date</th><th>Non-Comm Net</th><th>Comm Net</th>'
+            f'<th>Difference</th><th>Diff. Prev. Week</th><th>Change</th><th>% Chng</th></tr>'
+            + "".join(refs) + "</thead>")
+    return (f'<div class="crtw crscroll"><table class="cotrep cr7">{head}'
+            f'<tbody>{body}</tbody></table></div>')
+
+
+def _cr_report(row, store, upto):
+    """The Legacy part of one instrument's 50-week layer: meta, chart, legend, then the
+    Non-Commercial, Commercial and Net Difference tables."""
+    rep = _ct.report(store, row["code"], row["reversed"], upto)
+    rows = rep["rows"]
+    if not rows:
+        return ""
+    notes = []
+    if rep["shortfall"]:
+        notes.append(f"Only {len(rows)} of {rep['wanted']} weekly reports are available.")
+    if rep["missing_weeks"]:
+        notes.append(f"{rep['missing_weeks']} weekly report(s) missing within this span "
+                     f"&mdash; not filled.")
+    if not rep["oldest_has_prev"]:
+        notes.append("The oldest week has no earlier report to compare with.")
+    direction = (f"Long and Short are swapped in <b>both</b> groups, in every week, so the "
+                 f"figures read as {esc(row['label'])} (a long "
+                 f"{esc(row['contract'].split(' - ')[0].title())} future is short "
+                 f"{esc(row['label'])})." if row["reversed"] else
+                 "Long and Short as CFTC publishes them.")
+    return f"""<section class="crrep">
+      <h4>CFTC Legacy report &mdash; Non-Commercial vs Commercial, last {len(rows)} weeks</h4>
+      <dl class="crmeta">
+        <dt>Latest report</dt><dd>{_cr_long_date(rows[0]["date"])}</dd>
+        <dt>Source</dt><dd>{esc(_ct.SOURCE)}</dd>
+        <dt>Contract</dt><dd>{esc(row["contract"])} <span class="mono">({esc(row["code"])})</span> &mdash; {esc(row["desc"])}</dd>
+        <dt>Direction</dt><dd>{direction}</dd>
+      </dl>
+      {"".join(f'<p class="crnote">{n}</p>' for n in notes)}
+      {_cr_chart(rows)}
+      {_CR_LEGEND}
+      <input type="checkbox" class="crpct" id="pp-{esc(row["code"])}"><label class="crpctl" for="pp-{esc(row["code"])}">Show percentiles</label>
+      {_cr_group_table(row, rows, "nc")}
+      {_cr_group_table(row, rows, "comm")}
+      {_cr_diff_table(row, rows)}
+      <p class="crnote"><b>Max. / Min.</b> are over the {len(rows)} reports shown; the
+      <b>{min(AVG_WEEKS, len(rows))}-wk Avg</b> is the mean of the latest {min(AVG_WEEKS, len(rows))}
+      (its % Long / % Short from the averaged Long and Total). {_CR_DEFS}</p>
+    </section>"""
+
+
+def _lfmm_parts():
+    """{code: (name, html)} - the existing Leveraged Funds / Managed Money 50-week table
+    per contract, as it always was."""
+    items, _sep, _asof = _cot_items(50)
+    out = {}
+    for code, name, hist, weeks, cat in items or []:
+        rows = _cot_hist_rows(code, hist, weeks, cat)
+        if not rows:
+            continue
+        cats = "Leveraged Funds" if cat == FX_SPEC else "Managed Money"
+        out[code] = (name, (
+            f'<section class="crlf"><h4>{cats} &mdash; last {len(rows)} weeks '
+            f'<span class="mut" style="font-weight:400">(the speculative category the scores '
+            f'use)</span></h4>'
+            f'<div class="tw"><table><thead><tr><th>Week</th><th class="num">Long</th>'
+            f'<th class="num">Short</th><th class="num">Net</th><th class="num">&Delta;</th>'
+            f'<th class="num">Spr</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
+            f'</section>'))
+    return out
+
+
+def cot_drilldowns():
+    """One hidden full-screen layer per instrument (id "cot50-<KEY>"), opened from the "50 wk"
+    link on its card and from its row in the COT report tables; closed by the back link or
+    the browser Back button - a pure-CSS :target overlay, no script. Emitted outside the tab
+    panels so a hidden parent can never suppress it. Holds the CFTC Legacy 50-week report
+    and the existing Leveraged Funds / Managed Money history - one layer, not two. Each part
+    degrades on its own; returns "" only if both are unavailable."""
+    try:
+        lf = _lfmm_parts()
+    except Exception as e:                                            # noqa: BLE001
+        print(f"  cot_drilldowns: LF/MM history failed ({type(e).__name__}: {e})")
+        lf = {}
+    legacy = {}
+    try:
+        store = _cr_store()
+        t = _ct.summary(store) if store else None
+        if t:
+            for g in t["groups"]:
+                for r in g["rows"]:
+                    if r.get("has_history"):
+                        try:
+                            html = _cr_report(r, store, t["report_date"])
+                        except Exception as e:                        # noqa: BLE001
+                            print(f"  Legacy report {r['label']} failed ({type(e).__name__}: {e})")
+                            html = ""
+                        if html:
+                            legacy[r["key"]] = (r, html)
+    except Exception as e:                                            # noqa: BLE001
+        print(f"  cot_drilldowns: Legacy reports failed ({type(e).__name__}: {e})")
+    try:
+        return _cot_layers(lf, legacy)
+    except Exception as e:                                            # noqa: BLE001
+        print(f"  cot_drilldowns failed ({type(e).__name__}: {e}) - 50-week layers omitted")
+        return ""
+
+
+def _cot_layers(lf, legacy):
+    keys = list(lf) + [k for k in legacy if k not in lf]
+    layers = []
+    for k in keys:
+        name, lf_html = lf.get(k, (None, ""))
+        lr = legacy.get(k)
+        title = (f'{esc(lr[0]["label"])} <span class="mut" style="font-weight:400">'
+                 f'{esc(name or lr[0]["desc"])}</span>' if lr else
+                 f'{esc(k)} <span class="mut" style="font-weight:400">{esc(name)}</span>')
+        layers.append(
+            f'<div class="cotmodal{" crmodal" if lr else ""}" id="cot50-{_cr_attr(k)}"><div class="mwrap">'
+            f'<div class="mhead"><a class="mback" href="#p-cot">&larr; back</a>'
+            f'<h3>{title}</h3><span class="mut mono" style="font-size:12px">50-week COT report</span>'
+            f'</div>{lr[1] if lr else ""}{lf_html}</div></div>')
+    return "".join(layers)
+
+
 def cot_panel():
     """The COT tab: latest-week speculative net + spreading for every contract, then a
     10-week history card per instrument (each with a "50 wk" link to a full-screen
@@ -335,37 +804,6 @@ def cot_panel():
     Tap <b>50&nbsp;wk</b> on any card for the full year of weekly history.</p>
     <div class="cotgrid">{"".join(cards)}</div>
   </section>"""
-
-
-def cot_drilldowns():
-    """One hidden full-screen layer per contract holding ~50 weeks of weekly COT history.
-    Opened by the "50 wk" link on each card (href="#cot50-<CODE>"), closed by the back link
-    or the browser Back button - a pure-CSS :target overlay, no script. Emitted outside the
-    tab panels so a hidden parent can never suppress it. Returns "" if anything is off -
-    the 10-week cards are the primary view and must not depend on this."""
-    try:
-        items, _sep, _asof = _cot_items(50)
-        if not items:
-            return ""
-        layers = []
-        for code, name, hist, weeks, cat in items:
-            rows = _cot_hist_rows(code, hist, weeks, cat)
-            if not rows:
-                continue
-            cats = "Leveraged Funds" if cat == FX_SPEC else "Managed Money"
-            layers.append(
-                f'<div class="cotmodal" id="cot50-{code}"><div class="mwrap">'
-                f'<div class="mhead"><a class="mback" href="#p-cot">&larr; back</a>'
-                f'<h3>{code} <span class="mut" style="font-weight:400">{esc(name)}</span></h3>'
-                f'<span class="mut mono" style="font-size:12px">last {len(rows)} weeks &middot; {cats}</span>'
-                f'</div><div class="tw"><table><thead><tr><th>Week</th><th class="num">Long</th>'
-                f'<th class="num">Short</th><th class="num">Net</th><th class="num">&Delta;</th>'
-                f'<th class="num">Spr</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
-                f'</div></div>')
-        return "".join(layers)
-    except Exception as e:                                            # noqa: BLE001
-        print(f"  cot_drilldowns failed ({type(e).__name__}: {e}) - 50-week layers omitted")
-        return ""
 
 
 def _oi_weekly_fallback():
@@ -1624,7 +2062,8 @@ def build():
         # it is positioning data and does not warrant a tab of its own. Rates puts the policy
         # path next to the curve it prices. Each section is still built by its own function
         # and still degrades on its own, so a dead feed costs one section, not the tab.
-        "{{COT_PANEL}}": (cot_panel()
+        "{{COT_PANEL}}": (_safe_panel(cot_report_tables, "COT report tables")
+                          + cot_panel()
                           + _safe_panel(sentiment_panel, "Retail sentiment")),
         "{{OI_PANEL}}": oi_panel(),
         # Per-contract 50-week COT history, one full-screen :target layer each. Outside every

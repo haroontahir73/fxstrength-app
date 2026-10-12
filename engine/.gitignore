@@ -70,6 +70,9 @@ data/yields_history.json
 # Saturday rather than a slow run every 30 minutes.
 data/seasonality.json
 data/sentiment.json
+# [cache] CFTC Legacy COT history for the COT report tables + 50-week reports
+# (cot_table.py). Accumulates; a lost cache costs one ~4-year backfill query.
+data/cot_legacy.json
 data/indices.json
 data/matrix.json
 data/prices_index.json

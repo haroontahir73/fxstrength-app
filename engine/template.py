@@ -5,7 +5,7 @@ TEMPLATE = r"""<title>Currency Strength Desk</title>
 <meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=UnifrakturMaguntia&display=swap">
 <style>
 :root{
   --bg:#f7f7fa; --surface:#ffffff; --surface2:#f1f1f6; --line:#e3e3ec; --line2:#d3d3df;
@@ -203,15 +203,173 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 .cotcard h3 .drill+.mono{margin-left:8px;flex:none}
 .cotcard table{min-width:0;font-size:11.5px}
 .cotcard th,.cotcard td{padding:5px 6px}
+/* The two classic COT summary tables, laid out like the weekly "Commitment of Traders
+   Report" sheets. 17 columns: wider than a phone, so .crtw scrolls sideways with the first
+   column pinned. Own tokens, so both themes keep the sheet's colour logic. */
+:root{
+  --cr-hd:#4f6228; --cr-hd2:#8a7a4a; --cr-hdtx:#fffdf0; --cr-lbl:#fcd5b4; --cr-lbltx:#3b2a1a;
+  --cr-cell:#ffffff; --cr-grid:#dcdcd2; --cr-edge:#4f6228;
+  --cr-good:#c6efce; --cr-goodtx:#006100; --cr-bad:#ffc7ce; --cr-badtx:#9c0006;
+  --cr-l2:#a9dcb5; --cr-l1:#d3eedb; --cr-mid:#cdd9f2; --cr-s1:#f8d7de; --cr-s2:#efb0bf;
+  --cr-h0:#fdf1e6; --cr-h1:#fbdcbf; --cr-h2:#f6bd8b; --cr-h3:#e69a58; --cr-h4:#b8732f;
+  --cr-xl:#b0122a; --cr-xs:#0f3f8c; --cr-ref:#6f7445; --cr-avg:#b8622a; --cr-pc:#ecebf6;
+  --cr-nc:#4f6228; --cr-cm:#c0632b;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --cr-hd:#46581f; --cr-hd2:#6b5e36; --cr-hdtx:#f4f1dc; --cr-lbl:#4a3626; --cr-lbltx:#fbe3cf;
+    --cr-cell:#1d1d25; --cr-grid:#2f2f3b; --cr-edge:#46581f;
+    --cr-good:rgba(63,190,131,.20); --cr-goodtx:#6fdaa4; --cr-bad:rgba(236,106,94,.22); --cr-badtx:#ff958b;
+    --cr-l2:rgba(63,190,131,.34); --cr-l1:rgba(63,190,131,.16); --cr-mid:rgba(139,141,240,.22);
+    --cr-s1:rgba(236,106,94,.16); --cr-s2:rgba(236,106,94,.34);
+    --cr-h0:rgba(224,140,58,.08); --cr-h1:rgba(224,140,58,.18); --cr-h2:rgba(224,140,58,.32);
+    --cr-h3:rgba(224,140,58,.5); --cr-h4:rgba(224,140,58,.72);
+    --cr-xl:#e5485c; --cr-xs:#4f8ef5; --cr-ref:#55593a; --cr-avg:#8f4b22; --cr-pc:rgba(139,141,240,.10);
+    --cr-nc:#a9c46c; --cr-cm:#f0a36b;
+  }
+}
+:root[data-theme="dark"]{
+  --cr-hd:#46581f; --cr-hd2:#6b5e36; --cr-hdtx:#f4f1dc; --cr-lbl:#4a3626; --cr-lbltx:#fbe3cf;
+  --cr-cell:#1d1d25; --cr-grid:#2f2f3b; --cr-edge:#46581f;
+  --cr-good:rgba(63,190,131,.20); --cr-goodtx:#6fdaa4; --cr-bad:rgba(236,106,94,.22); --cr-badtx:#ff958b;
+  --cr-l2:rgba(63,190,131,.34); --cr-l1:rgba(63,190,131,.16); --cr-mid:rgba(139,141,240,.22);
+  --cr-s1:rgba(236,106,94,.16); --cr-s2:rgba(236,106,94,.34);
+  --cr-h0:rgba(224,140,58,.08); --cr-h1:rgba(224,140,58,.18); --cr-h2:rgba(224,140,58,.32);
+  --cr-h3:rgba(224,140,58,.5); --cr-h4:rgba(224,140,58,.72);
+  --cr-xl:#e5485c; --cr-xs:#4f8ef5; --cr-ref:#55593a; --cr-avg:#8f4b22; --cr-pc:rgba(139,141,240,.10);
+  --cr-nc:#a9c46c; --cr-cm:#f0a36b;
+}
+.crsec{gap:18px}
+.crg{display:flex;flex-direction:column;gap:6px}
+.crhead{display:flex;justify-content:space-between;align-items:baseline;gap:6px 16px;flex-wrap:wrap}
+.crt{font-family:"UnifrakturMaguntia","Old English Text MT",serif;font-weight:400;margin:0;
+  font-size:clamp(19px,2.3vw,26px);line-height:1.15;letter-spacing:.005em;color:var(--ink)}
+.crd{white-space:nowrap}
+.crtw{overflow-x:auto;-webkit-overflow-scrolling:touch;border:2px solid var(--cr-edge);
+  border-radius:4px;box-shadow:var(--shadow);background:var(--cr-cell)}
+table.cotrep{min-width:1100px;width:100%;border-collapse:collapse;font-size:12.5px;
+  font-family:"IBM Plex Sans",system-ui,sans-serif;font-variant-numeric:tabular-nums}
+.cotrep th,.cotrep td{padding:5px 7px;text-align:center;white-space:nowrap;
+  border:1px solid var(--cr-grid);border-width:0 1px 1px 0;vertical-align:middle}
+.cotrep th{font-family:"IBM Plex Sans",system-ui,sans-serif;text-transform:none;letter-spacing:0;
+  font-size:12px;color:var(--cr-hdtx);background:var(--cr-hd2);font-weight:500;
+  border-color:rgba(255,255,255,.22)}
+.cotrep tr.g1 th{background:var(--cr-hd);font-weight:600;padding-top:6px;padding-bottom:6px}
+.cotrep th.lbl{background:var(--cr-hd);font-weight:700;line-height:1.25}
+.cotrep .gs{border-left:1px solid var(--cr-edge)}
+.cotrep td{color:var(--ink);background:var(--cr-cell)}
+.cotrep .lbl{position:sticky;left:0;z-index:1;min-width:76px;box-shadow:2px 0 0 var(--cr-edge)}
+.cotrep td.lbl{background:var(--cr-lbl);color:var(--cr-lbltx);font-weight:600}
+.cotrep td.lbl a{color:inherit;text-decoration:underline dotted;text-underline-offset:3px}
+.cotrep td.lbl a:hover{text-decoration-style:solid}
+.cotrep td.lbl sup{font-weight:700;margin-left:1px}
+.cotrep td.lbl.wk{font-weight:500;font-variant-numeric:tabular-nums}
+.cotrep td.good{background:var(--cr-good);color:var(--cr-goodtx)}
+.cotrep td.bad{background:var(--cr-bad);color:var(--cr-badtx)}
+.cotrep td.net{font-weight:600}
+.cotrep td.l2{background:var(--cr-l2)} .cotrep td.l1{background:var(--cr-l1)}
+.cotrep td.mid{background:var(--cr-mid)}
+.cotrep td.s1{background:var(--cr-s1)} .cotrep td.s2{background:var(--cr-s2)}
+.cotrep td.h0{background:var(--cr-h0)} .cotrep td.h1{background:var(--cr-h1)}
+.cotrep td.h2{background:var(--cr-h2)} .cotrep td.h3{background:var(--cr-h3)}
+.cotrep td.h4{background:var(--cr-h4);color:#fff;font-weight:600}
+.cotrep td.miss{color:var(--mut);font-style:italic}
+.cotrep tbody tr:last-child td{border-bottom:0}
+.cotrep tfoot td{background:var(--cr-hd);color:var(--cr-hdtx);font-weight:600;font-size:12.5px;
+  white-space:normal;text-align:left;padding:6px 12px;border:0}
+@media (min-width:1100px){.cotrep tfoot td{text-align:center}}
+.crstat{margin:-6px 0 0;font-size:11.5px;color:var(--mut);line-height:1.6}
+.crstat b{color:var(--ink2)}
+.crstat .chip{white-space:normal}
+.crkey{list-style:none;margin:2px 0 0;padding:0;display:grid;gap:2px 18px;font-size:11.5px;
+  color:var(--mut);grid-template-columns:repeat(auto-fit,minmax(min(360px,100%),1fr))}
+.crkey b{color:var(--ink2)}
+/* ---- the per-instrument 50-week Legacy report (inside the cot50 layer) ---- */
+.cotmodal.crmodal .mwrap{max-width:780px}
+.crrep{display:flex;flex-direction:column;gap:12px;margin:0 0 30px}
+.crrep h4,.crlf h4{margin:0;font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;
+  font-size:16px;font-weight:700}
+.crlf{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:18px}
+.crmeta{display:grid;grid-template-columns:max-content 1fr;gap:3px 12px;margin:0;font-size:12.5px}
+.crmeta dt{color:var(--mut);font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+  text-transform:uppercase;letter-spacing:.06em;padding-top:2px}
+.crmeta dd{margin:0;color:var(--ink2)}
+.crnote{margin:0;font-size:12px;color:var(--mut);line-height:1.5}
+.crgap{font-size:10px;color:var(--warn);margin-left:4px;font-weight:600}
+.crchart{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  padding:8px 10px 6px}
+.crchart svg{display:block;width:100%;height:auto}
+.crchart text{font:11px "IBM Plex Mono",monospace;fill:var(--mut)}
+.crchart .gl{stroke:var(--line);stroke-width:1}
+.crchart .zl{stroke:var(--line2);stroke-width:1.2;stroke-dasharray:4 3}
+.crchart polyline{fill:none;stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.crchart polyline.ncl{stroke:var(--cr-nc)} .crchart polyline.cml{stroke:var(--cr-cm)}
+.crchart .ncd{fill:var(--cr-nc)} .crchart .cmd{fill:var(--cr-cm)}
+.crchart text.ncv{fill:var(--cr-nc);font-weight:600} .crchart text.cmv{fill:var(--cr-cm);font-weight:600}
+.crchart figcaption{font-size:11.5px;color:var(--mut);display:flex;gap:4px;align-items:center;
+  flex-wrap:wrap;padding:2px 2px 0}
+.crchart .k{display:inline-block;width:16px;height:3px;border-radius:2px;margin-left:6px}
+.crchart .k.ncl{background:var(--cr-nc)} .crchart .k.cml{background:var(--cr-cm)}
+.crleg{font-size:12px;color:var(--ink2);background:var(--surface);border:1px solid var(--line);
+  border-radius:10px;padding:9px 12px;line-height:1.55}
+.crleg p{margin:0 0 4px} .crleg p:last-child{margin:0;color:var(--mut)}
+.crsw{display:inline-block;width:44px;height:11px;border-radius:2px;vertical-align:-1px;
+  margin:0 4px 0 2px;border:1px solid var(--line2)}
+.crsw-l{background:linear-gradient(90deg,var(--cr-cell),var(--cr-xl))}
+.crsw-s{background:linear-gradient(90deg,var(--cr-cell),var(--cr-xs))}
+.crsw-f{background:linear-gradient(90deg,var(--cr-xl) 0 25%,
+  color-mix(in srgb,var(--cr-xl) 56%,var(--cr-cell)) 25% 50%,
+  color-mix(in srgb,var(--cr-xl) 32%,var(--cr-cell)) 50% 75%,
+  color-mix(in srgb,var(--cr-xl) 10%,var(--cr-cell)) 75%)}
+.cotrep.cr7{min-width:560px}
+/* summary tables: let the sub-headers wrap so all 17 columns fit the desktop width */
+.cotrep:not(.cr7) tr.g2 th{white-space:normal;line-height:1.2;padding:5px 4px}
+.cotrep:not(.cr7) td{padding:5px 6px}
+@media (max-width:600px){.crchart text{font-size:25px}}
+.cotrep tr.g0 th{background:var(--cr-hd);text-align:center;font-weight:700;font-size:13px;
+  padding:6px 8px}
+.cotrep tr.g0 th span{font-weight:400;opacity:.85}
+.cotrep tr.ref th,.cotrep tr.ref td{color:#fff;font-weight:600;border-color:rgba(255,255,255,.22)}
+.cotrep tr.mx th,.cotrep tr.mx td,.cotrep tr.mn th,.cotrep tr.mn td{background:var(--cr-ref)}
+.cotrep tr.av th,.cotrep tr.av td{background:var(--cr-avg)}
+.cotrep td.pc{background:var(--cr-pc)}
+/* Long / Short shading: --a = percentile strength x age fade, 0..1 */
+.cotrep td.x{cursor:help;outline:none}
+.cotrep td.xl{background:rgb(176 18 42 / var(--a,0));
+  background:color-mix(in srgb,var(--cr-xl) calc(var(--a,0) * 100%),var(--cr-cell))}
+.cotrep td.xs{background:rgb(15 63 140 / var(--a,0));
+  background:color-mix(in srgb,var(--cr-xs) calc(var(--a,0) * 100%),var(--cr-cell))}
+.cotrep td.xw{color:#fff}
+.cotrep td.x:focus{box-shadow:inset 0 0 0 2px var(--accent)}
+/* percentile labels: hidden until the report's "Show percentiles" toggle is on */
+.cotrep td.x .pp{display:none;font-size:10px;line-height:1.15;font-weight:500;opacity:.85}
+.crpct{position:absolute;opacity:0;pointer-events:none}
+.crpctl{align-self:flex-start;font:600 12px "IBM Plex Mono",monospace;cursor:pointer;
+  border:1px solid var(--line2);border-radius:999px;padding:5px 12px;color:var(--accent);
+  background:var(--surface)}
+.crpctl::before{content:"\25CB  "}
+.crpct:checked+.crpctl{background:var(--accent);color:#fff;border-color:var(--accent)}
+.crpct:checked+.crpctl::before{content:"\25CF  "}
+.crpct:focus-visible+.crpctl{outline:2px solid var(--accent);outline-offset:2px}
+.crpct:checked~.crscroll td.x .pp{display:block}
+/* tap (phones have no hover): the cell takes focus and shows its percentile underneath */
+.cotrep td.x:focus::after{content:attr(title);display:block;white-space:normal;min-width:150px;max-width:190px;
+  margin:4px auto 0;font-size:10.5px;line-height:1.3;font-weight:500;text-align:left}
+/* the report tables: on a phone they scroll in a box with the header and the date column
+   pinned; once they fit the width, the layer itself scrolls and the header sticks to it */
+.crscroll{max-height:78vh;overflow:auto}
+.crscroll thead{position:sticky;top:0;z-index:3}
+@media (min-width:820px){.crscroll{max-height:none;overflow:visible}}
 /* Per-instrument 50-week drill-down. A hash link opens it; :target makes it a full-screen
    layer over the tab, and the browser Back button (or the back link) closes it - it behaves
    like its own page without any script. Lives outside .panel so no hidden parent can eat it. */
 /* Always fixed (so it has no in-flow position and the hash link cannot scroll-jump the page
-   to the bottom); hidden until it is the :target. */
+   to the bottom). A CLOSED layer is display:none, not just invisible: with 16 markets x 50
+   weeks of tables, laying out the closed layers was most of the page's load time on a
+   phone (measure_phone.py). Only the :target layer is laid out. */
 .cotmodal{position:fixed;inset:0;z-index:90;background:var(--bg);overflow-y:auto;
-  -webkit-overflow-scrolling:touch;padding:22px 18px 64px;
-  visibility:hidden;opacity:0;pointer-events:none}
-.cotmodal:target{visibility:visible;opacity:1;pointer-events:auto}
+  -webkit-overflow-scrolling:touch;padding:22px 18px 64px;display:none}
+.cotmodal:target{display:block}
 .cotmodal .mwrap{max-width:620px;margin:0 auto}
 .cotmodal .mhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 14px}
 .cotmodal .mhead h3{font-family:"IBM Plex Sans Condensed","IBM Plex Sans",sans-serif;
