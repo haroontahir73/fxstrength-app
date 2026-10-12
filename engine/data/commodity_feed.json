@@ -1,5 +1,61 @@
 [
  {
+  "when": "12 Oct 21:03 UTC",
+  "iso": "2026-10-12T21:03:46.395048+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: North Korea test-fires tactical ballistic missile: KCNA\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,195 (-0.5%)   Silver 60.52 (-0.2%)   WTI 93.22 (+1.5%)   DXY 102.59 (+0.4%)   US10Y 5.24 (-0.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://www.financialjuice.com/News/9802203/North-Korea-test-fires-tactical-ballistic-missile-KCNA.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4195.0,
+   "Silver": 60.525,
+   "WTI": 93.22
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "FinancialJuice: North Korea test-fires tactical ballistic missile: KCNA",
+   "src": "",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,195 (-0.5%)   Silver 60.52 (-0.2%)   WTI 93.22 (+1.5%)   DXY 102.59 (+0.4%)   US10Y 5.24 (-0.1%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "12 Oct 21:00 UTC",
   "iso": "2026-10-12T21:00:28.462483+00:00",
   "cat": "rates_up",
@@ -3284,61 +3340,6 @@
    "snap": "NOW  Gold 4,201 (+1.1%)   Silver 60.41 (+2.3%)   WTI 90.57 (-1.0%)   DXY 102.04 (-0.1%)   US10Y 5.23 (-0.9%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "09 Oct 02:14 UTC",
-  "iso": "2026-10-09T02:14:16.194717+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nCrude Oil Trading Alert: Risks in the Strait of Hormuz and production cuts in the Gulf of Mexico continue to support oil prices, while U.S. crude remains volatile at lower levels. - Moomoo  (Moomoo)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,199 (+1.0%)   Silver 60.39 (+2.2%)   WTI 90.78 (-0.8%)   DXY 102.00 (-0.1%)   US10Y 5.23 (-0.9%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPdnVpa0dTU2NtX2lKTDk5QXIxb1RqMEpKT0FvZnRqRTlFaXl6d3dJczVpNlhiUmQwV2tMcjRKNU1KYTBHc1lWaW9abWxrTldpUzNmcTU2VV9UTVY1WUFZSzFZSkg2dkhHemtGRkNISGhVS1M3RW5hYjAzTnFpa1p4S0ZxNTg4WWN3X1M2elpuQURrYm9hRlhlcGNHQ1p5QQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4199.2,
-   "Silver": 60.39,
-   "WTI": 90.78
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Crude Oil Trading Alert: Risks in the Strait of Hormuz and production cuts in the Gulf of Mexico continue to support oil prices, while U.S. crude remains volatile at lower levels. - Moomoo",
-   "src": "Moomoo",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,199 (+1.0%)   Silver 60.39 (+2.2%)   WTI 90.78 (-0.8%)   DXY 102.00 (-0.1%)   US10Y 5.23 (-0.9%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
