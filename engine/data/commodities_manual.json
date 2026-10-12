@@ -2,14 +2,14 @@
  "_help": "Per commodity, an indicator->1-5 map (5 = bullish). A bare number or {\"score\": n, \"note\": \"why\"} for auditability. Unset = held at neutral and excluded from the average, exactly like fundamentals_manual. Refreshed by the fx-strength-desk-daily task, step 2c.",
  "XAU": {
   "Real yield direction": {
-   "score": 1,
-   "note": "7 Oct: 10-year ended at 5.295%, a new cycle high, and the Fed minutes showed most officials see another hike by year end. Headwind intact, held at 1.",
-   "as_of": "2026-10-08"
+   "score": 1.5,
+   "note": "9 Oct: 10-year eased to ~5.23% from a 24-year high (30y auction cleared 5.618% on 8 Oct) and October Fed hike odds fell to ~20% from ~70%; still a heavy headwind but no longer rising. 1 -> 1.5.",
+   "as_of": "2026-10-12"
   },
   "US dollar direction": {
-   "score": 1.5,
-   "note": "7 Oct: DXY +0.4% to 102.25 with yields; gold closed at a two-month low ($4,110). Waller's 'hikes need not be consecutive' gave only brief relief on 8 Oct. Held at 1.5.",
-   "as_of": "2026-10-08"
+   "score": 2,
+   "note": "9 Oct: dollar softened off last week's near-18-month high (DXY ~102) and gold rebounded ~1% to ~$4,177, now ~$4,210. Mild relief, 1.5 -> 2.",
+   "as_of": "2026-10-12"
   },
   "Central-bank & ETF demand": {
    "score": 4.5,
@@ -24,14 +24,14 @@
  },
  "XAG": {
   "Real yield direction": {
-   "score": 1,
-   "note": "7 Oct: 10-year ended at 5.295%, a new cycle high, and the Fed minutes showed most officials see another hike by year end. Headwind intact, held at 1. Silver more leveraged to it.",
-   "as_of": "2026-10-08"
+   "score": 1.5,
+   "note": "9 Oct: 10-year eased to ~5.23% from a 24-year high (30y auction cleared 5.618% on 8 Oct) and October Fed hike odds fell to ~20% from ~70%; still a heavy headwind but no longer rising. 1 -> 1.5.",
+   "as_of": "2026-10-12"
   },
   "US dollar direction": {
-   "score": 1.5,
-   "note": "7 Oct: DXY +0.4% to 102.25 with yields; gold closed at a two-month low ($4,110). Waller's 'hikes need not be consecutive' gave only brief relief on 8 Oct. Held at 1.5.",
-   "as_of": "2026-10-08"
+   "score": 2,
+   "note": "9 Oct: dollar softened off last week's near-18-month high (DXY ~102) and gold rebounded ~1% to ~$4,177, now ~$4,210. Mild relief, 1.5 -> 2.",
+   "as_of": "2026-10-12"
   },
   "Industrial demand": {
    "score": 2.5,
@@ -40,8 +40,8 @@
   },
   "Gold-silver ratio": {
    "score": 3,
-   "note": "Ratio ~70.2 (XAU 4149 / XAG 59.1 on the 8 Oct feed), up from ~67.9 as silver underperforms, but still below the long-run ~80. Neutral, held at 3.",
-   "as_of": "2026-10-08"
+   "note": "Ratio ~68.9 (XAU 4210 / XAG 61.1 on the 12 Oct feed), down from ~70.2 as silver kept pace on the rebound; below the long-run ~80. Neutral, held at 3.",
+   "as_of": "2026-10-12"
   }
  },
  "WTI": {
