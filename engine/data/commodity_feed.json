@@ -1,5 +1,61 @@
 [
  {
+  "when": "13 Oct 18:10 UTC",
+  "iso": "2026-10-13T18:10:31.752462+00:00",
+  "cat": "inflation_cold",
+  "title": "GOLD+SILVER STRONG LONG | INFLATION - cooling",
+  "body": "\u2744 INFLATION \u2014 cooling\n\nFinancialJuice: Fed's Williams: I still believe disinflationary forces are at play.\n\nWHY: Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - opens the door to rate cuts\n        [CONFIDENT - right 64% of 503 past cases]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up\n        [CONFIDENT - right 61% of 503 past cases]\nOIL    \u2192    no clean read - mild help from a softer dollar\n\nNOW  Gold 4,172 (-0.4%)   Silver 59.22 (-1.5%)   WTI 94.31 (+0.6%)   DXY 102.23 (-0.3%)   US10Y 5.22 (-0.4%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: one hot print reverses the whole thing",
+  "link": "https://www.financialjuice.com/News/9803670/Feds-Williams-I-still-believe-disinflationary-forces-are-at-play.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4171.8,
+   "Silver": 59.22,
+   "WTI": 94.31
+  },
+  "parts": {
+   "emoji": "\u2744",
+   "label": "INFLATION \u2014 cooling",
+   "headline": "FinancialJuice: Fed's Williams: I still believe disinflationary forces are at play.",
+   "src": "",
+   "why": "Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "opens the door to rate cuts",
+     "record": "CONFIDENT - right 64% of 503 past cases"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "follows gold up",
+     "record": "CONFIDENT - right 61% of 503 past cases"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 1,
+     "call": "no clean read",
+     "reason": "mild help from a softer dollar",
+     "record": ""
+    }
+   ],
+   "snap": "NOW  Gold 4,172 (-0.4%)   Silver 59.22 (-1.5%)   WTI 94.31 (+0.6%)   DXY 102.23 (-0.3%)   US10Y 5.22 (-0.4%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "one hot print reverses the whole thing"
+  }
+ },
+ {
   "when": "13 Oct 17:44 UTC",
   "iso": "2026-10-13T17:44:59.329645+00:00",
   "cat": "rates_down",
@@ -3299,61 +3355,6 @@
    "snap": "NOW  Gold 4,214 (+1.4%)   Silver 61.01 (+3.3%)   WTI 91.20 (-0.3%)   DXY 102.29 (+0.1%)   US10Y 5.25 (+0.3%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "09 Oct 16:54 UTC",
-  "iso": "2026-10-09T16:54:58.071719+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIran expands oil tanker attacks beyond Strait of Hormuz into Gulf - Beinsure  (Beinsure)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,216 (+1.4%)   Silver 61.07 (+3.4%)   WTI 91.15 (-0.4%)   DXY 102.31 (+0.2%)   US10Y 5.25 (+0.4%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOTmZEQk1oRTNURGJEUHdiWmZjYzZHTXh3eGZ6ejZxdTFfcG9LdXVVSVNpVjZzRlRLeVM1aXJJdFg0bmtEeUJCdlY3dDlxQkVzV1dTczZCSkZaYnJ4YmRkdjBTOXVqOFFOdnJNdHhfcm1RSWZpcDhzR2VmUGkwOW5Ub3JsQ2d5bHN2dVE?oc=5",
-  "talk": false,
-  "pushed": true,
-  "push_error": "",
-  "px": {
-   "Gold": 4215.8,
-   "Silver": 61.07,
-   "WTI": 91.15
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Iran expands oil tanker attacks beyond Strait of Hormuz into Gulf - Beinsure",
-   "src": "Beinsure",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,216 (+1.4%)   Silver 61.07 (+3.4%)   WTI 91.15 (-0.4%)   DXY 102.31 (+0.2%)   US10Y 5.25 (+0.4%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
