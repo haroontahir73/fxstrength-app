@@ -408,6 +408,31 @@ table.cotrep{min-width:1100px;width:100%;border-collapse:collapse;font-size:12.5
 .mfxct{font:700 11.5px "IBM Plex Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
 .mfxcard .mfxcl{margin:2px 0}
 .mfxexp{display:none;color:var(--mut)}[data-mfx-exp].expired .mfxlive{display:none}[data-mfx-exp].expired .mfxexp{display:block}
+.dvcard{border:1px solid var(--line);border-left:3px solid var(--line2);border-radius:8px;padding:8px 10px;margin:10px 0 14px;background:var(--surface);font-size:13px}
+.dvcard.dv-strong_bull,.dvcard.dv-bull{border-left-color:var(--pos)}.dvcard.dv-strong_bear,.dvcard.dv-bear{border-left-color:var(--neg)}
+.dvhd{font:700 11.5px "IBM Plex Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.dvres{font-weight:800;font-size:16px;margin:4px 0 6px}
+.dv-strong_bull .dvres,.dv-bull .dvres{color:var(--pos)}.dv-strong_bear .dvres,.dv-bear .dvres{color:var(--neg)}
+.dv-none .dvres,.dv-unavailable .dvres{color:var(--ink2)}
+.dvcols{display:grid;grid-template-columns:1fr;gap:6px 16px}
+@media (min-width:600px){.dvcols{grid-template-columns:1fr 1fr}}
+.dvcol{min-width:0}.dvcol h5{margin:2px 0;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut)}
+.dvcol dl{display:grid;grid-template-columns:auto 1fr;gap:1px 10px;margin:0}
+.dvcol dt{color:var(--mut)}.dvcol dd{margin:0;font-family:"IBM Plex Mono",monospace;overflow-wrap:anywhere}
+.dvwhyh{margin:8px 0 2px;font-weight:700}
+.dvwhy{list-style:none;margin:0;padding:0}.dvwhy li{margin:2px 0;padding-left:2px}
+.dvwhy li.ok span{color:var(--pos);font-weight:700}.dvwhy li.x span,.dvwhy li.x::before{color:var(--neg);font-weight:700}
+.dv-unavailable .dvwhy li.x::before{content:"\2717 "}
+.dvnote,.dvfoot{font-size:12px;color:var(--mut);margin:6px 0 0}
+.dvexp{display:none;color:var(--mut)}[data-div-ts].dvexpired .dvlive{display:none}[data-div-ts].dvexpired .dvexp{display:block}
+.dvscan{margin-bottom:18px}
+.dvlist{list-style:none;margin:6px 0;padding:0;display:grid;grid-template-columns:1fr;gap:6px}
+@media (min-width:860px){.dvlist{grid-template-columns:1fr 1fr}}
+.dvsc{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:8px 10px;border:1px solid var(--line);border-left:3px solid var(--line2);border-radius:8px;background:var(--surface);color:var(--ink);text-decoration:none}
+.dv-strong_bull .dvsc,.dv-bull .dvsc{border-left-color:var(--pos)}.dv-strong_bear .dvsc,.dv-bear .dvsc{border-left-color:var(--neg)}
+.dvsn{font-weight:700}.dvsl{font-weight:700}.dv-strong_bull .dvsl,.dv-bull .dvsl{color:var(--pos)}.dv-strong_bear .dvsl,.dv-bear .dvsl{color:var(--neg)}
+.dvsd{font:12px "IBM Plex Mono",monospace;color:var(--ink2)}
+.dvempty{color:var(--mut)}
 /* A report's "Jump to" links target one of its own tables; the layer stays open while any
    of its sections is the target. Browsers without :has() drop this rule - and never show
    the links (.crjump below), so a jump can never close a report there. */

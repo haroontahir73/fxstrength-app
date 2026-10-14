@@ -732,6 +732,32 @@ login stopped - credentials rejected twice".
    the 6 h wait / lock cycle starts over with a new lock time; the old value cannot unlock it,
    so the variable can be left in place.
 
+## COT × Myfxbook retail divergence (Step 2, display only)
+
+`divergence.py` compares the large speculators (CFTC Legacy **Non-Commercial net**) with
+Myfxbook's retail crowd in the same instrument. Every setting — the orientation table for all
+16 markets and the thresholds — is in `divergence_config.py`. It is shown as a card in each
+market's 50-week report and as a **Positioning divergences** scanner at the top of the COT tab.
+It feeds nothing: not the strength score, alerts, trading signals or the Pi. It is off whenever
+Myfxbook is off.
+
+* **Orientation, written out by hand.** Normalized net = (NC long − NC short of the future) ×
+  (+1 direct / −1 inverted). CAD, CHF and JPY futures are inverted (a long JPY future is short
+  USDJPY); everything else is direct; USD = ICE Dollar Index future vs Myfxbook USDX (reviewed,
+  direct); ZB has no Myfxbook symbol. Only the reviewed Myfxbook symbol(s) per market are
+  accepted; any other symbol → "symbol mapping uncertain".
+* **COT percentile** = mid-rank of the latest normalized net among the last 50 weekly reports.
+* **V1 rule** (first match): Strong Bullish pct ≥ 85 & retail short ≥ 70%; Strong Bearish
+  pct ≤ 15 & retail long ≥ 70%; Bullish pct ≥ 70 & short ≥ 60%; Bearish pct ≤ 30 & long ≥ 60%;
+  otherwise no significant divergence.
+* **Divergence unavailable** (with the reasons) when Myfxbook is off / has no data for the
+  market, the symbol is not the reviewed one, fewer than 100 positions, the retail snapshot is
+  more than 3 hours old (re-checked in the browser), retail figures are malformed, or the COT
+  data (latest report, 50 weeks, a range, ≤ 21 days old) is missing.
+* **Weekly momentum** (supporting evidence only): change in normalized net vs the previous
+  report, as % of the 50-week range; under 5% = Flat/neutral, otherwise Strengthening when it
+  moves toward the side the percentile leans to, Weakening when back toward the middle.
+
 ## Caveats
 
 Scores are a weighted heuristic, not advice. The pair ranking is a shortlist, not a signal —

@@ -232,6 +232,7 @@ def main():
         ok("<b>Red</b> = unusually high long positioning" in flat and "<b>not</b> buy/sell signals" in flat
            and "The <b>Max / Min</b> rows cover the 50 reports shown" in flat, f"{label}: legend")
     check_myfxbook(page, Path(a.data))
+    check_divergence(page, Path(a.data))
     return finish()
 
 
@@ -332,6 +333,84 @@ def check_myfxbook(page, data_dir):
         ok(vols in r and pos in r, f"Myfxbook: {key} volume and positions as stored")
         ok(f"Long {_pc(lp)}% &middot; Short {_pc(sp)}% &middot; Imbalance {imb}" in L
            and f"Retail crowd: <b>{band}</b>" in L, f"Myfxbook: {key} report card matches")
+
+
+
+# ---------------------------------------------------------------- COT x retail divergence (Step 2)
+# Re-derived here from the stored CFTC rows and data/myfxbook.json with this file's own
+# arithmetic (its own key -> contract table and REVERSED set), then compared with every card
+# and the scanner. Only the thresholds are read from divergence_config - the rules under test.
+DV_CODE = {"USD": "098662", "AUD": "232741", "CAD": "090741", "CHF": "092741", "EUR": "099741",
+           "GBP": "096742", "JPY": "097741", "NZD": "112741", "XAU": "088691", "XAG": "084691",
+           "HG": "085692", "WTI": "067651", "ES": "13874A", "NQ": "209742", "YM": "124603", "ZB": "020601"}
+DV_SYMBOLS = {"USD": {"USDX"}, "AUD": {"AUDUSD"}, "CAD": {"USDCAD"}, "CHF": {"USDCHF"}, "EUR": {"EURUSD"},
+              "GBP": {"GBPUSD"}, "JPY": {"USDJPY"}, "NZD": {"NZDUSD"}, "XAU": {"XAUUSD"}, "XAG": {"XAGUSD"},
+              "HG": {"COPPER"}, "WTI": {"XTIUSD", "USOIL"}, "ES": {"US500"}, "NQ": {"NAS100"}, "YM": {"US30"}, "ZB": set()}
+
+
+def _dv_expected(key, store, snap, now):
+    import divergence_config as cfg
+    weeks = (store.get("contracts", {}).get(DV_CODE[key]) or {}).get("weeks", {})
+    # latest complete report: newest date that (nearly) every contract has
+    have = {}
+    for c in DV_CODE.values():
+        for d in (store.get("contracts", {}).get(c) or {}).get("weeks", {}):
+            have[d] = have.get(d, 0) + 1
+    latest = next((d for d in sorted(have, reverse=True) if have[d] >= len(DV_CODE) - 1), None)
+    m = (snap.get("markets") or {}).get(key)
+    ts = snap.get("fetched_at")
+    if not DV_SYMBOLS[key] or not ts or not m or m.get("symbol") not in DV_SYMBOLS[key]:
+        return "unavailable", None
+    t = dt.datetime.fromisoformat(ts.replace("Z", "+00:00"))
+    if m["longPositions"] + m["shortPositions"] < MFX_MIN_POSITIONS or (now - t).total_seconds() / 60 > cfg.RETAIL_MAX_AGE_MIN + 1:
+        return "unavailable", None
+    if not latest or latest not in weeks or (now.date() - dt.date.fromisoformat(latest)).days > cfg.COT_MAX_AGE_DAYS:
+        return "unavailable", None
+    ds = sorted(d for d in weeks if d <= latest)[-cfg.COT_WEEKS:]
+    sgn = -1 if DV_CODE[key] in REVERSED else 1
+    nets = [sgn * (weeks[d][1] - weeks[d][2]) for d in ds]
+    if len(nets) < cfg.COT_WEEKS or max(nets) == min(nets):
+        return "unavailable", None
+    x = nets[-1]
+    pct = 100.0 * (sum(v < x for v in nets) + 0.5 * sum(v == x for v in nets)) / len(nets)
+    lp, sp = m["longPercentage"], m["shortPercentage"]
+    for k, _, op, val, side, need in cfg.RULES:
+        if (pct >= val if op == ">=" else pct <= val) and (sp if side == "short" else lp) >= need:
+            return k, pct
+    return "none", pct
+
+
+def check_divergence(page, data_dir):
+    cards = dict(re.findall(r'<div class="dvcard[^"]*" data-div-key="([^"]+)" data-div-class="([^"]+)"', page))
+    scan = re.search(r'<section class="dvscan".*?</section>', page, re.S)
+    if os.environ.get("MYFXBOOK_ENABLED") != "true":
+        ok(not cards and scan is None, "Divergence: Myfxbook switched off - no divergence card or scanner")
+        return
+    p, q = data_dir / "cot_legacy.json", data_dir / "myfxbook.json"
+    store = json.loads(p.read_text()) if p.exists() else {}
+    snap = json.loads(q.read_text()) if q.exists() else {}
+    b = re.search(r"Built (\d\d \w{3} \d{4} \d\d:\d\d) UTC", page)
+    now = (dt.datetime.strptime(b.group(1), "%d %b %Y %H:%M").replace(tzinfo=dt.timezone.utc) if b
+           else dt.datetime.now(dt.timezone.utc))
+    ok(len(cards) == 16, f"Divergence: a card in all 16 reports ({len(cards)})")
+    ok(scan is not None and "Positioning divergences" in scan.group(0), "Divergence: scanner on the COT tab")
+    want_hits = []
+    for key in DV_CODE:
+        want, pct = _dv_expected(key, store, snap, now)
+        ok(cards.get(key) == want, f"Divergence: {key} = {want} (re-derived)", (cards.get(key), pct))
+        if want in ("strong_bull", "strong_bear", "bull", "bear"):
+            want_hits.append(key)
+            layer = re.search(rf'<div class="dvcard[^"]*" data-div-key="{key}".*?<p class="dvnote">', page, re.S)
+            n = int(math.floor(pct + 0.5))
+            ok(layer is not None and f"<dt>50-week percentile</dt><dd>{n}" in layer.group(0),
+               f"Divergence: {key} card shows the {n} percentile")
+    hits = re.findall(r'<a href="#cot50-([^"]+)" class="dvsc">', scan.group(0)) if scan else []
+    ok(sorted(hits) == sorted(want_hits), f"Divergence: scanner lists exactly the actionable markets ({', '.join(hits) or 'none'})",
+       (hits, want_hits))
+    order = [cards[k] in ("strong_bull", "strong_bear") for k in hits]
+    ok(order == sorted(order, reverse=True), "Divergence: strong divergences listed above moderate ones")
+    ok(not re.search(r"(?i)buy now|sell now|guaranteed|high[- ]probability", scan.group(0) if scan else ""),
+       "Divergence: no BUY/SELL wording")
 
 
 def finish():
