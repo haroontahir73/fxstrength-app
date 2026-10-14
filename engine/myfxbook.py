@@ -29,6 +29,23 @@ more than DAILY_BUDGET attempts in a rolling 24 h (the rest of the 100 is headro
 pre-merge build check and manual tests). A login refused for bad credentials backs off
 AUTH_BACKOFF_H, so a wrong password cannot hammer the account.
 
+SAFEGUARDS (all in myfxbook_state.json, carried in the cache):
+  * failure back-off - after FAIL_BACKOFF_AFTER failed fetches in a row (Myfxbook down,
+    malformed response, invalid session) the next attempt waits 1 h, then 2 h, 4 h, and at
+    most 6 h; one successful fetch resets it.
+  * LOGIN LOCK - an explicit credential rejection waits AUTH_BACKOFF_H; a second one in a row
+    stops logging in altogether, so a wrong password can never lock the Myfxbook account.
+    Network errors do not count. To reset (after fixing MYFXBOOK_EMAIL / MYFXBOOK_PASSWORD):
+    set the repository variable MYFXBOOK_LOGIN_RESET to the lock time the refresh log prints
+    ("... set MYFXBOOK_LOGIN_RESET to 2026-10-14T09:30:00Z"). The next refresh with that
+    exact value tries again; a later lock has a new time, so an old value never unlocks it.
+  * archive retry spacing - a failed archive attempt waits ARCHIVE_EVERY_H like a successful
+    one; unarchived day files stay in the cache and are never pruned until archived.
+  * HIDE_AFTER_H - a snapshot older than 24 h is not shown: the tab and the cards say
+    "Myfxbook retail sentiment unavailable - last successful update <time>" (attribution
+    stays). A small script applies the same cut-off in the browser if the page itself is
+    not rebuilt for a day.
+
 FAILURE NEVER BLANKS THE DATA. The last valid snapshot is kept and shown, marked "Last known
 Myfxbook data - stale" with the reason; values are never replaced by zeros.
 
@@ -65,7 +82,12 @@ HIST_FIELDS = HIST_FIELDS_V1 + ["market"]
 
 MIN_GAP_MIN = 25          # minutes between attempts (20-30 asked; the pipeline ticks every ~15)
 DAILY_BUDGET = 60         # attempts per rolling 24 h, of the free API's 100
-AUTH_BACKOFF_H = 6        # after a refused login
+AUTH_BACKOFF_H = 6        # after the first refused login
+AUTH_LOCK_AFTER = 2       # explicit credential rejections in a row -> no more logins (lock)
+RESET_VAR = "MYFXBOOK_LOGIN_RESET"   # repository variable that clears the lock (see LOGIN LOCK)
+FAIL_BACKOFF_AFTER = 3    # consecutive failed fetches before the retry delay grows
+FAIL_BACKOFF_H = (1, 2, 4, 6)        # hours after failure 3, 4, 5, 6+ (capped at 6 h)
+HIDE_AFTER_H = 24         # a snapshot older than this is not shown at all
 TIMEOUT_S = 25
 DELAYED_MIN = 60          # page labels: older than this -> "Delayed"
 STALE_MIN = 180           # older than this -> "Stale"
@@ -459,10 +481,13 @@ def archive(now=None, data=None, env=None, opener=None, force=False, verify_only
         _write(st_p, st)
         return a
     a["configured"] = True
-    last = a.get("last_push_at")
+    # 6 h between attempts - failed ones included, so a broken archive is not retried on
+    # every refresh; nothing is lost meanwhile (unarchived day files stay in the cache)
+    last = max(a.get("last_push_at") or "", a.get("last_failed_at") or "") or None
     if not force and not verify_only and last and \
             now - dt.datetime.fromisoformat(last.replace("Z", "+00:00")) < dt.timedelta(hours=ARCHIVE_EVERY_H):
-        print(f"  Myfxbook history archive: last push {last[:16]}Z, next after {ARCHIVE_EVERY_H} h")
+        what = "failed attempt" if last == a.get("last_failed_at") else "push"
+        print(f"  Myfxbook history archive: last {what} {last[:16]}Z, next after {ARCHIVE_EVERY_H} h")
         return a
     pushed = []
     try:
@@ -514,11 +539,15 @@ def archive(now=None, data=None, env=None, opener=None, force=False, verify_only
                 p.unlink()
                 hashes.pop(p.stem, None)
         a.update(last_push_at=_iso(now), last_error=None, last_pushed_days=pushed)
+        a.pop("last_failed_at", None)
         print(f"  Myfxbook history archive: {len(pushed)} day file(s) written to {repo}"
               + (f" ({', '.join(pushed)})" if pushed else " (nothing new)"))
     except ArchiveError as e:
         a.update(last_error=e.kind, last_error_msg=scrub(str(e), token))
-        print(f"  Myfxbook history archive: FAILED ({e.kind}: {a['last_error_msg']}) - history kept in the cache, retried next run")
+        if not verify_only:
+            a["last_failed_at"] = _iso(now)
+        print(f"  Myfxbook history archive: FAILED ({e.kind}: {a['last_error_msg']}) - unarchived "
+              f"history kept in the cache, next attempt in {ARCHIVE_EVERY_H} h")
     _write(st_p, st)
     return a
 
@@ -546,6 +575,11 @@ def _iso(t):
     return t.astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def _fail_delay_h(fails):
+    """Retry delay after `fails` consecutive failed fetches (>= FAIL_BACKOFF_AFTER)."""
+    return FAIL_BACKOFF_H[min(fails - FAIL_BACKOFF_AFTER, len(FAIL_BACKOFF_H) - 1)]
+
+
 def build(now=None, data=None, env=None, opener=None, force=False):
     """Fetch when due, keep the last good snapshot, write myfxbook.json. Never raises for a
     Myfxbook problem - the problem is recorded and the page says so."""
@@ -566,11 +600,24 @@ def build(now=None, data=None, env=None, opener=None, force=False):
     st["attempts"] = [a for a in st.get("attempts", []) if a >= cutoff]
     last = max(st["attempts"]) if st["attempts"] else None
     why = None
+    if st.get("auth_locked_at") and (env.get(RESET_VAR) or "").strip() == st["auth_locked_at"]:
+        print(f"  Myfxbook: login lock of {st['auth_locked_at']} cleared by {RESET_VAR} - trying again")
+        for k in ("auth_locked_at", "auth_rejections", "auth_backoff_until"):
+            st.pop(k, None)
+    fails = st.get("consecutive_failures", 0)
+    since_last = (now - dt.datetime.fromisoformat(last.replace("Z", "+00:00"))) if last else None
     if not configured:
         why = "not configured"
-    elif not force and last and (now - dt.datetime.fromisoformat(last.replace("Z", "+00:00"))) \
-            < dt.timedelta(minutes=MIN_GAP_MIN):
+    elif st.get("auth_locked_at"):
+        why = (f"login stopped after {AUTH_LOCK_AFTER} rejected logins in a row (locked at "
+               f"{st['auth_locked_at']}). Fix MYFXBOOK_EMAIL / MYFXBOOK_PASSWORD, then set the "
+               f"repository variable {RESET_VAR} to {st['auth_locked_at']}")
+    elif not force and since_last is not None and since_last < dt.timedelta(minutes=MIN_GAP_MIN):
         why = f"last attempt {last[11:16]} UTC, next after {MIN_GAP_MIN} min"
+    elif fails >= FAIL_BACKOFF_AFTER and since_last is not None and \
+            since_last < dt.timedelta(hours=_fail_delay_h(fails)):
+        why = (f"{fails} failed fetches in a row - next attempt {_fail_delay_h(fails)} h after "
+               f"the last ({last[11:16]} UTC)")
     elif len(st["attempts"]) >= DAILY_BUDGET:
         why = f"daily budget used ({DAILY_BUDGET} attempts in 24 h)"
     elif st.get("auth_backoff_until") and _iso(now) < st["auth_backoff_until"]:
@@ -594,7 +641,8 @@ def build(now=None, data=None, env=None, opener=None, force=False):
                     "rejected": rejected[:60]}
             _append_history(data, ts, matched)
             status.update(last_ok_at=ts, last_error=None, last_error_msg=None)
-            st.pop("auth_backoff_until", None)
+            for k in ("auth_backoff_until", "auth_rejections", "consecutive_failures"):
+                st.pop(k, None)
             # names only - no values in the (public) log
             print(f"  Myfxbook: {len(symbols)} symbols, {len(matched)} of our 16 markets matched"
                   + (f", {len(rejected)} rejected" if rejected else ""))
@@ -608,7 +656,18 @@ def build(now=None, data=None, env=None, opener=None, force=False):
         except MyfxbookError as e:
             status.update(last_error=e.kind, last_error_msg=scrub(str(e), email, password))
             if e.kind == "auth":
-                st["auth_backoff_until"] = _iso(now + dt.timedelta(hours=AUTH_BACKOFF_H))
+                # an explicit credential rejection: wait, and stop for good on the second
+                st["auth_rejections"] = st.get("auth_rejections", 0) + 1
+                if st["auth_rejections"] >= AUTH_LOCK_AFTER:
+                    st["auth_locked_at"] = _iso(now)
+                    st.pop("auth_backoff_until", None)
+                    status["last_error_msg"] = "login stopped - credentials rejected twice"
+                    print(f"  Myfxbook: login LOCKED after {st['auth_rejections']} rejected logins. Fix the "
+                          f"credentials, then set the repository variable {RESET_VAR} to {st['auth_locked_at']}")
+                else:
+                    st["auth_backoff_until"] = _iso(now + dt.timedelta(hours=AUTH_BACKOFF_H))
+            else:
+                st["consecutive_failures"] = st.get("consecutive_failures", 0) + 1
             print(f"  Myfxbook: fetch failed ({e.kind}: {status['last_error_msg']}) - keeping the "
                   + (f"snapshot of {snap['fetched_at']}" if snap.get("fetched_at") else "page without data"))
     st["last_error"] = status.get("last_error")
@@ -697,8 +756,32 @@ ATTRIB = (f'<p class="mfxsrc">Retail sentiment data: <a href="{SOURCE_URL}" targ
           f'this dashboard does not generate or adjust it.</p>')
 
 # Live age without a server: the page is static, so a tiny script turns each stored
-# timestamp into its current age and label. Without script the build-time age stays.
-SCRIPT = """<script>(function(){function u(){var n=Date.now();document.querySelectorAll('[data-mfx-ts]').forEach(function(e){var t=Date.parse(e.getAttribute('data-mfx-ts'));if(isNaN(t))return;var m=Math.max(0,Math.floor((n-t)/60000)),a=e.querySelector('.mfxage'),s=e.querySelector('.mfxstate');if(a)a.textContent=m<60?m+(m==1?' minute':' minutes'):(m<2880?Math.floor(m/60)+' h '+('0'+m%60).slice(-2)+' min':Math.floor(m/1440)+' days');if(s){var st=+e.getAttribute('data-mfx-stale'),dl=+e.getAttribute('data-mfx-delayed');s.className='mfxstate '+(m>st?'stale':m>dl?'delayed':'fresh');s.textContent=m>st?'Stale':m>dl?'Delayed':'';}})}u();setInterval(u,60000);})();</script>"""
+# timestamp into its current age and label, and hides every reading once the snapshot is
+# more than HIDE_AFTER_H old (the page may sit unrebuilt for days if refreshes stop).
+# Runs at once and again on DOMContentLoaded (the report cards come later in the page).
+# Without script the build-time age and state stay.
+SCRIPT = """<script>(function(){function u(){var n=Date.now();document.querySelectorAll('[data-mfx-exp]').forEach(function(e){var t=Date.parse(e.getAttribute('data-mfx-exp'));if(!isNaN(t))e.classList.toggle('expired',(n-t)/60000>+e.getAttribute('data-mfx-hide'))});document.querySelectorAll('[data-mfx-ts]').forEach(function(e){var t=Date.parse(e.getAttribute('data-mfx-ts'));if(isNaN(t))return;var m=Math.max(0,Math.floor((n-t)/60000)),a=e.querySelector('.mfxage'),s=e.querySelector('.mfxstate');if(a)a.textContent=m<60?m+(m==1?' minute':' minutes'):(m<2880?Math.floor(m/60)+' h '+('0'+m%60).slice(-2)+' min':Math.floor(m/1440)+' days');if(s){var st=+e.getAttribute('data-mfx-stale'),dl=+e.getAttribute('data-mfx-delayed');s.className='mfxstate '+(m>st?'stale':m>dl?'delayed':'fresh');s.textContent=m>st?'Stale':m>dl?'Delayed':'';}})}u();document.addEventListener('DOMContentLoaded',u);setInterval(u,60000);})();</script>"""
+
+
+HIDE_MIN = HIDE_AFTER_H * 60
+
+
+def expired(snap, now):
+    """True once the stored snapshot is more than HIDE_AFTER_H old: nothing is shown from it."""
+    ts = snap.get("fetched_at")
+    return bool(ts) and _age_min(ts, now) > HIDE_MIN
+
+
+def _exp_text(ts, card=False):
+    return (("Retail sentiment unavailable" if card else "Myfxbook retail sentiment unavailable")
+            + f" &mdash; no successful update for more than {HIDE_AFTER_H} hours. "
+            f"Last successful update: {_fmt_ts(ts)}.")
+
+
+def _exp_attrs(ts):
+    """Client-side expiry: SCRIPT adds 'expired' to this element after HIDE_AFTER_H, and CSS
+    then hides its .mfxlive part and shows its .mfxexp message."""
+    return f' data-mfx-exp="{_esc(ts)}" data-mfx-hide="{HIDE_MIN}"'
 
 
 def _row(key, label, m, link=True):
@@ -758,7 +841,12 @@ def retail_panel(now=None, data=None, env=None):
                "No Myfxbook data yet" + (f" &mdash; last attempt failed: {_esc(st.get('last_error_msg') or '')}"
                                           if st.get("last_error") else " &mdash; fetched on the next refresh."))
         return head + f'<p class="mfxempty">{msg}</p>' + ATTRIB + "</section>"
-    body = [f'<p class="mfxmeta">{_freshness_line(snap, now)}</p>']
+    ts = snap["fetched_at"]
+    if expired(snap, now):
+        # older than HIDE_AFTER_H: no reading reaches the page at all
+        return head + f'<p class="mfxempty mfxexpired">{_exp_text(ts)}</p>' + ATTRIB + "</section>"
+    body = [f'<div class="mfxwrap"{_exp_attrs(ts)}><p class="mfxexp">{_exp_text(ts)}</p>'
+            f'<div class="mfxlive"><p class="mfxmeta">{_freshness_line(snap, now)}</p>']
     for g, rows in _labels():
         body.append(f'<h3 class="mfxg">{g}</h3><div class="mfxlist">')
         body.extend(_row(k, lab, markets.get(k)) for k, lab in rows)
@@ -770,7 +858,7 @@ def retail_panel(now=None, data=None, env=None):
               'Short 60&ndash;69% Short, &ge; 70% Heavy Short &mdash; a description, not a signal. '
               f'A market needs at least {MIN_POSITIONS} open Myfxbook positions (long + short) for a '
               'reading; below that only the count is shown.</p>')
-    return head + "".join(body) + legend + ATTRIB + SCRIPT + "</section>"
+    return head + "".join(body) + legend + "</div></div>" + ATTRIB + SCRIPT + "</section>"
 
 
 # Myfxbook permits display of Community Outlook data with clear attribution and a link
@@ -781,7 +869,7 @@ CARD_CREDIT = (f'<p class="mfxcl mut">Retail sentiment data: <a href="{SOURCE_UR
 
 def report_card(key, now=None, data=None, env=None):
     """The small 'Myfxbook retail' card inside a market's 50-week COT report. Nothing at all
-    while the switch is off."""
+    while the switch is off. Always ends with CARD_CREDIT."""
     if not enabled(env):
         return ""
     now = now or dt.datetime.now(dt.timezone.utc)
@@ -789,21 +877,21 @@ def report_card(key, now=None, data=None, env=None):
     head = '<div class="mfxcard"><div class="mfxct">Myfxbook retail'
     if not snap.get("fetched_at"):
         return head + f'</div><p class="mfxna">No Myfxbook data yet.</p>{CARD_CREDIT}</div>'
+    ts = snap["fetched_at"]
+    if expired(snap, now):
+        return head + f'</div><p class="mfxna mfxexpired">{_exp_text(ts, card=True)}</p>{CARD_CREDIT}</div>'
     m = (snap.get("markets") or {}).get(key)
     if not m:
         return head + f'</div><p class="mfxna">Retail sentiment unavailable</p>{CARD_CREDIT}</div>'
+    head = (f'<div class="mfxcard"{_exp_attrs(ts)}><div class="mfxct">Myfxbook retail '
+            f'<span class="mfxsym">{_esc(m["symbol"])}</span></div>'
+            f'<p class="mfxna mfxexp">{_exp_text(ts, card=True)}</p><div class="mfxlive">')
+    fresh = f'<p class="mfxcl mut">{_freshness_line(snap, now, compact=True)}</p>'
     if too_few(m):
-        return (head + f' <span class="mfxsym">{_esc(m["symbol"])}</span></div>'
-                f'<p class="mfxna">{too_few_text(m)}</p>'
-                f'<p class="mfxcl mut">{_freshness_line(snap, now, compact=True)} &middot; '
-                f'Retail sentiment data: <a href="{SOURCE_URL}" target="_blank" rel="noopener">{SOURCE_NAME}</a></p>'
-                f'</div>')
+        return head + f'<p class="mfxna">{too_few_text(m)}</p>{fresh}</div>{CARD_CREDIT}</div>'
     lp, sp = m["longPercentage"], m["shortPercentage"]
-    return (head + f' <span class="mfxsym">{_esc(m["symbol"])}</span></div>'
-            f'<div class="mfxls"><span class="mfxl">LONG {_pc(lp)}%</span>{_bar(lp, sp)}'
+    return (head + f'<div class="mfxls"><span class="mfxl">LONG {_pc(lp)}%</span>{_bar(lp, sp)}'
             f'<span class="mfxs">SHORT {_pc(sp)}%</span></div>'
             f'<p class="mfxcl">Long {_pc(lp)}% &middot; Short {_pc(sp)}% &middot; Imbalance {imbalance(lp, sp)} '
             f'&middot; Retail crowd: <b>{crowd(lp, sp)}</b></p>'
-            f'<p class="mfxcl mut">{_freshness_line(snap, now, compact=True)} &middot; '
-            f'Retail sentiment data: <a href="{SOURCE_URL}" target="_blank" rel="noopener">{SOURCE_NAME}</a></p>'
-            f'</div>')
+            f'{fresh}</div>{CARD_CREDIT}</div>')

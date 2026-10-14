@@ -8,7 +8,8 @@ never writes the live data/ directory. Covers parsing, missing symbols, malforme
 refused login, invalid session, API unavailable, the 25-minute / daily budget, keeping the
 last good snapshot (never zeros), freshness labels, 0/100 and 50/50, the retail-crowd bands,
 the most-populated symbol choice, the 100-position minimum (99/100/101 in list and card),
-the 10 -> 11 column history upgrade,
+the 10 -> 11 column history upgrade, the safeguards (failure back-off, login lock and
+its manual reset, archive retry spacing, the 24 h hide),
 history storage, and that the credentials and session id never reach a file, the page or a
 log line.
 """
@@ -645,9 +646,235 @@ def t_attribution():
     check(g, "below-minimum card credits Myfxbook with a link", link in mf.report_card(k0, now=T0, data=data))
 
 
+def _st(data):
+    return json.loads((data / mf.STATE_NAME).read_text())
+
+
+def t_fail_backoff():
+    g = "fail-backoff"
+    check(g, "constants: back-off after 3 failures, 1 h -> 2 h -> 4 h -> 6 h cap",
+          mf.FAIL_BACKOFF_AFTER == 3 and mf.FAIL_BACKOFF_H == (1, 2, 4, 6) and
+          [mf._fail_delay_h(n) for n in range(3, 10)] == [1, 2, 4, 6, 6, 6, 6])
+    data = _tmp()
+    run_build(data, T0, FakeMyfxbook())
+    t = T0
+    for i in (1, 2, 3):                                        # 3 failures, 30 min apart: normal cadence
+        t += dt.timedelta(minutes=30)
+        fake = FakeMyfxbook("down")
+        snap, out = run_build(data, t, fake)
+        check(g, f"failure {i}: attempted on the normal 25-min cadence", len(fake.calls) == 1, out)
+    check(g, "3 failures counted", _st(data).get("consecutive_failures") == 3, _st(data))
+    check(g, "snapshot kept through the failures", snap["fetched_at"] == "2026-10-14T09:00:00Z")
+    # 1 h, 2 h, 4 h, 6 h, 6 h: blocked one minute before, attempted one minute after
+    for n, h in ((3, 1), (4, 2), (5, 4), (6, 6), (7, 6)):
+        fake = FakeMyfxbook("down")
+        snap, out = run_build(data, t + dt.timedelta(hours=h) - dt.timedelta(minutes=1), fake)
+        check(g, f"after {n} failures: no request before {h} h", fake.calls == [] and "failed fetches in a row" in out
+              and f"next attempt {h} h" in out, out)
+        snap, out = run_build(data, t + dt.timedelta(hours=h) - dt.timedelta(minutes=1), fake, force=True)
+        check(g, f"after {n} failures: force (manual run) does not bypass the back-off", fake.calls == [], out)
+        t += dt.timedelta(hours=h, minutes=1)
+        snap, out = run_build(data, t, fake)
+        check(g, f"after {n} failures: tries again after {h} h", len(fake.calls) == 1 and
+              _st(data)["consecutive_failures"] == n + 1, out)
+    check(g, "cap: never more than 6 h", mf._fail_delay_h(50) == 6)
+    # success resets the counter and the normal 25-min cadence returns
+    t += dt.timedelta(hours=6, minutes=1)
+    fake = FakeMyfxbook()
+    snap, out = run_build(data, t, fake)
+    check(g, "success after the back-off fetches and resets the counter",
+          len(fake.calls) == 3 and "consecutive_failures" not in _st(data) and snap["status"]["last_error"] is None)
+    fake = FakeMyfxbook("down")
+    run_build(data, t + dt.timedelta(minutes=26), fake)
+    fake2 = FakeMyfxbook("down")
+    run_build(data, t + dt.timedelta(minutes=52), fake2)
+    check(g, "after the reset, failures 1-2 are retried on the normal 25-min cadence",
+          len(fake.calls) == 1 and len(fake2.calls) == 1 and _st(data)["consecutive_failures"] == 2)
+    # every non-credential failure kind counts; a refused login does not
+    for mode in ("outlook_down", "garbage", "notjson", "badsession"):
+        d = _tmp()
+        run_build(d, T0, FakeMyfxbook(mode))
+        check(g, f"{mode} counts as a failed fetch", _st(d).get("consecutive_failures") == 1, _st(d))
+    d = _tmp()
+    run_build(d, T0, FakeMyfxbook("badlogin"))
+    check(g, "a refused login is not a fetch failure (it has its own rule)", "consecutive_failures" not in _st(d))
+    check(g, "daily budget and 25-min gap unchanged", mf.DAILY_BUDGET == 60 and mf.MIN_GAP_MIN == 25)
+
+
+def t_login_lock():
+    g = "login-lock"
+    data = _tmp()
+    snap, out = run_build(data, T0, FakeMyfxbook("badlogin"))
+    st = _st(data)
+    check(g, "1st rejection: 6 h wait, not locked", st.get("auth_rejections") == 1 and "auth_locked_at" not in st
+          and st.get("auth_backoff_until") == "2026-10-14T15:00:00Z", st)
+    fake = FakeMyfxbook("badlogin")
+    run_build(data, T0 + dt.timedelta(hours=5, minutes=59), fake)
+    check(g, "no login during the 6 h wait", fake.calls == [])
+    t_lock = T0 + dt.timedelta(hours=6, minutes=1)
+    snap, out = run_build(data, t_lock, fake)
+    st = _st(data)
+    lock = "2026-10-14T15:01:00Z"
+    check(g, "2nd rejection: login LOCKED, lock time recorded", st.get("auth_locked_at") == lock
+          and st.get("auth_rejections") == 2 and len(fake.calls) == 1, st)
+    check(g, "log says LOCKED and prints exactly how to reset",
+          "login LOCKED" in out and f"{mf.RESET_VAR} to {lock}" in out, out)
+    check(g, "page shows the stop reason", "login stopped - credentials rejected twice" in
+          (snap["status"].get("last_error_msg") or ""), snap["status"])
+    calls = []
+    for h, kw, label in ((7, {}, "7 h later"), (30, {}, "30 h later"), (200, {}, "8 days later"),
+                         (31, {"force": True}, "a forced/manual run")):
+        f = FakeMyfxbook()
+        _, out = run_build(data, T0 + dt.timedelta(hours=h), f, **kw)
+        calls += f.calls
+        check(g, f"locked: no login {label}", f.calls == [] and "login stopped" in out, out)
+    for bad in ("true", "1", "2026-10-14T09:00:00Z", "", lock[:-1]):
+        f = FakeMyfxbook()
+        run_build(data, T0 + dt.timedelta(hours=40), f, env={**ENV, mf.RESET_VAR: bad})
+        check(g, f"locked: reset value {bad!r} (not the lock time) does not unlock", f.calls == [] and _st(data).get("auth_locked_at") == lock)
+    f = FakeMyfxbook()
+    snap, out = run_build(data, T0 + dt.timedelta(hours=41), f, env={**ENV, mf.RESET_VAR: f" {lock}\n"})
+    st = _st(data)
+    check(g, "reset with the printed lock time: lock cleared, one login, data fetched",
+          len(f.calls) == 3 and snap.get("fetched_at") and not any(k in st for k in
+          ("auth_locked_at", "auth_rejections", "auth_backoff_until")) and "cleared" in out, (st, out))
+    # the old reset value left in place cannot clear a later lock
+    run_build(data, T0 + dt.timedelta(hours=42), FakeMyfxbook("badlogin"), env={**ENV, mf.RESET_VAR: lock})
+    check(g, "after a reset, a new rejection starts at 1 again (wait, not lock)",
+          _st(data).get("auth_rejections") == 1 and "auth_locked_at" not in _st(data), _st(data))
+    run_build(data, T0 + dt.timedelta(hours=48, minutes=1), FakeMyfxbook("badlogin"), env={**ENV, mf.RESET_VAR: lock})
+    lock2 = _st(data).get("auth_locked_at")
+    check(g, "a later lock gets a new time; the stale reset value does not unlock it",
+          lock2 == "2026-10-16T09:01:00Z" and lock2 != lock)
+    f = FakeMyfxbook()
+    run_build(data, T0 + dt.timedelta(hours=60), f, env={**ENV, mf.RESET_VAR: lock})
+    check(g, "old reset value: still locked, no login", f.calls == [] and _st(data).get("auth_locked_at") == lock2)
+    # a success between two rejections resets the count
+    d = _tmp()
+    run_build(d, T0, FakeMyfxbook("badlogin"))
+    run_build(d, T0 + dt.timedelta(hours=6, minutes=1), FakeMyfxbook())
+    check(g, "a successful login clears the rejection count", "auth_rejections" not in _st(d), _st(d))
+    run_build(d, T0 + dt.timedelta(hours=7), FakeMyfxbook("badlogin"))
+    check(g, "... so the next rejection only waits, it does not lock", "auth_locked_at" not in _st(d) and _st(d)["auth_rejections"] == 1)
+    # network errors are not credential rejections
+    d = _tmp()
+    run_build(d, T0, FakeMyfxbook("badlogin"))
+    for i, mode in enumerate(("down", "outlook_down", "badsession")):
+        run_build(d, T0 + dt.timedelta(hours=6, minutes=1 + 30 * i), FakeMyfxbook(mode))
+    check(g, "network / API errors do not count as rejections and do not lock",
+          _st(d).get("auth_rejections") == 1 and "auth_locked_at" not in _st(d), _st(d))
+    check(g, "constants: lock after 2, 6 h wait after the first", mf.AUTH_LOCK_AFTER == 2 and mf.AUTH_BACKOFF_H == 6)
+
+
+def t_archive_spacing():
+    g = "archive-spacing"
+    data, gh = _tmp(), FakeGitHub("down")
+    run_build(data, T0, FakeMyfxbook())
+    old = data / mf.HIST_DIR / "2026-08-01.csv"           # older than the 35-day local keep
+    old.write_text(mf._day_text([["2026-08-01T00:00:00Z", "EURUSD"] + ["1"] * 8 + ["EUR"]]))
+    a, out = run_archive(data, T0, gh)
+    n = len(gh.calls)
+    check(g, "failed push recorded with its time; says history is kept",
+          a["last_error"] == "github" and a.get("last_failed_at") == "2026-10-14T09:00:00Z"
+          and "unarchived history kept" in out and "next attempt in 6 h" in out, (a, out))
+    check(g, "failed push: local history untouched, old unarchived file NOT pruned",
+          len(mf.load_history(data, since="2026-10-14")) == 6 and old.exists())
+    for h, mins in ((0, 30), (2, 0), (5, 59)):
+        run_build(data, T0 + dt.timedelta(hours=h, minutes=mins + 1), FakeMyfxbook())
+        a, out = run_archive(data, T0 + dt.timedelta(hours=h, minutes=mins), gh)
+        check(g, f"{h} h {mins:02d} min after the failure: no GitHub request", len(gh.calls) == n
+              and "last failed attempt" in out, out)
+    gh.mode = "ok"                                            # the archive comes back
+    a, out = run_archive(data, T0 + dt.timedelta(hours=5, minutes=59), gh)
+    check(g, "still waits the full 6 h even once GitHub is back", len(gh.calls) == n, out)
+    local = len(mf.load_history(data, since="2026-10-14"))
+    a, out = run_archive(data, T0 + dt.timedelta(hours=6, minutes=1), gh)
+    check(g, "after 6 h: pushes everything collected meanwhile (no gap)",
+          a["last_error"] is None and len(gh.rows("2026-10-14")) == local == 24, (local, out))
+    check(g, "the old unarchived day was archived, then pruned locally",
+          "myfxbook/daily/2026/2026-08-01.csv.gz" in gh.files and not old.exists())
+    check(g, "success clears the failure time", "last_failed_at" not in a)
+    n = len(gh.calls)
+    run_archive(data, T0 + dt.timedelta(hours=8), gh)
+    check(g, "next push again 6 h after the successful one", len(gh.calls) == n)
+    # a failure after a success also waits 6 h from the failure, not from the success
+    d2, gh2 = _tmp(), FakeGitHub()
+    run_build(d2, T0, FakeMyfxbook())
+    run_archive(d2, T0, gh2)
+    gh2.mode = "down"
+    a, _ = run_archive(d2, T0 + dt.timedelta(hours=6, minutes=1), gh2)
+    n = len(gh2.calls)
+    gh2.mode = "ok"
+    run_archive(d2, T0 + dt.timedelta(hours=12), gh2)
+    check(g, "failure at 6 h -> next attempt not before 12 h 01 min", len(gh2.calls) == n)
+    run_archive(d2, T0 + dt.timedelta(hours=12, minutes=2), gh2)
+    check(g, "... and it does try then", len(gh2.calls) > n)
+    for mode in ("public", "missing"):
+        d3, gh3 = _tmp(), FakeGitHub(mode)
+        run_build(d3, T0, FakeMyfxbook())
+        run_archive(d3, T0, gh3)
+        k = len(gh3.calls)
+        run_archive(d3, T0 + dt.timedelta(hours=1), gh3)
+        check(g, f"{mode} repo: refused once, then 6 h quiet; nothing written", len(gh3.calls) == k and
+              not [c for c in gh3.calls if c[0] == "PUT"])
+
+
+def t_hide_24h():
+    g = "hide-24h"
+    link = ('Retail sentiment data: <a href="https://www.myfxbook.com/community/outlook" target="_blank" '
+            'rel="noopener">Myfxbook Community Outlook</a>')
+    data = _tmp()
+    run_build(data, T0, FakeMyfxbook())
+    thin = json.loads((data / mf.OUT_NAME).read_text())
+    thin["markets"]["GBP"].update(longPositions=40, shortPositions=20)        # one below-minimum market
+    (data / mf.OUT_NAME).write_text(json.dumps(thin))
+    when = "Last successful update: 14 Oct 2026 09:00 UTC."
+    for h, m, shown in ((23, 0, True), (24, 0, True), (24, 1, False), (72, 0, False)):
+        now = T0 + dt.timedelta(hours=h, minutes=m)
+        html = mf.retail_panel(now=now, data=data)
+        cards = {k: mf.report_card(k, now=now, data=data) for k in mf.MARKETS}
+        allc = "".join(cards.values())
+        tag = f"{h} h {m:02d} min old"
+        if shown:
+            check(g, f"{tag}: readings still shown, marked Stale", "LONG 61%" in html and "Stale" in html
+                  and "Imbalance 22" in cards["XAU"], tag)
+            check(g, f"{tag}: browser cut-off attached (tab + reading cards)",
+                  'data-mfx-exp="2026-10-14T09:00:00Z" data-mfx-hide="1440"' in html and when in html
+                  and all('data-mfx-hide="1440"' in cards[k] and when in cards[k] for k in ("XAU", "EUR", "GBP")))
+        else:
+            check(g, f"{tag}: no reading in the tab", not re.search(r"LONG \d|SHORT \d|Imbalance \d|Retail crowd|mfxbar|mfxrow|data-mfx", html), tag)
+            check(g, f"{tag}: tab says unavailable with the last successful update time",
+                  "Myfxbook retail sentiment unavailable" in html and when in html)
+            check(g, f"{tag}: no reading on any card", not re.search(r"LONG \d|SHORT \d|Imbalance \d|Retail crowd|mfxbar|Too few", allc))
+            check(g, f"{tag}: every card says unavailable + last update time",
+                  all("Retail sentiment unavailable" in c and when in c for c in cards.values()))
+        check(g, f"{tag}: attribution with link kept on the tab and all 16 cards",
+              link in html and all(link in c for c in cards.values()))
+    # a failure while expired: still hidden, the failure is not shown as data
+    now = T0 + dt.timedelta(hours=25)
+    run_build(data, now, FakeMyfxbook("down"))
+    html = mf.retail_panel(now=now, data=data)
+    check(g, "expired + failing refresh: still hidden, last successful time unchanged",
+          "LONG 61%" not in html and when in html)
+    # recovery shows readings again
+    run_build(data, now + dt.timedelta(minutes=30), FakeMyfxbook())
+    html = mf.retail_panel(now=now + dt.timedelta(minutes=31), data=data)
+    check(g, "next successful fetch: readings back", "LONG 61%" in html and "unavailable &mdash; no successful" not in html.split("mfxexp")[0])
+    check(g, "the 100-position minimum still applies", mf.MIN_POSITIONS == 100)
+    check(g, "script applies the cut-off in the browser", "data-mfx-exp" in mf.SCRIPT and "expired" in mf.SCRIPT
+          and "data-mfx-hide" in mf.SCRIPT and "DOMContentLoaded" in mf.SCRIPT)
+    css = (Path(__file__).parent / "template.py").read_text()
+    check(g, "CSS hides the live part and shows the note once expired",
+          "[data-mfx-exp].expired .mfxlive{display:none}" in css and "[data-mfx-exp].expired .mfxexp{display:block}" in css
+          and ".mfxexp{display:none" in css)
+    check(g, "switched off: nothing at all, cut-off or not",
+          mf.report_card("XAU", now=T0, data=data, env={}) == "" and "data-mfx" not in mf.retail_panel(now=T0, data=data, env={}))
+
+
 if __name__ == "__main__":
     for fn in (t_parse, t_match, t_labels, t_fetch, t_build_and_budget, t_failures_keep_snapshot,
-               t_render, t_secrets, t_archive, t_probe, t_switch, t_select, t_threshold, t_history_upgrade, t_attribution):
+               t_render, t_secrets, t_archive, t_probe, t_switch, t_select, t_threshold, t_history_upgrade, t_attribution,
+               t_fail_backoff, t_login_lock, t_archive_spacing, t_hide_24h):
         try:
             fn()
         except Exception as e:                                 # noqa: BLE001

@@ -407,6 +407,7 @@ table.cotrep{min-width:1100px;width:100%;border-collapse:collapse;font-size:12.5
 .mfxcard{border:1px solid var(--line);border-left:3px solid var(--mfx-l);border-radius:8px;padding:8px 10px;margin:10px 0 14px;background:var(--surface)}
 .mfxct{font:700 11.5px "IBM Plex Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
 .mfxcard .mfxcl{margin:2px 0}
+.mfxexp{display:none;color:var(--mut)}[data-mfx-exp].expired .mfxlive{display:none}[data-mfx-exp].expired .mfxexp{display:block}
 /* A report's "Jump to" links target one of its own tables; the layer stays open while any
    of its sections is the target. Browsers without :has() drop this rule - and never show
    the links (.crjump below), so a jump can never close a report there. */
