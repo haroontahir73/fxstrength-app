@@ -116,8 +116,13 @@ def _get_json(opener, url, secrets):
         raise MyfxbookError("malformed", "response is not JSON") from None
 
 
-def fetch(email, password, opener=None):
-    """login -> outlook -> logout, one process, one IP. Returns the outlook payload."""
+def fetch(email, password, opener=None, leak_probe=None):
+    """login -> outlook -> logout, one process, one IP. Returns the outlook payload.
+
+    leak_probe: CI leak-scan hook only (build-check sets MYFXBOOK_LEAKSCAN_FILE to a path
+    in the runner's temp dir). AFTER logout - so the session is already revoked - its id is
+    written there, mode 600, for the scan step to search every output for, which then
+    deletes it. Refused anywhere under the repo or the data dir."""
     if not email or not password:
         raise MyfxbookError("config", "MYFXBOOK_EMAIL / MYFXBOOK_PASSWORD not set")
     opener = opener or urllib.request.urlopen
@@ -146,7 +151,19 @@ def fetch(email, password, opener=None):
                       secrets)
         except Exception:                                        # noqa: BLE001 - best effort
             pass
+        if leak_probe:
+            _write_probe(leak_probe, session)
         session = None
+
+
+def _write_probe(path, session):
+    p = Path(path).resolve()
+    repo = Path(__file__).resolve().parent.parent
+    if not p.is_absolute() or p == repo or repo in p.parents:
+        return                                   # never inside the repo / data dir
+    fd = os.open(p, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+    with os.fdopen(fd, "w") as f:
+        f.write(session)
 
 
 # ---------------------------------------------------------------- validation
@@ -487,7 +504,8 @@ def build(now=None, data=None, env=None, opener=None, force=False):
         st["attempts"].append(_iso(now))
         status["last_attempt_at"] = _iso(now)
         try:
-            symbols, rejected = parse(fetch(email, password, opener))
+            symbols, rejected = parse(fetch(email, password, opener,
+                                            leak_probe=env.get("MYFXBOOK_LEAKSCAN_FILE")))
             matched = match(symbols)
             ts = _iso(now)
             snap = {"fetched_at": ts, "markets": {k: {"symbol": s, **r} for k, (s, r) in matched.items()},
@@ -499,6 +517,7 @@ def build(now=None, data=None, env=None, opener=None, force=False):
             # names only - no values in the (public) log
             print(f"  Myfxbook: {len(symbols)} symbols, {len(matched)} of our 16 markets matched"
                   + (f", {len(rejected)} rejected" if rejected else ""))
+            print("    returned: " + ", ".join(sorted(symbols)))
             print("    mapped: " + (", ".join(f"{k}<-{s}" for k, (s, _) in sorted(matched.items())) or "none")
                   + "; unavailable: " + (", ".join(k for k in MARKETS if k not in matched) or "none"))
         except MyfxbookError as e:

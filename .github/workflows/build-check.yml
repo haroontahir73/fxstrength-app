@@ -47,6 +47,8 @@ jobs:
       FRED_API_KEY: ''
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # full history, so the leak scan can search every commit
 
       - uses: actions/setup-python@v5
         with:
@@ -57,6 +59,9 @@ jobs:
         env:
           MYFXBOOK_EMAIL: ${{ secrets.MYFXBOOK_EMAIL }}
           MYFXBOOK_PASSWORD: ${{ secrets.MYFXBOOK_PASSWORD }}
+          # leak-scan hook: the (already logged-out) session id goes here, outside the
+          # workspace, for the scan step to search for; that step deletes it.
+          MYFXBOOK_LEAKSCAN_FILE: ${{ runner.temp }}/mfx_session_probe
         run: |
           cat > /tmp/guarded_run.py <<'PY'
           import os, sys, runpy, urllib.request
@@ -80,20 +85,21 @@ jobs:
           PY
           python /tmp/guarded_run.py bootstrap
 
-      # The durable history archive (a PRIVATE repo): prove the token can write there, with
-      # one no-data file. The pipeline step above deliberately has no archive token, so a
-      # pull-request build never writes into the real history.
-      - name: Myfxbook history archive - private and writable (no data written)
+      # Real-data verification of the one genuine fetch above: names, counts and PASS/FAIL
+      # only in this (public) log. Cadence (a second attempt makes no request), the real
+      # snapshot in the tab and all 16 cards, Fresh/Delayed/Stale and "last known" handling,
+      # and the durable archive: this run's rows written to the PRIVATE repo, read back, and
+      # an immediate second archive skipped. The pipeline step itself has no archive token.
+      - name: Myfxbook real-data verification + history archive write
         working-directory: engine
         env:
+          MYFXBOOK_EMAIL: ${{ secrets.MYFXBOOK_EMAIL }}
+          MYFXBOOK_PASSWORD: ${{ secrets.MYFXBOOK_PASSWORD }}
           MYFXBOOK_HISTORY_TOKEN: ${{ secrets.MYFXBOOK_HISTORY_TOKEN }}
           MYFXBOOK_HISTORY_REPO: ${{ vars.MYFXBOOK_HISTORY_REPO }}
         run: |
-          python - <<'PY'
-          import myfxbook, sys
-          a = myfxbook.archive(verify_only=True)
-          sys.exit(1 if a.get("configured") and a.get("last_error") else 0)
-          PY
+          if [ -z "$MYFXBOOK_EMAIL" ]; then echo "Myfxbook secrets not set - skipped"; exit 0; fi
+          python myfxbook_ci_check.py
 
       - name: Add the MACRO / MICRO / OI pages
         working-directory: engine
@@ -146,33 +152,70 @@ jobs:
         if: always()
         run: |
           mkdir -p build-check
-          cp engine/dashboard.html build-check/ 2>/dev/null || true
           cp engine/data/cot_legacy.json build-check/ 2>/dev/null || true
-          cp engine/data/myfxbook.json build-check/ 2>/dev/null || true
+          # The built page carries the full real Myfxbook snapshot once the secrets exist -
+          # keep it out of this (publicly downloadable) artifact; screenshots only.
+          if grep -q '"fetched_at"' engine/data/myfxbook.json 2>/dev/null; then
+            echo "real Myfxbook data present - dashboard.html not kept in the artifact"
+          else
+            cp engine/dashboard.html build-check/ 2>/dev/null || true
+          fi
 
-      # The Myfxbook login must never reach a built or stored file. Reads the two secrets
-      # from the environment, never prints them; lists only the offending file names.
-      - name: No Myfxbook credential in any built or stored file
+      # Nothing secret may reach any output. Searches for the Myfxbook email and password,
+      # the (logged-out) session id from this run, and the archive token - raw and
+      # URL-encoded - in every file of the workspace (page, JSON, history, screenshots,
+      # artifact), in every commit of this repo, and in the private archive's files; also
+      # for any stored cookie. Prints counts and file names only, never a value.
+      - name: Leak scan - credentials, session, token, cookies
+        if: always()
         env:
           MYFXBOOK_EMAIL: ${{ secrets.MYFXBOOK_EMAIL }}
           MYFXBOOK_PASSWORD: ${{ secrets.MYFXBOOK_PASSWORD }}
           MYFXBOOK_HISTORY_TOKEN: ${{ secrets.MYFXBOOK_HISTORY_TOKEN }}
-        if: always()
+          MYFXBOOK_HISTORY_REPO: ${{ vars.MYFXBOOK_HISTORY_REPO }}
+          PROBE: ${{ runner.temp }}/mfx_session_probe
         run: |
           python - <<'PY'
-          import os, sys, urllib.parse
+          import os, re, subprocess, sys, urllib.parse
           from pathlib import Path
-          vals = [v for v in (os.environ.get("MYFXBOOK_EMAIL"), os.environ.get("MYFXBOOK_PASSWORD"),
-                              os.environ.get("MYFXBOOK_HISTORY_TOKEN")) if v]
-          if not vals:
-              print("Myfxbook secrets not set - nothing to scan for"); sys.exit(0)
-          forms = {f for v in vals for f in (v, urllib.parse.quote(v, safe=""), urllib.parse.quote_plus(v))}
-          hits = [str(p) for root in ("engine", "pi", ".github", "build-check") for p in Path(root).rglob("*")
-                  if p.is_file() and any(f.encode() in p.read_bytes() for f in forms)]
-          print(f"scanned; {len(hits)} file(s) contain a Myfxbook credential")
-          for h in hits:
-              print("  !!", h)
-          sys.exit(1 if hits else 0)
+          probe = Path(os.environ["PROBE"])
+          session = probe.read_text().strip() if probe.exists() else ""
+          named = {"email": os.environ.get("MYFXBOOK_EMAIL", ""), "password": os.environ.get("MYFXBOOK_PASSWORD", ""),
+                   "session id": session, "archive token": os.environ.get("MYFXBOOK_HISTORY_TOKEN", "")}
+          named = {k: v for k, v in named.items() if v}
+          if not named:
+              print("no Myfxbook secrets set - nothing to scan for"); sys.exit(0)
+          print("scanning for: " + ", ".join(named) + ("" if session else "  (no session captured - no fetch this run)"))
+          forms = {k: {v, urllib.parse.quote(v, safe=""), urllib.parse.quote_plus(v)} for k, v in named.items()}
+          def found(blob):
+              return [k for k, fs in forms.items() if any(f.encode() in blob for f in fs)]
+          bad = []
+          files = [p for root in ("engine", "pi", ".github", "build-check") for p in Path(root).rglob("*") if p.is_file()]
+          for p in files:
+              for k in found(p.read_bytes()):
+                  bad.append(f"{k} in {p}")
+          cookie = [str(p) for p in files if p.suffix in (".json", ".csv", ".html", ".txt")
+                    and re.search(rb"(?i)set-cookie|cookiejar|\bcookie\s*[:=]", p.read_bytes())]
+          print(f"workspace: {len(files)} files scanned; cookie-like content in {len(cookie)} file(s)")
+          bad += [f"cookie in {c}" for c in cookie]
+          hist = subprocess.run(["git", "log", "--all", "-p", "--no-color"], capture_output=True).stdout
+          print(f"git history: {subprocess.run(['git','rev-list','--all','--count'],capture_output=True,text=True).stdout.strip()} commits scanned")
+          bad += [f"{k} in git history" for k in found(hist)]
+          sys.path.insert(0, "engine")
+          if named.get("archive token"):
+              import myfxbook
+              try:
+                  rows = myfxbook.archive_load()
+                  blob = "\n".join(",".join(r.values()) for r in rows).encode()
+                  print(f"private archive: {len(rows)} row(s) scanned")
+                  bad += [f"{k} in the private archive" for k in found(blob)]
+              except Exception as e:
+                  print(f"private archive: not scanned ({type(e).__name__})")
+          probe.unlink(missing_ok=True)
+          print(f"leak scan: {len(bad)} finding(s)")
+          for b in bad:
+              print("  !!", b)
+          sys.exit(1 if bad else 0)
           PY
 
       - uses: actions/upload-artifact@v4

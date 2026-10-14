@@ -433,9 +433,25 @@ def t_archive():
     check(g, "token never stored", TOKEN not in st)
 
 
+def t_probe():
+    g = "probe"
+    tmpd = _tmp()
+    probe = tmpd / "probe.txt"
+    data = _tmp()
+    snap, out = run_build(data, T0, FakeMyfxbook(), env={**ENV, "MYFXBOOK_LEAKSCAN_FILE": str(probe)})
+    check(g, "leak probe written only when asked, after logout, mode 600",
+          probe.read_text() == SESSION and oct(probe.stat().st_mode)[-3:] == "600")
+    inrepo = Path(__file__).resolve().parent / "data" / "probe_should_not_exist.txt"
+    run_build(_tmp(), T0, FakeMyfxbook(), env={**ENV, "MYFXBOOK_LEAKSCAN_FILE": str(inrepo)})
+    check(g, "leak probe refused inside the repo", not inrepo.exists())
+    d2 = _tmp()
+    run_build(d2, T0, FakeMyfxbook())
+    check(g, "no probe file without the CI variable", not any("probe" in p.name for p in d2.rglob("*")))
+
+
 if __name__ == "__main__":
     for fn in (t_parse, t_match, t_labels, t_fetch, t_build_and_budget, t_failures_keep_snapshot,
-               t_render, t_secrets, t_archive):
+               t_render, t_secrets, t_archive, t_probe):
         try:
             fn()
         except Exception as e:                                 # noqa: BLE001
