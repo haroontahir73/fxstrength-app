@@ -14,6 +14,7 @@ except ImportError:                                   # older config - the Indic
 from template import TEMPLATE
 import cot_table as _ct
 import myfxbook as _mfx
+import divergence as _div
 
 OUT = Path(__file__).parent / "dashboard.html"
 PART_LABEL = {"fundamentals": "Checklist", "expectations": "Rate odds",
@@ -645,6 +646,16 @@ def _cr_retail(key):
         return ""
 
 
+def _cr_div(key):
+    """COT x retail divergence card (Step 2, display only). A rendering problem drops the
+    card, never the report."""
+    try:
+        return _div.report_card(key)
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  divergence card for {key} failed ({type(e).__name__}: {e})")
+        return ""
+
+
 def _cr_report(row, store, upto):
     """The Legacy part of one instrument's 50-week layer: meta, chart, legend, then the
     Non-Commercial, Commercial and Net Difference tables."""
@@ -676,6 +687,7 @@ def _cr_report(row, store, upto):
       </dl>
       {"".join(f'<p class="crnote">{n}</p>' for n in notes)}
       {_cr_retail(row["key"])}
+      {_cr_div(row["key"])}
       {_cr_chart(rows)}
       {_CR_LEGEND}
       <input type="checkbox" class="crpct" id="pp-{esc(row["code"])}"><label class="crpctl" for="pp-{esc(row["code"])}">Show percentiles</label>
@@ -2091,7 +2103,9 @@ def build():
         # it is positioning data and does not warrant a tab of its own. Rates puts the policy
         # path next to the curve it prices. Each section is still built by its own function
         # and still degrades on its own, so a dead feed costs one section, not the tab.
-        "{{COT_PANEL}}": (_safe_panel(cot_report_tables, "COT report tables")
+        # Step 2: COT x Myfxbook retail divergence scanner - display only, feeds nothing.
+        "{{COT_PANEL}}": (_safe_panel(_div.scanner, "Positioning divergences")
+                          + _safe_panel(cot_report_tables, "COT report tables")
                           + cot_panel()
                           + _safe_panel(sentiment_panel, "Retail sentiment")),
         "{{OI_PANEL}}": oi_panel(),

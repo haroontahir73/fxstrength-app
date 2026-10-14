@@ -156,6 +156,7 @@ def device_phone(b, page_path, keys, out, label="device"):
     st = pg.evaluate("() => [getComputedStyle(document.getElementById('cot50-WTI')).display, Math.round(window.scrollY)]")
     ok(st[0] == "none" and abs(st[1] - y0) <= 2, f"{label}: Back closes the report and returns to the same place", (y0, st))
     retail_phone(pg, url, label, out)
+    divergence_phone(pg, url, label, out)
     ctx.close()
 
 
@@ -258,6 +259,105 @@ def retail_expiry(b, url, out):
             ok(m["tabLive"] == "block" and m["tabMsg"] == "none" and m["cardsLive"] == m["cards"] and m["cardsMsg"] == 0,
                f"{tag}: readings still shown (Stale), no unavailable note", m)
         ok(m["credit"] and m["cardsCredit"] == m["cards"], f"{tag}: Myfxbook credit and link still shown on tab and cards", m)
+        pg.close()
+
+
+def divergence_phone(pg, url, label, out):
+    """Step 2 on a phone: the 'Positioning divergences' scanner on the COT tab fits the
+    width and each entry, tapped, opens that market's report; every report's divergence card
+    fits the screen. Switched off: neither exists."""
+    import os
+    pg.goto(url)
+    pg.tap('label[for="tab-cot"]')
+    pg.wait_for_timeout(200)
+    on = os.environ.get("MYFXBOOK_ENABLED") == "true"
+    m = pg.evaluate("""() => { const S = document.querySelector('#p-cot .dvscan'), W = window.innerWidth;
+        const cards = [...document.querySelectorAll('.dvcard')];
+        return {scan: !!S, W, cards: cards.length, sw: document.documentElement.scrollWidth,
+                over: S ? [...S.querySelectorAll('*')].filter(e => { const r = e.getBoundingClientRect();
+                          return r.width > 0 && (r.right > W + 1 || r.left < -1); }).length : 0,
+                links: S ? [...S.querySelectorAll('a.dvsc')].map(a => a.getAttribute('href').slice(1)) : [],
+                first: S ? (document.querySelector('#p-cot > *') === S || document.querySelector('#p-cot').firstElementChild === S) : false}; }""")
+    if not on:
+        ok(not m["scan"] and m["cards"] == 0, f"{label}: divergence switched off with Myfxbook - no scanner, no card", m)
+        return
+    ok(m["scan"] and m["first"], f"{label}: 'Positioning divergences' scanner at the top of the COT tab", m)
+    if not m["scan"]:
+        return                    # e.g. the live page before Step 2 is deployed - nothing to drive
+    ok(m["sw"] <= m["W"] + 1 and m["over"] == 0, f"{label}: divergence scanner fits the phone width", m)
+    pg.locator("#p-cot .dvscan").screenshot(path=str(out / f"{label}_divergence_scanner.png"))
+    for k in m["links"]:
+        pg.goto(url)
+        pg.tap('label[for="tab-cot"]')
+        pg.locator(f'#p-cot .dvscan a[href="#{k}"]').scroll_into_view_if_needed()
+        pg.tap(f'#p-cot .dvscan a[href="#{k}"]')
+        pg.wait_for_timeout(150)
+        c = pg.evaluate(f"""() => {{ const L = document.getElementById({json.dumps(k)});
+            const c = L && L.querySelector('.dvcard');
+            return {{d: L ? getComputedStyle(L).display : null, card: !!c, cls: c ? c.dataset.divClass : null,
+                     open: [...document.querySelectorAll('.cotmodal')].filter(m => getComputedStyle(m).display !== 'none').length}}; }}""")
+        ok(c["d"] == "block" and c["open"] == 1 and c["card"] and c["cls"] not in ("none", "unavailable"),
+           f"{label}: tapping {k} in the divergence scanner opens that report with its divergence card", c)
+    ok(m["cards"] == 16, f"{label}: a divergence card in all 16 reports ({m['cards']})", m["cards"])
+    shot = (m["links"][:1] or []) + ["cot50-XAU", "cot50-JPY", "cot50-USD", "cot50-ZB"]
+    for k in dict.fromkeys(shot):
+        pg.goto(f"{url}#{k}")
+        pg.wait_for_timeout(150)
+        c = pg.evaluate(f"""() => {{ const L = document.getElementById({json.dumps(k)}), W = window.innerWidth;
+            const c = L.querySelector('.dvcard'); const r = c.getBoundingClientRect();
+            const fs = [...c.querySelectorAll('dd, li, .dvres')].map(e => parseFloat(getComputedStyle(e).fontSize));
+            const over = [...c.querySelectorAll('*')].filter(e => {{ const q = e.getBoundingClientRect();
+                return q.width > 0 && q.right > r.right + 1; }}).length;
+            return {{left: Math.round(r.left), right: Math.round(r.right), W, over, h: Math.round(r.height),
+                     minFont: fs.length ? Math.min(...fs) : 0, sw: [L.scrollWidth, L.clientWidth]}}; }}""")
+        ok(c["left"] >= 0 and c["right"] <= c["W"] + 1 and c["over"] == 0 and c["sw"][0] <= c["sw"][1] + 1,
+           f"{label}: {k} divergence card fits the screen", c)
+        ok(c["minFont"] >= 11, f"{label}: {k} divergence card text readable (>= 11px)", c["minFont"])
+        v = pg.evaluate(f"""() => {{ const c = document.querySelector('#{k} .dvcard');
+            return [c.dataset.divClass, c.querySelector('.dvres').innerText.trim(), c.querySelector('.dvlive') ? c.querySelector('.dvlive').innerText : '']; }}""")
+        want = {"unavailable": "Divergence unavailable", "none": "No significant divergence"}.get(v[0])
+        ok(want is None or (v[1] == want and (v[0] == "unavailable" or "unavailable" not in v[2].lower())),
+           f"{label}: {k} divergence card visibly reads '{want or v[1]}'", v[:2])
+        pg.locator(f"#{k} .dvcard").scroll_into_view_if_needed()
+        pg.locator(f"#{k} .dvcard").screenshot(path=str(out / f"{label}_{k[6:]}_divergence_card.png"))
+
+
+def divergence_expiry(b, url, out):
+    """The retail age limit in the browser (3 h by default, read from the page's
+    data-div-max): open the page with the clock one minute before and one minute after it
+    (no real failure needed)."""
+    from datetime import datetime, timedelta
+    pg = b.new_page(viewport={"width": 390, "height": 844})
+    pg.goto(url)
+    ts = pg.evaluate("() => { const e = document.querySelector('[data-div-ts]'); return e ? e.getAttribute('data-div-ts') : null; }")
+    pg.close()
+    if not ts:
+        ok(True, "Divergence 3 h cut-off: no live classification on this page (nothing to hide)")
+        return
+    t0 = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+    probe = """() => { const E = [...document.querySelectorAll('[data-div-ts]')];
+        const d = e => e ? getComputedStyle(e).display : null;
+        return {n: E.length, live: E.filter(e => d(e.querySelector('.dvlive')) !== 'none').length,
+                note: E.filter(e => d(e.querySelector('.dvexp')) === 'block').length}; }"""
+    pg = b.new_page(viewport={"width": 390, "height": 844})
+    pg.goto(url)
+    pg_max = pg.evaluate("() => +document.querySelector('[data-div-ts]').getAttribute('data-div-max')")
+    pg.close()
+    lim = int(pg_max)                          # divergence_config.RETAIL_MAX_AGE_MIN, as the page carries it
+    for mins, gone in ((lim - 1, False), (lim + 1, True)):
+        pg = b.new_page(viewport={"width": 390, "height": 844})
+        pg.clock.install(time=t0 + timedelta(minutes=mins))
+        pg.goto(url)
+        pg.wait_for_timeout(150)
+        m = pg.evaluate(probe)
+        tag = f"Divergence 3 h cut-off, page opened {mins} min after the Myfxbook snapshot"
+        if gone:
+            ok(m["n"] > 0 and m["live"] == 0 and m["note"] == m["n"], f"{tag}: every classification hidden, 'unavailable' shown ({m['n']})", m)
+            pg.evaluate("() => { const t = document.getElementById('tab-cot'); if (t) t.checked = true; }")
+            if pg.query_selector("#p-cot .dvscan"):
+                pg.locator("#p-cot .dvscan").screenshot(path=str(out / "divergence_scanner_expired.png"))
+        else:
+            ok(m["n"] > 0 and m["live"] == m["n"] and m["note"] == 0, f"{tag}: classifications still shown", m)
         pg.close()
 
 
@@ -412,6 +512,7 @@ def main():
                     big.close()
             pg.close()
         retail_expiry(b, url, out)
+        divergence_expiry(b, url, out)
         run_devices(b, page_path, html, keys, out)
         b.close()
     (out / "layout.json").write_text(json.dumps({"passed": len(OKS), "failed": FAILS, "metrics": res}, indent=1))

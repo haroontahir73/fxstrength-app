@@ -93,6 +93,14 @@ jobs:
         working-directory: engine
         run: python test_myfxbook.py
 
+      # COT x Myfxbook retail divergence (Step 2, display only) on fixtures: orientation of all
+      # 16 markets (inverted USDJPY / USDCHF / USDCAD), every V1 class and boundary, 50/50 and
+      # 0/100, the 100-position minimum, stale / missing / malformed data, momentum, card,
+      # scanner, and that no score / alert / Pi code uses it.
+      - name: Divergence suite (248 checks)
+        working-directory: engine
+        run: python test_divergence.py
+
       # The Raspberry Pi trigger (pi/cot_pi_check.py) against a fake CFTC / GitHub / Pages:
       # schedule, trigger-once, retries, confirmation, downtime, overlap, token hygiene.
       - name: Pi checker suite (35 checks)
@@ -147,3 +155,4 @@ jobs:
           python /tmp/no_push.py test_cot_table.py
           python /tmp/no_push.py ../pi/test_pi_check.py
           python /tmp/no_push.py test_myfxbook.py
+          python /tmp/no_push.py test_divergence.py
