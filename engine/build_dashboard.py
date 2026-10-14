@@ -13,6 +13,7 @@ except ImportError:                                   # older config - the Indic
     INDICES, INDEX_ORDER = {}, []
 from template import TEMPLATE
 import cot_table as _ct
+import myfxbook as _mfx
 
 OUT = Path(__file__).parent / "dashboard.html"
 PART_LABEL = {"fundamentals": "Checklist", "expectations": "Rate odds",
@@ -634,6 +635,16 @@ def _cr_diff_table(row, rows, anchor=""):
             f'<tbody>{body}</tbody></table></div>')
 
 
+def _cr_retail(key):
+    """Myfxbook retail card beside the COT figures - separate data, never combined. A
+    rendering problem drops the card, never the report."""
+    try:
+        return _mfx.report_card(key)
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  myfxbook card for {key} failed ({type(e).__name__})")
+        return ""
+
+
 def _cr_report(row, store, upto):
     """The Legacy part of one instrument's 50-week layer: meta, chart, legend, then the
     Non-Commercial, Commercial and Net Difference tables."""
@@ -664,6 +675,7 @@ def _cr_report(row, store, upto):
         <dt>Direction</dt><dd>{direction}</dd>
       </dl>
       {"".join(f'<p class="crnote">{n}</p>' for n in notes)}
+      {_cr_retail(row["key"])}
       {_cr_chart(rows)}
       {_CR_LEGEND}
       <input type="checkbox" class="crpct" id="pp-{esc(row["code"])}"><label class="crpctl" for="pp-{esc(row["code"])}">Show percentiles</label>
@@ -2083,6 +2095,8 @@ def build():
                           + cot_panel()
                           + _safe_panel(sentiment_panel, "Retail sentiment")),
         "{{OI_PANEL}}": oi_panel(),
+        # Myfxbook Community Outlook - its own tab, display only (myfxbook.py).
+        "{{RETAIL_PANEL}}": _safe_panel(_mfx.retail_panel, "Retail sentiment (Myfxbook)"),
         # Per-contract 50-week COT history, one full-screen :target layer each. Outside every
         # .panel (see template) so no hidden tab can suppress it.
         "{{COT_DRILLDOWN}}": cot_drilldowns(),

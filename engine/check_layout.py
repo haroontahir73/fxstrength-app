@@ -155,7 +155,61 @@ def device_phone(b, page_path, keys, out, label="device"):
     pg.wait_for_timeout(250)
     st = pg.evaluate("() => [getComputedStyle(document.getElementById('cot50-WTI')).display, Math.round(window.scrollY)]")
     ok(st[0] == "none" and abs(st[1] - y0) <= 2, f"{label}: Back closes the report and returns to the same place", (y0, st))
+    retail_phone(pg, url, label, out)
     ctx.close()
+
+
+def retail_phone(pg, url, label, out):
+    """The Myfxbook retail tab on a phone: fits the width, bars and percentages readable,
+    not excessively tall, and every market name opens that market's report (with its card)."""
+    pg.goto(url)
+    if not pg.query_selector('label[for="tab-rtl"]'):
+        ok(False, f"{label}: Myfxbook retail tab exists")
+        return
+    pg.locator('label[for="tab-rtl"]').scroll_into_view_if_needed()
+    pg.tap('label[for="tab-rtl"]')
+    pg.wait_for_timeout(250)
+    m = pg.evaluate("""() => { const P = document.getElementById('p-rtl'), W = window.innerWidth;
+        const bars = [...P.querySelectorAll('.mfxbar')].map(b => b.getBoundingClientRect());
+        const pcts = [...P.querySelectorAll('.mfxl, .mfxs')].map(e => parseFloat(getComputedStyle(e).fontSize));
+        const rows = [...P.querySelectorAll('.mfxrow')];
+        const over = [...P.querySelectorAll('*')].filter(e => { const r = e.getBoundingClientRect();
+            return r.width > 0 && (r.right > W + 1 || r.left < -1); }).length;
+        return {disp: getComputedStyle(P).display, W, sw: document.documentElement.scrollWidth, over,
+                bars: bars.length, barsIn: bars.every(r => r.left >= 0 && r.right <= W + 1 && r.width > 40),
+                minFont: pcts.length ? Math.min(...pcts) : 0, rows: rows.length,
+                rowH: rows.length ? Math.max(...rows.map(r => r.getBoundingClientRect().height)) : 0,
+                h: Math.round(P.getBoundingClientRect().height),
+                empty: !!P.querySelector('.mfxempty')}; }""")
+    ok(m["disp"] != "none", f"{label}: Myfxbook retail tab opens", m["disp"])
+    ok(m["sw"] <= m["W"] + 1 and m["over"] == 0, f"{label}: Myfxbook tab has no sideways overflow", (m["sw"], m["W"], m["over"]))
+    if m["empty"]:
+        ok(True, f"{label}: Myfxbook tab shows its no-data note")
+        pg.screenshot(path=str(out / f"{label}_myfxbook.png"))
+        return
+    ok(m["rows"] == 16, f"{label}: Myfxbook lists all 16 markets", m["rows"])
+    ok(m["bars"] > 0 and m["barsIn"], f"{label}: Myfxbook bars fit the phone width", m["bars"])
+    ok(m["minFont"] >= 11.5, f"{label}: Myfxbook percentages readable (>= 11.5px)", m["minFont"])
+    # a header may wrap to two lines on the longest labels (e.g. "Imbalance 100 · Heavy Short")
+    ok(m["rowH"] <= 170 and m["h"] <= 3200, f"{label}: Myfxbook rows compact (tallest {m['rowH']}px, tab {m['h']}px)", (m["rowH"], m["h"]))
+    pg.screenshot(path=str(out / f"{label}_myfxbook.png"))
+    keys = pg.evaluate("() => [...document.querySelectorAll('#p-rtl a.mfxname')].map(a => a.getAttribute('href').slice(1))")
+    for k in keys:
+        pg.goto(url)
+        pg.tap('label[for="tab-rtl"]')
+        pg.locator(f'#p-rtl a.mfxname[href="#{k}"]').scroll_into_view_if_needed()
+        pg.tap(f'#p-rtl a.mfxname[href="#{k}"]')
+        pg.wait_for_timeout(150)
+        c = pg.evaluate(f"""() => {{ const L = document.getElementById({json.dumps(k)});
+            const card = L && L.querySelector('.mfxcard');
+            return {{d: L ? getComputedStyle(L).display : null, card: !!card,
+                     right: card ? Math.round(card.getBoundingClientRect().right) : 0,
+                     open: [...document.querySelectorAll('.cotmodal')].filter(m => getComputedStyle(m).display !== 'none').length}}; }}""")
+        ok(c["d"] == "block" and c["open"] == 1 and c["card"] and c["right"] <= m["W"] + 1,
+           f"{label}: tapping {k} on the Myfxbook tab opens that report with its retail card", c)
+        if k == "cot50-XAU":
+            pg.locator(f"#{k} .mfxcard").scroll_into_view_if_needed()
+            pg.screenshot(path=str(out / f"{label}_XAU_retail_card.png"))
 
 
 def main():
@@ -238,6 +292,17 @@ def main():
                 ok(bool(st) and st["d"] == "block" and st["rows"] > 0 and st["h"] > 0,
                    f"{name}: card '50 wk' link {k} opens its weekly history", st)
             res[f"{name}_card_links"] = len(drills)
+            pg.goto(url)
+            pg.evaluate("() => { const t = document.getElementById('tab-rtl'); if (t) t.checked = true; }")
+            pg.wait_for_timeout(200)
+            r = pg.evaluate("""() => { const P = document.getElementById('p-rtl');
+                return P ? {d: getComputedStyle(P).display, rows: P.querySelectorAll('.mfxrow').length,
+                            empty: !!P.querySelector('.mfxempty'),
+                            sw: document.documentElement.scrollWidth, W: window.innerWidth} : null; }""")
+            ok(bool(r) and r["d"] != "none" and (r["rows"] == 16 or r["empty"]) and r["sw"] <= r["W"] + 1,
+               f"{name}: Myfxbook retail tab renders (16 markets or a no-data note), no sideways scroll", r)
+            if r and r["d"] != "none":
+                pg.screenshot(path=str(out / f"myfxbook_{name}.png"), full_page=False)
             for k in keys:
                 pg.goto(f"{url}#{k}")
                 pg.wait_for_timeout(120)
