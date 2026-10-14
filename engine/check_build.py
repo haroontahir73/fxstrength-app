@@ -274,6 +274,11 @@ def check_myfxbook(page, data_dir):
         cards = [k for k, L in layers.items() if "Myfxbook retail" in L and "No Myfxbook data yet" in L]
         ok(len(cards) >= 16, f"Myfxbook: every report card says no data yet ({len(cards)})")
         return
+    link = 'Retail sentiment data: <a href="https://www.myfxbook.com/community/outlook" target="_blank" rel="noopener">Myfxbook Community Outlook</a>'
+    cards = re.findall(r'<div class="mfxcard">.*?</p></div>', page, re.S)
+    ok(link in tab, "Myfxbook: tab credits Myfxbook Community Outlook with a link")
+    ok(len(cards) >= 16 and all(link in c for c in cards),
+       f"Myfxbook: every report card credits Myfxbook Community Outlook with a link ({sum(link in c for c in cards)}/{len(cards)})")
     markets = snap.get("markets") or {}
     rows = dict(re.findall(r'<div class="mfxrow[^"]*" data-mfx-key="([^"]+)">(.*?)(?=<div class="mfxrow|</div>\s*<h3|</div>\s*<p class="mfxkey")', tab, re.S))
     ok(len(rows) == 16, f"Myfxbook: 16 markets listed ({len(rows)})")

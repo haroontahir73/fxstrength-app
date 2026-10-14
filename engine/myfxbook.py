@@ -773,6 +773,12 @@ def retail_panel(now=None, data=None, env=None):
     return head + "".join(body) + legend + ATTRIB + SCRIPT + "</section>"
 
 
+# Myfxbook permits display of Community Outlook data with clear attribution and a link
+# back (support email, 14 Oct 2026): every card carries this line, whatever it shows.
+CARD_CREDIT = (f'<p class="mfxcl mut">Retail sentiment data: <a href="{SOURCE_URL}" target="_blank" '
+               f'rel="noopener">{SOURCE_NAME}</a></p>')
+
+
 def report_card(key, now=None, data=None, env=None):
     """The small 'Myfxbook retail' card inside a market's 50-week COT report. Nothing at all
     while the switch is off."""
@@ -782,10 +788,10 @@ def report_card(key, now=None, data=None, env=None):
     snap = _load(data)
     head = '<div class="mfxcard"><div class="mfxct">Myfxbook retail'
     if not snap.get("fetched_at"):
-        return head + '</div><p class="mfxna">No Myfxbook data yet.</p></div>'
+        return head + f'</div><p class="mfxna">No Myfxbook data yet.</p>{CARD_CREDIT}</div>'
     m = (snap.get("markets") or {}).get(key)
     if not m:
-        return head + '</div><p class="mfxna">Retail sentiment unavailable</p></div>'
+        return head + f'</div><p class="mfxna">Retail sentiment unavailable</p>{CARD_CREDIT}</div>'
     if too_few(m):
         return (head + f' <span class="mfxsym">{_esc(m["symbol"])}</span></div>'
                 f'<p class="mfxna">{too_few_text(m)}</p>'

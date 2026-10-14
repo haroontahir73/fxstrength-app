@@ -625,9 +625,29 @@ def t_switch():
     check(g, "on: report cards back", "Imbalance 22" in mf.report_card("XAU", now=T0 + dt.timedelta(hours=3), data=data, env=on))
 
 
+def t_attribution():
+    g = "attribution"
+    link = ('Retail sentiment data: <a href="https://www.myfxbook.com/community/outlook" target="_blank" '
+            'rel="noopener">Myfxbook Community Outlook</a>')
+    empty = _tmp()
+    check(g, "card before any fetch credits Myfxbook with a link", link in mf.report_card("XAU", data=empty))
+    data = _tmp()
+    run_build(data, T0, FakeMyfxbook())
+    html = mf.retail_panel(now=T0, data=data)
+    check(g, "tab credits Myfxbook Community Outlook with a link", link in html)
+    cards = {k: mf.report_card(k, now=T0, data=data) for k in mf.MARKETS}
+    check(g, "every card (reading, unavailable) credits Myfxbook with a link",
+          all(link in c for c in cards.values()), [k for k, c in cards.items() if link not in c])
+    thin = json.loads((data / mf.OUT_NAME).read_text())
+    k0 = next(iter(thin["markets"]))
+    thin["markets"][k0].update(longPositions=3, shortPositions=1)
+    (data / mf.OUT_NAME).write_text(json.dumps(thin))
+    check(g, "below-minimum card credits Myfxbook with a link", link in mf.report_card(k0, now=T0, data=data))
+
+
 if __name__ == "__main__":
     for fn in (t_parse, t_match, t_labels, t_fetch, t_build_and_budget, t_failures_keep_snapshot,
-               t_render, t_secrets, t_archive, t_probe, t_switch, t_select, t_threshold, t_history_upgrade):
+               t_render, t_secrets, t_archive, t_probe, t_switch, t_select, t_threshold, t_history_upgrade, t_attribution):
         try:
             fn()
         except Exception as e:                                 # noqa: BLE001
