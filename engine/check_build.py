@@ -398,6 +398,12 @@ def check_divergence(page, data_dir):
     for key in DV_CODE:
         want, pct = _dv_expected(key, store, snap, now)
         ok(cards.get(key) == want, f"Divergence: {key} = {want} (re-derived)", (cards.get(key), pct))
+        card = re.search(rf'<div class="dvcard[^"]*" data-div-key="{key}".*?<p class="dvnote">', page, re.S)
+        res = re.search(r'<p class="dvres">(.*?)</p>', card.group(0)).group(1) if card else None
+        # missing / thin / stale / uncertain data must read "unavailable", never "no divergence"
+        word = {"unavailable": "Divergence unavailable", "none": "No significant divergence"}.get(want)
+        if word:
+            ok(res == word, f"Divergence: {key} card reads '{word}'", res)
         if want in ("strong_bull", "strong_bear", "bull", "bear"):
             want_hits.append(key)
             layer = re.search(rf'<div class="dvcard[^"]*" data-div-key="{key}".*?<p class="dvnote">', page, re.S)

@@ -97,7 +97,7 @@ jobs:
       # 16 markets (inverted USDJPY / USDCHF / USDCAD), every V1 class and boundary, 50/50 and
       # 0/100, the 100-position minimum, stale / missing / malformed data, momentum, card,
       # scanner, and that no score / alert / Pi code uses it.
-      - name: Divergence suite (202 checks)
+      - name: Divergence suite (248 checks)
         working-directory: engine
         run: python test_divergence.py
 

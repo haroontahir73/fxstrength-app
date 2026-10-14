@@ -406,9 +406,90 @@ def t_scanner_and_switch():
     check(g, "fixtures never touched the live data dir", not any(str(mf.DATA) in str(p) for p in (d, d2)))
 
 
+def _res(html):
+    """The visible result line of a card (what the reader sees as the outcome)."""
+    m = re.search(r'<p class="dvres">(.*?)</p>', html)
+    return m.group(1) if m else None
+
+
+def t_wording():
+    """'Divergence unavailable' whenever a dataset is missing / too small / stale / uncertain;
+    'No significant divergence' ONLY when both are valid and fresh and no rule is met."""
+    g = "wording"
+    st = make_store({k: series(25) for k in CODE})          # COT mid-range: no rule can be met
+    cases = {
+        "ZB (no Myfxbook symbol)": ("ZB", st, make_snap()),
+        "market missing from Myfxbook": ("EUR", st, make_snap({"EUR": None})),
+        "no Myfxbook snapshot": ("EUR", st, {}),
+        "below 100 positions": ("EUR", st, make_snap({"EUR": mkt("EURUSD", 50, 50, 40, 40)})),
+        "stale (3 h 01)": ("EUR", st, make_snap(age_min=cfg.RETAIL_MAX_AGE_MIN + 1)),
+        "symbol mapping uncertain": ("EUR", st, make_snap({"EUR": mkt("EURUSD.m", 50, 50)})),
+        "USD via DXY (uncertain)": ("USD", st, make_snap({"USD": mkt("DXY", 50, 50)})),
+        "malformed retail": ("EUR", st, make_snap({"EUR": {**mkt("EURUSD", 50, 50), "longPercentage": "?"}})),
+        "COT missing": ("EUR", ct.empty_store(), make_snap()),
+    }
+    for name, (k, store, snap) in cases.items():
+        r = dv.evaluate(k, store, snap, NOW, True)
+        html = dv.card(r)
+        check(g, f"{name}: 'Divergence unavailable', never 'No significant divergence'",
+              r["cls"] == "unavailable" and r["label"] == "Divergence unavailable" and _res(html) == "Divergence unavailable"
+              and "No significant divergence" not in html and 'data-div-class="unavailable"' in html, (r["cls"], r["reasons"]))
+        check(g, f"{name}: says why", 'Why unavailable?' in html and len(r["reasons"]) >= 1)
+    r = dv.evaluate("EUR", st, make_snap({"EUR": mkt("EURUSD", 50, 50)}), NOW, True)
+    html = dv.card(r)
+    live = html.split('<div class="dvlive">', 1)[1]
+    check(g, "both datasets valid + fresh, no rule met -> 'No significant divergence'",
+          r["cls"] == "none" and _res(html) == "No significant divergence" and not r["reasons"], (r["cls"], r["reasons"]))
+    check(g, "... and its visible part never says 'unavailable'", "unavailable" not in live.lower(), live[:200])
+    check(g, "... the only 'unavailable' text is the hidden 3-hour browser note",
+          html.count("Divergence unavailable") == 1 and '<p class="dvexp">Divergence unavailable' in html)
+    d = write_dir(st, make_snap({"EUR": mkt("EURUSD", 50, 50), "HG": mkt("COPPER", 50, 50, 3, 2)}))
+    res = dv.evaluate_all(now=NOW, data=d, env=ON)
+    for k, r in res.items():
+        want = "No significant divergence" if r["cls"] == "none" else "Divergence unavailable"
+        check(g, f"all 16 cards: {k} visible result is '{want}'", _res(dv.card(r)) == want, (r["cls"], r["reasons"]))
+    check(g, "today's shape: ZB + the six thin markets unavailable, the rest none",
+          sorted(k for k, r in res.items() if r["cls"] == "unavailable") == ["HG", "ZB"]
+          and all(r["cls"] == "none" for k, r in res.items() if k not in ("HG", "ZB")))
+
+
+def t_config_driven():
+    """Changing divergence_config changes the behaviour - no limit is hard-coded."""
+    g = "config"
+    saved = (cfg.COT_WEEKS, cfg.RETAIL_MAX_AGE_MIN, cfg.COT_MAX_AGE_DAYS, cfg.RULES)
+    try:
+        good = make_snap({"EUR": mkt("EURUSD", 20, 80)}, age_min=90)
+        st = make_store({"EUR": series(45)})
+        check(g, "default: 90-minute-old retail is fresh", ev("EUR", st, good)["cls"] == "strong_bull")
+        cfg.RETAIL_MAX_AGE_MIN = 60
+        r = ev("EUR", st, good)
+        check(g, "RETAIL_MAX_AGE_MIN = 60 -> the same data is now stale", r["cls"] == "unavailable" and
+              "limit 1 hour)" in r["reasons"][0], r["reasons"])
+        check(g, "the browser cut-off follows it", 'data-div-max="60"' in dv.card(ev("EUR", st, make_snap({"EUR": mkt("EURUSD", 20, 80)}))))
+        cfg.RETAIL_MAX_AGE_MIN = saved[1]
+        cfg.COT_MAX_AGE_DAYS = 5
+        r = ev("EUR", st, make_snap({"EUR": mkt("EURUSD", 20, 80)}))
+        check(g, "COT_MAX_AGE_DAYS = 5 -> an 8-day-old report is out of date", r["cls"] == "unavailable" and
+              "limit 5" in r["reasons"][0], r["reasons"])
+        cfg.COT_MAX_AGE_DAYS = saved[2]
+        cfg.COT_WEEKS = 30
+        c = dv.cot_side("EUR", make_store({"EUR": series(20, n=30)}), NOW)
+        check(g, "COT_WEEKS = 30 -> 30 reports are enough, percentile over 30", c.get("weeks") == 30 and
+              abs(c["pct"] - pct_of(20, 30)) < 1e-9, c)
+        check(g, "card label follows the lookback", "<dt>30-week percentile</dt>" in dv.card(
+            ev("EUR", make_store({"EUR": series(20, n=30)}), make_snap({"EUR": mkt("EURUSD", 50, 50)}))))
+        cfg.COT_WEEKS = saved[0]
+        cfg.RULES = (("strong_bull", "Strong Bullish", ">=", 95, "short", 70),) + saved[3][1:]
+        check(g, "a changed threshold in RULES changes the class (91st no longer Strong)",
+              ev("EUR", st, make_snap({"EUR": mkt("EURUSD", 20, 80)}))["cls"] == "bull")
+    finally:
+        cfg.COT_WEEKS, cfg.RETAIL_MAX_AGE_MIN, cfg.COT_MAX_AGE_DAYS, cfg.RULES = saved
+    check(g, "defaults restored: 50 weeks, 180 min, 21 days", (cfg.COT_WEEKS, cfg.RETAIL_MAX_AGE_MIN, cfg.COT_MAX_AGE_DAYS) == (50, 180, 21))
+
+
 if __name__ == "__main__":
     for fn in (t_orientation_table, t_orientation_values, t_markets, t_rules, t_quality, t_cot_quality,
-               t_momentum, t_card, t_scanner_and_switch):
+               t_momentum, t_card, t_scanner_and_switch, t_wording, t_config_driven):
         try:
             fn()
         except Exception as e:                                 # noqa: BLE001

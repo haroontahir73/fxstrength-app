@@ -6,20 +6,22 @@ both in the terms of the instrument the page shows (divergence_config.ORIENTATIO
 out by hand, never inferred from symbol names).
 
     normalized net  = (NC long - NC short of the future) x (+1 direct / -1 inverted)
-    COT percentile  = mid-rank of the latest normalized net among the last 50 weekly
-                      reports (latest included)
-    Strong Bullish  COT pct >= 85 and retail SHORT >= 70%
-    Strong Bearish  COT pct <= 15 and retail LONG  >= 70%
-    Bullish         COT pct >= 70 and retail SHORT >= 60%
-    Bearish         COT pct <= 30 and retail LONG  >= 60%
-    otherwise       No significant divergence
+    COT percentile  = mid-rank of the latest normalized net among the last
+                      cfg.COT_WEEKS weekly reports (latest included)
+    classification  = the first of cfg.RULES that holds (Strong Bullish, Strong Bearish,
+                      Bullish, Bearish), otherwise cfg.NONE_LABEL
+
+Every number - lookback, thresholds, age limits - lives in divergence_config.py; this file
+only reads them (the 100-position minimum is Step 1's myfxbook.MIN_POSITIONS).
 
 No classification at all ("Divergence unavailable", with the reasons) when: Myfxbook is
 switched off or has no snapshot; the market has no Myfxbook data; the Step 1 symbol is not
-one reviewed for this market; fewer than 100 retail positions; the retail snapshot is more
-than 3 hours old (checked again in the browser, since the page is static); the retail
-figures are malformed; or the COT data needed (latest report for this contract, 50 weekly
-reports, a non-flat range, a report no older than 21 days) is missing.
+one reviewed for this market; fewer than myfxbook.MIN_POSITIONS retail positions; the
+retail snapshot is older than cfg.RETAIL_MAX_AGE_MIN (checked again in the browser, since
+the page is static); the retail figures are malformed; or the COT data needed (latest report
+for this contract, cfg.COT_WEEKS weekly reports, a non-flat range, a report no older than
+cfg.COT_MAX_AGE_DAYS) is missing. "No significant divergence" is used ONLY when both sides
+are valid and fresh and no rule is met.
 
 Weekly momentum (latest vs previous report's normalized net) is shown as supporting
 evidence only - it never changes the classification.
@@ -52,7 +54,7 @@ def _iso(t):
 
 # ---------------------------------------------------------------- COT side
 def cot_side(key, store, now):
-    """Normalized Non-Commercial net, its 50-week percentile and weekly change, or
+    """Normalized Non-Commercial net, its cfg.COT_WEEKS-week percentile and weekly change, or
     {'error': reason}."""
     row = _ROW.get(key)
     if row is None or not store:
@@ -82,7 +84,7 @@ def cot_side(key, store, now):
         return {"error": f"COT data missing - only {len(nets)} of {cfg.COT_WEEKS} weekly reports"}
     lo, hi = min(nets), max(nets)
     if hi == lo:
-        return {"error": "COT data flat - no 50-week range to rank against"}
+        return {"error": f"COT data flat - no {cfg.COT_WEEKS}-week range to rank against"}
     net = nets[-1]
     pct = ct.percentile_rank(nets, net)
     out = {"report_date": latest, "net": net, "pct": pct, "weeks": len(nets),
@@ -104,7 +106,8 @@ def direction(pct):
 def momentum(pct, change_pct):
     """Strengthening = the weekly change pushes the net further toward the side its
     percentile leans to (>= 50 bullish, < 50 bearish); Weakening = back toward the middle;
-    Flat/neutral = less than MOMENTUM_FLAT_PCT of the 50-week range."""
+    Flat/neutral = less than MOMENTUM_FLAT_PCT of the cfg.COT_WEEKS-week range. (50 here is
+    the middle of the percentile scale, not a setting.)"""
     if change_pct is None:
         return "unavailable"
     if abs(change_pct) < cfg.MOMENTUM_FLAT_PCT:
@@ -151,7 +154,7 @@ def retail_side(key, snap, now, on):
         return {**base, "error": f"Myfxbook sample too small - {n:,} positions, minimum {mf.MIN_POSITIONS}"}
     if age > cfg.RETAIL_MAX_AGE_MIN:
         return {**base, "error": f"Myfxbook retail data stale - {mf._age_txt(age)} old "
-                                 f"(limit {cfg.RETAIL_MAX_AGE_MIN // 60} hours)"}
+                                 f"(limit {_limit_txt()})"}
     return base
 
 
@@ -173,7 +176,7 @@ def evaluate(key, store, snap, now, on=True):
     r = {"key": key, "shown": cfg.ORIENTATION[key]["shown"], "cot": cot, "retail": ret,
          "reasons": reasons}
     if reasons:
-        r.update(cls="unavailable", label="Divergence unavailable")
+        r.update(cls="unavailable", label=UNAVAILABLE)
         return r
     r["cls"], r["label"] = classify(cot["pct"], ret["long"], ret["short"])
     r["why"] = explain(r)
@@ -211,7 +214,7 @@ def explain(r):
         out.append((False, "No rule is met" + (": " + "; ".join(dict.fromkeys(miss)) if miss else
                                                 " - COT is not at an extreme and retail is not crowded against it")))
     out.append((True, f"Retail sample is above the minimum position count ({ret['positions']:,} &ge; {mf.MIN_POSITIONS})"))
-    out.append((True, f"Retail data is fresh ({mf._age_txt(ret['age_min'])} old, limit {cfg.RETAIL_MAX_AGE_MIN // 60} h)"))
+    out.append((True, f"Retail data is fresh ({mf._age_txt(ret['age_min'])} old, limit {_limit_txt()})"))
     return out
 
 
@@ -251,8 +254,15 @@ def _signed(v):
     return "&mdash;" if v is None else f"{v:+,}".replace("-", "&minus;")
 
 
-EXP_NOTE = ("Divergence unavailable &mdash; Myfxbook retail data is more than "
-            f"{cfg.RETAIL_MAX_AGE_MIN // 60} hours old.")
+def _limit_txt():
+    m = cfg.RETAIL_MAX_AGE_MIN
+    if m % 60:
+        return f"{m} minutes"
+    return "1 hour" if m == 60 else f"{m // 60} hours"
+
+
+UNAVAILABLE = "Divergence unavailable"
+EXP_NOTE = f"{UNAVAILABLE} &mdash; Myfxbook retail data is more than {_limit_txt()} old."
 DISCLAIMER = ("A positioning divergence, not a trade signal: it compares where large speculators "
               "and Myfxbook&rsquo;s retail crowd are positioned. It is not used by the strength "
               "score or alerts.")
@@ -270,7 +280,7 @@ def _cot_dl(cot):
     ch = cot.get("change")
     return (f'<div class="dvcol"><h5>COT &middot; Non-Commercial</h5><dl>'
             f'<dt>Direction</dt><dd>{cot["direction"]}</dd>'
-            f'<dt>50-week percentile</dt><dd>{_ord(cot["pct"])}</dd>'
+            f'<dt>{cfg.COT_WEEKS}-week percentile</dt><dd>{_ord(cot["pct"])}</dd>'
             f'<dt>Net position</dt><dd>{_signed(cot["net"])}</dd>'
             f'<dt>Weekly change</dt><dd>{_signed(ch)}'
             + (f' <span class="mut">({cot["change_pct"]:+.0f}% of range)</span>' if ch is not None else "")
@@ -309,7 +319,7 @@ def card(r):
     if cls == "unavailable":
         why = "".join(f'<li class="x">{_esc_reason(x)}</li>' for x in r["reasons"])
         return (f'<div class="dvcard dv-unavailable" data-div-key="{_esc(r["key"])}" data-div-class="unavailable">{head}'
-                f'<p class="dvres">Divergence unavailable</p><p class="dvwhyh">Why unavailable?</p>'
+                f'<p class="dvres">{UNAVAILABLE}</p><p class="dvwhyh">Why unavailable?</p>'
                 f'<ul class="dvwhy">{why}</ul>{cols}<p class="dvnote">{DISCLAIMER}</p></div>')
     result = label + (" Divergence" if cls != "none" else "")
     marks = {True: ("ok", "&#10003;"), False: ("x", "&#10007;"), None: ("i", "&middot;")}

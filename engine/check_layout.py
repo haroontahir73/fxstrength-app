@@ -313,13 +313,19 @@ def divergence_phone(pg, url, label, out):
         ok(c["left"] >= 0 and c["right"] <= c["W"] + 1 and c["over"] == 0 and c["sw"][0] <= c["sw"][1] + 1,
            f"{label}: {k} divergence card fits the screen", c)
         ok(c["minFont"] >= 11, f"{label}: {k} divergence card text readable (>= 11px)", c["minFont"])
+        v = pg.evaluate(f"""() => {{ const c = document.querySelector('#{k} .dvcard');
+            return [c.dataset.divClass, c.querySelector('.dvres').innerText.trim(), c.querySelector('.dvlive') ? c.querySelector('.dvlive').innerText : '']; }}""")
+        want = {"unavailable": "Divergence unavailable", "none": "No significant divergence"}.get(v[0])
+        ok(want is None or (v[1] == want and (v[0] == "unavailable" or "unavailable" not in v[2].lower())),
+           f"{label}: {k} divergence card visibly reads '{want or v[1]}'", v[:2])
         pg.locator(f"#{k} .dvcard").scroll_into_view_if_needed()
         pg.locator(f"#{k} .dvcard").screenshot(path=str(out / f"{label}_{k[6:]}_divergence_card.png"))
 
 
 def divergence_expiry(b, url, out):
-    """The 3-hour retail limit in the browser: open the page with the clock 2 h 59 and 3 h 01
-    after the Myfxbook snapshot (no real failure needed)."""
+    """The retail age limit in the browser (3 h by default, read from the page's
+    data-div-max): open the page with the clock one minute before and one minute after it
+    (no real failure needed)."""
     from datetime import datetime, timedelta
     pg = b.new_page(viewport={"width": 390, "height": 844})
     pg.goto(url)
@@ -333,7 +339,12 @@ def divergence_expiry(b, url, out):
         const d = e => e ? getComputedStyle(e).display : null;
         return {n: E.length, live: E.filter(e => d(e.querySelector('.dvlive')) !== 'none').length,
                 note: E.filter(e => d(e.querySelector('.dvexp')) === 'block').length}; }"""
-    for mins, gone in ((179, False), (181, True)):
+    pg = b.new_page(viewport={"width": 390, "height": 844})
+    pg.goto(url)
+    pg_max = pg.evaluate("() => +document.querySelector('[data-div-ts]').getAttribute('data-div-max')")
+    pg.close()
+    lim = int(pg_max)                          # divergence_config.RETAIL_MAX_AGE_MIN, as the page carries it
+    for mins, gone in ((lim - 1, False), (lim + 1, True)):
         pg = b.new_page(viewport={"width": 390, "height": 844})
         pg.clock.install(time=t0 + timedelta(minutes=mins))
         pg.goto(url)
