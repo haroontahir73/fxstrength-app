@@ -7,6 +7,8 @@ and every build runs against a temporary data dir, so the suite never reaches My
 never writes the live data/ directory. Covers parsing, missing symbols, malformed responses,
 refused login, invalid session, API unavailable, the 25-minute / daily budget, keeping the
 last good snapshot (never zeros), freshness labels, 0/100 and 50/50, the retail-crowd bands,
+the most-populated symbol choice, the 100-position minimum (99/100/101 in list and card),
+the 10 -> 11 column history upgrade,
 history storage, and that the credentials and session id never reach a file, the page or a
 log line.
 """
@@ -380,8 +382,8 @@ def t_archive():
     a, out = run_archive(data, T0 + dt.timedelta(minutes=31), gh)
     check(g, "first push writes today's file to the private repo", list(gh.files) == ["myfxbook/daily/2026/2026-10-14.csv.gz"]
           and a["last_error"] is None, (list(gh.files), out))
-    check(g, "archived file = the local day rows (12), gzip CSV with the 10 columns",
-          len(gh.rows("2026-10-14")) == 12 and len(gh.rows("2026-10-14")[0]) == 10)
+    check(g, "archived file = the local day rows (12), gzip CSV with the 11 columns",
+          len(gh.rows("2026-10-14")) == 12 and len(gh.rows("2026-10-14")[0]) == 11)
     n = len(gh.calls)
     a, out = run_archive(data, T0 + dt.timedelta(hours=2), gh)
     check(g, "within 6 h: no GitHub call", len(gh.calls) == n and "next after 6 h" in out, out)
@@ -409,7 +411,7 @@ def t_archive():
 
     # old local files are dropped only once archived
     old = data2 / mf.HIST_DIR / "2026-08-01.csv"
-    old.write_text(mf._day_text([["2026-08-01T00:00:00Z", "EURUSD"] + ["1"] * 8]))
+    old.write_text(mf._day_text([["2026-08-01T00:00:00Z", "EURUSD"] + ["1"] * 8 + ["EUR"]]))
     run_archive(data2, T0 + dt.timedelta(days=2), gh, force=True)
     check(g, f"local day files older than {mf.LOCAL_KEEP_DAYS} days dropped after archiving",
           not old.exists() and "myfxbook/daily/2026/2026-08-01.csv.gz" in gh.files)
@@ -449,9 +451,126 @@ def t_probe():
     check(g, "no probe file without the CI variable", not any("probe" in p.name for p in d2.rglob("*")))
 
 
+# ---------------------------------------------------------------- symbol choice
+def t_select():
+    g = "select"
+    cands = {"XAUUSD": 30, "GOLD": 500}
+    outlook = {"symbols": [sym(n, 55, 45, lpos=k, spos=0) for n, k in cands.items()]
+               + [sym("WTI", 50, 50, lpos=40, spos=0), sym("USOIL", 50, 50, lpos=40, spos=0),
+                  sym("XTIUSD", 50, 50, lpos=10, spos=5), sym("BRENT", 50, 50, lpos=9000, spos=0),
+                  sym("USDOLLAR", 50, 50, lpos=9000, spos=0)]}
+    syms, _ = mf.parse(outlook)
+    m = mf.match(syms)
+    check(g, "most-populated exact candidate wins (GOLD 500 over XAUUSD 30)",
+          m["XAU"][0] == "GOLD" and m["XAU"][1]["candidates"] == ["XAUUSD", "GOLD"], m.get("XAU"))
+    check(g, "a tie goes to the earlier candidate (WTI before USOIL)", m["WTI"][0] == "WTI", m.get("WTI"))
+    check(g, "candidates present are recorded in MARKETS order",
+          m["WTI"][1]["candidates"] == ["WTI", "USOIL", "XTIUSD"], m["WTI"][1]["candidates"])
+    check(g, "a bigger but different market is never used (no BRENT for WTI, no USDOLLAR for USD)",
+          "USD" not in m and all(v[0] not in ("BRENT", "USDOLLAR") for v in m.values()), sorted(m))
+    check(g, "every candidate belongs to exactly one market",
+          len({c for cs in mf.MARKETS.values() for c in cs}) == sum(len(cs) for cs in mf.MARKETS.values()))
+    check(g, "market_of() reverses the mapping", mf.market_of("GOLD") == "XAU" and mf.market_of("us500") == "ES"
+          and mf.market_of("BRENT") == "")
+    data = _tmp()
+    snap, out = run_build(data, T0, FakeMyfxbook(outlook=outlook))
+    check(g, "the snapshot stores the chosen symbol", snap["markets"]["XAU"]["symbol"] == "GOLD", snap["markets"].get("XAU"))
+    hist = mf.load_history(data)
+    check(g, "history records market AND source symbol",
+          {(r["market"], r["symbol"]) for r in hist} == {("XAU", "GOLD"), ("WTI", "WTI")}, hist)
+    check(g, "log names the alternatives considered", "XAU<-GOLD (of XAUUSD/GOLD)" in out, out)
+
+
+# ---------------------------------------------------------------- minimum sample
+def _one(n_long, n_short, lp=64, sp=36):
+    return {"symbols": [sym("XAUUSD", lp, sp, lpos=n_long, spos=n_short),
+                        sym("EURUSD", 44, 56)]}
+
+
+def t_threshold():
+    g = "threshold"
+    check(g, "minimum is 100 positions", mf.MIN_POSITIONS == 100)
+    # boundaries 99 / 100 / 101, both sides contributing, one side only, and empty
+    for n_long, n_short in ((60, 39), (60, 40), (60, 41), (99, 0), (0, 100), (1, 0), (0, 0)):
+        n = n_long + n_short
+        shown = n >= 100
+        lp, sp = (0, 100) if n_short and not n_long else (64, 36)
+        data = _tmp()
+        run_build(data, T0, FakeMyfxbook(outlook=_one(n_long, n_short, lp, sp)))
+        t = T0 + dt.timedelta(minutes=5)
+        html = mf.retail_panel(now=t, data=data)
+        row = html.split('data-mfx-key="XAU"', 1)[1].split('data-mfx-key="XAG"', 1)[0]
+        card = mf.report_card("XAU", now=t, data=data)
+        msg = f"Too few Myfxbook positions (n = {n:,}) &mdash; no reading"
+        reading = ("LONG", "SHORT", "Imbalance", "Retail crowd", "mfxbar", f"{lp}%")
+        if shown:
+            check(g, f"n = {n}: reading shown in the market list", f"LONG {lp}%" in row and "Retail crowd" in row
+                  and "Too few" not in row, row)
+            check(g, f"n = {n}: reading shown in the report card", f"Long {lp}%" in card and "Retail crowd" in card
+                  and "Too few" not in card, card)
+        else:
+            check(g, f"n = {n}: market list says too few, no %, bar, imbalance or crowd",
+                  msg in row and not any(w in row for w in reading), row)
+            check(g, f"n = {n}: report card says too few, no %, bar, imbalance or crowd",
+                  msg in card and not any(w in card for w in reading) and "XAUUSD" in card, card)
+        check(g, f"n = {n}: still archived (history row written)",
+              [(r["market"], r["symbol"], r["longPositions"], r["shortPositions"])
+               for r in mf.load_history(data) if r["market"] == "XAU"] == [("XAU", "XAUUSD", str(n_long), str(n_short))],
+              mf.load_history(data))
+        check(g, f"n = {n}: other markets unaffected", "LONG 44%" in html)
+    data = _tmp()
+    run_build(data, T0, FakeMyfxbook(outlook=_one(99, 0)))
+    run_build(data, T0 + dt.timedelta(minutes=30), FakeMyfxbook("down"))
+    card = mf.report_card("XAU", now=T0 + dt.timedelta(minutes=30), data=data)
+    check(g, "below the minimum + failed refresh: still no reading, marked stale",
+          "n = 99" in card and "Last known Myfxbook data &mdash; stale" in card and "LONG" not in card, card)
+    snap, out = run_build(_tmp(), T0, FakeMyfxbook(outlook=_one(99, 0)))
+    check(g, "log lists below-minimum markets by name, no figures",
+          "below 100 positions (archived, not shown): XAU" in out and "99" not in out, out)
+    html = mf.retail_panel(now=T0, data=data)
+    check(g, "legend states the minimum", "at least 100 open Myfxbook positions" in html)
+
+
+# ---------------------------------------------------------------- history format upgrade
+def t_history_upgrade():
+    g = "history-upgrade"
+    v1 = ",".join(mf.HIST_FIELDS_V1) + "\n" + "2026-10-14T05:00:00Z,XAUUSD,61,39,1,2,3,4,5,6\n"
+    data = _tmp()
+    d = data / mf.HIST_DIR
+    d.mkdir(parents=True)
+    (d / "2026-10-14.csv").write_text(v1)
+    run_build(data, T0, FakeMyfxbook())
+    text = (d / "2026-10-14.csv").read_text()
+    rows = mf.load_history(data)
+    check(g, "a 10-column local file is upgraded before appending (one header, 11 columns)",
+          text.startswith(",".join(mf.HIST_FIELDS) + "\n") and text.count("timestamp") == 1
+          and all(len(r) == 11 for r in mf._day_rows(text)), text[:300])
+    check(g, "the old row keeps its values and gains its market",
+          rows[0]["timestamp"] == "2026-10-14T05:00:00Z" and rows[0]["market"] == "XAU"
+          and rows[0]["avgShortPrice"] == "6", rows[0])
+    gh = FakeGitHub()
+    path = "myfxbook/daily/2026/2026-10-14.csv.gz"
+    gh.files[path] = (base64.b64encode(mf._gz(v1 + "2026-10-14T04:00:00Z,EURUSD,44,56,1,2,3,4,5,6\n")).decode(), "sha0")
+    a, out = run_archive(data, T0 + dt.timedelta(minutes=1), gh)
+    arch = gh.rows("2026-10-14")
+    check(g, "a 10-column archive file is merged, not overwritten: every archived row kept",
+          a["last_error"] is None and len(arch) == 8
+          and any(r[0] == "2026-10-14T04:00:00Z" and r[1] == "EURUSD" and r[10] == "EUR" for r in arch), (a, arch))
+    check(g, "the archive file is rewritten with the 11-column header",
+          gzip.decompress(base64.b64decode(gh.files[path][0])).decode().startswith(",".join(mf.HIST_FIELDS)))
+    gh2 = FakeGitHub()
+    gh2.files[path] = (base64.b64encode(mf._gz("something,else\n1,2\n")).decode(), "sha0")
+    before = gh2.files[path]
+    d2 = _tmp()
+    run_build(d2, T0, FakeMyfxbook())
+    a, out = run_archive(d2, T0 + dt.timedelta(minutes=1), gh2)
+    check(g, "an unreadable archive file is never overwritten (error 'format')",
+          a["last_error"] == "format" and gh2.files[path] == before, (a, out))
+
+
 if __name__ == "__main__":
     for fn in (t_parse, t_match, t_labels, t_fetch, t_build_and_budget, t_failures_keep_snapshot,
-               t_render, t_secrets, t_archive, t_probe):
+               t_render, t_secrets, t_archive, t_probe, t_select, t_threshold, t_history_upgrade):
         try:
             fn()
         except Exception as e:                                 # noqa: BLE001

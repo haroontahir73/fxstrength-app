@@ -35,9 +35,13 @@ Myfxbook data - stale" with the reason; values are never replaced by zeros.
 STORAGE (engine/data, carried between runs by the refresh workflow's cache, gitignored):
     myfxbook.json             latest valid snapshot + status - what the page is built from
     myfxbook_state.json       attempt times (budget), last error kind
-    myfxbook_history/YYYY-MM-DD.csv   one row per symbol per successful fetch, append-only:
+    myfxbook_history/YYYY-MM-DD.csv   one row per market per successful fetch, append-only:
         timestamp,symbol,longPercentage,shortPercentage,longVolume,shortVolume,
-        longPositions,shortPositions,avgLongPrice,avgShortPrice
+        longPositions,shortPositions,avgLongPrice,avgShortPrice,market
+    `symbol` is the Myfxbook symbol the reading came from, `market` the dashboard market it
+    was used for. Rows are archived whatever the sample size - the MIN_POSITIONS rule only
+    decides what the PAGE shows. Files written before `market` existed (10 columns) are read
+    and upgraded in place; their market is looked up from the symbol.
 History is never loaded into the page. It is there for later views (24 h change, 7-day
 history, charts, extremes, retail-vs-COT divergence). The cache copy is only the working
 set (the last LOCAL_KEEP_DAYS days); the DURABLE copy is a private GitHub repo written every
@@ -55,8 +59,9 @@ SOURCE_URL = "https://www.myfxbook.com/community/outlook"
 OUT_NAME = "myfxbook.json"
 STATE_NAME = "myfxbook_state.json"
 HIST_DIR = "myfxbook_history"
-HIST_FIELDS = ["timestamp", "symbol", "longPercentage", "shortPercentage", "longVolume",
-               "shortVolume", "longPositions", "shortPositions", "avgLongPrice", "avgShortPrice"]
+HIST_FIELDS_V1 = ["timestamp", "symbol", "longPercentage", "shortPercentage", "longVolume",
+                  "shortVolume", "longPositions", "shortPositions", "avgLongPrice", "avgShortPrice"]
+HIST_FIELDS = HIST_FIELDS_V1 + ["market"]
 
 MIN_GAP_MIN = 25          # minutes between attempts (20-30 asked; the pipeline ticks every ~15)
 DAILY_BUDGET = 60         # attempts per rolling 24 h, of the free API's 100
@@ -64,13 +69,23 @@ AUTH_BACKOFF_H = 6        # after a refused login
 TIMEOUT_S = 25
 DELAYED_MIN = 60          # page labels: older than this -> "Delayed"
 STALE_MIN = 180           # older than this -> "Stale"
+MIN_POSITIONS = 100       # long + short positions needed before a reading is SHOWN
 
-# Our 16 markets (the COT report keys) -> Myfxbook symbol names that are the SAME market,
-# tried in order, exact match only. A market with no match shows "Retail sentiment
-# unavailable" - nothing is estimated or borrowed from a neighbouring market. The symbol
-# actually used is printed on the page.
+# Our 16 markets (the COT report keys) -> the Myfxbook symbol names that are the SAME
+# instrument (same underlying, same quote currency), exact match only. When more than one
+# is in the response, the one with the most open positions (long + short) is used; a tie
+# goes to the earlier name. A market with no match shows "Retail sentiment unavailable" -
+# nothing is estimated or borrowed from a neighbouring market (no Brent for WTI, no futures
+# basket for the dollar index, no crosses for a USD pair). The symbol used is on the page
+# and in every history row.
+#
+# Verification (14 Oct 2026): the nine FX / metals names are on Myfxbook's public Community
+# Outlook list. The API returns more symbols than that page (161 in the first real run, which
+# matched COPPER for HG); for the remaining names, each CI build check annotates which name
+# was chosen per market, so a wrong or new name shows up there. USDOLLAR (an FXCM basket,
+# not the ICE dollar index) was dropped as not the same market.
 MARKETS = {
-    "USD": ["USDX", "DXY", "USDOLLAR"],
+    "USD": ["USDX", "DXY"],
     "AUD": ["AUDUSD"], "CAD": ["USDCAD"], "CHF": ["USDCHF"], "EUR": ["EURUSD"],
     "GBP": ["GBPUSD"], "JPY": ["USDJPY"], "NZD": ["NZDUSD"],
     "XAU": ["XAUUSD", "GOLD"], "XAG": ["XAGUSD", "SILVER"],
@@ -218,19 +233,42 @@ def parse(payload):
     return out, rejected
 
 
+def positions(rec):
+    return rec["longPositions"] + rec["shortPositions"]
+
+
 def match(symbols):
-    """{market key: (myfxbook symbol, record)} for markets with an exact match."""
+    """{market key: (myfxbook symbol, record)} - per market, the most-populated of its exact
+    candidates present in the response (tie -> the earlier candidate). The record carries
+    `candidates`: every candidate name that was present, in MARKETS order."""
     norm = {"".join(ch for ch in k if ch.isalnum()): k for k in symbols}
     out = {}
     for key, cands in MARKETS.items():
-        for c in cands:
-            if c in norm:
-                out[key] = (norm[c], symbols[norm[c]])
-                break
+        present = [norm[c] for c in cands if c in norm]
+        if not present:
+            continue
+        best = max(present, key=lambda s: (positions(symbols[s]), -present.index(s)))
+        out[key] = (best, {**symbols[best], "candidates": present})
     return out
 
 
+def market_of(symbol):
+    """Market key for a Myfxbook symbol (for history rows written before `market` existed)."""
+    s = "".join(ch for ch in str(symbol).upper() if ch.isalnum())
+    return next((k for k, cands in MARKETS.items() if s in cands), "")
+
+
 # ---------------------------------------------------------------- derived figures
+def too_few(rec):
+    """A reading needs MIN_POSITIONS positions (long + short) before the page shows it."""
+    return positions(rec) < MIN_POSITIONS
+
+
+def too_few_text(rec):
+    return (f"Too few Myfxbook positions (n = {positions(rec):,}) &mdash; no reading")
+
+
+
 def imbalance(lp, sp):
     return round(abs(lp - sp))
 
@@ -274,9 +312,17 @@ def _write(path, obj):
 
 
 def _day_rows(text):
-    """CSV text (with header) -> list of row lists, header dropped."""
+    """CSV text (with header) -> list of row lists in HIST_FIELDS order, header dropped.
+    A 10-column file from before `market` existed is upgraded (market from the symbol).
+    Raises on an unknown header: guessing would let an archive push overwrite good rows."""
     rows = list(csv.reader(io.StringIO(text)))
-    return [r for r in rows[1:] if r] if rows and rows[0] == HIST_FIELDS else []
+    if not rows:
+        return []
+    if rows[0] == HIST_FIELDS:
+        return [r for r in rows[1:] if r]
+    if rows[0] == HIST_FIELDS_V1:
+        return [r + [market_of(r[1])] for r in rows[1:] if r]
+    raise ValueError("unknown Myfxbook history header")
 
 
 def _day_text(rows):
@@ -288,18 +334,21 @@ def _day_text(rows):
 
 
 def _append_history(data, ts, matched):
-    """One CSV per UTC day (data/myfxbook_history/YYYY-MM-DD.csv), one row per matched symbol
-    per successful fetch - the same day files the durable archive stores."""
+    """One CSV per UTC day (data/myfxbook_history/YYYY-MM-DD.csv), one row per matched market
+    per successful fetch - the same day files the durable archive stores. Every matched
+    market is written, including ones below MIN_POSITIONS."""
     d = data / HIST_DIR
     d.mkdir(parents=True, exist_ok=True)
     p = d / f"{ts[:10]}.csv"
+    if p.exists() and p.read_text(encoding="utf-8").split("\n", 1)[0] == ",".join(HIST_FIELDS_V1):
+        p.write_text(_day_text(_day_rows(p.read_text(encoding="utf-8"))), encoding="utf-8")
     new = not p.exists()
     with p.open("a", newline="", encoding="utf-8") as f:
         w = csv.writer(f, lineterminator="\n")
         if new:
             w.writerow(HIST_FIELDS)
-        for sym, r in sorted({sym: r for sym, r in matched.values()}.items()):
-            w.writerow([ts, sym] + [r[k] if r[k] is not None else "" for k in HIST_FIELDS[2:]])
+        for key, (sym, r) in sorted(matched.items(), key=lambda kv: (kv[1][0], kv[0])):
+            w.writerow([ts, sym] + [r[k] if r[k] is not None else "" for k in HIST_FIELDS_V1[2:]] + [key])
 
 
 def load_history(data=None, since=None):
@@ -310,10 +359,9 @@ def load_history(data=None, since=None):
     for p in sorted(d.glob("????-??-??.csv")) if d.exists() else []:
         if since and p.stem < since[:10]:
             continue
-        with p.open(newline="", encoding="utf-8") as f:
-            for r in csv.DictReader(f):
-                if not since or r["timestamp"] >= since:
-                    rows.append(r)
+        for r in _day_rows(p.read_text(encoding="utf-8")):
+            if not since or r[0] >= since:
+                rows.append(dict(zip(HIST_FIELDS, r)))
     return rows
 
 
@@ -423,13 +471,19 @@ def archive(now=None, data=None, env=None, opener=None, force=False, verify_only
                 continue
             path = _archive_path(p.stem)
             cur = _gh(opener, "GET", f"/repos/{repo}/contents/{path}", token)
-            remote = []
-            if cur and cur.get("content"):
-                remote = _day_rows(gzip.decompress(base64.b64decode(cur["content"])).decode("utf-8"))
+            remote, remote_text = [], ""
+            try:
+                if cur and cur.get("content"):
+                    remote_text = gzip.decompress(base64.b64decode(cur["content"])).decode("utf-8")
+                    remote = _day_rows(remote_text)
+                local = _day_rows(text)
+            except (ValueError, OSError, EOFError):
+                # never overwrite a file we cannot read - that would drop archived rows
+                raise ArchiveError("format", f"history file {p.stem} unreadable - not written") from None
             merged = {(r[0], r[1]): r for r in remote}
-            merged.update({(r[0], r[1]): r for r in _day_rows(text)})
+            merged.update({(r[0], r[1]): r for r in local})
             out = _day_text(list(merged.values()))
-            if not remote or len(merged) != len(remote):
+            if not remote or len(merged) != len(remote) or remote_text != _day_text(remote):
                 body = {"message": f"myfxbook history {p.stem} ({len(merged)} rows)",
                         "content": base64.b64encode(_gz(out)).decode()}
                 if cur and cur.get("sha"):
@@ -468,7 +522,7 @@ def archive_load(env=None, opener=None, since_day=None):
                 continue
             cur = _gh(opener, "GET", f"/repos/{repo}/contents/{ARCHIVE_PREFIX}/{y}/{f}", token)
             text = gzip.decompress(base64.b64decode(cur["content"])).decode("utf-8")
-            rows.extend(dict(zip(HIST_FIELDS, r)) for r in _day_rows(text))
+            rows.extend(dict(zip(HIST_FIELDS, r)) for r in _day_rows(text))   # 10-col files upgraded
     return rows
 
 
@@ -524,8 +578,12 @@ def build(now=None, data=None, env=None, opener=None, force=False):
             print(f"  Myfxbook: {len(symbols)} symbols, {len(matched)} of our 16 markets matched"
                   + (f", {len(rejected)} rejected" if rejected else ""))
             print("    returned: " + ", ".join(sorted(symbols)))
-            print("    mapped: " + (", ".join(f"{k}<-{s}" for k, (s, _) in sorted(matched.items())) or "none")
+            print("    mapped: " + (", ".join(f"{k}<-{s}" + (f" (of {'/'.join(r['candidates'])})"
+                                                           if len(r["candidates"]) > 1 else "")
+                                            for k, (s, r) in sorted(matched.items())) or "none")
                   + "; unavailable: " + (", ".join(k for k in MARKETS if k not in matched) or "none"))
+            few = [k for k, (_, r) in sorted(matched.items()) if too_few(r)]
+            print(f"    below {MIN_POSITIONS} positions (archived, not shown): " + (", ".join(few) or "none"))
         except MyfxbookError as e:
             status.update(last_error=e.kind, last_error_msg=scrub(str(e), email, password))
             if e.kind == "auth":
@@ -628,6 +686,11 @@ def _row(key, label, m, link=True):
     if not m:
         return (f'<div class="mfxrow na" data-mfx-key="{_esc(key)}">{name}'
                 f'<span class="mfxna">Retail sentiment unavailable</span></div>')
+    if too_few(m):
+        # sample too small: the count and the symbol only - no %, bar, imbalance or crowd
+        return (f'<div class="mfxrow na few" data-mfx-key="{_esc(key)}">{name}'
+                + (f'<span class="mfxsym">{_esc(m["symbol"])}</span>' if m["symbol"] != label.upper() else "")
+                + f'<span class="mfxna">{too_few_text(m)}</span></div>')
     lp, sp = m["longPercentage"], m["shortPercentage"]
     imb = imbalance(lp, sp)
     em = "hi" if imb >= 40 else ("md" if imb >= 20 else "lo")
@@ -677,7 +740,9 @@ def retail_panel(now=None, data=None):
               'two colours that mean nothing more than the side. The bar&rsquo;s colour strengthens with the '
               '<b>imbalance</b> = |Long % &minus; Short %| (50/50 = 0, 60/40 = 20, 80/20 = 60). '
               '<b>Retail crowd</b>: Long &ge; 70% Heavy Long, 60&ndash;69% Long, 41&ndash;59% Balanced, '
-              'Short 60&ndash;69% Short, &ge; 70% Heavy Short &mdash; a description, not a signal.</p>')
+              'Short 60&ndash;69% Short, &ge; 70% Heavy Short &mdash; a description, not a signal. '
+              f'A market needs at least {MIN_POSITIONS} open Myfxbook positions (long + short) for a '
+              'reading; below that only the count is shown.</p>')
     return head + "".join(body) + legend + ATTRIB + SCRIPT + "</section>"
 
 
@@ -691,6 +756,12 @@ def report_card(key, now=None, data=None):
     m = (snap.get("markets") or {}).get(key)
     if not m:
         return head + '</div><p class="mfxna">Retail sentiment unavailable</p></div>'
+    if too_few(m):
+        return (head + f' <span class="mfxsym">{_esc(m["symbol"])}</span></div>'
+                f'<p class="mfxna">{too_few_text(m)}</p>'
+                f'<p class="mfxcl mut">{_freshness_line(snap, now, compact=True)} &middot; '
+                f'Retail sentiment data: <a href="{SOURCE_URL}" target="_blank" rel="noopener">{SOURCE_NAME}</a></p>'
+                f'</div>')
     lp, sp = m["longPercentage"], m["shortPercentage"]
     return (head + f' <span class="mfxsym">{_esc(m["symbol"])}</span></div>'
             f'<div class="mfxls"><span class="mfxl">LONG {_pc(lp)}%</span>{_bar(lp, sp)}'

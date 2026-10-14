@@ -239,6 +239,7 @@ def main():
 # Re-derived here from data/myfxbook.json with its own arithmetic, not by calling
 # myfxbook.py's helpers: imbalance = |L - S| (half-up), the five crowd bands, and that every
 # figure on the page is the stored one - nothing zeroed, estimated or borrowed.
+MFX_MIN_POSITIONS = 100      # the page's minimum sample (long + short positions)
 MFX_BANDS = [(lambda l, s: l >= 70, "Heavy Long"), (lambda l, s: s >= 70, "Heavy Short"),
              (lambda l, s: l >= 60, "Long"), (lambda l, s: s >= 60, "Short"),
              (lambda l, s: True, "Balanced")]
@@ -277,6 +278,16 @@ def check_myfxbook(page, data_dir):
         if not d:
             ok("Retail sentiment unavailable" in r, f"Myfxbook: {key} has no data and says so")
             ok("Retail sentiment unavailable" in L, f"Myfxbook: {key} report card says unavailable")
+            continue
+        n = d["longPositions"] + d["shortPositions"]
+        if n < MFX_MIN_POSITIONS:
+            want = f"Too few Myfxbook positions (n = {n:,}) &mdash; no reading"
+            # no figure in the message: this log is public
+            card = re.search(r'<div class="mfxcard">(.*?)</p></div>', L, re.S)
+            ok(want in r and card is not None and want in card.group(1),
+               f"Myfxbook: {key} below {MFX_MIN_POSITIONS} positions - says so, tab and report")
+            ok(card is not None and not re.search(r"LONG \d|SHORT \d|Imbalance \d|Retail crowd|mfxbar", r + card.group(1)),
+               f"Myfxbook: {key} below {MFX_MIN_POSITIONS} - no %, bar, imbalance or crowd")
             continue
         lp, sp = d["longPercentage"], d["shortPercentage"]
         imb = int(abs(lp - sp) + 0.5)
