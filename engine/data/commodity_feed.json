@@ -1,5 +1,61 @@
 [
  {
+  "when": "14 Oct 08:47 UTC",
+  "iso": "2026-10-14T08:47:23.713476+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nTanker Catches Fire East of Strait of Hormuz: Iranian Navy - \u062a\u0633\u0646\u06cc\u0645  (\u062a\u0633\u0646\u06cc\u0645)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,168 (-0.2%)   Silver 58.86 (-0.5%)   WTI 94.25 (+0.1%)   DXY 102.20 (+0.0%)   US10Y 5.22 (-0.4%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPa2syN0JfT1BUNHJ5TnllUFh4UTdIanVHeU8wYUF1V0dRZUR1MjRJZ3h0cGVNYVZNR0NoSXFxMlJLbERoSWkwZDBGSUhXVjBObWJOTnJPMnhLVjZuS012NmRVZV85cjNHajNvQzFWS0d2Z0FmZHBra0tBVjZZRnV5eGlxTkkzd1A3eDNJRU1vZVpQemN2S1NPUldXNjZmbzh1ZDZUYURNWkNwNHVqMnRJ0gG0AUFVX3lxTE9OalV1dURhcDNTemJCXzJLNVR6cjhLZXZFOHRFQjdXOGp0UElQY0I4a01JbXJYcmtuVHJ5VU1PLXlwSFFtMTMxS3hpeHZBUlFSYS1zdmViTFl1ODgyX0ZNMXR1R3lJdDRPaFRDVzhyakJCY0sxZlV1Z3Izb1ltRERZcTJmNzVGdkZiOWJrM0xMeHpSTzZQSnhtdW1iSDBrd0R6c05WS1YydE9Wb2pmenpLSEFTaA?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4168.0,
+   "Silver": 58.86,
+   "WTI": 94.25
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Tanker Catches Fire East of Strait of Hormuz: Iranian Navy - \u062a\u0633\u0646\u06cc\u0645",
+   "src": "\u062a\u0633\u0646\u06cc\u0645",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,168 (-0.2%)   Silver 58.86 (-0.5%)   WTI 94.25 (+0.1%)   DXY 102.20 (+0.0%)   US10Y 5.22 (-0.4%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "14 Oct 06:29 UTC",
   "iso": "2026-10-14T06:29:06.708313+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,216 (+1.4%)   Silver 61.05 (+3.4%)   WTI 91.85 (+0.4%)   DXY 102.23 (+0.1%)   US10Y 5.24 (+0.2%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "10 Oct 17:09 UTC",
-  "iso": "2026-10-10T17:09:21.086877+00:00",
-  "cat": "geo_deescalation",
-  "title": "GEOPOLITICS - calming down",
-  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nFinancialJuice: UK government: emphasized Russia must agree to energy ceasefire, halt strikes on Ukrainian infrastructure and Black Sea shipping attacks\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193    mild short bias - supply worry gone, barrels flow again (eased by self-check)\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,216 (+1.4%)   Silver 61.05 (+3.4%)   WTI 91.85 (+0.4%)   DXY 102.23 (+0.1%)   US10Y 5.24 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
-  "link": "https://www.financialjuice.com/News/9800151/UK-government-emphasized-Russia-must-agree-to-energy-ceasefire-halt-strikes-on-Ukrainian-infrastructure-and-Black-Sea-shipping-attacks.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4216.3,
-   "Silver": 61.048,
-   "WTI": 91.85
-  },
-  "parts": {
-   "emoji": "\ud83d\udd4a",
-   "label": "GEOPOLITICS \u2014 calming down",
-   "headline": "FinancialJuice: UK government: emphasized Russia must agree to energy ceasefire, halt strikes on Ukrainian infrastructure and Black Sea shipping attacks",
-   "src": "",
-   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured both ways - fear-out vs yields-down cancel",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "same, no reliable direction",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "supply worry gone, barrels flow again (eased by self-check)",
-     "record": "some evidence - right 51% of 113 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,216 (+1.4%)   Silver 61.05 (+3.4%)   WTI 91.85 (+0.4%)   DXY 102.23 (+0.1%)   US10Y 5.24 (+0.2%)",
-   "reality": "",
-   "flip": "these deals break \u2014 one broken truce and it all goes back on"
   }
  }
 ]
