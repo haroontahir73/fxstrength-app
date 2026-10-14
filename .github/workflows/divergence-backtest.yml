@@ -1,0 +1,76 @@
+# .github/workflows/divergence-backtest.yml
+#
+# Step 3 baseline backtest on REAL inputs - the frozen Step 2 rules replayed over our own
+# archived Myfxbook snapshots. Makes 0 Myfxbook requests: it reads the private archive (a
+# GitHub read) and the production state cache, fetches public daily price bars, and any
+# request to myfxbook.com fails the run. No Myfxbook login secret is given to this workflow.
+#
+# Results contain Myfxbook history, so they are written ONLY to the private archive repo
+# (backtest/...), never to this public repo, a public artifact or the log (counts and hashes
+# only). The production cache is restored read-only and never saved.
+#
+# Runs once a day so the sample grows automatically, on a manual run, and on pull requests
+# that change the backtest (as the real-data check before merge).
+name: divergence backtest
+
+on:
+  schedule:
+    - cron: '41 6 * * *'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'engine/divergence_backtest*.py'
+      - 'engine/fetch_bt_prices.py'
+      - '.github/workflows/divergence-backtest.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: divergence-backtest-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      MYFXBOOK_HISTORY_TOKEN: ${{ secrets.MYFXBOOK_HISTORY_TOKEN }}
+      MYFXBOOK_HISTORY_REPO: ${{ vars.MYFXBOOK_HISTORY_REPO }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      # production's engine/data (CFTC store with first-seen times, recent Myfxbook day
+      # files) - read only; this workflow never saves a cache
+      - name: Restore the production state (read-only)
+        uses: actions/cache/restore@v4
+        with:
+          path: engine/data
+          key: fxstrength-state-none
+          restore-keys: fxstrength-state-
+
+      - name: CFTC store (fetched only if the production copy is missing)
+        working-directory: engine
+        run: |
+          if [ ! -s data/cot_legacy.json ]; then
+            echo "no production CFTC store - fetching from the CFTC (public data)"
+            python -c "import cot_table; cot_table.build(force=True)"
+          fi
+
+      - name: Daily price bars (Yahoo, one fixed instrument per market)
+        working-directory: engine
+        run: python fetch_bt_prices.py
+
+      - name: Replay (0 Myfxbook requests; results to the private repo only)
+        working-directory: engine
+        run: |
+          case "${{ github.event_name }}" in
+            pull_request) PREFIX="backtest/pr-${{ github.event.pull_request.number }}" ;;
+            *)            PREFIX="backtest/runs/$(date -u +%Y-%m-%d)_${GITHUB_SHA::7}" ;;
+          esac
+          python divergence_backtest_run.py --out ${{ runner.temp }}/backtest --publish "$PREFIX"
+          rm -rf ${{ runner.temp }}/backtest

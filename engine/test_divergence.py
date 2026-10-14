@@ -401,8 +401,8 @@ def t_scanner_and_switch():
     root = Path(__file__).parent
     users = sorted(p.name for p in list(root.glob("*.py")) + list((root.parent / "pi").glob("*.py"))
                    if re.search(r"^\s*(import|from)\s+divergence(\s|,|$)", p.read_text(errors="replace"), re.M))
-    check(g, "only the page builder (and these tests) use divergence - no score, alert or Pi code",
-          users == ["build_dashboard.py", "test_divergence.py"], users)
+    check(g, "only the page builder and the Step 3 backtest (and tests) use divergence - no score, alert or Pi code",
+          users == ["build_dashboard.py", "divergence_backtest.py", "test_divergence.py", "test_divergence_backtest.py"], users)
     check(g, "fixtures never touched the live data dir", not any(str(mf.DATA) in str(p) for p in (d, d2)))
 
 

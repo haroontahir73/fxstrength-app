@@ -772,6 +772,36 @@ Myfxbook is off.
   report, as % of the 50-week range; under 5% = Flat/neutral, otherwise Strengthening when it
   moves toward the side the percentile leans to, Weakening when back toward the middle.
 
+## Step 3 baseline backtest (divergence_backtest.py)
+
+`divergence_backtest.py` replays the **frozen Step 2 rules** (divergence_config at 79b834a - a fingerprint
+check marks any other configuration as "not the baseline") over our own archived Myfxbook
+snapshots and measures what the market did next. No optimisation; nothing reconstructed.
+
+* **Inputs.** Myfxbook: production snapshots only (identified from the shared request ledger,
+  accumulated in `backtest/provenance.json`); verification fetches (CI / manual) are genuine but
+  were never on the dashboard, so they are excluded and counted. COT: the production store, a
+  report usable only from its availability time (scheduled Friday 15:30 ET release, one business
+  day later per US federal holiday in the report week; production's recorded first-seen time
+  when it has one). Prices: Yahoo daily OHLC, one fixed instrument per market
+  (`divergence_backtest_config.PRICES`; metals / copper / oil are continuous front-month futures and
+  include roll jumps).
+* **Measurement.** Entry = open of the first daily bar after the snapshot's UTC date; exit =
+  close of the 1st / 3rd / 5th / 10th trading-day bar; raw and direction-adjusted return,
+  correct or not, MFE / MAE. A horizon whose bars don't exist yet is *pending*; a gap or a null
+  value is *missing* - nothing is substituted.
+* **Events** (the primary view): a run of consecutive snapshots with the same actionable class
+  for a market; a class change (incl. Bearish → Strong Bearish), a no-signal / unavailable
+  snapshot, or a gap over 180 min starts a new event. Observation-level stats are kept too.
+* **Statistics** for every market, class, horizon and aggregate (group, direction, strength,
+  COT and retail bands) with the sample size, a Wilson 95% interval for the win rate and a
+  descriptive label: Insufficient (< 10 events), Early evidence (10-29), Developing (30-99),
+  Meaningful (≥ 100). These labels are not significance tests.
+* **Runs.** `.github/workflows/divergence-backtest.yml` - daily, manual, and on backtest PRs. 0 Myfxbook
+  requests (any attempt fails the run); results go only to the private archive repo
+  (`backtest/runs/...`), the log shows counts and hashes. Deterministic: the same inputs and
+  the same `--generated-at` give a byte-identical `results.json`.
+
 ## Caveats
 
 Scores are a weighted heuristic, not advice. The pair ranking is a shortlist, not a signal —

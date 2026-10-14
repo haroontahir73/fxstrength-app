@@ -72,7 +72,8 @@ Tuesday, and a government shutdown can stop it for weeks. build() therefore:
     missed while nothing was running is recovered;
   * on a failed fetch keeps the last good data and records the error for the page;
   * stamps report_first_seen_at only when a NEW report date appears, so re-fetching
-    unchanged data never makes an old report look newly released.
+    unchanged data never makes an old report look newly released; status.first_seen keeps
+    that time per report (the Step 3 backtest uses it as the report's availability).
 It runs inside the CI-gated refresh build (run.py), which is the only thing that publishes
 the page. It is not part of the news watcher's publisher allowlist.
 """
@@ -531,6 +532,12 @@ def build(force=False, data=None, fetch=None, now=None):
     if st.get("report_date") != latest:
         st["report_date"] = latest
         st["report_first_seen_at"] = now.isoformat()
+        # every report's first-seen time, kept (capped) for the Step 3 replay: the moment the
+        # dashboard actually had the report - never earlier than its release
+        fs = st.setdefault("first_seen", {})
+        fs.setdefault(latest, now.isoformat())
+        for d in sorted(fs)[:-KEEP_WEEKS]:
+            del fs[d]
     st["prev_date"] = prev
     st["rejected_rows"] = len(rejected)
     st["rejected_sample"] = rejected[:5]
