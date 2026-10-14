@@ -49,8 +49,8 @@ def main():
     ok(len(returned) > 0 and len(markets) > 0, f"{len(markets)} of our 16 markets matched exactly")
     ok(all(markets[k]["symbol"] in mf.MARKETS[k] for k in markets), "every match is one of that market's own candidates")
     rej = snap.get("rejected") or []
-    print(f"     rejected entries (not shown, never repaired): {len(rej)}"
-          + (" - " + ", ".join(r.split(":")[0] for r in rej) if rej else ""))
+    print(f"     rejected entries (excluded, never repaired): {len(rej)}"
+          + (" - " + ", ".join(rej) if rej else ""))
 
     print("2. Cadence (25 min live / 6 h archive)")
     n = len(st.get("attempts", []))

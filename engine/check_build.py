@@ -283,7 +283,10 @@ def check_myfxbook(page, data_dir):
         band = next(n for f, n in MFX_BANDS if f(lp, sp))
         ok(f"LONG {_pc(lp)}%" in r and f"SHORT {_pc(sp)}%" in r, f"Myfxbook: {key} long/short % as stored")
         ok(f"Imbalance {imb}<" in r and f"Retail crowd: <b>{band}</b>" in r, f"Myfxbook: {key} imbalance {imb}, crowd {band}")
-        ok(f">{d['symbol']}<" in r, f"Myfxbook: {key} names the Myfxbook symbol used ({d['symbol']})")
+        name = re.search(r'class="mfxname">([^<]*)<', r)
+        same = name and name.group(1).replace("&amp;", "&").upper() == d["symbol"]
+        ok(same or f">{d['symbol']}<" in r,
+           f"Myfxbook: {key} names the Myfxbook symbol used ({d['symbol']}{', = market label' if same else ''})")
         ok(f"width:{lp:.4g}%" in r and f"width:{sp:.4g}%" in r, f"Myfxbook: {key} bar widths match the %")
         vols = f"L {d['longVolume']:,.2f} &middot; S {d['shortVolume']:,.2f}"
         pos = f"L {d['longPositions']:,} &middot; S {d['shortPositions']:,}"

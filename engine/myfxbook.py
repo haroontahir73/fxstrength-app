@@ -206,7 +206,13 @@ def parse(payload):
                 rec[k] = None if v in (None, "", 0, "0") else _num(v, 0)
             out[name] = rec
         except (ValueError, TypeError) as e:
-            rejected.append(f"{(s.get('name') if isinstance(s, dict) else '?')!s:.20}: {e}")
+            # name + reason TYPE only - no figures (this list reaches the public CI log)
+            msg = str(e)
+            kind = ("long+short not ~100%" if msg.startswith("long+short") else
+                    "value out of range" if msg.startswith("out of range") else
+                    "not a number" if msg.startswith("not a number") or msg == "boolean" else
+                    "missing name" if "name" in msg else "bad entry")
+            rejected.append(f"{(s.get('name') if isinstance(s, dict) else '?')!s:.20}: {kind}")
     if not out:
         raise MyfxbookError("malformed", f"no valid symbols ({len(rejected)} rejected)")
     return out, rejected
@@ -510,7 +516,7 @@ def build(now=None, data=None, env=None, opener=None, force=False):
             ts = _iso(now)
             snap = {"fetched_at": ts, "markets": {k: {"symbol": s, **r} for k, (s, r) in matched.items()},
                     "symbols_in_response": len(symbols), "symbols_returned": sorted(symbols),
-                    "rejected": rejected[:20]}
+                    "rejected": rejected[:60]}
             _append_history(data, ts, matched)
             status.update(last_ok_at=ts, last_error=None, last_error_msg=None)
             st.pop("auth_backoff_until", None)
