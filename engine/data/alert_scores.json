@@ -16542,5 +16542,38 @@
   "outcome": "loss",
   "talk": false,
   "at": "2026-10-14T09:30:39.604909+00:00"
+ },
+ {
+  "id": "2026-10-14T10:12:28.630982+00:00|OIL",
+  "cat": "oil_supply_tight",
+  "instr": "OIL",
+  "dir": "up",
+  "strength": 3,
+  "chg": 0.347,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-10-14T10:12:28.630982+00:00"
+ },
+ {
+  "id": "2026-10-14T09:30:39.604909+00:00|SILVER",
+  "cat": "rates_up",
+  "instr": "SILVER",
+  "dir": "down",
+  "strength": 1,
+  "chg": -2.796,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-10-14T09:30:39.604909+00:00"
+ },
+ {
+  "id": "2026-10-14T10:31:19.406185+00:00|OIL",
+  "cat": "geo_deescalation",
+  "instr": "OIL",
+  "dir": "down",
+  "strength": 1,
+  "chg": 0.052,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-10-14T10:31:19.406185+00:00"
  }
 ]
