@@ -35,13 +35,15 @@ Myfxbook data - stale" with the reason; values are never replaced by zeros.
 STORAGE (engine/data, carried between runs by the refresh workflow's cache, gitignored):
     myfxbook.json             latest valid snapshot + status - what the page is built from
     myfxbook_state.json       attempt times (budget), last error kind
-    myfxbook_history/YYYY-MM.csv   one row per symbol per successful fetch, append-only:
+    myfxbook_history/YYYY-MM-DD.csv   one row per symbol per successful fetch, append-only:
         timestamp,symbol,longPercentage,shortPercentage,longVolume,shortVolume,
         longPositions,shortPositions,avgLongPrice,avgShortPrice
 History is never loaded into the page. It is there for later views (24 h change, 7-day
-history, charts, extremes, retail-vs-COT divergence) - read it with load_history().
+history, charts, extremes, retail-vs-COT divergence). The cache copy is only the working
+set (the last LOCAL_KEEP_DAYS days); the DURABLE copy is a private GitHub repo written every
+ARCHIVE_EVERY_H hours - see archive() below. Read it back with archive_load().
 """
-import csv, datetime as dt, json, math, os, urllib.error, urllib.parse, urllib.request
+import base64, csv, datetime as dt, gzip, hashlib, io, json, math, os, urllib.error, urllib.parse, urllib.request
 from html import escape as _esc
 from pathlib import Path
 
@@ -248,13 +250,29 @@ def _write(path, obj):
     os.replace(tmp, path)
 
 
+def _day_rows(text):
+    """CSV text (with header) -> list of row lists, header dropped."""
+    rows = list(csv.reader(io.StringIO(text)))
+    return [r for r in rows[1:] if r] if rows and rows[0] == HIST_FIELDS else []
+
+
+def _day_text(rows):
+    buf = io.StringIO()
+    w = csv.writer(buf, lineterminator="\n")
+    w.writerow(HIST_FIELDS)
+    w.writerows(sorted(rows, key=lambda r: (r[0], r[1])))
+    return buf.getvalue()
+
+
 def _append_history(data, ts, matched):
+    """One CSV per UTC day (data/myfxbook_history/YYYY-MM-DD.csv), one row per matched symbol
+    per successful fetch - the same day files the durable archive stores."""
     d = data / HIST_DIR
     d.mkdir(parents=True, exist_ok=True)
-    p = d / f"{ts[:7]}.csv"
+    p = d / f"{ts[:10]}.csv"
     new = not p.exists()
     with p.open("a", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
+        w = csv.writer(f, lineterminator="\n")
         if new:
             w.writerow(HIST_FIELDS)
         for sym, r in sorted({sym: r for sym, r in matched.values()}.items()):
@@ -262,17 +280,172 @@ def _append_history(data, ts, matched):
 
 
 def load_history(data=None, since=None):
-    """All stored rows (dicts) at/after `since` (ISO string), oldest first. Not used by the
-    page yet - this is the read side for the later history views."""
+    """Locally held rows (dicts) at/after `since` (ISO string), oldest first - the recent
+    working set (LOCAL_KEEP_DAYS). The full history is the archive (archive_load())."""
     d = Path(data or DATA) / HIST_DIR
     rows = []
-    for p in sorted(d.glob("*.csv")) if d.exists() else []:
-        if since and p.stem < since[:7]:
+    for p in sorted(d.glob("????-??-??.csv")) if d.exists() else []:
+        if since and p.stem < since[:10]:
             continue
         with p.open(newline="", encoding="utf-8") as f:
             for r in csv.DictReader(f):
                 if not since or r["timestamp"] >= since:
                     rows.append(r)
+    return rows
+
+
+# ---------------------------------------------------------------- durable history archive
+# The Actions cache is only a working copy. The durable history is a PRIVATE GitHub repo
+# (default haroontahir73/fxstrength-data; MYFXBOOK_HISTORY_REPO overrides), written every
+# ARCHIVE_EVERY_H hours through the GitHub contents API with MYFXBOOK_HISTORY_TOKEN (a
+# fine-grained token for that one repo, Contents: read and write):
+#     myfxbook/daily/YYYY/YYYY-MM-DD.csv.gz     same columns as the local day files
+# Each push MERGES with the archived copy (union by timestamp + symbol), so a lost cache can
+# never delete archived rows. It refuses to write unless the repo is private (the data's
+# public-display terms are not settled). Old local day files are dropped only once archived.
+ARCHIVE_EVERY_H = 6
+ARCHIVE_REPO = "haroontahir73/fxstrength-data"
+ARCHIVE_PREFIX = "myfxbook/daily"
+LOCAL_KEEP_DAYS = 35
+GH_API = "https://api.github.com"
+
+
+class ArchiveError(Exception):
+    def __init__(self, kind, message):
+        super().__init__(message)
+        self.kind = kind
+
+
+def _gh(opener, method, path, token, body=None):
+    req = urllib.request.Request(
+        GH_API + path, method=method,
+        data=json.dumps(body).encode() if body is not None else None,
+        headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json",
+                 "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "fxstrength-desk"})
+    try:
+        with opener(req, timeout=30) as r:
+            raw = r.read()
+            return json.loads(raw.decode("utf-8")) if raw else {}
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            return None
+        raise ArchiveError("github", f"GitHub HTTP {e.code} on {method} {path.split('?')[0]}") from None
+    except ValueError:
+        raise ArchiveError("github", "GitHub answered with non-JSON") from None
+    except Exception as e:                                       # noqa: BLE001
+        raise ArchiveError("github", f"GitHub unreachable ({type(e).__name__})") from None
+
+
+def _gz(text):
+    return gzip.compress(text.encode("utf-8"), compresslevel=9, mtime=0)
+
+
+def _archive_path(day):
+    return f"{ARCHIVE_PREFIX}/{day[:4]}/{day}.csv.gz"
+
+
+def _put(opener, token, repo, path, content, message):
+    cur = _gh(opener, "GET", f"/repos/{repo}/contents/{path}", token)
+    body = {"message": message, "content": base64.b64encode(content).decode()}
+    if cur and cur.get("sha"):
+        body["sha"] = cur["sha"]
+    _gh(opener, "PUT", f"/repos/{repo}/contents/{path}", token, body)
+
+
+def archive(now=None, data=None, env=None, opener=None, force=False, verify_only=False):
+    """Push changed day files to the private archive repo (every ARCHIVE_EVERY_H hours).
+    verify_only: prove the token can write (one small file, no data) - the pre-merge check.
+    Never raises; the outcome is recorded in myfxbook_state.json."""
+    now = now or dt.datetime.now(dt.timezone.utc)
+    data = Path(data or DATA)
+    env = os.environ if env is None else env
+    opener = opener or urllib.request.urlopen
+    token = env.get("MYFXBOOK_HISTORY_TOKEN", "")
+    repo = env.get("MYFXBOOK_HISTORY_REPO") or ARCHIVE_REPO
+    st_p = data / STATE_NAME
+    st = _read(st_p, {"attempts": []})
+    a = st.setdefault("archive", {})
+    a["repo"] = repo
+    if not token:
+        a.update(configured=False)
+        print("  Myfxbook history archive: not configured (MYFXBOOK_HISTORY_TOKEN) - kept in the cache only")
+        _write(st_p, st)
+        return a
+    a["configured"] = True
+    last = a.get("last_push_at")
+    if not force and not verify_only and last and \
+            now - dt.datetime.fromisoformat(last.replace("Z", "+00:00")) < dt.timedelta(hours=ARCHIVE_EVERY_H):
+        print(f"  Myfxbook history archive: last push {last[:16]}Z, next after {ARCHIVE_EVERY_H} h")
+        return a
+    pushed = []
+    try:
+        meta = _gh(opener, "GET", f"/repos/{repo}", token)
+        if meta is None:
+            raise ArchiveError("missing", f"archive repo {repo} not found (or the token cannot see it)")
+        if meta.get("private") is not True:
+            raise ArchiveError("public", f"archive repo {repo} is not private - refusing to write")
+        if verify_only:
+            _put(opener, token, repo, "myfxbook/_ci_write_check.json",
+                 json.dumps({"checked_at": _iso(now)}).encode(), "myfxbook: CI write check (no data)")
+            print(f"  Myfxbook history archive: {repo} is private and writable (CI check, no data written)")
+            a.update(last_verify_at=_iso(now), last_error=None)
+            _write(st_p, st)
+            return a
+        d = data / HIST_DIR
+        hashes = a.setdefault("hashes", {})
+        for p in sorted(d.glob("????-??-??.csv")) if d.exists() else []:
+            text = p.read_text(encoding="utf-8")
+            h = hashlib.sha256(text.encode()).hexdigest()
+            if hashes.get(p.stem) == h:
+                continue
+            path = _archive_path(p.stem)
+            cur = _gh(opener, "GET", f"/repos/{repo}/contents/{path}", token)
+            remote = []
+            if cur and cur.get("content"):
+                remote = _day_rows(gzip.decompress(base64.b64decode(cur["content"])).decode("utf-8"))
+            merged = {(r[0], r[1]): r for r in remote}
+            merged.update({(r[0], r[1]): r for r in _day_rows(text)})
+            out = _day_text(list(merged.values()))
+            if not remote or len(merged) != len(remote):
+                body = {"message": f"myfxbook history {p.stem} ({len(merged)} rows)",
+                        "content": base64.b64encode(_gz(out)).decode()}
+                if cur and cur.get("sha"):
+                    body["sha"] = cur["sha"]
+                _gh(opener, "PUT", f"/repos/{repo}/contents/{path}", token, body)
+                pushed.append(p.stem)
+            hashes[p.stem] = h
+        # drop old local day files, but only ones the archive is known to hold
+        cutoff = (now - dt.timedelta(days=LOCAL_KEEP_DAYS)).strftime("%Y-%m-%d")
+        for p in sorted(d.glob("????-??-??.csv")) if d.exists() else []:
+            if p.stem < cutoff and p.stem in hashes:
+                p.unlink()
+                hashes.pop(p.stem, None)
+        a.update(last_push_at=_iso(now), last_error=None, last_pushed_days=pushed)
+        print(f"  Myfxbook history archive: {len(pushed)} day file(s) written to {repo}"
+              + (f" ({', '.join(pushed)})" if pushed else " (nothing new)"))
+    except ArchiveError as e:
+        a.update(last_error=e.kind, last_error_msg=scrub(str(e), token))
+        print(f"  Myfxbook history archive: FAILED ({e.kind}: {a['last_error_msg']}) - history kept in the cache, retried next run")
+    _write(st_p, st)
+    return a
+
+
+def archive_load(env=None, opener=None, since_day=None):
+    """Read the archived history back (for the later history / divergence / backtest work):
+    rows as dicts, oldest first."""
+    env = os.environ if env is None else env
+    opener = opener or urllib.request.urlopen
+    token, repo = env.get("MYFXBOOK_HISTORY_TOKEN", ""), env.get("MYFXBOOK_HISTORY_REPO") or ARCHIVE_REPO
+    rows = []
+    years = _gh(opener, "GET", f"/repos/{repo}/contents/{ARCHIVE_PREFIX}", token) or []
+    for y in sorted(x["name"] for x in years if x.get("type") == "dir"):
+        files = _gh(opener, "GET", f"/repos/{repo}/contents/{ARCHIVE_PREFIX}/{y}", token) or []
+        for f in sorted(x["name"] for x in files if x["name"].endswith(".csv.gz")):
+            if since_day and f[:10] < since_day:
+                continue
+            cur = _gh(opener, "GET", f"/repos/{repo}/contents/{ARCHIVE_PREFIX}/{y}/{f}", token)
+            text = gzip.decompress(base64.b64decode(cur["content"])).decode("utf-8")
+            rows.extend(dict(zip(HIST_FIELDS, r)) for r in _day_rows(text))
     return rows
 
 
@@ -318,12 +491,16 @@ def build(now=None, data=None, env=None, opener=None, force=False):
             matched = match(symbols)
             ts = _iso(now)
             snap = {"fetched_at": ts, "markets": {k: {"symbol": s, **r} for k, (s, r) in matched.items()},
-                    "symbols_in_response": len(symbols), "rejected": rejected[:20]}
+                    "symbols_in_response": len(symbols), "symbols_returned": sorted(symbols),
+                    "rejected": rejected[:20]}
             _append_history(data, ts, matched)
             status.update(last_ok_at=ts, last_error=None, last_error_msg=None)
             st.pop("auth_backoff_until", None)
+            # names only - no values in the (public) log
             print(f"  Myfxbook: {len(symbols)} symbols, {len(matched)} of our 16 markets matched"
                   + (f", {len(rejected)} rejected" if rejected else ""))
+            print("    mapped: " + (", ".join(f"{k}<-{s}" for k, (s, _) in sorted(matched.items())) or "none")
+                  + "; unavailable: " + (", ".join(k for k in MARKETS if k not in matched) or "none"))
         except MyfxbookError as e:
             status.update(last_error=e.kind, last_error_msg=scrub(str(e), email, password))
             if e.kind == "auth":

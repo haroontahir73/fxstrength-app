@@ -1,0 +1,16 @@
+[Unit]
+Description=Back up the Myfxbook history archive (private GitHub repo) to this Pi
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=@USER@
+# Read-only fine-grained token for the archive repo; handed to this service only.
+LoadCredential=history_token:/etc/fxstrength-cot/history_token
+ExecStart=@REPO_DIR@/pi/myfxbook_mirror.sh
+Environment=MIRROR_DEST=/var/backups/fxstrength
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ReadWritePaths=/var/backups/fxstrength

@@ -10,7 +10,7 @@ last good snapshot (never zeros), freshness labels, 0/100 and 50/50, the retail-
 history storage, and that the credentials and session id never reach a file, the page or a
 log line.
 """
-import contextlib, io, json, sys, tempfile, urllib.error, urllib.parse
+import base64, contextlib, gzip, hashlib, io, json, sys, tempfile, urllib.error, urllib.parse
 import datetime as dt
 from pathlib import Path
 
@@ -218,7 +218,7 @@ def t_build_and_budget():
     check(g, "history: one row per matched symbol, all ten fields",
           len(hist) == 6 and list(hist[0]) == mf.HIST_FIELDS and {r["symbol"] for r in hist} ==
           {"EURUSD", "XAUUSD", "USDJPY", "GBPUSD", "AUDUSD", "US500"}, hist[:1])
-    check(g, "history stored by month", (data / mf.HIST_DIR / "2026-10.csv").exists())
+    check(g, "history stored by UTC day", (data / mf.HIST_DIR / "2026-10-14.csv").exists())
 
     fake2 = FakeMyfxbook()
     snap, out = run_build(data, T0 + dt.timedelta(minutes=20), fake2)
@@ -322,9 +322,120 @@ def t_secrets():
     check(g, "the refused-login message was scrubbed, not dropped", "[redacted]" in "".join(logs))
 
 
+TOKEN = "github_pat_ARCHIVEtokenXYZ123"
+AENV = {**ENV, "MYFXBOOK_HISTORY_TOKEN": TOKEN, "MYFXBOOK_HISTORY_REPO": "me/fx-data"}
+
+
+class FakeGitHub:
+    """GET/PUT /repos/{repo} and /repos/{repo}/contents/{path}. mode: ok | public | missing | down."""
+    def __init__(self, mode="ok"):
+        self.mode, self.files, self.calls = mode, {}, []
+
+    def __call__(self, req, timeout=None):
+        url, method = req.full_url, req.get_method()
+        path = urllib.parse.urlparse(url).path
+        self.calls.append((method, path))
+        if req.get_header("Authorization") != f"Bearer {TOKEN}":
+            raise urllib.error.HTTPError(url, 401, "bad token", {}, None)
+        if self.mode == "down":
+            raise urllib.error.URLError("no route")
+        if path == "/repos/me/fx-data":
+            if self.mode == "missing":
+                raise urllib.error.HTTPError(url, 404, "nf", {}, None)
+            return _Resp(json.dumps({"private": self.mode != "public"}).encode())
+        fp = path.split("/contents/", 1)[1]
+        if method == "GET":
+            if fp in self.files:
+                c, sha = self.files[fp]
+                return _Resp(json.dumps({"content": c, "sha": sha}).encode())
+            kids = sorted({k[len(fp) + 1:].split("/")[0] for k in self.files if k.startswith(fp + "/")})
+            if kids:
+                return _Resp(json.dumps([{"name": k, "type": "file" if k.endswith(".gz") else "dir"} for k in kids]).encode())
+            raise urllib.error.HTTPError(url, 404, "nf", {}, None)
+        body = json.loads(req.data)
+        if fp in self.files and body.get("sha") != self.files[fp][1]:
+            raise urllib.error.HTTPError(url, 409, "sha mismatch", {}, None)
+        self.files[fp] = (body["content"], hashlib.sha1(body["content"].encode()).hexdigest())
+        return _Resp(b'{"content": {}}')
+
+    def rows(self, day):
+        c, _ = self.files[f"myfxbook/daily/{day[:4]}/{day}.csv.gz"]
+        return mf._day_rows(gzip.decompress(base64.b64decode(c)).decode())
+
+
+def run_archive(data, now, gh, env=AENV, **kw):
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        a = mf.archive(now=now, data=data, env=env, opener=gh, **kw)
+    return a, buf.getvalue()
+
+
+def t_archive():
+    g = "archive"
+    data, gh = _tmp(), FakeGitHub()
+    a, out = run_archive(data, T0, gh, env=ENV)
+    check(g, "no archive token: nothing sent, says so", gh.calls == [] and "not configured" in out and a["configured"] is False, out)
+    run_build(data, T0, FakeMyfxbook())
+    run_build(data, T0 + dt.timedelta(minutes=30), FakeMyfxbook())
+    a, out = run_archive(data, T0 + dt.timedelta(minutes=31), gh)
+    check(g, "first push writes today's file to the private repo", list(gh.files) == ["myfxbook/daily/2026/2026-10-14.csv.gz"]
+          and a["last_error"] is None, (list(gh.files), out))
+    check(g, "archived file = the local day rows (12), gzip CSV with the 10 columns",
+          len(gh.rows("2026-10-14")) == 12 and len(gh.rows("2026-10-14")[0]) == 10)
+    n = len(gh.calls)
+    a, out = run_archive(data, T0 + dt.timedelta(hours=2), gh)
+    check(g, "within 6 h: no GitHub call", len(gh.calls) == n and "next after 6 h" in out, out)
+    run_build(data, T0 + dt.timedelta(hours=3), FakeMyfxbook())
+    a, out = run_archive(data, T0 + dt.timedelta(hours=7), gh)
+    check(g, "after 6 h: changed day file pushed again with the new rows", len(gh.rows("2026-10-14")) == 18, out)
+    n = len(gh.calls)
+    a, out = run_archive(data, T0 + dt.timedelta(hours=14), gh)
+    check(g, "nothing new: no write (only the repo check)", [c for c in gh.calls[n:] if c[0] == "PUT"] == [] and "nothing new" in out, out)
+
+    # cache eviction: a fresh runner with an empty data dir must not shrink the archive
+    data2 = _tmp()
+    run_build(data2, T0 + dt.timedelta(hours=14), FakeMyfxbook())
+    a, out = run_archive(data2, T0 + dt.timedelta(hours=14), gh)
+    check(g, "after cache loss the archive keeps every earlier row and adds the new ones",
+          len(gh.rows("2026-10-14")) == 24, len(gh.rows("2026-10-14")))
+    rows = mf.archive_load(env=AENV, opener=gh)
+    check(g, "archive_load reads the history back, oldest first, as dicts",
+          len(rows) == 24 and rows[0]["timestamp"] <= rows[-1]["timestamp"] and set(rows[0]) == set(mf.HIST_FIELDS))
+
+    # a new day goes to a new file
+    run_build(data2, T0 + dt.timedelta(days=1), FakeMyfxbook())
+    a, out = run_archive(data2, T0 + dt.timedelta(days=1, hours=1), gh)
+    check(g, "next UTC day -> its own file", "myfxbook/daily/2026/2026-10-15.csv.gz" in gh.files, list(gh.files))
+
+    # old local files are dropped only once archived
+    old = data2 / mf.HIST_DIR / "2026-08-01.csv"
+    old.write_text(mf._day_text([["2026-08-01T00:00:00Z", "EURUSD"] + ["1"] * 8]))
+    run_archive(data2, T0 + dt.timedelta(days=2), gh, force=True)
+    check(g, f"local day files older than {mf.LOCAL_KEEP_DAYS} days dropped after archiving",
+          not old.exists() and "myfxbook/daily/2026/2026-08-01.csv.gz" in gh.files)
+
+    for mode, kind in (("public", "public"), ("missing", "missing"), ("down", "github")):
+        d3, gh3 = _tmp(), FakeGitHub(mode)
+        run_build(d3, T0, FakeMyfxbook())
+        a, out = run_archive(d3, T0, gh3)
+        check(g, f"{mode} repo: nothing written, error '{kind}', local history kept",
+              not [c for c in gh3.calls if c[0] == "PUT"] and a["last_error"] == kind
+              and len(mf.load_history(d3)) == 6, (a, out))
+        check(g, f"{mode}: token not in the message", TOKEN not in out and TOKEN not in json.dumps(a))
+    d4, gh4 = _tmp(), FakeGitHub()
+    a, out = run_archive(d4, T0, gh4, verify_only=True)
+    check(g, "CI verify: proves write access with a no-data file only",
+          list(gh4.files) == ["myfxbook/_ci_write_check.json"] and "private and writable" in out, (list(gh4.files), out))
+    d5, gh5 = _tmp(), FakeGitHub("public")
+    a, out = run_archive(d5, T0, gh5, verify_only=True)
+    check(g, "CI verify refuses a public repo", gh5.files == {} and a["last_error"] == "public")
+    st = (data2 / mf.STATE_NAME).read_text()
+    check(g, "token never stored", TOKEN not in st)
+
+
 if __name__ == "__main__":
     for fn in (t_parse, t_match, t_labels, t_fetch, t_build_and_budget, t_failures_keep_snapshot,
-               t_render, t_secrets):
+               t_render, t_secrets, t_archive):
         try:
             fn()
         except Exception as e:                                 # noqa: BLE001

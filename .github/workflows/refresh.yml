@@ -105,6 +105,10 @@ jobs:
           # process: login -> outlook -> logout on this runner's IP. Never printed or stored.
           MYFXBOOK_EMAIL: ${{ secrets.MYFXBOOK_EMAIL }}
           MYFXBOOK_PASSWORD: ${{ secrets.MYFXBOOK_PASSWORD }}
+          # Durable Myfxbook history: fine-grained token for the PRIVATE archive repo only
+          # (Contents: read and write). myfxbook.archive() writes day files every 6 h.
+          MYFXBOOK_HISTORY_TOKEN: ${{ secrets.MYFXBOOK_HISTORY_TOKEN }}
+          MYFXBOOK_HISTORY_REPO: ${{ vars.MYFXBOOK_HISTORY_REPO }}
           COT_LEGACY_FETCH: ${{ github.event.inputs.cot_legacy_fetch == 'true' && '1' || '' }}
         run: python run.py ${{ steps.mode.outputs.mode }}
 

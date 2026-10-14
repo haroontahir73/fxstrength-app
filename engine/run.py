@@ -270,6 +270,12 @@ def run(mode):
         myfxbook.build()
     except Exception as e:                                       # noqa: BLE001
         print(f"  myfxbook failed ({type(e).__name__}) - section left as-is")
+    # Durable copy of the history: a PRIVATE repo, every 6 h (myfxbook.archive). The cache
+    # is only the working set. Never fails the run.
+    try:
+        myfxbook.archive()
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  myfxbook archive failed ({type(e).__name__}) - history kept in the cache")
 
     print("Scores:")
     s = score.build()

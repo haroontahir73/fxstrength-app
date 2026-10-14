@@ -86,8 +86,9 @@ jobs:
 
       # Myfxbook Community Outlook (myfxbook.py) against a fake login/outlook/logout: parsing,
       # malformed / refused / unavailable responses, the request budget, last-good snapshot
-      # (never zeros), labels, history, and no credential or session in any file/page/log.
-      - name: Myfxbook suite (105 checks)
+      # (never zeros), labels, history + the private-repo archive (merge, never shrinks,
+      # refuses a public repo), and no credential, session or token in any file/page/log.
+      - name: Myfxbook suite (124 checks)
         working-directory: engine
         run: python test_myfxbook.py
 

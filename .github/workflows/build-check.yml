@@ -80,6 +80,21 @@ jobs:
           PY
           python /tmp/guarded_run.py bootstrap
 
+      # The durable history archive (a PRIVATE repo): prove the token can write there, with
+      # one no-data file. The pipeline step above deliberately has no archive token, so a
+      # pull-request build never writes into the real history.
+      - name: Myfxbook history archive - private and writable (no data written)
+        working-directory: engine
+        env:
+          MYFXBOOK_HISTORY_TOKEN: ${{ secrets.MYFXBOOK_HISTORY_TOKEN }}
+          MYFXBOOK_HISTORY_REPO: ${{ vars.MYFXBOOK_HISTORY_REPO }}
+        run: |
+          python - <<'PY'
+          import myfxbook, sys
+          a = myfxbook.archive(verify_only=True)
+          sys.exit(1 if a.get("configured") and a.get("last_error") else 0)
+          PY
+
       - name: Add the MACRO / MICRO / OI pages
         working-directory: engine
         continue-on-error: true
@@ -133,6 +148,7 @@ jobs:
           mkdir -p build-check
           cp engine/dashboard.html build-check/ 2>/dev/null || true
           cp engine/data/cot_legacy.json build-check/ 2>/dev/null || true
+          cp engine/data/myfxbook.json build-check/ 2>/dev/null || true
 
       # The Myfxbook login must never reach a built or stored file. Reads the two secrets
       # from the environment, never prints them; lists only the offending file names.
@@ -140,12 +156,14 @@ jobs:
         env:
           MYFXBOOK_EMAIL: ${{ secrets.MYFXBOOK_EMAIL }}
           MYFXBOOK_PASSWORD: ${{ secrets.MYFXBOOK_PASSWORD }}
+          MYFXBOOK_HISTORY_TOKEN: ${{ secrets.MYFXBOOK_HISTORY_TOKEN }}
         if: always()
         run: |
           python - <<'PY'
           import os, sys, urllib.parse
           from pathlib import Path
-          vals = [v for v in (os.environ.get("MYFXBOOK_EMAIL"), os.environ.get("MYFXBOOK_PASSWORD")) if v]
+          vals = [v for v in (os.environ.get("MYFXBOOK_EMAIL"), os.environ.get("MYFXBOOK_PASSWORD"),
+                              os.environ.get("MYFXBOOK_HISTORY_TOKEN")) if v]
           if not vals:
               print("Myfxbook secrets not set - nothing to scan for"); sys.exit(0)
           forms = {f for v in vals for f in (v, urllib.parse.quote(v, safe=""), urllib.parse.quote_plus(v))}
@@ -162,4 +180,7 @@ jobs:
         with:
           name: build-check
           path: build-check
-          retention-days: 14
+          # 1 day: once the Myfxbook secrets exist this artifact holds REAL Myfxbook figures,
+          # and a public repo's artifacts are downloadable by any signed-in GitHub user. Kept
+          # only long enough to verify the run, until public display is cleared with Myfxbook.
+          retention-days: 1
