@@ -23,11 +23,14 @@ log: every message that leaves fetch() is scrubbed of all three, and the stored 
 built field by field from validated numbers, so nothing else from the response can ride
 along.
 
-BUDGET. The free API allows 100 outlook requests per 24 hours. The pipeline runs about every
-15 minutes, so a fetch is made only when the last ATTEMPT is >= MIN_GAP_MIN old, and never
-more than DAILY_BUDGET attempts in a rolling 24 h (the rest of the 100 is headroom for the
-pre-merge build check and manual tests). A login refused for bad credentials backs off
-AUTH_BACKOFF_H, so a wrong password cannot hammer the account.
+BUDGET. Myfxbook documents get-community-outlook as 100 requests per 24 hours. Nothing says
+the allowance is per runner or per IP, so EVERY real request with our account - production
+refresh, manual verification, any runner - counts against ONE budget (see REQUEST
+ACCOUNTING). Production fetches only when the last ATTEMPT is >= MIN_GAP_MIN old and never
+more than DAILY_BUDGET attempts in a rolling 24 h; manual real verifications are capped at
+MANUAL_MAX_24H; everything together stays under SAFETY_BUDGET (headroom below the 100).
+Pull-request CI uses fixture data and makes no real request. A login refused for bad
+credentials backs off AUTH_BACKOFF_H, so a wrong password cannot hammer the account.
 
 SAFEGUARDS (all in myfxbook_state.json, carried in the cache):
   * failure back-off - after FAIL_BACKOFF_AFTER failed fetches in a row (Myfxbook down,
@@ -92,6 +95,22 @@ TIMEOUT_S = 25
 DELAYED_MIN = 60          # page labels: older than this -> "Delayed"
 STALE_MIN = 180           # older than this -> "Stale"
 MIN_POSITIONS = 100       # long + short positions needed before a reading is SHOWN
+
+# REQUEST ACCOUNTING - one budget for all real Community Outlook requests with our account.
+# The documented limit is per account as far as we know; no per-runner / per-IP allowance is
+# assumed. Ledger: LEDGER_PATH in the PRIVATE archive repo (no data, no secrets - timestamps):
+#     {"production": {"as_of": ts, "attempts": [ts, ...]},   synced by the production refresh
+#      "manual": [{"at": ts, "run": "..."}, ...]}             one entry per manual real check
+# Production syncs it with each archive push (every ARCHIVE_EVERY_H) and counts the manual
+# entries in its own budget; a manual real check reserves its entry BEFORE fetching and is
+# refused if the estimated 24 h total (production, assumed at its maximum rate since its last
+# sync, plus manual) would exceed SAFETY_BUDGET or MANUAL_MAX_24H. Worst case per 24 h:
+# DAILY_BUDGET (60) + MANUAL_MAX_24H (3) = 63, under SAFETY_BUDGET (80) and the 100 limit.
+PROVIDER_LIMIT = 100      # documented get-community-outlook limit per 24 h
+SAFETY_BUDGET = 80        # all real requests, every source, rolling 24 h
+MANUAL_MAX_24H = 3        # manual real verifications per rolling 24 h
+LEDGER_PATH = "myfxbook/requests/ledger.json"
+SOURCE_VAR = "MYFXBOOK_SOURCE"   # "production" only in the refresh workflow
 
 # Our 16 markets (the COT report keys) -> the Myfxbook symbol names that are the SAME
 # instrument (same underlying, same quote currency), exact match only. When more than one
@@ -540,6 +559,8 @@ def archive(now=None, data=None, env=None, opener=None, force=False, verify_only
                 hashes.pop(p.stem, None)
         a.update(last_push_at=_iso(now), last_error=None, last_pushed_days=pushed)
         a.pop("last_failed_at", None)
+        if env.get(SOURCE_VAR) == "production":
+            _sync_ledger(st, a, now, opener, token, repo)
         print(f"  Myfxbook history archive: {len(pushed)} day file(s) written to {repo}"
               + (f" ({', '.join(pushed)})" if pushed else " (nothing new)"))
     except ArchiveError as e:
@@ -550,6 +571,83 @@ def archive(now=None, data=None, env=None, opener=None, force=False, verify_only
               f"history kept in the cache, next attempt in {ARCHIVE_EVERY_H} h")
     _write(st_p, st)
     return a
+
+
+def _ledger_read(opener, token, repo):
+    cur = _gh(opener, "GET", f"/repos/{repo}/contents/{LEDGER_PATH}", token)
+    led = {}
+    if cur and cur.get("content"):
+        try:
+            led = json.loads(base64.b64decode(cur["content"]).decode("utf-8"))
+        except ValueError:
+            raise ArchiveError("format", "request ledger unreadable") from None
+    led.setdefault("production", {"as_of": None, "attempts": []})
+    led.setdefault("manual", [])
+    return led
+
+
+def _ledger_write(opener, token, repo, led, msg):
+    _put(opener, token, repo, LEDGER_PATH, json.dumps(led, indent=1).encode(), msg)
+
+
+def _sync_ledger(st, a, now, opener, token, repo):
+    """Production: publish its own attempts, learn the manual ones. A ledger problem never
+    fails the archive push; it is recorded and retried with the next push."""
+    try:
+        led = _ledger_read(opener, token, repo)
+        day = _iso(now - dt.timedelta(hours=24))
+        led["production"] = {"as_of": _iso(now), "attempts": [t for t in st.get("attempts", []) if t >= day]}
+        led["manual"] = [m for m in led["manual"] if m.get("at", "") >= _iso(now - dt.timedelta(hours=48))]
+        _ledger_write(opener, token, repo, led, "myfxbook: request ledger (production sync)")
+        st["external_attempts"] = sorted(m["at"] for m in led["manual"] if day <= m["at"] <= _iso(now))
+        a.update(ledger_synced_at=_iso(now))
+        a.pop("ledger_error", None)
+    except ArchiveError as e:
+        a["ledger_error"] = e.kind
+
+
+def ledger_estimate(led, now):
+    """Estimated real requests in the rolling 24 h ending `now`. Production is taken at its
+    last sync plus its MAXIMUM possible rate since then (one per MIN_GAP_MIN), capped at
+    DAILY_BUDGET; unknown production counts as DAILY_BUDGET."""
+    day = _iso(now - dt.timedelta(hours=24))
+    p = led.get("production") or {}
+    known = [t for t in p.get("attempts", []) if t >= day]
+    if p.get("as_of"):
+        since = (now - dt.datetime.fromisoformat(p["as_of"].replace("Z", "+00:00"))).total_seconds() / 60
+        prod = min(DAILY_BUDGET, len(known) + max(0, math.ceil(since / MIN_GAP_MIN)))
+    else:
+        prod = DAILY_BUDGET
+    manual = [m for m in led.get("manual", []) if m.get("at", "") >= day]
+    return {"production": prod, "production_known": len(known), "manual": len(manual),
+            "total": prod + len(manual), "safety_budget": SAFETY_BUDGET, "limit": PROVIDER_LIMIT}
+
+
+def reserve_manual(now=None, env=None, opener=None, run=""):
+    """Before a MANUAL real verification fetches: check the shared budget and record the
+    request. Returns (allowed, estimate-or-reason). Fails closed - no ledger, no fetch."""
+    now = now or dt.datetime.now(dt.timezone.utc)
+    env = os.environ if env is None else env
+    opener = opener or urllib.request.urlopen
+    token, repo = env.get("MYFXBOOK_HISTORY_TOKEN", ""), env.get("MYFXBOOK_HISTORY_REPO") or ARCHIVE_REPO
+    if not token:
+        return False, "no archive token - the shared request ledger cannot be checked"
+    try:
+        meta = _gh(opener, "GET", f"/repos/{repo}", token)
+        if not meta or meta.get("private") is not True:
+            return False, f"ledger repo {repo} missing or not private"
+        led = _ledger_read(opener, token, repo)
+        est = ledger_estimate(led, now)
+        if est["manual"] >= MANUAL_MAX_24H:
+            return False, f"{est['manual']} manual real checks in the last 24 h (max {MANUAL_MAX_24H})"
+        if est["total"] + 1 > SAFETY_BUDGET:
+            return False, f"estimated {est['total']} real requests in 24 h - one more would pass {SAFETY_BUDGET}"
+        led["manual"].append({"at": _iso(now), "run": str(run)[:40]})
+        _ledger_write(opener, token, repo, led, "myfxbook: request ledger (manual verification)")
+        est.update(manual=est["manual"] + 1, total=est["total"] + 1)
+        return True, est
+    except ArchiveError as e:
+        return False, f"ledger unavailable ({e.kind})"
 
 
 def archive_load(env=None, opener=None, since_day=None):
@@ -620,6 +718,9 @@ def build(now=None, data=None, env=None, opener=None, force=False):
                f"the last ({last[11:16]} UTC)")
     elif len(st["attempts"]) >= DAILY_BUDGET:
         why = f"daily budget used ({DAILY_BUDGET} attempts in 24 h)"
+    elif len(st["attempts"]) + len([t for t in st.get("external_attempts", []) if t >= cutoff]) >= SAFETY_BUDGET:
+        why = (f"shared request budget used ({SAFETY_BUDGET} real requests in 24 h, "
+               f"manual verifications included)")
     elif st.get("auth_backoff_until") and _iso(now) < st["auth_backoff_until"]:
         why = f"login refused earlier - waiting until {st['auth_backoff_until'][11:16]} UTC"
     status = dict(snap.get("status") or {})

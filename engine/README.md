@@ -719,6 +719,20 @@ exactly `true`) protects the account and the page by itself:
 The 25-minute gap, the 60-attempts-a-day budget and the 100-position display minimum apply
 as before.
 
+**One request budget.** Myfxbook documents the Community Outlook endpoint as 100 requests per
+24 hours and does not say the allowance is per runner or IP, so every real request with our
+account counts against one budget: production (≤ 60 a day, ≥ 25 min apart) + manual real
+verifications (≤ 3 a day) stay under a safety budget of 80. A shared ledger of request
+times (no data, no secrets) lives in the private archive repo; production syncs it with
+each archive push and counts the manual ones, and a manual check reserves its request
+there first (and is refused if the budget is used or the ledger can't be read).
+
+**CI makes no real Myfxbook request.** Pull requests and ordinary build checks run on a
+synthetic fixture snapshot with no Myfxbook credentials; any request to myfxbook.com fails
+the job. For a real verification (rarely - e.g. once before an important merge), run
+*build check* manually (Actions → build check → Run workflow) with **real_myfxbook_test**
+ticked.
+
 **Resetting the login lock.** When logins stop, the refresh log prints a line like
 `Myfxbook: login LOCKED after 2 rejected logins ... set the repository variable
 MYFXBOOK_LOGIN_RESET to 2026-10-14T09:30:00Z`, and the tab shows "latest update failed:

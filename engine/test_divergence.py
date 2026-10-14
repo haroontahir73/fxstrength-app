@@ -453,6 +453,17 @@ def t_wording():
           and all(r["cls"] == "none" for k, r in res.items() if k not in ("HG", "ZB")))
 
 
+def t_plural():
+    g = "plural"
+    check(g, "1 position / 2 positions / 0 positions / 1,500 positions",
+          [dv._positions(n) for n in (1, 2, 0, 1500)] == ["1 position", "2 positions", "0 positions", "1,500 positions"])
+    st = make_store({"XAU": series(46)})
+    for n_long, n_short, want in ((1, 0, "1 position,"), (0, 1, "1 position,"), (1, 1, "2 positions,"), (2, 1, "3 positions,")):
+        r = ev("XAU", st, make_snap({"XAU": mkt("XAUUSD", 50, 50, n_long, n_short)}))
+        check(g, f"{n_long + n_short} retail position(s): reason reads '{want[:-1]}'",
+              r["reasons"] == [f"Myfxbook sample too small - {want} minimum 100"], r["reasons"])
+
+
 def t_config_driven():
     """Changing divergence_config changes the behaviour - no limit is hard-coded."""
     g = "config"
@@ -489,7 +500,7 @@ def t_config_driven():
 
 if __name__ == "__main__":
     for fn in (t_orientation_table, t_orientation_values, t_markets, t_rules, t_quality, t_cot_quality,
-               t_momentum, t_card, t_scanner_and_switch, t_wording, t_config_driven):
+               t_momentum, t_card, t_scanner_and_switch, t_wording, t_config_driven, t_plural):
         try:
             fn()
         except Exception as e:                                 # noqa: BLE001
