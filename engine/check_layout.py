@@ -282,6 +282,8 @@ def divergence_phone(pg, url, label, out):
         ok(not m["scan"] and m["cards"] == 0, f"{label}: divergence switched off with Myfxbook - no scanner, no card", m)
         return
     ok(m["scan"] and m["first"], f"{label}: 'Positioning divergences' scanner at the top of the COT tab", m)
+    if not m["scan"]:
+        return                    # e.g. the live page before Step 2 is deployed - nothing to drive
     ok(m["sw"] <= m["W"] + 1 and m["over"] == 0, f"{label}: divergence scanner fits the phone width", m)
     pg.locator("#p-cot .dvscan").screenshot(path=str(out / f"{label}_divergence_scanner.png"))
     for k in m["links"]:

@@ -404,6 +404,8 @@ def check_divergence(page, data_dir):
             n = int(math.floor(pct + 0.5))
             ok(layer is not None and f"<dt>50-week percentile</dt><dd>{n}" in layer.group(0),
                f"Divergence: {key} card shows the {n} percentile")
+    # classes only (no figures) - this log is public
+    print("  divergence: " + ", ".join(f"{k}={cards.get(k)}" for k in DV_CODE))
     hits = re.findall(r'<a href="#cot50-([^"]+)" class="dvsc">', scan.group(0)) if scan else []
     ok(sorted(hits) == sorted(want_hits), f"Divergence: scanner lists exactly the actionable markets ({', '.join(hits) or 'none'})",
        (hits, want_hits))
