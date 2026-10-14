@@ -140,3 +140,23 @@ The code is never updated automatically. The Pi runs only what you have pulled.
 - `systemd/fxstrength-cot.timer`: every 15 min, plus 3 min after boot; `Persistent=true` catches up after downtime.
 - `install.sh`: installs or updates the units, stores the token at a hidden prompt, and switches between dry-run and live.
 - `test_pi_check.py`: offline tests (they run in CI) covering scheduling, trigger-once, retries and back-off, success without a page update, scheduled refresh first, downtime catch-up, half-published weeks, overlapping checks, dry run, and token hygiene.
+
+## Myfxbook history backup (prepared, NOT installed)
+
+The durable Myfxbook history lives in a **private** GitHub repo (default
+`haroontahir73/fxstrength-data`), written every 6 hours by the refresh job
+(`engine/myfxbook.py`, `archive()`): `myfxbook/daily/YYYY/YYYY-MM-DD.csv.gz`, one file per
+UTC day. GitHub is the primary copy; the Actions cache is only a working copy.
+
+The Pi keeps a **second copy** at home, once you choose to install it:
+
+| What | Where on the Pi |
+|---|---|
+| Bare mirror of the private repo (every version of every day file) | `/var/backups/fxstrength/fxstrength-data.git` |
+| Dated snapshot of the latest files, newest 30 kept | `/var/backups/fxstrength/snapshots/` |
+
+- `myfxbook_mirror.sh` does it: it updates the mirror, then writes the day's snapshot.
+- `systemd/myfxbook-mirror.service` + `.timer` run it nightly at 03:30 UTC, and catch up after downtime.
+- It needs a **read-only** fine-grained token for that one repo (Contents: Read-only), stored root-only at `/etc/fxstrength-cot/history_token`. git gets it through `GIT_ASKPASS`, so it is never in a URL, the git config or a log.
+
+Install steps follow with the rest of the Pi setup. Nothing here is active yet.

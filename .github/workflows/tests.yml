@@ -84,6 +84,14 @@ jobs:
         working-directory: engine
         run: python test_cot_table.py
 
+      # Myfxbook Community Outlook (myfxbook.py) against a fake login/outlook/logout: parsing,
+      # malformed / refused / unavailable responses, the request budget, last-good snapshot
+      # (never zeros), labels, history + the private-repo archive (merge, never shrinks,
+      # refuses a public repo), and no credential, session or token in any file/page/log.
+      - name: Myfxbook suite (222 checks)
+        working-directory: engine
+        run: python test_myfxbook.py
+
       # The Raspberry Pi trigger (pi/cot_pi_check.py) against a fake CFTC / GitHub / Pages:
       # schedule, trigger-once, retries, confirmation, downtime, overlap, token hygiene.
       - name: Pi checker suite (35 checks)
@@ -137,3 +145,4 @@ jobs:
           python /tmp/no_push.py test_publish_state.py
           python /tmp/no_push.py test_cot_table.py
           python /tmp/no_push.py ../pi/test_pi_check.py
+          python /tmp/no_push.py test_myfxbook.py

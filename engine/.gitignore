@@ -99,3 +99,8 @@ data/fred_key.txt
 data/_bt_bars.json
 # publish_state.py bookkeeping - carried in the Actions cache, never committed
 data/publish_status.json
+# [cache] Myfxbook Community Outlook (myfxbook.py): latest snapshot, attempt budget and the
+# accumulating per-fetch history. Never committed; no credential or session is ever in them.
+data/myfxbook.json
+data/myfxbook_state.json
+data/myfxbook_history/

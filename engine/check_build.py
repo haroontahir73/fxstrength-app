@@ -22,7 +22,7 @@ Checks, for the COT report tables and all 16 50-week reports:
     stored (proves the one-time backfill ran).
 Exit status 1 on any failure; prints a summary either way.
 """
-import argparse, html, json, math, re, sys
+import argparse, os, html, json, math, re, sys
 import datetime as dt
 from pathlib import Path
 
@@ -231,7 +231,92 @@ def main():
         flat = " ".join(L.split())
         ok("<b>Red</b> = unusually high long positioning" in flat and "<b>not</b> buy/sell signals" in flat
            and "The <b>Max / Min</b> rows cover the 50 reports shown" in flat, f"{label}: legend")
+    check_myfxbook(page, Path(a.data))
     return finish()
+
+
+# ---------------------------------------------------------------- Myfxbook retail sentiment
+# Re-derived here from data/myfxbook.json with its own arithmetic, not by calling
+# myfxbook.py's helpers: imbalance = |L - S| (half-up), the five crowd bands, and that every
+# figure on the page is the stored one - nothing zeroed, estimated or borrowed.
+MFX_MIN_POSITIONS = 100      # the page's minimum sample (long + short positions)
+MFX_BANDS = [(lambda l, s: l >= 70, "Heavy Long"), (lambda l, s: s >= 70, "Heavy Short"),
+             (lambda l, s: l >= 60, "Long"), (lambda l, s: s >= 60, "Short"),
+             (lambda l, s: True, "Balanced")]
+
+
+def _pc(v):
+    return f"{v:.0f}" if abs(v - round(v)) < 1e-9 else f"{v:.1f}"
+
+
+def check_myfxbook(page, data_dir):
+    m = re.search(r'<div class="panel" id="p-rtl">(.*?)<div class="panel" id="p-oi">', page, re.S)
+    if os.environ.get("MYFXBOOK_ENABLED") != "true":
+        # the switch is off: the tab says so and NO Myfxbook figure is anywhere on the page,
+        # not even from a cached snapshot (MYFXBOOK_ENABLED must be exactly "true")
+        ok(m is not None and "switched off" in m.group(1), "Myfxbook switched off: tab says so")
+        ok(not re.search(r'class="mfx(row|card|bar|meta)|data-mfx-(key|ts)|Retail crowd:', page),
+           "Myfxbook switched off: no reading, card or timestamp anywhere on the page")
+        return
+    p = data_dir / "myfxbook.json"
+    snap = json.loads(p.read_text()) if p.exists() else {}
+    m = re.search(r'<div class="panel" id="p-rtl">(.*?)<div class="panel" id="p-oi">', page, re.S)
+    ok(m is not None, "Myfxbook retail tab present (after COT)")
+    if not m:
+        return
+    tab = m.group(1)
+    ok("Retail sentiment &mdash; Myfxbook" in tab and 'href="https://www.myfxbook.com/community/outlook"' in tab
+       and "Retail sentiment data:" in tab, "Myfxbook: section title and source link")
+    layers = dict(re.findall(r'<div class="cotmodal[^"]*" id="cot50-([^"]+)">(.*?)(?=<div class="cotmodal|\Z)', page, re.S))
+    if not snap.get("fetched_at"):
+        ok("not configured yet" in tab or "No Myfxbook data yet" in tab, "Myfxbook: no data yet - page says so",
+           snap.get("status"))
+        cards = [k for k, L in layers.items() if "Myfxbook retail" in L and "No Myfxbook data yet" in L]
+        ok(len(cards) >= 16, f"Myfxbook: every report card says no data yet ({len(cards)})")
+        return
+    link = 'Retail sentiment data: <a href="https://www.myfxbook.com/community/outlook" target="_blank" rel="noopener">Myfxbook Community Outlook</a>'
+    cards = re.findall(r'<div class="mfxcard">.*?</p></div>', page, re.S)
+    ok(link in tab, "Myfxbook: tab credits Myfxbook Community Outlook with a link")
+    ok(len(cards) >= 16 and all(link in c for c in cards),
+       f"Myfxbook: every report card credits Myfxbook Community Outlook with a link ({sum(link in c for c in cards)}/{len(cards)})")
+    markets = snap.get("markets") or {}
+    rows = dict(re.findall(r'<div class="mfxrow[^"]*" data-mfx-key="([^"]+)">(.*?)(?=<div class="mfxrow|</div>\s*<h3|</div>\s*<p class="mfxkey")', tab, re.S))
+    ok(len(rows) == 16, f"Myfxbook: 16 markets listed ({len(rows)})")
+    ts = snap["fetched_at"]
+    ok(f'data-mfx-ts="{ts}"' in tab, "Myfxbook: tab shows the stored timestamp")
+    for key, r in rows.items():
+        d = markets.get(key)
+        L = layers.get(key, "")
+        ok("Myfxbook retail" in L, f"Myfxbook: {key} report has the retail card")
+        if not d:
+            ok("Retail sentiment unavailable" in r, f"Myfxbook: {key} has no data and says so")
+            ok("Retail sentiment unavailable" in L, f"Myfxbook: {key} report card says unavailable")
+            continue
+        n = d["longPositions"] + d["shortPositions"]
+        if n < MFX_MIN_POSITIONS:
+            want = f"Too few Myfxbook positions (n = {n:,}) &mdash; no reading"
+            # no figure in the message: this log is public
+            card = re.search(r'<div class="mfxcard">(.*?)</p></div>', L, re.S)
+            ok(want in r and card is not None and want in card.group(1),
+               f"Myfxbook: {key} below {MFX_MIN_POSITIONS} positions - says so, tab and report")
+            ok(card is not None and not re.search(r"LONG \d|SHORT \d|Imbalance \d|Retail crowd|mfxbar", r + card.group(1)),
+               f"Myfxbook: {key} below {MFX_MIN_POSITIONS} - no %, bar, imbalance or crowd")
+            continue
+        lp, sp = d["longPercentage"], d["shortPercentage"]
+        imb = int(abs(lp - sp) + 0.5)
+        band = next(n for f, n in MFX_BANDS if f(lp, sp))
+        ok(f"LONG {_pc(lp)}%" in r and f"SHORT {_pc(sp)}%" in r, f"Myfxbook: {key} long/short % as stored")
+        ok(f"Imbalance {imb}<" in r and f"Retail crowd: <b>{band}</b>" in r, f"Myfxbook: {key} imbalance {imb}, crowd {band}")
+        name = re.search(r'class="mfxname">([^<]*)<', r)
+        same = name and name.group(1).replace("&amp;", "&").upper() == d["symbol"]
+        ok(same or f">{d['symbol']}<" in r,
+           f"Myfxbook: {key} names the Myfxbook symbol used ({d['symbol']}{', = market label' if same else ''})")
+        ok(f"width:{lp:.4g}%" in r and f"width:{sp:.4g}%" in r, f"Myfxbook: {key} bar widths match the %")
+        vols = f"L {d['longVolume']:,.2f} &middot; S {d['shortVolume']:,.2f}"
+        pos = f"L {d['longPositions']:,} &middot; S {d['shortPositions']:,}"
+        ok(vols in r and pos in r, f"Myfxbook: {key} volume and positions as stored")
+        ok(f"Long {_pc(lp)}% &middot; Short {_pc(sp)}% &middot; Imbalance {imb}" in L
+           and f"Retail crowd: <b>{band}</b>" in L, f"Myfxbook: {key} report card matches")
 
 
 def finish():

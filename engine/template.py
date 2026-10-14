@@ -162,15 +162,16 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
   border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
 .tabs label:hover{color:var(--ink2)}
 .panel{display:none;flex-direction:column;gap:34px}
-/* Nine tabs. Fed Watch is folded into Rates; COT and Open interest are their own tabs again
+/* Ten tabs (Myfxbook retail added after COT). Fed Watch is folded into Rates; COT and Open interest are their own tabs again
    (Retail sentiment rides along on the COT tab). The id `tab-yld` is kept for the merged
    Rates pair rather than renamed - internal wiring, churning it buys nothing. */
-#tab-cot:checked~#p-cot,#tab-oi:checked~#p-oi,
+#tab-cot:checked~#p-cot,#tab-oi:checked~#p-oi,#tab-rtl:checked~#p-rtl,
 #tab-macro:checked~#p-macro,
 #tab-micro:checked~#p-micro,#tab-board:checked~#p-board,
 #tab-mx:checked~#p-mx,#tab-yld:checked~#p-yld,
 #tab-seas:checked~#p-seas,#tab-idx:checked~#p-idx{display:flex}
 #tab-cot:checked~.tabs label[for="tab-cot"],
+#tab-rtl:checked~.tabs label[for="tab-rtl"],
 #tab-oi:checked~.tabs label[for="tab-oi"],
 #tab-macro:checked~.tabs label[for="tab-macro"],
 #tab-micro:checked~.tabs label[for="tab-micro"],
@@ -371,6 +372,41 @@ table.cotrep{min-width:1100px;width:100%;border-collapse:collapse;font-size:12.5
 .cotmodal{position:fixed;inset:0;z-index:90;background:var(--bg);overflow-y:auto;
   -webkit-overflow-scrolling:touch;padding:22px 18px 64px;display:none}
 .cotmodal:target{display:block}
+/* Myfxbook retail sentiment (myfxbook.py). Long/short get their own neutral pair - not
+   the COT red/blue (those mean positioning extremes) and not green/red (no bull/bear). */
+:root{--mfx-l:#14867a;--mfx-s:#c47a12}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--mfx-l:#3cc2b2;--mfx-s:#eaa23f}}
+:root[data-theme="dark"]{--mfx-l:#3cc2b2;--mfx-s:#eaa23f}
+.mfx .mfxmeta,.mfxcard .mfxcl{font-size:13px;color:var(--ink2)}
+.mfxfresh{white-space:normal}
+.mfxstate{font-weight:700}.mfxstate.delayed{color:var(--warn)}.mfxstate.stale{color:var(--neg)}
+.mfxwarn{display:block;margin-top:4px;color:var(--neg);font-weight:600}
+.mfxg{margin:16px 0 6px;font-size:14px}
+.mfxlist{display:grid;grid-template-columns:1fr;gap:8px}
+@media (min-width:860px){.mfxlist{grid-template-columns:1fr 1fr}}
+.mfxrow{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--surface);min-width:0}
+.mfxrow.na{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:6px 10px}
+.mfxhd{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.mfxname{font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--mut)}
+.mfxsym{font:600 11.5px "IBM Plex Mono",monospace;color:var(--mut)}
+.mfximb{font:600 12px "IBM Plex Mono",monospace;padding:1px 6px;border-radius:6px;background:var(--surface2)}
+.mfximb.md{background:var(--warnbg)}.mfximb.hi{background:var(--warnbg);font-weight:800;outline:1px solid var(--warn)}
+.mfxcrowd{font-size:12.5px;color:var(--ink2);margin-left:auto}
+.mfxls{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:8px;margin:6px 0 4px}
+.mfxl,.mfxs{font:700 12.5px "IBM Plex Mono",monospace;white-space:nowrap}
+.mfxl{color:var(--mfx-l)}.mfxs{color:var(--mfx-s)}
+.mfxbar{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--surface2);min-width:0}
+.mfxbar span{display:block;height:100%}
+.mfxbar .mfl{background:color-mix(in srgb,var(--mfx-l) calc(var(--a)*100%),var(--surface2))}
+.mfxbar .mfs{background:color-mix(in srgb,var(--mfx-s) calc(var(--a)*100%),var(--surface2))}
+.mfxv{display:grid;grid-template-columns:auto 1fr;gap:1px 10px;margin:0;font-size:12px}
+.mfxv dt{color:var(--mut)}.mfxv dd{margin:0;font-family:"IBM Plex Mono",monospace;overflow-wrap:anywhere}
+.mfxna{color:var(--mut);font-style:italic;font-size:13px;margin:0}
+.mfxempty{color:var(--mut)}
+.mfxkey,.mfxsrc{font-size:12.5px;color:var(--ink2)}
+.mfxcard{border:1px solid var(--line);border-left:3px solid var(--mfx-l);border-radius:8px;padding:8px 10px;margin:10px 0 14px;background:var(--surface)}
+.mfxct{font:700 11.5px "IBM Plex Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.mfxcard .mfxcl{margin:2px 0}
 /* A report's "Jump to" links target one of its own tables; the layer stays open while any
    of its sections is the target. Browsers without :has() drop this rule - and never show
    the links (.crjump below), so a jump can never close a report there. */
@@ -573,6 +609,7 @@ a{color:var(--accent)}
   <input type="radio" name="tab" id="tab-mx" class="tabin" checked>
   <input type="radio" name="tab" id="tab-board" class="tabin">
   <input type="radio" name="tab" id="tab-cot" class="tabin">
+  <input type="radio" name="tab" id="tab-rtl" class="tabin">
   <input type="radio" name="tab" id="tab-oi" class="tabin">
   <input type="radio" name="tab" id="tab-yld" class="tabin">
   <input type="radio" name="tab" id="tab-seas" class="tabin">
@@ -583,6 +620,7 @@ a{color:var(--accent)}
     <label for="tab-mx">Matrix</label>
     <label for="tab-board">Strength desk</label>
     <label for="tab-cot">COT</label>
+    <label for="tab-rtl">Myfxbook retail</label>
     <label for="tab-oi">Open interest</label>
     <label for="tab-yld">Rates</label>
     <label for="tab-seas">Seasonality</label>
@@ -593,6 +631,7 @@ a{color:var(--accent)}
 
   <div class="panel" id="p-mx">{{MATRIX_PANEL}}</div>
   <div class="panel" id="p-cot">{{COT_PANEL}}</div>
+  <div class="panel" id="p-rtl">{{RETAIL_PANEL}}</div>
   <div class="panel" id="p-oi">{{OI_PANEL}}</div>
   <div class="panel" id="p-yld">{{RATES_PANEL}}</div>
   <div class="panel" id="p-seas">{{SEASONALITY_PANEL}}</div>

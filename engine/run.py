@@ -19,6 +19,7 @@ except ImportError:                                   # older config - no index 
 import fetch_cot, fetch_calendar, fetch_oi, fetch_rates, rate_expectations, speakers, fundamentals, score, build_dashboard
 import fetch_prices, fetch_fx_prices, commodities, fedwatch
 import fetch_index_prices, fetch_dxy_price, yields, seasonality, sentiment, indices, matrix, ticker, dxy, fred
+import myfxbook
 import cot_table
 
 STATE = DATA / "state.json"
@@ -259,6 +260,22 @@ def run(mode):
         cot_table.build(force=os.environ.get("COT_LEGACY_FETCH") == "1")
     except Exception as e:                                       # noqa: BLE001
         print(f"  cot_table failed ({type(e).__name__}: {e}) - tables left as-is")
+
+    # Myfxbook Community Outlook - retail positioning, display only (Retail tab + a card in
+    # each 50-week report). build() fetches only when due (>= 25 min since the last attempt,
+    # 60 attempts / 24 h of the free API's 100) and keeps the last good snapshot on failure.
+    # Credentials come from the environment and never leave myfxbook.fetch().
+    print("Myfxbook retail sentiment:")
+    try:
+        myfxbook.build()
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  myfxbook failed ({type(e).__name__}) - section left as-is")
+    # Durable copy of the history: a PRIVATE repo, every 6 h (myfxbook.archive). The cache
+    # is only the working set. Never fails the run.
+    try:
+        myfxbook.archive()
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  myfxbook archive failed ({type(e).__name__}) - history kept in the cache")
 
     print("Scores:")
     s = score.build()
