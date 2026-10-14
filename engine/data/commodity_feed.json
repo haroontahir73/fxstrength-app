@@ -1,5 +1,61 @@
 [
  {
+  "when": "14 Oct 13:43 UTC",
+  "iso": "2026-10-14T13:43:40.076566+00:00",
+  "cat": "geo_escalation",
+  "title": "TALK | OIL LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIran Warns of US Strikes Before Midterms, Says Trump Needs a Win With Voters as US Blockade Drives Tehran - Benzinga  (Benzinga)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2193    mild short bias - FLIPPED - see the reality check below\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191   look for longs - supply at risk = price up fast (talk, not action yet)\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,128 (-1.2%)   Silver 57.40 (-3.0%)   WTI 95.30 (+1.2%)   DXY 102.75 (+0.6%)   US10Y 5.30 (+1.7%)\n\nREALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxPY3VJRkZScFlUVkVtdnNrSG1yRjdVX29adGotTkx6ZkZ3eTAtWWt2aVd2aDRKekZjZU5kRV94UEpXcDRSdXZwWFBxTUwzR2xveVJONzlnUjZTNTlpbTVHQjJuNVdldDFya3BKM1lpclFqTXUwM1F6Qzg1dkNYeFBqdThXaXY3VW9kUXo1dGNBb192VnFjcXY4XzA5WDg3RzhHdUU0NDd0eXJDaVRRQ3RPeVFzWDJCUDZPcmg4M3pacFFuN0VjTGRuNDRLRVpad1dfVGQxclVkSXQ0NmRCSTNBMEtiblljUFl4blhnUTg2Q3pvc1RfcHhYRi1GOFV5ZDIzMGNCQ0ZUR0RsLVNPOGc?oc=5",
+  "talk": true,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4127.8,
+   "Silver": 57.395,
+   "WTI": 95.3
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Iran Warns of US Strikes Before Midterms, Says Trump Needs a Win With Voters as US Blockade Drives Tehran - Benzinga",
+   "src": "Benzinga",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "FLIPPED - see the reality check below",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "supply at risk = price up fast (talk, not action yet)",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,128 (-1.2%)   Silver 57.40 (-3.0%)   WTI 95.30 (+1.2%)   DXY 102.75 (+0.6%)   US10Y 5.30 (+1.7%)",
+   "reality": "REALITY CHECK: gold is FALLING while yields and oil RISE. The market is trading oil -> inflation -> rates stay high, NOT safety. Right now scary news pushes gold DOWN, not up.",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "14 Oct 12:54 UTC",
   "iso": "2026-10-14T12:54:41.673132+00:00",
   "cat": "inflation_hot",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,216 (+1.4%)   Silver 61.05 (+3.4%)   WTI 91.85 (+0.4%)   DXY 102.23 (+0.1%)   US10Y 5.24 (+0.2%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "11 Oct 15:33 UTC",
-  "iso": "2026-10-11T15:33:29.502797+00:00",
-  "cat": "geo_deescalation",
-  "title": "GEOPOLITICS - calming down",
-  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nTrump says Russia, Ukraine agree to 'energy ceasefire' - DW.com  (DW.com)\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193    mild short bias - supply worry gone, barrels flow again (eased by self-check)\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,216 (+1.4%)   Silver 61.05 (+3.4%)   WTI 91.85 (+0.4%)   DXY 102.23 (+0.1%)   US10Y 5.24 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
-  "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQcXJ2LU04blFuQ3BhX2VvZW51NzZydHVzd3hLamZMVzdCaG1tUmh1WW1GTHQ4NEdSV3RqM3dmLWhCbFdrVnc5VWR4cmU1V1R2SmNiQzRRT18tMV9lNkI4emxrQXZpWFdDOTUxNWJySE5tc0daZ2VBQmhBWUk5alNDcFlhZG1QOTd3NllvdUJXTW0zczRLLV930gGXAUFVX3lxTE0tRFhUa3JyczNfbmFxSjV1bnNOMnRFUklZLXV2T3V3UEFpNGExNWlFMHlCY1dsVUswaWc5WmVhb2hOaHNOTkF0U0ljd09yVXhVcFdtUk51alduWVJ1QTBxUTNWOTRkN0hKRFQ4aU1KMHhLakdVXzZERmNMX0twNGlKYTBTWXN6S1BvN0wyaE1RemlHd3pUZWM?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4216.3,
-   "Silver": 61.048,
-   "WTI": 91.85
-  },
-  "parts": {
-   "emoji": "\ud83d\udd4a",
-   "label": "GEOPOLITICS \u2014 calming down",
-   "headline": "Trump says Russia, Ukraine agree to 'energy ceasefire' - DW.com",
-   "src": "DW.com",
-   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured both ways - fear-out vs yields-down cancel",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "same, no reliable direction",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "supply worry gone, barrels flow again (eased by self-check)",
-     "record": "some evidence - right 51% of 113 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,216 (+1.4%)   Silver 61.05 (+3.4%)   WTI 91.85 (+0.4%)   DXY 102.23 (+0.1%)   US10Y 5.24 (+0.2%)",
-   "reality": "",
-   "flip": "these deals break \u2014 one broken truce and it all goes back on"
   }
  }
 ]
