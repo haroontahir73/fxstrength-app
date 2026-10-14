@@ -117,6 +117,9 @@ jobs:
           # fixing the credentials, set this repository variable to the lock time printed in
           # the refresh log (e.g. 2026-10-14T09:00:00Z). It clears that one lock only.
           MYFXBOOK_LOGIN_RESET: ${{ vars.MYFXBOOK_LOGIN_RESET }}
+          # The production source: its archive push also syncs the shared request ledger
+          # (all real Myfxbook requests, production + manual, against one 100/24 h budget).
+          MYFXBOOK_SOURCE: production
           COT_LEGACY_FETCH: ${{ github.event.inputs.cot_legacy_fetch == 'true' && '1' || '' }}
         run: python run.py ${{ steps.mode.outputs.mode }}
 

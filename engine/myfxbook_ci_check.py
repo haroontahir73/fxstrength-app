@@ -1,7 +1,18 @@
-"""Real-data verification of the Myfxbook integration, run by build-check AFTER the pipeline
-has made its one genuine login -> outlook -> logout.
+"""Myfxbook checks for build-check.
 
-    python myfxbook_ci_check.py
+    python myfxbook_ci_check.py --seed-fixture   before the pipeline, normal PR runs: write a
+                                                 SYNTHETIC snapshot so the tab, cards and
+                                                 divergence are built and checked without
+                                                 any real request
+    python myfxbook_ci_check.py --reserve        manual real run only: check the shared request
+                                                 budget and record this request first
+    python myfxbook_ci_check.py                  after the pipeline: fixture mode proves no
+                                                 request was made; real mode verifies the
+                                                 real fetch (below)
+
+Real mode (MYFXBOOK_REAL=true - only a manual build-check run with real_myfxbook_test) is the
+real-data verification, run AFTER the pipeline has made its one genuine login -> outlook ->
+logout:
 
 Prints names, counts and PASS/FAIL only - never a Myfxbook figure (this repo's Actions logs
 are public) and never a credential. Exit 1 on any failure.
@@ -16,7 +27,7 @@ are public) and never a credential. Exit 1 on any failure.
      myfxbook/daily/YYYY/YYYY-MM-DD.csv.gz and read back; an immediate second archive()
      is skipped (6-hour rule)
 """
-import copy, datetime as dt, json, re, shutil, sys, tempfile
+import copy, datetime as dt, json, os, re, shutil, sys, tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
@@ -61,9 +72,83 @@ def check_off():
     return finish()
 
 
+FIXTURE = {  # market: (symbol, long %, long positions, short positions) - synthetic, not Myfxbook data
+    "USD": ("USDX", 40, 30, 20), "AUD": ("AUDUSD", 62, 900, 600), "CAD": ("USDCAD", 45, 800, 900),
+    "CHF": ("USDCHF", 25, 500, 1500), "EUR": ("EURUSD", 40, 4000, 6000), "GBP": ("GBPUSD", 72, 2200, 800),
+    "JPY": ("USDJPY", 50, 1500, 1500), "NZD": ("NZDUSD", 35, 700, 1300), "XAU": ("XAUUSD", 61, 6000, 3800),
+    "XAG": ("XAGUSD", 30, 900, 2100), "HG": ("COPPER", 55, 10, 5), "WTI": ("XTIUSD", 60, 30, 30),
+    "ES": ("US500", 30, 20, 40), "NQ": ("NAS100", 35, 20, 20), "YM": ("US30", 80, 30, 2)}
+
+
+def seed_fixture():
+    """Normal PR runs: a synthetic snapshot (marked fixture) in data/, 5 minutes old, so the
+    Retail tab, the report cards and the divergence are built and checked with NO request."""
+    now = dt.datetime.now(dt.timezone.utc) - dt.timedelta(minutes=5)
+    ts = now.strftime("%Y-%m-%dT%H:%M:%SZ")
+    markets = {k: {"symbol": s, "longPercentage": lp, "shortPercentage": 100 - lp, "longVolume": 100.5,
+                   "shortVolume": 80.25, "longPositions": lpos, "shortPositions": spos, "totalPositions": lpos + spos,
+                   "avgLongPrice": 1.2345, "avgShortPrice": 1.2399, "candidates": [s]}
+               for k, (s, lp, lpos, spos) in FIXTURE.items()}
+    snap = {"fixture": True, "fetched_at": ts, "markets": markets, "symbols_in_response": len(markets),
+            "symbols_returned": sorted(m["symbol"] for m in markets.values()), "rejected": [],
+            "status": {"configured": True, "last_attempt_at": ts, "last_ok_at": ts, "last_error": None,
+                       "last_error_msg": None},
+            "source": {"name": mf.SOURCE_NAME, "url": mf.SOURCE_URL}}
+    DATA.mkdir(parents=True, exist_ok=True)
+    (DATA / mf.OUT_NAME).write_text(json.dumps(snap))
+    print(f"Myfxbook FIXTURE snapshot written ({len(markets)} markets, synthetic) - no real request in this run")
+    return 0
+
+
+def check_fixture():
+    """Normal PR runs: prove that nothing reached Myfxbook (the pipeline had no credentials)
+    and that a further build()/archive() also makes no request."""
+    import urllib.request
+    calls = []
+
+    def spy(req, *a, **k):
+        url = req if isinstance(req, str) else getattr(req, "full_url", str(req))
+        calls.append(url.split("?")[0])
+        raise OSError("blocked: fixture mode makes no real request")
+    real, urllib.request.urlopen = urllib.request.urlopen, spy
+    try:
+        print("Myfxbook FIXTURE mode (no real request; real data only with a manual real_myfxbook_test run)")
+        snap = json.loads((DATA / mf.OUT_NAME).read_text())
+        ok(snap.get("fixture") is True, "the page was built from the synthetic fixture snapshot")
+        st = json.loads((DATA / mf.STATE_NAME).read_text()) if (DATA / mf.STATE_NAME).exists() else {}
+        ok(not st.get("attempts"), "the pipeline recorded no Myfxbook request attempt")
+        mf.build()
+        mf.archive(force=True)
+        ok(not calls, f"a further build()/archive() makes no request ({len(calls)} attempted)")
+        html = mf.retail_panel()
+        ok(html.count('data-mfx-key="') == 16, "Retail tab renders all 16 markets from the fixture")
+    finally:
+        urllib.request.urlopen = real
+    return finish()
+
+
+def reserve():
+    """Manual real run: book this request in the shared ledger first, or stop the job."""
+    run = os.environ.get("GITHUB_RUN_ID", "")
+    allowed, info = mf.reserve_manual(run=run)
+    if not allowed:
+        print(f"::error title=Myfxbook request budget::real verification refused - {info}")
+        return 1
+    print(f"Myfxbook request budget: reserved 1 real request. Estimated 24 h total {info['total']} "
+          f"(production <= {info['production']}, manual {info['manual']}) of the {info['safety_budget']} safety "
+          f"budget, under the documented {info['limit']}")
+    return 0
+
+
 def main():
+    if "--seed-fixture" in sys.argv:
+        return seed_fixture()
+    if "--reserve" in sys.argv:
+        return reserve()
     if not mf.enabled():
         return check_off()
+    if os.environ.get("MYFXBOOK_REAL") != "true":
+        return check_fixture()
     snap = json.loads((DATA / mf.OUT_NAME).read_text())
     st = json.loads((DATA / mf.STATE_NAME).read_text())
     status = snap.get("status") or {}

@@ -151,11 +151,16 @@ def retail_side(key, snap, now, on):
         return {"ts": None, "symbol": m.get("symbol"), "error": "Myfxbook retail data malformed (timestamp)"}
     base["age_min"] = age
     if n < mf.MIN_POSITIONS:
-        return {**base, "error": f"Myfxbook sample too small - {n:,} positions, minimum {mf.MIN_POSITIONS}"}
+        return {**base, "error": f"Myfxbook sample too small - {_positions(n)}, minimum {mf.MIN_POSITIONS}"}
     if age > cfg.RETAIL_MAX_AGE_MIN:
         return {**base, "error": f"Myfxbook retail data stale - {mf._age_txt(age)} old "
                                  f"(limit {_limit_txt()})"}
     return base
+
+
+def _positions(n):
+    """'1 position', '2 positions', '1,500 positions'."""
+    return f"{n:,} position" + ("" if n == 1 else "s")
 
 
 # ---------------------------------------------------------------- classification

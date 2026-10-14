@@ -871,10 +871,123 @@ def t_hide_24h():
           mf.report_card("XAU", now=T0, data=data, env={}) == "" and "data-mfx" not in mf.retail_panel(now=T0, data=data, env={}))
 
 
+def _ledger(gh):
+    c, _ = gh.files[mf.LEDGER_PATH]
+    return json.loads(base64.b64decode(c))
+
+
+def t_request_budget():
+    """One budget for every real Community Outlook request (production + manual), kept under
+    the documented 100/24 h; manual real checks reserve first and fail closed."""
+    g = "request-budget"
+    check(g, "worst case per 24 h (production cap + manual cap) stays under the safety budget and the limit",
+          mf.DAILY_BUDGET + mf.MANUAL_MAX_24H <= mf.SAFETY_BUDGET < mf.PROVIDER_LIMIT == 100,
+          (mf.DAILY_BUDGET, mf.MANUAL_MAX_24H, mf.SAFETY_BUDGET))
+    check(g, "existing limits unchanged (25 min gap, 60/day, 6 h login back-off, lock after 2)",
+          (mf.MIN_GAP_MIN, mf.DAILY_BUDGET, mf.AUTH_BACKOFF_H, mf.AUTH_LOCK_AFTER, mf.FAIL_BACKOFF_H) == (25, 60, 6, 2, (1, 2, 4, 6)))
+    # production publishes its attempts with the archive push - only when it IS production
+    data, gh = _tmp(), FakeGitHub()
+    for i in range(3):
+        run_build(data, T0 + dt.timedelta(minutes=30 * i), FakeMyfxbook())
+    a, out = run_archive(data, T0 + dt.timedelta(hours=1, minutes=1), gh)
+    check(g, "a non-production archive push (CI / manual) does not touch the ledger", mf.LEDGER_PATH not in gh.files)
+    d2, gh2 = _tmp(), FakeGitHub()
+    for i in range(3):
+        run_build(d2, T0 + dt.timedelta(minutes=30 * i), FakeMyfxbook())
+    a, out = run_archive(d2, T0 + dt.timedelta(hours=1, minutes=1), gh2, env={**AENV, mf.SOURCE_VAR: "production"})
+    led = _ledger(gh2)
+    check(g, "production push records its 24 h attempts in the shared ledger",
+          len(led["production"]["attempts"]) == 3 and led["production"]["as_of"] == "2026-10-14T10:01:00Z"
+          and a.get("ledger_synced_at"), led)
+    check(g, "the ledger holds timestamps only - no credential, token or figure",
+          not any(x in json.dumps(led) for x in (EMAIL, PASSWORD, SESSION, TOKEN, "longPercentage")))
+    # manual reservation
+    env = AENV
+    ok1, est = mf.reserve_manual(now=T0 + dt.timedelta(hours=1, minutes=30), env=env, opener=gh2, run="r1")
+    check(g, "manual real check: allowed, recorded, total estimated (production at max rate since its sync)",
+          ok1 and est["manual"] == 1 and est["production"] == 3 + 2 and est["total"] == 6
+          and len(_ledger(gh2)["manual"]) == 1, est)
+    for i in (2, 3):
+        mf.reserve_manual(now=T0 + dt.timedelta(hours=1, minutes=30 + i), env=env, opener=gh2, run=f"r{i}")
+    ok4, why = mf.reserve_manual(now=T0 + dt.timedelta(hours=2), env=env, opener=gh2, run="r4")
+    check(g, f"a {mf.MANUAL_MAX_24H + 1}th manual real check within 24 h is refused", not ok4 and "max 3" in why, why)
+    check(g, "a refused check is not recorded", len(_ledger(gh2)["manual"]) == 3)
+    ok5, _ = mf.reserve_manual(now=T0 + dt.timedelta(hours=26), env=env, opener=gh2, run="r5")
+    check(g, "24 h later manual checks are allowed again", ok5)
+    # production learns the manual requests and counts them in its own budget
+    run_build(d2, T0 + dt.timedelta(hours=7), FakeMyfxbook())
+    a, _ = run_archive(d2, T0 + dt.timedelta(hours=7, minutes=2), gh2, env={**AENV, mf.SOURCE_VAR: "production"})
+    st = json.loads((d2 / mf.STATE_NAME).read_text())
+    check(g, "production learns the manual requests from the ledger", len(st.get("external_attempts", [])) == 3, st.get("external_attempts"))
+    check(g, "... and the production sync keeps the manual entries", len(_ledger(gh2)["manual"]) >= 3)
+    st["attempts"] = [mf._iso(T0 + dt.timedelta(hours=8) - dt.timedelta(minutes=26 + 5 * i)) for i in range(mf.SAFETY_BUDGET - 3)]
+    st["attempts"] = st["attempts"][:mf.DAILY_BUDGET - 1]
+    st["external_attempts"] = [mf._iso(T0 + dt.timedelta(hours=7, minutes=i)) for i in range(mf.SAFETY_BUDGET - mf.DAILY_BUDGET + 1)]
+    (d2 / mf.STATE_NAME).write_text(json.dumps(st))
+    f = FakeMyfxbook()
+    _, out = run_build(d2, T0 + dt.timedelta(hours=8), f)
+    check(g, "production stops when its own + manual requests reach the shared safety budget",
+          f.calls == [] and "shared request budget" in out, out)
+    # fail closed
+    ok6, why = mf.reserve_manual(now=T0, env=ENV, opener=FakeGitHub())
+    check(g, "no archive token -> no real check (the ledger cannot be checked)", not ok6 and "no archive token" in why)
+    ok7, why = mf.reserve_manual(now=T0, env=AENV, opener=FakeGitHub("down"))
+    check(g, "ledger unreachable -> no real check", not ok7 and "unavailable" in why, why)
+    ok8, why = mf.reserve_manual(now=T0, env=AENV, opener=FakeGitHub("public"))
+    check(g, "public ledger repo -> no real check", not ok8, why)
+    est = mf.ledger_estimate({}, T0)
+    check(g, "no production sync yet -> production assumed at its maximum", est["production"] == mf.DAILY_BUDGET)
+    led = {"production": {"as_of": mf._iso(T0 - dt.timedelta(hours=30)), "attempts": []}, "manual": []}
+    check(g, "production estimate is capped at DAILY_BUDGET", mf.ledger_estimate(led, T0)["production"] == mf.DAILY_BUDGET)
+
+
+def t_ci_fixture():
+    """PR builds: a synthetic snapshot, no Myfxbook request, and the workflows wired so a real
+    request needs a manual real_myfxbook_test run."""
+    g = "ci-fixture"
+    import myfxbook_ci_check as ci
+    data = _tmp()
+    old = ci.DATA
+    try:
+        ci.DATA = data
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            ci.seed_fixture()
+        snap = json.loads((data / mf.OUT_NAME).read_text())
+    finally:
+        ci.DATA = old
+    check(g, "fixture snapshot is marked synthetic, has 15 markets and a fresh timestamp",
+          snap["fixture"] is True and len(snap["markets"]) == 15 and "no real request" in buf.getvalue())
+    check(g, "fixture markets use the reviewed symbols", all(m["symbol"] in mf.MARKETS[k] for k, m in snap["markets"].items()))
+    f = FakeMyfxbook()
+    s2, out = run_build(data, dt.datetime.now(dt.timezone.utc), f, env=dict(ON))
+    check(g, "the pipeline without credentials keeps the fixture and makes no request",
+          f.calls == [] and s2.get("fixture") is True and s2["markets"] == snap["markets"])
+    root = Path(__file__).resolve().parent.parent / ".github" / "workflows"
+    bc = (root / "build-check.yml").read_text()
+    check(g, "build-check: manual input real_myfxbook_test, default off", "real_myfxbook_test:" in bc and "default: false" in bc)
+    secret_lines = [l for l in bc.splitlines() if re.search(r"MYFXBOOK_(EMAIL|PASSWORD|HISTORY_TOKEN):", l)
+                    and "Leak scan" not in l]
+    scan_at = bc.index("Leak scan")
+    gated = [l for l in secret_lines if bc.index(l) < scan_at and "secrets." in l]
+    check(g, "build-check: every Myfxbook secret given to a step before the leak scan needs the manual real input",
+          gated and all("inputs.real_myfxbook_test" in l for l in gated if "HISTORY_TOKEN: ${{ secrets" not in l)
+          and all("inputs.real_myfxbook_test" in l or "secrets.MYFXBOOK_HISTORY_TOKEN }}" in l for l in gated), gated)
+    reserve_step = bc[bc.index("reserve the one real request"):bc.index("Full pipeline")]
+    check(g, "build-check: the history token is only given to the reserve step in a real run",
+          "if: env.MYFXBOOK_REAL == 'true'" in reserve_step)
+    check(g, "build-check: pull requests run in fixture mode and any myfxbook.com request fails the job",
+          "github.event_name == 'workflow_dispatch' && inputs.real_myfxbook_test" in bc and "if not mfx_real and" in bc
+          and "--seed-fixture" in bc)
+    rf = (root / "refresh.yml").read_text()
+    check(g, "production refresh keeps its credentials and syncs the shared ledger",
+          "MYFXBOOK_SOURCE: production" in rf and "secrets.MYFXBOOK_EMAIL" in rf)
+
+
 if __name__ == "__main__":
     for fn in (t_parse, t_match, t_labels, t_fetch, t_build_and_budget, t_failures_keep_snapshot,
                t_render, t_secrets, t_archive, t_probe, t_switch, t_select, t_threshold, t_history_upgrade, t_attribution,
-               t_fail_backoff, t_login_lock, t_archive_spacing, t_hide_24h):
+               t_fail_backoff, t_login_lock, t_archive_spacing, t_hide_24h, t_request_budget, t_ci_fixture):
         try:
             fn()
         except Exception as e:                                 # noqa: BLE001
