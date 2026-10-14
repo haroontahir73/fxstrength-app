@@ -704,6 +704,34 @@ To set the overlay, edit `data/commodities_manual.json` (1–5, 5 = bullish):
 { "XAU": { "Real yield direction": 4, "US dollar direction": { "score": 4, "note": "DXY rolling over" } } }
 ```
 
+## Myfxbook retail sentiment: safeguards and the login reset
+
+The Myfxbook tab (`myfxbook.py`, on only while the repository variable `MYFXBOOK_ENABLED` is
+exactly `true`) protects the account and the page by itself:
+
+| Safeguard | What happens | Clears |
+|---|---|---|
+| Failed fetches | After 3 in a row (Myfxbook down, bad response, invalid session) the next try waits 1 h, then 2 h, 4 h, at most 6 h | The next successful fetch |
+| Rejected login | First rejection: no login for 6 h. Second in a row: **logins stop** until reset by hand | A successful login, or the manual reset below |
+| Archive failure | The private-archive push waits 6 h after a failed attempt, as after a good one. Unarchived day files stay in the cache and are never pruned before they are archived | The next successful push |
+| Old data | A snapshot older than 24 h is not shown: the tab and each card say "unavailable" with the last successful update time, still credited to Myfxbook. The page applies the same cut-off in the browser if it is not rebuilt | The next successful fetch |
+
+The 25-minute gap, the 60-attempts-a-day budget and the 100-position display minimum apply
+as before.
+
+**Resetting the login lock.** When logins stop, the refresh log prints a line like
+`Myfxbook: login LOCKED after 2 rejected logins ... set the repository variable
+MYFXBOOK_LOGIN_RESET to 2026-10-14T09:30:00Z`, and the tab shows "latest update failed:
+login stopped - credentials rejected twice".
+
+1. Check the account by signing in on myfxbook.com; fix the `MYFXBOOK_EMAIL` /
+   `MYFXBOOK_PASSWORD` secrets if they were wrong.
+2. Settings > Secrets and variables > Actions > Variables: create or edit
+   `MYFXBOOK_LOGIN_RESET` and set it to the exact time from that log line.
+3. The next refresh logs `login lock of ... cleared` and tries once. If it is rejected again
+   the 6 h wait / lock cycle starts over with a new lock time; the old value cannot unlock it,
+   so the variable can be left in place.
+
 ## Caveats
 
 Scores are a weighted heuristic, not advice. The pair ranking is a shortlist, not a signal —

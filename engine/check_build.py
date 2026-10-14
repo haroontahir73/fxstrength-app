@@ -275,14 +275,29 @@ def check_myfxbook(page, data_dir):
         ok(len(cards) >= 16, f"Myfxbook: every report card says no data yet ({len(cards)})")
         return
     link = 'Retail sentiment data: <a href="https://www.myfxbook.com/community/outlook" target="_blank" rel="noopener">Myfxbook Community Outlook</a>'
-    cards = re.findall(r'<div class="mfxcard">.*?</p></div>', page, re.S)
+    cards = re.findall(r'<div class="mfxcard"[^>]*>.*?</a></p></div>', page, re.S)
     ok(link in tab, "Myfxbook: tab credits Myfxbook Community Outlook with a link")
     ok(len(cards) >= 16 and all(link in c for c in cards),
        f"Myfxbook: every report card credits Myfxbook Community Outlook with a link ({sum(link in c for c in cards)}/{len(cards)})")
+    ts = snap["fetched_at"]
+    when = dt.datetime.fromisoformat(ts.replace("Z", "+00:00")).strftime("%d %b %Y %H:%M UTC")
+    if 'class="mfxempty mfxexpired"' in tab:
+        # built more than 24 h after the last successful fetch: nothing from it is shown
+        ok(f"Last successful update: {when}." in tab and "unavailable" in tab,
+           "Myfxbook: snapshot older than 24 h - tab says unavailable with the last successful update time")
+        ok(not re.search(r'class="mfx(row|bar|meta|live)|data-mfx-(key|ts|exp)="|Retail crowd:|LONG \d|Imbalance \d', page),
+           "Myfxbook: snapshot older than 24 h - no reading anywhere on the page")
+        exp = [c for c in cards if "mfxexpired" in c and f"Last successful update: {when}." in c]
+        ok(len(exp) >= 16, f"Myfxbook: every report card says unavailable with the last update time ({len(exp)})")
+        return
+    ok(f'data-mfx-exp="{ts}" data-mfx-hide="1440"' in tab and f"Last successful update: {when}." in tab,
+       "Myfxbook: tab carries the 24 h cut-off (browser hides readings after 24 h, shows the last update time)")
+    live = [c for c in cards if "mfxlive" in c]
+    ok(live and all(f'data-mfx-exp="{ts}" data-mfx-hide="1440"' in c and f"Last successful update: {when}." in c for c in live),
+       f"Myfxbook: every report card with a reading carries the 24 h cut-off ({len(live)})")
     markets = snap.get("markets") or {}
     rows = dict(re.findall(r'<div class="mfxrow[^"]*" data-mfx-key="([^"]+)">(.*?)(?=<div class="mfxrow|</div>\s*<h3|</div>\s*<p class="mfxkey")', tab, re.S))
     ok(len(rows) == 16, f"Myfxbook: 16 markets listed ({len(rows)})")
-    ts = snap["fetched_at"]
     ok(f'data-mfx-ts="{ts}"' in tab, "Myfxbook: tab shows the stored timestamp")
     for key, r in rows.items():
         d = markets.get(key)
@@ -296,7 +311,7 @@ def check_myfxbook(page, data_dir):
         if n < MFX_MIN_POSITIONS:
             want = f"Too few Myfxbook positions (n = {n:,}) &mdash; no reading"
             # no figure in the message: this log is public
-            card = re.search(r'<div class="mfxcard">(.*?)</p></div>', L, re.S)
+            card = re.search(r'<div class="mfxcard"[^>]*>(.*?</a></p>)</div>', L, re.S)
             ok(want in r and card is not None and want in card.group(1),
                f"Myfxbook: {key} below {MFX_MIN_POSITIONS} positions - says so, tab and report")
             ok(card is not None and not re.search(r"LONG \d|SHORT \d|Imbalance \d|Retail crowd|mfxbar", r + card.group(1)),

@@ -213,6 +213,54 @@ def retail_phone(pg, url, label, out):
             pg.locator(f"#{k} .mfxcard").screenshot(path=str(out / f"{label}_{k[6:]}_retail_card.png"))
 
 
+def retail_expiry(b, url, out):
+    """24 h cut-off in the browser: the page is static, so a snapshot that was fresh when the
+    page was built must still disappear if the page is not rebuilt. Opens the page with the
+    clock moved to 23 h and 25 h after the snapshot (no real failure needed) and checks that
+    the readings hide, the 'unavailable - last successful update' note shows, and the
+    Myfxbook credit stays - on the tab and on every report card."""
+    from datetime import datetime, timedelta
+    pg = b.new_page(viewport={"width": 390, "height": 844})
+    pg.goto(url)
+    ts = pg.evaluate("() => { const e = document.querySelector('[data-mfx-exp]'); return e ? e.getAttribute('data-mfx-exp') : null; }")
+    pg.close()
+    if not ts:
+        ok(True, "Myfxbook 24 h cut-off: no live snapshot on this page (nothing to hide)")
+        return
+    t0 = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+    probe = """() => { const P = document.getElementById('p-rtl'), W = P && P.querySelector('[data-mfx-exp]');
+        const d = e => e ? getComputedStyle(e).display : null;
+        const cards = [...document.querySelectorAll('.mfxcard[data-mfx-exp]')];
+        return {tabLive: d(W && W.querySelector('.mfxlive')), tabMsg: d(W && W.querySelector('.mfxexp')),
+                msg: W && W.querySelector('.mfxexp') ? W.querySelector('.mfxexp').textContent : '',
+                credit: !!(P && P.querySelector('.mfxsrc a[href="https://www.myfxbook.com/community/outlook"]'))
+                        && d(P.querySelector('.mfxsrc')) !== 'none',
+                cards: cards.length,
+                cardsLive: cards.filter(c => d(c.querySelector('.mfxlive')) !== 'none').length,
+                cardsMsg: cards.filter(c => d(c.querySelector('.mfxexp')) !== 'none').length,
+                cardsCredit: cards.filter(c => { const a = c.querySelector(':scope > .mfxcl a[href="https://www.myfxbook.com/community/outlook"]');
+                                                  return a && d(a.closest('p')) !== 'none'; }).length}; }"""
+    for hours, gone in ((23, False), (25, True)):
+        pg = b.new_page(viewport={"width": 390, "height": 844})
+        pg.clock.install(time=t0 + timedelta(hours=hours))
+        pg.goto(url)
+        pg.evaluate("() => { const t = document.getElementById('tab-rtl'); if (t) t.checked = true; }")
+        pg.wait_for_timeout(200)
+        m = pg.evaluate(probe)
+        tag = f"Myfxbook 24 h cut-off, page opened {hours} h after the snapshot"
+        if gone:
+            ok(m["tabLive"] == "none" and m["tabMsg"] == "block" and "Last successful update" in m["msg"],
+               f"{tag}: tab readings hidden, 'unavailable - last successful update' shown", m)
+            ok(m["cards"] > 0 and m["cardsLive"] == 0 and m["cardsMsg"] == m["cards"],
+               f"{tag}: every report card's reading hidden, note shown ({m['cards']} cards)", m)
+            pg.screenshot(path=str(out / "myfxbook_expired_phone.png"))
+        else:
+            ok(m["tabLive"] == "block" and m["tabMsg"] == "none" and m["cardsLive"] == m["cards"] and m["cardsMsg"] == 0,
+               f"{tag}: readings still shown (Stale), no unavailable note", m)
+        ok(m["credit"] and m["cardsCredit"] == m["cards"], f"{tag}: Myfxbook credit and link still shown on tab and cards", m)
+        pg.close()
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("page")
@@ -363,6 +411,7 @@ def main():
                     big.screenshot(path=str(out / f"{k}_{name}.png"))
                     big.close()
             pg.close()
+        retail_expiry(b, url, out)
         run_devices(b, page_path, html, keys, out)
         b.close()
     (out / "layout.json").write_text(json.dumps({"passed": len(OKS), "failed": FAILS, "metrics": res}, indent=1))
