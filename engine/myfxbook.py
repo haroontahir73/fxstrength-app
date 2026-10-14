@@ -97,6 +97,19 @@ MARKETS = {
 }
 
 
+# THE SWITCH. Myfxbook runs only when MYFXBOOK_ENABLED is exactly "true" (a repository
+# variable, passed to every workflow step that runs this code). Anything else - unset,
+# empty, "false", "TRUE", "1" - means OFF: no login, no fetch, no archive write, and the page
+# shows no Myfxbook figure, not even a cached one. Off is the default; existing private
+# history is never touched. Kept off until Myfxbook confirms public display and storage.
+ENABLE_VAR = "MYFXBOOK_ENABLED"
+
+
+def enabled(env=None):
+    env = os.environ if env is None else env
+    return env.get(ENABLE_VAR) == "true"
+
+
 class MyfxbookError(Exception):
     """kind: config | auth | session | unavailable | malformed. Message already scrubbed."""
     def __init__(self, kind, message):
@@ -433,6 +446,9 @@ def archive(now=None, data=None, env=None, opener=None, force=False, verify_only
     opener = opener or urllib.request.urlopen
     token = env.get("MYFXBOOK_HISTORY_TOKEN", "")
     repo = env.get("MYFXBOOK_HISTORY_REPO") or ARCHIVE_REPO
+    if not enabled(env):
+        print(f"  Myfxbook history archive: switched off ({ENABLE_VAR} is not 'true') - nothing written")
+        return {"enabled": False, "repo": repo}
     st_p = data / STATE_NAME
     st = _read(st_p, {"attempts": []})
     a = st.setdefault("archive", {})
@@ -537,6 +553,11 @@ def build(now=None, data=None, env=None, opener=None, force=False):
     data = Path(data or DATA)
     env = os.environ if env is None else env
     out_p, st_p = data / OUT_NAME, data / STATE_NAME
+    if not enabled(env):
+        # no login, no request, no state change; any cached snapshot stays private (the
+        # page will not show it) and the history files are left exactly as they are
+        print(f"  Myfxbook: switched off ({ENABLE_VAR} is not 'true') - no login, no fetch")
+        return {"enabled": False}
     snap = _read(out_p, {})
     st = _read(st_p, {"attempts": []})
     email, password = env.get("MYFXBOOK_EMAIL", ""), env.get("MYFXBOOK_PASSWORD", "")
@@ -711,8 +732,14 @@ def _load(data):
     return _read(Path(data or DATA) / OUT_NAME, {})
 
 
-def retail_panel(now=None, data=None):
+OFF_NOTE = ('<p class="mfxempty mfxoff">Myfxbook retail sentiment is switched off &mdash; no Myfxbook '
+            'data is fetched or shown.</p>')
+
+
+def retail_panel(now=None, data=None, env=None):
     """The 'Retail' tab."""
+    if not enabled(env):
+        return ('<section class="mfx"><h2>Retail sentiment &mdash; Myfxbook</h2>' + OFF_NOTE + "</section>")
     now = now or dt.datetime.now(dt.timezone.utc)
     snap = _load(data)
     st = snap.get("status") or {}
@@ -746,8 +773,11 @@ def retail_panel(now=None, data=None):
     return head + "".join(body) + legend + ATTRIB + SCRIPT + "</section>"
 
 
-def report_card(key, now=None, data=None):
-    """The small 'Myfxbook retail' card inside a market's 50-week COT report."""
+def report_card(key, now=None, data=None, env=None):
+    """The small 'Myfxbook retail' card inside a market's 50-week COT report. Nothing at all
+    while the switch is off."""
+    if not enabled(env):
+        return ""
     now = now or dt.datetime.now(dt.timezone.utc)
     snap = _load(data)
     head = '<div class="mfxcard"><div class="mfxct">Myfxbook retail'

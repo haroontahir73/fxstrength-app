@@ -45,6 +45,10 @@ jobs:
       TELEGRAM_TOKEN: ''
       TELEGRAM_CHAT_ID: ''
       FRED_API_KEY: ''
+      # Myfxbook switch for every step (pipeline, real-data check, check_build, layout). OFF
+      # unless the repository variable is exactly "true"; while off, no Myfxbook secret is
+      # passed to a step that runs Myfxbook code and any Myfxbook request fails the job.
+      MYFXBOOK_ENABLED: ${{ vars.MYFXBOOK_ENABLED }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -57,8 +61,8 @@ jobs:
       - name: Full pipeline from an empty state (notifications blocked)
         working-directory: engine
         env:
-          MYFXBOOK_EMAIL: ${{ secrets.MYFXBOOK_EMAIL }}
-          MYFXBOOK_PASSWORD: ${{ secrets.MYFXBOOK_PASSWORD }}
+          MYFXBOOK_EMAIL: ${{ vars.MYFXBOOK_ENABLED == 'true' && secrets.MYFXBOOK_EMAIL || '' }}
+          MYFXBOOK_PASSWORD: ${{ vars.MYFXBOOK_ENABLED == 'true' && secrets.MYFXBOOK_PASSWORD || '' }}
           # leak-scan hook: the (already logged-out) session id goes here, outside the
           # workspace, for the scan step to search for; that step deletes it.
           MYFXBOOK_LEAKSCAN_FILE: ${{ runner.temp }}/mfx_session_probe
@@ -66,12 +70,16 @@ jobs:
           cat > /tmp/guarded_run.py <<'PY'
           import os, sys, runpy, urllib.request
           sys.path.insert(0, os.getcwd())
-          real, hits = urllib.request.urlopen, []
+          real, hits, mfx = urllib.request.urlopen, [], []
+          mfx_on = os.environ.get("MYFXBOOK_ENABLED") == "true"
           def guard(req, *a, **k):
               url = req if isinstance(req, str) else getattr(req, "full_url", str(req))
               if "ntfy" in url.lower() or "telegram" in url.lower():
                   hits.append(url)
                   raise OSError("blocked: the build check never notifies")
+              if not mfx_on and ("myfxbook.com" in url.lower() or "fxstrength-data" in url.lower()):
+                  mfx.append(url.split("?")[0])
+                  raise OSError("blocked: Myfxbook is switched off")
               return real(req, *a, **k)
           urllib.request.urlopen = guard
           sys.argv = ["run.py"] + sys.argv[1:]
@@ -81,7 +89,8 @@ jobs:
           except SystemExit as e:
               code = e.code or 0
           print(f"notification attempts blocked: {len(hits)}")
-          sys.exit(3 if hits else code)
+          print(f"Myfxbook switch: {'ON' if mfx_on else 'OFF'}; Myfxbook/archive requests blocked while off: {len(mfx)}")
+          sys.exit(3 if hits else 4 if mfx else code)
           PY
           python /tmp/guarded_run.py bootstrap
 
@@ -90,15 +99,18 @@ jobs:
       # snapshot in the tab and all 16 cards, Fresh/Delayed/Stale and "last known" handling,
       # and the durable archive: this run's rows written to the PRIVATE repo, read back, and
       # an immediate second archive skipped. The pipeline step itself has no archive token.
-      - name: Myfxbook real-data verification + history archive write
+      - name: Myfxbook verification (switched off - no request; on - real data + archive)
         working-directory: engine
         env:
-          MYFXBOOK_EMAIL: ${{ secrets.MYFXBOOK_EMAIL }}
-          MYFXBOOK_PASSWORD: ${{ secrets.MYFXBOOK_PASSWORD }}
-          MYFXBOOK_HISTORY_TOKEN: ${{ secrets.MYFXBOOK_HISTORY_TOKEN }}
+          MYFXBOOK_EMAIL: ${{ vars.MYFXBOOK_ENABLED == 'true' && secrets.MYFXBOOK_EMAIL || '' }}
+          MYFXBOOK_PASSWORD: ${{ vars.MYFXBOOK_ENABLED == 'true' && secrets.MYFXBOOK_PASSWORD || '' }}
+          MYFXBOOK_HISTORY_TOKEN: ${{ vars.MYFXBOOK_ENABLED == 'true' && secrets.MYFXBOOK_HISTORY_TOKEN || '' }}
           MYFXBOOK_HISTORY_REPO: ${{ vars.MYFXBOOK_HISTORY_REPO }}
         run: |
-          if [ -z "$MYFXBOOK_EMAIL" ]; then echo "Myfxbook secrets not set - skipped"; exit 0; fi
+          # switched off: the script proves no request is made and no figure is shown
+          if [ "$MYFXBOOK_ENABLED" = "true" ] && [ -z "$MYFXBOOK_EMAIL" ]; then
+            echo "Myfxbook switched on but secrets not set - skipped"; exit 0
+          fi
           python myfxbook_ci_check.py
 
       - name: Add the MACRO / MICRO / OI pages

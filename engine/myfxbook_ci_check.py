@@ -32,7 +32,38 @@ def ok(cond, what):
     return cond
 
 
+def check_off():
+    """MYFXBOOK_ENABLED is not "true": prove nothing reaches Myfxbook or the archive repo -
+    every outbound request is recorded and refused - and the page shows no figure."""
+    import urllib.request
+    calls = []
+
+    def spy(req, *a, **k):
+        url = req if isinstance(req, str) else getattr(req, "full_url", str(req))
+        calls.append(url.split("?")[0])
+        raise OSError("blocked: Myfxbook is switched off")
+    real, urllib.request.urlopen = urllib.request.urlopen, spy
+    try:
+        st_p = DATA / mf.STATE_NAME
+        before = st_p.read_bytes() if st_p.exists() else None
+        print("Myfxbook switched off (MYFXBOOK_ENABLED is not 'true')")
+        mf.build()
+        mf.archive(force=True)
+        mf.archive(verify_only=True)
+        ok(not calls, f"no request to Myfxbook or the archive repo ({len(calls)} attempted)")
+        ok((st_p.read_bytes() if st_p.exists() else None) == before, "no fetch attempt recorded")
+        html = mf.retail_panel()
+        ok("switched off" in html and not re.search(r"LONG|SHORT|Imbalance|data-mfx-key|mfxbar", html),
+           "tab shows the switched-off note and no figure")
+        ok(all(mf.report_card(k) == "" for k in mf.MARKETS), "no Myfxbook card in any report")
+    finally:
+        urllib.request.urlopen = real
+    return finish()
+
+
 def main():
+    if not mf.enabled():
+        return check_off()
     snap = json.loads((DATA / mf.OUT_NAME).read_text())
     st = json.loads((DATA / mf.STATE_NAME).read_text())
     status = snap.get("status") or {}

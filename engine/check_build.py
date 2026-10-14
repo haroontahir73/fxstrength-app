@@ -22,7 +22,7 @@ Checks, for the COT report tables and all 16 50-week reports:
     stored (proves the one-time backfill ran).
 Exit status 1 on any failure; prints a summary either way.
 """
-import argparse, html, json, math, re, sys
+import argparse, os, html, json, math, re, sys
 import datetime as dt
 from pathlib import Path
 
@@ -250,6 +250,14 @@ def _pc(v):
 
 
 def check_myfxbook(page, data_dir):
+    m = re.search(r'<div class="panel" id="p-rtl">(.*?)<div class="panel" id="p-oi">', page, re.S)
+    if os.environ.get("MYFXBOOK_ENABLED") != "true":
+        # the switch is off: the tab says so and NO Myfxbook figure is anywhere on the page,
+        # not even from a cached snapshot (MYFXBOOK_ENABLED must be exactly "true")
+        ok(m is not None and "switched off" in m.group(1), "Myfxbook switched off: tab says so")
+        ok(not re.search(r'class="mfx(row|card|bar|meta)|data-mfx-(key|ts)|Retail crowd:', page),
+           "Myfxbook switched off: no reading, card or timestamp anywhere on the page")
+        return
     p = data_dir / "myfxbook.json"
     snap = json.loads(p.read_text()) if p.exists() else {}
     m = re.search(r'<div class="panel" id="p-rtl">(.*?)<div class="panel" id="p-oi">', page, re.S)

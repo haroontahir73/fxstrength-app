@@ -12,8 +12,9 @@ the 10 -> 11 column history upgrade,
 history storage, and that the credentials and session id never reach a file, the page or a
 log line.
 """
-import base64, contextlib, gzip, hashlib, io, json, sys, tempfile, urllib.error, urllib.parse
+import base64, contextlib, gzip, hashlib, io, json, os, sys, tempfile, urllib.error, urllib.parse
 import datetime as dt
+import re
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
@@ -22,7 +23,11 @@ import myfxbook as mf                                             # noqa: E402
 PASS, FAIL = [], []
 UTC = dt.timezone.utc
 EMAIL, PASSWORD, SESSION = "trader.secret+x@example.com", "Pa$$ w0rd/=?&", "SeSsIoN9qXw7Zk2"
-ENV = {"MYFXBOOK_EMAIL": EMAIL, "MYFXBOOK_PASSWORD": PASSWORD}
+ON = {"MYFXBOOK_ENABLED": "true"}
+ENV = {"MYFXBOOK_EMAIL": EMAIL, "MYFXBOOK_PASSWORD": PASSWORD, **ON}
+# Render calls without an explicit env read os.environ: the enabled-path tests run with the
+# switch on; t_switch passes explicit envs to test the off state.
+os.environ["MYFXBOOK_ENABLED"] = "true"
 T0 = dt.datetime(2026, 10, 14, 9, 0, tzinfo=UTC)
 
 
@@ -204,7 +209,7 @@ def t_fetch():
 def t_build_and_budget():
     g = "build"
     data = _tmp()
-    snap, out = run_build(data, T0, FakeMyfxbook(), env={})
+    snap, out = run_build(data, T0, FakeMyfxbook(), env=dict(ON))
     check(g, "not configured: no fetch, nothing invented", not snap.get("fetched_at") and
           snap["status"]["configured"] is False and "no fetch (not configured)" in out, (snap, out))
     html = mf.retail_panel(now=T0, data=data)
@@ -568,9 +573,61 @@ def t_history_upgrade():
           a["last_error"] == "format" and gh2.files[path] == before, (a, out))
 
 
+def t_switch():
+    g = "switch"
+    creds = {"MYFXBOOK_EMAIL": EMAIL, "MYFXBOOK_PASSWORD": PASSWORD, "MYFXBOOK_HISTORY_TOKEN": TOKEN,
+             "MYFXBOOK_HISTORY_REPO": "me/fx-data"}
+    for v in (None, "", "false", "False", "TRUE", "True", "1", "yes", "on", " true", "true "):
+        env = dict(creds) if v is None else {**creds, "MYFXBOOK_ENABLED": v}
+        check(g, f"MYFXBOOK_ENABLED={v!r} -> off", mf.enabled(env) is False)
+    check(g, "MYFXBOOK_ENABLED='true' -> on", mf.enabled({**creds, "MYFXBOOK_ENABLED": "true"}) is True)
+
+    # a data dir that already holds a real-looking snapshot, state and history
+    data = _tmp()
+    run_build(data, T0, FakeMyfxbook())
+    run_archive(data, T0, FakeGitHub(), env=AENV, force=True)
+    before = {p.relative_to(data): p.read_bytes() for p in data.rglob("*") if p.is_file()}
+    for v in (None, "false", "TRUE", "1"):
+        env = dict(creds) if v is None else {**creds, "MYFXBOOK_ENABLED": v}
+        mfx, gh = FakeMyfxbook(), FakeGitHub()
+        probe = _tmp() / "probe"
+        snap, out = run_build(data, T0 + dt.timedelta(hours=2), mfx, env={**env, "MYFXBOOK_LEAKSCAN_FILE": str(probe)})
+        a, out2 = run_archive(data, T0 + dt.timedelta(hours=8), gh, env=env, force=True)
+        a3, out3 = run_archive(data, T0 + dt.timedelta(hours=8), gh, env=env, verify_only=True)
+        check(g, f"off ({v!r}): no login, no outlook, no logout", mfx.calls == [], mfx.calls)
+        check(g, f"off ({v!r}): no archive read or write, no CI write check", gh.calls == [], gh.calls)
+        check(g, f"off ({v!r}): says so in the log", "switched off" in out and "switched off" in out2 and "switched off" in out3)
+        check(g, f"off ({v!r}): no session probe", not probe.exists())
+        after = {p.relative_to(data): p.read_bytes() for p in data.rglob("*") if p.is_file()}
+        check(g, f"off ({v!r}): cached snapshot, state and history files untouched", after == before,
+              sorted(set(after) ^ set(before)))
+        html = mf.retail_panel(now=T0, data=data, env=env)
+        cards = "".join(mf.report_card(k, now=T0, data=data, env=env) for k in mf.MARKETS)
+        check(g, f"off ({v!r}): tab says switched off and shows no Myfxbook figure, even cached",
+              "switched off" in html and not re.search(r"LONG|SHORT|Imbalance|Retail crowd|mfxbar|data-mfx-key|XAUUSD|data-mfx-ts", html), html[:200])
+        check(g, f"off ({v!r}): no card in any report", cards == "")
+    # the private archive keeps what it had
+    gh = FakeGitHub()
+    run_archive(_tmp(), T0, gh, env=AENV, force=True)
+    stored = dict(gh.files)
+    run_archive(_tmp(), T0 + dt.timedelta(days=1), gh, env={k: v for k, v in AENV.items() if k != "MYFXBOOK_ENABLED"}, force=True)
+    check(g, "off: archived history in the private repo unchanged", gh.files == stored)
+
+    # switched back on: the normal path, from the same data dir
+    mfx, gh = FakeMyfxbook(), FakeGitHub()
+    on = {**creds, "MYFXBOOK_ENABLED": "true"}
+    snap, out = run_build(data, T0 + dt.timedelta(hours=3), mfx, env=on)
+    a, out2 = run_archive(data, T0 + dt.timedelta(hours=3), gh, env=on, force=True)
+    check(g, "on: login -> outlook -> logout", [c[0] for c in mfx.calls] == ["login.json", "get-community-outlook.json", "logout.json"])
+    check(g, "on: archive written", a.get("last_error") is None and any(k.endswith(".csv.gz") for k in gh.files), a)
+    html = mf.retail_panel(now=T0 + dt.timedelta(hours=3), data=data, env=on)
+    check(g, "on: readings shown again", "LONG 61%" in html and "Imbalance 22" in html and "switched off" not in html)
+    check(g, "on: report cards back", "Imbalance 22" in mf.report_card("XAU", now=T0 + dt.timedelta(hours=3), data=data, env=on))
+
+
 if __name__ == "__main__":
     for fn in (t_parse, t_match, t_labels, t_fetch, t_build_and_budget, t_failures_keep_snapshot,
-               t_render, t_secrets, t_archive, t_probe, t_select, t_threshold, t_history_upgrade):
+               t_render, t_secrets, t_archive, t_probe, t_switch, t_select, t_threshold, t_history_upgrade):
         try:
             fn()
         except Exception as e:                                 # noqa: BLE001
