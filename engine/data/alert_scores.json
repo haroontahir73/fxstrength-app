@@ -16443,5 +16443,16 @@
   "outcome": "loss",
   "talk": false,
   "at": "2026-10-14T01:30:43.323356+00:00"
+ },
+ {
+  "id": "2026-10-14T01:30:43.323356+00:00|SILVER",
+  "cat": "inflation_hot",
+  "instr": "SILVER",
+  "dir": "down",
+  "strength": 2,
+  "chg": 0.432,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-10-14T01:30:43.323356+00:00"
  }
 ]
