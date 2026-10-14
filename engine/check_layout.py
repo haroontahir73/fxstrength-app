@@ -193,6 +193,8 @@ def retail_phone(pg, url, label, out):
     # a header may wrap to two lines on the longest labels (e.g. "Imbalance 100 · Heavy Short")
     ok(m["rowH"] <= 170 and m["h"] <= 3200, f"{label}: Myfxbook rows compact (tallest {m['rowH']}px, tab {m['h']}px)", (m["rowH"], m["h"]))
     pg.screenshot(path=str(out / f"{label}_myfxbook.png"))
+    for i, el in enumerate(pg.query_selector_all("#p-rtl .mfxlist")):
+        el.screenshot(path=str(out / f"{label}_myfxbook_list{i + 1}.png"))
     keys = pg.evaluate("() => [...document.querySelectorAll('#p-rtl a.mfxname')].map(a => a.getAttribute('href').slice(1))")
     for k in keys:
         pg.goto(url)
@@ -207,9 +209,8 @@ def retail_phone(pg, url, label, out):
                      open: [...document.querySelectorAll('.cotmodal')].filter(m => getComputedStyle(m).display !== 'none').length}}; }}""")
         ok(c["d"] == "block" and c["open"] == 1 and c["card"] and c["right"] <= m["W"] + 1,
            f"{label}: tapping {k} on the Myfxbook tab opens that report with its retail card", c)
-        if k == "cot50-XAU":
-            pg.locator(f"#{k} .mfxcard").scroll_into_view_if_needed()
-            pg.screenshot(path=str(out / f"{label}_XAU_retail_card.png"))
+        if k in ("cot50-XAU", "cot50-JPY", "cot50-ZB"):
+            pg.locator(f"#{k} .mfxcard").screenshot(path=str(out / f"{label}_{k[6:]}_retail_card.png"))
 
 
 def main():
