@@ -361,9 +361,11 @@ def scanner(now=None, data=None, env=None):
         + '</span></a></li>' for r in hits)
     body = (f'<ul class="dvlist">{items}</ul>' if hits else
             '<p class="dvempty">No positioning divergence right now.</p>')
-    tail = (f'<p class="dvfoot mut">{len(res)} markets checked: {len(hits)} divergence'
-            f'{"" if len(hits) == 1 else "s"}, {n_none} none, {n_na} unavailable '
-            f'(open a market&rsquo;s report for the reason). {DISCLAIMER}</p>')
+    count = (f'<p class="dvfoot mut">{len(res)} markets checked: {len(hits)} divergence'
+             f'{"" if len(hits) == 1 else "s"}, {n_none} none, {n_na} unavailable '
+             f'(open a market&rsquo;s report for the reason).</p>')
+    tail = f'<p class="dvfoot mut">{DISCLAIMER}</p>'
+    body += count                 # inside .dvlive: hidden with the list once the data is stale
     exp = (f' data-div-ts="{_esc(ts)}" data-div-max="{cfg.RETAIL_MAX_AGE_MIN}"' if ts and hits else "")
     expnote = f'<p class="dvexp">{EXP_NOTE} Open a market&rsquo;s report for details.</p>' if exp else ""
     return (f'<section class="dvscan"{exp}><h2>Positioning divergences '
