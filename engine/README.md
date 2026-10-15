@@ -824,6 +824,11 @@ horizon or a statistic, and there is no JavaScript in it.
 * **Headline from data**, e.g. "Insufficient sample — 5 independent directional episodes, all
   forward horizons currently pending." The unit is the independent directional episode;
   state events and signal observations are shown as diagnostics only.
+* **Retail history stays private.** The page-ready view and the page carry only the band the
+  episode started in, at the frozen triggers (Retail long / short 60–69% = ordinary, ≥70% =
+  strong); the exact archived Myfxbook percentages exist only in the private `results.json`. A
+  cached view from an older format is deleted, never shown. The COT percentile (public CFTC data)
+  is shown exactly.
 * **Pending is never zero.** A horizon with no completed episodes shows "Pending" in every
   column; a win rate is always printed with its n. The sample label sits next to the numbers.
 * **Fails visibly.** A result that does not match the engine's schema (missing keys,

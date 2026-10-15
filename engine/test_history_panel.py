@@ -205,6 +205,72 @@ def t_states():
           "no independent directional episodes yet" in hp.headline({"episodes": [], "stats": {"all": {}}}))
 
 
+RETAIL_KEYS = {"long", "short", "positions", "longPercentage", "shortPercentage", "longPositions", "shortPositions",
+               "longVolume", "shortVolume", "avgLongPrice", "avgShortPrice"}
+
+
+def _leaves(o, path=""):
+    if isinstance(o, dict):
+        for k, x in o.items():
+            yield from _leaves(x, f"{path}.{k}")
+    elif isinstance(o, list):
+        for x in o:
+            yield from _leaves(x, path + "[]")
+    else:
+        yield path, o
+
+
+def t_privacy():
+    """Data boundary: the exact archived Myfxbook percentages stay in the private results.json;
+    the public / page-ready view and the rendered section carry only the band."""
+    g = "privacy"
+    eur = next(e for e in R_P["episodes"] if e["market"] == "EUR")
+    check(g, "fixture: the PRIVATE engine result holds the exact 72/28 (EURUSD)", (eur["long"], eur["short"]) == (72.0, 28.0), eur)
+    d = Path(tempfile.mkdtemp(prefix="fxhp-"))
+    v = hp.load(data=d, env=ENV, opener=FakeGitHub({"2026-10-15_p": (M_P, R_P)}))
+    payload = (d / hp.VIEW_NAME).read_text()
+    stored = json.loads(payload)
+    for name, obj in (("view", v), ("cached backtest_view.json", stored)):
+        keys = [p for p, _ in _leaves(obj) if p.rsplit(".", 1)[-1] in RETAIL_KEYS]
+        check(g, f"{name}: no retail long / short / positions field anywhere", not keys, keys[:5])
+        hits = [(p, x) for p, x in _leaves(obj) if (isinstance(x, (int, float)) and not isinstance(x, bool) and x in (72, 28))
+                or (isinstance(x, str) and re.search(r"\b(72|28)(\.0)?\b", x))]
+        check(g, f"{name}: the exact 72 / 28 appears nowhere in it", not hits, hits[:5])
+    check(g, "cached payload text: no '72/28', '72%' or '28%'", not re.search(r"72/28|\b72(\.0)?%|\b28(\.0)?%", payload))
+    h = hp.panel(v, NOW)
+    t = text(h)
+    check(g, "rendered section: no 72 / 28 at all", not re.search(r"\b(72|28)(\.0)?\b", t), re.findall(r".{20}\b(?:72|28)\b.{20}", t))
+    row = re.search(r"<summary>EURUSD &middot; Bearish</summary>.*?</tr>", h, re.S).group(0)
+    check(g, "EURUSD row shows the band 'Retail long ≥70%'", "<td>Retail long ≥70%</td>" in row, row[-700:])
+    aud = re.search(r"<summary>AUDUSD &middot; Bearish</summary>.*?</tr>", h, re.S).group(0)
+    check(g, "AUDUSD (69% at start) shows 'Retail long 60–69%'", "<td>Retail long 60–69%</td>" in aud)
+    vc = view_of(M_C, R_C)
+    check(g, "bullish side banded on retail short (NZDUSD 'Retail short ≥70%')",
+          {e["retail_band"] for e in vc["episodes"] if e["market"] == "NZD"} == {"Retail short ≥70%"})
+    check(g, "COT percentile (public CFTC data) is still shown", "COT percentile" in h and "<td>1st</td>" in row)
+    check(g, "bands follow the frozen 60 / 70 triggers", (hp.RETAIL_ORDINARY, hp.RETAIL_STRONG) == (60, 70)
+          and hp.retail_band("Bearish", 69.9, 30.1) == "Retail long 60–69%" and hp.retail_band("Bearish", 70, 30) == "Retail long ≥70%"
+          and hp.retail_band("Bullish", 35, 65) == "Retail short 60–69%" and hp.retail_band("Bullish", 25, 75) == "Retail short ≥70%")
+    r2 = copy.deepcopy(R_P)
+    next(e for e in r2["episodes"] if e["market"] == "EUR").update(long=55.0, short=45.0)
+    try:
+        hp.build_view("x", M_P, r2)
+        check(g, "an episode starting below the retail trigger fails visibly", False)
+    except hp.Malformed:
+        check(g, "an episode starting below the retail trigger fails visibly", True)
+    old = json.loads(payload)
+    old.pop("schema")
+    old["episodes"][0]["long"], old["episodes"][0]["short"] = 72.0, 28.0
+    d3 = Path(tempfile.mkdtemp(prefix="fxhp-"))
+    (d3 / hp.VIEW_NAME).write_text(json.dumps(old))
+
+    def down(req, timeout=None):
+        raise OSError("down")
+    v3 = hp.load(data=d3, env=ENV, opener=down)
+    check(g, "an older cached view (exact %) is never shown and is deleted",
+          v3["state"] == "missing" and not (d3 / hp.VIEW_NAME).exists(), v3.get("state"))
+
+
 def t_safety():
     g = "safety"
     guarded = hp._opener(lambda req, timeout=None: _R(b"{}"))
@@ -256,7 +322,7 @@ def t_markets():
 
 
 if __name__ == "__main__":
-    for fn in (t_reads_engine, t_units, t_pending, t_completed, t_states, t_markets, t_safety):
+    for fn in (t_reads_engine, t_units, t_pending, t_completed, t_states, t_markets, t_privacy, t_safety):
         try:
             fn()
         except Exception as e:                                 # noqa: BLE001

@@ -61,7 +61,7 @@ def results(kind="pending"):
     rows = []
     for i in range(20):
         ts = bt._iso(t0 + dt.timedelta(minutes=45 * i))
-        rows.append(_row(ts, "EUR", 82))
+        rows.append(_row(ts, "EUR", 72))                          # exact 72/28: must never reach the public view
         rows.append(_row(ts, "AUD", 69 if i < 7 else 71))         # Bearish, then Strong Bearish
         rows.append(_row(ts, "XAG", 64))
         if i >= 8:

@@ -20,8 +20,10 @@ from pathlib import Path
 
 import cot_table as ct
 import divergence_backtest_config as bc
+import divergence_config as dcfg
 from config import DATA
 
+VIEW_SCHEMA = 2                              # 2: retail positioning as bands only (no exact %)
 VIEW_NAME = "backtest_view.json"           # cache of the public view (engine/data, gitignored)
 RUNS_PATH = "backtest/runs"
 GH_API = "https://api.github.com"
@@ -105,6 +107,23 @@ def _fwd_view(f):
     return out
 
 
+# The frozen Step 2 retail thresholds (ordinary / strong), read from the frozen config - not
+# re-derived. The public view carries only the band an episode started in: the exact archived
+# Myfxbook long / short percentages stay in the private results.json.
+RETAIL_ORDINARY = min(r[5] for r in dcfg.RULES)
+RETAIL_STRONG = max(r[5] for r in dcfg.RULES)
+
+
+def retail_band(direction, long_pct, short_pct):
+    """'Retail long >=70%' etc. - the side against the signal, banded at the frozen thresholds."""
+    side, v = ("long", long_pct) if direction == "Bearish" else ("short", short_pct)
+    _need(direction in ("Bearish", "Bullish") and isinstance(v, (int, float)), "episode retail positioning unreadable")
+    _need(v >= RETAIL_ORDINARY, "episode starts below the retail trigger")
+    if v >= RETAIL_STRONG:
+        return f"Retail {side} \u2265{RETAIL_STRONG}%"
+    return f"Retail {side} {RETAIL_ORDINARY}\u2013{RETAIL_STRONG - 1}%"
+
+
 def build_view(run, manifest, res):
     """Copy (never compute) what the page shows from the engine's run. Raises Malformed."""
     _need(isinstance(manifest, dict) and isinstance(res, dict), "not JSON objects")
@@ -134,7 +153,7 @@ def build_view(run, manifest, res):
         episodes.append({
             "id": e["id"], "market": e["market"], "direction": e["direction"], "start": e["start"], "end": e["end"],
             "active": e["end"] == last, "start_cls": e["start_cls"], "max_cls": e["max_cls"], "n_obs": e["n_obs"],
-            "pct": e["pct"], "long": e["long"], "short": e["short"], "symbol": e.get("symbol"),
+            "pct": e["pct"], "retail_band": retail_band(e["direction"], e["long"], e["short"]), "symbol": e.get("symbol"),
             "cot_report": e.get("cot_report"), "fwd": _fwd_view(e["fwd"]),
             "states": [{"cls": ev_by[s]["cls"], "start": ev_by[s]["start"], "end": ev_by[s]["end"],
                         "n_obs": ev_by[s]["n_obs"], "started_by": ev_by[s].get("started_by")} for s in e["state_events"]]})
@@ -145,7 +164,7 @@ def build_view(run, manifest, res):
             _need(isinstance(s.get("n"), int) and isinstance(s.get("n_complete"), int) and "sample" in s,
                   f"horizon {h} summary incomplete")
     strat = manifest.get("strategy") or {}
-    return {"state": "ok", "run": run, "generated_at": manifest.get("generated_at"), "code_commit": manifest.get("code_commit"),
+    return {"state": "ok", "schema": VIEW_SCHEMA, "run": run, "generated_at": manifest.get("generated_at"), "code_commit": manifest.get("code_commit"),
             "prices_asof": manifest.get("prices_asof"),
             "strategy": {"version": strat.get("version"), "fingerprint": strat.get("fingerprint"),
                          "is_baseline": strat.get("is_baseline") is True and strat.get("fingerprint") == bc.BASELINE_FINGERPRINT},
@@ -167,6 +186,9 @@ def load(data=None, env=None, opener=None, fetch=True):
             cached = json.loads(cache.read_text())
         except ValueError:
             cached = None
+        if not (isinstance(cached, dict) and cached.get("schema") == VIEW_SCHEMA):
+            cached = None                       # an older view (it may hold exact retail %): never shown, removed
+            cache.unlink(missing_ok=True)
     if fetch:
         try:
             got = fetch_latest(env, opener)
@@ -280,12 +302,12 @@ def _episode_rows(view, labels):
             f'<td>{"Active" if e["active"] else _when(e["end"])}</td>'
             f'<td>{CLASS_LABEL.get(e["start_cls"], e["start_cls"])}</td><td>{CLASS_LABEL.get(e["max_cls"], e["max_cls"])}</td>'
             f'<td>{e["n_obs"]}</td><td>{_ord(e["pct"])}</td>'
-            f'<td>{e["long"]:g}% long / {e["short"]:g}% short</td><td>{entry_t}</td>'
+            f'<td>{_e(e["retail_band"])}</td><td>{entry_t}</td>'
             + "".join(_hz_cell(f[h]) for h in HORIZONS) + "</tr>")
     return ("<div class=\"hpscroll\"><table class=\"hptab hpaudit\"><thead><tr><th scope=\"col\">Episode</th><th scope=\"col\">Direction</th>"
             "<th scope=\"col\">Start</th><th scope=\"col\">End</th><th scope=\"col\">Starting strength</th>"
             "<th scope=\"col\">Strongest</th><th scope=\"col\">Snapshots</th><th scope=\"col\">COT percentile</th>"
-            "<th scope=\"col\">Retail at start</th><th scope=\"col\">Entry</th>"
+            "<th scope=\"col\">Retail at start (band)</th><th scope=\"col\">Entry</th>"
             + "".join(f'<th scope="col">{h}d</th>' for h in HORIZONS) + "</tr></thead><tbody>" + "".join(out)
             + "</tbody></table></div>")
 
@@ -328,6 +350,9 @@ def _method(view):
             "<li>COT data is point-in-time: a report is used only from its official CFTC release (15:30 ET) or later.</li>"
             "<li>Myfxbook history contains only genuine snapshots captured by the production feed; nothing is "
             "reconstructed or back-filled.</li>"
+            f"<li>Retail positioning is shown as a band at the frozen triggers ({RETAIL_ORDINARY}\u2013{RETAIL_STRONG - 1}% = ordinary, "
+            f"\u2265{RETAIL_STRONG}% = strong, on the side against the signal); the exact archived Myfxbook percentages "
+            "are kept private.</li>"
             "<li>Metals, copper and oil use Yahoo continuous front-month futures, so a result spanning a contract roll "
             "includes the roll jump.</li>"
             "<li><b>Pending</b> means the horizon has not finished yet &mdash; it is not a zero result.</li>"

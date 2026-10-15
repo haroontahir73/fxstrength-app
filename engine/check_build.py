@@ -469,6 +469,14 @@ def check_history(page, data_dir):
             ok(f"(n={done[k]})" in cells, f"History: {lab} win rate shown with its n ({done[k]})")
     ok(t.count("independent episode") >= 1 and not _re.search(r"\b\d+ (trades|signals)\b", t),
        "History: no count presented as trades or 'signals'")
+    # data boundary: exact archived Myfxbook % stay in the private results.json - the page-ready
+    # view and the section carry only the band at the frozen 60 / 70 triggers
+    leaked = [k for e in view["episodes"] for k in ("long", "short", "positions") if k in e]
+    ok(view.get("schema") == 2 and not leaked and all(_re.fullmatch(r"Retail (long|short) (≥70%|60–69%)", e.get("retail_band", ""))
+                                                    for e in view["episodes"]),
+       "History: page-ready view holds retail bands only (no exact long / short %)", leaked[:3])
+    ok(not _re.search(r"\d% long|\d% short", t) and t.count("Retail ") >= n,
+       "History: the section shows retail bands, never an exact long / short %")
 
 
 def finish():

@@ -113,7 +113,7 @@ jobs:
       # result without recomputing it - 5 episodes stay 5, pending is never 0%, every win rate
       # carries its n, malformed / missing / stale results fail visibly, and the panel can only
       # reach api.github.com (never Myfxbook).
-      - name: Historical performance UI suite (59 checks)
+      - name: Historical performance UI suite (73 checks)
         working-directory: engine
         run: python test_history_panel.py
 
