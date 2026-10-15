@@ -14,8 +14,8 @@ BASELINE_FINGERPRINT = "0bcac9b16befcd54"     # divergence_config at 79b834a (te
 
 # ---------------------------------------------------------------- forward returns
 HORIZONS = (1, 3, 5, 10)        # trading days (= price bars of the instrument)
-# Entry: the OPEN of the first daily bar dated AFTER the observation's UTC date - a price that
-# is only known after the observation. Exit at horizon h: the CLOSE of the h-th bar from entry.
+# Entry: the OPEN of the first daily bar dated AFTER the observation's date in the exchange's
+# time zone - a price that only exists after the observation. Exit at horizon h: the CLOSE of the h-th bar from entry.
 # MFE / MAE: best / worst high-low excursion over those h bars, in the signal's direction.
 MAX_ENTRY_GAP_DAYS = 5          # first bar later than this (calendar days) -> "missing price"
 MAX_BAR_GAP_DAYS = 5            # a gap between two bars longer than this -> "missing price"

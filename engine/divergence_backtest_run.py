@@ -89,6 +89,15 @@ def production_timestamps(extra_files=()):
     if reg:
         seen |= set(reg.get("production") or [])
         src.append("provenance registry")
+    # production's own attempt list (the restored production cache) - covers the hours since
+    # the ledger's last 6-hourly sync
+    stp = Path(os.environ.get("BT_DATA") or DATA) / mf.STATE_NAME
+    if stp.exists():
+        try:
+            seen |= set(json.loads(stp.read_text()).get("attempts") or [])
+            src.append("production state cache")
+        except ValueError:
+            pass
     for f in extra_files:
         d = json.loads(Path(f).read_text())
         seen |= set((d.get("production") or {}).get("attempts") or d.get("production") or [])
@@ -183,6 +192,7 @@ def main(argv=None):
     a = ap.parse_args(argv)
     _no_myfxbook()
     data = Path(a.data)
+    os.environ["BT_DATA"] = str(data)
     gen = a.generated_at or dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     asof = a.asof or (bt._ts(gen).date() - dt.timedelta(days=1)).isoformat()
     rows, src = load_history(data, not a.no_archive)

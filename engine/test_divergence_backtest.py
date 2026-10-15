@@ -216,6 +216,16 @@ def t_calendar_and_missing():
     check(g, "Friday evening observation -> Monday's bar", f[1]["entry_date"] == "2026-10-19")
     f = bt.forward(bt._bars(bars("2026-10-12", list(range(100, 115)))), T("2026-10-17T12:00:00Z"), +1)
     check(g, "weekend observation -> Monday's bar", f[1]["entry_date"] == "2026-10-19")
+    lon = bt._bars(bars("2026-10-12", list(range(100, 115))))
+    f = bt.forward(lon, T("2026-10-14T23:30:00Z"), +1, tz="Europe/London")
+    check(g, "exchange time zone: 23:30 UTC = 00:30 London on the 15th -> entry is the 16th's bar (opens after)",
+          f[1]["entry_date"] == "2026-10-16", f[1])
+    f = bt.forward(lon, T("2026-10-14T22:30:00Z"), +1, tz="Europe/London")
+    check(g, "22:30 UTC = 23:30 London on the 14th -> the 15th's bar", f[1]["entry_date"] == "2026-10-15")
+    f = bt.forward(lon, T("2026-10-15T02:00:00Z"), +1, tz="America/New_York")
+    check(g, "02:00 UTC = 22:00 New York on the 14th -> the 15th's bar", f[1]["entry_date"] == "2026-10-15")
+    f = bt.forward(lon, T("2026-10-14T23:30:00Z"), +1, tz="Not/AZone")
+    check(g, "unknown time zone -> conservative (latest local date anywhere)", f[1]["entry_date"] == "2026-10-16")
     g = "missing-price"
     check(g, "no series -> every horizon 'missing'", bt.replay([row("2026-10-14T20:00:00Z", "EUR", "EURUSD", 87)],
           store_with({"EUR": pct_series(0)}), {})["events"][0]["fwd"][1]["state"] == "missing")
@@ -393,6 +403,13 @@ def t_provenance():
         man1 = json.loads((d / "a" / "manifest.json").read_text())
     check(g, "CLI without any production record replays nothing and says so",
           man0["myfxbook"]["provenance"]["production_snapshots"] == 0 and "refusing" in buf.getvalue())
+    (d / "data" / mf.STATE_NAME).write_text(json.dumps({"attempts": ["2026-10-14T09:30:00Z"]}))
+    with contextlib.redirect_stdout(io.StringIO()):
+        br.main(["--data", str(d / "data"), "--out", str(d / "s"), "--generated-at", "2026-10-20T06:40:00Z", "--no-archive"])
+    man2 = json.loads((d / "s" / "manifest.json").read_text())
+    check(g, "production's own attempt list (state cache) covers snapshots newer than the ledger's last sync",
+          man2["myfxbook"]["provenance"]["production_snapshots"] == 1 and "production state cache" in man2["myfxbook"]["provenance"]["sources"],
+          man2["myfxbook"]["provenance"])
     check(g, "--all-snapshots is never labelled the baseline", man1["strategy"]["is_baseline"] is False
           and man1["myfxbook"]["provenance"]["production_snapshots"] == 3)
 

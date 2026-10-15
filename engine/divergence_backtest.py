@@ -17,7 +17,8 @@ NO LOOK-AHEAD
     before its own timestamp, and the 50-week percentile window ends at that report.
   * Classification: divergence.evaluate() itself - the frozen Step 2 code and configuration -
     with "now" = the snapshot time. Nothing is re-implemented.
-  * Prices: entry is the OPEN of the first daily bar dated after the snapshot's UTC date; a
+  * Prices: entry is the OPEN of the first daily bar dated after the snapshot's date in the
+    exchange's time zone (so the bar opens after the snapshot); a
     horizon of h trading days exits at the CLOSE of the h-th bar. Later bars are never read
     for an earlier horizon, and a horizon whose bars do not exist yet is "pending".
 """
@@ -165,11 +166,25 @@ def _bars(series):
     return sorted(out)
 
 
-def forward(bars, t, direction, horizons=bc.HORIZONS, asof=None):
+def local_date(t, tz):
+    """The observation's calendar date in the price series' exchange time zone (bars are
+    dated that way). Unknown zone -> the latest date anywhere (UTC+14), i.e. conservative."""
+    if tz:
+        try:
+            from zoneinfo import ZoneInfo
+            return t.astimezone(ZoneInfo(tz)).date()
+        except Exception:                                        # noqa: BLE001
+            pass
+    return (t + dt.timedelta(hours=14)).date() if tz else t.date()
+
+
+def forward(bars, t, direction, horizons=bc.HORIZONS, asof=None, tz=None):
     """Forward performance of a signal observed at t. Returns {h: {...}} with state 'ok',
-    'pending' (bars not there yet) or 'missing' (a gap / absent value)."""
+    'pending' (bars not there yet) or 'missing' (a gap / absent value). Entry is the first
+    bar dated after the observation's date IN THE EXCHANGE'S TIME ZONE, so the entry bar
+    always opens after the observation."""
     out = {}
-    d0 = t.date()
+    d0 = local_date(t, tz)
     idx = next((i for i, b in enumerate(bars) if b[0] > d0.isoformat()), None)
     if idx is None:
         return {h: {"state": "pending"} for h in horizons}
@@ -237,7 +252,7 @@ def replay(history_rows, cot_store, prices, first_seen=None, asof=None, horizons
                          long=rt["long"], short=rt["short"], positions=rt["positions"], symbol=rt["symbol"])
             if r["cls"] in ACTIONABLE:
                 o["dir"] = 1 if r["cls"] in BULL else -1
-                o["fwd"] = forward(bars[k], t, o["dir"], horizons, asof) if bars[k] else \
+                o["fwd"] = forward(bars[k], t, o["dir"], horizons, asof, (prices.get(k) or {}).get("timezone")) if bars[k] else \
                     {h: {"state": "missing", "why": "no price series for this market"} for h in horizons}
             obs.append(o)
     events = make_events(obs)
