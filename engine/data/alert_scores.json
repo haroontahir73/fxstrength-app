@@ -17268,5 +17268,38 @@
   "outcome": "loss",
   "talk": false,
   "at": "2026-10-15T05:33:14.860775+00:00"
+ },
+ {
+  "id": "2026-10-15T07:25:55.432796+00:00|GOLD",
+  "cat": "rates_up",
+  "instr": "GOLD",
+  "dir": "down",
+  "strength": 3,
+  "chg": 0.348,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-10-15T07:25:55.432796+00:00"
+ },
+ {
+  "id": "2026-10-15T07:25:55.432796+00:00|SILVER",
+  "cat": "rates_up",
+  "instr": "SILVER",
+  "dir": "down",
+  "strength": 1,
+  "chg": 0.859,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-10-15T07:25:55.432796+00:00"
+ },
+ {
+  "id": "2026-10-15T07:25:55.432796+00:00|OIL",
+  "cat": "rates_up",
+  "instr": "OIL",
+  "dir": "down",
+  "strength": 1,
+  "chg": -0.159,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-10-15T07:25:55.432796+00:00"
  }
 ]
