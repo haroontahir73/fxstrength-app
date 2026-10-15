@@ -107,3 +107,6 @@ data/myfxbook_history/
 # [cache] Historical Performance UI (history_panel.py): the page-ready view of the latest private
 # backtest run. Derived from private history - never committed.
 data/backtest_view.json
+# [cache] Options Futures-Equivalent OI (options_oi.py): the generated weekly delta-adjusted
+# options-exposure series, rebuilt deterministically from CFTC each run. Public CFTC data only.
+data/options_fe_oi.json

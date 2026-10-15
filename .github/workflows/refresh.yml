@@ -123,6 +123,17 @@ jobs:
           COT_LEGACY_FETCH: ${{ github.event.inputs.cot_legacy_fetch == 'true' && '1' || '' }}
         run: python run.py ${{ steps.mode.outputs.mode }}
 
+      # Options Futures-Equivalent OI (PR #12): the weekly delta-adjusted options-exposure
+      # series, rebuilt from the CFTC Commitments of Traders reports (futures-only vs combined).
+      # DATA ONLY in this PR - it writes engine/data/options_fe_oi.json for the PR #13 UI and
+      # renders nothing yet. continue-on-error so a CFTC hiccup can never take the deploy down
+      # (reliability: it fails independently of COT / Myfxbook / scanner / backtest). It reaches
+      # ONLY publicreporting.cftc.gov - no CME, no Myfxbook, no credentials, its own requests.
+      - name: Options futures-equivalent OI data
+        working-directory: engine
+        continue-on-error: true
+        run: python options_oi.py
+
       # Injects the decoded gold/silver/oil alerts into dashboard.html between markers.
       # Self-contained - it never touches anything build_dashboard.py owns.
       # Now also renders the OI tab (it imports oi.py), so it has a dependency it did not
