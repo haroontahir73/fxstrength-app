@@ -117,6 +117,14 @@ jobs:
         working-directory: engine
         run: python test_history_panel.py
 
+      # Options Futures-Equivalent OI (CFTC options exposure = combined OI - futures-only OI):
+      # exact market/date/family/unit matching, mismatch & negative rejection, 13/52-week
+      # metrics and percentile, deterministic rebuild, and that it only ever reads CFTC (never
+      # CME or Myfxbook) and leaves the frozen Step 2 / Step 3 engine untouched.
+      - name: Options futures-equivalent OI suite (39 checks)
+        working-directory: engine
+        run: python test_options_oi.py
+
       # The Raspberry Pi trigger (pi/cot_pi_check.py) against a fake CFTC / GitHub / Pages:
       # schedule, trigger-once, retries, confirmation, downtime, overlap, token hygiene.
       - name: Pi checker suite (35 checks)
@@ -174,3 +182,4 @@ jobs:
           python /tmp/no_push.py test_divergence.py
           python /tmp/no_push.py test_divergence_backtest.py
           python /tmp/no_push.py test_history_panel.py
+          python /tmp/no_push.py test_options_oi.py

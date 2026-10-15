@@ -529,6 +529,50 @@ So `fetch_oi.py` is written as an adapter. It defaults to `SOURCE = "cot_weekly"
 open interest already in the COT report. To go daily, add a function there and repoint
 `SOURCE` — nothing downstream changes.
 
+## Options Futures-Equivalent OI (options_oi.py, PR #12 — data only)
+
+A separate, observational layer: how much delta-adjusted options exposure sits behind each
+market, from CFTC data alone. It is **not** exchange option-contract OI, and it is kept out of
+the trading signal.
+
+Why not CME: call/put/strike OI lives only in CME's licensed Daily Bulletin, which the terms of
+use forbid us to automate, redistribute or display publicly, and whose server blocks scripted
+access anyway (see the PR #12 review notes). So the metric is built from the CFTC Commitments
+of Traders reports, which are US-government public data with historical archives.
+
+* **The number.** The CFTC publishes every market twice a week from the same positions:
+  *Futures-Only* and *Futures-and-Options-Combined* (each trader's options folded into the
+  futures contract they are options on, delta-adjusted, in futures-equivalent contracts). So
+
+      options futures-equivalent OI = combined open_interest_all − futures-only open_interest_all
+
+  is a **weekly, delta-adjusted options-exposure** measure, not a count of option contracts, and
+  it says nothing about calls, puts, strikes or expiries. The methodology sentence the UI must
+  show is fixed in `options_oi_config.METHODOLOGY`.
+* **Mapping.** The CFTC codes come from `config.py` (the COT system's verified mapping — one
+  mapping, not two). The only addition is COMEX Copper (085692). Seven FX currency contracts use
+  the **TFF** report, four commodities use the **Disaggregated** report; futures-only and
+  combined are always read from the *same* family. Dataset ids are in `options_oi_config.SOURCES`
+  (TFF `gpe5-46if`/`yw9f-hn96`, Disaggregated `72hh-3qpy`/`kh3c-gbw2`).
+* **Fail-closed.** A market/date is calculated only when both reports carry the exact same CFTC
+  code, report date, family and contract-unit definition. Any mismatch, a missing side, or a
+  combined OI below futures-only (impossible legitimately — options only add exposure) is
+  excluded with a reason, never shown as a value or a negative.
+* **History & metrics.** Both reports run from 2006-06-13, so the series is genuinely
+  backfilled (~1061 weekly observations per market), never reconstructed. Per market:
+  options share of combined OI, weekly change and % change, 13- and 52-week averages, 52-week
+  percentile (inclusive rank), 52-week high/low. Windows shorter than their length report the
+  real sample size, never padded.
+* **No call/put claims, no direction.** This source cannot give call/put, strike, expiry, max
+  pain or gamma, and it cannot say whether an option was bought or sold — so PR #12 adds no
+  such field and no signal. The three USD-quoted pairs carry an `inverse` flag (raw OI needs no
+  inversion; a *future* signed field would).
+* **Isolation & reliability.** Reads only `publicreporting.cftc.gov`, with its own requests — no
+  CME, no Myfxbook, no credentials, never the Myfxbook budget. The generated
+  `engine/data/options_fe_oi.json` (gitignored, public-safe CFTC data) is rebuilt each refresh
+  as a `continue-on-error` step, so a CFTC hiccup never touches the COT refresh, Myfxbook, the
+  scanner, the backtest or the deploy. Tests: `test_options_oi.py`.
+
 ## Files
 
 ```
