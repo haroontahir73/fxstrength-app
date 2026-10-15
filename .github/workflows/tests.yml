@@ -109,6 +109,14 @@ jobs:
         working-directory: engine
         run: python test_divergence_backtest.py
 
+      # Step 3 Historical Performance UI (presentation only): renders the published engine
+      # result without recomputing it - 5 episodes stay 5, pending is never 0%, every win rate
+      # carries its n, malformed / missing / stale results fail visibly, and the panel can only
+      # reach api.github.com (never Myfxbook).
+      - name: Historical performance UI suite (59 checks)
+        working-directory: engine
+        run: python test_history_panel.py
+
       # The Raspberry Pi trigger (pi/cot_pi_check.py) against a fake CFTC / GitHub / Pages:
       # schedule, trigger-once, retries, confirmation, downtime, overlap, token hygiene.
       - name: Pi checker suite (35 checks)
@@ -165,3 +173,4 @@ jobs:
           python /tmp/no_push.py test_myfxbook.py
           python /tmp/no_push.py test_divergence.py
           python /tmp/no_push.py test_divergence_backtest.py
+          python /tmp/no_push.py test_history_panel.py

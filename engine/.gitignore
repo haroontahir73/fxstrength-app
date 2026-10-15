@@ -104,3 +104,6 @@ data/publish_status.json
 data/myfxbook.json
 data/myfxbook_state.json
 data/myfxbook_history/
+# [cache] Historical Performance UI (history_panel.py): the page-ready view of the latest private
+# backtest run. Derived from private history - never committed.
+data/backtest_view.json

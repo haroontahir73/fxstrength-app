@@ -157,6 +157,7 @@ def device_phone(b, page_path, keys, out, label="device"):
     ok(st[0] == "none" and abs(st[1] - y0) <= 2, f"{label}: Back closes the report and returns to the same place", (y0, st))
     retail_phone(pg, url, label, out)
     divergence_phone(pg, url, label, out)
+    history_phone(pg, url, label, out)
     ctx.close()
 
 
@@ -361,6 +362,92 @@ def divergence_expiry(b, url, out):
         pg.close()
 
 
+def history_phone(pg, url, label, out, tag=""):
+    """Historical Performance on a phone: fits the width (wide tables scroll inside their own
+    box), the methodology and an episode open by tap, and the scanner is still first."""
+    import os
+    touch = bool(pg.evaluate("() => 'ontouchstart' in window || navigator.maxTouchPoints > 0"))
+    press = pg.tap if touch else pg.click          # a tap on phones, a click on desktop
+    pg.goto(url)
+    press('label[for="tab-cot"]')
+    pg.wait_for_timeout(200)
+    has = pg.evaluate("() => !!document.getElementById('hist-perf')")
+    if os.environ.get("MYFXBOOK_ENABLED") != "true" and not tag:
+        ok(not has, f"{label}: Myfxbook off - no historical-performance section")
+        return
+    ok(has, f"{label}{tag}: Historical Performance section on the COT tab")
+    if not has:
+        return
+    m = pg.evaluate("""() => { const S = document.getElementById('hist-perf'), W = window.innerWidth;
+        const over = [...S.querySelectorAll('*')].filter(e => { if (e.closest('.hpscroll')) return false;
+            const r = e.getBoundingClientRect(); return r.width > 0 && (r.right > W + 1 || r.left < -1); }).length;
+        const boxes = [...S.querySelectorAll('.hpscroll')].map(b => { const r = b.getBoundingClientRect();
+            return [Math.round(r.left), Math.round(r.right), b.scrollWidth > b.clientWidth]; });
+        const hs = [...S.querySelectorAll('h2, h3')].map(h => h.getBoundingClientRect());
+        let overlap = 0; for (let i = 1; i < hs.length; i++) if (hs[i].top < hs[i - 1].bottom - 1) overlap++;
+        const P = document.getElementById('p-cot');
+        return {W, sw: document.documentElement.scrollWidth, over, boxes, overlap,
+                scanFirst: P.firstElementChild && P.firstElementChild.classList.contains('dvscan'),
+                head: (S.querySelector('.hphead') || {}).textContent || '', bad: S.querySelector('.hpbad') ? 1 : 0,
+                nan: /NaN|Infinity/.test(S.textContent)}; }""")
+    ok(m["sw"] <= m["W"] + 1 and m["over"] == 0, f"{label}{tag}: historical section causes no horizontal page scroll", m)
+    ok(all(b[0] >= -1 and b[1] <= m["W"] + 1 for b in m["boxes"]), f"{label}{tag}: wide tables stay inside the screen (scroll in their box)", m["boxes"])
+    ok(m["overlap"] == 0 and not m["nan"], f"{label}{tag}: headings do not overlap, no NaN / Infinity", m)
+    ok(m["scanFirst"] is not False, f"{label}{tag}: the divergence scanner is still first on the COT tab")
+    if m["bad"]:
+        ok(True, f"{label}{tag}: section shows its unavailable state (no published result here)")
+        pg.locator("#hist-perf").screenshot(path=str(out / f"{label}{tag}_history.png"))
+        return
+    ok(m["head"].startswith(("Insufficient sample", "Early evidence", "Developing sample", "Meaningful sample")),
+       f"{label}{tag}: headline starts with the sample status", m["head"][:80])
+    pg.locator("#hist-perf .hpmeth summary").scroll_into_view_if_needed()
+    press("#hist-perf .hpmeth summary")
+    pg.wait_for_timeout(100)
+    ok(pg.evaluate("() => document.querySelector('#hist-perf .hpmeth').open"), f"{label}{tag}: methodology opens by {'tap' if touch else 'click'}")
+    pg.locator("#hist-perf .hpaudit details summary").first.scroll_into_view_if_needed()
+    press("#hist-perf .hpaudit details summary >> nth=0")
+    pg.wait_for_timeout(100)
+    st = pg.evaluate("() => { const d = document.querySelector('#hist-perf .hpaudit details'); return [d.open, d.textContent.includes('State transitions')]; }")
+    ok(st[0] and st[1], f"{label}{tag}: {'tapping' if touch else 'clicking'} an episode shows its state transitions", st)
+    sw = pg.evaluate("() => [document.documentElement.scrollWidth, window.innerWidth]")
+    ok(sw[0] <= sw[1] + 1, f"{label}{tag}: still no horizontal page scroll with details open", sw)
+    pg.evaluate("() => document.getElementById('hist-perf').scrollIntoView()")
+    pg.locator("#hist-perf").screenshot(path=str(out / f"{label}{tag}_history.png"))
+
+
+def history_fixture_pages(b, page_path, html, out):
+    """The section rendered from SYNTHETIC engine fixtures (all-pending and completed) in the
+    built page, checked on desktop, phone browser and the Android wrapper - so the populated
+    layout is tested even where no real result is published (fixture-only CI)."""
+    import os, re
+    import history_fixtures as hf
+    import history_panel as hp
+    if os.environ.get("MYFXBOOK_ENABLED") != "true" or 'id="hist-perf"' not in html:
+        return
+    pg = b.new_page(viewport={"width": 1280, "height": 900})        # the built page itself, desktop
+    history_phone(pg, page_path.resolve().as_uri(), "desktop", out)
+    pg.close()
+    for kind in ("pending", "completed"):
+        m, r = hf.results(kind)
+        sec = hp.panel(hp.build_view(f"fixture-{kind}", m, r))
+        fx = re.sub(r'<section class="hpsec" id="hist-perf">.*?</section>', lambda _: sec, html, count=1, flags=re.S)
+        fpath = page_path.with_name(page_path.stem + f".hist-{kind}.html")
+        fpath.write_text(fx, encoding="utf-8")
+        apath = page_path.with_name(page_path.stem + f".hist-{kind}.app.html")
+        apath.write_text(app_wrap(fx), encoding="utf-8")
+        try:
+            pg = b.new_page(viewport={"width": 1280, "height": 900})
+            history_phone(pg, fpath.as_uri(), "desktop", out, f"_fixture_{kind}")
+            pg.close()
+            for label, path in (("phone_browser", fpath), ("android_app", apath)):
+                ctx = b.new_context(viewport={"width": 390, "height": 844}, device_scale_factor=3, is_mobile=True, has_touch=True)
+                history_phone(ctx.new_page(), path.as_uri(), label, out, f"_fixture_{kind}")
+                ctx.close()
+        finally:
+            fpath.unlink(missing_ok=True)
+            apath.unlink(missing_ok=True)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("page")
@@ -513,6 +600,7 @@ def main():
             pg.close()
         retail_expiry(b, url, out)
         divergence_expiry(b, url, out)
+        history_fixture_pages(b, page_path, html, out)
         run_devices(b, page_path, html, keys, out)
         b.close()
     (out / "layout.json").write_text(json.dumps({"passed": len(OKS), "failed": FAILS, "metrics": res}, indent=1))

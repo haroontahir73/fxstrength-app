@@ -15,6 +15,7 @@ from template import TEMPLATE
 import cot_table as _ct
 import myfxbook as _mfx
 import divergence as _div
+import history_panel as _hist
 
 OUT = Path(__file__).parent / "dashboard.html"
 PART_LABEL = {"fundamentals": "Checklist", "expectations": "Rate odds",
@@ -2105,9 +2106,12 @@ def build():
         # and still degrades on its own, so a dead feed costs one section, not the tab.
         # Step 2: COT x Myfxbook retail divergence scanner - display only, feeds nothing.
         "{{COT_PANEL}}": (_safe_panel(_div.scanner, "Positioning divergences")
+                          + _safe_panel(_hist.link, "Historical performance link")
                           + _safe_panel(cot_report_tables, "COT report tables")
                           + cot_panel()
-                          + _safe_panel(sentiment_panel, "Retail sentiment")),
+                          + _safe_panel(sentiment_panel, "Retail sentiment")
+                          # Step 3: historical performance of the divergence - reads the engine output only
+                          + _safe_panel(_hist.section, "Historical performance")),
         "{{OI_PANEL}}": oi_panel(),
         # Myfxbook Community Outlook - its own tab, display only (myfxbook.py).
         "{{RETAIL_PANEL}}": _safe_panel(_mfx.retail_panel, "Retail sentiment (Myfxbook)"),

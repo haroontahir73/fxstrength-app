@@ -433,6 +433,33 @@ table.cotrep{min-width:1100px;width:100%;border-collapse:collapse;font-size:12.5
 .dvsn{font-weight:700}.dvsl{font-weight:700}.dv-strong_bull .dvsl,.dv-bull .dvsl{color:var(--pos)}.dv-strong_bear .dvsl,.dv-bear .dvsl{color:var(--neg)}
 .dvsd{font:12px "IBM Plex Mono",monospace;color:var(--ink2)}
 .dvempty{color:var(--mut)}
+.hpjump{margin:-8px 0 14px;font-size:13px}
+.hpsec{margin-top:22px;border-top:1px solid var(--line);padding-top:12px}
+.hphead{font-size:15.5px;font-weight:700;margin:6px 0 10px;padding:8px 10px;border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:8px;background:var(--surface)}
+.hpsample{display:inline-block;font:700 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.04em;padding:1px 6px;border:1px solid var(--warn);border-radius:6px;background:var(--warnbg);color:var(--ink)}
+.hpsample::before{content:"\26A0\FE0E  "}
+.hpsum{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:0 0 6px}
+@media (min-width:860px){.hpsum{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.hpsum>div{border:1px solid var(--line);border-radius:8px;padding:6px 8px;background:var(--surface);min-width:0}
+.hpsum dt{font-size:11.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em}
+.hpsum dd{margin:2px 0 0;font:600 14px "IBM Plex Mono",monospace;overflow-wrap:anywhere}
+.hpnote,.hpprov{font-size:12.5px;margin:4px 0}
+.hph3{font-size:14px;margin:16px 0 6px}
+.hpscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.hptab{border-collapse:collapse;font-size:12.5px;min-width:640px;width:100%}
+.hptab th,.hptab td{padding:5px 8px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap;vertical-align:top}
+.hptab thead th{font-size:11.5px;color:var(--ink2);background:var(--surface2)}
+.hptab tbody th{position:sticky;left:0;background:var(--surface);z-index:1}
+.hpaudit{min-width:1080px}
+.hpaudit tbody th{white-space:normal;min-width:150px;max-width:220px}
+.hppend{font-style:italic;color:var(--mut);border-bottom:1px dotted var(--mut)}
+.hpmkt{border:1px solid var(--line);border-radius:8px;padding:6px 8px;margin:6px 0;background:var(--surface)}
+.hpmkt summary,.hpmeth summary,.hpacc summary,.hpid summary{cursor:pointer;min-height:24px}
+.hpmkt .hpscroll{margin-top:6px}
+.hpstates{margin:4px 0;font-size:12.5px}.hpst{margin:2px 0;font-size:12px}
+.hpmeth,.hpacc{margin:12px 0;font-size:13px}.hpmeth ul{padding-left:18px;margin:6px 0}
+.hpbad{border:1px solid var(--line);border-left:4px solid var(--neg);border-radius:8px;padding:8px 10px;background:var(--surface)}
+.hpquiet{font-size:12.5px}
 /* A report's "Jump to" links target one of its own tables; the layer stays open while any
    of its sections is the target. Browsers without :has() drop this rule - and never show
    the links (.crjump below), so a jump can never close a report there. */
