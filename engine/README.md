@@ -537,8 +537,10 @@ the trading signal.
 
 Why not CME: call/put/strike OI lives only in CME's licensed Daily Bulletin, which the terms of
 use forbid us to automate, redistribute or display publicly, and whose server blocks scripted
-access anyway (see the PR #12 review notes). So the metric is built from the CFTC Commitments
-of Traders reports, which are US-government public data with historical archives.
+access anyway (see the PR #12 review notes). CFTC public-reporting data is the **preferred
+source for this public feature** and avoids the CME redistribution/automation concerns
+identified in the audit; it is US-government public data with historical archives. (This is a
+sourcing choice to steer clear of those concerns, not a blanket legal opinion on either feed.)
 
 * **The number.** The CFTC publishes every market twice a week from the same positions:
   *Futures-Only* and *Futures-and-Options-Combined* (each trader's options folded into the
@@ -567,6 +569,11 @@ of Traders reports, which are US-government public data with historical archives
   pain or gamma, and it cannot say whether an option was bought or sold — so PR #12 adds no
   such field and no signal. The three USD-quoted pairs carry an `inverse` flag (raw OI needs no
   inversion; a *future* signed field would).
+* **Possible later extension (not built).** Subtracting a trader category's futures-only
+  position from its combined position is mathematically valid and would give a *derived options
+  futures-equivalent category position* — deliberately named to keep it distinct from actual
+  option contracts / OI, which it is not. It is only noted here; PR #12 builds no such field and
+  turns it into no signal.
 * **Isolation & reliability.** Reads only `publicreporting.cftc.gov`, with its own requests — no
   CME, no Myfxbook, no credentials, never the Myfxbook budget. The generated
   `engine/data/options_fe_oi.json` (gitignored, public-safe CFTC data) is rebuilt each refresh
