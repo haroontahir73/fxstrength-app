@@ -78,8 +78,10 @@ def _repo_json(path):
 
 def production_timestamps(extra_files=()):
     """Which snapshots the PRODUCTION feed made: the shared request ledger (production attempts,
-    rolling 24 h - read only, never written here) united with the accumulated registry
-    backtest/provenance.json (kept by this run). Returns (set or None, info)."""
+    rolling 24 h), the provenance registry backtest/provenance.json (kept by
+    divergence_backtest_provenance.py, a separate step) and production's own attempt list in
+    the restored state cache. ALL READ ONLY here - the replay never writes provenance.
+    Returns (set or None, sources)."""
     seen, src = set(), []
     led = _repo_json(mf.LEDGER_PATH)
     if led:
@@ -114,13 +116,8 @@ def first_seen_of(store):
 
 
 def manifest(res, rows, store, prices, fs, generated_at, asof, src):
-    obs, ev = res["observations"], res["events"]
+    obs, ev, eps = res["observations"], res["state_events"], res["episodes"]
     snaps = res["snapshots"]
-    reasons = {}
-    for x in res["excluded"]:
-        for w in x["why"]:
-            key = w.split(" - ")[0]
-            reasons[key] = reasons.get(key, 0) + 1
     cov = {}
     for k, spec in bc.PRICES.items():
         m = (prices.get("markets") or {}).get(k) or {}
@@ -136,23 +133,33 @@ def manifest(res, rows, store, prices, fs, generated_at, asof, src):
     except Exception:                                            # noqa: BLE001
         commit = None
     fp = bt.fingerprint()
+    acc = res["accounting"]
     return {
         "strategy": {"version": bc.STRATEGY_VERSION, "frozen_at": bc.STRATEGY_COMMIT, "fingerprint": fp,
                      "is_baseline": fp == bc.BASELINE_FINGERPRINT},
         "code_commit": commit, "generated_at": generated_at, "prices_asof": asof,
-        "myfxbook": {"snapshots": len(snaps), "first": snaps[0] if snaps else None, "last": snaps[-1] if snaps else None,
-                     "rows": len(rows), "sources": src, "requests_made": 0, "blocked_attempts": len(BLOCKED)},
+        "conventions": res["conventions"],
+        # three separate units - never added together
+        "accounting": {
+            "archive": {"unique_rows": len(rows), **src},
+            "snapshots": acc["snapshots"],
+            "market_observations": acc["market_observations"],
+            "signals": acc["signals"],
+        },
+        "myfxbook": {"production_snapshots": len(snaps), "first": snaps[0] if snaps else None,
+                     "last": snaps[-1] if snaps else None, "requests_made": 0, "blocked_attempts": len(BLOCKED)},
         "cot": {"reports_in_store": len(reports), "first": reports[0] if reports else None,
                 "last": reports[-1] if reports else None, "reports_used": used,
-                "used_available_at": {d: bt._iso(bt.cot_available_at(d, fs.get(d))) for d in used},
-                "first_seen_recorded": fs},
-        "observations": {"total": len(obs), "classified": sum(o["cls"] != "unavailable" for o in obs),
-                         "signals": sum(o["cls"] in bt.ACTIONABLE for o in obs),
-                         "by_class": {c: sum(o["cls"] == c for o in obs) for c in
-                                      ("strong_bull", "bull", "none", "bear", "strong_bear", "unavailable")}},
-        "events": {"total": len(ev), "by_class": {c: sum(e["cls"] == c for e in ev) for c in bt.ACTIONABLE},
-                   "by_market": {k: sum(e["market"] == k for e in ev) for k in sorted({e["market"] for e in ev})}},
-        "excluded": {"observations": len(res["excluded"]), "by_reason": dict(sorted(reasons.items()))},
+                "used_availability": {d: dict(zip(("available_at", "basis"),
+                                                  (bt._iso(bt.cot_availability(d, fs.get(d))[0]), bt.cot_availability(d, fs.get(d))[1])))
+                                      for d in used},
+                "first_seen_recorded": fs, "calendar_source": bc.CFTC_CALENDAR_SOURCE},
+        "observations_by_class": {c: sum(o["cls"] == c for o in obs) for c in
+                                  ("strong_bull", "bull", "none", "bear", "strong_bear", "unavailable")},
+        "state_events": {"total": len(ev), "by_class": {c: sum(e["cls"] == c for e in ev) for c in bt.ACTIONABLE}},
+        "directional_episodes": {"total": len(eps), "by_direction": {d: sum(e["direction"] == d for e in eps)
+                                                                     for d in ("Bullish", "Bearish")},
+                                 "by_market": {k: sum(e["market"] == k for e in eps) for k in sorted({e["market"] for e in eps})}},
         "price_coverage": cov, "price_source": bc.PRICE_SOURCE,
         "input_hashes": {"myfxbook_rows": _h(rows), "cot_store": _h((store or {}).get("contracts", {})),
                          "prices": _h(prices.get("markets") or {})},
@@ -207,12 +214,9 @@ def main(argv=None):
     res = bt.replay(rows, store, {k: v for k, v in (prices.get("markets") or {}).items() if "dates" in v},
                     first_seen=fs, asof=asof, production=prod)
     man = manifest(res, rows, store, prices, fs, gen, asof, src)
-    snaps_all = sorted({r["timestamp"] for r in rows})
-    man["myfxbook"]["provenance"] = {
-        "sources": prov_src, "baseline_rule": "production snapshots only" if not a.all_snapshots else "ALL snapshots (not baseline)",
-        "archived_snapshots": len(snaps_all),
-        "production_snapshots": len(res["snapshots"]),
-        "excluded_non_production": len(snaps_all) - len(res["snapshots"])}
+    man["accounting"]["snapshots"]["provenance_sources"] = prov_src
+    man["accounting"]["snapshots"]["baseline_rule"] = ("production snapshots only" if not a.all_snapshots
+                                                       else "ALL snapshots (not baseline)")
     if a.all_snapshots:
         man["strategy"]["is_baseline"] = False
     out = Path(a.out)
@@ -222,22 +226,23 @@ def main(argv=None):
     (out / "results.json").write_bytes(results)
     (out / "manifest.json").write_bytes(mani)
     # public log: counts and hashes only
-    m = man
+    m, acc = man, man["accounting"]
     print(f"backtest {m['strategy']['version']} (baseline: {m['strategy']['is_baseline']}, fingerprint {m['strategy']['fingerprint']})")
-    print(f"  Myfxbook snapshots: {m['myfxbook']['snapshots']} ({m['myfxbook']['first']} .. {m['myfxbook']['last']}), "
-          f"rows {m['myfxbook']['rows']}, Myfxbook requests made: 0, blocked attempts: {m['myfxbook']['blocked_attempts']}")
-    print(f"  COT reports in store: {m['cot']['reports_in_store']}, used: {', '.join(m['cot']['reports_used']) or 'none'}")
-    print(f"  observations: {m['observations']['total']} ({m['observations']['signals']} signal), "
-          f"events: {m['events']['total']}, excluded: {m['excluded']['observations']}")
+    print(f"  archive: {acc['archive']['unique_rows']} unique rows; snapshots: {acc['snapshots']['archived']} archived, "
+          f"{acc['snapshots']['production']} production, {acc['snapshots']['excluded_before_expansion']} excluded before expansion "
+          f"(provenance: {', '.join(prov_src) or 'none'})")
+    mo = acc["market_observations"]
+    print(f"  market observations: {mo['total']} = {mo['classified']} classified + {mo['unavailable']} unavailable "
+          + "(" + ", ".join(f"{v} {k}" for k, v in mo["unavailable_by_reason"].items()) + ")")
+    print(f"  signals: {acc['signals']['observations']} observations, {acc['signals']['state_events']} state events, "
+          f"{acc['signals']['directional_episodes']} directional episodes")
+    print(f"  Myfxbook requests made: 0, blocked attempts: {m['myfxbook']['blocked_attempts']}")
+    print(f"  COT reports in store: {m['cot']['reports_in_store']}; used: "
+          + ", ".join(f"{d} (available {v['available_at']}, {v['basis']})" for d, v in m["cot"]["used_availability"].items()))
     print("  price coverage: " + ", ".join(f"{k} {v['bars']}" for k, v in m["price_coverage"].items() if v.get("symbol")))
     print(f"  result hash {m['result_hash']}")
-    print(f"  provenance: {', '.join(prov_src) or 'none'}; production snapshots {len(res['snapshots'])} "
-          f"of {len(snaps_all)} archived")
     if a.publish:
         publish(a.publish, {"results.json": results, "manifest.json": mani})
-        if prod:
-            reg = sorted(set(prod) & set(snaps_all) | set((_repo_json(PROVENANCE) or {}).get("production") or []))
-            publish("backtest", {"provenance.json": json.dumps({"production": reg}, indent=1).encode()})
     return 1 if BLOCKED else 0
 
 

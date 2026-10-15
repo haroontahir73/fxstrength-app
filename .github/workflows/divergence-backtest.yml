@@ -65,6 +65,12 @@ jobs:
         working-directory: engine
         run: python fetch_bt_prices.py
 
+      # copies production request times (shared ledger + production state) into the
+      # append-only registry - a separate step; the replay below only reads it
+      - name: Provenance registry (production request times, append-only)
+        working-directory: engine
+        run: python divergence_backtest_provenance.py
+
       - name: Replay (0 Myfxbook requests; results to the private repo only)
         working-directory: engine
         run: |

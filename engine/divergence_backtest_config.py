@@ -12,11 +12,30 @@ STRATEGY_VERSION = "step2-v1"
 STRATEGY_COMMIT = "79b834a"
 BASELINE_FINGERPRINT = "0bcac9b16befcd54"     # divergence_config at 79b834a (test_backtest checks)
 
+# ---------------------------------------------------------------- CFTC release calendar
+# The OFFICIAL release dates (15:30 US Eastern) from the CFTC's published COT release
+# schedule. A positions date (Tuesday) is released on the first scheduled date at least 3
+# days later (the Friday, or the holiday-delayed date CFTC marks with *). Years not listed
+# fall back to the documented algorithm in divergence_backtest.cot_available_at().
+CFTC_CALENDAR_SOURCE = "https://www.cftc.gov/MarketReports/CommitmentsofTraders/ReleaseSchedule/index.htm (2026 schedule, retrieved 15 Oct 2026)"
+CFTC_RELEASES = {
+    2026: ("01-05 01-09 01-16 01-23 01-30 02-06 02-13 02-20 02-27 03-06 03-13 03-20 03-27 "
+           "04-03 04-10 04-17 04-24 05-01 05-08 05-15 05-22 05-29 06-05 06-12 06-22 06-26 "
+           "07-06 07-10 07-17 07-24 07-31 08-07 08-14 08-21 08-28 09-04 09-11 09-18 09-25 "
+           "10-02 10-09 10-16 10-23 10-30 11-06 11-16 11-20 11-30 12-04 12-11 12-18 12-28"),
+}
+
 # ---------------------------------------------------------------- forward returns
-HORIZONS = (1, 3, 5, 10)        # trading days (= price bars of the instrument)
-# Entry: the OPEN of the first daily bar dated AFTER the observation's date in the exchange's
-# time zone - a price that only exists after the observation. Exit at horizon h: the CLOSE of the h-th bar from entry.
-# MFE / MAE: best / worst high-low excursion over those h bars, in the signal's direction.
+HORIZONS = (1, 3, 5, 10)        # trading sessions (= daily price bars of the instrument)
+# HORIZON CONVENTION (locked; recorded in every results.json as "conventions"):
+#   entry  = the OPEN of the first daily session whose trading date is strictly after the
+#            signal's date in that exchange's time zone (daily bars carry no open time, so a
+#            same-date session may already have opened before the signal - it is not used)
+#   h-day  = the CLOSE of the h-th session counting the entry session as session 1
+#            (1d = entry session's close, 3d = third session's close, ...)
+#   MFE/MAE = highest high / lowest low from the entry session through the h-th session,
+#            measured from the entry price, signed in the signal's direction (MFE >= 0 is
+#            the best move in favour, MAE <= 0 the worst move against)
 MAX_ENTRY_GAP_DAYS = 5          # first bar later than this (calendar days) -> "missing price"
 MAX_BAR_GAP_DAYS = 5            # a gap between two bars longer than this -> "missing price"
 

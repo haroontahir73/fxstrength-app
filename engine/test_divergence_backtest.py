@@ -118,7 +118,19 @@ def t_cot_timing():
           bt.cot_available_at("2026-01-13") == T("2026-01-16T20:30:00Z"))
     check(g, "Thanksgiving week (24 Nov 2026) -> Monday 30 Nov", bt.cot_available_at("2026-11-24") == T("2026-11-30T20:30:00Z"))
     check(g, "Christmas week (22 Dec 2026, holiday Fri 25) -> Monday 28 Dec", bt.cot_available_at("2026-12-22") == T("2026-12-28T20:30:00Z"))
-    check(g, "Columbus Day week (13 Oct 2026) -> conservatively Monday 19 Oct", bt.cot_available_at("2026-10-13") == T("2026-10-19T19:30:00Z"))
+    check(g, "13 Oct 2026 report -> Friday 16 Oct 15:30 ET (19:30 UTC) per the official CFTC calendar",
+          bt.cot_availability("2026-10-13") == (T("2026-10-16T19:30:00Z"), "official CFTC calendar"), bt.cot_availability("2026-10-13"))
+    check(g, "official calendar holiday delays: Veterans Day week -> Mon 16 Nov, Juneteenth -> Mon 22 Jun, July 4th -> Mon 6 Jul",
+          [bt.cot_available_at(d).date().isoformat() for d in ("2026-11-10", "2026-06-16", "2026-06-30")] == ["2026-11-16", "2026-06-22", "2026-07-06"])
+    check(g, "year boundary: 30 Dec 2025 positions -> Mon 5 Jan 2026 (official 2026 calendar)",
+          bt.cot_availability("2025-12-30") == (T("2026-01-05T20:30:00Z"), "official CFTC calendar"))
+    check(g, "a year without the official calendar uses the documented fallback (and says so)",
+          bt.cot_availability("2027-11-23")[1] == "fallback algorithm" and bt.cot_available_at("2027-11-23") == T("2027-11-29T20:30:00Z")
+          and bt.cot_availability("2025-10-07")[1] == "fallback algorithm", bt.cot_availability("2027-11-23"))
+    check(g, "fallback: a Monday holiday in the report week delays it (conservative)",
+          bt.fallback_release("2027-10-12").date().isoformat() == "2027-10-18")
+    check(g, "a later production first-seen is used and labelled", bt.cot_availability("2026-10-06", "2026-10-12T05:57:13+00:00")
+          == (T("2026-10-12T05:57:13Z"), "official CFTC calendar + production first-seen"))
     check(g, "a recorded first-seen time is used (never earlier than the scheduled release)",
           bt.cot_available_at("2026-10-06", "2026-10-09T20:05:00+00:00") == T("2026-10-09T20:05:00Z")
           and bt.cot_available_at("2026-10-06", "2026-10-09T10:00:00+00:00") == T("2026-10-09T19:30:00Z"))
@@ -126,8 +138,8 @@ def t_cot_timing():
           bt.cot_available_at("2026-10-13", "2026-10-16T19:45:00+00:00") == T("2026-10-16T19:45:00Z"))
     store = store_with({}, last="2026-10-13", n=60)
     for when, want in (("2026-10-09T19:29:59Z", "2026-09-29"), ("2026-10-09T19:30:00Z", "2026-10-06"),
-                       ("2026-10-14T09:00:00Z", "2026-10-06"), ("2026-10-16T21:00:00Z", "2026-10-06"),
-                       ("2026-10-19T19:30:00Z", "2026-10-13")):
+                       ("2026-10-14T09:00:00Z", "2026-10-06"), ("2026-10-16T19:29:59Z", "2026-10-06"),
+                       ("2026-10-16T19:30:00Z", "2026-10-13")):
         known = bt.cot_as_known(store, T(when))
         latest, _ = ct.pick_weeks(known)
         check(g, f"snapshot {when}: latest usable report {want}", latest == want, latest)
@@ -167,8 +179,8 @@ def t_reproduces_step2():
     check(g, "market missing from the snapshot -> unavailable (no data invented)", o["cls"] == "unavailable"
           and "unavailable for this market" in o["reasons"][0])
     check(g, "every unavailable observation is listed as excluded with its reason",
-          len(res["excluded"]) == sum(o["cls"] == "unavailable" for o in res["observations"])
-          and all(x["why"] for x in res["excluded"]))
+          len(res["unavailable_observations"]) == sum(o["cls"] == "unavailable" for o in res["observations"])
+          and all(x["why"] for x in res["unavailable_observations"]))
     bad = row(ts, "EUR", "EURUSD", 87)
     bad["longPercentage"] = "n/a"
     r = bt.replay([bad], store, {})
@@ -206,6 +218,31 @@ def t_returns():
           abs(f2[5]["mfe"] + (lo / e - 1) * 100) < 1e-6 and abs(f2[5]["mae"] + (hi / e - 1) * 100) < 1e-6)
 
 
+def t_horizon_convention():
+    """Locked convention: entry = next session's open; h-day exit = close of the h-th session
+    counting the entry session as 1; MFE/MAE over exactly those sessions."""
+    g = "horizon"
+    closes = [100.0] * 16
+    opens = [100.0] * 16
+    b = bars("2026-10-12", closes, opens=opens)
+    # signal on Wed 14 Oct -> entry session Thu 15 Oct (index 3). Spikes: on the signal day
+    # itself (index 2) and on the session AFTER the 3-day exit (index 6): neither may count.
+    b["high"][2], b["low"][2] = 150.0, 50.0
+    b["high"][6], b["low"][6] = 140.0, 60.0
+    b["high"][3], b["low"][3] = 103.0, 99.0        # entry session's own range counts
+    b["close"][5] = 102.0                           # 3rd session's close = the 3-day exit
+    f = bt.forward(bt._bars(b), T("2026-10-14T20:00:00Z"), +1)
+    check(g, "entry = open of the first session after the signal (Thu 15 Oct)", f[3]["entry_date"] == "2026-10-15")
+    check(g, "3d exit = close of the 3rd session counting the entry session (Mon 19 Oct)",
+          f[3]["exit_date"] == "2026-10-19" and f[3]["exit"] == 102.0 and abs(f[3]["ret"] - 2.0) < 1e-9)
+    check(g, "1d exit = close of the entry session itself", f[1]["exit_date"] == "2026-10-15" and f[1]["exit"] == 100.0)
+    check(g, "MFE/MAE include the entry session but not the signal-day bar or any bar after the exit",
+          abs(f[3]["mfe"] - 3.0) < 1e-9 and abs(f[3]["mae"] + 1.0) < 1e-9, f[3])
+    check(g, "MFE >= 0 and MAE <= 0 by construction here; bearish mirrors them",
+          bt.forward(bt._bars(b), T("2026-10-14T20:00:00Z"), -1)[3]["mfe"] == 1.0)
+    check(g, "the convention is written into every results.json", bt.CONVENTIONS["horizon"].startswith("h-day exit = CLOSE of the h-th session, counting the entry session as session 1"))
+
+
 def t_calendar_and_missing():
     g = "calendar"
     b = bt._bars(bars("2026-11-23", list(range(100, 115)), skip={"2026-11-26"}))   # Thanksgiving closed
@@ -228,7 +265,7 @@ def t_calendar_and_missing():
     check(g, "unknown time zone -> conservative (latest local date anywhere)", f[1]["entry_date"] == "2026-10-16")
     g = "missing-price"
     check(g, "no series -> every horizon 'missing'", bt.replay([row("2026-10-14T20:00:00Z", "EUR", "EURUSD", 87)],
-          store_with({"EUR": pct_series(0)}), {})["events"][0]["fwd"][1]["state"] == "missing")
+          store_with({"EUR": pct_series(0)}), {})["state_events"][0]["fwd"][1]["state"] == "missing")
     gap = bars("2026-10-12", list(range(100, 115)), skip={f"2026-10-{d}" for d in range(16, 24)})
     f = bt.forward(bt._bars(gap), T("2026-10-14T20:00:00Z"), +1)
     check(g, "a 9-day hole in the bars -> horizons across it 'missing', not bridged",
@@ -293,11 +330,42 @@ def t_events():
     check(g, "no actionable class -> no event", ev == [])
 
 
+def t_episodes():
+    g = "episodes"
+
+    def run(classes, **kw):
+        obs = _seq(classes, **kw)
+        ev = bt.make_events(obs)
+        return obs, ev, bt.make_episodes(obs, ev)
+    obs, ev, ep = run(["bear", "bear", "strong_bear", "strong_bear", "bear"])
+    check(g, "Bearish <-> Strong Bearish: 3 state events but ONE directional episode",
+          len(ev) == 3 and len(ep) == 1 and ep[0]["n_obs"] == 5 and ep[0]["start_cls"] == "bear" and ep[0]["max_cls"] == "strong_bear")
+    check(g, "every state event and signal observation points to its episode",
+          all(e["directional_episode_id"] == ep[0]["id"] for e in ev) and all(o.get("directional_episode_id") == ep[0]["id"] for o in obs)
+          and ep[0]["state_events"] == [e["id"] for e in ev])
+    check(g, "the episode is measured from its first snapshot (same entry as the first state event)",
+          ep[0]["start"] == ev[0]["start"] and ep[0]["fwd"] is obs[0]["fwd"])
+    _, ev, ep = run(["bear", "bull"])
+    check(g, "a flip bearish -> bullish ends the episode (2 episodes)", len(ep) == 2 and [e["direction"] for e in ep] == ["Bearish", "Bullish"])
+    _, ev, ep = run(["strong_bear", None, "bear"])
+    check(g, "disappearance and reappearance -> 2 episodes", len(ep) == 2)
+    _, ev, ep = run(["bear", "unavailable", "bear"])
+    check(g, "an unavailable snapshot ends the episode", len(ep) == 2)
+    _, ev, ep = run(["bear", "strong_bear"], step=181)
+    check(g, f"a gap over {bc.EVENT_MAX_GAP_MIN} min ends the episode", len(ep) == 2)
+    # today's real shape: AUD Bearish then Strong Bearish; EUR, XAG, GBP, JPY one state each
+    real = (_seq(["bear"] * 7 + ["strong_bear"] * 13, k="AUD") + _seq(["strong_bear"] * 20, k="EUR")
+            + _seq(["bear"] * 20, k="XAG") + _seq([None] * 8 + ["bear"] * 12, k="GBP") + _seq([None] * 13 + ["bear"] * 7, k="JPY"))
+    ev = bt.make_events(real)
+    ep = bt.make_episodes(real, ev)
+    check(g, "the 14 Oct shape: 6 state events -> 5 directional episodes", len(ev) == 6 and len(ep) == 5, (len(ev), len(ep)))
+
+
 def t_no_leakage():
     """The synthetic test asked for: a future COT report would make a big winner if it leaked."""
     g = "no-leakage"
-    # old report (6 Oct): EUR mid-range -> no signal. New report (13 Oct, available Mon 19 Oct
-    # by the holiday rule, or Fri 16 Oct if production saw it then): EUR at its 50-week LOW.
+    # old report (6 Oct): EUR mid-range -> no signal. New report (13 Oct, released Friday 16 Oct
+    # 15:30 ET per the CFTC calendar): EUR at its 50-week LOW.
     n = 61
     seq = [i * 1000 for i in range(n)]
     seq[-2] = 30000                                   # 6 Oct: middle of the range
@@ -310,11 +378,11 @@ def t_no_leakage():
     check(g, "Thursday snapshot uses the 6 Oct report (the 13 Oct report is not released yet)",
           o["cot_report"] == "2026-10-06", o["cot_report"])
     check(g, "... so NO signal - the leaked report would have produced a profitable Strong Bearish",
-          o["cls"] == "none" and r["events"] == [], (o["cls"], o.get("pct")))
+          o["cls"] == "none" and r["state_events"] == [] and r["episodes"] == [], (o["cls"], o.get("pct")))
     later = [row("2026-10-19T21:00:00Z", "EUR", "EURUSD", 85)]
     leaked = dv.evaluate("EUR", store, bt.snapshots(later)[0][1], T("2026-10-19T21:00:00Z"), True)
     check(g, "(control: with the 13 Oct report the same snapshot WOULD be Strong Bearish)", leaked["cls"] == "strong_bear")
-    r2 = bt.replay([row("2026-10-19T20:00:00Z", "EUR", "EURUSD", 85)], store, prices)
+    r2 = bt.replay([row("2026-10-16T19:30:00Z", "EUR", "EURUSD", 85)], store, prices)
     check(g, "after the release the new report is used", r2["observations"][[x["market"] for x in r2["observations"]].index("EUR")]["cls"]
           == "strong_bear")
     # prices: the observation day's own close would flatter the result - it must not be used
@@ -322,7 +390,7 @@ def t_no_leakage():
                      opens=[100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100])}
     store2 = store_with({"EUR": pct_series(0)})
     r3 = bt.replay([row("2026-10-14T09:00:00Z", "EUR", "EURUSD", 85)], store2, p)
-    f = r3["events"][0]["fwd"]
+    f = r3["episodes"][0]["fwd"]
     check(g, "entry is the next day's open, not the observation day's close (which fell 20%)",
           f[1]["entry_date"] == "2026-10-15" and f[1]["entry"] == 100 and abs(f[1]["ret"]) < 1e-9, f[1])
     # later snapshots never change earlier observations
@@ -345,7 +413,7 @@ def t_determinism():
     check(g, "same inputs -> identical result hash (input order irrelevant)", bt.result_hash(r1) == bt.result_hash(r2))
     check(g, "byte-identical JSON", json.dumps(r1, sort_keys=True) == json.dumps(r2, sort_keys=True))
     check(g, "11 hourly snapshots of two signals -> 2 events, 22 signal observations",
-          len(r1["events"]) == 2 and sum(o["cls"] in bt.ACTIONABLE for o in r1["observations"]) == 22)
+          len(r1["state_events"]) == 2 and len(r1["episodes"]) == 2 and sum(o["cls"] in bt.ACTIONABLE for o in r1["observations"]) == 22)
     # whole CLI twice
     d = Path(tempfile.mkdtemp(prefix="fxbt-"))
     (d / "data" / "myfxbook_history").mkdir(parents=True)
@@ -370,9 +438,17 @@ def t_determinism():
           and m["prices_asof"] == "2026-11-01" and "code_commit" in m)
     check(g, "manifest: first / last snapshot, counts, COT reports, price coverage, exclusions",
           m["myfxbook"]["first"] == "2026-10-14T09:00:00Z" and m["myfxbook"]["last"] == "2026-10-14T19:00:00Z"
-          and m["myfxbook"]["snapshots"] == 11 and m["cot"]["reports_used"] == ["2026-10-06"]
-          and m["price_coverage"]["EUR"]["bars"] == 20 and m["price_coverage"]["CAD"]["bars"] == 0
-          and m["excluded"]["observations"] == 11 * 14, m["excluded"])
+          and m["myfxbook"]["production_snapshots"] == 11 and m["cot"]["reports_used"] == ["2026-10-06"]
+          and m["price_coverage"]["EUR"]["bars"] == 20 and m["price_coverage"]["CAD"]["bars"] == 0, m["accounting"])
+    acc = m["accounting"]
+    check(g, "accounting keeps its units apart: rows / snapshots / market observations",
+          acc["archive"]["unique_rows"] == 22 and acc["snapshots"]["archived"] == 11 and acc["snapshots"]["production"] == 11
+          and acc["snapshots"]["excluded_before_expansion"] == 0 and acc["market_observations"]["total"] == 11 * 16
+          and acc["market_observations"]["classified"] + acc["market_observations"]["unavailable"] == 11 * 16
+          and sum(acc["market_observations"]["unavailable_by_reason"].values()) == acc["market_observations"]["unavailable"], acc)
+    rj = json.loads(outs[0][0])
+    check(g, "results.json records the locked horizon convention", rj["conventions"]["horizon"].startswith("h-day exit = CLOSE of the h-th session")
+          and rj["conventions"]["horizons_trading_sessions"] == [1, 3, 5, 10] and "roll" in rj["conventions"]["prices_warning"])
     log = outs[0][2]
     check(g, "public console: counts and hashes only - no retail percentage or price",
           "87" not in log.replace("2026", "") and "Myfxbook requests made: 0" in log, log)
@@ -385,9 +461,26 @@ def t_provenance():
     r = bt.replay(hist, store, {}, production={"2026-10-14T09:00:00Z", "2026-10-14T09:30:00Z"})
     check(g, "only production snapshots are replayed", r["snapshots"] == ["2026-10-14T09:00:00Z", "2026-10-14T09:30:00Z"])
     check(g, "a verification (CI / manual) snapshot is excluded with that reason",
-          {"ts": "2026-10-14T09:10:00Z", "market": "*", "why": ["not a production snapshot (verification fetch)"]} in r["excluded"])
+          {"ts": "2026-10-14T09:10:00Z", "why": "not a production snapshot (verification fetch / unknown provenance)"} in r["excluded_snapshots"]
+          and r["accounting"]["snapshots"] == {"archived": 3, "production": 2, "excluded_before_expansion": 1})
     r = bt.replay(hist, store, {}, production=set())
-    check(g, "no production record -> nothing replayed (never assumes)", r["snapshots"] == [] and r["events"] == [])
+    check(g, "no production record -> nothing replayed (never assumes)", r["snapshots"] == [] and r["state_events"] == [])
+    r = bt.replay(hist, store, {}, production={"2026-10-14T09:00:01Z", "2026-10-14 09:30:00", "2026-10-14T09:30Z"})
+    check(g, "unknown / ambiguous provenance (near-miss or differently written times) is NOT production",
+          r["snapshots"] == [] and r["accounting"]["snapshots"]["excluded_before_expansion"] == 3)
+    r = bt.replay(hist[:1], store, {}, production={"2026-10-14T09:00:00Z", "2026-10-14T11:00:00Z", "2026-10-14T12:00:00Z"})
+    check(g, "a production request with no successful snapshot manufactures no observation",
+          r["snapshots"] == ["2026-10-14T09:00:00Z"] and r["accounting"]["market_observations"]["total"] == 16)
+    import divergence_backtest_provenance as pv
+    check(g, "registry: only the production records (ledger + state cache) feed it, never the archive",
+          pv.collect(None, {"production": {"attempts": ["a"]}}, {"attempts": ["b"]}) == {"a", "b"})
+    check(g, "registry is append-only", pv.merged({"production": ["x", "y"]}, {"z"}) == ["x", "y", "z"]
+          and pv.merged({"production": ["x", "y"]}, set()) == ["x", "y"])
+    run_src = (Path(__file__).parent / "divergence_backtest_run.py").read_text()
+    eng_src = (Path(__file__).parent / "divergence_backtest.py").read_text()
+    check(g, "the replay and its runner only READ the registry (no write path)",
+          "publish(\"backtest\"" not in run_src and "PROVENANCE, " not in run_src.split("def publish")[1]
+          and "provenance.json" not in eng_src)
     d = Path(tempfile.mkdtemp(prefix="fxbt-"))
     (d / "data" / "myfxbook_history").mkdir(parents=True)
     import myfxbook as mf
@@ -402,16 +495,16 @@ def t_provenance():
                  "--all-snapshots"])
         man1 = json.loads((d / "a" / "manifest.json").read_text())
     check(g, "CLI without any production record replays nothing and says so",
-          man0["myfxbook"]["provenance"]["production_snapshots"] == 0 and "refusing" in buf.getvalue())
+          man0["accounting"]["snapshots"]["production"] == 0 and "refusing" in buf.getvalue())
     (d / "data" / mf.STATE_NAME).write_text(json.dumps({"attempts": ["2026-10-14T09:30:00Z"]}))
     with contextlib.redirect_stdout(io.StringIO()):
         br.main(["--data", str(d / "data"), "--out", str(d / "s"), "--generated-at", "2026-10-20T06:40:00Z", "--no-archive"])
     man2 = json.loads((d / "s" / "manifest.json").read_text())
     check(g, "production's own attempt list (state cache) covers snapshots newer than the ledger's last sync",
-          man2["myfxbook"]["provenance"]["production_snapshots"] == 1 and "production state cache" in man2["myfxbook"]["provenance"]["sources"],
-          man2["myfxbook"]["provenance"])
+          man2["accounting"]["snapshots"]["production"] == 1 and "production state cache" in man2["accounting"]["snapshots"]["provenance_sources"],
+          man2["accounting"])
     check(g, "--all-snapshots is never labelled the baseline", man1["strategy"]["is_baseline"] is False
-          and man1["myfxbook"]["provenance"]["production_snapshots"] == 3)
+          and man1["accounting"]["snapshots"]["production"] == 3)
 
 
 def t_stats():
@@ -426,14 +519,15 @@ def t_stats():
     prices = {"EUR": bars("2026-10-12", [100 - i for i in range(20)], opens=[100.5 - i for i in range(20)]),
               "XAG": bars("2026-10-12", [50 - i for i in range(20)], opens=[50.5 - i for i in range(20)])}
     r = bt.replay(hist, store, prices)
-    s = r["stats"]["events"]["all"]["All markets"]["1"]
+    check(g, "primary statistics level is the directional episode", r["stats"]["primary_level"] == "episodes")
+    s = r["stats"]["episodes"]["all"]["All markets"]["1"]
     check(g, "events view: 2 events, 1 correct (EUR bearish, price fell) and 1 wrong (silver bullish, fell)",
           s["n"] == 2 and s["n_complete"] == 2 and s["wins"] == 1 and s["win_rate"] == 50.0 and s["sample"] == "Insufficient sample", s)
     o = r["stats"]["observations"]["all"]["All markets"]["1"]
     check(g, "observation view counts every snapshot (3) - events view does not", o["n"] == 3)
-    check(g, "every summary carries its sample size and state", all("n" in x and "sample" in x for lv in r["stats"].values()
-          for v in lv.values() for gr in v.values() for x in gr.values()))
-    v = r["stats"]["events"]
+    check(g, "every summary carries its sample size and state", all("n" in x and "sample" in x for k, lv in r["stats"].items()
+          if k != "primary_level" for v in lv.values() for gr in v.values() for x in gr.values()))
+    v = r["stats"]["episodes"]
     check(g, "views: market, class, group, direction, strength, COT band, retail band",
           set(v) == {"all", "market", "group", "direction", "strength", "class", "market_class", "cot_band", "retail_band"}
           and set(v["direction"]) == {"Bullish", "Bearish"} and set(v["group"]) == {"Currencies", "Commodities & indexes"}
@@ -511,7 +605,7 @@ def t_zero_requests():
 
 
 if __name__ == "__main__":
-    for fn in (t_frozen_strategy, t_cot_timing, t_reproduces_step2, t_returns, t_calendar_and_missing, t_events,
+    for fn in (t_frozen_strategy, t_cot_timing, t_reproduces_step2, t_returns, t_horizon_convention, t_calendar_and_missing, t_events, t_episodes,
                t_no_leakage, t_determinism, t_provenance, t_stats, t_cot_first_seen, t_price_parse, t_zero_requests):
         try:
             fn()

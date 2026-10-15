@@ -105,7 +105,7 @@ jobs:
       # time, holiday weeks), exact Step 2 classifications, forward returns / MFE / MAE at
       # 1-3-5-10 trading days, missing / pending prices, event deduplication, provenance,
       # determinism, and that it never contacts Myfxbook.
-      - name: Divergence backtest suite (100 checks)
+      - name: Divergence backtest suite (127 checks)
         working-directory: engine
         run: python test_divergence_backtest.py
 
