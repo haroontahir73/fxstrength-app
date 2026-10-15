@@ -1,5 +1,61 @@
 [
  {
+  "when": "15 Oct 20:36 UTC",
+  "iso": "2026-10-15T20:36:32.374310+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nEven before the elections? Growing signs of an impending strike on Iran - www.israelhayom.com  (www.israelhayom.com)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,191 (+2.0%)   Silver 57.57 (+3.6%)   WTI 96.13 (+1.1%)   DXY 102.03 (-0.5%)   US10Y 5.09 (-1.9%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQQmMzOTRZUjBoN0pyQmRqR1V0bDZReWdIOU1MdUxNdUtMOVFLdTVJdEQ5aUVkQzZrdk1DakEtLTI1cTcyLUQyc21mRmhBRnBmZHlKSFp1YmVmYkhxR01ONERTQTFkMFR1em8yNm5TeXFkUGhfd0pKX1ZjaG1VV3RkYUJSbWtrdkNDdHZ5Z0pnbVZOZ3RmUHJkWm1JOElQSG5LeFA3bzBBWmdnTUZiRjhj?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4191.2,
+   "Silver": 57.57,
+   "WTI": 96.13
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Even before the elections? Growing signs of an impending strike on Iran - www.israelhayom.com",
+   "src": "www.israelhayom.com",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,191 (+2.0%)   Silver 57.57 (+3.6%)   WTI 96.13 (+1.1%)   DXY 102.03 (-0.5%)   US10Y 5.09 (-1.9%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "15 Oct 20:30 UTC",
   "iso": "2026-10-15T20:30:00.584239+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,182 (+0.1%)   Silver 59.09 (-0.1%)   WTI 94.54 (+0.4%)   DXY 102.12 (-0.1%)   US10Y 5.22 (-0.4%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "14 Oct 06:09 UTC",
-  "iso": "2026-10-14T06:09:46.978166+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold steady as Fed official\u2019s remarks temper rate-hike bets - The Edge Malaysia  (The Edge Malaysia)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,172 (-0.1%)   Silver 58.87 (-0.5%)   WTI 94.52 (+0.4%)   DXY 102.13 (-0.0%)   US10Y 5.22 (-0.4%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9FSjh5RGhhVGpVVVN6QjA0Ymh6dTRxRVFBZ1pKb2xxY0c0N1Z5NTdqclZpam1XWlVhX0UyOVlBNVZ0WGtTNHFETXFtLU9jeTBO?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4172.0,
-   "Silver": 58.87,
-   "WTI": 94.52
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Gold steady as Fed official\u2019s remarks temper rate-hike bets - The Edge Malaysia",
-   "src": "The Edge Malaysia",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,172 (-0.1%)   Silver 58.87 (-0.5%)   WTI 94.52 (+0.4%)   DXY 102.13 (-0.0%)   US10Y 5.22 (-0.4%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
