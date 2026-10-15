@@ -1,5 +1,61 @@
 [
  {
+  "when": "15 Oct 02:15 UTC",
+  "iso": "2026-10-15T02:15:05.903445+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold rebounds after inflation-driven selloff as Fed rate-hike bets rise - Investing.com  (Investing.com)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,160 (+1.3%)   Silver 56.13 (+1.1%)   WTI 93.92 (-1.2%)   DXY 102.09 (-0.5%)   US10Y 5.19 (-0.5%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPQzBFM0lFYklZU0s1bU92MU9EemRNUmkwekY1dHl5TkdZLVRFOXR4Tm52b0dpek1ZR2laY1VPUFpzYnlsVGR0cUlMZDM0WFBfRFZfblUyN0hRNGtrU1NYZklXTXktdTM3V2FGcHhmSFhLSUdFbzVhQkhHcnhFVS1sS3M1aGV0ZVk4OFFkMkxRX1U2SVRvWURxdlFhUmFtYzl3S3lVR0ZuQkM4bVVVR283ak9xdmpCWFRwU1IxTDV3b21MMXM?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4159.6,
+   "Silver": 56.135,
+   "WTI": 93.92
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Gold rebounds after inflation-driven selloff as Fed rate-hike bets rise - Investing.com",
+   "src": "Investing.com",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,160 (+1.3%)   Silver 56.13 (+1.1%)   WTI 93.92 (-1.2%)   DXY 102.09 (-0.5%)   US10Y 5.19 (-0.5%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "15 Oct 01:51 UTC",
   "iso": "2026-10-15T01:51:45.154133+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,188 (-0.7%)   Silver 60.64 (-0.0%)   WTI 93.82 (+2.1%)   DXY 102.47 (+0.3%)   US10Y 5.24 (-0.1%)",
    "reality": "",
    "flip": "these deals break \u2014 one broken truce and it all goes back on"
-  }
- },
- {
-  "when": "12 Oct 14:38 UTC",
-  "iso": "2026-10-12T14:38:12.703447+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIran sets crosshairs on \u2018US-UAE\u2019 oil shuttle out of Strait of Hormuz - Al Jazeera  (Al Jazeera)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,188 (-0.7%)   Silver 60.65 (-0.0%)   WTI 93.86 (+2.2%)   DXY 102.45 (+0.2%)   US10Y 5.24 (-0.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxObWp5UElEV2piTFkzc3NRUTR4NDJfM0trT2wybWw5U2pkeGdpdlg2NHVCN1lCZWN3MGIwX3F3OWtDc1lwOG1LQmhENVVPT0s1T1FGZjNwNDczSE9WczU4SkN3QlVVRTlpOFcwTGp0ZFU4ZjRLcG5HRm1tOTdjUUMyOXZDLUlFMUgzZlhzTlp1LXN2dDhycE1lS1pGYXNlaTMtLTNiOFZwcFR3ZkNwaVJEUdIBtgFBVV95cUxNLU5pTjR5VVVpNEZJYjRfVVRuZ1lTZ0Y5OWd5LXFocDdJc1YyNFc4T1ZWMVRhTWxIUXhxNG5qQUtoeWdqdWtxM2J6SGhIQkVDMk1iZ0o5U2tCZmZRcC1tRDNkRUFBcUxFRGRfWlVPTU9jVjJjQ2RDNDNrRWpvbjREYklOVnEtZlpFdlhkUjZHeVlFWmpSWnNNd1NYRXZ4NUg0bDJVN2NFeU5RTGFNLTRvT1BHV3Brdw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4188.3,
-   "Silver": 60.645,
-   "WTI": 93.86
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Iran sets crosshairs on \u2018US-UAE\u2019 oil shuttle out of Strait of Hormuz - Al Jazeera",
-   "src": "Al Jazeera",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,188 (-0.7%)   Silver 60.65 (-0.0%)   WTI 93.86 (+2.2%)   DXY 102.45 (+0.2%)   US10Y 5.24 (-0.1%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
