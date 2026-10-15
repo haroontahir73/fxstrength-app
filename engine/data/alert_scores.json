@@ -17092,5 +17092,27 @@
   "outcome": "win",
   "talk": false,
   "at": "2026-10-15T00:13:39.842283+00:00"
+ },
+ {
+  "id": "2026-10-15T01:18:29.339562+00:00|GOLD",
+  "cat": "inflation_hot",
+  "instr": "GOLD",
+  "dir": "down",
+  "strength": 2,
+  "chg": -0.096,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-10-15T01:18:29.339562+00:00"
+ },
+ {
+  "id": "2026-10-15T01:18:29.339562+00:00|SILVER",
+  "cat": "inflation_hot",
+  "instr": "SILVER",
+  "dir": "down",
+  "strength": 2,
+  "chg": -0.373,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-10-15T01:18:29.339562+00:00"
  }
 ]
