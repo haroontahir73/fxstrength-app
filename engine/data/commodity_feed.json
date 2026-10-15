@@ -1,5 +1,61 @@
 [
  {
+  "when": "15 Oct 12:20 UTC",
+  "iso": "2026-10-15T12:20:19.830356+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nDisguising Iranian crude as Iraqi looks highly unlikely under the US blockade - Kpler  (Kpler)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,170 (+1.5%)   Silver 56.87 (+2.4%)   WTI 94.14 (-1.0%)   DXY 102.12 (-0.4%)   US10Y 5.19 (-0.5%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPcVIyTXhuWjBob1lrb2pKVzlUQjJJUVdUOGhVRmowSzRMbEZPSTdUSU04cTNfWWN6cXAwdnVTYkNvTVJ6NG1oYU85S3RqWTVfV3ZLWlVLblNPT21kRFB2RlJGcFNGX3I1a3BJbThNSWIwVFJVcTZ2OEd1WlBmTXIyaU9YXzFtazJiOU9QaEVDTVllNzc0emNPTVcyMkVSQlllUmFxTHNiQlNLLTA?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4169.9,
+   "Silver": 56.865,
+   "WTI": 94.14
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Disguising Iranian crude as Iraqi looks highly unlikely under the US blockade - Kpler",
+   "src": "Kpler",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,170 (+1.5%)   Silver 56.87 (+2.4%)   WTI 94.14 (-1.0%)   DXY 102.12 (-0.4%)   US10Y 5.19 (-0.5%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "15 Oct 12:16 UTC",
   "iso": "2026-10-15T12:16:59.647806+00:00",
   "cat": "oil_supply_loose",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,208 (+0.4%)   Silver 60.45 (+0.5%)   WTI 92.23 (-1.6%)   DXY 102.28 (-0.3%)   US10Y 5.19 (-1.0%)",
    "reality": "",
    "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
-  }
- },
- {
-  "when": "13 Oct 12:01 UTC",
-  "iso": "2026-10-13T12:01:59.056211+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIran IRGC Claims Third Tanker Hit in Two Days in Strait of Hormuz: Impacts on Consumers, Tanker Markets, and Investors - Energy News Beat  (Energy News Beat)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,210 (+0.5%)   Silver 60.69 (+0.9%)   WTI 92.59 (-1.2%)   DXY 102.27 (-0.3%)   US10Y 5.24 (-0.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPeHlzLVlHbkZqNkRBZU9oQ2V3Und3UTlDTFNDNVJCVnRWalJEUlFycERZNjU2RVJGTERGd2sycHFQS3JNV2NZTGQ1bFM4ZjlQazUtTmlsc0c0MjVwU25hTVg5RTdmcVNLanFydC1wZTFHbTJPY1p6blJ3ZHRtc0Jtc0thT1M5RllacEdpOEdnbGJKaWZNTVNlSHdEcGRvV2tqQ2xYZUc1NGlxY0NBRFI0ZVZwdE1WRG5hNnd4cGVsUXdBb3NCWkZaUl9saVVOOGNIOHdMUXQxN0YzcXgyNi1SQ05STlZ5ZEk?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4209.9,
-   "Silver": 60.685,
-   "WTI": 92.59
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Iran IRGC Claims Third Tanker Hit in Two Days in Strait of Hormuz: Impacts on Consumers, Tanker Markets, and Investors - Energy News Beat",
-   "src": "Energy News Beat",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,210 (+0.5%)   Silver 60.69 (+0.9%)   WTI 92.59 (-1.2%)   DXY 102.27 (-0.3%)   US10Y 5.24 (-0.1%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
