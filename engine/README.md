@@ -808,6 +808,36 @@ snapshots and measures what the market did next. No optimisation; nothing recons
   (`backtest/runs/...`), the log shows counts and hashes. Deterministic: the same inputs and
   the same `--generated-at` give a byte-identical `results.json`.
 
+### Historical Performance panel (history_panel.py, presentation only)
+
+The COT tab ends with a **Historical Performance** section (after the scanner, the current
+divergence / retail cards and the COT reports; a small link under the scanner jumps to it).
+It shows the latest engine run as published - it never recomputes a signal, an episode, a
+horizon or a statistic, and there is no JavaScript in it.
+
+* **Source.** At build time `refresh.yml` already has `MYFXBOOK_HISTORY_TOKEN` (only when
+  Myfxbook is enabled); the panel lists `backtest/runs/` in the private repo, takes the newest
+  `manifest.json` by `generated_at` and its `results.json`. The opener refuses every host but
+  `api.github.com`, so the panel cannot reach Myfxbook. The page-ready view is cached in
+  `engine/data/backtest_view.json` (gitignored); if the fetch fails the cache is shown with
+  a stale chip (> 36 h old, or older than the newest run).
+* **Headline from data**, e.g. "Insufficient sample — 5 independent directional episodes, all
+  forward horizons currently pending." The unit is the independent directional episode;
+  state events and signal observations are shown as diagnostics only.
+* **Retail history stays private.** The page-ready view and the page carry only the band the
+  episode started in, at the frozen triggers (Retail long / short 60–69% = ordinary, ≥70% =
+  strong); the exact archived Myfxbook percentages exist only in the private `results.json`. A
+  cached view from an older format is deleted, never shown. The COT percentile (public CFTC data)
+  is shown exactly.
+* **Pending is never zero.** A horizon with no completed episodes shows "Pending" in every
+  column; a win rate is always printed with its n. The sample label sits next to the numbers.
+* **Fails visibly.** A result that does not match the engine's schema (missing keys,
+  accounting counts that disagree with the lists, unresolved state events) shows "could not be
+  read" with the reason - no statistic is shown. No result at all shows "unavailable".
+* Tests: `test_history_panel.py` (synthetic results produced by the real engine,
+  `history_fixtures.py`); `check_build.py` and `check_layout.py` cover the section on desktop,
+  phone browser and the Android wrapper.
+
 ## Caveats
 
 Scores are a weighted heuristic, not advice. The pair ranking is a shortlist, not a signal —

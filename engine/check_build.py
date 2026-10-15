@@ -233,6 +233,7 @@ def main():
            and "The <b>Max / Min</b> rows cover the 50 reports shown" in flat, f"{label}: legend")
     check_myfxbook(page, Path(a.data))
     check_divergence(page, Path(a.data))
+    check_history(page, Path(a.data))
     return finish()
 
 
@@ -419,6 +420,63 @@ def check_divergence(page, data_dir):
     ok(order == sorted(order, reverse=True), "Divergence: strong divergences listed above moderate ones")
     ok(not re.search(r"(?i)buy now|sell now|guaranteed|high[- ]probability", scan.group(0) if scan else ""),
        "Divergence: no BUY/SELL wording")
+
+
+
+# ---------------------------------------------------------------- Historical Performance (Step 3 UI)
+# The section must show exactly the engine's published run (cached as data/backtest_view.json
+# by history_panel.load): episodes as the primary n, state events / observations apart, every
+# incomplete horizon "Pending" (never 0%), and sit last on the COT tab after the reports.
+def check_history(page, data_dir):
+    import re as _re
+    cot = _re.search(r'<div class="panel" id="p-cot">(.*?)<div class="panel" id="p-rtl">', page, _re.S)
+    cot = cot.group(1) if cot else ""
+    sec = _re.search(r'<section class="hpsec" id="hist-perf">.*?</section>', page, _re.S)
+    if os.environ.get("MYFXBOOK_ENABLED") != "true":
+        ok(sec is None and 'class="hpjump"' not in page, "History: Myfxbook switched off - no historical-performance section or link")
+        return
+    ok(sec is not None, "History: 'Historical Performance' section on the COT tab")
+    if not sec:
+        return
+    h = sec.group(0)
+    ok(cot.find('class="dvscan"') < cot.find('class="crsec"') < cot.find('id="hist-perf"') and cot.find('class="dvscan"') >= 0,
+       "History: order kept - scanner, COT reports, then historical performance")
+    ok('<script' not in h, "History: no script in the section (nothing computed in the browser)")
+    p = data_dir / "backtest_view.json"
+    view = json.loads(p.read_text()) if p.exists() else None
+    if not view or view.get("state") != "ok":
+        ok("Historical performance unavailable" in h and "Win rate</th>" not in h,
+           "History: no published result here - the section says unavailable and shows no statistic")
+        return
+    t = html.unescape(_re.sub(r"\s+", " ", _re.sub(r"<[^>]+>", " ", h)))
+    n = len(view["episodes"])
+    sig = view["accounting"]["signals"]
+    ok(f"Independent episodes {n} " in t and n == sig["directional_episodes"], f"History: {n} independent episodes (the engine's count)")
+    ok(f"State events {sig['state_events']} " in t and f"Signal observations {sig['observations']} " in t,
+       "History: state events and signal observations shown separately")
+    allm = view["stats"]["all"]
+    done = {k: allm[k]["n_complete"] for k in ("1", "3", "5", "10")} if allm else {}
+    if n and not any(done.values()):
+        want = f"— {n} independent directional episode{'s' if n != 1 else ''}, all forward horizons currently pending."
+        ok(want in t, f"History: headline from the data ({want})", t[:200])
+    rows = _re.findall(r'<tr><th scope="row">(\d+ days?)</th>(.*?)</tr>',
+                       _re.search(r"independent episodes by horizon</h3>(.*?)</table>", h, _re.S).group(1), _re.S)
+    ok([r[0] for r in rows] == ["1 day", "3 days", "5 days", "10 days"], "History: horizon rows 1 / 3 / 5 / 10 days")
+    for (lab, cells), k in zip(rows, ("1", "3", "5", "10")):
+        if not done.get(k):
+            ok(cells.count("Pending") == 6 and not _re.search(r"\b0%|0\.00", cells), f"History: {lab} incomplete -> Pending, not 0%")
+        else:
+            ok(f"(n={done[k]})" in cells, f"History: {lab} win rate shown with its n ({done[k]})")
+    ok(t.count("independent episode") >= 1 and not _re.search(r"\b\d+ (trades|signals)\b", t),
+       "History: no count presented as trades or 'signals'")
+    # data boundary: exact archived Myfxbook % stay in the private results.json - the page-ready
+    # view and the section carry only the band at the frozen 60 / 70 triggers
+    leaked = [k for e in view["episodes"] for k in ("long", "short", "positions") if k in e]
+    ok(view.get("schema") == 2 and not leaked and all(_re.fullmatch(r"Retail (long|short) (≥70%|60–69%)", e.get("retail_band", ""))
+                                                    for e in view["episodes"]),
+       "History: page-ready view holds retail bands only (no exact long / short %)", leaked[:3])
+    ok(not _re.search(r"\d% long|\d% short", t) and t.count("Retail ") >= n,
+       "History: the section shows retail bands, never an exact long / short %")
 
 
 def finish():
