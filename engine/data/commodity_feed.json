@@ -1,5 +1,61 @@
 [
  {
+  "when": "15 Oct 05:33 UTC",
+  "iso": "2026-10-15T05:33:14.860775+00:00",
+  "cat": "inflation_hot",
+  "title": "GOLD+SILVER SHORT | INFLATION - running hot",
+  "body": "\ud83c\udf21 INFLATION \u2014 running hot\n\nUS inflation accelerates, complicating Fed's rate outlook - China Daily Global Edition  (China Daily Global Edition)\n\nWHY: You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.\n\nGOLD   \u2193\u2193   look for shorts - the rates reaction beats the hedge story\n        [some evidence - right 50% of 485 past cases]\nSILVER \u2193\u2193   look for shorts - same, amplified\n        [some evidence - right 52% of 485 past cases]\nOIL    \u2192    no clean read - usually a cause, not a victim\n\nNOW  Gold 4,163 (+1.3%)   Silver 56.08 (+1.0%)   WTI 94.10 (-1.0%)   DXY 102.09 (-0.4%)   US10Y 5.19 (-0.5%)\n\nFLIP: if inflation is coming from oil AND growth is dying, gold turns up instead",
+  "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPYUNzVlZRZjBpMUdMdzloempKbld2TDdvSDVCaGZZWkV3VVN0TFFGUkRmQWN4YlNqbmlzVjc1bWFVYXRld2FPRm16ZWFYR1lVaGRSLW5XRmZlOHVIdjQ5bHpkS2MyTVpuWVd1MkxOV2hNWTJyRFJ1dHREenpNcXR3Z2xR?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4162.9,
+   "Silver": 56.08,
+   "WTI": 94.1
+  },
+  "parts": {
+   "emoji": "\ud83c\udf21",
+   "label": "INFLATION \u2014 running hot",
+   "headline": "US inflation accelerates, complicating Fed's rate outlook - China Daily Global Edition",
+   "src": "China Daily Global Edition",
+   "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "the rates reaction beats the hedge story",
+     "record": "some evidence - right 50% of 485 past cases"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "same, amplified",
+     "record": "some evidence - right 52% of 485 past cases"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "usually a cause, not a victim",
+     "record": ""
+    }
+   ],
+   "snap": "NOW  Gold 4,163 (+1.3%)   Silver 56.08 (+1.0%)   WTI 94.10 (-1.0%)   DXY 102.09 (-0.4%)   US10Y 5.19 (-0.5%)",
+   "reality": "",
+   "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
+  }
+ },
+ {
   "when": "15 Oct 04:37 UTC",
   "iso": "2026-10-15T04:37:02.176926+00:00",
   "cat": "oil_supply_loose",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,193 (-0.6%)   Silver 60.44 (-0.4%)   WTI 93.39 (+1.7%)   DXY 102.58 (+0.4%)   US10Y 5.24 (-0.1%)",
    "reality": "",
    "flip": "these deals break \u2014 one broken truce and it all goes back on"
-  }
- },
- {
-  "when": "12 Oct 17:33 UTC",
-  "iso": "2026-10-12T17:33:35.787277+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nWATCH: Black smoke BILLOWS from tanker attacked in Strait of Hormuz - Fox News  (Fox News)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,191 (-0.6%)   Silver 60.52 (-0.2%)   WTI 93.84 (+2.2%)   DXY 102.56 (+0.3%)   US10Y 5.24 (-0.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5BczVNX0lLSDY1bXowM2kydXVaSjdrV0dmMFp2bXVoQmRxcXh1V1Q3RlZWaEwwemxZdHhCTlZMbHNFTmlGTWlKUDdlQmZfSFJqUHpxUFpR?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4190.6,
-   "Silver": 60.52,
-   "WTI": 93.84
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "WATCH: Black smoke BILLOWS from tanker attacked in Strait of Hormuz - Fox News",
-   "src": "Fox News",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,191 (-0.6%)   Silver 60.52 (-0.2%)   WTI 93.84 (+2.2%)   DXY 102.56 (+0.3%)   US10Y 5.24 (-0.1%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
