@@ -1,5 +1,61 @@
 [
  {
+  "when": "15 Oct 08:13 UTC",
+  "iso": "2026-10-15T08:13:56.875688+00:00",
+  "cat": "geo_deescalation",
+  "title": "GEOPOLITICS - calming down",
+  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nUkraine to resume strikes on Russian refineries, shattering hopes of an 'energy ceasefire'\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193    mild short bias - supply worry gone, barrels flow again (eased by self-check)\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,167 (+1.4%)   Silver 56.66 (+2.0%)   WTI 94.21 (-0.9%)   DXY 102.09 (-0.5%)   US10Y 5.19 (-0.5%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
+  "link": "https://www.cnbc.com/2026/10/15/ukraine-russia-energy-ceasefire-zelenskyy.html",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4166.9,
+   "Silver": 56.655,
+   "WTI": 94.21
+  },
+  "parts": {
+   "emoji": "\ud83d\udd4a",
+   "label": "GEOPOLITICS \u2014 calming down",
+   "headline": "Ukraine to resume strikes on Russian refineries, shattering hopes of an 'energy ceasefire'",
+   "src": "",
+   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured both ways - fear-out vs yields-down cancel",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "same, no reliable direction",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "supply worry gone, barrels flow again (eased by self-check)",
+     "record": "some evidence - right 51% of 113 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,167 (+1.4%)   Silver 56.66 (+2.0%)   WTI 94.21 (-0.9%)   DXY 102.09 (-0.5%)   US10Y 5.19 (-0.5%)",
+   "reality": "",
+   "flip": "these deals break \u2014 one broken truce and it all goes back on"
+  }
+ },
+ {
   "when": "15 Oct 08:07 UTC",
   "iso": "2026-10-15T08:07:20.235173+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,217 (+0.6%)   Silver 60.81 (+1.1%)   WTI 92.73 (-1.1%)   DXY 102.43 (-0.2%)   US10Y 5.24 (-0.1%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "13 Oct 03:49 UTC",
-  "iso": "2026-10-13T03:49:25.918455+00:00",
-  "cat": "geo_deescalation",
-  "title": "GEOPOLITICS - calming down",
-  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nTrump insists Russia-Ukraine energy ceasefire is in place, drone strike kills woman in Kyiv - Euronews.com  (Euronews.com)\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193    mild short bias - supply worry gone, barrels flow again (eased by self-check)\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,203 (+0.3%)   Silver 60.51 (+0.6%)   WTI 92.69 (-1.1%)   DXY 102.43 (-0.1%)   US10Y 5.24 (-0.1%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
-  "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOZlY0WTBBZTc1eTdyWEpZdHFOYVd6SWtmUXc5TXZkZGE5Qmtqc3MwSS1VODNEanctd0NQOWJUVm9Ja0ptM1hNQ3E3akItSlVXRWtkYTFUemFZZEZUWDNPMlB6S3FfUzdwcG9VWVY3MGdneFJmMmdINmNFTVF6N1JSNXluNTFrQ0drV1lyUlRRZXZlOEdTUWJXVVloYUZNSy1fYzdKRTBsbUtGeGl2b21sU0VkcVNIcTJlWGFZNFEzdUxvZ2xO?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4202.8,
-   "Silver": 60.51,
-   "WTI": 92.69
-  },
-  "parts": {
-   "emoji": "\ud83d\udd4a",
-   "label": "GEOPOLITICS \u2014 calming down",
-   "headline": "Trump insists Russia-Ukraine energy ceasefire is in place, drone strike kills woman in Kyiv - Euronews.com",
-   "src": "Euronews.com",
-   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured both ways - fear-out vs yields-down cancel",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "same, no reliable direction",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "supply worry gone, barrels flow again (eased by self-check)",
-     "record": "some evidence - right 51% of 113 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,203 (+0.3%)   Silver 60.51 (+0.6%)   WTI 92.69 (-1.1%)   DXY 102.43 (-0.1%)   US10Y 5.24 (-0.1%)",
-   "reality": "",
-   "flip": "these deals break \u2014 one broken truce and it all goes back on"
   }
  }
 ]
