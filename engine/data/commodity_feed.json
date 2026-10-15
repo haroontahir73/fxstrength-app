@@ -1,5 +1,61 @@
 [
  {
+  "when": "15 Oct 10:35 UTC",
+  "iso": "2026-10-15T10:35:27.966655+00:00",
+  "cat": "rates_down",
+  "title": "GOLD+SILVER STRONG LONG | FED - leaning toward rate cuts",
+  "body": "\ud83d\udcb8 FED \u2014 leaning toward rate cuts\n\n1.4195: Canadian Dollar tests range top amid lower US Yields, dovish Fedspeak - FXStreet  (FXStreet)\n\nWHY: Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - cheaper money is gold's best friend\n        [NOT TESTED - no history to judge this on]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up, only harder\n        [NOT TESTED - no history to judge this on]\nOIL    \u2191    mild long bias - weaker dollar + a bit more growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,176 (+1.7%)   Silver 56.80 (+2.3%)   WTI 93.63 (-1.5%)   DXY 102.10 (-0.4%)   US10Y 5.19 (-0.5%)\n\nFLIP: a hot inflation print would kill the cut hopes",
+  "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPU3R0Sm05dUVFQ3ZjRm1XakFoeTAweHo3WGRVU21kZ2JrMjh3ZS1oRzRtZm4yZ1Q2OW9MTXBZS29hdG55aXI4ek1Yb0lkdW9DTEJCQ1VsZF8xYWFDZ21QZEhJaXRoWUJfb2J3dFpiTkoxakgtMEZwXzFTR3FkY2ZnSVF5dkY5Ul9FQ0NiclF3dVJHLXF2S3JPOU94ZWFOeGQyTl91UGxBLTJpV1BsZ0JXVWZZcHhVMi1T?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4176.0,
+   "Silver": 56.8,
+   "WTI": 93.63
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb8",
+   "label": "FED \u2014 leaning toward rate cuts",
+   "headline": "1.4195: Canadian Dollar tests range top amid lower US Yields, dovish Fedspeak - FXStreet",
+   "src": "FXStreet",
+   "why": "Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "cheaper money is gold's best friend",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "follows gold up, only harder",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "weaker dollar + a bit more growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,176 (+1.7%)   Silver 56.80 (+2.3%)   WTI 93.63 (-1.5%)   DXY 102.10 (-0.4%)   US10Y 5.19 (-0.5%)",
+   "reality": "",
+   "flip": "a hot inflation print would kill the cut hopes"
+  }
+ },
+ {
   "when": "15 Oct 10:19 UTC",
   "iso": "2026-10-15T10:19:00.890958+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,211 (+0.5%)   Silver 60.70 (+0.9%)   WTI 91.93 (-1.9%)   DXY 102.36 (-0.2%)   US10Y 5.24 (-0.1%)",
    "reality": "",
    "flip": "these deals break \u2014 one broken truce and it all goes back on"
-  }
- },
- {
-  "when": "13 Oct 09:26 UTC",
-  "iso": "2026-10-13T09:26:45.537212+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nTanker Struck in Strait of Hormuz Amid Fresh IRGC Maritime Threats - IranWire  (IranWire)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,211 (+0.5%)   Silver 60.75 (+1.0%)   WTI 91.92 (-1.9%)   DXY 102.33 (-0.2%)   US10Y 5.24 (-0.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOLVFoLXE1d29yM3k5OWFJUjljWkk4XzBJR3hwQVNKTlg5QTNVa3JqdGl3MFN4M2RWaWUxaFNnZW9wZnA5UWpfcUFseHNac1doVHE5M0oybVhqQmx1OFZia01jOGw1VFZGQzdaSXZZQjVCQ0JHczBrU3lUM05IbTdmTEJwUmNheFZ1VVVMc1VGWFNDRWRySjViV05EdjZuWXRkUEtxU01n?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4210.8,
-   "Silver": 60.75,
-   "WTI": 91.92
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Tanker Struck in Strait of Hormuz Amid Fresh IRGC Maritime Threats - IranWire",
-   "src": "IranWire",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,211 (+0.5%)   Silver 60.75 (+1.0%)   WTI 91.92 (-1.9%)   DXY 102.33 (-0.2%)   US10Y 5.24 (-0.1%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
