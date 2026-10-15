@@ -1,5 +1,61 @@
 [
  {
+  "when": "15 Oct 01:18 UTC",
+  "iso": "2026-10-15T01:18:29.339562+00:00",
+  "cat": "inflation_hot",
+  "title": "GOLD+SILVER SHORT | INFLATION - running hot",
+  "body": "\ud83c\udf21 INFLATION \u2014 running hot\n\nHotter-Than-Expected CPI Signals Stubborn Inflation and Rising Costs - WWD  (WWD)\n\nWHY: You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.\n\nGOLD   \u2193\u2193   look for shorts - the rates reaction beats the hedge story\n        [some evidence - right 50% of 485 past cases]\nSILVER \u2193\u2193   look for shorts - same, amplified\n        [some evidence - right 52% of 485 past cases]\nOIL    \u2192    no clean read - usually a cause, not a victim\n\nNOW  Gold 4,166 (-0.3%)   Silver 56.27 (-4.9%)   WTI 94.34 (+0.2%)   DXY 102.08 (-0.5%)   US10Y 5.19 (-0.5%)\n\nFLIP: if inflation is coming from oil AND growth is dying, gold turns up instead",
+  "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNS0czdnZ2Sk9VWDlkUHNja1V3Y2ktOEtyNUx3dE5NTjgtOUNrS3EyOS1nOXNoVkhaOG9VbWl1ekhseFRzbnNQRGw4eE0zdXk1V09IaVJfWkNKVDV0eVNVLUtBdkM1ZnBZSWhJRjdqRUE5Zk5JUWxvS3BKRTdvd3VPVnh2Q01Ba1JVeTNEd0V0TERpTjV5aTJyVGFydnZYc3RjV3RBUVBHeGhaaVFLWHF2N3BCVjNUWHl5UWZxRFFBWDI?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4166.5,
+   "Silver": 56.265,
+   "WTI": 94.34
+  },
+  "parts": {
+   "emoji": "\ud83c\udf21",
+   "label": "INFLATION \u2014 running hot",
+   "headline": "Hotter-Than-Expected CPI Signals Stubborn Inflation and Rising Costs - WWD",
+   "src": "WWD",
+   "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "the rates reaction beats the hedge story",
+     "record": "some evidence - right 50% of 485 past cases"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "same, amplified",
+     "record": "some evidence - right 52% of 485 past cases"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "usually a cause, not a victim",
+     "record": ""
+    }
+   ],
+   "snap": "NOW  Gold 4,166 (-0.3%)   Silver 56.27 (-4.9%)   WTI 94.34 (+0.2%)   DXY 102.08 (-0.5%)   US10Y 5.19 (-0.5%)",
+   "reality": "",
+   "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
+  }
+ },
+ {
   "when": "15 Oct 00:13 UTC",
   "iso": "2026-10-15T00:13:39.842283+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,196 (-0.5%)   Silver 60.83 (+0.3%)   WTI 93.64 (+1.9%)   DXY 102.39 (+0.2%)   US10Y 5.24 (-0.1%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "12 Oct 12:46 UTC",
-  "iso": "2026-10-12T12:46:31.531076+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOPEC Cuts 2026 Oil Demand Growth Forecast to 400,000 Bpd, Sees Pent-up Demand in 2027 - EnergyNow  (EnergyNow)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,181 (-0.8%)   Silver 60.77 (+0.2%)   WTI 93.58 (+1.9%)   DXY 102.44 (+0.2%)   US10Y 5.24 (-0.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQek9DQ29yTkNEMFNmTXZiMWo5UlVPZkxtWkJ6RWY3OHNRMFZHN0hlVFpMdnBtRDNHN2c5SnNMRGZRb29WZV9ybWRUR0V2MjBmU3MtZEM4V0VUTHBKRktROHdpOUFIVUszUUs1dEJZTDU5SklGSHZzYVVDZXVmSk9EMHAwVTNMRXZ2X09MRU1GRTdOZVFqdFhwQVVwR2JjVy1laDFwcUhLWWZ1NmZWRVdROERDTQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4181.4,
-   "Silver": 60.77,
-   "WTI": 93.58
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "OPEC Cuts 2026 Oil Demand Growth Forecast to 400,000 Bpd, Sees Pent-up Demand in 2027 - EnergyNow",
-   "src": "EnergyNow",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,181 (-0.8%)   Silver 60.77 (+0.2%)   WTI 93.58 (+1.9%)   DXY 102.44 (+0.2%)   US10Y 5.24 (-0.1%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
