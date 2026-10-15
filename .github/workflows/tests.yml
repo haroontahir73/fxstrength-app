@@ -101,6 +101,14 @@ jobs:
         working-directory: engine
         run: python test_divergence.py
 
+      # Step 3 baseline backtest on synthetic fixtures: no-look-ahead COT availability (release
+      # time, holiday weeks), exact Step 2 classifications, forward returns / MFE / MAE at
+      # 1-3-5-10 trading days, missing / pending prices, event deduplication, provenance,
+      # determinism, and that it never contacts Myfxbook.
+      - name: Divergence backtest suite (127 checks)
+        working-directory: engine
+        run: python test_divergence_backtest.py
+
       # The Raspberry Pi trigger (pi/cot_pi_check.py) against a fake CFTC / GitHub / Pages:
       # schedule, trigger-once, retries, confirmation, downtime, overlap, token hygiene.
       - name: Pi checker suite (35 checks)
@@ -156,3 +164,4 @@ jobs:
           python /tmp/no_push.py ../pi/test_pi_check.py
           python /tmp/no_push.py test_myfxbook.py
           python /tmp/no_push.py test_divergence.py
+          python /tmp/no_push.py test_divergence_backtest.py

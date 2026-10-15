@@ -772,6 +772,42 @@ Myfxbook is off.
   report, as % of the 50-week range; under 5% = Flat/neutral, otherwise Strengthening when it
   moves toward the side the percentile leans to, Weakening when back toward the middle.
 
+## Step 3 baseline backtest (divergence_backtest.py)
+
+`divergence_backtest.py` replays the **frozen Step 2 rules** (divergence_config at 79b834a - a fingerprint
+check marks any other configuration as "not the baseline") over our own archived Myfxbook
+snapshots and measures what the market did next. No optimisation; nothing reconstructed.
+
+* **Inputs.** Myfxbook: production snapshots only (identified from the shared request ledger,
+  accumulated in `backtest/provenance.json`); verification fetches (CI / manual) are genuine but
+  were never on the dashboard, so they are excluded and counted (exact timestamp match only;
+  the registry is append-only, filled by a separate step from the ledger and production state,
+  and only read by the replay). COT: the production store; a report is usable only from its
+  release on the **official CFTC calendar** (15:30 ET; a documented fallback for years not held)
+  or production's recorded first-seen time if later. Prices: Yahoo daily OHLC, one fixed
+  instrument per market (`divergence_backtest_config.PRICES`; metals / copper / oil are
+  continuous front-month futures and include roll jumps).
+* **Measurement (locked convention, also in every results.json).** Entry = open of the first
+  daily session dated after the signal's date in the exchange's time zone; h-day exit = close
+  of the h-th session counting the entry session as 1 (h = 1, 3, 5, 10); MFE / MAE over exactly
+  those sessions from the entry price, signed in the signal's direction. A horizon whose
+  sessions are not complete is *pending*; a gap or a null value is *missing* - nothing is
+  substituted.
+* **Two units.** *State events*: a run of one class per market (Bearish → Strong Bearish starts a
+  new one) - for strength-transition analysis. *Directional episodes* (the primary, independent
+  sample): a run of one direction per market - Bearish ↔ Strong Bearish stays one episode; it
+  ends when the signal disappears or becomes unavailable, flips, or after a gap over 180 min.
+* **Accounting** keeps units apart: archive rows; snapshots (production vs excluded before
+  expansion); market observations (classified + unavailable by reason).
+* **Statistics** at episode (primary), state-event and observation level, for every market, class, horizon and aggregate (group, direction, strength,
+  COT and retail bands) with the sample size, a Wilson 95% interval for the win rate and a
+  descriptive label: Insufficient (< 10 events), Early evidence (10-29), Developing (30-99),
+  Meaningful (≥ 100). These labels are not significance tests.
+* **Runs.** `.github/workflows/divergence-backtest.yml` - daily, manual, and on backtest PRs. 0 Myfxbook
+  requests (any attempt fails the run); results go only to the private archive repo
+  (`backtest/runs/...`), the log shows counts and hashes. Deterministic: the same inputs and
+  the same `--generated-at` give a byte-identical `results.json`.
+
 ## Caveats
 
 Scores are a weighted heuristic, not advice. The pair ranking is a shortlist, not a signal —
