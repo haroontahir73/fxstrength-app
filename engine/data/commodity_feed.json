@@ -1,5 +1,61 @@
 [
  {
+  "when": "16 Oct 07:52 UTC",
+  "iso": "2026-10-16T07:52:25.525999+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nAnother Tanker Catches Fire in Eastern Strait of Hormuz - \u062a\u0633\u0646\u06cc\u0645  (\u062a\u0633\u0646\u06cc\u0645)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,206 (+0.9%)   Silver 57.87 (+1.8%)   WTI 95.77 (-2.2%)   DXY 101.83 (-0.2%)   US10Y 5.09 (-1.9%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNRVByRDdjLXkxMXRJaEJ3S09Dek4teVFiUzZTSldVampORlhlckVadVBiYWE5cGVzUUNHX0M1WEdQTWdabVJkbXFNRW1xM1NGdjZrTDFFQkl1OXoxbFE2U05hWUVpRmxRVWNiOGM3SFdpT3RrQUpOLU1qTVQxT2tQRHoxWnljVGw4dFhxZ0U3MVpxN2dYM0VVUlVvcVE0RkRTcjc2TVItQkdyZ1Uw0gGyAUFVX3lxTFBZN1F4blVFV2FMNGsxUU5wSW5TYmllTmRpUnNqM0s2UWJYdUxaWW1YRmlUenVDTm5wX2FkamZIeDlBd3ZBZmFseUR0VmRwMU9jVkhQZjh2alZDYU1FTVVONm5nMzhXTkhqY2NhVHNYNDR6anVDRUZCMjBpdFNnS0FFOXlZQ2tMNkRMYndnT3E1WXVBOFI3UUxXV19lYWo4QkRaUVAtWEIxNUx2dnp1NUNOUXc?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4205.9,
+   "Silver": 57.865,
+   "WTI": 95.77
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Another Tanker Catches Fire in Eastern Strait of Hormuz - \u062a\u0633\u0646\u06cc\u0645",
+   "src": "\u062a\u0633\u0646\u06cc\u0645",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,206 (+0.9%)   Silver 57.87 (+1.8%)   WTI 95.77 (-2.2%)   DXY 101.83 (-0.2%)   US10Y 5.09 (-1.9%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "16 Oct 07:19 UTC",
   "iso": "2026-10-16T07:19:44.715394+00:00",
   "cat": "rates_down",
@@ -3267,62 +3323,6 @@
    "emoji": "\ud83c\udf21",
    "label": "INFLATION \u2014 running hot",
    "headline": "US Core Inflation Rate YoY: 2.6 vs 2.5 expected - a BEAT (+4%)",
-   "src": "economic calendar",
-   "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "the rates reaction beats the hedge story",
-     "record": "some evidence - right 50% of 485 past cases"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "same, amplified",
-     "record": "some evidence - right 52% of 485 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "usually a cause, not a victim",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 4,172 (-0.1%)   Silver 58.81 (-0.6%)   WTI 95.49 (+1.4%)   DXY 102.23 (+0.0%)   US10Y 5.22 (-0.4%)",
-   "reality": "",
-   "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
-  }
- },
- {
-  "when": "14 Oct 12:31 UTC",
-  "iso": "2026-10-14T12:31:47.722507+00:00",
-  "cat": "inflation_hot",
-  "title": "GOLD+SILVER SHORT | INFLATION - running hot",
-  "body": "\ud83c\udf21 INFLATION \u2014 running hot\n\nUS Inflation Rate YoY: 3.7 vs 3.6 expected - a BEAT (+3%)  (economic calendar)\n\nWHY: You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.\n\nGOLD   \u2193\u2193   look for shorts - the rates reaction beats the hedge story\n        [some evidence - right 50% of 485 past cases]\nSILVER \u2193\u2193   look for shorts - same, amplified\n        [some evidence - right 52% of 485 past cases]\nOIL    \u2192    no clean read - usually a cause, not a victim\n\nNOW  Gold 4,172 (-0.1%)   Silver 58.81 (-0.6%)   WTI 95.49 (+1.4%)   DXY 102.23 (+0.0%)   US10Y 5.22 (-0.4%)\n\nFLIP: if inflation is coming from oil AND growth is dying, gold turns up instead",
-  "link": "",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4171.5,
-   "Silver": 58.81,
-   "WTI": 95.49
-  },
-  "parts": {
-   "emoji": "\ud83c\udf21",
-   "label": "INFLATION \u2014 running hot",
-   "headline": "US Inflation Rate YoY: 3.7 vs 3.6 expected - a BEAT (+3%)",
    "src": "economic calendar",
    "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
    "leans": [
