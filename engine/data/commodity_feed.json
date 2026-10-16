@@ -1,5 +1,61 @@
 [
  {
+  "when": "16 Oct 07:19 UTC",
+  "iso": "2026-10-16T07:19:44.715394+00:00",
+  "cat": "rates_down",
+  "title": "GOLD+SILVER STRONG LONG | FED - leaning toward rate cuts",
+  "body": "\ud83d\udcb8 FED \u2014 leaning toward rate cuts\n\nFed Chair Warsh Sees US Economic Tailwinds, Offers No Rate Hike Signal - BusinessToday Malaysia  (BusinessToday Malaysia)\n\nWHY: Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - cheaper money is gold's best friend\n        [NOT TESTED - no history to judge this on]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up, only harder\n        [NOT TESTED - no history to judge this on]\nOIL    \u2191    mild long bias - weaker dollar + a bit more growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,205 (+0.8%)   Silver 57.98 (+2.0%)   WTI 95.81 (-2.2%)   DXY 101.83 (-0.2%)   US10Y 5.09 (-1.9%)\n\nFLIP: a hot inflation print would kill the cut hopes",
+  "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOY0cwZXJBcXRVM1RuUVZOX240TE9RVFdKRWxWMGZWbnIza2JHOEhMQ3lTNEZ6Xy1SNG9jN2pOZ0wyRUtfMHI4SmhnVDBnTW9YQUdzcUg4VGRkQ18yTHp3UVBvbmdxOFRtMnFzcUE5dHB5SHIxaDdjWDlBRzhhYjZkS2FCQjJBVjB1LVE2Z0p2c0d1OC1YX3Vra0VlOFFJdmVWOGdkVVFpeUxhejhGUWFZbmlkV2k?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4205.3,
+   "Silver": 57.98,
+   "WTI": 95.81
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb8",
+   "label": "FED \u2014 leaning toward rate cuts",
+   "headline": "Fed Chair Warsh Sees US Economic Tailwinds, Offers No Rate Hike Signal - BusinessToday Malaysia",
+   "src": "BusinessToday Malaysia",
+   "why": "Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "cheaper money is gold's best friend",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "follows gold up, only harder",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "weaker dollar + a bit more growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,205 (+0.8%)   Silver 57.98 (+2.0%)   WTI 95.81 (-2.2%)   DXY 101.83 (-0.2%)   US10Y 5.09 (-1.9%)",
+   "reality": "",
+   "flip": "a hot inflation print would kill the cut hopes"
+  }
+ },
+ {
   "when": "16 Oct 06:40 UTC",
   "iso": "2026-10-16T06:40:24.143699+00:00",
   "cat": "rates_up",
@@ -3267,62 +3323,6 @@
    "emoji": "\ud83c\udf21",
    "label": "INFLATION \u2014 running hot",
    "headline": "US Inflation Rate YoY: 3.7 vs 3.6 expected - a BEAT (+3%)",
-   "src": "economic calendar",
-   "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "the rates reaction beats the hedge story",
-     "record": "some evidence - right 50% of 485 past cases"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "same, amplified",
-     "record": "some evidence - right 52% of 485 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "usually a cause, not a victim",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 4,172 (-0.1%)   Silver 58.81 (-0.6%)   WTI 95.49 (+1.4%)   DXY 102.23 (+0.0%)   US10Y 5.22 (-0.4%)",
-   "reality": "",
-   "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
-  }
- },
- {
-  "when": "14 Oct 12:31 UTC",
-  "iso": "2026-10-14T12:31:47.152060+00:00",
-  "cat": "inflation_hot",
-  "title": "GOLD+SILVER SHORT | INFLATION - running hot",
-  "body": "\ud83c\udf21 INFLATION \u2014 running hot\n\nUS CPI: 336.94 vs 336.65 expected - a BEAT (+0%)  (economic calendar)\n\nWHY: You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.\n\nGOLD   \u2193\u2193   look for shorts - the rates reaction beats the hedge story\n        [some evidence - right 50% of 485 past cases]\nSILVER \u2193\u2193   look for shorts - same, amplified\n        [some evidence - right 52% of 485 past cases]\nOIL    \u2192    no clean read - usually a cause, not a victim\n\nNOW  Gold 4,172 (-0.1%)   Silver 58.81 (-0.6%)   WTI 95.49 (+1.4%)   DXY 102.23 (+0.0%)   US10Y 5.22 (-0.4%)\n\nFLIP: if inflation is coming from oil AND growth is dying, gold turns up instead",
-  "link": "",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4171.5,
-   "Silver": 58.81,
-   "WTI": 95.49
-  },
-  "parts": {
-   "emoji": "\ud83c\udf21",
-   "label": "INFLATION \u2014 running hot",
-   "headline": "US CPI: 336.94 vs 336.65 expected - a BEAT (+0%)",
    "src": "economic calendar",
    "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
    "leans": [
