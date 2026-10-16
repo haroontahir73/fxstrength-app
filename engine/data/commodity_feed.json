@@ -1,5 +1,61 @@
 [
  {
+  "when": "16 Oct 02:04 UTC",
+  "iso": "2026-10-16T02:04:47.625272+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIran\u2019s \u2018So-Called Allies\u2019 Can\u2019t Save It, Says Scott Bessent as US Blockade Chokes Oil Exports and the Ria - Benzinga  (Benzinga)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,175 (+0.1%)   Silver 57.35 (+0.9%)   WTI 96.01 (-2.0%)   DXY 102.06 (+0.1%)   US10Y 5.09 (-1.9%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQY0NMeUFuZGIxdnNQUndSeTNZMkNzVEtXeVBKWUU3SmprSXFyd2ZtZVdyQ0xjeWxNLUgxUHV1SWtZZjV1U25PeDAyNWVQU3RMN0M1QklwSGFGTWtGNTVkWjg4bEhVUmk1ZXh5aU1FSnB1Xy1Gc0Y2QWRnSFk0WktUS252RzhBV2wzUjNUX21vWVdpM0VT?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4175.0,
+   "Silver": 57.355,
+   "WTI": 96.01
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Iran\u2019s \u2018So-Called Allies\u2019 Can\u2019t Save It, Says Scott Bessent as US Blockade Chokes Oil Exports and the Ria - Benzinga",
+   "src": "Benzinga",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,175 (+0.1%)   Silver 57.35 (+0.9%)   WTI 96.01 (-2.0%)   DXY 102.06 (+0.1%)   US10Y 5.09 (-1.9%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "15 Oct 22:26 UTC",
   "iso": "2026-10-15T22:26:53.499790+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,166 (-0.3%)   Silver 58.77 (-0.7%)   WTI 95.27 (+1.2%)   DXY 102.23 (+0.0%)   US10Y 5.22 (-0.4%)",
    "reality": "",
    "flip": "these deals break \u2014 one broken truce and it all goes back on"
-  }
- },
- {
-  "when": "14 Oct 10:12 UTC",
-  "iso": "2026-10-14T10:12:28.630982+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOPEC cuts 2026 oil demand growth forecast - VOV World  (VOV World)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,164 (-0.3%)   Silver 58.70 (-0.8%)   WTI 95.12 (+1.0%)   DXY 102.24 (+0.1%)   US10Y 5.22 (-0.4%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPbW1ITk5xMWQzX1Z4bXFwN09GZl9wd00tMTF4dE1RVkwtdm5EbnA5WGUzanNWeVlzbk5wWUZQb2tYczN5b3JGenZickx6em0wbGx0TC0xdFdtWWlka2lTc25wNHl6VG9qNm5kWjBlTUlERGhJT1RCbzZlWjRNQW5JTk9uVkV0Zw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4164.0,
-   "Silver": 58.705,
-   "WTI": 95.12
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "OPEC cuts 2026 oil demand growth forecast - VOV World",
-   "src": "VOV World",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,164 (-0.3%)   Silver 58.70 (-0.8%)   WTI 95.12 (+1.0%)   DXY 102.24 (+0.1%)   US10Y 5.22 (-0.4%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
