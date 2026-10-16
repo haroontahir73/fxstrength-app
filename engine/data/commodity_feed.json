@@ -1,5 +1,61 @@
 [
  {
+  "when": "16 Oct 22:42 UTC",
+  "iso": "2026-10-16T22:42:07.778472+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOil Prices Surge as Middle East and Russia Supply Disruptions Converge \u2014 Brent Briefly Tops $110 - BigGo Finance  (BigGo Finance)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,187 (+0.4%)   Silver 57.13 (+0.5%)   WTI 99.04 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBXYldKMW90eFF0Z1BjalNOTWZwR21LeEN4MG83ZWlBcFExREtzbVhURDUzY3VSaDFPSjUyMEYtZHBJaDc1Tm1hMXB0NWRpTFY3MzlWUERncDdKQkVhdXZkMy15V01TSzQyUEZja1E2Y0hpYm1mQ1E?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4186.7,
+   "Silver": 57.135,
+   "WTI": 99.04
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Oil Prices Surge as Middle East and Russia Supply Disruptions Converge \u2014 Brent Briefly Tops $110 - BigGo Finance",
+   "src": "BigGo Finance",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,187 (+0.4%)   Silver 57.13 (+0.5%)   WTI 99.04 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "16 Oct 19:52 UTC",
   "iso": "2026-10-16T19:52:48.021245+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,119 (-1.4%)   Silver 55.74 (-5.8%)   WTI 95.11 (+1.0%)   DXY 102.56 (+0.4%)   US10Y 5.19 (-0.5%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "14 Oct 18:56 UTC",
-  "iso": "2026-10-14T18:56:18.027545+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nCargo Ship Sinks in Strait of Hormuz After Strike Triggers Fire - Bloomberg.com  (Bloomberg.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,116 (-1.5%)   Silver 55.77 (-5.7%)   WTI 95.04 (+1.0%)   DXY 102.54 (+0.3%)   US10Y 5.18 (-0.6%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNYzk0VE5oYmc0RVYzUV9CR2Y2Q1ItVldHLVBuRGwzZ0tvNndnMGlYUGVDZ09naGNDV2tZSGN0a2hqbzhvQVU4ckR5YXBlbTZOaDRSei0zV0twb0JpNXIyVWRTSlJzcUd4bmZEWVlKTE5PMFRLUEM1TC1KTDZFMUNrcnNSTDMyNjZrVWdaY21VZi1LbEV2VzE4UUxmLWEwMXFnZ0dXcnJSaENKN2ZvWHdqYmdBWlRtRllUdF9PZ3Q5a2pxS1ZJTGJwLWpJajBkTGJwV0dz?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4115.5,
-   "Silver": 55.765,
-   "WTI": 95.04
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Cargo Ship Sinks in Strait of Hormuz After Strike Triggers Fire - Bloomberg.com",
-   "src": "Bloomberg.com",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,116 (-1.5%)   Silver 55.77 (-5.7%)   WTI 95.04 (+1.0%)   DXY 102.54 (+0.3%)   US10Y 5.18 (-0.6%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
