@@ -1,5 +1,61 @@
 [
  {
+  "when": "17 Oct 12:20 UTC",
+  "iso": "2026-10-17T12:20:29.601118+00:00",
+  "cat": "oil_supply_loose",
+  "title": "OIL STRONG SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nZelenskyy says Trump\u2019s Russia sanctions waiver \u2018rewards\u2019 Putin as Moscow targets Ukraine\u2019s energy grid - Firstpost  (Firstpost)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPU3ppUkFFTVFFVnQyQXdkTXROWWZyZk9TU1BRVHpQclhKODZTSVVIdmg1b1F2ejM3RHlYTHhZdFpKbXRyNlZub3F2U291Z29xUWpnOXVKSXdOZlo4SVZPRjVqMWFaZ3VObWZMeFFaOFdlMkxqTGVhMzV4R3dGdDZYLTFzcEtTNlN4dXRGSEdpRkFadjhrQWkzbVVDcEM2RHJrcU02NzI0WWlHMnNtNXEzWHVVeDFiNzBVRnk0VnRiYnc3MFZ2RmtPY3otTmdRYUJBMjhyaWh2akdDZXo10gHiAUFVX3lxTFBpRTNua3NvRktCNkhMaU9hWmRoWWZFNUtaRFRpb2N1X2xQZncyTTVpcTdIdXEzcGNHS1pZOWJwR3FyajVWamw3VHpTZTJQNkZTQTFpbjdyVlpJZC04bnlrcDZfR2Nod01RcGlic2lwWjQ3M3JfWllwcWlLQWlUczl5ZEx5Um1nZlphTkFQN0dzYzExZkFlZVU5NTFjZ19uSmRTUVMxN015em10LXVqenU1ZWpBeDdlY2RFMWpqTEpMdjdwM3NyMkZmTUtQRlVTMlFRU0VRMlZaTWZDNDZLRmd3X3c?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4181.1,
+   "Silver": 57.305,
+   "WTI": 99.02
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "Zelenskyy says Trump\u2019s Russia sanctions waiver \u2018rewards\u2019 Putin as Moscow targets Ukraine\u2019s energy grid - Firstpost",
+   "src": "Firstpost",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "extra barrels push the price down",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
   "when": "17 Oct 11:21 UTC",
   "iso": "2026-10-17T11:21:11.289681+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,163 (+1.3%)   Silver 56.08 (+1.0%)   WTI 94.10 (-1.0%)   DXY 102.09 (-0.4%)   US10Y 5.19 (-0.5%)",
    "reality": "",
    "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
-  }
- },
- {
-  "when": "15 Oct 04:37 UTC",
-  "iso": "2026-10-15T04:37:02.176926+00:00",
-  "cat": "oil_supply_loose",
-  "title": "TALK | OIL SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nFinancialJuice: IMF: inventories are lower, spare capacity tighter, fresh disruption could trigger bigger price shifts\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193   look for shorts - extra barrels push the price down (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,166 (+1.4%)   Silver 56.16 (+1.1%)   WTI 94.06 (-1.1%)   DXY 102.04 (-0.5%)   US10Y 5.19 (-0.5%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://www.financialjuice.com/News/9806363/IMF-inventories-are-lower-spare-capacity-tighter-fresh-disruption-could-trigger-bigger-price-shifts.aspx?xy=rss",
-  "talk": true,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4166.3,
-   "Silver": 56.16,
-   "WTI": 94.06
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "FinancialJuice: IMF: inventories are lower, spare capacity tighter, fresh disruption could trigger bigger price shifts",
-   "src": "",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "extra barrels push the price down (talk, not action yet)",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,166 (+1.4%)   Silver 56.16 (+1.1%)   WTI 94.06 (-1.1%)   DXY 102.04 (-0.5%)   US10Y 5.19 (-0.5%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
