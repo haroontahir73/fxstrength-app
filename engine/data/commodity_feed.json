@@ -1,5 +1,61 @@
 [
  {
+  "when": "17 Oct 19:24 UTC",
+  "iso": "2026-10-17T19:24:55.189502+00:00",
+  "cat": "rates_up",
+  "title": "TALK | GOLD SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nAnother interest rate hike may be ahead as Fed battles inflation - 10News.com  (10News.com)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193   look for shorts - rates up = gold's worst enemy (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNdWJTRk9qRU53SklJYVlpeE5Pa0h5Zm92dzZlbU9rOG9VWHNvT3FRZW5hY2dCQVBnNVMyME9EZXBsRnhPTWZjVWJiXzZkUUh5SWFaa3pQXzExMFhuYURIckMyLVRiaEFMM3hGSVJNUG15ZHNPZUlFS2VDZ1pVaFdWLWhOTW53ekV4ZV9pNV84ZS1qYzNlVE1zQm95U0VSR2cxUi1CNzNuRQ?oc=5",
+  "talk": true,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4181.1,
+   "Silver": 57.305,
+   "WTI": 99.02
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Another interest rate hike may be ahead as Fed battles inflation - 10News.com",
+   "src": "10News.com",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "rates up = gold's worst enemy (talk, not action yet)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "17 Oct 17:08 UTC",
   "iso": "2026-10-17T17:08:36.553956+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,167 (+1.4%)   Silver 56.66 (+2.0%)   WTI 94.21 (-0.9%)   DXY 102.09 (-0.5%)   US10Y 5.19 (-0.5%)",
    "reality": "",
    "flip": "these deals break \u2014 one broken truce and it all goes back on"
-  }
- },
- {
-  "when": "15 Oct 08:07 UTC",
-  "iso": "2026-10-15T08:07:20.235173+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nContainer ship sinks after attack in the Strait of Hormuz - Modern Ghana  (Modern Ghana)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,166 (+1.4%)   Silver 56.62 (+1.9%)   WTI 94.03 (-1.1%)   DXY 102.11 (-0.4%)   US10Y 5.19 (-0.5%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9JNGpRSEVxT0U5aENoXzc0NEZ4amdUR1V5bl9WR2VPdmFZdGpOMmllN1kwNjRIRWNLUXRHM01BUlViQ0JuQk90RVlwQjk1TTJyYlF4YjVvSG5NOVh1aUIw0gFcQVVfeXFMTnNOLUdRbjh1MzRpTDhZdHp0aF9MUm5CM1FkbFFjWENXTkQ4ajEwOEdpazl6WWNXWWRnUTNfZEVERkZ4SUhVSERGNkpSUktTY3JhbFJMWkhscXkyVUE?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4165.9,
-   "Silver": 56.625,
-   "WTI": 94.03
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Container ship sinks after attack in the Strait of Hormuz - Modern Ghana",
-   "src": "Modern Ghana",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,166 (+1.4%)   Silver 56.62 (+1.9%)   WTI 94.03 (-1.1%)   DXY 102.11 (-0.4%)   US10Y 5.19 (-0.5%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
