@@ -163,6 +163,15 @@ jobs:
         continue-on-error: true
         run: python oi_public.py
 
+      # Daily CME OI (futures + options), restored ALONGSIDE the weekly CFTC view.
+      # RENDER ONLY: data is collected on the Pi (CME blocks runners + ToS) and arrives
+      # via sync_cloud; this rebuilds open-interest-daily.html from oi_history.json and
+      # injects the daily card. continue-on-error; never deploys, never writes CFTC data.
+      - name: Daily OI page (CME, Pi-synced)
+        working-directory: engine
+        continue-on-error: true
+        run: python oi.py --render-only dashboard.html
+
       # PR #14 - Economic calendar (official-source, keyless). continue-on-error so a
       # flaky government API can never take the deploy down; independent of the
       # TradingView calendar feed (fetch_calendar.py) and the scoring pipeline.
@@ -180,6 +189,7 @@ jobs:
           cp engine/dashboard.html _site/dashboard.html
           cp engine/commodity-news.html _site/commodity-news.html 2>/dev/null || true
           cp engine/open-interest.html  _site/open-interest.html  2>/dev/null || true
+          cp engine/open-interest-daily.html _site/open-interest-daily.html 2>/dev/null || true
           cp engine/economic-calendar.html _site/economic-calendar.html 2>/dev/null || true
           cp index.html            _site/index.html
           cp update.json           _site/update.json

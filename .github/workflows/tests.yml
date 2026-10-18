@@ -132,6 +132,10 @@ jobs:
         working-directory: engine
         run: python test_oi_public.py
 
+      - name: Daily OI (CME, futures+options) suite
+        working-directory: engine
+        run: python test_oi_daily.py
+
       - name: Economic calendar suite (PR #14)
         working-directory: engine
         run: python test_econ_cal.py
