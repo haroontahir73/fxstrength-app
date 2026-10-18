@@ -1,5 +1,61 @@
 [
  {
+  "when": "18 Oct 21:15 UTC",
+  "iso": "2026-10-18T21:15:33.279643+00:00",
+  "cat": "oil_supply_loose",
+  "title": "TALK | OIL SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nUS Treasury Secretary downplays Russia sanctions waiver, warns Zelensky to 'be careful' - The Kyiv Independent  (The Kyiv Independent)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193   look for shorts - extra barrels push the price down (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQZFpyZmhPZVlNeHZiRDR5dDE2aFppNF9zUW1tTy11NVowTEpWYlVIME56UzBZVk9qa0o0QjdlS0hpeUYybExtWmVSWExtTzEtTV9VeHgtdWZYTjZ1eXpWWDVLaktDTkdpcEJXMGVlYVZSVTBqM28yN1pQZDFud2U2RVJQaDJQU2RwUzdEdU0xNGhtVWc5NXpoU29XQXBjOXpXLWtwX2N4OUZhSEQ2VHFyeV9rOA?oc=5",
+  "talk": true,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4181.1,
+   "Silver": 57.305,
+   "WTI": 99.02
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "US Treasury Secretary downplays Russia sanctions waiver, warns Zelensky to 'be careful' - The Kyiv Independent",
+   "src": "The Kyiv Independent",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "extra barrels push the price down (talk, not action yet)",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
   "when": "18 Oct 20:42 UTC",
   "iso": "2026-10-18T20:42:05.086370+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,191 (+2.0%)   Silver 57.57 (+3.6%)   WTI 96.13 (+1.1%)   DXY 102.03 (-0.5%)   US10Y 5.09 (-1.9%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "15 Oct 20:30 UTC",
-  "iso": "2026-10-15T20:30:00.584239+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nCrude Gains on Renewed Supply Disruptions - TradingView  (TradingView)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,191 (+2.0%)   Silver 57.56 (+3.6%)   WTI 96.13 (+1.1%)   DXY 102.04 (-0.5%)   US10Y 5.09 (-1.9%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPRnZDME9xdGhNb0NxUEp3NFBrdXVxbWxtc25iU0FiWlE1dnhKQ2FsTmExaHlWdDZfUk5Ibzh0UDRwOVNJd213SmdaTTQ2eFh2UnlqZGtsZVA1VUJFcXpyMjl0Wk1jb0dLT3lCM2huY1pCWlhCMjhHUm51aW43WDBzdFdGdHlXNEZXU0pqXzBZclRQbU8tMWZ3?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4190.6,
-   "Silver": 57.565,
-   "WTI": 96.13
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Crude Gains on Renewed Supply Disruptions - TradingView",
-   "src": "TradingView",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,191 (+2.0%)   Silver 57.56 (+3.6%)   WTI 96.13 (+1.1%)   DXY 102.04 (-0.5%)   US10Y 5.09 (-1.9%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
