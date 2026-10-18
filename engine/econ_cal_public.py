@@ -90,6 +90,7 @@ def _rows(events):
             f'<td class="c" data-l="Currency">{CCY_FLAG.get(ccy,"")} {_e(ccy)}</td>'
             f'<td class="i" data-l="Impact">{_impact_chip(ev.get("impact"))}</td>'
             f'<td class="e" data-l="Event">{_e(ev.get("event",""))}'
+            + (f' <span class="per">{_e(ev.get("period",""))}</span>' if ev.get("period") and ev.get("period") != "latest" else "")
             + (f' <span class="src">{_e(ev.get("source",""))}</span>' if ev.get("source") else "")
             + (' <span class="rev" title="revised">rev</span>' if ev.get("status") == "revised" else "")
             + f'</td>'
@@ -129,6 +130,7 @@ td.a,td.f,td.p,th.n{text-align:right;font-variant-numeric:tabular-nums;white-spa
 .imp{font-size:11px;font-weight:700;padding:2px 7px;border-radius:4px;color:#fff}
 .imp.hi{background:var(--hi)}.imp.md{background:var(--md)}.imp.lo{background:var(--lo)}
 .src{color:var(--mut);font-size:11px}
+.per{color:var(--mut);font-size:11px}
 .rev{color:var(--md);font-size:11px;border:1px solid var(--md);border-radius:3px;padding:0 3px}
 .chg{font-size:11px}.chg.up{color:var(--up)}.chg.dn{color:var(--dn)}.chg.fl{color:var(--mut)}
 .dayhead{margin:18px 0 2px;font-size:13px;font-weight:700;color:var(--mut);border-bottom:2px solid var(--line);padding-bottom:4px}
@@ -204,25 +206,35 @@ def _controls():
             f'<div class="flt"><label>Market</label>{mkt}</div>')
 
 
+def _future(ev):
+    w = _dt(ev)
+    return bool(w and w >= dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=1))
+
+
 def _body(archive):
     events = _sorted(archive.get("events", []))
-    # group by UK-local date, newest meaningful first but future ascending; simplest: ascending
-    groups, order = {}, []
-    for ev in events:
+    head = ("<thead><tr><th>Time</th><th>Currency</th><th>Impact</th><th>Event</th>"
+            "<th class='n'>Actual</th><th class='n'>Forecast</th><th class='n'>Previous</th></tr></thead>")
+    # #2: only events carrying a VERIFIED official schedule go on the calendar days.
+    upcoming = [e for e in events if e.get("scheduled") and _future(e)]
+    recent = [e for e in events if not (e.get("scheduled") and _future(e))]
+    sections, groups, order = [], {}, []
+    for ev in upcoming:
         uk = _uk(_dt(ev))
-        key = uk.strftime("%Y-%m-%d") if uk else "undated"
-        label = uk.strftime("%a %d %b %Y") if uk else "Undated"
+        key, label = uk.strftime("%Y-%m-%d"), uk.strftime("%a %d %b %Y")
         if key not in groups:
             groups[key] = {"label": label, "rows": []}
             order.append(key)
         groups[key]["rows"].append(ev)
-    sections = []
-    head = ("<thead><tr><th>Time</th><th>Currency</th><th>Impact</th><th>Event</th>"
-            "<th class='n'>Actual</th><th class='n'>Forecast</th><th class='n'>Previous</th></tr></thead>")
     for key in order:
         g = groups[key]
         sections.append(f'<div class="dayhead">{_e(g["label"])}</div>'
                         f'<table>{head}<tbody>{_rows(g["rows"])}</tbody></table>')
+    if recent:                                                   # historical, clearly labelled
+        sections.append('<div class="dayhead">Latest releases '
+                        '<span style="font-weight:400;color:var(--mut)">&middot; most recent official '
+                        'prints &mdash; not a forward schedule</span></div>'
+                        f'<table>{head}<tbody>{_rows(recent)}</tbody></table>')
     if not sections:
         sections.append('<div class="empty">No calendar data available yet.</div>')
     sections.append('<div class="empty" id="empty" style="display:none">No events match these filters.</div>')
@@ -244,9 +256,12 @@ def _meta(archive):
 def panel(archive=None):
     archive = archive if archive is not None else _load()
     when, ok, n = _meta(archive)
-    note = ("Official-source data (public-domain / open-licence agencies). No consensus "
-            "forecast is published on this path, so Forecast shows &ldquo;&mdash;&rdquo; and the "
-            "arrow by Actual marks the change vs Previous only &mdash; not a trading signal.")
+    note = ("Official-source data (public-domain / open-licence agencies). "
+            "<b>Latest releases</b> are the most recent published figures, not a forward "
+            "schedule; upcoming events appear only when sourced from an official release "
+            "calendar. No consensus forecast exists on this path, so Forecast shows "
+            "&ldquo;&mdash;&rdquo; and the arrow by Actual marks change vs Previous only "
+            "&mdash; not a trading signal.")
     deg = ' &middot; <span style="color:var(--md)">some sources unavailable</span>' if archive.get("degraded") else ""
     return (f'<div class="wrap">'
             f'<h1>Economic calendar</h1>'

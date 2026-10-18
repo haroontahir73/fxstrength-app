@@ -122,6 +122,7 @@ def t_build_offline_and_history():
         ec.SOURCES = [("USD-CPI", "x", {}, ec.parse_bls_cpi)]
         a1 = ec.build(data=tmp)
         check("build never raises, writes events", a1["events"] and a1["sources"]["USD-CPI"]["ok"])
+        check("no fabricated release time (dt_utc stays None)", a1["events"][0].get("dt_utc") is None)
         check("archive file written", (tmp / "econ_calendar.json").exists())
         h1 = (tmp / "econ_history.jsonl").read_text().strip().splitlines()
         check("history logs first_release", len(h1) == 1 and json.loads(h1[0])["kind"] == "first_release")
@@ -155,6 +156,7 @@ def t_render_columns_and_mobile():
     check("forecast shown as dash", "&mdash;" in html)
     check("neutral change arrow (not a signal)", 'class="chg up"' in html or "▲" in html)
     check("US flag rendered", "🇺🇸" in html)
+    check("historical prints labelled Latest releases", "Latest releases" in html)
     check("mobile no-overflow rule", "max-width:680px" in ep._CSS and "display:block" in ep._CSS)
     check("dark-mode token guard present", "prefers-color-scheme:dark" in ep._CSS and 'data-theme=dark' in ep._CSS)
 

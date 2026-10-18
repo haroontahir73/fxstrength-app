@@ -52,7 +52,7 @@ def _f(x):
 # ---------------------------------------------------------------- schema helpers
 def mk_event(currency, event, category, impact, *, actual_raw=None, previous_raw=None,
              unit="", period="", when=None, has_time=False, status="released",
-             source="", source_url="", decimals=1):
+             scheduled=False, source="", source_url="", decimals=1):
     """Build one normalised calendar event. `actual`/`previous` are formatted for display;
     the *_raw values are kept for research and for the neutral change arrow."""
     def fmt(v):
@@ -68,7 +68,8 @@ def mk_event(currency, event, category, impact, *, actual_raw=None, previous_raw
             "previous": fmt(previous_raw), "previous_raw": previous_raw,
             "unit": unit, "period": period,
             "dt_utc": when.isoformat() if when else None, "has_time": has_time,
-            "status": status, "source": source, "source_url": source_url}
+            "status": status, "scheduled": scheduled,
+            "source": source, "source_url": source_url}
 
 
 def fetch(url, method="GET", body=None, headers=None):
@@ -324,10 +325,9 @@ def build(data=None, offline=False):
             evs = parser(raw, source_url=url)
             if not evs:
                 raise RuntimeError("parser returned no events")
-            for e in evs:
-                if e.get("dt_utc") is None:                      # period indicator: stamp as released now
-                    e["dt_utc"] = now.replace(microsecond=0).isoformat()
-                    e["has_time"] = False
+            # #1: never fabricate a release datetime from the fetch clock. A period
+            # indicator with no verified release time keeps dt_utc=None (shown as a
+            # historical release by its reference period, not placed on a day/time).
             events.extend(evs)
             status[name] = {"ok": True, "as_of": now.isoformat(), "n": len(evs), "ccy": src_label}
         except Exception as e:                                    # noqa: BLE001
