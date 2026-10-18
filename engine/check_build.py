@@ -234,6 +234,7 @@ def main():
     check_myfxbook(page, Path(a.data))
     check_divergence(page, Path(a.data))
     check_history(page, Path(a.data))
+    check_oi(page, Path(a.data))
     return finish()
 
 
@@ -477,6 +478,42 @@ def check_history(page, data_dir):
        "History: page-ready view holds retail bands only (no exact long / short %)", leaked[:3])
     ok(not _re.search(r"\d% long|\d% short", t) and t.count("Retail ") >= n,
        "History: the section shows retail bands, never an exact long / short %")
+
+
+def check_oi(page, data_dir):
+    """The Open interest tab is CFTC-sourced (PR #13), not CME: the futures-only / options-FE /
+    combined / share breakdown is present, no CME-derived value or wording remains, and when the
+    archive exists every market's three numbers come straight from it."""
+    import re as _re
+    m = _re.search(r'<div class="panel" id="p-oi">(.*?)(<div class="panel" id="p-|\Z)', page, _re.S)
+    ok(m is not None, "OI: Open interest tab present (id=p-oi)")
+    if not m:
+        return
+    tab = m.group(1)
+    ok("CME" not in tab and "cmegroup" not in tab.lower() and "preliminary" not in tab.lower(),
+       "OI: no CME-derived value or wording on the public OI tab")
+    p = data_dir / "options_fe_oi.json"
+    view = json.loads(p.read_text()) if p.exists() else None
+    if not view or not view.get("markets"):
+        ok("No CFTC open-interest data" in tab, "OI: no archive -> tab says unavailable")
+        return
+    ok("CFTC weekly" in tab, "OI: tab labelled CFTC weekly")
+    ok(all(h in tab for h in ("Futures OI", "Options FE OI", "Combined OI", "Options share")),
+       "OI: the futures / options-FE / combined / share breakdown is shown")
+    ok("not the number of outstanding option contracts" in tab,
+       "OI: the methodology distinguishes FE OI from actual option contracts")
+    # every available market's latest futures-only OI and combined OI appear verbatim from the archive
+    import options_oi as _oo
+    miss = []
+    for key, mk in view["markets"].items():
+        obs = mk.get("observations") or []
+        if not obs:
+            continue
+        last = obs[-1]
+        if f'{last["futures_only_oi"]:,}' not in tab or f'{last["combined_oi"]:,}' not in tab:
+            miss.append(key)
+    ok(not miss, "OI: each market's futures-only and combined OI are rendered from the CFTC archive", miss[:4])
+    ok(_oo is not None, "OI: the tab reads the PR #12 CFTC archive (no CME fetch)")
 
 
 def finish():

@@ -480,6 +480,19 @@ table.cotrep{min-width:1100px;width:100%;border-collapse:collapse;font-size:12.5
   border:1px solid var(--line);overflow:hidden;min-width:90px}
 .pfill{position:absolute;left:0;top:0;bottom:0;border-radius:2px}
 .pfill.neg{background:var(--neg)} .pfill.pos{background:var(--pos)}
+/* Open interest tab (CFTC, oi_public.py) */
+.oistale{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;margin-left:4px}
+.oistale.ok{background:var(--posbg);color:var(--pos)}
+.oistale.old{background:var(--warnbg);color:var(--warn)}
+.oih3{font-size:15px;margin:18px 0 6px}
+.oimeth{font-size:12px;color:var(--mut)}
+.oigrid{margin-top:8px}
+.oicard{padding:10px 12px}
+.oicard summary{cursor:pointer;font-size:13px;list-style:none}
+.oicard summary::-webkit-details-marker{display:none}
+.oicard summary::before{content:"\25B8 ";color:var(--mut)}
+.oicard[open] summary::before{content:"\25BE "}
+.oicard .oihint{font-size:12px;margin:8px 0 4px}
 tr.next td{background:var(--surface2)}
 .fwlead{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);
   border-radius:10px;padding:13px 16px;box-shadow:var(--shadow)}

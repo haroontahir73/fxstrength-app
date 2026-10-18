@@ -110,3 +110,8 @@ data/backtest_view.json
 # [cache] Options Futures-Equivalent OI (options_oi.py): the generated weekly delta-adjusted
 # options-exposure series, rebuilt deterministically from CFTC each run. Public CFTC data only.
 data/options_fe_oi.json
+# [retired] CME-derived daily OI (oi.py / oi-cloud.yml) - the public OI feature now reads the
+# CFTC options-FE archive (oi_public.py, PR #13). These files are no longer committed; the CME
+# fetch path stays dormant pending removal in a follow-up PR.
+data/oi_history.json
+data/oi_cloud_status.json
