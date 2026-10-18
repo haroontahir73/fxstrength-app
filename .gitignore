@@ -1,1 +1,6 @@
 publish.log
+
+# PR #14 economic calendar generated outputs (built in CI; state-cached)
+engine/data/econ_calendar.json
+engine/data/econ_history.jsonl
+engine/economic-calendar.html
