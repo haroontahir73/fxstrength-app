@@ -1,0 +1,247 @@
+#!/usr/bin/env python3
+"""Read-only verification probe for the PR #14 economic-calendar data sources.
+
+Runs ONLY on the throwaway `verify/econ-endpoints` branch, from GitHub Actions
+(the sandbox cannot reach these hosts). It makes a few GET/POST calls to each
+official source, records what actually comes back, and writes a redacted report
+to verify_report/. It writes nothing to production, touches no scoring code and
+deploys nothing.
+
+Honesty rules (user conditions):
+  * record HTTP status, latency, parse result, key fields, and the LATEST data
+    date (a proxy for "how fresh / how quickly actuals appear");
+  * record errors, missing fields and unsupported sources plainly;
+  * never print or commit an API key - every URL is redacted before it is stored.
+"""
+import json, os, time, datetime as dt, urllib.request, urllib.error, urllib.parse, re
+from pathlib import Path
+
+OUT = Path(__file__).resolve().parent.parent / "verify_report"
+OUT.mkdir(exist_ok=True)
+UA = {"User-Agent": "fxstrength-econ-probe/1.0 (verification; contact via GitHub)"}
+TIMEOUT = 25
+
+FRED_KEY = os.environ.get("FRED_API_KEY", "")
+EIA_KEY = os.environ.get("EIA_API_KEY", "")
+ESTAT_KEY = os.environ.get("ESTAT_APP_ID", "")
+STATSNZ_KEY = os.environ.get("STATSNZ_API_KEY", "")
+
+# Secrets to scrub from any stored URL / error text, longest first.
+_SECRETS = [v for v in sorted({FRED_KEY, EIA_KEY, ESTAT_KEY, STATSNZ_KEY}, key=len, reverse=True) if len(v) >= 6]
+
+
+def redact(s):
+    if not s:
+        return s
+    s = str(s)
+    for v in _SECRETS:
+        s = s.replace(v, "REDACTED")
+    # also blank common key params even if the value wasn't in env
+    s = re.sub(r"(api_key|appId|apikey|subscription-key)=[^&\s]+", r"\1=REDACTED", s, flags=re.I)
+    return s
+
+
+def _latest_date(obj):
+    """Best-effort: find the most recent ISO-ish date anywhere in a small payload."""
+    found = []
+    def walk(x, depth=0):
+        if depth > 6:
+            return
+        if isinstance(x, dict):
+            for k, v in x.items():
+                if isinstance(v, str) and re.fullmatch(r"\d{4}-\d{2}(-\d{2})?", v):
+                    found.append(v)
+                walk(v, depth + 1)
+        elif isinstance(x, list):
+            for v in x[:50]:
+                walk(v, depth + 1)
+        elif isinstance(x, str) and re.fullmatch(r"\d{4}-\d{2}(-\d{2})?", x):
+            found.append(x)
+    walk(obj)
+    return max(found) if found else None
+
+
+def hit(url, method="GET", data=None, headers=None, expect="json"):
+    """One request. Returns a redacted result dict; never raises."""
+    h = dict(UA)
+    if headers:
+        h.update(headers)
+    body = None
+    if data is not None:
+        body = data if isinstance(data, (bytes, bytearray)) else json.dumps(data).encode()
+        h.setdefault("Content-Type", "application/json")
+    t0 = time.time()
+    rec = {"url": redact(url), "method": method}
+    try:
+        req = urllib.request.Request(url, data=body, headers=h, method=method)
+        with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+            raw = r.read()
+            rec["status"] = r.status
+            rec["ms"] = round((time.time() - t0) * 1000)
+            rec["bytes"] = len(raw)
+            text = raw.decode("utf-8", "replace")
+            if expect == "json":
+                try:
+                    obj = json.loads(text)
+                    rec["parsed"] = "json-ok"
+                    rec["top_keys"] = list(obj.keys())[:12] if isinstance(obj, dict) else f"list[{len(obj)}]"
+                    rec["latest_date"] = _latest_date(obj)
+                    rec["sample"] = redact(text[:280])
+                except Exception as e:                                      # noqa: BLE001
+                    rec["parsed"] = f"not-json ({type(e).__name__})"
+                    rec["sample"] = redact(text[:280])
+            else:  # csv / text
+                lines = [ln for ln in text.splitlines() if ln.strip()]
+                rec["parsed"] = "text-ok"
+                rec["lines"] = len(lines)
+                rec["sample"] = redact("\n".join(lines[:4])[:320])
+                rec["latest_date"] = _latest_date(lines[-6:]) if lines else None
+    except urllib.error.HTTPError as e:
+        rec["status"] = e.code
+        rec["ms"] = round((time.time() - t0) * 1000)
+        try:
+            rec["error_body"] = redact(e.read().decode("utf-8", "replace")[:240])
+        except Exception:                                                   # noqa: BLE001
+            rec["error_body"] = ""
+    except Exception as e:                                                  # noqa: BLE001
+        rec["status"] = None
+        rec["ms"] = round((time.time() - t0) * 1000)
+        rec["error"] = redact(f"{type(e).__name__}: {e}")[:240]
+    return rec
+
+
+# Each source: (currency/market, label, what it gives, a callable returning a result dict,
+#               key_status). key_status documents whether a key is needed and if we hold one.
+def _fred(path, **params):
+    params["api_key"] = FRED_KEY
+    params.setdefault("file_type", "json")
+    return "https://api.stlouisfed.org/fred/" + path + "?" + urllib.parse.urlencode(params)
+
+
+def statcan():
+    return hit("https://www150.statcan.gc.ca/t1/wds/rest/getDataFromVectorsAndLatestNPeriods",
+               method="POST", data=[{"vectorId": 41690973, "latestN": 3}])  # CPI all-items Canada
+
+
+PROBES = [
+    # --- USD ---
+    ("USD", "FRED release calendar (future dates)", "scheduled release dates",
+     lambda: hit(_fred("releases/dates", include_release_dates_with_no_data="true",
+                       sort_order="asc", limit=25)),
+     "key required; FRED key present" if FRED_KEY else "key required; FRED key MISSING"),
+    ("USD", "FRED series obs CPIAUCSL", "actual + previous values",
+     lambda: hit(_fred("series/observations", series_id="CPIAUCSL", sort_order="desc", limit=3)),
+     "key required; present" if FRED_KEY else "key MISSING"),
+    ("USD", "FRED/ALFRED vintages PAYEMS", "first-release + revisions",
+     lambda: hit(_fred("series/observations", series_id="PAYEMS",
+                       realtime_start="2026-01-01", realtime_end="2026-10-01", limit=6)),
+     "key required; present" if FRED_KEY else "key MISSING"),
+    ("USD", "BLS public API v1 CPI", "actual (keyless, limited)",
+     lambda: hit("https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SA0"),
+     "keyless (v1 limited; v2 optional free key)"),
+    # --- EUR ---
+    ("EUR", "Eurostat HICP YoY (prc_hicp_manr)", "actual + previous",
+     lambda: hit("https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/"
+                 "prc_hicp_manr?format=JSON&lang=EN&coicop=CP00&geo=EA&lastTimePeriod=3"),
+     "keyless"),
+    ("EUR", "ECB main refinancing rate (FM)", "central-bank rate",
+     lambda: hit("https://data-api.ecb.europa.eu/service/data/FM/"
+                 "B.U2.EUR.4F.KR.MRR_FR.LEV?format=jsondata&lastNObservations=1"),
+     "keyless"),
+    # --- GBP ---
+    ("GBP", "ONS timeseries CPI (D7G7/MM23)", "actual + previous",
+     lambda: hit("https://api.ons.gov.uk/timeseries/D7G7/dataset/MM23/data"),
+     "keyless"),
+    ("GBP", "ONS beta releases calendar", "scheduled releases",
+     lambda: hit("https://api.beta.ons.gov.uk/v1/releases?limit=5"),
+     "keyless"),
+    ("GBP", "BoE Bank Rate (IUDBEDR CSV)", "central-bank rate",
+     lambda: hit("https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp?"
+                 "csv.x=yes&Datefrom=01/Jan/2025&Dateto=now&SeriesCodes=IUDBEDR&CSVF=TN&"
+                 "UsingCodes=Y&VPD=Y&VFD=N", expect="csv"),
+     "keyless"),
+    # --- CAD ---
+    ("CAD", "Bank of Canada Valet (overnight rate)", "central-bank rate",
+     lambda: hit("https://www.bankofcanada.ca/valet/observations/V39079/json?recent=2"),
+     "keyless"),
+    ("CAD", "StatCan WDS CPI vector", "actual + previous",
+     statcan, "keyless"),
+    # --- AUD ---
+    ("AUD", "ABS Data API CPI", "actual + previous",
+     lambda: hit("https://data.api.abs.gov.au/rest/data/CPI/all?lastNObservations=1&format=jsondata",
+                 headers={"Accept": "application/vnd.sdmx.data+json"}),
+     "keyless"),
+    ("AUD", "RBA cash rate CSV (f1.1)", "central-bank rate",
+     lambda: hit("https://www.rba.gov.au/statistics/tables/csv/f1-data.csv", expect="csv"),
+     "keyless"),
+    # --- JPY ---
+    ("JPY", "e-Stat getStatsList", "actual (needs free appId)",
+     lambda: hit("https://api.e-stat.go.jp/rest/3.0/app/json/getStatsList?appId="
+                 + urllib.parse.quote(ESTAT_KEY) + "&limit=1"),
+     "free key (appId) required; " + ("present" if ESTAT_KEY else "MISSING - unauth probe")),
+    # --- NZD ---
+    ("NZD", "Stats NZ APIM host", "actual (needs free key)",
+     lambda: hit("https://api.stats.govt.nz/", expect="text"),
+     "free subscription key required; " + ("present" if STATSNZ_KEY else "MISSING - reachability only")),
+    # --- CHF ---
+    ("CHF", "SNB data cube (policy rate snboffzisa)", "central-bank rate",
+     lambda: hit("https://data.snb.ch/api/cube/snboffzisa/data/json/en"),
+     "keyless"),
+    ("CHF", "BFS PX-Web API root", "actual (statistics)",
+     lambda: hit("https://www.pxweb.bfs.admin.ch/api/v1/en/", expect="text"),
+     "keyless"),
+    # --- Commodities ---
+    ("WTI", "EIA v2 weekly crude stocks", "inventories (needs free key)",
+     lambda: hit("https://api.eia.gov/v2/petroleum/stoc/wstk/data/?api_key="
+                 + urllib.parse.quote(EIA_KEY)
+                 + "&frequency=weekly&data[0]=value&sort[0][column]=period&sort[0][direction]=desc&length=2"),
+     "free key required; " + ("present" if EIA_KEY else "MISSING - expect 403/registration notice")),
+    ("WTI", "EIA petroleum release schedule page", "release dates",
+     lambda: hit("https://www.eia.gov/petroleum/supply/weekly/schedule.php", expect="text"),
+     "keyless (HTML schedule)"),
+]
+
+
+def main():
+    now = dt.datetime.now(dt.timezone.utc)
+    results = []
+    for ccy, label, gives, fn, keystat in PROBES:
+        print(f"probing {ccy}: {label} ...")
+        r = fn()
+        ok = isinstance(r.get("status"), int) and 200 <= r["status"] < 300 and "not-json" not in str(r.get("parsed", ""))
+        results.append({"currency": ccy, "label": label, "provides": gives,
+                        "key_status": keystat, "ok": ok, **r})
+
+    report = {"generated_utc": now.isoformat(), "timeout_s": TIMEOUT,
+              "note": "Read-only verification probe. Keys redacted. No production impact.",
+              "keys_available": {"FRED": bool(FRED_KEY), "EIA": bool(EIA_KEY),
+                                 "e-Stat": bool(ESTAT_KEY), "StatsNZ": bool(STATSNZ_KEY)},
+              "results": results}
+    (OUT / "econ_endpoints.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+
+    # human-readable summary
+    lines = [f"# Economic-calendar endpoint probe — {now:%Y-%m-%d %H:%M UTC}", "",
+             f"Keys present: FRED={bool(FRED_KEY)} EIA={bool(EIA_KEY)} "
+             f"e-Stat={bool(ESTAT_KEY)} StatsNZ={bool(STATSNZ_KEY)}", "",
+             "| Ccy | Source | Provides | OK | HTTP | ms | Latest | Key |",
+             "|---|---|---|---|---|---|---|---|"]
+    for r in results:
+        lines.append(f"| {r['currency']} | {r['label']} | {r['provides']} | "
+                     f"{'✅' if r['ok'] else '❌'} | {r.get('status')} | {r.get('ms')} | "
+                     f"{r.get('latest_date') or '—'} | {r['key_status']} |")
+    lines += ["", "## Per-source detail", ""]
+    for r in results:
+        lines.append(f"### {r['currency']} — {r['label']}")
+        for k in ("url", "status", "ms", "parsed", "top_keys", "lines", "latest_date",
+                  "sample", "error", "error_body"):
+            if k in r and r[k] not in (None, ""):
+                lines.append(f"- **{k}**: {r[k]}")
+        lines.append("")
+    (OUT / "econ_endpoints.md").write_text("\n".join(lines), encoding="utf-8")
+
+    passed = sum(1 for r in results if r["ok"])
+    print(f"\nPROBE DONE: {passed}/{len(results)} endpoints returned usable data.")
+
+
+if __name__ == "__main__":
+    main()

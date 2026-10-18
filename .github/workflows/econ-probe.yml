@@ -1,0 +1,51 @@
+# TEMPORARY verification workflow — lives ONLY on the throwaway `verify/econ-endpoints`
+# branch (PR #14 endpoint check). Read-only: it hits official economic-data APIs, writes a
+# redacted report to verify_report/, and commits that report back to THIS branch so it can
+# be reviewed. It deploys nothing, touches no production data, and runs no scoring/refresh.
+# Delete the branch when verification is done.
+name: econ endpoint probe
+
+on:
+  push:
+    branches: [verify/econ-endpoints]
+    paths-ignore:
+      - 'verify_report/**'   # the report commit must not retrigger this workflow
+
+permissions:
+  contents: write            # only to commit the report back to this branch
+
+concurrency:
+  group: econ-probe
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run read-only endpoint probe
+        env:
+          # Reuse the existing FRED key if present. The others are optional; a missing
+          # secret resolves to an empty string and the probe just runs an unauthenticated
+          # reachability check for that source and says so.
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+          ESTAT_APP_ID: ${{ secrets.ESTAT_APP_ID }}
+          STATSNZ_API_KEY: ${{ secrets.STATSNZ_API_KEY }}
+        run: python tools/econ_probe.py
+
+      - name: Commit the report back to this branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add verify_report/
+          if git diff --cached --quiet; then
+            echo "no report changes"
+          else
+            git commit -m "probe: econ endpoint verification report [skip ci]"
+            git push origin HEAD:verify/econ-endpoints
+          fi
