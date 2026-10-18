@@ -654,6 +654,7 @@ a{color:var(--accent)}
     <p class="tagline">One blended bias per currency, built from the 31-indicator checklist, CFTC
     positioning, open-interest flow and released economic surprises. Rebuilt on every COT release,
     every daily refresh, and after each scheduled data print.</p>
+    <p class="navlink" style="margin:6px 0 0"><a href="economic-calendar.html" style="color:inherit;font-weight:600;text-decoration:none;border-bottom:1px solid currentColor">📅 Economic calendar</a></p>
     <div class="stats">
       <div class="stat"><span class="k">Strongest</span>
         <span class="v mono pos">{{BEST}} {{BEST_SC}}</span></div>

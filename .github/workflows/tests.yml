@@ -132,6 +132,10 @@ jobs:
         working-directory: engine
         run: python test_oi_public.py
 
+      - name: Economic calendar suite (PR #14)
+        working-directory: engine
+        run: python test_econ_cal.py
+
       # The Raspberry Pi trigger (pi/cot_pi_check.py) against a fake CFTC / GitHub / Pages:
       # schedule, trigger-once, retries, confirmation, downtime, overlap, token hygiene.
       - name: Pi checker suite (35 checks)
