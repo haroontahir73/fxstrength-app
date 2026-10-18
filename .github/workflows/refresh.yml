@@ -77,8 +77,7 @@ jobs:
             engine/data/rate_expectations_manual.json \
             engine/data/speech_tone.json \
             engine/data/commodity_feed.json \
-            engine/data/indices_manual.json \
-            engine/data/oi_history.json
+            engine/data/indices_manual.json
 
       - name: Choose mode
         id: mode
@@ -93,6 +92,18 @@ jobs:
           else
             echo "mode=daily" >> "$GITHUB_OUTPUT"
           fi
+
+      # Options Futures-Equivalent OI (PR #12): the weekly delta-adjusted options-exposure
+      # series, rebuilt from the CFTC Commitments of Traders reports (futures-only vs combined),
+      # reaching ONLY publicreporting.cftc.gov - no CME, no Myfxbook, no credentials.
+      # It runs BEFORE the pipeline builds the dashboard so the OI tab (build_dashboard.oi_panel,
+      # PR #13) and the standalone open-interest.html both render from the SAME freshly validated
+      # snapshot. continue-on-error so a CFTC hiccup can never take the deploy down: if it fails,
+      # the archive is simply absent/stale and the OI surfaces show their unavailable/stale state.
+      - name: Options futures-equivalent OI data (CFTC, before dashboard)
+        working-directory: engine
+        continue-on-error: true
+        run: python options_oi.py
 
       - name: Run pipeline (${{ steps.mode.outputs.mode }})
         working-directory: engine
@@ -123,17 +134,6 @@ jobs:
           COT_LEGACY_FETCH: ${{ github.event.inputs.cot_legacy_fetch == 'true' && '1' || '' }}
         run: python run.py ${{ steps.mode.outputs.mode }}
 
-      # Options Futures-Equivalent OI (PR #12): the weekly delta-adjusted options-exposure
-      # series, rebuilt from the CFTC Commitments of Traders reports (futures-only vs combined).
-      # DATA ONLY in this PR - it writes engine/data/options_fe_oi.json for the PR #13 UI and
-      # renders nothing yet. continue-on-error so a CFTC hiccup can never take the deploy down
-      # (reliability: it fails independently of COT / Myfxbook / scanner / backtest). It reaches
-      # ONLY publicreporting.cftc.gov - no CME, no Myfxbook, no credentials, its own requests.
-      - name: Options futures-equivalent OI data
-        working-directory: engine
-        continue-on-error: true
-        run: python options_oi.py
-
       # Injects the decoded gold/silver/oil alerts into dashboard.html between markers.
       # Self-contained - it never touches anything build_dashboard.py owns.
       # Now also renders the OI tab (it imports oi.py), so it has a dependency it did not
@@ -153,17 +153,15 @@ jobs:
         continue-on-error: true
         run: python flagship.py dashboard.html
 
-      # Daily futures open interest -> its own page + a summary strip on the desk.
-      # oi.py decides for itself whether a retry window is open (pre-London / mid-London /
-      # New York), so running it every pass is cheap and it will not hammer the source.
-      # RENDER ONLY - never fetch from here. Proven 2026-09-04 (oi-cloud.yml): CME cuts the
-      # connection to this runner outright, so a fetch attempt is guaranteed to fail. Letting
-      # it try anyway was ~12 pointless blocked requests a day at a host that rate-limits us.
-      # The data is captured on the PC by the oi-daily task and arrives via sync_cloud.py.
-      - name: Open interest page
+      # Standalone open-interest.html from the CFTC options-FE archive (oi_public.py, PR #13).
+      # The in-dashboard OI tab is rendered CFTC-sourced inside build_dashboard.oi_panel().
+      # continue-on-error so a missing archive (e.g. the options-FE step above hiccuped) only
+      # costs the standalone page, never the deploy. The old CME path (oi.py / oi_history.json)
+      # is retired from the public page and kept dormant pending removal in a follow-up PR.
+      - name: Open interest page (CFTC)
         working-directory: engine
         continue-on-error: true
-        run: python oi.py --render-only dashboard.html
+        run: python oi_public.py
 
       - name: Assemble the site
         run: |

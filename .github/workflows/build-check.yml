@@ -82,6 +82,15 @@ jobs:
           MYFXBOOK_HISTORY_REPO: ${{ vars.MYFXBOOK_HISTORY_REPO }}
         run: python myfxbook_ci_check.py --reserve
 
+      # Real CFTC options-FE archive, generated BEFORE the dashboard is built so the OI tab
+      # (build_dashboard.oi_panel, PR #13) renders from genuine data in this check. Unlike
+      # production (refresh.yml, continue-on-error) this is STRICT: if CFTC cannot be reached or
+      # the archive is incomplete the build check must fail - a missing archive is not a passing
+      # CFTC migration test. It reaches ONLY publicreporting.cftc.gov (no CME, no Myfxbook).
+      - name: Options futures-equivalent OI archive (CFTC, real, strict)
+        working-directory: engine
+        run: python options_oi.py
+
       - name: Full pipeline from an empty state (notifications blocked)
         working-directory: engine
         env:
@@ -147,10 +156,20 @@ jobs:
         continue-on-error: true
         run: python flagship.py dashboard.html
 
-      - name: Open interest page
+      # Standalone open-interest.html, now built from the CFTC options-FE archive
+      # (oi_public.py, PR #13) - the dashboard OI tab is rendered CFTC-sourced by
+      # build_dashboard.oi_panel(). The old CME path (oi.py) is dormant, removed in a later PR.
+      - name: Open interest page (CFTC)
         working-directory: engine
         continue-on-error: true
-        run: python oi.py --render-only dashboard.html
+        run: python oi_public.py
+
+      # Strict gate for the CME -> CFTC migration: the archive must carry valid, non-empty CFTC
+      # data for ALL 11 supported markets, and every market's futures-only and combined OI must
+      # appear in BOTH the dashboard and the standalone page. Fails the build check otherwise.
+      - name: OI CFTC migration - strict coverage (11 markets, both pages)
+        working-directory: engine
+        run: python oi_public.py --verify dashboard.html open-interest.html
 
       - name: Verify COT tables + all 16 reports against the CFTC data
         working-directory: engine

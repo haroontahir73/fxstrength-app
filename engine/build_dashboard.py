@@ -16,6 +16,7 @@ import cot_table as _ct
 import myfxbook as _mfx
 import divergence as _div
 import history_panel as _hist
+import oi_public as _oipub
 
 OUT = Path(__file__).parent / "dashboard.html"
 PART_LABEL = {"fundamentals": "Checklist", "expectations": "Rate odds",
@@ -848,115 +849,16 @@ def cot_panel():
   </section>"""
 
 
-def _oi_weekly_fallback():
-    """Weekly OI straight from the COT report - used only when the daily preliminary feed
-    (oi_history.json via oi.py) has nothing."""
-    fx = _load_hist("cot_history.json")
-    cm = _load_hist("cot_history_commodity.json")
-    if not fx:
-        return ('<section><h2>Open interest</h2>'
-                '<p class="sub">No open-interest history on file yet.</p></section>')
-    wfx, wcm = sorted(fx)[-10:], sorted(cm)[-10:]
-    items = ([(c, CURRENCIES[c]["name"], fx, wfx) for c in ORDER]
-             + [(s, COMMODITIES[s]["name"], cm, wcm) for s in COMMODITY_ORDER])
-    cards = []
-    for code, name, hist, weeks in items:
-        cur = (hist.get(weeks[-1], {}).get(code) or {}).get("open_interest")
-        if not cur:
-            continue
-        rows = []
-        for w in reversed(weeks):
-            r = hist.get(w, {}).get(code) or {}
-            v = r.get("open_interest")
-            if not v:
-                continue
-            rows.append(f'<tr><td class="mono">{_wk(w)}</td><td class="num mono">{v:,}</td>'
-                        f'<td class="num mono {"pos" if (r.get("oi_change") or 0) >= 0 else "neg"}">'
-                        f'{_sgn(r.get("oi_change"))}</td></tr>')
-        cards.append(f'<div class="cotcard"><h3>{code} <span class="cnm">{esc(name)}</span>'
-                     f'<span class="mono">{cur:,}</span></h3><div class="tw"><table><thead><tr>'
-                     f'<th>Week</th><th class="num">OI</th><th class="num">&Delta;</th></tr></thead>'
-                     f'<tbody>{"".join(rows)}</tbody></table></div></div>')
-    return f"""<section>
-    <h2>Open interest <span class="mut" style="font-weight:400;font-size:14px">&mdash; weekly (COT report)</span></h2>
-    <p class="sub">The daily preliminary feed has nothing on file, so this is the weekly open
-    interest from the CFTC report, last 10 weeks, newest first.</p>
-    <div class="cotgrid">{"".join(cards)}</div>
-  </section>"""
-
-
 def oi_panel():
-    """The Open Interest tab: CME **preliminary** open interest, daily, last ~10 trading days
-    for gold / silver / crude and the FX majors. Built from oi.py's own daily history
-    (oi_history.json) - preliminary numbers are frozen once stored and never revised to the
-    settled figure, because the preliminary read is the one available in time to set the
-    day's bias. Falls back to the weekly COT open interest if the daily feed is empty."""
-    try:
-        hist = json.loads((DATA / "oi_history.json").read_text(encoding="utf-8"))
-    except Exception:
-        hist = {}
-    if not hist:
-        return _oi_weekly_fallback()
+    """The Open interest tab, now CFTC-sourced (oi_public.py, PR #13). Shows, per market, the
+    futures-only OI (the headline "open interest"), the delta-adjusted options futures-equivalent
+    OI, the combined OI and the options share, plus the weekly change and a 52-week percentile.
 
-    try:
-        import oi as _oi
-        try:
-            prices = _oi.price_moves()
-        except Exception:
-            prices = {}
-        tables = _oi.history_tables(hist, prices)
-        # each daily table is a bare <table class='oi-tw'> - wrap so it scrolls on a phone
-        tables = (tables.replace("<table class='oi-tw'>", "<div class='tw'><table class='oi-tw'>")
-                        .replace("</table>", "</table></div>"))
-        css = _oi.CSS
-        order = _oi.ORDER
-    except Exception:
-        tables, css, order = "", "", ["Gold", "Silver", "Oil", "EUR", "GBP", "JPY",
-                                      "AUD", "NZD", "CAD", "CHF"]
-
-    days = sorted(hist)
-    asof = days[-1]                        # ISO - also the key into `hist`, keep it that way
-    try:                                   # name the weekday: a bare date is easy to misread
-        asof_label = dt.date.fromisoformat(asof).strftime("%a %d %b %Y")
-    except Exception:                                          # noqa: BLE001
-        asof_label = asof
-    latest = hist[asof]
-
-    srows = []
-    for inst in order:
-        d = latest.get(inst)
-        if not d or d.get("oi") is None:
-            continue
-        chg = d.get("chg") or 0
-        prev = d["oi"] - chg
-        pct = f"{chg / prev * 100:+.2f}%" if prev else "&mdash;"
-        vol = f'{d["volume"]:,}' if d.get("volume") else "&mdash;"
-        srows.append(
-            f'<tr><td class="pr">{esc(inst)}</td>'
-            f'<td class="num mono">{d["oi"]:,}</td>'
-            f'<td class="num mono {"pos" if chg >= 0 else "neg"}">{_sgn(chg)}</td>'
-            f'<td class="num mono {"pos" if chg >= 0 else "neg"}">{pct}</td>'
-            f'<td class="num mono mut">{vol}</td></tr>')
-
-    if not tables and not srows:
-        return _oi_weekly_fallback()
-
-    return f"""<section>
-    {css}
-    <h2>Open interest <span class="mut" style="font-weight:400;font-size:14px">&mdash; CME preliminary, daily</span></h2>
-    <p class="sub">CME <b>preliminary</b> open interest for the previous trade date, published
-    overnight &mdash; latest <b>{asof_label}</b>. This is the figure available in time to set the
-    day's bias; CME reissues each day later as a settled number, and this desk keeps the
-    <b>preliminary</b> read frozen rather than revising it. Contract volume for the day is
-    shown alongside.</p>
-    <div class="tw"><table>
-      <thead><tr><th>Contract</th><th class="num">Open interest</th><th class="num">&Delta; day</th>
-      <th class="num">&Delta; %</th><th class="num">Volume</th></tr></thead>
-      <tbody>{"".join(srows)}</tbody>
-    </table></div>
-    {tables}
-  </section>"""
-
+    Migrated off CME preliminary daily OI (the old oi.py / oi_history.json path) to the CFTC
+    Commitments of Traders open interest already generated by the PR #12 pipeline, which avoids
+    the CME redistribution/automation concerns from the source audit. CFTC is weekly, so the tab
+    is now weekly."""
+    return _oipub.panel()
 
 def _pct_bar(pct, cls="pos"):
     """Left-anchored 0-100% fill (the diverging `bar()` is centred on 50, wrong here)."""

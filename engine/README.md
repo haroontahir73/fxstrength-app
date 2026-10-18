@@ -517,17 +517,37 @@ Gaps go in `data/rate_expectations_manual.json`, filled by the daily research pa
 source and date recorded. Probabilities drive the *Next meeting expectation* and *Expected
 rate change* indicators as `3 + 2 × (P(hike) − P(cut))`.
 
-## Open interest is weekly, not daily
+## Open interest: the public feature is CFTC weekly (oi_public.py, PR #13)
 
-The brief asked for daily OI. No free, automatable daily source was reachable:
-CME resets the connection, MarketWatch and WSJ return 401, Investing.com and Barchart 404,
-Stooq sits behind a JavaScript proof-of-work wall. Paid options are Databento, Barchart
-OnDemand and CME's API portal. TradingView carries futures OI but only through the desktop
-app, which has to be running.
+The public **Open interest** tab and the standalone `open-interest.html` page now show the
+CFTC Commitments of Traders open interest, rendered by `oi_public.py` from the PR #12 archive
+(`data/options_fe_oi.json`). They were previously CME preliminary **daily** OI, which carries
+the CME redistribution/automation concerns from the PR #12 source audit; CFTC public-reporting
+data is the preferred source for this public feature and avoids them. CFTC is weekly, so the
+feature is now weekly.
 
-So `fetch_oi.py` is written as an adapter. It defaults to `SOURCE = "cot_weekly"`, using the
-open interest already in the COT report. To go daily, add a function there and repoint
-`SOURCE` — nothing downstream changes.
+Per market the page shows the full breakdown rather than one unexplained number:
+
+    Futures OI      CFTC futures-only open interest (the headline "open interest")
+    Options FE OI   combined − futures-only (delta-adjusted options exposure, futures-equiv.)
+    Combined OI     CFTC futures-and-options-combined open interest
+    Options share   Options FE OI / Combined OI
+
+plus the weekly change in futures OI and a 52-week percentile, and a per-market weekly history.
+`oi_public.py` makes **no** network request — it only reads the archive the PR #12 refresh step
+generates — and it leaves the COT / Myfxbook / divergence / options-FE pipeline untouched. If
+the archive is missing the tab shows an explicit "unavailable" state; an old report shows a
+stale chip.
+
+**What is dormant.** The old CME path — `oi.py` (CME `CmeWS` fetch, daily history) and the
+manual `oi-cloud.yml` capture — is retired from the public page and no longer runs in the
+refresh/build pipelines. `data/oi_history.json` and `data/oi_cloud_status.json` are no longer
+committed (gitignored). The files are kept dormant and scheduled for removal in a follow-up once
+the live CFTC page is verified. `fetch_oi.py` (the commodity-score OI leg, `SOURCE="cot_weekly"`,
+already CFTC-based) is a separate concern and is unchanged.
+
+Tests: `test_oi_public.py`; `check_build.check_oi` locks the CFTC breakdown and that no CME
+value or wording remains on the public tab.
 
 ## Options Futures-Equivalent OI (options_oi.py, PR #12 — data only)
 
