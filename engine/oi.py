@@ -60,14 +60,15 @@ HERE = Path(__file__).parent
 DATA = HERE / "data"
 HIST_FILE = DATA / "oi_history.json"
 STATE_FILE = DATA / "oi_state.json"
-PAGE = HERE / "open-interest.html"
+PAGE = HERE / "open-interest-daily.html"   # CFTC weekly owns open-interest.html (PR #13);
+#                                            the daily CME view lives alongside it
 
 # LINKS MUST BE ABSOLUTE. dashboard.html is a fragment with no <base>, and the Android app
 # hands links to the browser without a document URL to resolve against - a relative
 # "./open-interest.html" resolved against the Google Fonts stylesheet host and 404'd on
 # fonts.googleapis.com. Full URLs work from the app, the browser and Pages alike.
 SITE = os.environ.get("FXS_SITE", "https://haroontahir73.github.io/fxstrength-app")
-PAGE_URL = f"{SITE}/open-interest.html"
+PAGE_URL = f"{SITE}/open-interest-daily.html"
 DASH_URL = f"{SITE}/dashboard.html"
 
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -213,16 +214,20 @@ def should_try(state, tkey, now=None):
 
 
 def merge_days(hist, day_map, freeze=FREEZE_STORED_DAYS):
-    """Write {day: {inst: rec}} into hist. With `freeze`, a day+instrument already stored
-    is left exactly as it was - preliminary stays preliminary, finals never overwrite."""
+    """Write {day: {inst: {field: val}}} into hist, FIELD BY FIELD. With `freeze`, a field
+    already stored is left exactly as it was - preliminary stays preliminary, finals never
+    overwrite - but a NEW field (e.g. options OI backfilled after futures) can still be added
+    to a day whose futures fields are already frozen."""
     written = skipped = 0
     for day, vals in day_map.items():
         for inst, rec in vals.items():
-            if freeze and hist.get(day, {}).get(inst) is not None:
-                skipped += 1
-                continue
-            hist.setdefault(day, {})[inst] = rec
-            written += 1
+            cur = hist.setdefault(day, {}).setdefault(inst, {})
+            for k, v in rec.items():
+                if freeze and cur.get(k) is not None:
+                    skipped += 1
+                    continue
+                cur[k] = v
+                written += 1
     return written, skipped
 
 
@@ -272,15 +277,32 @@ def fetch_cme(trade_date):
             _LAST_REASON = f"CME {type(e).__name__}"
             print(f"  CME {ASSET_CLASS.get(ac, ac)}: {type(e).__name__}")
             continue
-        for cells in _parse_cme_xls(raw):
-            name = cells[0].lower()
-            for inst, (match, _) in INSTRUMENTS.items():
-                if inst in out or match not in name:
-                    continue
-                # layout: Name | Type | Globex | OpenOutcry | ClearPort | Volume | OI | Change
-                vol, oi, chg = _num(cells[5]), _num(cells[6]), _num(cells[7])
-                if oi:
-                    out[inst] = {"oi": oi, "chg": chg, "volume": vol}
+        _fold_rows(out, _parse_cme_xls(raw))
+    return out
+
+
+def _fold_rows(out, rows):
+    """Classify export rows into {inst: {oi,chg,volume, oi_opt,chg_opt,volume_opt}} by the
+    Type column. Pure (no network) so it is unit-testable against a fixture export.
+    layout: Name | Type | Globex | OpenOutcry | ClearPort | Volume | OI | Change"""
+    for cells in rows:
+        name = cells[0].lower()
+        typ = (cells[1] if len(cells) > 1 else "").lower()       # Futures / Options
+        for inst, (match, _) in INSTRUMENTS.items():
+            if match not in name:
+                continue
+            vol, oi, chg = _num(cells[5]), _num(cells[6]), _num(cells[7])
+            if not oi:
+                continue
+            rec = out.setdefault(inst, {})
+            if "opt" in typ:                                     # raw options OI (kept separate
+                rec.setdefault("oi_opt", oi)                     # from CFTC delta-adjusted FE OI)
+                rec.setdefault("chg_opt", chg)
+                rec.setdefault("volume_opt", vol)
+            else:                                                # futures (default)
+                rec.setdefault("oi", oi)
+                rec.setdefault("chg", chg)
+                rec.setdefault("volume", vol)
     return out
 
 
@@ -423,6 +445,7 @@ def day_rows(hist, prices, inst, n=TABLE_DAYS):
             state, cls, _ = STATES[("up" if chg_px > 0 else "down",
                                     "up" if d["chg"] > 0 else "down")]
         rows.append({"date": day, "oi": d["oi"], "chg": d["chg"],
+                     "oi_opt": d.get("oi_opt"), "chg_opt": d.get("chg_opt"),
                      "px_chg_pct": round(chg_px, 2) if chg_px is not None else None,
                      "state": state, "cls": cls})
         if len(rows) >= n:
@@ -462,10 +485,83 @@ def analyse(hist, prices):
                    "state": label, "cls": cls, "note": note,
                    "size": ("big" if avg and abs(d["chg"]) > 1.8 * avg else
                             "small" if avg and abs(d["chg"]) < 0.4 * avg else "normal"),
-                   "avg_chg": round(avg)}
+                   "avg_chg": round(avg),
+                   "oi_opt": d.get("oi_opt"), "chg_opt": d.get("chg_opt"),
+                   "oi_pctl": pctile(hist, inst, "oi"),
+                   "oi_opt_pctl": pctile(hist, inst, "oi_opt")}
             break
         out[inst] = rec
     return out
+
+
+def pctile(hist, inst, field, weeks=52):
+    """Percentile rank (0-100) of the latest value of `field` over ~`weeks` of trading days."""
+    vals = [hist[d][inst][field] for d in sorted(hist)
+            if hist[d].get(inst, {}).get(field) is not None]
+    vals = vals[-(weeks * 5):]
+    if len(vals) < 10:
+        return None
+    cur = vals[-1]
+    return round(sum(1 for v in vals if v <= cur) / len(vals) * 100)
+
+
+# daily CME instrument -> words that identify its CFTC market in the weekly archive
+CFTC_ARCHIVE = "options_fe_oi.json"
+CMP_ALIAS = {"Gold": ["gold", "xau"], "Silver": ["silver", "xag"],
+             "Oil": ["wti", "crude", "oil"], "EUR": ["euro", "eur"],
+             "GBP": ["pound", "gbp", "sterling"], "JPY": ["yen", "jpy"],
+             "AUD": ["australian", "aussie", "aud"], "NZD": ["zealand", "nzd", "kiwi"],
+             "CAD": ["canadian", "cad"], "CHF": ["franc", "chf", "swiss"]}
+
+
+def _weekly_cftc_oi(data_dir):
+    """{inst: (date, futures_oi)} - latest WEEKLY CFTC futures OI per market, best-effort.
+    Reads the PR #12/#13 archive; this NEVER writes it and leaves the CFTC pipeline alone."""
+    try:
+        view = json.loads((Path(data_dir) / CFTC_ARCHIVE).read_text(encoding="utf-8"))
+        markets = view.get("markets", {})
+    except Exception:                                             # noqa: BLE001
+        return {}
+    out = {}
+    for inst, aliases in CMP_ALIAS.items():
+        for key, m in markets.items():
+            hay = f"{key} {m.get('name','')} {m.get('label','')}".lower()
+            if any(a in hay for a in aliases):
+                obs = m.get("observations") or []
+                last = next((o for o in reversed(obs) if o.get("futures_oi") is not None), None)
+                if last:
+                    out[inst] = (last.get("report_date") or last.get("date") or "", last["futures_oi"])
+                break
+    return out
+
+
+def compare_block(hist, data_dir=DATA):
+    """Daily CME futures OI beside weekly CFTC futures OI, per market. Read-only on CFTC."""
+    weekly = _weekly_cftc_oi(data_dir)
+    latest = {}
+    for inst in ORDER:
+        for day in sorted(hist, reverse=True):
+            d = hist[day].get(inst)
+            if d and d.get("oi") is not None:
+                latest[inst] = (day, d["oi"])
+                break
+    rows = []
+    for inst in ORDER:
+        dcme, wk = latest.get(inst), weekly.get(inst)
+        if not dcme and not wk:
+            continue
+        dstr = (f'{dcme[1]:,} <span class="na">{_daylabel(dcme[0])}</span>' if dcme else "&mdash;")
+        wstr = (f'{wk[1]:,} <span class="na">{wk[0]}</span>' if wk else "&mdash;")
+        rows.append(f"<tr><td class='oi-day'>{inst}</td><td>{dstr}</td><td>{wstr}</td></tr>")
+    if not rows:
+        return ""
+    return ('<div class="oi-hist"><h2>Daily CME vs weekly CFTC &mdash; futures open interest</h2>'
+            '<p class="oi-sub">Daily preliminary CME futures OI (fast &mdash; yesterday) beside '
+            'the weekly CFTC futures OI (official, Tuesday data). Different source and cadence, '
+            'so the <i>levels</i> differ; what matters is whether the two trends agree or '
+            'diverge.</p>'
+            "<table class='oi-tw'><thead><tr><th>Market</th><th>Daily CME</th>"
+            "<th>Weekly CFTC</th></tr></thead><tbody>" + "".join(rows) + "</tbody></table></div>")
 
 
 # ---------------------------------------------------------------- fetch orchestration
@@ -610,15 +706,18 @@ def history_tables(hist, prices):
             st = (f"<td class='st na'>&mdash;</td>" if not r["state"] else
                   f"<td class='st'><span class='oi-tag {r['cls']}'>"
                   f"{SHORT_STATE.get(r['state'], r['state'])}</span></td>")
+            oc = ("<td class='vol na'>&mdash;</td>" if r.get("chg_opt") is None else
+                  f"<td class='vol {'up' if r['chg_opt'] > 0 else 'dn'}'>{r['chg_opt']:+,}</td>")
             body.append(
                 f"<tr><td class='oi-day'>{_daylabel(r['date'])}</td>{pc}"
-                f"<td class='{'up' if r['chg'] > 0 else 'dn'}'>{r['chg']:+,}</td>"
+                f"<td class='{'up' if r['chg'] > 0 else 'dn'}'>{r['chg']:+,}</td>{oc}"
                 f"<td class='vol'>{r['oi']:,}</td>{st}</tr>")
         blocks.append(
             f"<h3>{inst}<small>{len(rows)} days &middot; net "
             f"{net:+,} contracts &middot; {up} of {len(rows)} days up</small></h3>"
             "<table class='oi-tw'><thead><tr><th>Date</th><th>Price</th>"
-            "<th>OI change</th><th class='vol'>Open interest</th><th>Read</th></tr></thead>"
+            "<th>Fut OI chg</th><th class='vol'>Opt OI chg</th>"
+            "<th class='vol'>Futures OI</th><th>Read</th></tr></thead>"
             f"<tbody>{''.join(body)}</tbody></table>")
     if not blocks:
         return ""
@@ -669,7 +768,14 @@ def render(hist, state, reads, prices=None):
             f'{r["px_chg_pct"]:+.2f}%</div>'
             f'<div class="oi-num" style="color:{"#3fbe83" if r["chg"] > 0 else "#ec6a5e"}">'
             f'{r["chg"]:+,}<br><span style="font-size:10.5px;color:var(--mut,#8a8a94)">'
-            f'{r["oi"]:,} open</span></div>'
+            f'{r["oi"]:,} fut'
+            + (f' &middot; {r["oi_pctl"]}%ile' if r.get("oi_pctl") is not None else "")
+            + '</span>'
+            + (f'<br><span style="font-size:10.5px;color:var(--mut,#8a8a94)">{r["oi_opt"]:,} opt'
+               + (f' {r["chg_opt"]:+,}' if r.get("chg_opt") is not None else "")
+               + (f' &middot; {r["oi_opt_pctl"]}%ile' if r.get("oi_opt_pctl") is not None else "")
+               + '</span>' if r.get("oi_opt") is not None else "")
+            + '</div>'
             f'<div><span class="oi-tag {r["cls"]}">{r["state"]}</span>{size}'
             f'<div class="oi-note" style="margin-top:5px">{_esc(r["note"])}</div></div>'
             f'</div>')
@@ -696,7 +802,8 @@ def render(hist, state, reads, prices=None):
             'exit signal after a long run.</td></tr>'
             '</table>'
             f'<div class="oi-rows">{"".join(rows)}</div>'
-            + history_tables(hist, prices or {}) +
+            + history_tables(hist, prices or {})
+            + compare_block(hist) +
             f'<p class="oi-sub" style="margin-top:16px">Price change is the futures close vs the '
             f'previous close. OI is CME preliminary open interest for that trade date, published '
             f'overnight &mdash; so the reading is about <b>yesterday\'s</b> session and sets '
@@ -750,7 +857,7 @@ def strip_block(state, reads):
         'background:rgba(59,91,219,.10);border:1px solid rgba(120,140,255,.35);'
         'font:14px/1.55 -apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,sans-serif">'
         '<div style="display:flex;align-items:center;justify-content:space-between;gap:10px">'
-        '<b style="font-size:14.5px">OPEN INTEREST &middot; real money</b>'
+        '<b style="font-size:14.5px">DAILY OPEN INTEREST (CME) &middot; futures + options</b>'
         '<span style="color:#8b8df0;font-weight:700;white-space:nowrap">Open &rarr;</span></div>'
         f'<div style="font-size:12px;opacity:.6;margin-top:2px">trade date {last}{age} '
         '&middot; last 2 weeks, day by day</div>'
@@ -795,23 +902,35 @@ def inject_strip(html_path, block):
     return True
 
 
+def _pull_into(day_map, inst, rows, suf):
+    """Fill day_map[day][inst] with oi/chg/volume (suf="") or oi_opt/... (suf="_opt").
+    `chg` is derived from consecutive days so a gap can never produce a wrong day-change."""
+    prev = None
+    for ds, oi, vol in sorted(rows, key=lambda r: r[0]):
+        day = f"{ds[:4]}-{ds[4:6]}-{ds[6:]}"
+        rec = day_map.setdefault(day, {}).setdefault(inst, {})
+        rec[f"oi{suf}"] = oi
+        rec[f"chg{suf}"] = (oi - prev) if prev is not None else None
+        rec[f"volume{suf}"] = vol
+        prev = oi
+
+
 def merge_pull(path):
-    """Merge a browser pull: {instrument: [[YYYYMMDD, oi, volume], ...]} -> oi_history.json.
-    `chg` is derived from consecutive days rather than trusted from the source, so a gap in
-    the series can never silently produce a wrong day-change."""
+    """Merge a browser pull into oi_history.json. Per instrument, accepts EITHER a futures
+    list [[YYYYMMDD, oi, volume], ...] (back-compat) OR a dict {"fut": [...], "opt": [...]}
+    carrying raw options OI alongside futures (kept distinct from CFTC delta-adjusted FE OI)."""
     raw = json.loads(Path(path).read_text(encoding="utf-8"))
     hist = _load(HIST_FILE, {})
     day_map = {}
     for inst, rows in raw.items():
-        if not isinstance(rows, list):
+        if isinstance(rows, dict):
+            _pull_into(day_map, inst, rows.get("fut") or [], "")
+            _pull_into(day_map, inst, rows.get("opt") or [], "_opt")
+        elif isinstance(rows, list):
+            _pull_into(day_map, inst, rows, "")
+        else:
             print(f"  skip {inst}: {rows}")
             continue
-        prev = None
-        for ds, oi, vol in sorted(rows, key=lambda r: r[0]):
-            day = f"{ds[:4]}-{ds[4:6]}-{ds[6:]}"
-            day_map.setdefault(day, {})[inst] = {
-                "oi": oi, "chg": (oi - prev) if prev is not None else None, "volume": vol}
-            prev = oi
     # A 30-day pull mostly repeats days we already hold, and by then CME has replaced the
     # preliminary figures with finals. Freeze wins: only genuinely new days are written.
     n, held = merge_days(hist, day_map)
@@ -859,17 +978,9 @@ def main():
                   f"OI {r['chg']:+8,}  {r['state']}")
     write_page(render(hist, state, reads, prices))
     target = next((a for a in args if a.endswith(".html")), "dashboard.html")
-    # build_dashboard.py now renders a full Open interest tab (id="p-oi") from this same
-    # history, so the compact strip would be a redundant second copy - skip it when the tab
-    # is present and only refresh the standalone open-interest.html page.
-    try:
-        has_tab = 'id="p-oi"' in Path(target).read_text(encoding="utf-8")
-    except Exception:                                             # noqa: BLE001
-        has_tab = False
-    if has_tab:
-        print(f"  {target} has an Open interest tab - compact strip not injected")
-    else:
-        inject_strip(target, strip_block(state, reads))
+    # The in-dashboard tab (id="p-oi") is the CFTC WEEKLY view; this card points to the
+    # separate DAILY CME page, so both coexist - always inject the daily card.
+    inject_strip(target, strip_block(state, reads))
 
 
 if __name__ == "__main__":

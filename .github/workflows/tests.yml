@@ -132,6 +132,10 @@ jobs:
         working-directory: engine
         run: python test_oi_public.py
 
+      - name: Daily OI (CME, futures+options) suite
+        working-directory: engine
+        run: python test_oi_daily.py
+
       # The Raspberry Pi trigger (pi/cot_pi_check.py) against a fake CFTC / GitHub / Pages:
       # schedule, trigger-once, retries, confirmation, downtime, overlap, token hygiene.
       - name: Pi checker suite (35 checks)
