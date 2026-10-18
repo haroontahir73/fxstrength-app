@@ -1,5 +1,61 @@
 [
  {
+  "when": "18 Oct 11:58 UTC",
+  "iso": "2026-10-18T11:58:59.633013+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nHow India's Refineries Continue To Supply Fuel To The West Amid Russian Oil Sanctions - NDTV Profit  (NDTV Profit)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQeWc2WDhaVGt6LTZDalUtSDNJYTlJYm1TcG1PT1MwM1JBaDFRNUxxbkp5ZEx6Sk91YWNqeWJJbUZkcENqbGk1cjJhS2JMa3A4d0lxYkZkampmOFhDU1hYVzd0aUYydXB0WnUydGVRQUJ6Nld0SmJSUVlmTHVmRF96SUNMNlVFckRtdHF1dDR6OVFaSkJRc1FZQ2ZFQm5zanVBamNZb0JXV1FJczZhS2FfS3kyRm96ZC1uWDNOUk83MkZIeTFpVlVV0gHPAUFVX3lxTE4zSDZKbTBrdkdzbW9sZ1ZFVDNSR2czSzJDLWFIWm5heTl0eUJUZFJMYkNzU2M1UzZtd2FiLVNvQUJfbERwb0pKMUR6OWEydk9NdWJjVmpYRlJFU1l0THVLSTRkeFFiWHlXNVBvaVdMV2w5ZkpnMGVQanJYMW1vazhGdGZPYkppM3RDdzE2Y1dUY245SmFFM19mVEFoN2xONkFJalk4TkNqTE5Eb3VyWGVsMEgxb0lRSGpWWHpnZTBNQWlxWUJxeTJwUnljVl91QQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4181.1,
+   "Silver": 57.305,
+   "WTI": 99.02
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "How India's Refineries Continue To Supply Fuel To The West Amid Russian Oil Sanctions - NDTV Profit",
+   "src": "NDTV Profit",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "18 Oct 09:06 UTC",
   "iso": "2026-10-18T09:06:06.119215+00:00",
   "cat": "rates_up",
@@ -3267,62 +3323,6 @@
    "emoji": "\ud83c\udf21",
    "label": "INFLATION \u2014 running hot",
    "headline": "US PPI MoM: 1.3 vs 0.5 expected - a BEAT (+160%)",
-   "src": "economic calendar",
-   "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "the rates reaction beats the hedge story",
-     "record": "some evidence - right 50% of 485 past cases"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "same, amplified",
-     "record": "some evidence - right 52% of 485 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "usually a cause, not a victim",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 4,173 (+1.6%)   Silver 56.87 (+2.4%)   WTI 94.05 (-1.1%)   DXY 102.13 (-0.4%)   US10Y 5.19 (-0.5%)",
-   "reality": "",
-   "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
-  }
- },
- {
-  "when": "15 Oct 12:30 UTC",
-  "iso": "2026-10-15T12:30:20.252645+00:00",
-  "cat": "inflation_hot",
-  "title": "GOLD+SILVER SHORT | INFLATION - running hot",
-  "body": "\ud83c\udf21 INFLATION \u2014 running hot\n\nUS Core PPI MoM: 0.7 vs 0.3 expected - a BEAT (+133%)  (economic calendar)\n\nWHY: You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.\n\nGOLD   \u2193\u2193   look for shorts - the rates reaction beats the hedge story\n        [some evidence - right 50% of 485 past cases]\nSILVER \u2193\u2193   look for shorts - same, amplified\n        [some evidence - right 52% of 485 past cases]\nOIL    \u2192    no clean read - usually a cause, not a victim\n\nNOW  Gold 4,173 (+1.6%)   Silver 56.87 (+2.4%)   WTI 94.05 (-1.1%)   DXY 102.13 (-0.4%)   US10Y 5.19 (-0.5%)\n\nFLIP: if inflation is coming from oil AND growth is dying, gold turns up instead",
-  "link": "",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4172.7,
-   "Silver": 56.87,
-   "WTI": 94.05
-  },
-  "parts": {
-   "emoji": "\ud83c\udf21",
-   "label": "INFLATION \u2014 running hot",
-   "headline": "US Core PPI MoM: 0.7 vs 0.3 expected - a BEAT (+133%)",
    "src": "economic calendar",
    "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
    "leans": [
