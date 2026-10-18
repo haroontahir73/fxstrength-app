@@ -123,82 +123,62 @@ def statcan():
                method="POST", data=[{"vectorId": 41690973, "latestN": 3}])  # CPI all-items Canada
 
 
+def bfs_px(table):
+    # PX-Web: GET returns table metadata (confirms the table id + variables).
+    return hit(f"https://www.pxweb.bfs.admin.ch/api/v1/en/{table}", expect="text")
+
+
 PROBES = [
-    # --- USD ---
-    ("USD", "FRED release calendar (future dates)", "scheduled release dates",
-     lambda: hit(_fred("releases/dates", include_release_dates_with_no_data="true",
-                       sort_order="asc", limit=25)),
-     "key required; FRED key present" if FRED_KEY else "key required; FRED key MISSING"),
-    ("USD", "FRED series obs CPIAUCSL", "actual + previous values",
-     lambda: hit(_fred("series/observations", series_id="CPIAUCSL", sort_order="desc", limit=3)),
-     "key required; present" if FRED_KEY else "key MISSING"),
-    ("USD", "FRED/ALFRED vintages PAYEMS", "first-release + revisions",
-     lambda: hit(_fred("series/observations", series_id="PAYEMS",
-                       realtime_start="2026-01-01", realtime_end="2026-10-01", limit=6)),
-     "key required; present" if FRED_KEY else "key MISSING"),
-    ("USD", "BLS public API v1 CPI", "actual (keyless, limited)",
-     lambda: hit("https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SA0"),
-     "keyless (v1 limited; v2 optional free key)"),
-    # --- EUR ---
-    ("EUR", "Eurostat HICP YoY (prc_hicp_manr)", "actual + previous",
-     lambda: hit("https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/"
-                 "prc_hicp_manr?format=JSON&lang=EN&coicop=CP00&geo=EA&lastTimePeriod=3"),
+    # ===== GBP (ONS v0 API retired 2024; try the website-JSON route, which is keyless) =====
+    ("GBP", "ONS website CPI annual rate (D7G7/MM23)", "actual + previous",
+     lambda: hit("https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7g7/mm23/data"),
+     "keyless (website JSON)"),
+    ("GBP", "ONS website CPIH annual rate (L55O/MM23)", "actual + previous",
+     lambda: hit("https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23/data"),
+     "keyless (website JSON)"),
+    ("GBP", "ONS website unemployment rate (MGSX/LMS)", "actual + previous",
+     lambda: hit("https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/"
+                 "employmentandemployeetypes/timeseries/mgsx/lms/data"),
+     "keyless (website JSON)"),
+    ("GBP", "ONS website GDP MoM (ECY2/QNA?)", "actual + previous",
+     lambda: hit("https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ecy2/qna/data"),
+     "keyless (website JSON)"),
+    ("GBP", "ONS release calendar JSON", "scheduled releases",
+     lambda: hit("https://www.ons.gov.uk/releasecalendar/data?size=10&query="),
+     "keyless (website JSON)"),
+    ("GBP", "ONS new beta API datasets list", "dataset discovery",
+     lambda: hit("https://api.beta.ons.gov.uk/v1/datasets?limit=3"),
+     "keyless (new API)"),
+    # ===== CHF (find the right BFS CPI table + a working SNB policy-rate cube) =====
+    ("CHF", "BFS CPI table meta (px-x-0501000000_101)", "actual + previous",
+     lambda: bfs_px("px-x-0501000000_101/px-x-0501000000_101.px"),
      "keyless"),
-    ("EUR", "ECB main refinancing rate (FM)", "central-bank rate",
-     lambda: hit("https://data-api.ecb.europa.eu/service/data/FM/"
-                 "B.U2.EUR.4F.KR.MRR_FR.LEV?format=jsondata&lastNObservations=1"),
+    ("CHF", "BFS CPI table meta (px-x-0501000000_102)", "actual + previous",
+     lambda: bfs_px("px-x-0501000000_102/px-x-0501000000_102.px"),
      "keyless"),
-    # --- GBP ---
-    ("GBP", "ONS timeseries CPI (D7G7/MM23)", "actual + previous",
-     lambda: hit("https://api.ons.gov.uk/timeseries/D7G7/dataset/MM23/data"),
+    ("CHF", "BFS PX-Web price-stats db node (05)", "navigate to CPI",
+     lambda: bfs_px("px-x-0501000000_101"),
      "keyless"),
-    ("GBP", "ONS beta releases calendar", "scheduled releases",
-     lambda: hit("https://api.beta.ons.gov.uk/v1/releases?limit=5"),
+    ("CHF", "SNB cube snbgwdjba (rates)", "central-bank rate",
+     lambda: hit("https://data.snb.ch/api/cube/snbgwdjba/data/json/en"),
      "keyless"),
-    ("GBP", "BoE Bank Rate (IUDBEDR CSV)", "central-bank rate",
-     lambda: hit("https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp?"
-                 "csv.x=yes&Datefrom=01/Jan/2025&Dateto=now&SeriesCodes=IUDBEDR&CSVF=TN&"
-                 "UsingCodes=Y&VPD=Y&VFD=N", expect="csv"),
+    ("CHF", "SNB cube snboffzia (policy rate)", "central-bank rate",
+     lambda: hit("https://data.snb.ch/api/cube/snboffzia/data/json/en"),
      "keyless"),
-    # --- CAD ---
-    ("CAD", "Bank of Canada Valet (overnight rate)", "central-bank rate",
-     lambda: hit("https://www.bankofcanada.ca/valet/observations/V39079/json?recent=2"),
+    ("CHF", "SNB cube zimoma (money-market rates)", "central-bank rate",
+     lambda: hit("https://data.snb.ch/api/cube/zimoma/data/json/en"),
      "keyless"),
-    ("CAD", "StatCan WDS CPI vector", "actual + previous",
-     statcan, "keyless"),
-    # --- AUD ---
-    ("AUD", "ABS Data API CPI", "actual + previous",
-     lambda: hit("https://data.api.abs.gov.au/rest/data/CPI/all?lastNObservations=1&format=jsondata",
-                 headers={"Accept": "application/vnd.sdmx.data+json"}),
-     "keyless"),
-    ("AUD", "RBA cash rate CSV (f1.1)", "central-bank rate",
-     lambda: hit("https://www.rba.gov.au/statistics/tables/csv/f1-data.csv", expect="csv"),
-     "keyless"),
-    # --- JPY ---
-    ("JPY", "e-Stat getStatsList", "actual (needs free appId)",
-     lambda: hit("https://api.e-stat.go.jp/rest/3.0/app/json/getStatsList?appId="
-                 + urllib.parse.quote(ESTAT_KEY) + "&limit=1"),
-     "free key (appId) required; " + ("present" if ESTAT_KEY else "MISSING - unauth probe")),
-    # --- NZD ---
-    ("NZD", "Stats NZ APIM host", "actual (needs free key)",
-     lambda: hit("https://api.stats.govt.nz/", expect="text"),
-     "free subscription key required; " + ("present" if STATSNZ_KEY else "MISSING - reachability only")),
-    # --- CHF ---
-    ("CHF", "SNB data cube (policy rate snboffzisa)", "central-bank rate",
-     lambda: hit("https://data.snb.ch/api/cube/snboffzisa/data/json/en"),
-     "keyless"),
-    ("CHF", "BFS PX-Web API root", "actual (statistics)",
-     lambda: hit("https://www.pxweb.bfs.admin.ch/api/v1/en/", expect="text"),
-     "keyless"),
-    # --- Commodities ---
-    ("WTI", "EIA v2 weekly crude stocks", "inventories (needs free key)",
-     lambda: hit("https://api.eia.gov/v2/petroleum/stoc/wstk/data/?api_key="
-                 + urllib.parse.quote(EIA_KEY)
-                 + "&frequency=weekly&data[0]=value&sort[0][column]=period&sort[0][direction]=desc&length=2"),
-     "free key required; " + ("present" if EIA_KEY else "MISSING - expect 403/registration notice")),
-    ("WTI", "EIA petroleum release schedule page", "release dates",
-     lambda: hit("https://www.eia.gov/petroleum/supply/weekly/schedule.php", expect="text"),
-     "keyless (HTML schedule)"),
+    # ===== NZD (keyless options are thin; confirm whether a free key is unavoidable) =====
+    ("NZD", "Stats NZ OData v1 root", "actual (needs free key?)",
+     lambda: hit("https://api.stats.govt.nz/opendata/v1/", expect="text"),
+     "likely needs free subscription key"),
+    ("NZD", "RBNZ OCR graph CSV (b2 daily)", "central-bank rate",
+     lambda: hit("https://www.rbnz.govt.nz/-/media/project/sites/rbnz/files/statistics/"
+                 "series/b/b2/hb2-daily.csv", expect="csv"),
+     "keyless if reachable"),
+    ("NZD", "RBNZ statistics key graph data", "central-bank rate",
+     lambda: hit("https://www.rbnz.govt.nz/statistics/key-graphs/key-graph-ocr", expect="text"),
+     "keyless (HTML)"),
 ]
 
 
