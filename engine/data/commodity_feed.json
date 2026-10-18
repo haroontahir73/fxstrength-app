@@ -1,5 +1,61 @@
 [
  {
+  "when": "18 Oct 06:34 UTC",
+  "iso": "2026-10-18T06:34:56.076219+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nBeyond immediate relief, India has little to celebrate over Trump\u2019s freezing of Russian oil sanctions - Firstpost  (Firstpost)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNemJBb0MtWXFCMVRlZTg2M0g2cGMxb2tDYTJOOW14b3hCakppSjhXYzRBVERFZXUzb1lTQ1NKanBWY043TkNTd3hRZXNhQjd3LVpBVTF3R182clBwMTczLU11RlliMFN0RnBpU1ZXdXU0aHZVQ1ZoUkI3VFVWMjhVZHU3TVJvaF9YQ3MyVTIwZ0Q1OC1YOHVpNThiMGJIYmgwdnZndmpQbHhwVWRUYlVoajh3ei1ZeHN0RzRodEQzZXZ0NlFIdXp1QVRSMktCOGFaNFZBd1o4clpuQk56bXAzdtIB5gFBVV95cUxNbEgyUmNqTkU2LTluanI1NmNfSHczOXRZdXJPby02UjNSZFNMcmJTUTlIbUtlbGVodXdkZ2dkSUIxMFhTMkFGaVNzWEUyOXBQd3NMSG9VQkFjOEJmVW44TlBqaFNNQWU1Ny1sbFhSZFYxdkNRTnc4bFRvQ0V6cDA2SFBUYlkzTHBsYXR2LW1CZHFhRm85dFE3Q2taX28xNGNGNDNua05Bc0ZIakJwZUV5NzA4TGcwNEZXSW9UWmdiU0s0VlFkWGJUTllucDA3cTdieWZjOXpBbElURU9qN1dLbldSTWREZw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4181.1,
+   "Silver": 57.305,
+   "WTI": 99.02
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Beyond immediate relief, India has little to celebrate over Trump\u2019s freezing of Russian oil sanctions - Firstpost",
+   "src": "Firstpost",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "18 Oct 05:46 UTC",
   "iso": "2026-10-18T05:46:12.539087+00:00",
   "cat": "oil_supply_loose",
@@ -3267,62 +3323,6 @@
    "emoji": "\ud83c\udf21",
    "label": "INFLATION \u2014 running hot",
    "headline": "US Core PPI YoY: 5 vs 4.4 expected - a BEAT (+14%)",
-   "src": "economic calendar",
-   "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "the rates reaction beats the hedge story",
-     "record": "some evidence - right 50% of 485 past cases"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "same, amplified",
-     "record": "some evidence - right 52% of 485 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "usually a cause, not a victim",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 4,173 (+1.6%)   Silver 56.87 (+2.4%)   WTI 94.05 (-1.1%)   DXY 102.13 (-0.4%)   US10Y 5.19 (-0.5%)",
-   "reality": "",
-   "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
-  }
- },
- {
-  "when": "15 Oct 12:30 UTC",
-  "iso": "2026-10-15T12:30:18.435829+00:00",
-  "cat": "inflation_hot",
-  "title": "GOLD+SILVER SHORT | INFLATION - running hot",
-  "body": "\ud83c\udf21 INFLATION \u2014 running hot\n\nUS PPI YoY: 6.3 vs 5.3 expected - a BEAT (+19%)  (economic calendar)\n\nWHY: You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.\n\nGOLD   \u2193\u2193   look for shorts - the rates reaction beats the hedge story\n        [some evidence - right 50% of 485 past cases]\nSILVER \u2193\u2193   look for shorts - same, amplified\n        [some evidence - right 52% of 485 past cases]\nOIL    \u2192    no clean read - usually a cause, not a victim\n\nNOW  Gold 4,173 (+1.6%)   Silver 56.87 (+2.4%)   WTI 94.05 (-1.1%)   DXY 102.13 (-0.4%)   US10Y 5.19 (-0.5%)\n\nFLIP: if inflation is coming from oil AND growth is dying, gold turns up instead",
-  "link": "",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4172.7,
-   "Silver": 56.87,
-   "WTI": 94.05
-  },
-  "parts": {
-   "emoji": "\ud83c\udf21",
-   "label": "INFLATION \u2014 running hot",
-   "headline": "US PPI YoY: 6.3 vs 5.3 expected - a BEAT (+19%)",
    "src": "economic calendar",
    "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
    "leans": [
