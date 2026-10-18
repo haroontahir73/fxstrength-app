@@ -172,6 +172,17 @@ jobs:
         continue-on-error: true
         run: python oi.py --render-only dashboard.html
 
+      # PR #14 - Economic calendar (official-source, keyless). continue-on-error so a
+      # flaky government API can never take the deploy down; independent of the
+      # TradingView calendar feed (fetch_calendar.py) and the scoring pipeline.
+      # econ_history.jsonl persists via the engine/data state cache (research store).
+      - name: Economic calendar (official sources)
+        working-directory: engine
+        continue-on-error: true
+        run: |
+          python econ_cal.py
+          python econ_cal_public.py
+
       - name: Assemble the site
         run: |
           mkdir -p _site
@@ -179,6 +190,7 @@ jobs:
           cp engine/commodity-news.html _site/commodity-news.html 2>/dev/null || true
           cp engine/open-interest.html  _site/open-interest.html  2>/dev/null || true
           cp engine/open-interest-daily.html _site/open-interest-daily.html 2>/dev/null || true
+          cp engine/economic-calendar.html _site/economic-calendar.html 2>/dev/null || true
           cp index.html            _site/index.html
           cp update.json           _site/update.json
           cp FXStrengthDesk-*.apk  _site/ 2>/dev/null || true
