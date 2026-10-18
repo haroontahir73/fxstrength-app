@@ -128,7 +128,7 @@ jobs:
       # Public Open Interest view migrated CME -> CFTC (oi_public.py): the futures / options-FE
       # / combined / share breakdown renders from the PR #12 archive, no CME value or wording
       # remains, weekly change + 52-week percentile, stale / unavailable states, read-only.
-      - name: Public OI (CFTC migration) suite (24 checks)
+      - name: Public OI (CFTC migration) suite (30 checks)
         working-directory: engine
         run: python test_oi_public.py
 

@@ -295,7 +295,64 @@ _PAGE_CSS = (
     ".oimeth{font-size:12px;color:var(--mut)}")
 
 
+# ---------------------------------------------------------------- strict verification (CI)
+def verify(data=None, pages=()):
+    """Strict check for CI (build-check): the archive must carry valid, non-empty CFTC data for
+    EVERY supported market, and each given rendered page must show that market's futures-only and
+    combined OI. Returns a list of problems (empty == pass). Production never calls this - the
+    live page degrades gracefully; this is the gate that a missing/partial archive cannot pass a
+    migration test. No network: it only reads the archive and the already-rendered pages."""
+    problems = []
+    view = _load(data)
+    if not view or not view.get("markets"):
+        return ["no CFTC options-FE archive (data/options_fe_oi.json) was generated"]
+    page_text = {}
+    for pg in pages:
+        try:
+            page_text[pg] = Path(pg).read_text(encoding="utf-8")
+        except OSError as e:
+            problems.append(f"cannot read rendered page {pg}: {e}")
+    for key in _cfg.MARKET_ORDER:
+        m = view["markets"].get(key)
+        if not m:
+            problems.append(f"{key}: market missing from the archive")
+            continue
+        obs = m.get("observations") or []
+        if not obs:
+            problems.append(f"{key}: no CFTC observations")
+            continue
+        last = obs[-1]
+        fo, comb, fe = last.get("futures_only_oi"), last.get("combined_oi"), last.get("options_fe_oi")
+        if not isinstance(fo, int) or fo <= 0:
+            problems.append(f"{key}: futures-only OI not a positive integer ({fo!r})")
+        if not isinstance(comb, int) or comb <= 0:
+            problems.append(f"{key}: combined OI not a positive integer ({comb!r})")
+        if isinstance(fo, int) and isinstance(comb, int) and comb < fo:
+            problems.append(f"{key}: combined OI {comb} below futures-only {fo}")
+        if not isinstance(fe, int) or fe < 0:
+            problems.append(f"{key}: options-FE OI not a non-negative integer ({fe!r})")
+        for pg, txt in page_text.items():
+            if isinstance(fo, int) and f"{fo:,}" not in txt:
+                problems.append(f"{key}: futures-only OI {fo:,} not shown in {Path(pg).name}")
+            if isinstance(comb, int) and f"{comb:,}" not in txt:
+                problems.append(f"{key}: combined OI {comb:,} not shown in {Path(pg).name}")
+    return problems
+
+
 def main(argv):
+    if "--verify" in argv:
+        pages = [a for a in argv if a.endswith(".html")]
+        problems = verify(pages=pages)
+        n = len(_cfg.MARKET_ORDER)
+        if problems:
+            print(f"OI CFTC verify FAILED ({len(problems)} problem(s)); {n} markets expected, "
+                  f"pages checked: {', '.join(Path(p).name for p in pages) or 'none'}")
+            for p in problems:
+                print(f"  !! {p}")
+            return 1
+        print(f"OI CFTC verify OK: all {n} markets have valid non-empty data"
+              + (f"; verified in {', '.join(Path(p).name for p in pages)}" if pages else ""))
+        return 0
     now = dt.datetime.now(dt.timezone.utc)
     p = write_page(now)
     view = _load()

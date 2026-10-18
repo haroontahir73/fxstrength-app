@@ -190,6 +190,51 @@ def t_standalone_page():
         os.path.exists  # noqa
 
 
+def t_verify_strict():
+    g = "verify"
+    d = Path(tempfile.mkdtemp(prefix="fxoip-"))
+    archive(d)
+    # render both pages from the same archive, then verify figures appear in both
+    panel = op.panel(now=NOW, data=d)
+    dash = Path(d) / "dashboard.html"
+    dash.write_text(f'<div class="panel" id="p-oi">{panel}</div>')
+    oldpage = op.PAGE
+    op.PAGE = Path(d) / "open-interest.html"
+    try:
+        op.write_page(now=NOW, data=d)
+        check(g, "a full archive + both pages passes strict verify", op.verify(data=d, pages=[dash, op.PAGE]) == [],
+              op.verify(data=d, pages=[dash, op.PAGE])[:4])
+        check(g, "strict verify covers all 11 markets", len(cfg.MARKET_ORDER) == 11)
+        # a missing archive fails
+        empty = Path(tempfile.mkdtemp(prefix="fxoip-"))
+        probs = op.verify(data=empty, pages=[])
+        check(g, "a missing archive fails verify (not a passing migration test)",
+              probs and "no CFTC" in probs[0])
+        # a page missing a market's figure fails
+        bad_page = Path(d) / "bad.html"
+        bad_page.write_text("<html>nothing here</html>")
+        probs2 = op.verify(data=d, pages=[bad_page])
+        check(g, "a page missing a market's figures fails verify",
+              any("not shown in bad.html" in p for p in probs2), probs2[:3])
+    finally:
+        op.PAGE = oldpage
+    # a market with no observations fails
+    d2 = Path(tempfile.mkdtemp(prefix="fxoip-"))
+    v = json.loads((d / "options_fe_oi.json").read_text())
+    v["markets"]["Copper"]["observations"] = []
+    (d2 / "options_fe_oi.json").write_text(json.dumps(v))
+    probs3 = op.verify(data=d2, pages=[])
+    check(g, "a market with no observations fails verify", any("Copper: no CFTC observations" in p for p in probs3), probs3[:3])
+    # combined below futures-only fails
+    d3 = Path(tempfile.mkdtemp(prefix="fxoip-"))
+    v3 = json.loads((d / "options_fe_oi.json").read_text())
+    v3["markets"]["EURUSD"]["observations"][-1]["combined_oi"] = 1
+    v3["markets"]["EURUSD"]["observations"][-1]["futures_only_oi"] = 999999
+    (d3 / "options_fe_oi.json").write_text(json.dumps(v3))
+    probs4 = op.verify(data=d3, pages=[])
+    check(g, "combined OI below futures-only fails verify", any("below futures-only" in p for p in probs4), probs4[:3])
+
+
 def t_frozen_untouched():
     g = "frozen"
     import divergence_backtest as bt
@@ -203,7 +248,7 @@ def t_frozen_untouched():
 
 
 if __name__ == "__main__":
-    for fn in (t_breakdown, t_no_cme, t_weekly_metrics, t_freshness, t_unavailable, t_standalone_page, t_frozen_untouched):
+    for fn in (t_breakdown, t_no_cme, t_weekly_metrics, t_freshness, t_unavailable, t_standalone_page, t_verify_strict, t_frozen_untouched):
         try:
             fn()
         except Exception as e:                             # noqa: BLE001
