@@ -1,5 +1,61 @@
 [
  {
+  "when": "19 Oct 15:39 UTC",
+  "iso": "2026-10-19T15:39:00.182312+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIran-backed Houthi rebels strike Yemen's government forces with ballistic missiles, killing at least 53 - PBS  (PBS)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,169 (-0.3%)   Silver 57.47 (+0.8%)   WTI 97.58 (-3.8%)   DXY 101.89 (+0.1%)   US10Y 5.13 (+0.6%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPQkRtc1JnYXZzMWNwZEtMLWxiSXZZRDI5c1pnZi1zcWJ3Y1NOSlB2TTZCY2RIc2t4TF9OUXliaWt0QnZwQ2RNekpDU1VzY1A0Ny1TU1ZISkhsVUZTUThuWU1oc2drd1lDaVNLTjRKN1piQVdMR2NEdjdzN3BPdHNvT3o3UE5HUzUtcU5FbHI1eFNxYlJ3QzhKUW03cW9BYXA1dUY0U0pkTzhSSjlFQ3M2SWN5RmVEU04wVzdueUhiRXBVUWlBQjNETklOOE1mamdRMHfSAdcBQVVfeXFMT241UzZrRUlVcFJ0c2RlZnByVG51N0stekJkSmlkZEpwblkxeUtvUDVIVjAzaW91WEVLQmNxeWdualQwMF83UGswa0UzRjY2N19aNEhSTXN0Nm1ZTWFPOTQtYmpCcnprYmhOaVJJX0lOT29mRjdGQl9YWFY2cF91bDQ3ZnBjR1hyRm5xV2kzMGdVakZqTS1GWGRsMVhSTnN2TTZ3YkJlSXd6VndiSEphb2x6bS1rMVRLUzJVYndvcVpuSlYtVXMwRnNJcTRmYmpDUFpGRFVnMUE?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4168.7,
+   "Silver": 57.465,
+   "WTI": 97.58
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Iran-backed Houthi rebels strike Yemen's government forces with ballistic missiles, killing at least 53 - PBS",
+   "src": "PBS",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,169 (-0.3%)   Silver 57.47 (+0.8%)   WTI 97.58 (-3.8%)   DXY 101.89 (+0.1%)   US10Y 5.13 (+0.6%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "19 Oct 15:02 UTC",
   "iso": "2026-10-19T15:02:42.627150+00:00",
   "cat": "oil_supply_loose",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,187 (+0.4%)   Silver 57.13 (+0.5%)   WTI 99.04 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "16 Oct 19:52 UTC",
-  "iso": "2026-10-16T19:52:48.021245+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussia\u2019s Ryazan oil refinery shuts down key processing unit after drone attack \u2013 Reuters - Ukrinform  (Ukrinform)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,191 (+0.5%)   Silver 57.22 (+0.7%)   WTI 98.97 (+1.0%)   DXY 101.79 (-0.2%)   US10Y 5.10 (+0.2%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNSU5zRWRfcU1mNm1xSExsNkpyUVNnazlDN2R6RWlCaWxKRkRpM0xDUXg1VlljeUNNSVBnbUpEUHBybTM1VHJtVnRLeHBiZjFQWGNyOWpLZ3Nhb2FVZUlFOEl5UlR3d2J0VzhxWlVhN0RNdVU5OG9IcGZWOGpUSnJXdHJnTzNmOHowalFNdHZHSHFRUUt4TEhDTVc3QkpIVmdxTm5MSEVsWUExeHZDQmZMQWIyOHMwUDVSOVdmYzhVbEtPaFIxYXFjemhzd05iX3Vy0gHWAUFVX3lxTE8tbFgyNnpZdUdGUHpBZEt6LV8zNEc4dkQwbnZtMlR0UFYtVVJlNkZieGFhQ0p3dElTQkduOUg3TEpOUEVQczhmbFRIXzlUZVZ6bHZIVWp3UE5aWDhqWVdXUjR2bVRoSDRMRDZpVml4M3hrMUdqX2JlSnBjR1VyTGo5dlRjV2hoRm1BMFJHZVFXeW9OcWlKeXBPUzFibG9HZmtHaklVMnhKVTFkWGRYYUVkQUNTdXJ3RW9nSkFqYnU3elFfSWRrMWlyZzN1RGt5QkVaMGxRbmc?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4191.1,
-   "Silver": 57.22,
-   "WTI": 98.97
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Russia\u2019s Ryazan oil refinery shuts down key processing unit after drone attack \u2013 Reuters - Ukrinform",
-   "src": "Ukrinform",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,191 (+0.5%)   Silver 57.22 (+0.7%)   WTI 98.97 (+1.0%)   DXY 101.79 (-0.2%)   US10Y 5.10 (+0.2%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
