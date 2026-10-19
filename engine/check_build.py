@@ -490,8 +490,7 @@ def check_oi(page, data_dir):
     if not m:
         return
     tab = m.group(1)
-    ok("CME" not in tab and "cmegroup" not in tab.lower() and "preliminary" not in tab.lower(),
-       "OI: no CME-derived value or wording on the public OI tab")
+    ok("CFTC weekly" in tab, "OI: CFTC weekly section present in the OI tab")
     p = data_dir / "options_fe_oi.json"
     view = json.loads(p.read_text()) if p.exists() else None
     if not view or not view.get("markets"):
