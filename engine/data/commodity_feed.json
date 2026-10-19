@@ -1,5 +1,61 @@
 [
  {
+  "when": "19 Oct 07:21 UTC",
+  "iso": "2026-10-19T07:21:30.389196+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nTrump weighs strike on Iran's oil lifeline - www.israelhayom.com  (www.israelhayom.com)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,205 (+0.6%)   Silver 57.81 (+1.4%)   WTI 97.07 (-4.3%)   DXY 101.88 (+0.0%)   US10Y 5.10 (+0.2%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOU2FyVmZSTVVVcmk4eDlzc2FWT1BiZGdnaHBubHdGOHhQemRpcTUzQXRfN2Vyc0RCV3p2YzRoRnF2VlhWS29pN2J4Si1SXzRLakJRRDVSbVM0UzhQcUt5X1p3ZDQxOElEWl9qNkFQclNvSmRDMENQY2dpclFSRVF6RzZwZlRMSmlk?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4204.7,
+   "Silver": 57.81,
+   "WTI": 97.07
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Trump weighs strike on Iran's oil lifeline - www.israelhayom.com",
+   "src": "www.israelhayom.com",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,205 (+0.6%)   Silver 57.81 (+1.4%)   WTI 97.07 (-4.3%)   DXY 101.88 (+0.0%)   US10Y 5.10 (+0.2%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "19 Oct 06:42 UTC",
   "iso": "2026-10-19T06:42:24.423735+00:00",
   "cat": "oil_supply_loose",
@@ -3299,62 +3355,6 @@
     }
    ],
    "snap": "NOW  Gold 4,199 (+0.7%)   Silver 58.02 (+2.1%)   WTI 95.96 (-2.1%)   DXY 101.71 (-0.3%)   US10Y 5.09 (-1.9%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "16 Oct 10:56 UTC",
-  "iso": "2026-10-16T10:56:13.962822+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nEXCLUSIVE: Iran ships some LPG, jet fuel despite US blockade, data shows - Reuters  (Reuters)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,202 (+0.8%)   Silver 57.95 (+2.0%)   WTI 95.88 (-2.1%)   DXY 101.60 (-0.4%)   US10Y 5.09 (-1.9%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNUW43alBLT1ZtZE5UZF9VNEY2ZDhBNjNOdk93dG1BZTNBZWZkQ050OVZGQmxUWURPdG16Q1pwTmRtNkFfQTNNWDJEazN2aHBRY1UwLW1MbGRSWXpLdVZRenB6SGY2cFhVcmFlRzRQZkhzV24xeTVtWnJfRTdfUHlIbktueERWSGNCLUw2bzIwdUw1a3FpQ3pMdEk4NE9HaVppTnlvaWNLV19xMy1pOEc0bw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4201.9,
-   "Silver": 57.95,
-   "WTI": 95.88
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "EXCLUSIVE: Iran ships some LPG, jet fuel despite US blockade, data shows - Reuters",
-   "src": "Reuters",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,202 (+0.8%)   Silver 57.95 (+2.0%)   WTI 95.88 (-2.1%)   DXY 101.60 (-0.4%)   US10Y 5.09 (-1.9%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
