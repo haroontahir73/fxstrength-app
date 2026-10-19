@@ -48,8 +48,61 @@ IMPACT_RANK = {"High": 0, "Medium": 1, "Low": 2}
 NEUTRAL_BAND = 0.08           # same threshold used in the econ_news prototype
 
 
+# Noise words to drop from title token sets — they're too common to tell releases apart.
+_STOP = {"the", "and", "for", "of", "a", "an", "in", "on", "to", "from", "with",
+         "rate", "index", "data", "report", "release", "level", "value",
+         "yoy", "mom", "qoq", "y/y", "m/m", "q/q", "sa", "nsa",
+         "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct",
+         "nov", "dec", "preliminary", "prel", "final", "flash", "adv", "advance"}
+
+_TOKEN_RE = __import__("re").compile(r"[a-z]+")
+
+# Different sources name the same release differently (e.g. "CPI" vs "Inflation Rate"). For
+# the common HIGH-impact releases we expand any one of these keywords into the whole group,
+# so title-token overlap finds the match. Keep the list short and specific: these are the
+# indicators actually tagged HIGH in CFTC / central-bank calendars.
+_SYNONYMS = (
+    {"cpi", "inflation"},
+    {"ppi", "producer"},
+    {"nfp", "nonfarm", "payrolls", "payroll"},
+    {"gdp", "gross", "domestic", "product"},
+    {"pmi", "purchasing", "managers"},
+    {"ism", "manufacturing"},
+    {"fomc", "fed", "funds", "federal"},
+    {"ecb", "deposit"},
+    {"boe"},
+    {"boj"},
+    {"boc"},
+    {"rba"},
+    {"rbnz"},
+    {"snb"},
+    {"unemployment", "jobless", "claims", "employment"},
+    {"retail", "sales"},
+    {"housing", "starts", "permits", "mortgage"},
+    {"trade", "balance", "exports", "imports"},
+    {"consumer", "confidence", "sentiment", "michigan"},
+    {"industrial", "production"},
+)
+
+
+def _toks(name):
+    """Meaningful lower-case tokens, expanded with synonym groups so cross-source title
+    differences ("CPI" vs "Inflation Rate") still produce an overlap."""
+    if not name:
+        return set()
+    raw = {w for w in _TOKEN_RE.findall(str(name).lower())
+           if len(w) >= 3 and w not in _STOP}
+    out = set(raw)
+    for group in _SYNONYMS:
+        if raw & group:
+            out |= group
+    return out
+
+
 def _tv_index(path=None):
-    """{(ccy, YYYY-MM-DD): [(title_lower, surprise)]} from data/calendar.json."""
+    """{ccy: [(tokens, surprise, when_dt)]} from data/calendar.json. Keyed only by currency
+    so we can match across the archive's period-date vs TradingView's release-date mismatch;
+    date proximity is used as a tiebreaker in _match_surprise."""
     try:
         p = Path(path) if path else (DATA / "calendar.json")
         tv = json.loads(p.read_text(encoding="utf-8"))
@@ -61,30 +114,41 @@ def _tv_index(path=None):
         if s is None or ev.get("ccy") not in CCY_FLAG:
             continue
         try:
-            d = dt.datetime.fromisoformat(ev["when"].replace("Z", "+00:00")).date().isoformat()
+            when = dt.datetime.fromisoformat(ev["when"].replace("Z", "+00:00"))
         except Exception:                                        # noqa: BLE001
             continue
-        idx.setdefault((ev["ccy"], d), []).append((ev["title"].lower(), s))
+        idx.setdefault(ev["ccy"], []).append((_toks(ev.get("title")), s, when))
     return idx
 
 
 def _match_surprise(ev, tv_idx):
-    """Return the TradingView `surprise` for this released event, or None."""
+    """Return the TradingView `surprise` for this released event, or None.
+
+    Scores every TradingView event for the same currency by (title-token overlap, then
+    date proximity). Needs at least one meaningful token in common and the two dates must
+    be within 45 days (the archive dates to the data's period month, TradingView dates to
+    the release day, so a one-month gap is normal)."""
     when = _dt(ev)
     if when is None:
         return None
-    key = (ev.get("currency", ""), when.date().isoformat())
-    rows = tv_idx.get(key)
+    rows = tv_idx.get(ev.get("currency", "")) or []
     if not rows:
         return None
-    name = (ev.get("event", "") or "").lower()
-    tokens = {w for w in name.replace("(", " ").replace(")", " ").split() if len(w) >= 3}
+    toks = _toks(ev.get("event"))
+    if not toks:
+        return None
     best = None
-    for tv_title, s in rows:
-        tv_tokens = {w for w in tv_title.replace("(", " ").replace(")", " ").split() if len(w) >= 3}
-        overlap = len(tokens & tv_tokens)
-        if overlap >= 2 and (best is None or overlap > best[0]):
-            best = (overlap, s)
+    for tv_tokens, s, tv_when in rows:
+        overlap = len(toks & tv_tokens)
+        if overlap == 0:
+            continue
+        gap_days = abs((tv_when - when).total_seconds()) / 86400
+        if gap_days > 45:
+            continue
+        # higher overlap wins; among equal overlaps, smaller date gap wins
+        score = (overlap, -gap_days)
+        if best is None or score > best[0]:
+            best = (score, s)
     return best[1] if best else None
 
 
