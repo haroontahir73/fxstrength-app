@@ -1,27 +1,7 @@
 {
- "pending": [
-  {
-   "key": "402deaad20d7f8c7",
-   "who": "commodity",
-   "title": "OIL STRONG LONG | OIL - supply getting tighter",
-   "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nWTI drops to near $97.50 as US waives Russia oil sanctions - FXStreet  (FXStreet)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,192 (+0.3%)   Silver 57.42 (+0.8%)   WTI 97.58 (-3.8%)   DXY 101.84 (+0.0%)   US10Y 5.10 (+0.2%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-   "link": "",
-   "priority": "urgent",
-   "tags": "coin",
-   "topic_required": true,
-   "first_seen": 1792372381.4122777,
-   "first_seen_iso": "2026-10-19T01:13:01.412283+00:00",
-   "attempts": 1,
-   "due_at": 1792372501.4123013,
-   "last_error": "telegram TimeoutError",
-   "meta": {
-    "cat": "oil_supply_tight",
-    "headline": "WTI drops to near $97.50 as US waives Russia oil sanctions - FXStreet",
-    "talk": false,
-    "error": "telegram TimeoutError"
-   }
-  }
- ],
+ "pending": [],
  "dead": [],
- "delivered": {}
+ "delivered": {
+  "402deaad20d7f8c7|2026-10-19T01:13:01.412283+00:00": 1792372574.2198489
+ }
 }
