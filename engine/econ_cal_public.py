@@ -20,6 +20,7 @@ import json
 from html import escape as _e
 from pathlib import Path
 
+
 try:
     from zoneinfo import ZoneInfo
     UK = ZoneInfo("Europe/London")
@@ -37,6 +38,72 @@ CCY_FLAG = {"USD": "🇺🇸", "EUR": "🇪🇺", "GBP": "🇬🇧", "JPY": "�
 MARKET_DRIVERS = {"XAU": ["USD"], "XAG": ["USD"], "HG": ["USD"], "WTI": ["USD"]}
 MARKET_LABEL = {"XAU": "Gold", "XAG": "Silver", "HG": "Copper", "WTI": "WTI Oil"}
 IMPACT_RANK = {"High": 0, "Medium": 1, "Low": 2}
+
+# ---- Impact-on-currency column (PR added after v1) -------------------------------------
+# Join each released event to the TradingView calendar's surprise score (fetch_calendar.py
+# computes it with INVERTED handling and tanh scaling) and map to a short direction tag.
+# TradingView forecasts are used ONLY to compute direction - we do NOT display them (keeps
+# the Forecast column clean of licence-restricted content). "-" is shown when no scoreable
+# match is found (future events, or no overlapping TradingView event for that ccy+date).
+NEUTRAL_BAND = 0.08           # same threshold used in the econ_news prototype
+
+
+def _tv_index(path=None):
+    """{(ccy, YYYY-MM-DD): [(title_lower, surprise)]} from data/calendar.json."""
+    try:
+        p = Path(path) if path else (DATA / "calendar.json")
+        tv = json.loads(p.read_text(encoding="utf-8"))
+    except Exception:                                            # noqa: BLE001
+        return {}
+    idx = {}
+    for ev in tv.get("released") or []:
+        s = ev.get("surprise")
+        if s is None or ev.get("ccy") not in CCY_FLAG:
+            continue
+        try:
+            d = dt.datetime.fromisoformat(ev["when"].replace("Z", "+00:00")).date().isoformat()
+        except Exception:                                        # noqa: BLE001
+            continue
+        idx.setdefault((ev["ccy"], d), []).append((ev["title"].lower(), s))
+    return idx
+
+
+def _match_surprise(ev, tv_idx):
+    """Return the TradingView `surprise` for this released event, or None."""
+    when = _dt(ev)
+    if when is None:
+        return None
+    key = (ev.get("currency", ""), when.date().isoformat())
+    rows = tv_idx.get(key)
+    if not rows:
+        return None
+    name = (ev.get("event", "") or "").lower()
+    tokens = {w for w in name.replace("(", " ").replace(")", " ").split() if len(w) >= 3}
+    best = None
+    for tv_title, s in rows:
+        tv_tokens = {w for w in tv_title.replace("(", " ").replace(")", " ").split() if len(w) >= 3}
+        overlap = len(tokens & tv_tokens)
+        if overlap >= 2 and (best is None or overlap > best[0]):
+            best = (overlap, s)
+    return best[1] if best else None
+
+
+def _impact_on_ccy(ev, tv_idx):
+    """(label_html, cell_html) - direction of the released print on its currency."""
+    if ev.get("actual") in (None, ""):
+        return '<span class="mut">&mdash;</span>'
+    s = _match_surprise(ev, tv_idx)
+    if s is None:
+        return '<span class="mut">&mdash;</span>'
+    ccy = ev.get("currency", "")
+    if s > NEUTRAL_BAND:
+        return f'<span class="impcc pos">↑ Bullish {_e(ccy)}</span>'
+    if s < -NEUTRAL_BAND:
+        return f'<span class="impcc neg">↓ Bearish {_e(ccy)}</span>'
+    return f'<span class="impcc mut">→ Neutral {_e(ccy)}</span>'
+
+
+# ---- end Impact-on-currency column -----------------------------------------------------
 
 
 def _dt(ev):
@@ -72,8 +139,9 @@ def _impact_chip(level):
     return f'<span class="imp {cls}">{_e(level or "Low")}</span>'
 
 
-def _rows(events):
+def _rows(events, tv_idx=None):
     """One <tr>/card per event, each tagged with data-* for the client-side filters."""
+    tv_idx = tv_idx if tv_idx is not None else _tv_index()
     out = []
     for ev in events:
         when = _dt(ev)
@@ -97,6 +165,7 @@ def _rows(events):
             f'<td class="a" data-l="Actual">{_val(ev,"actual")} {_change(ev)}</td>'
             f'<td class="f" data-l="Forecast">{_val(ev,"forecast")}</td>'
             f'<td class="p" data-l="Previous">{_val(ev,"previous")}</td>'
+            f'<td class="im" data-l="Impact on currency">{_impact_on_ccy(ev, tv_idx)}</td>'
             f'</tr>')
     return "\n".join(out)
 
@@ -129,6 +198,8 @@ td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
 td.a,td.f,td.p,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .imp{font-size:11px;font-weight:700;padding:2px 7px;border-radius:4px;color:#fff}
 .imp.hi{background:var(--hi)}.imp.md{background:var(--md)}.imp.lo{background:var(--lo)}
+.impcc{font-size:12px;font-weight:600;white-space:nowrap}
+.impcc.pos{color:var(--up)}.impcc.neg{color:var(--dn)}.impcc.mut{color:var(--mut)}
 .src{color:var(--mut);font-size:11px}
 .per{color:var(--mut);font-size:11px}
 .rev{color:var(--md);font-size:11px;border:1px solid var(--md);border-radius:3px;padding:0 3px}
@@ -213,8 +284,13 @@ def _future(ev):
 
 def _body(archive):
     events = _sorted(archive.get("events", []))
+    # HIGH-impact only, per user request. Medium / Low are dropped from both upcoming and
+    # recent sections so the public calendar only shows what moves markets.
+    events = [e for e in events if e.get("impact") == "High"]
+    tv_idx = _tv_index()
     head = ("<thead><tr><th>Time</th><th>Currency</th><th>Impact</th><th>Event</th>"
-            "<th class='n'>Actual</th><th class='n'>Forecast</th><th class='n'>Previous</th></tr></thead>")
+            "<th class='n'>Actual</th><th class='n'>Forecast</th><th class='n'>Previous</th>"
+            "<th>Impact on currency</th></tr></thead>")
     # #2: only events carrying a VERIFIED official schedule go on the calendar days.
     upcoming = [e for e in events if e.get("scheduled") and _future(e)]
     recent = [e for e in events if not (e.get("scheduled") and _future(e))]
@@ -229,12 +305,12 @@ def _body(archive):
     for key in order:
         g = groups[key]
         sections.append(f'<div class="dayhead">{_e(g["label"])}</div>'
-                        f'<table>{head}<tbody>{_rows(g["rows"])}</tbody></table>')
+                        f'<table>{head}<tbody>{_rows(g["rows"], tv_idx)}</tbody></table>')
     if recent:                                                   # historical, clearly labelled
         sections.append('<div class="dayhead">Latest releases '
                         '<span style="font-weight:400;color:var(--mut)">&middot; most recent official '
                         'prints &mdash; not a forward schedule</span></div>'
-                        f'<table>{head}<tbody>{_rows(recent)}</tbody></table>')
+                        f'<table>{head}<tbody>{_rows(recent, tv_idx)}</tbody></table>')
     if not sections:
         sections.append('<div class="empty">No calendar data available yet.</div>')
     sections.append('<div class="empty" id="empty" style="display:none">No events match these filters.</div>')
@@ -256,12 +332,14 @@ def _meta(archive):
 def panel(archive=None):
     archive = archive if archive is not None else _load()
     when, ok, n = _meta(archive)
-    note = ("Official-source data (public-domain / open-licence agencies). "
-            "<b>Latest releases</b> are the most recent published figures, not a forward "
-            "schedule; upcoming events appear only when sourced from an official release "
-            "calendar. No consensus forecast exists on this path, so Forecast shows "
+    note = ("Official-source data (public-domain / open-licence agencies). <b>HIGH-impact "
+            "only.</b> <b>Latest releases</b> are the most recent published figures, not a "
+            "forward schedule; upcoming events appear only when sourced from an official "
+            "release calendar. No consensus forecast exists on this path, so Forecast shows "
             "&ldquo;&mdash;&rdquo; and the arrow by Actual marks change vs Previous only "
-            "&mdash; not a trading signal.")
+            "&mdash; not a trading signal. <b>Impact on currency</b> is a direction tag "
+            "(↑ Bullish / ↓ Bearish / → Neutral) computed internally against "
+            "a non-public consensus forecast and should be read as context, not a signal.")
     deg = ' &middot; <span style="color:var(--md)">some sources unavailable</span>' if archive.get("degraded") else ""
     return (f'<div class="wrap">'
             f'<h1>Economic calendar</h1>'
