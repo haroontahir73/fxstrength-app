@@ -121,6 +121,28 @@ def _tv_index(path=None):
     return idx
 
 
+def _event_date(ev):
+    """Best available UTC datetime for a calendar event.
+
+    Prefer `dt_utc` (a known release timestamp). When None - which is common on the
+    keyless official-source path, since monthly indicators publish without a verified
+    release time - fall back to the `period` field (YYYY-MM or YYYY) and treat it as the
+    end of that period. Used only for date-proximity scoring in _match_surprise."""
+    direct = _dt(ev)
+    if direct is not None:
+        return direct
+    period = str(ev.get("period") or "").strip()
+    if not period:
+        return None
+    for fmt, roll in (("%Y-%m-%d", 0), ("%Y-%m", 28), ("%Y", 364)):
+        try:
+            d = dt.datetime.strptime(period, fmt).replace(tzinfo=dt.timezone.utc)
+            return d + dt.timedelta(days=roll)
+        except ValueError:
+            continue
+    return None
+
+
 def _match_surprise(ev, tv_idx):
     """Return the TradingView `surprise` for this released event, or None.
 
@@ -128,7 +150,7 @@ def _match_surprise(ev, tv_idx):
     date proximity). Needs at least one meaningful token in common and the two dates must
     be within 45 days (the archive dates to the data's period month, TradingView dates to
     the release day, so a one-month gap is normal)."""
-    when = _dt(ev)
+    when = _event_date(ev)
     if when is None:
         return None
     rows = tv_idx.get(ev.get("currency", "")) or []
