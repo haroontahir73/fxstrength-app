@@ -1,5 +1,61 @@
 [
  {
+  "when": "19 Oct 06:42 UTC",
+  "iso": "2026-10-19T06:42:24.423735+00:00",
+  "cat": "oil_supply_loose",
+  "title": "TALK | OIL SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nTrump: Russia Sanctions Waiver Aims to Keep Talks Alive... - Jordan News  (Jordan News)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193   look for shorts - extra barrels push the price down (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,192 (+0.3%)   Silver 57.77 (+1.4%)   WTI 97.02 (-4.3%)   DXY 101.88 (+0.0%)   US10Y 5.10 (+0.2%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQckl1OExhQW5WeEloUzQxMzNlODRBel9ZeXRhampRMXluLUxNMzYxcjYzamNLWlNtMnRPa2M2SzYtWEoxaFNCUEF3S2p5SjQ2di1CMUdWX2lwbUJveXFSMDVTWnJKeFk4SFFIN0NoclJtM09jeElBRFNSS3lWOWlmZEFNd3V3VWF0RVhNV3RfTi1ZSFRlN1dmU3U4YWVfcUE2MWwtQQ?oc=5",
+  "talk": true,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4191.9,
+   "Silver": 57.77,
+   "WTI": 97.02
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "Trump: Russia Sanctions Waiver Aims to Keep Talks Alive... - Jordan News",
+   "src": "Jordan News",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "extra barrels push the price down (talk, not action yet)",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,192 (+0.3%)   Silver 57.77 (+1.4%)   WTI 97.02 (-4.3%)   DXY 101.88 (+0.0%)   US10Y 5.10 (+0.2%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
   "when": "19 Oct 05:57 UTC",
   "iso": "2026-10-19T05:57:07.830848+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,202 (+0.8%)   Silver 57.95 (+2.0%)   WTI 95.88 (-2.1%)   DXY 101.60 (-0.4%)   US10Y 5.09 (-1.9%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "16 Oct 10:43 UTC",
-  "iso": "2026-10-16T10:43:03.106403+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFed\u2019s Warsh sees AI boosting productivity but gives no signal on next rate hike - Yahoo! Finance Canada  (Yahoo! Finance Canada)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,204 (+0.8%)   Silver 57.97 (+2.0%)   WTI 95.76 (-2.3%)   DXY 101.59 (-0.4%)   US10Y 5.09 (-1.9%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQOXFNaVFLT0tubGtmTUkwZ1RnTllETEMxSjBsSXgzMUdDVlpKcUZUSXhZdHg5blZrNG5TNm5pbVBveUxyaXRoNjE1SDZTd1I4aVRpdXhOVUJ2ZDRyQUxMRjRTU0VNMXV2bkFacFlTbVlQMmc0WU1zWERDRXB1X3FZSw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4204.5,
-   "Silver": 57.965,
-   "WTI": 95.76
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Fed\u2019s Warsh sees AI boosting productivity but gives no signal on next rate hike - Yahoo! Finance Canada",
-   "src": "Yahoo! Finance Canada",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,204 (+0.8%)   Silver 57.97 (+2.0%)   WTI 95.76 (-2.3%)   DXY 101.59 (-0.4%)   US10Y 5.09 (-1.9%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
