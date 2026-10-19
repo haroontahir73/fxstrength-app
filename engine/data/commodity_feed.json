@@ -1,5 +1,61 @@
 [
  {
+  "when": "19 Oct 05:04 UTC",
+  "iso": "2026-10-19T05:04:37.429266+00:00",
+  "cat": "oil_supply_loose",
+  "title": "OIL STRONG SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nTrump says Zelensky \u2018does not want war to end\u2019 as feud escalates, defends Russia sanctions waiver - Hindustan Times  (Hindustan Times)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,204 (+0.5%)   Silver 57.94 (+1.6%)   WTI 97.42 (-3.9%)   DXY 101.81 (-0.0%)   US10Y 5.10 (+0.2%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQZVFUdkNuWHdaejBueWNCUGRWTHNweEd3OWZfVmxaVzJ5RFVLVm1fRmtEbnd6b0lBWXJUSXFOX1F6Q1NhSmZLcmwzaGduTmgtSFJqSkJCRGZ2ZEN2Z0R2dVc5ZFpMa25UUXRESk1wUWRUaG9PZ3JEcUdDRVhFV3IyeEFqZ1VhYlRkb3MtT00tMURrWVZjWFUtSFk2MGhQWWlJeGtTdUV0V0N2dU9Tblo5SEJrSVVJb2VqTC1DblFybWx3dW9vQVZTWFRXX3Vxb0RoVUFGVDRJaThodThScnk3am8wc19RenlEMmh0alpB?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4203.9,
+   "Silver": 57.935,
+   "WTI": 97.42
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "Trump says Zelensky \u2018does not want war to end\u2019 as feud escalates, defends Russia sanctions waiver - Hindustan Times",
+   "src": "Hindustan Times",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "extra barrels push the price down",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,204 (+0.5%)   Silver 57.94 (+1.6%)   WTI 97.42 (-3.9%)   DXY 101.81 (-0.0%)   US10Y 5.10 (+0.2%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
   "when": "19 Oct 03:44 UTC",
   "iso": "2026-10-19T03:44:46.605367+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,206 (+0.9%)   Silver 57.87 (+1.8%)   WTI 95.77 (-2.2%)   DXY 101.83 (-0.2%)   US10Y 5.09 (-1.9%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "16 Oct 07:19 UTC",
-  "iso": "2026-10-16T07:19:44.715394+00:00",
-  "cat": "rates_down",
-  "title": "GOLD+SILVER STRONG LONG | FED - leaning toward rate cuts",
-  "body": "\ud83d\udcb8 FED \u2014 leaning toward rate cuts\n\nFed Chair Warsh Sees US Economic Tailwinds, Offers No Rate Hike Signal - BusinessToday Malaysia  (BusinessToday Malaysia)\n\nWHY: Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - cheaper money is gold's best friend\n        [NOT TESTED - no history to judge this on]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up, only harder\n        [NOT TESTED - no history to judge this on]\nOIL    \u2191    mild long bias - weaker dollar + a bit more growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,205 (+0.8%)   Silver 57.98 (+2.0%)   WTI 95.81 (-2.2%)   DXY 101.83 (-0.2%)   US10Y 5.09 (-1.9%)\n\nFLIP: a hot inflation print would kill the cut hopes",
-  "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOY0cwZXJBcXRVM1RuUVZOX240TE9RVFdKRWxWMGZWbnIza2JHOEhMQ3lTNEZ6Xy1SNG9jN2pOZ0wyRUtfMHI4SmhnVDBnTW9YQUdzcUg4VGRkQ18yTHp3UVBvbmdxOFRtMnFzcUE5dHB5SHIxaDdjWDlBRzhhYjZkS2FCQjJBVjB1LVE2Z0p2c0d1OC1YX3Vra0VlOFFJdmVWOGdkVVFpeUxhejhGUWFZbmlkV2k?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4205.3,
-   "Silver": 57.98,
-   "WTI": 95.81
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb8",
-   "label": "FED \u2014 leaning toward rate cuts",
-   "headline": "Fed Chair Warsh Sees US Economic Tailwinds, Offers No Rate Hike Signal - BusinessToday Malaysia",
-   "src": "BusinessToday Malaysia",
-   "why": "Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "cheaper money is gold's best friend",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "follows gold up, only harder",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "weaker dollar + a bit more growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,205 (+0.8%)   Silver 57.98 (+2.0%)   WTI 95.81 (-2.2%)   DXY 101.83 (-0.2%)   US10Y 5.09 (-1.9%)",
-   "reality": "",
-   "flip": "a hot inflation print would kill the cut hopes"
   }
  }
 ]
