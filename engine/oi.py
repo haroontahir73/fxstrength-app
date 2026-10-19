@@ -417,7 +417,7 @@ STATES = {
 }
 
 
-TABLE_DAYS = 10          # ~2 weeks of trading days - the user reads the RUN, not one day
+TABLE_DAYS = 7           # last 7 days
 
 
 def day_rows(hist, prices, inst, n=TABLE_DAYS):
@@ -445,7 +445,6 @@ def day_rows(hist, prices, inst, n=TABLE_DAYS):
             state, cls, _ = STATES[("up" if chg_px > 0 else "down",
                                     "up" if d["chg"] > 0 else "down")]
         rows.append({"date": day, "oi": d["oi"], "chg": d["chg"],
-                     "oi_opt": d.get("oi_opt"), "chg_opt": d.get("chg_opt"),
                      "px_chg_pct": round(chg_px, 2) if chg_px is not None else None,
                      "state": state, "cls": cls})
         if len(rows) >= n:
@@ -485,10 +484,7 @@ def analyse(hist, prices):
                    "state": label, "cls": cls, "note": note,
                    "size": ("big" if avg and abs(d["chg"]) > 1.8 * avg else
                             "small" if avg and abs(d["chg"]) < 0.4 * avg else "normal"),
-                   "avg_chg": round(avg),
-                   "oi_opt": d.get("oi_opt"), "chg_opt": d.get("chg_opt"),
-                   "oi_pctl": pctile(hist, inst, "oi"),
-                   "oi_opt_pctl": pctile(hist, inst, "oi_opt")}
+                   "avg_chg": round(avg)}
             break
         out[inst] = rec
     return out
@@ -706,26 +702,55 @@ def history_tables(hist, prices):
             st = (f"<td class='st na'>&mdash;</td>" if not r["state"] else
                   f"<td class='st'><span class='oi-tag {r['cls']}'>"
                   f"{SHORT_STATE.get(r['state'], r['state'])}</span></td>")
-            oc = ("<td class='vol na'>&mdash;</td>" if r.get("chg_opt") is None else
-                  f"<td class='vol {'up' if r['chg_opt'] > 0 else 'dn'}'>{r['chg_opt']:+,}</td>")
             body.append(
                 f"<tr><td class='oi-day'>{_daylabel(r['date'])}</td>{pc}"
-                f"<td class='{'up' if r['chg'] > 0 else 'dn'}'>{r['chg']:+,}</td>{oc}"
+                f"<td class='{'up' if r['chg'] > 0 else 'dn'}'>{r['chg']:+,}</td>"
                 f"<td class='vol'>{r['oi']:,}</td>{st}</tr>")
         blocks.append(
             f"<h3>{inst}<small>{len(rows)} days &middot; net "
             f"{net:+,} contracts &middot; {up} of {len(rows)} days up</small></h3>"
             "<table class='oi-tw'><thead><tr><th>Date</th><th>Price</th>"
-            "<th>Fut OI chg</th><th class='vol'>Opt OI chg</th>"
-            "<th class='vol'>Futures OI</th><th>Read</th></tr></thead>"
+            "<th>OI change</th><th class='vol'>Open interest</th><th>Read</th></tr></thead>"
             f"<tbody>{''.join(body)}</tbody></table>")
     if not blocks:
         return ""
-    return ('<div class="oi-hist"><h2>Last two weeks, day by day</h2>'
+    return ('<div class="oi-hist"><h2>Futures open interest &mdash; last 7 days, day by day</h2>'
             '<p class="oi-sub">Rule&nbsp;#1 is about the <b>run</b>, not one print. Days that '
             'keep closing up with open interest rising are the ones to hold and add into. '
             'A shrinking OI increase after a long run is profit-taking starting. OI falling '
             'on a spike day is the exit.</p>' + "".join(blocks) + '</div>')
+
+
+def options_tables(hist, n=TABLE_DAYS):
+    """A SEPARATE table of raw CME options open interest, last `n` days per instrument -
+    kept distinct from the futures table above and from the CFTC delta-adjusted Options FE OI."""
+    blocks = []
+    for inst in ORDER:
+        rows = []
+        for day in sorted(hist, reverse=True):
+            d = hist[day].get(inst)
+            if not d or d.get("oi_opt") is None:
+                continue
+            rows.append((day, d.get("oi_opt"), d.get("chg_opt")))
+            if len(rows) >= n:
+                break
+        if not rows:
+            continue
+        body = []
+        for day, oiopt, chgopt in rows:
+            cc = ("<td class='na'>&mdash;</td>" if chgopt is None else
+                  f"<td class='{'up' if chgopt > 0 else 'dn'}'>{chgopt:+,}</td>")
+            body.append(f"<tr><td class='oi-day'>{_daylabel(day)}</td>{cc}"
+                        f"<td class='vol'>{oiopt:,}</td></tr>")
+        blocks.append(f"<h3>{inst}</h3><table class='oi-tw'><thead><tr><th>Date</th>"
+                      "<th>Options OI change</th><th class='vol'>Options OI</th></tr></thead>"
+                      f"<tbody>{''.join(body)}</tbody></table>")
+    if not blocks:
+        return ""
+    return ('<div class="oi-hist"><h2>Options open interest &mdash; last 7 days</h2>'
+            '<p class="oi-sub">Raw CME options open interest, shown separately from the futures '
+            'table above and from the CFTC delta-adjusted Options FE OI.</p>'
+            + "".join(blocks) + '</div>')
 
 
 def render(hist, state, reads, prices=None):
@@ -768,14 +793,7 @@ def render(hist, state, reads, prices=None):
             f'{r["px_chg_pct"]:+.2f}%</div>'
             f'<div class="oi-num" style="color:{"#3fbe83" if r["chg"] > 0 else "#ec6a5e"}">'
             f'{r["chg"]:+,}<br><span style="font-size:10.5px;color:var(--mut,#8a8a94)">'
-            f'{r["oi"]:,} fut'
-            + (f' &middot; {r["oi_pctl"]}%ile' if r.get("oi_pctl") is not None else "")
-            + '</span>'
-            + (f'<br><span style="font-size:10.5px;color:var(--mut,#8a8a94)">{r["oi_opt"]:,} opt'
-               + (f' {r["chg_opt"]:+,}' if r.get("chg_opt") is not None else "")
-               + (f' &middot; {r["oi_opt_pctl"]}%ile' if r.get("oi_opt_pctl") is not None else "")
-               + '</span>' if r.get("oi_opt") is not None else "")
-            + '</div>'
+            f'{r["oi"]:,} open</span></div>'
             f'<div><span class="oi-tag {r["cls"]}">{r["state"]}</span>{size}'
             f'<div class="oi-note" style="margin-top:5px">{_esc(r["note"])}</div></div>'
             f'</div>')
@@ -803,7 +821,7 @@ def render(hist, state, reads, prices=None):
             '</table>'
             f'<div class="oi-rows">{"".join(rows)}</div>'
             + history_tables(hist, prices or {})
-            + compare_block(hist) +
+            + options_tables(hist) +
             f'<p class="oi-sub" style="margin-top:16px">Price change is the futures close vs the '
             f'previous close. OI is CME preliminary open interest for that trade date, published '
             f'overnight &mdash; so the reading is about <b>yesterday\'s</b> session and sets '
