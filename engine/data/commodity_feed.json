@@ -1,5 +1,61 @@
 [
  {
+  "when": "19 Oct 01:13 UTC",
+  "iso": "2026-10-19T01:13:01.413173+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nWTI drops to near $97.50 as US waives Russia oil sanctions - FXStreet  (FXStreet)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,192 (+0.3%)   Silver 57.42 (+0.8%)   WTI 97.58 (-3.8%)   DXY 101.84 (+0.0%)   US10Y 5.10 (+0.2%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPc3V6d2QzZmhCeVBvU1VwMlB1UTlGWkY1MFh3bDNpb29RU1BVc0VhN0pYWXFPTkI3Q2JTTHd6WTZ6VXljVGJVTEExY3d1TGZNNlkxVk1HYjdVVlRQVnhPalFRTEdyRFZ6UllJS1dlMmxwZmV4YmtjTFU4SXdPOEY4a1kzRnhURzYxTlU1NW4ydlZESU9UUkRsOWpXbFkzeWJ6?oc=5",
+  "talk": false,
+  "pushed": false,
+  "queued_for_retry": true,
+  "push_error": "telegram TimeoutError",
+  "px": {
+   "Gold": 4192.0,
+   "Silver": 57.425,
+   "WTI": 97.58
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "WTI drops to near $97.50 as US waives Russia oil sanctions - FXStreet",
+   "src": "FXStreet",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,192 (+0.3%)   Silver 57.42 (+0.8%)   WTI 97.58 (-3.8%)   DXY 101.84 (+0.0%)   US10Y 5.10 (+0.2%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "19 Oct 00:16 UTC",
   "iso": "2026-10-19T00:16:09.791005+00:00",
   "cat": "oil_supply_loose",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,191 (+2.0%)   Silver 57.56 (+3.6%)   WTI 96.05 (+1.0%)   DXY 102.00 (-0.5%)   US10Y 5.09 (-1.9%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "15 Oct 22:26 UTC",
-  "iso": "2026-10-15T22:26:53.077755+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nUS Extends Sanctions Waiver for Russia\u2019s Lukoil - ASHARQ AL-AWSAT English  (ASHARQ AL-AWSAT English)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,191 (+2.0%)   Silver 57.56 (+3.6%)   WTI 96.05 (+1.0%)   DXY 102.00 (-0.5%)   US10Y 5.09 (-1.9%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPcTRmdmlCYm50NzZyUnQ3VlhiczN0UnN5VldnMWx6RVBFeS1YbEFnNjhfQ212U2FKbVBKTHFDRGNIbnlVT3ZXb0hRbmp2c08zV2dQa1JtSmpuMXFpaHl5V2U0TzhDSmdHeGdZc1ZUMTJXQjctVHhWOFZnRWlJUVNfbW1seHJxLUw2NmQ2N1VBak9jYkpRZFdV?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4191.0,
-   "Silver": 57.565,
-   "WTI": 96.05
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "US Extends Sanctions Waiver for Russia\u2019s Lukoil - ASHARQ AL-AWSAT English",
-   "src": "ASHARQ AL-AWSAT English",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,191 (+2.0%)   Silver 57.56 (+3.6%)   WTI 96.05 (+1.0%)   DXY 102.00 (-0.5%)   US10Y 5.09 (-1.9%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
