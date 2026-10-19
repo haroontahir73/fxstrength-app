@@ -1,5 +1,61 @@
 [
  {
+  "when": "19 Oct 16:15 UTC",
+  "iso": "2026-10-19T16:15:14.317881+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nRubio-Jaishankar Meet: India Digs In Heels As U.S Reveals 'Trade Deal Bait' Vs Russian Oil Sanctions - The Times of India  (The Times of India)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,161 (-0.5%)   Silver 57.37 (+0.7%)   WTI 98.49 (-2.9%)   DXY 102.02 (+0.2%)   US10Y 5.14 (+0.8%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxPWjZfRWkwRGlqR3ZyQW5Kam5KOW45bVdXX3Q1MlpidE9XbkdES2JUY3Y0QzBsb1M1bzMzMjh2YmQzdFhlUDVRT3F3YTEtYlFaVmtZb21yZzVaQks5TDZ6MHVtMnFGcUxmTGJFeFlDNWJWdjVRRjBReW1sVDk5WkhHMjV0ZDhjMGtjREV2S2RWS3dkVHFjd2RYODBVRDZsYjA3Zm1YX2tEcWZIM082UDI3RnJYSHc0TW03LWNSMEpkU3ozQ2g0cU9zNEhxc21wVWRubXUxemg1dEhzWnY0QWdUVllRY0Jkd19ZM0F3TUhieC1YMVhCNlhxZXRYZWE4b2NUYUN1ajF30gGLAkFVX3lxTE5aVmpYYVZQVV9pcHlRY2x0c2xDcWJwUDdqanZEREhKeExza25tYjhyNUNqajF0MXJVc3owSlIxdW9sZGx0aFFYNW1SU2Q4U1JpSW44cFQ0Z1VOUThta0dlWWFzSXdBY3Y4dkdNel9mOF9HUVhlVC1DeTI3RFpmdWtITEltUVh6bzdKLUd1bF94M2g4MG5kS3BkT1JldEFXOWdNZjI1aFZvUjJfZGtKbGhFTjVVRWFwTU9fZlVVVnZ1Qzg5UUFsR1JhZ0J3LXVWaFhSVFFBZG41cXdsZE5DZ0kzNmJ0NDBMdmtEamF4SVR6cmdWQklpaTF3S3VhUThmYlVJbEU0UjY4TEVWdw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4161.2,
+   "Silver": 57.37,
+   "WTI": 98.49
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Rubio-Jaishankar Meet: India Digs In Heels As U.S Reveals 'Trade Deal Bait' Vs Russian Oil Sanctions - The Times of India",
+   "src": "The Times of India",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,161 (-0.5%)   Silver 57.37 (+0.7%)   WTI 98.49 (-2.9%)   DXY 102.02 (+0.2%)   US10Y 5.14 (+0.8%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "19 Oct 15:39 UTC",
   "iso": "2026-10-19T15:39:00.182312+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,187 (+0.4%)   Silver 57.13 (+0.5%)   WTI 99.04 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "16 Oct 22:42 UTC",
-  "iso": "2026-10-16T22:42:07.778472+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOil Prices Surge as Middle East and Russia Supply Disruptions Converge \u2014 Brent Briefly Tops $110 - BigGo Finance  (BigGo Finance)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,187 (+0.4%)   Silver 57.13 (+0.5%)   WTI 99.04 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBXYldKMW90eFF0Z1BjalNOTWZwR21LeEN4MG83ZWlBcFExREtzbVhURDUzY3VSaDFPSjUyMEYtZHBJaDc1Tm1hMXB0NWRpTFY3MzlWUERncDdKQkVhdXZkMy15V01TSzQyUEZja1E2Y0hpYm1mQ1E?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4186.7,
-   "Silver": 57.135,
-   "WTI": 99.04
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Oil Prices Surge as Middle East and Russia Supply Disruptions Converge \u2014 Brent Briefly Tops $110 - BigGo Finance",
-   "src": "BigGo Finance",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,187 (+0.4%)   Silver 57.13 (+0.5%)   WTI 99.04 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
