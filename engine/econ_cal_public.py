@@ -340,7 +340,7 @@ tr.dir-sbe{border-left:5px solid var(--dn-s)}tr.dir-be{border-left:3px solid var
 .per{color:var(--mut);font-size:11px}
 .rev{color:var(--md);font-size:11px;border:1px solid var(--md);border-radius:3px;padding:0 3px}
 .chg{font-size:11px}.chg.up{color:var(--up)}.chg.dn{color:var(--dn)}.chg.fl{color:var(--mut)}
-.cd{display:block;font-size:11px;color:var(--md);font-weight:600}
+.cd{display:block;font-size:11px;color:var(--md);font-weight:600}.cd.past{color:var(--mut);font-weight:400}
 .dayhead{margin:18px 0 2px;font-size:13px;font-weight:700;color:var(--mut);border-bottom:2px solid var(--line);padding-bottom:4px}
 .updated{color:var(--mut);font-size:12px}
 .note{color:var(--mut);font-size:12px;margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
@@ -424,11 +424,13 @@ _JS = """
    var ts=td.getAttribute('data-ts');if(!ts)return;
    var diff=new Date(ts).getTime()-now;
    var old=td.querySelector('.cd');
-   if(diff<=0||diff>7*86400000){if(old)old.remove();return;}
-   var d=Math.floor(diff/86400000),h=Math.floor((diff%86400000)/3600000),m=Math.floor((diff%3600000)/60000);
+   var abs=Math.abs(diff);
+   if(abs>7*86400000){if(old)old.remove();return;}
+   var d=Math.floor(abs/86400000),h=Math.floor((abs%86400000)/3600000),m=Math.floor((abs%3600000)/60000);
    var s=d>0?d+'d '+h+'h':h>0?h+'h '+m+'m':m+'m';
-   if(old){old.textContent='in '+s;}
-   else{var sp=document.createElement('span');sp.className='cd';sp.textContent='in '+s;td.appendChild(sp);}
+   var txt=diff>0?'in '+s:s+' ago';
+   if(old){old.textContent=txt;}
+   else{var sp=document.createElement('span');sp.className='cd'+(diff<=0?' past':'');sp.textContent=txt;td.appendChild(sp);}
   });
  }
  countdown();setInterval(countdown,60000);
