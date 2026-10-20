@@ -225,6 +225,24 @@ def _impact_chip(level):
     return f'<span class="imp {cls}">{_e(level or "Low")}</span>'
 
 
+def _dir_class(ev, tv_idx):
+    """Return a CSS class for the card colour based on surprise direction/strength."""
+    if ev.get("actual") in (None, ""):
+        return ""
+    s = _match_surprise(ev, tv_idx)
+    if s is None:
+        return ""
+    if s > 0.25:
+        return "dir-sbu"   # strong bullish
+    if s > NEUTRAL_BAND:
+        return "dir-bu"    # mild bullish
+    if s < -0.25:
+        return "dir-sbe"   # strong bearish
+    if s < -NEUTRAL_BAND:
+        return "dir-be"    # mild bearish
+    return ""              # neutral — no colour
+
+
 def _rows(events, tv_idx=None):
     """One <tr>/card per event, each tagged with data-* for the client-side filters."""
     tv_idx = tv_idx if tv_idx is not None else _tv_index()
@@ -236,8 +254,9 @@ def _rows(events, tv_idx=None):
         day_key = uk.strftime("%Y-%m-%d") if uk else ""
         ccy = ev.get("currency", "")
         markets = [m for m, drv in MARKET_DRIVERS.items() if ccy in drv]
+        dcls = _dir_class(ev, tv_idx)
         out.append(
-            f'<tr class="ev" data-ccy="{_e(ccy)}" data-impact="{_e(ev.get("impact","Low"))}" '
+            f'<tr class="ev{" " + dcls if dcls else ""}" data-ccy="{_e(ccy)}" data-impact="{_e(ev.get("impact","Low"))}" '
             f'data-day="{day_key}" data-markets="{_e(",".join(markets))}" '
             f'data-status="{_e(ev.get("status","released"))}">'
             f'<td class="t" data-l="Time">{time_s}</td>'
@@ -251,7 +270,7 @@ def _rows(events, tv_idx=None):
             f'<td class="a" data-l="Actual">{_val(ev,"actual")} {_change(ev)}</td>'
             f'<td class="f mhide" data-l="Forecast">{_val(ev,"forecast")}</td>'
             f'<td class="p" data-l="Previous">{_val(ev,"previous")}</td>'
-            f'<td class="im" data-l="Impact on currency">{_impact_on_ccy(ev, tv_idx)}</td>'
+            f'<td class="im mhide" data-l="Impact on currency">{_impact_on_ccy(ev, tv_idx)}</td>'
             f'</tr>')
     return "\n".join(out)
 
@@ -286,6 +305,8 @@ td.a,td.f,td.p,th.n{text-align:right;font-variant-numeric:tabular-nums;white-spa
 .imp.hi{background:var(--hi)}.imp.md{background:var(--md)}.imp.lo{background:var(--lo)}
 .impcc{font-size:12px;font-weight:600;white-space:nowrap}
 .impcc.pos{color:var(--up)}.impcc.neg{color:var(--dn)}.impcc.mut{color:var(--mut)}
+tr.dir-sbu{border-left:3px solid var(--up)}tr.dir-bu{border-left:3px solid var(--up);opacity:1;border-left-width:2px}
+tr.dir-sbe{border-left:3px solid var(--dn)}tr.dir-be{border-left:3px solid var(--dn);border-left-width:2px}
 .src{color:var(--mut);font-size:11px}
 .per{color:var(--mut);font-size:11px}
 .rev{color:var(--md);font-size:11px;border:1px solid var(--md);border-radius:3px;padding:0 3px}
@@ -310,7 +331,6 @@ td.a,td.f,td.p,th.n{text-align:right;font-variant-numeric:tabular-nums;white-spa
  td.a::before{display:inline;content:"Act ";color:var(--mut);font-size:11px}
  td.p{grid-column:2;text-align:right}
  td.p::before{display:inline;content:"Prev ";color:var(--mut);font-size:11px}
- td.im{grid-column:1/-1;font-size:12px;padding:2px 0 1px}
  body{font-size:13px}
  h1{font-size:17px}
  .wrap{padding:10px}
@@ -397,7 +417,7 @@ def _body(archive):
     tv_idx = _tv_index()
     head = ("<thead><tr><th>Time</th><th>Currency</th><th>Impact</th><th>Event</th>"
             "<th class='n'>Actual</th><th class='n mhide'>Forecast</th><th class='n'>Previous</th>"
-            "<th>Impact on currency</th></tr></thead>")
+            "<th class='mhide'>Impact on currency</th></tr></thead>")
     # #2: only events carrying a VERIFIED official schedule go on the calendar days.
     upcoming = [e for e in events if e.get("scheduled") and _future(e)]
     recent = [e for e in events if not (e.get("scheduled") and _future(e))]
