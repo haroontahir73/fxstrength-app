@@ -31,6 +31,24 @@ import options_oi_config as _cfg
 from config import DATA
 
 ARCHIVE = DATA / "options_fe_oi.json"
+
+
+# ---------------------------------------------------------------- phone helpers (same idea as oi.py)
+def _k(n):
+    """881290 -> 881k ; 1832500 -> 1.83m"""
+    a = abs(n)
+    if a >= 1_000_000:
+        return f"{n/1_000_000:.2f}m"
+    if a >= 10_000:
+        return f"{n/1_000:.0f}k"
+    if a >= 1_000:
+        return f"{n/1_000:.1f}k"
+    return f"{n}"
+
+
+def _fs(full, short):
+    """Full on desktop, short on phone."""
+    return f"<span class='f'>{full}</span><span class='s'>{short}</span>"
 STALE_AFTER_DAYS = 10            # one weekly report is ~7 days; >10 days old -> stale chip
 HIST_WEEKS = 13                  # weeks shown in a market's detail table
 
@@ -139,21 +157,33 @@ def _summary_table(view):
         share = f'{mt["options_share"] * 100:.1f}%' if mt["options_share"] is not None else "&mdash;"
         pct = "&mdash;" if mt["fo_pctile_52w"] is None else f'{mt["fo_pctile_52w"]:.0f}'
         pctpc = f'{mt["fo_weekly_pct"]:+.2f}%' if mt["fo_weekly_pct"] is not None else "&mdash;"
+        fo = mt["futures_only_oi"]
+        fe = mt["options_fe_oi"]
+        comb = mt["combined_oi"]
+        chg = mt["fo_weekly_change"]
+        chg_full = _sgn(chg)
+        chg_short = ("&mdash;" if chg is None else
+                     f'<span class="{"pos" if chg >= 0 else "neg"}">'
+                     f'{("+" if chg >= 0 else "")}{_k(chg)}</span>')
         rows.append(
             f'<tr><td class="pr">{_e(m["label"])}</td>'
-            f'<td class="num mono">{mt["futures_only_oi"]:,}</td>'
-            f'<td class="num mono">{mt["options_fe_oi"]:,}</td>'
-            f'<td class="num mono">{mt["combined_oi"]:,}</td>'
-            f'<td class="num mono">{share}</td>'
-            f'<td class="num mono">{_sgn(mt["fo_weekly_change"])} '
+            f'<td class="num mono">{_fs(f"{fo:,}", _k(fo))}</td>'
+            f'<td class="num mono">{_fs(f"{fe:,}", _k(fe))}</td>'
+            f'<td class="num mono mhide">{comb:,}</td>'
+            f'<td class="num mono mhide">{share}</td>'
+            f'<td class="num mono">{_fs(chg_full, chg_short)} '
             f'<span class="mut">{pctpc}</span></td>'
-            f'<td class="num mono mut" title="futures-OI percentile in its last '
+            f'<td class="num mono mut mhide" title="futures-OI percentile in its last '
             f'{mt["window_weeks"]} weeks">{pct}</td></tr>')
-    return ('<div class="tw"><table><thead><tr>'
-            '<th>Market</th><th class="num">Futures OI</th><th class="num">Options FE OI</th>'
-            '<th class="num">Combined OI</th><th class="num">Options share</th>'
-            '<th class="num">&Delta; week (futures)</th><th class="num">52w %ile</th>'
-            '</tr></thead><tbody>' + "".join(rows) + '</tbody></table></div>')
+    return ('<div class="tw oi-sum"><table><thead><tr>'
+            '<th>Market</th><th class="num">{fut}</th><th class="num">{fe}</th>'
+            '<th class="num mhide">Combined OI</th><th class="num mhide">Options share</th>'
+            '<th class="num">{chg}</th><th class="num mhide">52w %ile</th>'
+            '</tr></thead><tbody>'.format(
+                fut=_fs('Futures OI', 'Fut OI'),
+                fe=_fs('Options FE OI', 'Opt FE'),
+                chg=_fs('&Delta; week (futures)', '&Delta; wk'),
+            ) + "".join(rows) + '</tbody></table></div>')
 
 
 def _market_cards(view):
@@ -166,24 +196,30 @@ def _market_cards(view):
         hrows = []
         for o in mt["history"]:
             share = f'{o["options_share"] * 100:.1f}%' if o["options_share"] is not None else "&mdash;"
+            fo = o["futures_only_oi"]
+            fe = o["options_fe_oi"]
+            comb = o["combined_oi"]
             hrows.append(
                 f'<tr><td class="mono">{_e(o["date"])}</td>'
-                f'<td class="num mono">{o["futures_only_oi"]:,}</td>'
-                f'<td class="num mono">{o["options_fe_oi"]:,}</td>'
-                f'<td class="num mono">{o["combined_oi"]:,}</td>'
-                f'<td class="num mono mut">{share}</td></tr>')
+                f'<td class="num mono">{_fs(f"{fo:,}", _k(fo))}</td>'
+                f'<td class="num mono">{_fs(f"{fe:,}", _k(fe))}</td>'
+                f'<td class="num mono mhide">{comb:,}</td>'
+                f'<td class="num mono mut mhide">{share}</td></tr>')
         fe_pct = "&mdash;" if mt["fe_pctile_52w"] is None else f'{mt["fe_pctile_52w"]:.0f}'
         cards.append(
             f'<details class="cotcard oicard"><summary><b>{_e(m["label"])}</b> '
-            f'<span class="mut">Futures {mt["futures_only_oi"]:,} &middot; '
-            f'Options FE {mt["options_fe_oi"]:,} &middot; share '
+            f'<span class="mut">Futures {_fs(f"{mt["futures_only_oi"]:,}", _k(mt["futures_only_oi"]))} &middot; '
+            f'Options FE {_fs(f"{mt["options_fe_oi"]:,}", _k(mt["options_fe_oi"]))} &middot; share '
             f'{mt["options_share"] * 100:.1f}%</span></summary>'
             f'<p class="mut oihint">Options FE OI 52-week percentile: {fe_pct} '
             f'(last {mt["window_weeks"]} weeks). Weekly history, newest first:</p>'
-            '<div class="tw"><table><thead><tr><th>Week</th><th class="num">Futures OI</th>'
-            '<th class="num">Options FE OI</th><th class="num">Combined OI</th>'
-            '<th class="num">Share</th></tr></thead><tbody>'
-            + "".join(hrows) + '</tbody></table></div></details>')
+            '<div class="tw"><table><thead><tr><th>Week</th>'
+            '<th class="num">{fut}</th><th class="num">{fe}</th>'
+            '<th class="num mhide">Combined OI</th><th class="num mhide">Share</th>'
+            '</tr></thead><tbody>'.format(
+                fut=_fs('Futures OI', 'Fut OI'),
+                fe=_fs('Options FE OI', 'Opt FE'),
+            ) + "".join(hrows) + '</tbody></table></div></details>')
     return '<div class="cotgrid oigrid">' + "".join(cards) + '</div>'
 
 
@@ -292,7 +328,21 @@ _PAGE_CSS = (
     ".oistale{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;margin-left:4px}"
     ".oistale.ok{background:var(--posbg);color:#6fcf9b}"
     ".oistale.old{background:rgba(224,166,58,.15);color:#e0a63a}"
-    ".oimeth{font-size:12px;color:var(--mut)}")
+    ".oimeth{font-size:12px;color:var(--mut)}"
+    # phone: compact tables, hide redundant columns
+    ".oi-sum table{min-width:0}"
+    ".s{display:none}"
+    "@media(max-width:560px){"
+    "  .f{display:none}.s{display:inline}"
+    "  .mhide{display:none}"
+    "  .tw table{min-width:0}"
+    "  .tw th,.tw td{padding:5px 6px;font-size:11px;white-space:nowrap}"
+    "  .tw th{font-size:9px;letter-spacing:0;text-transform:none}"
+    "  .oicard summary{font-size:12px}"
+    "  .oicard .oihint{font-size:11px}"
+    "  h2{font-size:17px}h3.oih3{font-size:13px}"
+    "  .sub{font-size:12px}"
+    "}")
 
 
 # ---------------------------------------------------------------- strict verification (CI)
