@@ -249,9 +249,9 @@ def _rows(events, tv_idx=None):
             + (' <span class="rev" title="revised">rev</span>' if ev.get("status") == "revised" else "")
             + f'</td>'
             f'<td class="a" data-l="Actual">{_val(ev,"actual")} {_change(ev)}</td>'
-            f'<td class="f" data-l="Forecast">{_val(ev,"forecast")}</td>'
+            f'<td class="f mhide" data-l="Forecast">{_val(ev,"forecast")}</td>'
             f'<td class="p" data-l="Previous">{_val(ev,"previous")}</td>'
-            f'<td class="im" data-l="Impact on currency">{_impact_on_ccy(ev, tv_idx)}</td>'
+            f'<td class="im mhide" data-l="Impact on currency">{_impact_on_ccy(ev, tv_idx)}</td>'
             f'</tr>')
     return "\n".join(out)
 
@@ -295,13 +295,33 @@ td.a,td.f,td.p,th.n{text-align:right;font-variant-numeric:tabular-nums;white-spa
 .note{color:var(--mut);font-size:12px;margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
 .empty{color:var(--mut);padding:24px 0;text-align:center}
 @media(max-width:680px){
+ .mhide{display:none!important}
  thead{display:none}
- table,tbody,tr,td{display:block;width:100%}
- tr.ev{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:6px 10px;margin:8px 0}
- td{border:0;padding:3px 0;display:flex;justify-content:space-between;gap:12px}
- td::before{content:attr(data-l);color:var(--mut);font-size:12px}
- td.e{flex-direction:column;align-items:flex-start}
- td.e::before{margin-bottom:2px}
+ table,tbody{display:block;width:100%}
+ tr.ev{display:grid;grid-template-columns:1fr 1fr;gap:0 8px;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:5px 9px;margin:6px 0}
+ td{border:0;padding:1px 0;font-size:13px}
+ td::before{display:none}
+ td.t{grid-column:1;color:var(--mut);font-size:12px}
+ td.c{grid-column:2;text-align:right;font-size:12px}
+ td.i{display:none}
+ td.e{grid-column:1/-1;font-weight:600;padding:2px 0 3px}
+ td.e .per,td.e .src{font-weight:400}
+ td.a{grid-column:1}
+ td.a::before{display:inline;content:"Act ";color:var(--mut);font-size:11px}
+ td.p{grid-column:2;text-align:right}
+ td.p::before{display:inline;content:"Prev ";color:var(--mut);font-size:11px}
+ body{font-size:13px}
+ h1{font-size:17px}
+ .wrap{padding:10px}
+ .sub{font-size:11px;margin:0 0 8px}
+ .bar{gap:4px;margin:6px 0}
+ .seg button,.chip{font-size:11px;padding:3px 8px}
+ .flt{gap:4px;margin:3px 0}
+ .flt label{font-size:10px}
+ .dayhead{margin:12px 0 2px;font-size:12px}
+ .note{font-size:11px;margin-top:10px;padding-top:8px}
+ .imp{font-size:10px;padding:1px 5px}
+ select{font-size:11px;padding:3px 6px}
 }
 """
 
@@ -375,8 +395,8 @@ def _body(archive):
     events = [e for e in events if e.get("impact") == "High"]
     tv_idx = _tv_index()
     head = ("<thead><tr><th>Time</th><th>Currency</th><th>Impact</th><th>Event</th>"
-            "<th class='n'>Actual</th><th class='n'>Forecast</th><th class='n'>Previous</th>"
-            "<th>Impact on currency</th></tr></thead>")
+            "<th class='n'>Actual</th><th class='n mhide'>Forecast</th><th class='n'>Previous</th>"
+            "<th class='mhide'>Impact on currency</th></tr></thead>")
     # #2: only events carrying a VERIFIED official schedule go on the calendar days.
     upcoming = [e for e in events if e.get("scheduled") and _future(e)]
     recent = [e for e in events if not (e.get("scheduled") and _future(e))]
