@@ -259,7 +259,7 @@ def _rows(events, tv_idx=None):
             f'<tr class="ev{" " + dcls if dcls else ""}" data-ccy="{_e(ccy)}" data-impact="{_e(ev.get("impact","Low"))}" '
             f'data-day="{day_key}" data-markets="{_e(",".join(markets))}" '
             f'data-status="{_e(ev.get("status","released"))}">'
-            f'<td class="t" data-l="Time">{time_s}</td>'
+            f'<td class="t" data-l="Time" data-ts="{when.strftime("%Y-%m-%dT%H:%M:%SZ") if when else ""}">{time_s}</td>'
             f'<td class="c" data-l="Currency">{CCY_FLAG.get(ccy,"")} {_e(ccy)}</td>'
             f'<td class="i" data-l="Impact">{_impact_chip(ev.get("impact"))}</td>'
             f'<td class="e" data-l="Event">{_e(ev.get("event",""))}'
@@ -311,6 +311,7 @@ tr.dir-sbe{border-left:5px solid var(--dn-s)}tr.dir-be{border-left:3px solid var
 .per{color:var(--mut);font-size:11px}
 .rev{color:var(--md);font-size:11px;border:1px solid var(--md);border-radius:3px;padding:0 3px}
 .chg{font-size:11px}.chg.up{color:var(--up)}.chg.dn{color:var(--dn)}.chg.fl{color:var(--mut)}
+.cd{display:block;font-size:11px;color:var(--md);font-weight:600}
 .dayhead{margin:18px 0 2px;font-size:13px;font-weight:700;color:var(--mut);border-bottom:2px solid var(--line);padding-bottom:4px}
 .updated{color:var(--mut);font-size:12px}
 .note{color:var(--mut);font-size:12px;margin-top:16px;border-top:1px solid var(--line);padding-top:10px}
@@ -388,6 +389,20 @@ _JS = """
  });
  var sel=document.getElementById('market');if(sel)sel.addEventListener('change',function(){state.market=sel.value;apply();});
  apply();
+ function countdown(){
+  var now=Date.now();
+  document.querySelectorAll('td.t[data-ts]').forEach(function(td){
+   var ts=td.getAttribute('data-ts');if(!ts)return;
+   var diff=new Date(ts).getTime()-now;
+   var old=td.querySelector('.cd');
+   if(diff<=0||diff>7*86400000){if(old)old.remove();return;}
+   var d=Math.floor(diff/86400000),h=Math.floor((diff%86400000)/3600000),m=Math.floor((diff%3600000)/60000);
+   var s=d>0?d+'d '+h+'h':h>0?h+'h '+m+'m':m+'m';
+   if(old){old.textContent='in '+s;}
+   else{var sp=document.createElement('span');sp.className='cd';sp.textContent='in '+s;td.appendChild(sp);}
+  });
+ }
+ countdown();setInterval(countdown,60000);
 })();
 """
 
