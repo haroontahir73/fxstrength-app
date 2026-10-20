@@ -493,6 +493,19 @@ table.cotrep{min-width:1100px;width:100%;border-collapse:collapse;font-size:12.5
 .oicard summary::before{content:"\25B8 ";color:var(--mut)}
 .oicard[open] summary::before{content:"\25BE "}
 .oicard .oihint{font-size:12px;margin:8px 0 4px}
+.oi-sum table{min-width:0}
+.s{display:none}
+@media(max-width:560px){
+  .f{display:none}.s{display:inline}
+  .mhide{display:none}
+  .oicard .tw table{min-width:0}
+  .oicard .tw th,.oicard .tw td{padding:5px 6px;font-size:11px}
+  .oicard .tw th{font-size:9px;letter-spacing:0;text-transform:none}
+  .oi-sum th,.oi-sum td{padding:5px 6px;font-size:11px;white-space:nowrap}
+  .oi-sum th{font-size:9px;letter-spacing:0;text-transform:none}
+  .oicard summary{font-size:12px}
+  .oicard .oihint{font-size:11px}
+}
 tr.next td{background:var(--surface2)}
 .fwlead{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);
   border-radius:10px;padding:13px 16px;box-shadow:var(--shadow)}
