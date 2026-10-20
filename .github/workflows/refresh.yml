@@ -69,6 +69,8 @@ jobs:
       # commodity_feed.json is committed by the news-watch loop the moment an alert
       # fires, so the checkout is always at least as fresh as the restored engine/data
       # cache. Pin it too, or an older cached copy silently wins.
+      # oi_history.json / oi_state.json: daily CME OI is committed by the PC task, so the
+      # restored cache (frozen at 16 Oct) was overwriting every newer day. Pin them too.
       - name: Pin committed override files
         run: |
           git checkout -- \
@@ -77,7 +79,9 @@ jobs:
             engine/data/rate_expectations_manual.json \
             engine/data/speech_tone.json \
             engine/data/commodity_feed.json \
-            engine/data/indices_manual.json
+            engine/data/indices_manual.json \
+            engine/data/oi_history.json \
+            engine/data/oi_state.json
 
       - name: Choose mode
         id: mode
