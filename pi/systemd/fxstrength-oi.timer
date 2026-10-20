@@ -1,0 +1,14 @@
+# Hourly OI check. oi.py decides whether a fetch is due (checks retry windows,
+# whether today's data is already captured, etc.), so most runs are instant no-ops.
+[Unit]
+Description=FX Strength Desk: hourly CME OI capture
+
+[Timer]
+OnBootSec=5min
+OnCalendar=*:07
+RandomizedDelaySec=120
+AccuracySec=60s
+Persistent=true
+
+[Install]
+WantedBy=timers.target

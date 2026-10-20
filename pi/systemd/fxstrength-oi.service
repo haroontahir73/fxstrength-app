@@ -1,0 +1,27 @@
+# Installed by pi/install_oi.sh, which fills in @USER@ and @MODE@.
+# A one-shot OI capture started by fxstrength-oi.timer.
+[Unit]
+Description=FX Strength Desk: daily CME Open Interest capture and push
+Documentation=https://github.com/haroontahir73/fxstrength-app/blob/main/pi/README.md
+Wants=network-online.target
+After=network-online.target time-sync.target
+
+[Service]
+Type=oneshot
+User=@USER@
+Environment=FXOI_MODE=@MODE@
+ExecStart=/bin/bash @SCRIPT@
+StateDirectory=fxstrength-oi
+StateDirectoryMode=0700
+LoadCredential=github_token:/etc/fxstrength-cot/github_token
+TimeoutStartSec=5min
+Nice=10
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
