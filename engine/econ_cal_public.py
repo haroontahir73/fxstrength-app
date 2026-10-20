@@ -465,12 +465,11 @@ def _meta(archive):
 def panel(archive=None):
     archive = archive if archive is not None else _load()
     when, ok, n = _meta(archive)
-    note = ("Official-source data (public-domain / open-licence agencies). <b>HIGH-impact "
-            "only.</b> <b>Latest releases</b> are the most recent published figures, not a "
-            "forward schedule; upcoming events appear only when sourced from an official "
-            "release calendar. No consensus forecast exists on this path, so Forecast shows "
-            "&ldquo;&mdash;&rdquo; and the arrow by Actual marks change vs Previous only "
-            "&mdash; not a trading signal. <b>Impact on currency</b> is a direction tag "
+    note = ("Official sources + <a href='https://www.myfxbook.com/forex-economic-calendar' "
+            "target='_blank'>Myfxbook</a> schedule (used with permission). <b>HIGH-impact "
+            "only.</b> Upcoming events are sourced from Myfxbook; actual values come from "
+            "official government agencies. Forecast shows &ldquo;&mdash;&rdquo; when no "
+            "official consensus is available. <b>Impact on currency</b> is a direction tag "
             "(↑ Bullish / ↓ Bearish / → Neutral) computed internally against "
             "a non-public consensus forecast and should be read as context, not a signal.")
     deg = ' &middot; <span style="color:var(--md)">some sources unavailable</span>' if archive.get("degraded") else ""

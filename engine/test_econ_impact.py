@@ -139,10 +139,10 @@ def t_frozen_and_safety():
     g = "safety"
     import divergence_backtest as bt
     check(g, "strategy fingerprint unchanged (0bcac9b16befcd54)", bt.fingerprint() == "0bcac9b16befcd54")
-    # the module reads only local files, no network host
+    # the public renderer reads only local files, no network calls
     src = (Path(__file__).parent / "econ_cal_public.py").read_text()
-    check(g, "econ_cal_public references no CME / Myfxbook / network host",
-          not re.search(r"(?i)cmegroup|myfxbook\.com|urlopen|urlretrieve", src))
+    check(g, "econ_cal_public has no network calls (urlopen/urlretrieve)",
+          not re.search(r"(?i)cmegroup|urlopen|urlretrieve", src))
     check(g, "no network call escaped this suite", CALLS == [])
 
 

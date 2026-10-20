@@ -1,9 +1,13 @@
-"""PR #14 — Economic calendar data layer (official sources, keyless v1).
+"""PR #14 — Economic calendar data layer (official sources + Myfxbook schedule).
 
 Fetches high-impact macro releases + central-bank rates from public-domain / open-licence
 official sources, normalises them to one event schema, writes data/econ_calendar.json for
 the public page (econ_cal_public.py), and appends point-in-time observations to a history
 store for later research (first-release value + revisions + timestamps + source).
+
+Additionally fetches upcoming events from Myfxbook (with their permission) to provide a
+forward-looking schedule — the official sources only give released data, not future dates.
+Myfxbook events are deduplicated against official data so official sources take precedence.
 
 INDEPENDENCE: this module is self-contained. It does NOT import, read or write
 fetch_calendar.py / calendar.json, and nothing here feeds the scoring pipeline. A failure
@@ -14,19 +18,17 @@ Keyless v1 sources (verified live on the verify/econ-endpoints branch):
   USD  BLS (CPI, unemployment, payrolls)          EUR  Eurostat HICP + ECB policy rate
   GBP  ONS CPI (website JSON) + BoE Bank Rate      CAD  StatCan CPI + Bank of Canada rate
   AUD  ABS CPI (best-effort) + RBA cash rate
+  ALL  Myfxbook economic calendar (forward schedule, with permission)
 Deferred (need a free key or more endpoint work; documented in the PR):
   USD FRED release calendar, JPY e-Stat, NZD Stats NZ, CHF BFS/SNB, WTI EIA.
-
-NOTE ON TIMING: the keyless DATA apis give the reference period + value, not a scheduled
-release datetime. Rate series are dated by their observation date; period indicators are
-dated by the source's own "updated" stamp when present, else left undated (period shown in
-the label). A precise forward release-schedule is the "later" enhancement (FRED calendar).
 
 The parse_* functions are PURE (text/bytes -> events) so they unit-test against fixtures
 with no network. fetch()/build() are the thin live wrappers.
 """
 import datetime as dt
+import html.parser
 import json
+import re
 import urllib.request
 import urllib.error
 from pathlib import Path
@@ -291,6 +293,228 @@ def parse_abs_cpi(text, source_url=""):
                      source_url=source_url)]
 
 
+# ---------------------------------------------------------------- Myfxbook calendar
+# With Myfxbook's permission, we scrape their public economic calendar to get a
+# forward-looking schedule of upcoming events (the official sources above only
+# give released data, not a forward schedule).
+
+_MYFX_CCYS = {"USD", "EUR", "GBP", "JPY", "CHF", "CAD", "AUD", "NZD"}
+_MYFX_URL = "https://www.myfxbook.com/forex-economic-calendar"
+
+
+class _MyfxParser(html.parser.HTMLParser):
+    """Extracts events from the Myfxbook economic calendar HTML table."""
+
+    def __init__(self):
+        super().__init__()
+        self.events = []
+        self._in_row = False
+        self._cells = []
+        self._cur = ""
+        self._in_td = False
+        self._td_class = ""
+        self._current_date = None
+        self._td_count = 0
+
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        if tag == "tr" and a.get("class", "").startswith("calendar_row"):
+            self._in_row = True
+            self._cells = []
+            self._td_count = 0
+        elif tag == "td" and self._in_row:
+            self._in_td = True
+            self._td_class = a.get("class", "")
+            self._cur = ""
+            self._td_count += 1
+        elif tag == "span" and self._in_row:
+            pass  # span contents collected via handle_data
+
+    def handle_data(self, data):
+        if self._in_td:
+            self._cur += data.strip()
+
+    def handle_endtag(self, tag):
+        if tag == "td" and self._in_td:
+            self._in_td = False
+            self._cells.append((self._td_class, self._cur.strip()))
+        elif tag == "tr" and self._in_row:
+            self._in_row = False
+            self._process_row()
+
+    def _process_row(self):
+        cells = self._cells
+        if len(cells) < 6:
+            return
+        # Myfxbook row order: date/time | time-left | (icon) | currency | impact | event | actual | forecast | previous
+        # The cell contents vary; we find currency and event by content pattern
+        ccy, event_name, impact, actual, forecast, prev = "", "", "Medium", "", "", ""
+        time_str = ""
+        for cls, val in cells:
+            if "calendarDate" in cls:
+                # Parse the date string like "Oct 20, 01:00"
+                time_str = val
+            elif "calendar_impact" in cls or "calendarImpact" in cls:
+                if "high" in cls.lower() or "calendar_impact_high" in cls or "redFont" in val:
+                    impact = "High"
+                elif "medium" in cls.lower() or "calendar_impact_medium" in cls or "orangeFont" in val:
+                    impact = "Medium"
+                elif "low" in cls.lower() or "calendar_impact_low" in cls:
+                    impact = "Low"
+            elif len(val) == 3 and val.upper() in _MYFX_CCYS:
+                ccy = val.upper()
+            elif not ccy and re.match(r"^[A-Z]{3}$", val):
+                ccy = val
+
+        # Try to find event name — usually the longest text cell after currency
+        text_cells = [v for c, v in cells if len(v) > 3 and v.upper() not in _MYFX_CCYS
+                      and not re.match(r"^[\d.,%KMBT€$£¥-]+$", v)
+                      and v not in ("High", "Medium", "Low", "No Impact")]
+        if text_cells:
+            event_name = text_cells[0]
+
+        if not ccy or not event_name:
+            return
+
+        # Parse actual/forecast/previous from the last numeric-ish cells
+        num_cells = [v for c, v in cells[-4:] if v and v != "\xa0"]
+
+        self.events.append({
+            "ccy": ccy, "event": event_name, "impact": impact,
+            "time_str": time_str, "actual": num_cells[0] if len(num_cells) > 0 else "",
+            "forecast": num_cells[1] if len(num_cells) > 1 else "",
+            "previous": num_cells[2] if len(num_cells) > 2 else "",
+        })
+
+
+def fetch_myfxbook():
+    """Fetch upcoming events from Myfxbook economic calendar. Returns list of normalised events."""
+    try:
+        req = urllib.request.Request(_MYFX_URL, headers={
+            "User-Agent": "fxstrength-desk/1.0 (+https://haroontahir73.github.io/fxstrength-app)",
+            "Accept": "text/html",
+        })
+        with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+            raw = r.read().decode("utf-8", "replace")
+    except Exception:                                                # noqa: BLE001
+        return []
+
+    return parse_myfxbook(raw)
+
+
+def parse_myfxbook(html_text):
+    """Parse Myfxbook HTML calendar into normalised events."""
+    events = []
+    now = NOW()
+    year = now.year
+
+    # Myfxbook renders events in table rows with class "calendar_row*"
+    # Try structured parsing first
+    parser = _MyfxParser()
+    try:
+        parser.feed(html_text)
+    except Exception:                                                # noqa: BLE001
+        pass
+
+    if parser.events:
+        for ev in parser.events:
+            ccy = ev["ccy"]
+            if ccy not in _MYFX_CCYS:
+                continue
+            # Parse time string like "Oct 20, 01:00" or "Oct 20"
+            when = _parse_myfx_time(ev.get("time_str", ""), year, now)
+            is_future = when and when > now - dt.timedelta(hours=1)
+            status = "scheduled" if is_future else "released"
+            actual = ev.get("actual", "").strip()
+            has_actual = bool(actual and actual not in ("", "-", "\xa0", "—"))
+            if has_actual:
+                status = "released"
+
+            events.append(mk_event(
+                ccy, ev["event"], "macro", ev["impact"],
+                actual_raw=_f(actual) if has_actual else None,
+                previous_raw=_f(ev.get("previous", "")) if ev.get("previous") else None,
+                when=when, has_time=bool(when),
+                status=status, scheduled=True,
+                source="Myfxbook", source_url=_MYFX_URL,
+            ))
+        return events
+
+    # Fallback: regex-based extraction for simpler HTML structures
+    # Match rows that contain currency codes and event descriptions
+    row_pat = re.compile(
+        r'<tr[^>]*class="calendar_row[^"]*"[^>]*>(.*?)</tr>', re.S | re.I
+    )
+    for m in row_pat.finditer(html_text):
+        row_html = m.group(1)
+        # Extract currency
+        ccy_m = re.search(r'>([A-Z]{3})</(?:td|span)', row_html)
+        if not ccy_m or ccy_m.group(1) not in _MYFX_CCYS:
+            continue
+        ccy = ccy_m.group(1)
+
+        # Extract event name — look for the main text cell
+        name_m = re.search(r'calendarEventName[^>]*>([^<]+)', row_html)
+        if not name_m:
+            # Try any link text that looks like an event name
+            name_m = re.search(r'<a[^>]*>([A-Z][^<]{5,})</a>', row_html)
+        if not name_m:
+            continue
+        event_name = name_m.group(1).strip()
+
+        # Impact
+        impact = "Medium"
+        if re.search(r'calendar_impact_high|impact.*high|redFont', row_html, re.I):
+            impact = "High"
+        elif re.search(r'calendar_impact_low|impact.*low', row_html, re.I):
+            impact = "Low"
+
+        # Time
+        time_m = re.search(r'calendarDate[^>]*>([^<]+)', row_html)
+        time_str = time_m.group(1).strip() if time_m else ""
+        when = _parse_myfx_time(time_str, year, now)
+        is_future = when and when > now - dt.timedelta(hours=1)
+
+        events.append(mk_event(
+            ccy, event_name, "macro", impact,
+            when=when, has_time=bool(when),
+            status="scheduled" if is_future else "released",
+            scheduled=True,
+            source="Myfxbook", source_url=_MYFX_URL,
+        ))
+
+    return events
+
+
+def _parse_myfx_time(s, year, now):
+    """Parse Myfxbook time strings like 'Oct 20, 01:00' or 'Oct 20'. Returns UTC datetime."""
+    if not s:
+        return None
+    s = s.strip()
+    # Try "Mon DD, HH:MM" format
+    m = re.match(r"(\w{3})\s+(\d{1,2}),?\s+(\d{1,2}):(\d{2})", s)
+    if m:
+        mon, day, hr, mn = m.group(1), int(m.group(2)), int(m.group(3)), int(m.group(4))
+        try:
+            month = dt.datetime.strptime(mon, "%b").month
+            # Handle year rollover (Dec events when now is Jan)
+            y = year if month >= now.month - 1 else year + 1
+            return dt.datetime(y, month, day, hr, mn, tzinfo=dt.timezone.utc)
+        except ValueError:
+            return None
+    # Try "Mon DD" without time
+    m = re.match(r"(\w{3})\s+(\d{1,2})", s)
+    if m:
+        mon, day = m.group(1), int(m.group(2))
+        try:
+            month = dt.datetime.strptime(mon, "%b").month
+            y = year if month >= now.month - 1 else year + 1
+            return dt.datetime(y, month, day, 12, 0, tzinfo=dt.timezone.utc)
+        except ValueError:
+            return None
+    return None
+
+
 # ---------------------------------------------------------------- live sources
 SOURCES = [
     ("USD-CPI", "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SA0", {}, parse_bls_cpi),
@@ -332,6 +556,32 @@ def build(data=None, offline=False):
             status[name] = {"ok": True, "as_of": now.isoformat(), "n": len(evs), "ccy": src_label}
         except Exception as e:                                    # noqa: BLE001
             status[name] = {"ok": False, "error": f"{type(e).__name__}: {e}"[:160], "ccy": src_label}
+
+    # Myfxbook forward-looking calendar (with permission)
+    try:
+        mfx = fetch_myfxbook()
+        if mfx:
+            # Deduplicate: keep official-source events over Myfxbook when both exist
+            # for the same (currency, event-name-tokens) pair
+            official_keys = set()
+            for e in events:
+                toks = frozenset(w.lower() for w in re.findall(r"[A-Za-z]+", e.get("event", "")) if len(w) >= 3)
+                official_keys.add((e["currency"], toks))
+            for e in mfx:
+                toks = frozenset(w.lower() for w in re.findall(r"[A-Za-z]+", e.get("event", "")) if len(w) >= 3)
+                # Only add if no official event covers same (ccy, tokens) with ≥50% overlap
+                dominated = False
+                for oc, ot in official_keys:
+                    if oc == e["currency"] and ot and toks and len(ot & toks) / max(len(ot), len(toks)) > 0.4:
+                        dominated = True
+                        break
+                if not dominated:
+                    events.append(e)
+            status["Myfxbook"] = {"ok": True, "as_of": now.isoformat(), "n": len(mfx), "ccy": "ALL"}
+        else:
+            status["Myfxbook"] = {"ok": False, "error": "no events parsed", "ccy": "ALL"}
+    except Exception as e:                                           # noqa: BLE001
+        status["Myfxbook"] = {"ok": False, "error": f"{type(e).__name__}: {e}"[:160], "ccy": "ALL"}
 
     _append_history(events, now, data)
     archive = {"built_at": now.isoformat(), "data_as_of": now.isoformat(),
