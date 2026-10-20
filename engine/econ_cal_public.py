@@ -225,22 +225,51 @@ def _impact_chip(level):
     return f'<span class="imp {cls}">{_e(level or "Low")}</span>'
 
 
+def _parse_num(v):
+    """Best-effort parse of a display value like '3.7%' or '29K' to float."""
+    if not v or v == "&mdash;":
+        return None
+    import re as _re
+    v = _re.sub(r'[%,]', '', str(v).strip())
+    mult = 1
+    if v.upper().endswith('K'):
+        v, mult = v[:-1], 1e3
+    elif v.upper().endswith('M'):
+        v, mult = v[:-1], 1e6
+    elif v.upper().endswith('B'):
+        v, mult = v[:-1], 1e9
+    try:
+        return float(v) * mult
+    except (ValueError, TypeError):
+        return None
+
+
 def _dir_class(ev, tv_idx):
     """Return a CSS class for the card colour based on surprise direction/strength."""
     if ev.get("actual") in (None, ""):
         return ""
     s = _match_surprise(ev, tv_idx)
-    if s is None:
+    if s is not None:
+        if s > 0.25:
+            return "dir-sbu"   # strong bullish
+        if s > NEUTRAL_BAND:
+            return "dir-bu"    # mild bullish
+        if s < -0.25:
+            return "dir-sbe"   # strong bearish
+        if s < -NEUTRAL_BAND:
+            return "dir-be"    # mild bearish
+        return ""              # neutral — no colour
+    # Fallback: compare actual vs previous directly
+    a = _parse_num(ev.get("actual"))
+    p = _parse_num(ev.get("previous"))
+    if a is None or p is None or p == 0:
         return ""
-    if s > 0.25:
-        return "dir-sbu"   # strong bullish
-    if s > NEUTRAL_BAND:
-        return "dir-bu"    # mild bullish
-    if s < -0.25:
-        return "dir-sbe"   # strong bearish
-    if s < -NEUTRAL_BAND:
-        return "dir-be"    # mild bearish
-    return ""              # neutral — no colour
+    pct = abs(a - p) / abs(p)
+    if a > p:
+        return "dir-sbu" if pct > 0.05 else "dir-bu"
+    if a < p:
+        return "dir-sbe" if pct > 0.05 else "dir-be"
+    return ""
 
 
 def _rows(events, tv_idx=None):
