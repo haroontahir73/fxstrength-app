@@ -668,12 +668,45 @@ CSS = """<style>
 .oi-tw .up{color:#3fbe83} .oi-tw .dn{color:#ec6a5e} .oi-tw .na{color:var(--mut,#8a8a94)}
 .oi-tw .st{font-size:10.5px;white-space:nowrap}
 .oi-tw .oi-day{white-space:nowrap}
-@media(max-width:560px){.oi-tw .vol{display:none}}
+/* phone: compact, every column visible, no sideways scroll */
+.oi-tw .s{display:none}
+@media(max-width:560px){
+  .oi-tw{font-size:11px;table-layout:auto}
+  .oi-tw th{font-size:9px;letter-spacing:0;padding:4px 3px;text-transform:none}
+  .oi-tw td{padding:3px 3px}
+  .oi-tw .f{display:none} .oi-tw .s{display:inline}
+  .oi-tw .st,.oi-tw .oi-tag{font-size:9px}
+  .oi-tag{padding:1px 5px}
+  .oi-hist h3{font-size:13px;margin:14px 0 0}
+  .oi-hist h3 small{display:block;margin:1px 0 0;font-size:10.5px}
+  .oi-row{grid-template-columns:62px 58px 1fr;gap:6px 8px;padding:8px 0}
+  .oi-row>:nth-child(4){grid-column:1/-1}
+  .oi-nm{font-size:13px} .oi-num{font-size:12px}
+  .oi-tag{white-space:normal} .oi-note{font-size:11.5px}
+  .oi-wrap h2{font-size:16px;margin:18px 0 4px} .oi-sub{font-size:12px}
+}
 </style>"""
 
 
 SHORT_STATE = {"NEW MONEY LONG": "new longs", "SHORT COVERING": "short cover",
                "NEW MONEY SHORT": "new shorts", "LONG LIQUIDATION": "long liq"}
+
+
+def _k(n):
+    """881,290 -> 881k ; 1,832,500 -> 1.83m - short form for the phone layout."""
+    a = abs(n)
+    if a >= 1_000_000:
+        return f"{n/1_000_000:.2f}m"
+    if a >= 10_000:
+        return f"{n/1_000:.0f}k"
+    if a >= 1_000:
+        return f"{n/1_000:.1f}k"
+    return f"{n}"
+
+
+def _fs(full, short):
+    """Full text on desktop, short on a phone."""
+    return f"<span class='f'>{full}</span><span class='s'>{short}</span>"
 
 
 def _daylabel(iso):
@@ -703,14 +736,14 @@ def history_tables(hist, prices):
                   f"<td class='st'><span class='oi-tag {r['cls']}'>"
                   f"{SHORT_STATE.get(r['state'], r['state'])}</span></td>")
             body.append(
-                f"<tr><td class='oi-day'>{_daylabel(r['date'])}</td>{pc}"
-                f"<td class='{'up' if r['chg'] > 0 else 'dn'}'>{r['chg']:+,}</td>"
-                f"<td class='vol'>{r['oi']:,}</td>{st}</tr>")
+                f"<tr><td class='oi-day'>{_fs(_daylabel(r['date']), _daylabel(r['date'])[:6])}</td>{pc}"
+                f"<td class='{'up' if r['chg'] > 0 else 'dn'}'>{_fs(format(r['chg'], '+,'), ('+' if r['chg'] > 0 else '') + _k(r['chg']))}</td>"
+                f"<td class='vol'>{_fs(format(r['oi'], ','), _k(r['oi']))}</td>{st}</tr>")
         blocks.append(
             f"<h3>{inst}<small>{len(rows)} days &middot; net "
             f"{net:+,} contracts &middot; {up} of {len(rows)} days up</small></h3>"
             "<table class='oi-tw'><thead><tr><th>Date</th><th>Price</th>"
-            "<th>OI change</th><th class='vol'>Open interest</th><th>Read</th></tr></thead>"
+            f"<th>{_fs('OI change', 'ΔOI')}</th><th class='vol'>{_fs('Open interest', 'OI')}</th><th>Read</th></tr></thead>"
             f"<tbody>{''.join(body)}</tbody></table>")
     if not blocks:
         return ""
@@ -739,11 +772,11 @@ def options_tables(hist, n=TABLE_DAYS):
         body = []
         for day, oiopt, chgopt in rows:
             cc = ("<td class='na'>&mdash;</td>" if chgopt is None else
-                  f"<td class='{'up' if chgopt > 0 else 'dn'}'>{chgopt:+,}</td>")
-            body.append(f"<tr><td class='oi-day'>{_daylabel(day)}</td>{cc}"
-                        f"<td class='vol'>{oiopt:,}</td></tr>")
+                  f"<td class='{'up' if chgopt > 0 else 'dn'}'>{_fs(format(chgopt, '+,'), ('+' if chgopt > 0 else '') + _k(chgopt))}</td>")
+            body.append(f"<tr><td class='oi-day'>{_fs(_daylabel(day), _daylabel(day)[:6])}</td>{cc}"
+                        f"<td class='vol'>{_fs(format(oiopt, ','), _k(oiopt))}</td></tr>")
         blocks.append(f"<h3>{inst}</h3><table class='oi-tw'><thead><tr><th>Date</th>"
-                      "<th>Options OI change</th><th class='vol'>Options OI</th></tr></thead>"
+                      f"<th>{_fs('Options OI change', 'ΔOpt OI')}</th><th class='vol'>{_fs('Options OI', 'Opt OI')}</th></tr></thead>"
                       f"<tbody>{''.join(body)}</tbody></table>")
     if not blocks:
         return ""
