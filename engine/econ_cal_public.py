@@ -351,7 +351,7 @@ tr.dir-sbe{border-left:3px solid var(--dn)}tr.dir-be{border-left:3px solid var(-
 _JS = """
 (function(){
  var state={day:'all',ccy:new Set(),impact:new Set(),market:''};
- function dayKey(d){return d.toISOString().slice(0,10);}
+ function dayKey(d){var m=d.getMonth()+1,dy=d.getDate();return d.getFullYear()+'-'+(m<10?'0':'')+m+'-'+(dy<10?'0':'')+dy;}
  var now=new Date();var today=dayKey(now);
  var tmr=new Date(now.getTime()+864e5);var tomorrow=dayKey(tmr);
  function weekEnd(n){var d=new Date(now);var dow=(d.getDay()+6)%7;d.setDate(d.getDate()+(6-dow)+7*n);return dayKey(d);}
@@ -372,8 +372,12 @@ _JS = """
   document.querySelectorAll('tr.ev').forEach(function(tr){var v=show(tr);tr.style.display=v?'':'none';if(v)any=true;});
   document.querySelectorAll('.dayhead').forEach(function(h){
     var sib=h.nextElementSibling,vis=false;
-    while(sib&&!sib.classList.contains('dayhead')){if(sib.classList&&sib.classList.contains('ev')&&sib.style.display!=='none')vis=true;sib=sib.nextElementSibling;}
+    while(sib&&!sib.classList.contains('dayhead')){
+      sib.querySelectorAll('tr.ev').forEach(function(r){if(r.style.display!=='none')vis=true;});
+      sib=sib.nextElementSibling;
+    }
     h.style.display=vis?'':'none';
+    if(h.nextElementSibling&&h.nextElementSibling.tagName==='TABLE')h.nextElementSibling.style.display=vis?'':'none';
   });
   var e=document.getElementById('empty');if(e)e.style.display=any?'none':'';
  }
