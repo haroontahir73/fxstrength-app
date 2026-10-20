@@ -83,7 +83,7 @@ def t_no_tv_match():
     h = ecp.panel(arch)
     # the arrow symbols only appear inside the Impact column cell; the note text uses them
     # too, so look at the <td class="im"> cell content instead
-    row_imp = re.search(r'<td class="im"[^>]*>(.*?)</td>', h).group(1)
+    row_imp = re.search(r'<td class="im[^"]*"[^>]*>(.*?)</td>', h).group(1)
     check(g, "no TradingView match -> em-dash in Impact cell, no direction tag",
           "&mdash;" in row_imp and "Bullish" not in row_imp and "Bearish" not in row_imp
           and "Neutral" not in row_imp)
@@ -99,7 +99,7 @@ def t_upcoming_shows_dash():
     ])
     h = ecp.panel(arch)
     row = re.search(r'BoE Rate Decision.*?</tr>', h, re.S).group(0)
-    row_imp = re.search(r'<td class="im"[^>]*>(.*?)</td>', row).group(1)
+    row_imp = re.search(r'<td class="im[^"]*"[^>]*>(.*?)</td>', row).group(1)
     check(g, "upcoming (no actual) shows em-dash in Impact cell",
           "&mdash;" in row_imp and "Bullish" not in row_imp and "Bearish" not in row_imp)
 
@@ -132,7 +132,7 @@ def t_forecast_still_hidden():
     check(g, "TradingView forecast is NOT displayed in the public page (B2 contract)",
           "3.6%" not in h)
     check(g, "Forecast cell still shows the em-dash on this official-source path",
-          '<td class="f" data-l="Forecast">&mdash;</td>' in h or '>&mdash;</td>' in h)
+          '<td class="f mhide" data-l="Forecast">&mdash;</td>' in h or '>&mdash;</td>' in h)
 
 
 def t_frozen_and_safety():
