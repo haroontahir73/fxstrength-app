@@ -134,7 +134,7 @@ ul.news li.empty{display:block;color:var(--mut)}
 table{border-collapse:collapse;width:100%;font-size:13px}
 .tw table{min-width:560px}
 .oi-hist .tw{margin-top:6px}
-.oi-hist table.oi-tw{min-width:420px}
+.oi-hist table.oi-tw{min-width:0}  /* fits a phone, no sideways scroll */
 th{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--mut);font-weight:500;padding:11px 16px;
   border-bottom:1px solid var(--line);white-space:nowrap}
