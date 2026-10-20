@@ -1,5 +1,61 @@
 [
  {
+  "when": "20 Oct 16:15 UTC",
+  "iso": "2026-10-20T16:15:16.659816+00:00",
+  "cat": "oil_supply_tight",
+  "title": "TALK | OIL LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: Iran's Qalbiaf tells Pakistan Army Chief that the US cannot gain Iran's trust unless it implements Tehran's proposal to reopen the Strait of Hormuz - Telegram\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191   look for longs - the direct hit (talk, not action yet)\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,148 (-0.3%)   Silver 57.95 (+1.7%)   WTI 97.57 (-5.9%)   DXY 101.76 (-0.2%)   US10Y 5.12 (-0.3%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://www.financialjuice.com/News/9813411/Irans-Qalbiaf-tells-Pakistan-Army-Chief-that-the-US-cannot-gain-Irans-trust-unless-it-implements-Tehrans-proposal-to-reopen-the-Strait-of-Hormuz---Telegram.aspx?xy=rss",
+  "talk": true,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4147.7,
+   "Silver": 57.955,
+   "WTI": 97.57
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "FinancialJuice: Iran's Qalbiaf tells Pakistan Army Chief that the US cannot gain Iran's trust unless it implements Tehran's proposal to reopen the Strait of Hormuz - Telegram",
+   "src": "",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "the direct hit (talk, not action yet)",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,148 (-0.3%)   Silver 57.95 (+1.7%)   WTI 97.57 (-5.9%)   DXY 101.76 (-0.2%)   US10Y 5.12 (-0.3%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "20 Oct 15:58 UTC",
   "iso": "2026-10-20T15:58:47.513021+00:00",
   "cat": "rates_down",
@@ -3295,62 +3351,6 @@
      "strength": 3,
      "call": "STRONG \u2014 go hunt shorts",
      "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
-  }
- },
- {
-  "when": "18 Oct 00:46 UTC",
-  "iso": "2026-10-18T00:46:15.937514+00:00",
-  "cat": "oil_supply_loose",
-  "title": "TALK | OIL SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nRepublican lawmaker hits out at Trump over Russia sanctions waiver, says he is 'prolonging the war, not ending it' | Hindustan Times - Hindustan Times  (Hindustan Times)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193   look for shorts - extra barrels push the price down (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxOZi11Zk1hMHg0Nkx4WWtyVm1mazFFRWhScTRGWV9HOHBxMk9oRDZWaGxyeGh6T2ZsRUVqQVJsSkJKR0JzT0daOHBzMThPWml1TFM4SVlrLUF6Q1lMUk42MXlUb0dReVVQMm12ckVvb1l4Qm1QcVFEM183MUJ1RC1WNXUzTEZtU3R5V1JtR0t0ZmVLME1LTFh6Ul9mRXB5aUwzNDItbzlsTzl3RGM2M2Vtd29ZQ1dYRFpFYkp6aEhpS1JGZzE4QThWRnZfa3k2UldMd2dIV3R1cWV6ZV8xVjMwd2RSM3hKb21KdlFoSWZjeHlQOE5pOEVfUURvU1pEYzZKUFZPbllGVDhtNzlQOGfSAZMCQVVfeXFMTktpOWx5R3p5QmNvQnRPeDZtYnF3TWNHejdXa29qZXB3RHhHcVQ5YThvRUdoVENMcDZheGlIb21tSGVWLW5NaUIycGIxcm5VTTZZMFBSMTdEZ0NJRWJDbWZhT2N0S29ieGdudE5uS2ZYN1JGcEF0b2tnY1Q0YW90aVA3YXlGQmNaSkQ2RS1ZeWlEUjlrd1VweTU3ZllWWG5CUG1uWFZaOTJ6TDZIQ0ZuRHFXeEhqb2RtZWxJMFI5NkNMUlBhbzE1TXRRdXVFeTI1OWNneGZqUmkxaUJjSE1USnlRVVZBeTZEVUh3Z09GWEZPOGZIX0doZkZXRVVremZCQUs0NHZOaDBFaWduX0pxNHhNd1k?oc=5",
-  "talk": true,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4181.1,
-   "Silver": 57.305,
-   "WTI": 99.02
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "Republican lawmaker hits out at Trump over Russia sanctions waiver, says he is 'prolonging the war, not ending it' | Hindustan Times - Hindustan Times",
-   "src": "Hindustan Times",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "extra barrels push the price down (talk, not action yet)",
      "record": "NOT TESTED - no history to judge this on"
     }
    ],
