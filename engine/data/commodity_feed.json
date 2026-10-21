@@ -1,5 +1,61 @@
 [
  {
+  "when": "21 Oct 23:30 UTC",
+  "iso": "2026-10-21T23:30:28.493893+00:00",
+  "cat": "oil_supply_loose",
+  "title": "OIL STRONG SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nTrump lashes out at reporters pressing him on Russia sanctions waiver - Yahoo News Canada  (Yahoo News Canada)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,144 (+0.0%)   Silver 57.72 (+0.0%)   WTI 97.95 (-3.8%)   DXY 101.69 (-0.0%)   US10Y 5.15 (+0.6%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPY2hUN1lBejNvbWk0WllsZTFYT1lCWnAtRldpcVZpSGZLcWU2Nm1PWGl6QUs3bUhZR1ByLV9JZGFTSkFsYlFja0IxTzJKZEJDREdXVm5nSEdqRk5QcG9KODNEaWozUHVKTXJpTHVJSElQUnIwUDU1aV90UWZnWDFpT3dB?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4144.5,
+   "Silver": 57.72,
+   "WTI": 97.95
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "Trump lashes out at reporters pressing him on Russia sanctions waiver - Yahoo News Canada",
+   "src": "Yahoo News Canada",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "extra barrels push the price down",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,144 (+0.0%)   Silver 57.72 (+0.0%)   WTI 97.95 (-3.8%)   DXY 101.69 (-0.0%)   US10Y 5.15 (+0.6%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
   "when": "21 Oct 22:05 UTC",
   "iso": "2026-10-21T22:05:15.948543+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,192 (+0.3%)   Silver 57.42 (+0.8%)   WTI 97.58 (-3.8%)   DXY 101.84 (+0.0%)   US10Y 5.10 (+0.2%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "19 Oct 00:16 UTC",
-  "iso": "2026-10-19T00:16:09.791005+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nTrump defends Russia sanctions waiver as Zelenskyy rift deepens - The National  (The National)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,204 (+0.6%)   Silver 57.53 (+0.9%)   WTI 97.52 (-3.8%)   DXY 101.78 (-0.1%)   US10Y 5.10 (+0.2%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOQXZGdEpScFdkQ2ZNMDVhUWNtSXhMRmNLOUVaX0I5WHBWUXJkdWdZNmV3RXpBbEtPd2stSHdVRzM3dy1OdWlfWEl6Q0s0S2hEaTF4QVVZNEpIYUo3R0ZSOFViRERneTFDbmxOeUJVX2tGZTBlWVRVVUZaaElSUU90M2JvTjRJeUJNdGJaY21YXzAwRHdqdWhkX1k0RVNCSzZ4bWlfckduUXBWSHhDYVcxdnJ3?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4204.5,
-   "Silver": 57.53,
-   "WTI": 97.52
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "Trump defends Russia sanctions waiver as Zelenskyy rift deepens - The National",
-   "src": "The National",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,204 (+0.6%)   Silver 57.53 (+0.9%)   WTI 97.52 (-3.8%)   DXY 101.78 (-0.1%)   US10Y 5.10 (+0.2%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
