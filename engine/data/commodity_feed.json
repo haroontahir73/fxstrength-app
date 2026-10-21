@@ -1,5 +1,61 @@
 [
  {
+  "when": "21 Oct 03:08 UTC",
+  "iso": "2026-10-21T03:08:46.160775+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nNew Zealand Dollar softens below 0.5700 on RBNZ rate hike odds, CPI inflation data in focus - FXStreet  (FXStreet)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,136 (-0.2%)   Silver 57.63 (-0.1%)   WTI 99.22 (-2.5%)   DXY 101.78 (+0.1%)   US10Y 5.12 (-0.4%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOcnFQeXF2cldNMnlnWmF2VWxrbjJNeU10MTRTdkE0RFcwS2dMLU9Gc0k0bjlfOU1OS0lDV3VHTldxT0FZVV93RS1kbWtHdWxNZjVHT1UxdGlOeE0tSXRrcS1qTUwweEhvSjVGYWxwZ3RlM2JlNk9rb0g1TDQtQ2EyU3pPc0RKQmVQY1R0TlA5MTlmQkw4Qjhob1lEdVlYYlN5NTF1MmNJODBXUW9tZ1hWV2dkUzljcUZnd25tcDZ3N2Z4LUJPb0xTRUZxWG4?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4135.5,
+   "Silver": 57.635,
+   "WTI": 99.22
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "New Zealand Dollar softens below 0.5700 on RBNZ rate hike odds, CPI inflation data in focus - FXStreet",
+   "src": "FXStreet",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,136 (-0.2%)   Silver 57.63 (-0.1%)   WTI 99.22 (-2.5%)   DXY 101.78 (+0.1%)   US10Y 5.12 (-0.4%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "20 Oct 23:11 UTC",
   "iso": "2026-10-20T23:11:25.376559+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "18 Oct 06:34 UTC",
-  "iso": "2026-10-18T06:34:56.076219+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nBeyond immediate relief, India has little to celebrate over Trump\u2019s freezing of Russian oil sanctions - Firstpost  (Firstpost)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNemJBb0MtWXFCMVRlZTg2M0g2cGMxb2tDYTJOOW14b3hCakppSjhXYzRBVERFZXUzb1lTQ1NKanBWY043TkNTd3hRZXNhQjd3LVpBVTF3R182clBwMTczLU11RlliMFN0RnBpU1ZXdXU0aHZVQ1ZoUkI3VFVWMjhVZHU3TVJvaF9YQ3MyVTIwZ0Q1OC1YOHVpNThiMGJIYmgwdnZndmpQbHhwVWRUYlVoajh3ei1ZeHN0RzRodEQzZXZ0NlFIdXp1QVRSMktCOGFaNFZBd1o4clpuQk56bXAzdtIB5gFBVV95cUxNbEgyUmNqTkU2LTluanI1NmNfSHczOXRZdXJPby02UjNSZFNMcmJTUTlIbUtlbGVodXdkZ2dkSUIxMFhTMkFGaVNzWEUyOXBQd3NMSG9VQkFjOEJmVW44TlBqaFNNQWU1Ny1sbFhSZFYxdkNRTnc4bFRvQ0V6cDA2SFBUYlkzTHBsYXR2LW1CZHFhRm85dFE3Q2taX28xNGNGNDNua05Bc0ZIakJwZUV5NzA4TGcwNEZXSW9UWmdiU0s0VlFkWGJUTllucDA3cTdieWZjOXpBbElURU9qN1dLbldSTWREZw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4181.1,
-   "Silver": 57.305,
-   "WTI": 99.02
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Beyond immediate relief, India has little to celebrate over Trump\u2019s freezing of Russian oil sanctions - Firstpost",
-   "src": "Firstpost",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
