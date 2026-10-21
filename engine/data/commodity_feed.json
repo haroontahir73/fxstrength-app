@@ -1,5 +1,61 @@
 [
  {
+  "when": "21 Oct 07:34 UTC",
+  "iso": "2026-10-21T07:34:48.810387+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nWTI Oil approaches $99 amid fears of supply disruptions from Gulf countries - FXStreet  (FXStreet)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,139 (-0.1%)   Silver 57.41 (-0.5%)   WTI 98.72 (-3.0%)   DXY 101.78 (+0.0%)   US10Y 5.12 (-0.4%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNWnlidnNwWEdKNnJ4eGM2cS16VFlYOTFIbk8weWRxbUpnWTRiZXdZdWF4QUNkUFJrckwzVklwcUVtSERjMjdOS1k3RU1LeG1jdUZNbzVzbmVIeU9Jd1JYejBaOGFaQThySWFsLVNnbVpGT0FrSUYwel9taWNtRXU3NW1KRzk4T2E4OXB2clJaYWFENm0zNGloQnNIOE9GamhVT0JWT2MtdHRaZFBiQ2R3SEFzZVFhSlNO?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4139.4,
+   "Silver": 57.415,
+   "WTI": 98.72
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "WTI Oil approaches $99 amid fears of supply disruptions from Gulf countries - FXStreet",
+   "src": "FXStreet",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,139 (-0.1%)   Silver 57.41 (-0.5%)   WTI 98.72 (-3.0%)   DXY 101.78 (+0.0%)   US10Y 5.12 (-0.4%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "21 Oct 07:21 UTC",
   "iso": "2026-10-21T07:21:40.413573+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "18 Oct 11:58 UTC",
-  "iso": "2026-10-18T11:58:59.633013+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nHow India's Refineries Continue To Supply Fuel To The West Amid Russian Oil Sanctions - NDTV Profit  (NDTV Profit)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQeWc2WDhaVGt6LTZDalUtSDNJYTlJYm1TcG1PT1MwM1JBaDFRNUxxbkp5ZEx6Sk91YWNqeWJJbUZkcENqbGk1cjJhS2JMa3A4d0lxYkZkampmOFhDU1hYVzd0aUYydXB0WnUydGVRQUJ6Nld0SmJSUVlmTHVmRF96SUNMNlVFckRtdHF1dDR6OVFaSkJRc1FZQ2ZFQm5zanVBamNZb0JXV1FJczZhS2FfS3kyRm96ZC1uWDNOUk83MkZIeTFpVlVV0gHPAUFVX3lxTE4zSDZKbTBrdkdzbW9sZ1ZFVDNSR2czSzJDLWFIWm5heTl0eUJUZFJMYkNzU2M1UzZtd2FiLVNvQUJfbERwb0pKMUR6OWEydk9NdWJjVmpYRlJFU1l0THVLSTRkeFFiWHlXNVBvaVdMV2w5ZkpnMGVQanJYMW1vazhGdGZPYkppM3RDdzE2Y1dUY245SmFFM19mVEFoN2xONkFJalk4TkNqTE5Eb3VyWGVsMEgxb0lRSGpWWHpnZTBNQWlxWUJxeTJwUnljVl91QQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4181.1,
-   "Silver": 57.305,
-   "WTI": 99.02
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "How India's Refineries Continue To Supply Fuel To The West Amid Russian Oil Sanctions - NDTV Profit",
-   "src": "NDTV Profit",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
