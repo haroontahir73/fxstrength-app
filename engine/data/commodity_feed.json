@@ -1,5 +1,61 @@
 [
  {
+  "when": "21 Oct 03:28 UTC",
+  "iso": "2026-10-21T03:28:28.019231+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nUS-Iran war | Tehran: Must end port blockade, oil sanctions and regional attacks - WION  (WION)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,135 (-0.2%)   Silver 57.55 (-0.3%)   WTI 99.23 (-2.5%)   DXY 101.77 (+0.0%)   US10Y 5.12 (-0.4%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPUGltc3JrSGRXUmtzR0RNWTlWQmg4ODVnNE1tcm11NnQ1YmI0bWxQQWNfZVplbllwNkFtcW5sMVcxcXNnV0djeXFNOUU3ZnRHX2JNT2Vhc2RxQU1hTlI2aTFxak9EdnVHWG5fSTZrTV9iLXdTc3RuNmlnOGlRdndoNEdFeXJvUjZ2cWF1b0tWOU04bi1iaGp6ZXZBRlhCZWRmZ2w0YUh4YVU2NmNTdWtjWTYzVFlVR0ZSYVpES2RR0gHDAUFVX3lxTFBhbDZGbUNjNzJrdUFrUnRTaVJPUUsxQlJmOWItendCNGZOeWpWUTM2aW01RTY0S0JQS2ptdWRiUkFxTlVDbXEtV0xkQm1XWlZLTWtGU0gzaS1YclpCSmU1ZGd2RlNUNDJLVUhTc0hTWDIwQU13dnR0ejZLY1d2YlhmTFZUVlk0VWV1VlE2RHhfNUdiVWprS2NOaVllZ0R0UmVBOTdndWh0RGdyR1F2RVRHaFNfVFB2S0V3RHdOb1JqVnRwbw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4135.2,
+   "Silver": 57.55,
+   "WTI": 99.23
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "US-Iran war | Tehran: Must end port blockade, oil sanctions and regional attacks - WION",
+   "src": "WION",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,135 (-0.2%)   Silver 57.55 (-0.3%)   WTI 99.23 (-2.5%)   DXY 101.77 (+0.0%)   US10Y 5.12 (-0.4%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "21 Oct 03:08 UTC",
   "iso": "2026-10-21T03:08:46.160775+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)",
    "reality": "",
    "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
-  }
- },
- {
-  "when": "18 Oct 06:51 UTC",
-  "iso": "2026-10-18T06:51:09.124946+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Russia's Ozon: drone attack sparks fire at logistics hub in St Petersburg\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://www.financialjuice.com/News/9810191/Russias-Ozon-drone-attack-sparks-fire-at-logistics-hub-in-St-Petersburg.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4181.1,
-   "Silver": 57.305,
-   "WTI": 99.02
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "FinancialJuice: Russia's Ozon: drone attack sparks fire at logistics hub in St Petersburg",
-   "src": "",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,181 (+0.3%)   Silver 57.30 (+0.8%)   WTI 99.02 (+1.1%)   DXY 101.78 (-0.2%)   US10Y 5.10 (+0.2%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
