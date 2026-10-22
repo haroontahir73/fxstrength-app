@@ -1,5 +1,61 @@
 [
  {
+  "when": "22 Oct 06:09 UTC",
+  "iso": "2026-10-22T06:09:15.684336+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nThe Inflation Nemesis\u2014More Fed Rate Hikes Are Coming - Cabot Wealth Network  (Cabot Wealth Network)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,102 (-1.2%)   Silver 56.26 (-2.0%)   WTI 99.22 (+2.1%)   DXY 101.51 (-0.3%)   US10Y 5.15 (+0.6%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPZkdNWlNnTHI1dUJKWTBnaG9PbVl0dXpkVW8tcjJsS3Y5S1hGVlR5Ukh1d3JBVEQ4ajE5aVEybDhyMkVYbVhUT3NJSTQwUVRwUkI3WVZkMHRJSGtCYWpsR2RaaEJZZlQ4VnVZY2NfaG9XR3FqQTJOWVpDZlBab19UeE1n?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4101.6,
+   "Silver": 56.26,
+   "WTI": 99.22
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "The Inflation Nemesis\u2014More Fed Rate Hikes Are Coming - Cabot Wealth Network",
+   "src": "Cabot Wealth Network",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,102 (-1.2%)   Silver 56.26 (-2.0%)   WTI 99.22 (+2.1%)   DXY 101.51 (-0.3%)   US10Y 5.15 (+0.6%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "22 Oct 04:56 UTC",
   "iso": "2026-10-22T04:56:35.864284+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,205 (+0.6%)   Silver 57.87 (+1.5%)   WTI 97.39 (-4.0%)   DXY 101.82 (-0.0%)   US10Y 5.10 (+0.2%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "19 Oct 05:04 UTC",
-  "iso": "2026-10-19T05:04:37.429266+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nTrump says Zelensky \u2018does not want war to end\u2019 as feud escalates, defends Russia sanctions waiver - Hindustan Times  (Hindustan Times)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,204 (+0.5%)   Silver 57.94 (+1.6%)   WTI 97.42 (-3.9%)   DXY 101.81 (-0.0%)   US10Y 5.10 (+0.2%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQZVFUdkNuWHdaejBueWNCUGRWTHNweEd3OWZfVmxaVzJ5RFVLVm1fRmtEbnd6b0lBWXJUSXFOX1F6Q1NhSmZLcmwzaGduTmgtSFJqSkJCRGZ2ZEN2Z0R2dVc5ZFpMa25UUXRESk1wUWRUaG9PZ3JEcUdDRVhFV3IyeEFqZ1VhYlRkb3MtT00tMURrWVZjWFUtSFk2MGhQWWlJeGtTdUV0V0N2dU9Tblo5SEJrSVVJb2VqTC1DblFybWx3dW9vQVZTWFRXX3Vxb0RoVUFGVDRJaThodThScnk3am8wc19RenlEMmh0alpB?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4203.9,
-   "Silver": 57.935,
-   "WTI": 97.42
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "Trump says Zelensky \u2018does not want war to end\u2019 as feud escalates, defends Russia sanctions waiver - Hindustan Times",
-   "src": "Hindustan Times",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,204 (+0.5%)   Silver 57.94 (+1.6%)   WTI 97.42 (-3.9%)   DXY 101.81 (-0.0%)   US10Y 5.10 (+0.2%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
