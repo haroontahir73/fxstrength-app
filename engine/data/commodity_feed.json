@@ -1,5 +1,61 @@
 [
  {
+  "when": "22 Oct 18:10 UTC",
+  "iso": "2026-10-22T18:10:55.389390+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIran says 7 oil tankers attacked in the Strait of Hormuz as fears grow of a return to war - The Seattle Times  (The Seattle Times)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,060 (-2.2%)   Silver 55.00 (-4.2%)   WTI 99.71 (+2.6%)   DXY 101.58 (-0.2%)   US10Y 4.95 (-3.8%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxORTFQdUg5Y09BajNyLXNQb2xsN0tKZzVhYjdfSFhKQ1Nzbjc5RnAtcnI5cFZGNXptbUVyTUlwQ3V3U2pjVXNyUEw5VVdxQ0ctQmJsS1lSUUlUdnJPMF9SLVpackhzUHdpR1BRcFhQR1c2RUJhMFpSaHlReFhwRld4SFg4RktoVG0tdzNqNGJxSzR2QWhnYkh0TFlHVmlvVXlVenZHN0p2RkJBREozMGVhb1NSWDRBanN1Q2tqRzBTSTBDQ3JQSkpqMjlBcUREZzdjQkpTV19OT29uSUZmS1E?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4060.4,
+   "Silver": 55.0,
+   "WTI": 99.71
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Iran says 7 oil tankers attacked in the Strait of Hormuz as fears grow of a return to war - The Seattle Times",
+   "src": "The Seattle Times",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,060 (-2.2%)   Silver 55.00 (-4.2%)   WTI 99.71 (+2.6%)   DXY 101.58 (-0.2%)   US10Y 4.95 (-3.8%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "22 Oct 17:18 UTC",
   "iso": "2026-10-22T17:18:00.029771+00:00",
   "cat": "oil_supply_loose",
@@ -3299,62 +3355,6 @@
     }
    ],
    "snap": "NOW  Gold 4,167 (-0.3%)   Silver 57.44 (+0.8%)   WTI 98.17 (-3.2%)   DXY 101.97 (+0.1%)   US10Y 5.13 (+0.6%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "19 Oct 16:15 UTC",
-  "iso": "2026-10-19T16:15:14.317881+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nRubio-Jaishankar Meet: India Digs In Heels As U.S Reveals 'Trade Deal Bait' Vs Russian Oil Sanctions - The Times of India  (The Times of India)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,161 (-0.5%)   Silver 57.37 (+0.7%)   WTI 98.49 (-2.9%)   DXY 102.02 (+0.2%)   US10Y 5.14 (+0.8%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxPWjZfRWkwRGlqR3ZyQW5Kam5KOW45bVdXX3Q1MlpidE9XbkdES2JUY3Y0QzBsb1M1bzMzMjh2YmQzdFhlUDVRT3F3YTEtYlFaVmtZb21yZzVaQks5TDZ6MHVtMnFGcUxmTGJFeFlDNWJWdjVRRjBReW1sVDk5WkhHMjV0ZDhjMGtjREV2S2RWS3dkVHFjd2RYODBVRDZsYjA3Zm1YX2tEcWZIM082UDI3RnJYSHc0TW03LWNSMEpkU3ozQ2g0cU9zNEhxc21wVWRubXUxemg1dEhzWnY0QWdUVllRY0Jkd19ZM0F3TUhieC1YMVhCNlhxZXRYZWE4b2NUYUN1ajF30gGLAkFVX3lxTE5aVmpYYVZQVV9pcHlRY2x0c2xDcWJwUDdqanZEREhKeExza25tYjhyNUNqajF0MXJVc3owSlIxdW9sZGx0aFFYNW1SU2Q4U1JpSW44cFQ0Z1VOUThta0dlWWFzSXdBY3Y4dkdNel9mOF9HUVhlVC1DeTI3RFpmdWtITEltUVh6bzdKLUd1bF94M2g4MG5kS3BkT1JldEFXOWdNZjI1aFZvUjJfZGtKbGhFTjVVRWFwTU9fZlVVVnZ1Qzg5UUFsR1JhZ0J3LXVWaFhSVFFBZG41cXdsZE5DZ0kzNmJ0NDBMdmtEamF4SVR6cmdWQklpaTF3S3VhUThmYlVJbEU0UjY4TEVWdw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4161.2,
-   "Silver": 57.37,
-   "WTI": 98.49
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Rubio-Jaishankar Meet: India Digs In Heels As U.S Reveals 'Trade Deal Bait' Vs Russian Oil Sanctions - The Times of India",
-   "src": "The Times of India",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,161 (-0.5%)   Silver 57.37 (+0.7%)   WTI 98.49 (-2.9%)   DXY 102.02 (+0.2%)   US10Y 5.14 (+0.8%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
   }
