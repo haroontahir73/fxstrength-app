@@ -1,5 +1,61 @@
 [
  {
+  "when": "22 Oct 15:05 UTC",
+  "iso": "2026-10-22T15:05:58.313103+00:00",
+  "cat": "rates_up",
+  "title": "TALK | GOLD SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nRob Kaplan Sees Fed Hike Likely In December \u2014 Warns Aggressive Tightening May Hurt Jobs Without Taming Inflation - TradingView  (TradingView)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193   look for shorts - rates up = gold's worst enemy (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,077 (-1.8%)   Silver 55.44 (-3.5%)   WTI 98.43 (+1.3%)   DXY 101.85 (+0.1%)   US10Y 5.01 (-2.6%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQY3dZYmtNSThJUVdDU0NxeC10MExrN1RVUHBCdEZWMF9sTUQycTY5OURObGNBcXphbDB0Qm5KejdnVXlUTFg1OE43Z2RNLWtvRzU0WkFFdVdoRkFSdXVqUkh1MldGRVprWUxzaWZGOUpLOHJKOEdKRHdrTXJfNExxOE9XYngzSzhNOW1OaTB2SlozeXZ2Zm51TUROLUhudThfSzFhOTB3cnlSTmpGYm9sOFJqY2dmdUk5aVZqVm1lUm1DbDU1eDJfQVJ3MzJ6MWYybW1jUklDMmYzNGNNaGdGREpNQjBONGxPeWd4Y2g1THIxV0h3YnN2SFltTmVTVXpO?oc=5",
+  "talk": true,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4076.6,
+   "Silver": 55.435,
+   "WTI": 98.43
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Rob Kaplan Sees Fed Hike Likely In December \u2014 Warns Aggressive Tightening May Hurt Jobs Without Taming Inflation - TradingView",
+   "src": "TradingView",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "rates up = gold's worst enemy (talk, not action yet)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,077 (-1.8%)   Silver 55.44 (-3.5%)   WTI 98.43 (+1.3%)   DXY 101.85 (+0.1%)   US10Y 5.01 (-2.6%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "22 Oct 14:39 UTC",
   "iso": "2026-10-22T14:39:49.175879+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,183 (+0.1%)   Silver 57.56 (+1.0%)   WTI 97.83 (-3.5%)   DXY 101.85 (+0.0%)   US10Y 5.11 (+0.2%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "19 Oct 11:35 UTC",
-  "iso": "2026-10-19T11:35:39.138868+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nCrude Oil Price 2026: WTI Up 73% This Year at US$99 \u2014 Why a Russia Sanctions Waiver Pushed It Back Below US$100 - Kalkine  (Kalkine)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,196 (+0.4%)   Silver 57.88 (+1.5%)   WTI 98.17 (-3.2%)   DXY 101.78 (-0.1%)   US10Y 5.10 (+0.2%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQZkhkbzlSdnhqZ2VodVVTVTRMVU5NMFpTVHdqem9CZVhiVmtIZVJUY3hFLTJPcnNneXh5VkNoN1d5cVRGT1E5ZEE3TUJCRDFDd2dub1ZydHlsUFdxdm1OcDQxT3hoaGpaYlBsQlQyN3dhbDR1X0JRbGhPbEpKYV9jeDdPUWpDUHA5U0twcEw1aXgtMnhmdlRzVWFxUTJYb2s2RzVPQXY4ZXdvRm1tRzlPUl9icUJQZTh0bWE4b3V2Q1dfZW8wLUVJQnRKeUw5Q2FQc0dmWUhzMktwTEhyMDU4LQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4196.1,
-   "Silver": 57.875,
-   "WTI": 98.17
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "Crude Oil Price 2026: WTI Up 73% This Year at US$99 \u2014 Why a Russia Sanctions Waiver Pushed It Back Below US$100 - Kalkine",
-   "src": "Kalkine",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,196 (+0.4%)   Silver 57.88 (+1.5%)   WTI 98.17 (-3.2%)   DXY 101.78 (-0.1%)   US10Y 5.10 (+0.2%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
