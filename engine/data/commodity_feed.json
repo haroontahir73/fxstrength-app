@@ -1,5 +1,61 @@
 [
  {
+  "when": "22 Oct 21:05 UTC",
+  "iso": "2026-10-22T21:05:50.969773+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nReport: IDF chief says no operational need for strike on Iran before Israeli election - The Times of Israel  (The Times of Israel)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,040 (-2.7%)   Silver 54.66 (-4.8%)   WTI 99.09 (+2.0%)   DXY 101.62 (-0.2%)   US10Y 4.95 (-3.8%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPNGk4Y3lyVnlzNnlHdHgyYkI2ZENwOXk0TWk2bTA1YVlpU0lJQ1V4VXk3OE8wck9LSFJTZGlEcXhQYWpWZFhLZEVoOU1DUE5qeFJoVHEyRmdUQmJQU3htdHUxaU1aamdjUTN4NGY2Q3o3di1KMEl4d2xCeHhFaEZZWHJaYmlHS3phQlhXaHVmclNkZ2F2NTAzVUM2X09Sc1RDRThxVXFn0gGrAUFVX3lxTE5xSVVyaDMtaG9hVDdMd2FFWUdtN0t2ZGpoNXZMRHVSU01neVRCMmFWZ005anliS1RiVjZ1Z1pNMXVqczAtVVRsUmZmUXNJa0RIejh0aExQbzNUdDBHaW05Z3NJRnRPMUNFek9meVJNa0c3TnhhYm9QM0hrUi0zNlZXdjdYR1czM242WTJyLU1wdkdLZE1GT2wwYjc5Nzc5SFVqZFd5Z3I4VHY1MA?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4039.7,
+   "Silver": 54.655,
+   "WTI": 99.09
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Report: IDF chief says no operational need for strike on Iran before Israeli election - The Times of Israel",
+   "src": "The Times of Israel",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,040 (-2.7%)   Silver 54.66 (-4.8%)   WTI 99.09 (+2.0%)   DXY 101.62 (-0.2%)   US10Y 4.95 (-3.8%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "22 Oct 19:20 UTC",
   "iso": "2026-10-22T19:20:16.221591+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,163 (-0.4%)   Silver 57.40 (+0.7%)   WTI 98.33 (-3.0%)   DXY 101.99 (+0.1%)   US10Y 5.14 (+0.7%)",
    "reality": "",
    "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
-  }
- },
- {
-  "when": "19 Oct 19:35 UTC",
-  "iso": "2026-10-19T19:35:57.632633+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nGrowing signs of an impending strike on Iran - JNS.org  (JNS.org)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,161 (-0.5%)   Silver 57.36 (+0.6%)   WTI 98.43 (-2.9%)   DXY 101.99 (+0.1%)   US10Y 5.14 (+0.7%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPQmltMFBPc25TX0R6WW13RGtjOWhXeHc0WXpNQ20taTRCRlRxN0Z6RWoyUkViM3BPOGNFM1UwVzJNUWNDVFJwaVZLYjh6RkxWUnc1TUtLU0I5d0xkbWU1aE5JSjhHcEJ3ckYxaE93NnR6WHlsa0tDcTdJY3doanhQWkJ3dHpWSXJaWDBB?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4161.3,
-   "Silver": 57.36,
-   "WTI": 98.43
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Growing signs of an impending strike on Iran - JNS.org",
-   "src": "JNS.org",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,161 (-0.5%)   Silver 57.36 (+0.6%)   WTI 98.43 (-2.9%)   DXY 101.99 (+0.1%)   US10Y 5.14 (+0.7%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
