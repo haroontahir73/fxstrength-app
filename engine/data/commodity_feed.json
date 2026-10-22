@@ -1,5 +1,61 @@
 [
  {
+  "when": "22 Oct 17:10 UTC",
+  "iso": "2026-10-22T17:10:21.824058+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFinancialJuice: Traders no longer fully price in a Fed hike before year-end\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,053 (-2.3%)   Silver 54.92 (-4.4%)   WTI 99.20 (+2.1%)   DXY 101.60 (-0.2%)   US10Y 4.97 (-3.5%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://www.financialjuice.com/News/9817335/Traders-no-longer-fully-price-in-a-Fed-hike-before-year-end.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4053.0,
+   "Silver": 54.92,
+   "WTI": 99.2
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "FinancialJuice: Traders no longer fully price in a Fed hike before year-end",
+   "src": "",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,053 (-2.3%)   Silver 54.92 (-4.4%)   WTI 99.20 (+2.1%)   DXY 101.60 (-0.2%)   US10Y 4.97 (-3.5%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "22 Oct 16:18 UTC",
   "iso": "2026-10-22T16:18:06.722484+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,169 (-0.3%)   Silver 57.47 (+0.8%)   WTI 97.58 (-3.8%)   DXY 101.89 (+0.1%)   US10Y 5.13 (+0.6%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "19 Oct 15:02 UTC",
-  "iso": "2026-10-19T15:02:42.627150+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nLive updates: GOP airs frustration over Russia sanctions waiver; Trump heads to Kansas - AOL.com  (AOL.com)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,167 (-0.3%)   Silver 57.33 (+0.6%)   WTI 97.74 (-3.6%)   DXY 101.92 (+0.1%)   US10Y 5.13 (+0.6%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQc0NiVldQQXJ2TjBLQzlQdzVqZFVjZXRxeTZ5ZHg4Z1pQMmt0cHpiMEd0QmppcjVLWEw4YUZON3AzQkJ5bVZVYkxYell6cUFHVXl3WEVCS1dUTGhWUzZvdFpFcWtEMlhyVE1hcnVqQUFrM1ZJSHFtMlYzenRmb2dWVktqcw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4166.8,
-   "Silver": 57.325,
-   "WTI": 97.74
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "Live updates: GOP airs frustration over Russia sanctions waiver; Trump heads to Kansas - AOL.com",
-   "src": "AOL.com",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,167 (-0.3%)   Silver 57.33 (+0.6%)   WTI 97.74 (-3.6%)   DXY 101.92 (+0.1%)   US10Y 5.13 (+0.6%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
