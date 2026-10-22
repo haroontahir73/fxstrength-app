@@ -1,5 +1,61 @@
 [
  {
+  "when": "22 Oct 17:18 UTC",
+  "iso": "2026-10-22T17:18:00.029771+00:00",
+  "cat": "oil_supply_loose",
+  "title": "OIL STRONG SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nUS Refiners Increase Output as Diesel Shortages Boost Margins - Egypt Oil & Gas  (Egypt Oil & Gas)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,052 (-2.4%)   Silver 54.78 (-4.6%)   WTI 99.33 (+2.2%)   DXY 101.60 (-0.2%)   US10Y 4.97 (-3.3%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNdXVjamdIUUY5Q1Nsd1ZKcXpaeVVzZ1NKeXZBVzJhYWhoajhqekNvNlRJbmw4U2x3bWdoQ2V0a3RqeHJpWUw2c3U0dkgzbG53N01pMlJFY2lFZjFXNG9aQURZSXJlZDdsQXRHdVJIaDBMTmt3Y0QtZWd4WU1PYnlVcTluSldVNmZqWVY2dE1yRmdnN0Y5ckxz?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4051.9,
+   "Silver": 54.78,
+   "WTI": 99.33
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "US Refiners Increase Output as Diesel Shortages Boost Margins - Egypt Oil & Gas",
+   "src": "Egypt Oil & Gas",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "extra barrels push the price down",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,052 (-2.4%)   Silver 54.78 (-4.6%)   WTI 99.33 (+2.2%)   DXY 101.60 (-0.2%)   US10Y 4.97 (-3.3%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
   "when": "22 Oct 17:10 UTC",
   "iso": "2026-10-22T17:10:21.824058+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,161 (-0.5%)   Silver 57.37 (+0.7%)   WTI 98.49 (-2.9%)   DXY 102.02 (+0.2%)   US10Y 5.14 (+0.8%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "19 Oct 15:39 UTC",
-  "iso": "2026-10-19T15:39:00.182312+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIran-backed Houthi rebels strike Yemen's government forces with ballistic missiles, killing at least 53 - PBS  (PBS)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,169 (-0.3%)   Silver 57.47 (+0.8%)   WTI 97.58 (-3.8%)   DXY 101.89 (+0.1%)   US10Y 5.13 (+0.6%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPQkRtc1JnYXZzMWNwZEtMLWxiSXZZRDI5c1pnZi1zcWJ3Y1NOSlB2TTZCY2RIc2t4TF9OUXliaWt0QnZwQ2RNekpDU1VzY1A0Ny1TU1ZISkhsVUZTUThuWU1oc2drd1lDaVNLTjRKN1piQVdMR2NEdjdzN3BPdHNvT3o3UE5HUzUtcU5FbHI1eFNxYlJ3QzhKUW03cW9BYXA1dUY0U0pkTzhSSjlFQ3M2SWN5RmVEU04wVzdueUhiRXBVUWlBQjNETklOOE1mamdRMHfSAdcBQVVfeXFMT241UzZrRUlVcFJ0c2RlZnByVG51N0stekJkSmlkZEpwblkxeUtvUDVIVjAzaW91WEVLQmNxeWdualQwMF83UGswa0UzRjY2N19aNEhSTXN0Nm1ZTWFPOTQtYmpCcnprYmhOaVJJX0lOT29mRjdGQl9YWFY2cF91bDQ3ZnBjR1hyRm5xV2kzMGdVakZqTS1GWGRsMVhSTnN2TTZ3YkJlSXd6VndiSEphb2x6bS1rMVRLUzJVYndvcVpuSlYtVXMwRnNJcTRmYmpDUFpGRFVnMUE?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4168.7,
-   "Silver": 57.465,
-   "WTI": 97.58
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Iran-backed Houthi rebels strike Yemen's government forces with ballistic missiles, killing at least 53 - PBS",
-   "src": "PBS",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,169 (-0.3%)   Silver 57.47 (+0.8%)   WTI 97.58 (-3.8%)   DXY 101.89 (+0.1%)   US10Y 5.13 (+0.6%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
