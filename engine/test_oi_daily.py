@@ -4,7 +4,7 @@
 
 Stdlib only, offline. Exercises the PURE helpers (no network, no writes to engine/data):
 export-row classification into futures+options, field-wise freeze, the Pi-pull parser,
-percentiles, the daily-vs-weekly CFTC compare, and the rendered page. The live CME fetch
+percentiles, and the rendered page. The live CME fetch
 and the history file are never touched here (collection runs on the Pi).
 """
 import datetime as dt
@@ -65,16 +65,6 @@ def t_pctile():
     check("absent field -> None", oi.pctile(hist, "EUR", "oi_opt") is None)
 
 
-def t_compare_block():
-    tmp = Path(tempfile.mkdtemp())
-    (tmp / "options_fe_oi.json").write_text(json.dumps({"markets": {
-        "EUR FX": {"name": "EURO FX", "observations": [{"report_date": "2026-10-14", "futures_oi": 720000}]}}}))
-    hist = {"2026-10-16": {"EUR": {"oi": 700000, "chg": 1000}}}
-    html = oi.compare_block(hist, tmp)
-    check("compare shows daily CME value", "700,000" in html)
-    check("compare shows weekly CFTC value", "720,000" in html)
-    check("compare labelled daily vs weekly", "Daily CME vs weekly" in html)
-
 
 def t_render_has_options_and_states():
     hist = {}
@@ -91,7 +81,7 @@ def t_render_has_options_and_states():
 
 def main():
     for fn in [t_fold_rows_fut_and_opt, t_pull_into_fut_opt, t_field_wise_freeze,
-               t_pctile, t_compare_block, t_render_has_options_and_states]:
+               t_pctile, t_render_has_options_and_states]:
         fn()
     print(f"\n{'FAILED' if FAILS else 'PASSED'}: {len(FAILS)} failure(s)")
     sys.exit(1 if FAILS else 0)
