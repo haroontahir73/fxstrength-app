@@ -175,11 +175,19 @@ jobs:
         continue-on-error: true
         run: python oi.py --render-only dashboard.html
 
-      # PR #14 - Economic calendar (official-source, keyless). continue-on-error so a
-      # flaky government API can never take the deploy down; independent of the
-      # TradingView calendar feed (fetch_calendar.py) and the scoring pipeline.
+      # Refresh TradingView calendar (upcoming events + surprise scores) so
+      # econ_cal.py has forward-looking events for the day tabs + countdown timers.
+      # calendar.json also exists in the state cache from news-watch, but refreshing
+      # here ensures upcoming events are current even if the cache is stale.
+      - name: TradingView calendar (upcoming events)
+        working-directory: engine
+        continue-on-error: true
+        run: python fetch_calendar.py
+
+      # PR #14 - Economic calendar (official-source + TradingView schedule).
+      # continue-on-error so a flaky API can never take the deploy down.
       # econ_history.jsonl persists via the engine/data state cache (research store).
-      - name: Economic calendar (official sources)
+      - name: Economic calendar (official + TradingView schedule)
         working-directory: engine
         continue-on-error: true
         run: |

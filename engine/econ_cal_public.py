@@ -511,9 +511,9 @@ def _meta(archive):
 def panel(archive=None):
     archive = archive if archive is not None else _load()
     when, ok, n = _meta(archive)
-    note = ("Official sources + <a href='https://www.myfxbook.com/forex-economic-calendar' "
-            "target='_blank'>Myfxbook</a> schedule (used with permission). <b>HIGH-impact "
-            "only.</b> Upcoming events are sourced from Myfxbook; actual values come from "
+    note = ("Official sources + <a href='https://www.tradingview.com/economic-calendar/' "
+            "target='_blank'>TradingView</a> schedule. <b>HIGH-impact "
+            "only.</b> Upcoming events are sourced from TradingView; actual values come from "
             "official government agencies. Forecast shows &ldquo;&mdash;&rdquo; when no "
             "official consensus is available. <b>Impact on currency</b> is a direction tag "
             "(↑ Bullish / ↓ Bearish / → Neutral) computed internally against "
