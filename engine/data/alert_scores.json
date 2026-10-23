@@ -20040,5 +20040,115 @@
   "outcome": "win",
   "talk": false,
   "at": "2026-10-22T21:15:44.688191+00:00"
+ },
+ {
+  "id": "2026-10-22T23:44:36.554299+00:00|GOLD",
+  "cat": "inflation_hot",
+  "instr": "GOLD",
+  "dir": "down",
+  "strength": 2,
+  "chg": -0.233,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-10-22T23:44:36.554299+00:00"
+ },
+ {
+  "id": "2026-10-22T23:44:36.554299+00:00|SILVER",
+  "cat": "inflation_hot",
+  "instr": "SILVER",
+  "dir": "down",
+  "strength": 2,
+  "chg": -1.072,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-10-22T23:44:36.554299+00:00"
+ },
+ {
+  "id": "2026-10-23T00:43:33.214107+00:00|GOLD",
+  "cat": "rates_up",
+  "instr": "GOLD",
+  "dir": "down",
+  "strength": 3,
+  "chg": -0.434,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-10-23T00:43:33.214107+00:00"
+ },
+ {
+  "id": "2026-10-23T00:43:33.214107+00:00|SILVER",
+  "cat": "rates_up",
+  "instr": "SILVER",
+  "dir": "down",
+  "strength": 1,
+  "chg": -1.487,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-10-23T00:43:33.214107+00:00"
+ },
+ {
+  "id": "2026-10-23T00:43:33.214107+00:00|OIL",
+  "cat": "rates_up",
+  "instr": "OIL",
+  "dir": "down",
+  "strength": 1,
+  "chg": 1.199,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-10-23T00:43:33.214107+00:00"
+ },
+ {
+  "id": "2026-10-23T01:06:28.541715+00:00|GOLD",
+  "cat": "geo_escalation",
+  "instr": "GOLD",
+  "dir": "up",
+  "strength": 1,
+  "chg": -0.383,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-10-23T01:06:28.541715+00:00"
+ },
+ {
+  "id": "2026-10-23T01:06:28.541715+00:00|OIL",
+  "cat": "geo_escalation",
+  "instr": "OIL",
+  "dir": "up",
+  "strength": 3,
+  "chg": 1.028,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-10-23T01:06:28.541715+00:00"
+ },
+ {
+  "id": "2026-10-23T01:52:20.696017+00:00|OIL",
+  "cat": "oil_supply_tight",
+  "instr": "OIL",
+  "dir": "up",
+  "strength": 3,
+  "chg": 0.902,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-10-23T01:52:20.696017+00:00"
+ },
+ {
+  "id": "2026-10-23T02:12:05.550692+00:00|GOLD",
+  "cat": "geo_escalation",
+  "instr": "GOLD",
+  "dir": "up",
+  "strength": 1,
+  "chg": 0.792,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-10-23T02:12:05.550692+00:00"
+ },
+ {
+  "id": "2026-10-23T02:12:05.550692+00:00|OIL",
+  "cat": "geo_escalation",
+  "instr": "OIL",
+  "dir": "up",
+  "strength": 3,
+  "chg": -0.099,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-10-23T02:12:05.550692+00:00"
  }
 ]
