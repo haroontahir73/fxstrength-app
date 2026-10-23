@@ -20370,5 +20370,27 @@
   "outcome": "win",
   "talk": false,
   "at": "2026-10-23T13:57:45.067077+00:00"
+ },
+ {
+  "id": "2026-10-23T16:13:29.277494+00:00|OIL",
+  "cat": "geo_deescalation",
+  "instr": "OIL",
+  "dir": "down",
+  "strength": 1,
+  "chg": 0.369,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-10-23T16:13:29.277494+00:00"
+ },
+ {
+  "id": "2026-10-23T16:06:48.351048+00:00|OIL",
+  "cat": "oil_supply_tight",
+  "instr": "OIL",
+  "dir": "up",
+  "strength": 3,
+  "chg": 0.408,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-10-23T16:06:48.351048+00:00"
  }
 ]

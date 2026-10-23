@@ -1,5 +1,61 @@
 [
  {
+  "when": "23 Oct 22:28 UTC",
+  "iso": "2026-10-23T22:28:42.523880+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nOil Prices Rise as Fears of U.S. Strike on Iran Grow - Barron's  (Barron's)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,010 (-1.2%)   Silver 53.96 (-1.5%)   WTI 103.44 (+4.0%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE50c2p4Sm04Ujh0VVphWm85ZnVWM1hqMGNIeDRibm1ESW8wNTBXcTVxV29rQTZtcnJ1QTkyV2dCTjUwX0w1SGxtTDA2ZnU0M3Ewdi03QXVtTjhMaWdRbnc0OHRBeDBYLTVkTUNSOEVLMU1faTNtQ0E?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4010.0,
+   "Silver": 53.96,
+   "WTI": 103.44
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Oil Prices Rise as Fears of U.S. Strike on Iran Grow - Barron's",
+   "src": "Barron's",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,010 (-1.2%)   Silver 53.96 (-1.5%)   WTI 103.44 (+4.0%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "23 Oct 19:41 UTC",
   "iso": "2026-10-23T19:41:35.726787+00:00",
   "cat": "rates_up",
@@ -3299,62 +3355,6 @@
     }
    ],
    "snap": "NOW  Gold 4,135 (-0.2%)   Silver 57.41 (-0.5%)   WTI 99.09 (-2.7%)   DXY 101.79 (+0.1%)   US10Y 5.12 (-0.4%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "21 Oct 03:28 UTC",
-  "iso": "2026-10-21T03:28:28.019231+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nUS-Iran war | Tehran: Must end port blockade, oil sanctions and regional attacks - WION  (WION)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,135 (-0.2%)   Silver 57.55 (-0.3%)   WTI 99.23 (-2.5%)   DXY 101.77 (+0.0%)   US10Y 5.12 (-0.4%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPUGltc3JrSGRXUmtzR0RNWTlWQmg4ODVnNE1tcm11NnQ1YmI0bWxQQWNfZVplbllwNkFtcW5sMVcxcXNnV0djeXFNOUU3ZnRHX2JNT2Vhc2RxQU1hTlI2aTFxak9EdnVHWG5fSTZrTV9iLXdTc3RuNmlnOGlRdndoNEdFeXJvUjZ2cWF1b0tWOU04bi1iaGp6ZXZBRlhCZWRmZ2w0YUh4YVU2NmNTdWtjWTYzVFlVR0ZSYVpES2RR0gHDAUFVX3lxTFBhbDZGbUNjNzJrdUFrUnRTaVJPUUsxQlJmOWItendCNGZOeWpWUTM2aW01RTY0S0JQS2ptdWRiUkFxTlVDbXEtV0xkQm1XWlZLTWtGU0gzaS1YclpCSmU1ZGd2RlNUNDJLVUhTc0hTWDIwQU13dnR0ejZLY1d2YlhmTFZUVlk0VWV1VlE2RHhfNUdiVWprS2NOaVllZ0R0UmVBOTdndWh0RGdyR1F2RVRHaFNfVFB2S0V3RHdOb1JqVnRwbw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4135.2,
-   "Silver": 57.55,
-   "WTI": 99.23
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "US-Iran war | Tehran: Must end port blockade, oil sanctions and regional attacks - WION",
-   "src": "WION",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,135 (-0.2%)   Silver 57.55 (-0.3%)   WTI 99.23 (-2.5%)   DXY 101.77 (+0.0%)   US10Y 5.12 (-0.4%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
