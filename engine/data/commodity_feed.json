@@ -1,5 +1,61 @@
 [
  {
+  "when": "23 Oct 01:52 UTC",
+  "iso": "2026-10-23T01:52:20.696017+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nTrump says oil shipments through Strait of Hormuz surpass prewar levels with US escorts - Fox News  (Fox News)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,027 (-3.0%)   Silver 54.16 (-5.7%)   WTI 99.83 (+2.8%)   DXY 101.60 (-0.0%)   US10Y 4.95 (-3.8%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9wSVZIODgzZjZjX3VHSVpvWm9lVkZ3NnBvVkpkME44Y1RmaEhBTm93SVZHYmNUbUdvUlpVV1ZOY0dHY1VidXY1YldxTUlRWERZZ0lhaG1n?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4026.6,
+   "Silver": 54.16,
+   "WTI": 99.83
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Trump says oil shipments through Strait of Hormuz surpass prewar levels with US escorts - Fox News",
+   "src": "Fox News",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,027 (-3.0%)   Silver 54.16 (-5.7%)   WTI 99.83 (+2.8%)   DXY 101.60 (-0.0%)   US10Y 4.95 (-3.8%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "23 Oct 01:06 UTC",
   "iso": "2026-10-23T01:06:28.541715+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,157 (-0.1%)   Silver 57.48 (+0.9%)   WTI 98.67 (-4.8%)   DXY 101.87 (-0.1%)   US10Y 5.14 (+0.7%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "20 Oct 00:59 UTC",
-  "iso": "2026-10-20T00:59:26.543281+00:00",
-  "cat": "geo_deescalation",
-  "title": "GEOPOLITICS - calming down",
-  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nRussian Diesel Deal And Energy Ceasefire Expose Moscow\u2019s Limits \u2013 Analysis - Eurasia Review  (Eurasia Review)\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193    mild short bias - supply worry gone, barrels flow again (eased by self-check)\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,153 (-0.7%)   Silver 57.01 (+0.0%)   WTI 98.49 (-2.9%)   DXY 101.93 (+0.1%)   US10Y 5.14 (+0.7%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
-  "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPUHVaaEt2UnlEQ1hfellqbkVhOVVHSWFrT0NpYU1TU2JPVlhFRE4xNEZRQ2J5TzUyYVItZDJST3NjUFFyX2hRZ3ZhRjNhZmw3RWIxU0dYSVY0akZyWGNmb1R4VkJWVlp3N3ZrSjZmWFFqdjRud1JpLWxkVXVxem1SYmVsNy1zMlR0SE8tQlZpWTBIM0RrVWExUnJ3MTQ3dHBCNFVIMDN6MW50N2RlOG5DQw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4153.1,
-   "Silver": 57.005,
-   "WTI": 98.49
-  },
-  "parts": {
-   "emoji": "\ud83d\udd4a",
-   "label": "GEOPOLITICS \u2014 calming down",
-   "headline": "Russian Diesel Deal And Energy Ceasefire Expose Moscow\u2019s Limits \u2013 Analysis - Eurasia Review",
-   "src": "Eurasia Review",
-   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured both ways - fear-out vs yields-down cancel",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "same, no reliable direction",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "supply worry gone, barrels flow again (eased by self-check)",
-     "record": "some evidence - right 51% of 113 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,153 (-0.7%)   Silver 57.01 (+0.0%)   WTI 98.49 (-2.9%)   DXY 101.93 (+0.1%)   US10Y 5.14 (+0.7%)",
-   "reality": "",
-   "flip": "these deals break \u2014 one broken truce and it all goes back on"
   }
  }
 ]
