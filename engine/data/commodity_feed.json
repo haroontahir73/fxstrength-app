@@ -1,5 +1,61 @@
 [
  {
+  "when": "23 Oct 02:51 UTC",
+  "iso": "2026-10-23T02:51:28.451503+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nNew Zealand Dollar gains ground to near 0.5700 on RBNZ rate hike prospects - FXStreet  (FXStreet)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,032 (-2.8%)   Silver 54.23 (-5.6%)   WTI 100.19 (+3.1%)   DXY 101.67 (+0.1%)   US10Y 4.95 (-3.8%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQbmJjT0g2STQzQ1RHbmozZkp5Ukt1MDNYOG52RGhsRFdYb1c1LWJRWGJENU9BRlp0MzVkb3pWMEc4dVlGY0I3TlA2ZlFJT1dFdWtoMUdoM2NoZUhUdnUwbEpFLXZjaS14T3hYS2pGdGhVV0VhSzlJT0QxalpBaC1ySHFTYldaQmVCS2hZMjVxYzNVaEhENWZLeVNYbklLY1diRjBWSkZkcF9nc2xoZlk1M3VyMVh5RlU?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4032.0,
+   "Silver": 54.235,
+   "WTI": 100.19
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "New Zealand Dollar gains ground to near 0.5700 on RBNZ rate hike prospects - FXStreet",
+   "src": "FXStreet",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,032 (-2.8%)   Silver 54.23 (-5.6%)   WTI 100.19 (+3.1%)   DXY 101.67 (+0.1%)   US10Y 4.95 (-3.8%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "23 Oct 02:12 UTC",
   "iso": "2026-10-23T02:12:05.550692+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,153 (-0.2%)   Silver 57.39 (+0.7%)   WTI 98.79 (-4.7%)   DXY 101.77 (-0.2%)   US10Y 5.14 (+0.7%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "20 Oct 03:44 UTC",
-  "iso": "2026-10-20T03:44:24.839177+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nChina's Sep Saudi crude imports plunge amid supply disruptions - Quantum Commodity Intelligence  (Quantum Commodity Intelligence)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,161 (+0.0%)   Silver 57.60 (+1.1%)   WTI 98.80 (-4.7%)   DXY 101.85 (-0.1%)   US10Y 5.14 (+0.7%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPaEJvaXZVNW5LZzVvZlhfYmctaWc0RDJVb29DZXc2RUJfV0xXZkJvZFpha1l3OTNrOWx1X2YxRTNrNjQ4ZmJTSEhBVGRyc3RvZHl0VXcxM2liYzh6eWsyNHlGT0M5STdjNWttcTQtZTFIeG81UV9aeC1ON2xMUUltQTJ1WmZVeS1vV09IRHotU3l6MmpUeHdENFozQ0xUTFkxdTJYZ0VxMDY?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4161.3,
-   "Silver": 57.605,
-   "WTI": 98.8
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "China's Sep Saudi crude imports plunge amid supply disruptions - Quantum Commodity Intelligence",
-   "src": "Quantum Commodity Intelligence",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,161 (+0.0%)   Silver 57.60 (+1.1%)   WTI 98.80 (-4.7%)   DXY 101.85 (-0.1%)   US10Y 5.14 (+0.7%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
