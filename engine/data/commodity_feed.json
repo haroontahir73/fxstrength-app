@@ -1,5 +1,61 @@
 [
  {
+  "when": "23 Oct 18:12 UTC",
+  "iso": "2026-10-23T18:12:12.859150+00:00",
+  "cat": "silver_squeeze",
+  "title": "SILVER STRONG LONG | SILVER - physical squeeze",
+  "body": "\u26a1 SILVER \u2014 physical squeeze\n\nSilver's 6% Slide: When Portfolio Repairs Override a Physical Shortage - AD HOC NEWS  (AD HOC NEWS)\n\nWHY: There is not enough real silver where it is needed. Anyone who sold silver they do not hold has to buy it back fast, which forces the price up.\n\nGOLD   \u2191    mild long bias - gets pulled along\n        [NOT TESTED - no history to judge this on]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - this is silver's own violent move\n        [NOT TESTED - no history to judge this on]\nOIL    \u2192    no clean read\n\nNOW  Gold 4,013 (-1.2%)   Silver 54.07 (-1.3%)   WTI 103.01 (+3.6%)   DXY 101.81 (+0.2%)   US10Y 4.98 (+0.6%)\n\nFLIP: squeezes end abruptly and give most of it back \u2014 do not chase late",
+  "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPOEV3WDQtN3RhOEs4ZkVaSTdKVWxGRDE4dGlfTF9sRU9uTHpFTnlLemRIWnN5NV9reV9CZUhEVHg2WHNheFRpYmdIRUNvWHliYTVjR2ZMVkN3bmdOTlJoSk9FUlg3ai1HbHV4bGxYZjNqVkg3dnVRRzdtY2pyWUdzWmRRaDc4VVZ5VWN2RVFwTGUtdEI4VFUxbDZkdDhjR0dOQ2VmWUZ1Zmt4TzBFQ3dSa2Y1T2ZfZ0FqcFhZRkE3bVlCaGU2WVEtOWQyRTVIaUNfZk41Y1g2S3Rna2Eyc0dfQ0Fn?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4013.1,
+   "Silver": 54.07,
+   "WTI": 103.01
+  },
+  "parts": {
+   "emoji": "\u26a1",
+   "label": "SILVER \u2014 physical squeeze",
+   "headline": "Silver's 6% Slide: When Portfolio Repairs Override a Physical Shortage - AD HOC NEWS",
+   "src": "AD HOC NEWS",
+   "why": "There is not enough real silver where it is needed. Anyone who sold silver they do not hold has to buy it back fast, which forces the price up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "gets pulled along",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "this is silver's own violent move",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "",
+     "record": ""
+    }
+   ],
+   "snap": "NOW  Gold 4,013 (-1.2%)   Silver 54.07 (-1.3%)   WTI 103.01 (+3.6%)   DXY 101.81 (+0.2%)   US10Y 4.98 (+0.6%)",
+   "reality": "",
+   "flip": "squeezes end abruptly and give most of it back \u2014 do not chase late"
+  }
+ },
+ {
   "when": "23 Oct 17:02 UTC",
   "iso": "2026-10-23T17:02:58.175685+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,138 (-0.5%)   Silver 58.05 (+1.9%)   WTI 98.20 (-5.3%)   DXY 101.73 (-0.2%)   US10Y 5.12 (-0.4%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "20 Oct 19:49 UTC",
-  "iso": "2026-10-20T19:49:32.187183+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: Iran's Major General Yazidi: The operational control of the Strait of Hormuz is in the hands of the Iranian Armed Forces - IRNA\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,138 (-0.5%)   Silver 57.85 (+1.5%)   WTI 98.28 (-5.2%)   DXY 101.73 (-0.2%)   US10Y 5.12 (-0.4%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://www.financialjuice.com/News/9813706/Irans-Major-General-Yazidi-The-operational-control-of-the-Strait-of-Hormuz-is-in-the-hands-of-the-Iranian-Armed-Forces---IRNA.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4137.7,
-   "Silver": 57.855,
-   "WTI": 98.28
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "FinancialJuice: Iran's Major General Yazidi: The operational control of the Strait of Hormuz is in the hands of the Iranian Armed Forces - IRNA",
-   "src": "",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,138 (-0.5%)   Silver 57.85 (+1.5%)   WTI 98.28 (-5.2%)   DXY 101.73 (-0.2%)   US10Y 5.12 (-0.4%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
