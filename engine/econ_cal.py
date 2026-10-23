@@ -1,18 +1,18 @@
-"""PR #14 — Economic calendar data layer (official sources + Myfxbook schedule).
+"""PR #14 — Economic calendar data layer (official sources + TradingView schedule).
 
 Fetches high-impact macro releases + central-bank rates from public-domain / open-licence
 official sources, normalises them to one event schema, writes data/econ_calendar.json for
 the public page (econ_cal_public.py), and appends point-in-time observations to a history
 store for later research (first-release value + revisions + timestamps + source).
 
-Additionally fetches upcoming events from Myfxbook (with their permission) to provide a
-forward-looking schedule — the official sources only give released data, not future dates.
-Myfxbook events are deduplicated against official data so official sources take precedence.
+Additionally reads upcoming events from data/calendar.json (written by fetch_calendar.py
+in the news-watch workflow) to provide a forward-looking schedule — the official sources
+only give released data, not future dates. TradingView events carry proper timestamps
+(enabling countdown timers) and surprise scores (enabling colour-coded impact borders).
+These events are deduplicated against official data so official sources take precedence.
 
-INDEPENDENCE: this module is self-contained. It does NOT import, read or write
-fetch_calendar.py / calendar.json, and nothing here feeds the scoring pipeline. A failure
-in any single source is caught and recorded (that source marked unavailable); the build
-never raises, so it can run as a continue-on-error pipeline step.
+A failure in any single source is caught and recorded (that source marked unavailable);
+the build never raises, so it can run as a continue-on-error pipeline step.
 
 Keyless v1 sources (verified live on the verify/econ-endpoints branch):
   USD  BLS (CPI, unemployment, payrolls)          EUR  Eurostat HICP + ECB policy rate
@@ -536,6 +536,53 @@ SOURCES = [
 ]
 
 
+_TV_CCYS = {"USD", "EUR", "GBP", "JPY", "AUD", "NZD", "CAD", "CHF"}
+
+
+def _read_tv_upcoming(data_dir):
+    """Read upcoming events from data/calendar.json (written by fetch_calendar.py).
+
+    Returns a list of normalised events (mk_event format) with scheduled=True and
+    proper dt_utc timestamps, ready for the day-tabs and countdown timers."""
+    p = data_dir / "calendar.json"
+    if not p.exists():
+        return []
+    try:
+        cal = json.loads(p.read_text(encoding="utf-8"))
+    except (ValueError, OSError):
+        return []
+    now = NOW()
+    out = []
+    for ev in cal.get("upcoming", []):
+        ccy = ev.get("ccy", "")
+        if ccy not in _TV_CCYS:
+            continue
+        impact = ev.get("impact", "Low")
+        try:
+            when = dt.datetime.fromisoformat(ev["when"].replace("Z", "+00:00"))
+        except (KeyError, ValueError):
+            continue
+        # Only include future events
+        if when <= now - dt.timedelta(hours=1):
+            continue
+        e = mk_event(
+            ccy, ev.get("title", ""), "macro", impact,
+            actual_raw=ev.get("actual_raw"),
+            previous_raw=ev.get("previous_raw"),
+            unit=ev.get("unit", ""),
+            when=when, has_time=True,
+            status="scheduled", scheduled=True,
+            source="TradingView", source_url="https://www.tradingview.com/economic-calendar/",
+        )
+        # TradingView provides pre-formatted display strings for forecast/previous
+        if ev.get("forecast"):
+            e["forecast"] = ev["forecast"]
+        if ev.get("previous") and not e["previous"]:
+            e["previous"] = ev["previous"]
+        out.append(e)
+    return out
+
+
 def build(data=None, offline=False):
     """Fetch every source, normalise, write the archive + append history. Never raises."""
     data = Path(data or DATA)
@@ -557,19 +604,19 @@ def build(data=None, offline=False):
         except Exception as e:                                    # noqa: BLE001
             status[name] = {"ok": False, "error": f"{type(e).__name__}: {e}"[:160], "ccy": src_label}
 
-    # Myfxbook forward-looking calendar (with permission)
+    # TradingView forward-looking schedule (from data/calendar.json, written by fetch_calendar.py)
     try:
-        mfx = fetch_myfxbook()
-        if mfx:
-            # Deduplicate: keep official-source events over Myfxbook when both exist
+        tv_upcoming = _read_tv_upcoming(data)
+        if tv_upcoming:
+            # Deduplicate: keep official-source events over TradingView when both exist
             # for the same (currency, event-name-tokens) pair
             official_keys = set()
             for e in events:
                 toks = frozenset(w.lower() for w in re.findall(r"[A-Za-z]+", e.get("event", "")) if len(w) >= 3)
                 official_keys.add((e["currency"], toks))
-            for e in mfx:
+            added = 0
+            for e in tv_upcoming:
                 toks = frozenset(w.lower() for w in re.findall(r"[A-Za-z]+", e.get("event", "")) if len(w) >= 3)
-                # Only add if no official event covers same (ccy, tokens) with ≥50% overlap
                 dominated = False
                 for oc, ot in official_keys:
                     if oc == e["currency"] and ot and toks and len(ot & toks) / max(len(ot), len(toks)) > 0.4:
@@ -577,11 +624,12 @@ def build(data=None, offline=False):
                         break
                 if not dominated:
                     events.append(e)
-            status["Myfxbook"] = {"ok": True, "as_of": now.isoformat(), "n": len(mfx), "ccy": "ALL"}
+                    added += 1
+            status["TradingView-schedule"] = {"ok": True, "as_of": now.isoformat(), "n": added, "ccy": "ALL"}
         else:
-            status["Myfxbook"] = {"ok": False, "error": "no events parsed", "ccy": "ALL"}
+            status["TradingView-schedule"] = {"ok": False, "error": "no upcoming events in calendar.json", "ccy": "ALL"}
     except Exception as e:                                           # noqa: BLE001
-        status["Myfxbook"] = {"ok": False, "error": f"{type(e).__name__}: {e}"[:160], "ccy": "ALL"}
+        status["TradingView-schedule"] = {"ok": False, "error": f"{type(e).__name__}: {e}"[:160], "ccy": "ALL"}
 
     _append_history(events, now, data)
     archive = {"built_at": now.isoformat(), "data_as_of": now.isoformat(),
