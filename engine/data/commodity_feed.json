@@ -1,5 +1,61 @@
 [
  {
+  "when": "23 Oct 17:02 UTC",
+  "iso": "2026-10-23T17:02:58.175685+00:00",
+  "cat": "geo_escalation",
+  "title": "TALK | OIL LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nT\u00fcrkiye Warns New Attack on Iran Would Escalate Regional Conflict - Caspian Post  (Caspian Post)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191   look for longs - supply at risk = price up fast (talk, not action yet)\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,017 (-1.1%)   Silver 54.13 (-1.1%)   WTI 102.75 (+3.3%)   DXY 101.80 (+0.2%)   US10Y 4.99 (+0.7%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQRWs4MHpsTFd6SlQ0ZWRhWVF5VTJvTlptNkJwYTlRMzhzeVBudkljS0htRFVyVkhBQVVLdGFhalI0RjlSOXhwTEVaWUVJaXJMNU1rMmtISmQ3YkJhekdoOWZJYWhWRXZMbnBzVzctODFfcDlpUU5JV2FpQUEzSkhGQ190Q0U2TlN5UDVDUmxBd3pwQ0JOTDBJcnF0T21lV2s?oc=5",
+  "talk": true,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4016.6,
+   "Silver": 54.135,
+   "WTI": 102.75
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "T\u00fcrkiye Warns New Attack on Iran Would Escalate Regional Conflict - Caspian Post",
+   "src": "Caspian Post",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "supply at risk = price up fast (talk, not action yet)",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,017 (-1.1%)   Silver 54.13 (-1.1%)   WTI 102.75 (+3.3%)   DXY 101.80 (+0.2%)   US10Y 4.99 (+0.7%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "23 Oct 16:13 UTC",
   "iso": "2026-10-23T16:13:29.277494+00:00",
   "cat": "geo_deescalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,138 (-0.5%)   Silver 57.85 (+1.5%)   WTI 98.28 (-5.2%)   DXY 101.73 (-0.2%)   US10Y 5.12 (-0.4%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "20 Oct 18:10 UTC",
-  "iso": "2026-10-20T18:10:53.087234+00:00",
-  "cat": "inflation_cold",
-  "title": "GOLD+SILVER STRONG LONG | INFLATION - cooling",
-  "body": "\u2744 INFLATION \u2014 cooling\n\nFinancialJuice: BoE\u2019s Greene: Need more wage disinflation to meet CPI target\n\nWHY: Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - opens the door to rate cuts\n        [CONFIDENT - right 64% of 503 past cases]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up\n        [CONFIDENT - right 61% of 503 past cases]\nOIL    \u2192    no clean read - mild help from a softer dollar\n\nNOW  Gold 4,144 (-0.4%)   Silver 58.07 (+1.9%)   WTI 97.61 (-5.8%)   DXY 101.72 (-0.3%)   US10Y 5.12 (-0.3%)\n\nFLIP: one hot print reverses the whole thing",
-  "link": "https://www.financialjuice.com/News/9813576/BoEs-Greene-Need-more-wage-disinflation-to-meet-CPI-target.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4144.2,
-   "Silver": 58.07,
-   "WTI": 97.61
-  },
-  "parts": {
-   "emoji": "\u2744",
-   "label": "INFLATION \u2014 cooling",
-   "headline": "FinancialJuice: BoE\u2019s Greene: Need more wage disinflation to meet CPI target",
-   "src": "",
-   "why": "Softer inflation lets the Fed cut rates sooner. Cheaper money, weaker dollar, better for anything priced in dollars.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "opens the door to rate cuts",
-     "record": "CONFIDENT - right 64% of 503 past cases"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "follows gold up",
-     "record": "CONFIDENT - right 61% of 503 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 1,
-     "call": "no clean read",
-     "reason": "mild help from a softer dollar",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 4,144 (-0.4%)   Silver 58.07 (+1.9%)   WTI 97.61 (-5.8%)   DXY 101.72 (-0.3%)   US10Y 5.12 (-0.3%)",
-   "reality": "",
-   "flip": "one hot print reverses the whole thing"
   }
  }
 ]
