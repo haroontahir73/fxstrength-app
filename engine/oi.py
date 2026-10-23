@@ -60,15 +60,14 @@ HERE = Path(__file__).parent
 DATA = HERE / "data"
 HIST_FILE = DATA / "oi_history.json"
 STATE_FILE = DATA / "oi_state.json"
-PAGE = HERE / "open-interest-daily.html"   # CFTC weekly owns open-interest.html (PR #13);
-#                                            the daily CME view lives alongside it
+PAGE = HERE / "open-interest.html"           # daily CME is now the main OI page
 
 # LINKS MUST BE ABSOLUTE. dashboard.html is a fragment with no <base>, and the Android app
 # hands links to the browser without a document URL to resolve against - a relative
 # "./open-interest.html" resolved against the Google Fonts stylesheet host and 404'd on
 # fonts.googleapis.com. Full URLs work from the app, the browser and Pages alike.
 SITE = os.environ.get("FXS_SITE", "https://haroontahir73.github.io/fxstrength-app")
-PAGE_URL = f"{SITE}/open-interest-daily.html"
+PAGE_URL = f"{SITE}/open-interest.html"
 DASH_URL = f"{SITE}/dashboard.html"
 
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -501,63 +500,6 @@ def pctile(hist, inst, field, weeks=52):
     return round(sum(1 for v in vals if v <= cur) / len(vals) * 100)
 
 
-# daily CME instrument -> words that identify its CFTC market in the weekly archive
-CFTC_ARCHIVE = "options_fe_oi.json"
-CMP_ALIAS = {"Gold": ["gold", "xau"], "Silver": ["silver", "xag"],
-             "Oil": ["wti", "crude", "oil"], "EUR": ["euro", "eur"],
-             "GBP": ["pound", "gbp", "sterling"], "JPY": ["yen", "jpy"],
-             "AUD": ["australian", "aussie", "aud"], "NZD": ["zealand", "nzd", "kiwi"],
-             "CAD": ["canadian", "cad"], "CHF": ["franc", "chf", "swiss"]}
-
-
-def _weekly_cftc_oi(data_dir):
-    """{inst: (date, futures_oi)} - latest WEEKLY CFTC futures OI per market, best-effort.
-    Reads the PR #12/#13 archive; this NEVER writes it and leaves the CFTC pipeline alone."""
-    try:
-        view = json.loads((Path(data_dir) / CFTC_ARCHIVE).read_text(encoding="utf-8"))
-        markets = view.get("markets", {})
-    except Exception:                                             # noqa: BLE001
-        return {}
-    out = {}
-    for inst, aliases in CMP_ALIAS.items():
-        for key, m in markets.items():
-            hay = f"{key} {m.get('name','')} {m.get('label','')}".lower()
-            if any(a in hay for a in aliases):
-                obs = m.get("observations") or []
-                last = next((o for o in reversed(obs) if o.get("futures_oi") is not None), None)
-                if last:
-                    out[inst] = (last.get("report_date") or last.get("date") or "", last["futures_oi"])
-                break
-    return out
-
-
-def compare_block(hist, data_dir=DATA):
-    """Daily CME futures OI beside weekly CFTC futures OI, per market. Read-only on CFTC."""
-    weekly = _weekly_cftc_oi(data_dir)
-    latest = {}
-    for inst in ORDER:
-        for day in sorted(hist, reverse=True):
-            d = hist[day].get(inst)
-            if d and d.get("oi") is not None:
-                latest[inst] = (day, d["oi"])
-                break
-    rows = []
-    for inst in ORDER:
-        dcme, wk = latest.get(inst), weekly.get(inst)
-        if not dcme and not wk:
-            continue
-        dstr = (f'{dcme[1]:,} <span class="na">{_daylabel(dcme[0])}</span>' if dcme else "&mdash;")
-        wstr = (f'{wk[1]:,} <span class="na">{wk[0]}</span>' if wk else "&mdash;")
-        rows.append(f"<tr><td class='oi-day'>{inst}</td><td>{dstr}</td><td>{wstr}</td></tr>")
-    if not rows:
-        return ""
-    return ('<div class="oi-hist"><h2>Daily CME vs weekly CFTC &mdash; futures open interest</h2>'
-            '<p class="oi-sub">Daily preliminary CME futures OI (fast &mdash; yesterday) beside '
-            'the weekly CFTC futures OI (official, Tuesday data). Different source and cadence, '
-            'so the <i>levels</i> differ; what matters is whether the two trends agree or '
-            'diverge.</p>'
-            "<table class='oi-tw'><thead><tr><th>Market</th><th>Daily CME</th>"
-            "<th>Weekly CFTC</th></tr></thead><tbody>" + "".join(rows) + "</tbody></table></div>")
 
 
 # ---------------------------------------------------------------- fetch orchestration
@@ -1029,8 +971,6 @@ def main():
                   f"OI {r['chg']:+8,}  {r['state']}")
     write_page(render(hist, state, reads, prices))
     target = next((a for a in args if a.endswith(".html")), "dashboard.html")
-    # The in-dashboard tab (id="p-oi") is the CFTC WEEKLY view; this card points to the
-    # separate DAILY CME page, so both coexist - always inject the daily card.
     inject_strip(target, strip_block(state, reads))
 
 
