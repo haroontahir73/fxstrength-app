@@ -1,5 +1,61 @@
 [
  {
+  "when": "23 Oct 01:06 UTC",
+  "iso": "2026-10-23T01:06:28.541715+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Saudi-led coalition: intercepted and destroyed ballistic missile fired by Yemen\u2019s Houthis toward Riyadh\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,045 (-2.5%)   Silver 54.70 (-4.7%)   WTI 99.24 (+2.2%)   DXY 101.55 (-0.2%)   US10Y 4.95 (-3.8%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://www.financialjuice.com/News/9817853/Saudi-led-coalition-intercepted-and-destroyed-ballistic-missile-fired-by-Yemens-Houthis-toward-Riyadh.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4044.9,
+   "Silver": 54.695,
+   "WTI": 99.24
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "FinancialJuice: Saudi-led coalition: intercepted and destroyed ballistic missile fired by Yemen\u2019s Houthis toward Riyadh",
+   "src": "",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,045 (-2.5%)   Silver 54.70 (-4.7%)   WTI 99.24 (+2.2%)   DXY 101.55 (-0.2%)   US10Y 4.95 (-3.8%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "23 Oct 00:43 UTC",
   "iso": "2026-10-23T00:43:33.214107+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,153 (-0.7%)   Silver 57.01 (+0.0%)   WTI 98.49 (-2.9%)   DXY 101.93 (+0.1%)   US10Y 5.14 (+0.7%)",
    "reality": "",
    "flip": "these deals break \u2014 one broken truce and it all goes back on"
-  }
- },
- {
-  "when": "20 Oct 00:23 UTC",
-  "iso": "2026-10-20T00:23:16.749754+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nPresident blocks oil sanctions against Russia - KTVN  (KTVN)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,158 (-0.6%)   Silver 57.15 (+0.3%)   WTI 98.08 (-3.3%)   DXY 101.93 (+0.1%)   US10Y 5.14 (+0.7%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQejgxTVJHZUhIRGpuWTR6QWp6QUVodEc4c2xDbF93YWJ1TXV2NnBKWmlLTzBEVnlQeEJBYjIwVGRpSXpBWXlTVlhoQjdGWUhRV01lTkVHd3EzOEl4T1dnZ3ZJbHMyMUlBMlp0M2dCZ2NVUmNDU2c3MFM5Wmo2OVN3VHFzbzY0Vkl2ekNfYTlHb0tDSzF3VlJQaTVHNV9KdV84c0hDTzE1SDhwTUhhSFNtOXZWS0VhTUpzeWRnWHBxNDBzeUFZVl9xbQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4158.0,
-   "Silver": 57.145,
-   "WTI": 98.08
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "President blocks oil sanctions against Russia - KTVN",
-   "src": "KTVN",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,158 (-0.6%)   Silver 57.15 (+0.3%)   WTI 98.08 (-3.3%)   DXY 101.93 (+0.1%)   US10Y 5.14 (+0.7%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
