@@ -1,5 +1,61 @@
 [
  {
+  "when": "23 Oct 13:57 UTC",
+  "iso": "2026-10-23T13:57:45.067077+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: US Department of Energy announces authorization of emergency exchange of up to 400,000 barrels of crude oil from spr to address crude oil supply disruption affecting phillips 66 lake charles refinery in louisiana\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,031 (-0.7%)   Silver 53.88 (-1.6%)   WTI 102.63 (+3.2%)   DXY 101.76 (+0.1%)   US10Y 4.98 (+0.5%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://www.financialjuice.com/News/9818948/US-Department-of-Energy-announces-authorization-of-emergency-exchange-of-up-to-400000-barrels-of-crude-oil-from-spr-to-address-crude-oil-supply-disruption-affecting-phillips-66-lake-charles-refinery-in-louisiana.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4031.1,
+   "Silver": 53.885,
+   "WTI": 102.63
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "FinancialJuice: US Department of Energy announces authorization of emergency exchange of up to 400,000 barrels of crude oil from spr to address crude oil supply disruption affecting phillips 66 lake charles refinery in louisiana",
+   "src": "",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,031 (-0.7%)   Silver 53.88 (-1.6%)   WTI 102.63 (+3.2%)   DXY 101.76 (+0.1%)   US10Y 4.98 (+0.5%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "23 Oct 13:15 UTC",
   "iso": "2026-10-23T13:15:12.535904+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,148 (-0.3%)   Silver 57.95 (+1.7%)   WTI 97.57 (-5.9%)   DXY 101.76 (-0.2%)   US10Y 5.12 (-0.3%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "20 Oct 15:58 UTC",
-  "iso": "2026-10-20T15:58:47.513021+00:00",
-  "cat": "rates_down",
-  "title": "TALK | GOLD+SILVER LONG | FED - leaning toward rate cuts",
-  "body": "\ud83d\udcb8 FED \u2014 leaning toward rate cuts\n\nKevin Warsh's Fed May Not Cut Rates Soon. That's Why This Dividend Stock Belongs in Your Portfolio. - The Motley Fool  (The Motley Fool)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.\n\nGOLD   \u2191\u2191   look for longs - cheaper money is gold's best friend (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\nSILVER \u2191\u2191   look for longs - follows gold up, only harder (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2191    mild long bias - weaker dollar + a bit more growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,152 (-0.2%)   Silver 58.00 (+1.8%)   WTI 97.44 (-6.0%)   DXY 101.76 (-0.2%)   US10Y 5.11 (-0.5%)\n\nFLIP: a hot inflation print would kill the cut hopes",
-  "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNcFRicnZodHp0Z0xMNGM3V2MyX0FrdlgwN3ZJQUZXemN0REhIRmV6SzBoaktiNDVCYnl1YVRrSUFJcjNVcWVKd3pCT0puVUVUeWdESkFxODFMb2V4STZHMHkzTGlRZDZ4enU0al9Ddm4ydmthLUh4UkJqT1hJcW92RnMxcTh5cU1PaEx6T01La0VhV25IX3Zn?oc=5",
-  "talk": true,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4151.9,
-   "Silver": 58.0,
-   "WTI": 97.44
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb8",
-   "label": "FED \u2014 leaning toward rate cuts",
-   "headline": "Kevin Warsh's Fed May Not Cut Rates Soon. That's Why This Dividend Stock Belongs in Your Portfolio. - The Motley Fool",
-   "src": "The Motley Fool",
-   "why": "Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "cheaper money is gold's best friend (talk, not action yet)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "follows gold up, only harder (talk, not action yet)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "weaker dollar + a bit more growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,152 (-0.2%)   Silver 58.00 (+1.8%)   WTI 97.44 (-6.0%)   DXY 101.76 (-0.2%)   US10Y 5.11 (-0.5%)",
-   "reality": "",
-   "flip": "a hot inflation print would kill the cut hopes"
   }
  }
 ]
