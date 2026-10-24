@@ -1,5 +1,61 @@
 [
  {
+  "when": "24 Oct 01:13 UTC",
+  "iso": "2026-10-24T01:13:47.126865+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nU.S. Dips Into Strategic Oil Reserve Again Amid Supply Disruptions - Crude Oil Prices Today | OilPrice.com  (Crude Oil Prices Today | OilPrice.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,010 (-1.2%)   Silver 53.96 (-1.5%)   WTI 103.44 (+4.0%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQclU0Y1VkczdDOXdMQXdoNDRidnBsR3B3SWdVUi1NS2k5V21oUEMyQm9ndnRLb2Y5c0s2ZUZLWl93NVhQSk1MOVpDQTM1c2c5Nm80SVBxdlpNblBhOWpFajMzZHNPSnNvWk5wVHE1SEZ3MUYyNU8yRGpqcEpqamVPbW83YS1aU2N2eVlRY1JGU21NSUlreDdBdHl4c2dKV0Z4RzY0MWZhVGtwT215MEh4cHVNcUg4ZUVaVnEyZNIBwgFBVV95cUxPc2t1eE9SeWpTeVBWTVlwdFdZbUM2V09NaUs0N0U4eUNXalFqX2k2RGxjakEwMHpaTmdiQ013eEdhdFRMUTNBd1dmc2RpNmZYTGFJU1huOVFRelgxbWxsVVQzcGkwbUZ1cnFGZEdub1VVRTN2WWI4aGFoYms5Nks1V2Y4Z3NJdElUTTh1dnNRQnRIejdURDRMTEc0SEpGWGZuZ0ZNNWE4ZWhsNlc1SlhIRXppWFB0c2NVcnk1QktiVWlnZw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4010.0,
+   "Silver": 53.96,
+   "WTI": 103.44
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "U.S. Dips Into Strategic Oil Reserve Again Amid Supply Disruptions - Crude Oil Prices Today | OilPrice.com",
+   "src": "Crude Oil Prices Today | OilPrice.com",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,010 (-1.2%)   Silver 53.96 (-1.5%)   WTI 103.44 (+4.0%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "23 Oct 22:28 UTC",
   "iso": "2026-10-23T22:28:42.523880+00:00",
   "cat": "geo_escalation",
@@ -3299,62 +3355,6 @@
     }
    ],
    "snap": "NOW  Gold 4,132 (-0.3%)   Silver 57.32 (-0.7%)   WTI 98.82 (-2.9%)   DXY 101.81 (+0.1%)   US10Y 5.12 (-0.4%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "21 Oct 06:45 UTC",
-  "iso": "2026-10-21T06:45:23.826806+00:00",
-  "cat": "geo_escalation",
-  "title": "TALK | OIL LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussia Has Up to 700 Ballistic Missiles, 6,200 Attack Drones Ready to Strike Ukraine, Intelligence Says - Kyiv Post  (Kyiv Post)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191   look for longs - supply at risk = price up fast (talk, not action yet)\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,135 (-0.2%)   Silver 57.41 (-0.5%)   WTI 99.09 (-2.7%)   DXY 101.79 (+0.1%)   US10Y 5.12 (-0.4%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBXSEN4SVFoLUM0a3JqRDRVQm5qQkRyN1FXVjdYbzRRREFmUXd1eDBva3BKSWNYTEdaTC1XdUJYU2sxT19ubUUxd2tWSQ?oc=5",
-  "talk": true,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4135.1,
-   "Silver": 57.41,
-   "WTI": 99.09
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Russia Has Up to 700 Ballistic Missiles, 6,200 Attack Drones Ready to Strike Ukraine, Intelligence Says - Kyiv Post",
-   "src": "Kyiv Post",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "supply at risk = price up fast (talk, not action yet)",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,135 (-0.2%)   Silver 57.41 (-0.5%)   WTI 99.09 (-2.7%)   DXY 101.79 (+0.1%)   US10Y 5.12 (-0.4%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
