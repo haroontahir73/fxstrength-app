@@ -1,5 +1,61 @@
 [
  {
+  "when": "24 Oct 20:06 UTC",
+  "iso": "2026-10-24T20:06:39.240164+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nEight Nations Met in Istanbul. Their Message to Washington: Don't Strike Iran - Latin Times  (Latin Times)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPOGYtU2wxVW50YlNFd3pnWTV0cVNza0xFQlY5cjM0SVduQmdocTBic1NOQ1dNc0dqZHVyNlN3dUNhZDNnc0xvNF9uYnpkVVkxTmhrWDZSTnE1eVl1VVNjWjJJNGRYdUltY1p4WGpJMGxCY0t3Z2hBVFFybG1qbl84b3hQazRSV3c2?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4007.9,
+   "Silver": 53.949,
+   "WTI": 103.27
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Eight Nations Met in Istanbul. Their Message to Washington: Don't Strike Iran - Latin Times",
+   "src": "Latin Times",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "24 Oct 16:50 UTC",
   "iso": "2026-10-24T16:50:08.794034+00:00",
   "cat": "oil_supply_tight",
@@ -3299,62 +3355,6 @@
     }
    ],
    "snap": "NOW  Gold 4,130 (-0.3%)   Silver 57.25 (-0.8%)   WTI 98.20 (-3.5%)   DXY 101.78 (+0.1%)   US10Y 5.13 (+0.3%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "21 Oct 17:15 UTC",
-  "iso": "2026-10-21T17:15:24.549089+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Yemeni sources: The Houthis carry out a drone attack near the \"Duba\" oil port in \"Shukra\" in Hadramout - Sky News Arabiya\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,148 (+0.1%)   Silver 57.63 (-0.1%)   WTI 96.70 (-5.0%)   DXY 101.71 (-0.0%)   US10Y 5.10 (-0.3%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://www.financialjuice.com/News/9815408/Yemeni-sources-The-Houthis-carry-out-a-drone-attack-near-the-Duba-oil-port-in-Shukra-in-Hadramout---Sky-News-Arabiya.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4147.9,
-   "Silver": 57.635,
-   "WTI": 96.7
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "FinancialJuice: Yemeni sources: The Houthis carry out a drone attack near the \"Duba\" oil port in \"Shukra\" in Hadramout - Sky News Arabiya",
-   "src": "",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,148 (+0.1%)   Silver 57.63 (-0.1%)   WTI 96.70 (-5.0%)   DXY 101.71 (-0.0%)   US10Y 5.10 (-0.3%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
