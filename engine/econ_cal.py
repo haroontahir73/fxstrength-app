@@ -538,6 +538,86 @@ SOURCES = [
 
 _TV_CCYS = {"USD", "EUR", "GBP", "JPY", "AUD", "NZD", "CAD", "CHF"}
 
+# ---------------------------------------------------------------- ForexFactory upcoming
+FF_URL = "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
+FF_CACHE = DATA / "ff_cal_cache.json"        # separate from speakers.py's ff_cache.json
+FF_MAX_AGE_H = 4                             # refresh more often than speakers (6h)
+FF_CCY_MAP = {"USD": "USD", "GBP": "GBP", "JPY": "JPY", "EUR": "EUR",
+              "AUD": "AUD", "NZD": "NZD", "CAD": "CAD", "CHF": "CHF"}
+
+
+def _fetch_ff_upcoming():
+    """Fetch ForexFactory this-week feed and return normalised upcoming events.
+
+    The feed only serves the current week (Mon-Fri). There is no next-week endpoint.
+    Events are returned with scheduled=True so the calendar page shows them in the
+    upcoming tabs with countdown timers."""
+    now = NOW()
+
+    # --- cache layer (the feed rate-limits aggressively)
+    if FF_CACHE.exists():
+        try:
+            cached = json.loads(FF_CACHE.read_text(encoding="utf-8"))
+            age = (now - dt.datetime.fromisoformat(cached["fetched_at"])).total_seconds() / 3600
+            if age < FF_MAX_AGE_H:
+                rows = cached["rows"]
+            else:
+                rows = None
+        except Exception:
+            rows = None
+    else:
+        rows = None
+
+    if rows is None:
+        try:
+            req = urllib.request.Request(FF_URL, headers={"User-Agent": "Mozilla/5.0"})
+            rows = json.loads(urllib.request.urlopen(req, timeout=40).read().decode("utf-8", "replace"))
+            FF_CACHE.write_text(json.dumps({"fetched_at": now.isoformat(), "rows": rows}), encoding="utf-8")
+        except Exception as e:
+            # fall back to stale cache
+            if FF_CACHE.exists():
+                try:
+                    rows = json.loads(FF_CACHE.read_text(encoding="utf-8"))["rows"]
+                except Exception:
+                    return [], f"unavailable ({type(e).__name__})"
+            else:
+                return [], f"unavailable ({type(e).__name__})"
+
+    out = []
+    for ev in rows:
+        ccy = FF_CCY_MAP.get(ev.get("country"))
+        if not ccy:
+            continue
+        impact = ev.get("impact", "Low")
+        # Skip Holiday entries — they aren't real data events
+        if impact == "Holiday":
+            continue
+        title = ev.get("title", "").strip()
+        if not title:
+            continue
+        try:
+            when = dt.datetime.fromisoformat(ev["date"]).astimezone(dt.timezone.utc)
+        except (KeyError, ValueError, TypeError):
+            continue
+        # Only future events (allow 1h grace for just-released)
+        if when <= now - dt.timedelta(hours=1):
+            continue
+        e = mk_event(
+            ccy, title, "macro", impact,
+            previous_raw=_f(ev.get("previous")),
+            when=when, has_time=True,
+            status="scheduled", scheduled=True,
+            source="ForexFactory",
+            source_url="https://www.forexfactory.com/calendar",
+        )
+        # FF provides display strings for forecast/previous
+        if ev.get("forecast"):
+            e["forecast"] = ev["forecast"]
+        if ev.get("previous") and not e["previous"]:
+            e["previous"] = ev["previous"]
+        out.append(e)
+    return out, "ok"
+
 
 def _read_tv_upcoming(data_dir):
     """Read upcoming events from data/calendar.json (written by fetch_calendar.py).
@@ -630,6 +710,33 @@ def build(data=None, offline=False):
             status["TradingView-schedule"] = {"ok": False, "error": "no upcoming events in calendar.json", "ccy": "ALL"}
     except Exception as e:                                           # noqa: BLE001
         status["TradingView-schedule"] = {"ok": False, "error": f"{type(e).__name__}: {e}"[:160], "ccy": "ALL"}
+
+    # ForexFactory forward-looking schedule (this-week feed, replaces TradingView when it fails)
+    try:
+        ff_upcoming, ff_status_msg = _fetch_ff_upcoming()
+        if ff_upcoming:
+            # Build dedup keys from all events already collected (official + TV)
+            existing_keys = set()
+            for e in events:
+                toks = frozenset(w.lower() for w in re.findall(r"[A-Za-z]+", e.get("event", "")) if len(w) >= 3)
+                existing_keys.add((e["currency"], toks))
+            added = 0
+            for e in ff_upcoming:
+                toks = frozenset(w.lower() for w in re.findall(r"[A-Za-z]+", e.get("event", "")) if len(w) >= 3)
+                dominated = False
+                for oc, ot in existing_keys:
+                    if oc == e["currency"] and ot and toks and len(ot & toks) / max(len(ot), len(toks)) > 0.4:
+                        dominated = True
+                        break
+                if not dominated:
+                    events.append(e)
+                    existing_keys.add((e["currency"], toks))
+                    added += 1
+            status["ForexFactory-schedule"] = {"ok": True, "as_of": now.isoformat(), "n": added, "ccy": "ALL"}
+        else:
+            status["ForexFactory-schedule"] = {"ok": False, "error": ff_status_msg, "ccy": "ALL"}
+    except Exception as e:                                           # noqa: BLE001
+        status["ForexFactory-schedule"] = {"ok": False, "error": f"{type(e).__name__}: {e}"[:160], "ccy": "ALL"}
 
     _append_history(events, now, data)
     archive = {"built_at": now.isoformat(), "data_as_of": now.isoformat(),
