@@ -463,8 +463,9 @@ def _future(ev):
 
 def _body(archive):
     events = _sorted(archive.get("events", []))
-    # Show all impact levels — user can filter with the impact buttons.
-    # ForexFactory feed provides impact tiers (High / Medium / Low) for all events.
+    # HIGH-impact only, per user request. Medium / Low are dropped from both upcoming and
+    # recent sections so the public calendar only shows what moves markets.
+    events = [e for e in events if e.get("impact") == "High"]
     tv_idx = _tv_index()
     head = ("<thead><tr><th>Time</th><th>Currency</th><th>Impact</th><th>Event</th>"
             "<th class='n'>Actual</th><th class='n mhide'>Forecast</th><th class='n'>Previous</th>"
