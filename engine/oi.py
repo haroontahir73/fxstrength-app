@@ -595,6 +595,10 @@ CSS = """<style>
 .oi-stale{padding:9px 12px;border-radius:7px;font-size:12.5px;margin:10px 0}
 .oi-stale.ok{background:rgba(63,190,131,.10);color:#3fbe83}
 .oi-stale.old{background:rgba(224,166,58,.12);color:#e0a63a}
+.oi-type-badge{font-family:"IBM Plex Mono",monospace;font-size:11px;padding:3px 10px;
+  border-radius:999px;margin-left:10px;vertical-align:middle;font-weight:600;letter-spacing:.04em}
+.oi-type-badge.fut{color:#5b9cf5;background:rgba(91,156,245,.13)}
+.oi-type-badge.opt{color:#c78af0;background:rgba(199,138,240,.13)}
 .oi-hist{margin:26px 0 0}
 .oi-hist h3{font-size:15px;margin:22px 0 2px;font-family:"IBM Plex Mono",monospace}
 .oi-hist h3 small{font-family:"IBM Plex Sans",sans-serif;font-weight:400;font-size:11.5px;
@@ -689,7 +693,7 @@ def history_tables(hist, prices):
             f"<tbody>{''.join(body)}</tbody></table>")
     if not blocks:
         return ""
-    return ('<div class="oi-hist"><h2>Futures open interest &mdash; last 7 days, day by day</h2>'
+    return ('<div class="oi-hist"><h2>Futures open interest &mdash; last 7 days, day by day <span class="oi-type-badge fut">FUTURES</span></h2>'
             '<p class="oi-sub">Rule&nbsp;#1 is about the <b>run</b>, not one print. Days that '
             'keep closing up with open interest rising are the ones to hold and add into. '
             'A shrinking OI increase after a long run is profit-taking starting. OI falling '
@@ -722,7 +726,7 @@ def options_tables(hist, n=TABLE_DAYS):
                       f"<tbody>{''.join(body)}</tbody></table>")
     if not blocks:
         return ""
-    return ('<div class="oi-hist"><h2>Options open interest &mdash; last 7 days</h2>'
+    return ('<div class="oi-hist"><h2>Options open interest &mdash; last 7 days <span class="oi-type-badge opt">OPTIONS</span></h2>'
             '<p class="oi-sub">Raw CME options open interest, shown separately from the futures '
             'table above and from the CFTC delta-adjusted Options FE OI.</p>'
             + "".join(blocks) + '</div>')
