@@ -1,5 +1,61 @@
 [
  {
+  "when": "25 Oct 10:34 UTC",
+  "iso": "2026-10-25T10:34:01.686042+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nDrones Strike Russia\u2019s Titanium Giant Supplying Su-34 Fighters and Iskander Missiles - UNITED24 Media  (UNITED24 Media)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPTEZDY0R0dkFnbFVEbXBwM3J6YURYQlphczdORWdhZUZRY05raFRQd0t4aDdmdUkzOUpyTlJYOWJHb3V1T3B5M1NTUUZJdGRBS1BEWnpkSkJpcTVKcnNEaXlkbHhRZHdZR1UxcXNGRDlERXFuU1NsRzdDeVdlSGhkODV5U3JfSVVQRldNTEdXQmZQSG55SW5zaEI5MG55VmNrV2hMUFBEVExnQkRxYkx0d0VrbzJfa21ES1RLMXd6azNxNE5rRm9nckl3?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4007.9,
+   "Silver": 53.949,
+   "WTI": 103.27
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Drones Strike Russia\u2019s Titanium Giant Supplying Su-34 Fighters and Iskander Missiles - UNITED24 Media",
+   "src": "UNITED24 Media",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "25 Oct 07:42 UTC",
   "iso": "2026-10-25T07:42:29.979040+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,131 (-0.3%)   Silver 57.47 (-0.4%)   WTI 98.02 (-3.7%)   DXY 101.70 (-0.0%)   US10Y 5.15 (+0.6%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "22 Oct 00:49 UTC",
-  "iso": "2026-10-22T00:49:58.456813+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOil prices rise as M.East tensions fuel fears of supply disruptions - Investing.com Australia  (Investing.com Australia)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,132 (-0.2%)   Silver 57.48 (-0.4%)   WTI 98.06 (-3.7%)   DXY 101.70 (-0.0%)   US10Y 5.15 (+0.6%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZjh6eWZkWVlUckRKMnRjbDFqSEw2QjBYN1RmUDNPcndEWkxCNEtfdmxQdk5oYjhyRHY3ZXF6aTZiQ1FjV3hSeHpLMkRFdjlkQm9CYjI4eDJnU2VKSEpXWjRTLXpncThoOGpGbVZMMGpqOTRycHdmYUwwY0xoTm9yLS1rMjRBNi0wUkJFdVlyRWtXeDk0Y2g4OHpfbXlQa000OEVfUUltVkVOdGxNeTVaaXFLV3hHZ29hdmp6aUln?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4132.5,
-   "Silver": 57.475,
-   "WTI": 98.06
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Oil prices rise as M.East tensions fuel fears of supply disruptions - Investing.com Australia",
-   "src": "Investing.com Australia",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,132 (-0.2%)   Silver 57.48 (-0.4%)   WTI 98.06 (-3.7%)   DXY 101.70 (-0.0%)   US10Y 5.15 (+0.6%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
