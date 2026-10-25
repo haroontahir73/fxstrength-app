@@ -599,6 +599,8 @@ CSS = """<style>
   border-radius:999px;margin-left:10px;vertical-align:middle;font-weight:600;letter-spacing:.04em}
 .oi-type-badge.fut{color:#5b9cf5;background:rgba(91,156,245,.13)}
 .oi-type-badge.opt{color:#c78af0;background:rgba(199,138,240,.13)}
+.oi-fut-col{color:#5b9cf5}
+.oi-opt-col{color:#c78af0}
 .oi-hist{margin:26px 0 0}
 .oi-hist h3{font-size:15px;margin:22px 0 2px;font-family:"IBM Plex Mono",monospace}
 .oi-hist h3 small{font-family:"IBM Plex Sans",sans-serif;font-weight:400;font-size:11.5px;
@@ -666,7 +668,7 @@ def _daylabel(iso):
 
 
 def history_tables(hist, prices):
-    """A fortnight of daily rows per instrument - the run is the signal, not one print."""
+    """Combined daily rows per instrument — futures and options OI side by side."""
     blocks = []
     for inst in ORDER:
         rows = day_rows(hist, prices, inst)
@@ -674,26 +676,43 @@ def history_tables(hist, prices):
             continue
         net = sum(r["chg"] for r in rows)
         up = sum(1 for r in rows if r["chg"] > 0)
+        has_opt = any(hist.get(r["date"], {}).get(inst, {}).get("oi_opt") is not None for r in rows)
         body = []
         for r in rows:
+            d = hist.get(r["date"], {}).get(inst, {})
             pc = ("<td class='na'>&mdash;</td>" if r["px_chg_pct"] is None else
                   f"<td class='{'up' if r['px_chg_pct'] > 0 else 'dn'}'>{r['px_chg_pct']:+.2f}%</td>")
             st = (f"<td class='st na'>&mdash;</td>" if not r["state"] else
                   f"<td class='st'><span class='oi-tag {r['cls']}'>"
                   f"{SHORT_STATE.get(r['state'], r['state'])}</span></td>")
+            # options columns
+            opt_cells = ""
+            if has_opt:
+                oi_opt = d.get("oi_opt")
+                chg_opt = d.get("chg_opt")
+                if oi_opt is None:
+                    opt_cells = "<td class='na'>&mdash;</td><td class='na'>&mdash;</td>"
+                else:
+                    oc = ("<td class='na'>&mdash;</td>" if chg_opt is None else
+                          f"<td class='{'up' if chg_opt > 0 else 'dn'}'>{_fs(format(chg_opt, '+,'), ('+' if chg_opt > 0 else '') + _k(chg_opt))}</td>")
+                    opt_cells = f"{oc}<td class='vol'>{_fs(format(oi_opt, ','), _k(oi_opt))}</td>"
             body.append(
                 f"<tr><td class='oi-day'>{_fs(_daylabel(r['date']), _daylabel(r['date'])[:6])}</td>{pc}"
                 f"<td class='{'up' if r['chg'] > 0 else 'dn'}'>{_fs(format(r['chg'], '+,'), ('+' if r['chg'] > 0 else '') + _k(r['chg']))}</td>"
-                f"<td class='vol'>{_fs(format(r['oi'], ','), _k(r['oi']))}</td>{st}</tr>")
+                f"<td class='vol'>{_fs(format(r['oi'], ','), _k(r['oi']))}</td>"
+                f"{opt_cells}{st}</tr>")
+        opt_hdr = (f"<th class='oi-opt-col'>{_fs('Opt ΔOI', 'ΔOpt')}</th>"
+                   f"<th class='vol oi-opt-col'>{_fs('Options OI', 'Opt OI')}</th>") if has_opt else ""
         blocks.append(
             f"<h3>{inst}<small>{len(rows)} days &middot; net "
             f"{net:+,} contracts &middot; {up} of {len(rows)} days up</small></h3>"
             "<table class='oi-tw'><thead><tr><th>Date</th><th>Price</th>"
-            f"<th>{_fs('OI change', 'ΔOI')}</th><th class='vol'>{_fs('Open interest', 'OI')}</th><th>Read</th></tr></thead>"
+            f"<th class='oi-fut-col'>{_fs('Fut ΔOI', 'ΔFut')}</th><th class='vol oi-fut-col'>{_fs('Futures OI', 'Fut OI')}</th>"
+            f"{opt_hdr}<th>Read</th></tr></thead>"
             f"<tbody>{''.join(body)}</tbody></table>")
     if not blocks:
         return ""
-    return ('<div class="oi-hist"><h2>Futures open interest &mdash; last 7 days, day by day <span class="oi-type-badge fut">FUTURES</span></h2>'
+    return ('<div class="oi-hist"><h2>Daily open interest &mdash; last 7 days, day by day</h2>'
             '<p class="oi-sub">Rule&nbsp;#1 is about the <b>run</b>, not one print. Days that '
             'keep closing up with open interest rising are the ones to hold and add into. '
             'A shrinking OI increase after a long run is profit-taking starting. OI falling '
@@ -701,35 +720,8 @@ def history_tables(hist, prices):
 
 
 def options_tables(hist, n=TABLE_DAYS):
-    """A SEPARATE table of raw CME options open interest, last `n` days per instrument -
-    kept distinct from the futures table above and from the CFTC delta-adjusted Options FE OI."""
-    blocks = []
-    for inst in ORDER:
-        rows = []
-        for day in sorted(hist, reverse=True):
-            d = hist[day].get(inst)
-            if not d or d.get("oi_opt") is None:
-                continue
-            rows.append((day, d.get("oi_opt"), d.get("chg_opt")))
-            if len(rows) >= n:
-                break
-        if not rows:
-            continue
-        body = []
-        for day, oiopt, chgopt in rows:
-            cc = ("<td class='na'>&mdash;</td>" if chgopt is None else
-                  f"<td class='{'up' if chgopt > 0 else 'dn'}'>{_fs(format(chgopt, '+,'), ('+' if chgopt > 0 else '') + _k(chgopt))}</td>")
-            body.append(f"<tr><td class='oi-day'>{_fs(_daylabel(day), _daylabel(day)[:6])}</td>{cc}"
-                        f"<td class='vol'>{_fs(format(oiopt, ','), _k(oiopt))}</td></tr>")
-        blocks.append(f"<h3>{inst}</h3><table class='oi-tw'><thead><tr><th>Date</th>"
-                      f"<th>{_fs('Options OI change', 'ΔOpt OI')}</th><th class='vol'>{_fs('Options OI', 'Opt OI')}</th></tr></thead>"
-                      f"<tbody>{''.join(body)}</tbody></table>")
-    if not blocks:
-        return ""
-    return ('<div class="oi-hist"><h2>Options open interest &mdash; last 7 days <span class="oi-type-badge opt">OPTIONS</span></h2>'
-            '<p class="oi-sub">Raw CME options open interest, shown separately from the futures '
-            'table above and from the CFTC delta-adjusted Options FE OI.</p>'
-            + "".join(blocks) + '</div>')
+    """Legacy separate options table — returns empty now that options are merged into history_tables."""
+    return ""
 
 
 def render(hist, state, reads, prices=None):

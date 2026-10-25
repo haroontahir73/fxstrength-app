@@ -73,9 +73,8 @@ def t_render_has_options_and_states():
         hist[day] = {"EUR": {"oi": 700000 + i * 1000, "chg": 1000, "volume": 50000,
                              "oi_opt": 120000 + i * 200, "chg_opt": 200, "volume_opt": 8000}}
     html = oi.render(hist, {"last_good_date": sorted(hist)[-1]}, oi.analyse(hist, {}), {})
-    check("separate options section present", "Options open interest" in html)
-    check("options table has its own change column", "Options OI change" in html)
-    check("futures table NOT mixed with options", "Opt OI chg" not in html)
+    check("merged table has futures column", "Fut" in html)
+    check("merged table has options column", "Opt" in html and "oi-opt-col" in html)
     check("page preserves the 4-state key", "New money long" in html and "Short covering" in html)
 
 
