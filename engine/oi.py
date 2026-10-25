@@ -599,8 +599,8 @@ CSS = """<style>
   border-radius:999px;margin-left:10px;vertical-align:middle;font-weight:600;letter-spacing:.04em}
 .oi-type-badge.fut{color:#5b9cf5;background:rgba(91,156,245,.13)}
 .oi-type-badge.opt{color:#c78af0;background:rgba(199,138,240,.13)}
-.oi-fut-col{color:#5b9cf5}
-.oi-opt-col{color:#c78af0}
+.oi-fut-col{}
+.oi-opt-col{}
 .oi-hist{margin:26px 0 0}
 .oi-hist h3{font-size:15px;margin:22px 0 2px;font-family:"IBM Plex Mono",monospace}
 .oi-hist h3 small{font-family:"IBM Plex Sans",sans-serif;font-weight:400;font-size:11.5px;
