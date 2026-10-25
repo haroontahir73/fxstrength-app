@@ -463,9 +463,8 @@ def _future(ev):
 
 def _body(archive):
     events = _sorted(archive.get("events", []))
-    # HIGH-impact only, per user request. Medium / Low are dropped from both upcoming and
-    # recent sections so the public calendar only shows what moves markets.
-    events = [e for e in events if e.get("impact") == "High"]
+    # Show all impact levels — user can filter with the impact buttons.
+    # ForexFactory feed provides impact tiers (High / Medium / Low) for all events.
     tv_idx = _tv_index()
     head = ("<thead><tr><th>Time</th><th>Currency</th><th>Impact</th><th>Event</th>"
             "<th class='n'>Actual</th><th class='n mhide'>Forecast</th><th class='n'>Previous</th>"
@@ -511,9 +510,9 @@ def _meta(archive):
 def panel(archive=None):
     archive = archive if archive is not None else _load()
     when, ok, n = _meta(archive)
-    note = ("Official sources + <a href='https://www.tradingview.com/economic-calendar/' "
-            "target='_blank'>TradingView</a> schedule. <b>HIGH-impact "
-            "only.</b> Upcoming events are sourced from TradingView; actual values come from "
+    note = ("Official sources + <a href='https://www.forexfactory.com/calendar' "
+            "target='_blank'>ForexFactory</a> schedule. "
+            "Upcoming events are sourced from ForexFactory; actual values come from "
             "official government agencies. Forecast shows &ldquo;&mdash;&rdquo; when no "
             "official consensus is available. <b>Impact on currency</b> is a direction tag "
             "(↑ Bullish / ↓ Bearish / → Neutral) computed internally against "
