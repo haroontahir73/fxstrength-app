@@ -92,23 +92,27 @@ jobs:
                       '?days=30&isProtected&_t=' + Date.now(), { credentials: 'include' });
                     if (!q.ok) return { status: q.status };
                     const j = await q.json();
-                    return { status: q.status, rows: (j.vdate || [])
-                      .filter(v => v.futureOi && v.futureOi !== '-')
-                      .map(v => [v.formattedDate, parseInt(v.futureOi),
-                                 parseInt(v.futureVolume || 0)]) };
+                    const vd = (j.vdate || []).filter(v => v.futureOi && v.futureOi !== '-');
+                    const fut = vd.map(v => [v.formattedDate, parseInt(v.futureOi),
+                                             parseInt(v.futureVolume || 0)]);
+                    const opt = vd
+                      .filter(v => v.optionOi && v.optionOi !== '-')
+                      .map(v => [v.formattedDate, parseInt(v.optionOi),
+                                 parseInt(v.optionVolume || 0)]);
+                    return { status: q.status, fut, opt };
                   }, id);
                   if (res.status !== 200) {
                     status.note = 'refused on ' + name + ' (HTTP ' + res.status +
                                   ') - stopping rather than retrying';
                     break;                    // do NOT keep knocking
                   }
-                  out[name] = res.rows;
+                  out[name] = { fut: res.fut, opt: res.opt };
                   await sleep(2500);          // human pace
                 }
                 if (!status.note) {
                   status.ok = Object.keys(out).length === Object.keys(PRODUCTS).length;
                   status.captured = Object.keys(out).length;
-                  const g = out.Gold || [];
+                  const g = (out.Gold || {}).fut || [];
                   status.latest = g.length ? g[g.length - 1][0] : null;
                   if (!status.ok) status.note = 'only ' + status.captured + ' of 10 products';
                 }
