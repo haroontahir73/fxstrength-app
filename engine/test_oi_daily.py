@@ -74,7 +74,7 @@ def t_render_has_options_and_states():
                              "oi_opt": 120000 + i * 200, "chg_opt": 200, "volume_opt": 8000}}
     html = oi.render(hist, {"last_good_date": sorted(hist)[-1]}, oi.analyse(hist, {}), {})
     check("merged table has futures column", "Fut" in html)
-    check("merged table has options column", "Opt" in html and "oi-opt-col" in html)
+    check("merged table has options column", "Opt" in html)
     check("page preserves the 4-state key", "New money long" in html and "Short covering" in html)
 
 

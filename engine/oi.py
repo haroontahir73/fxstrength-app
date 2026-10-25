@@ -599,8 +599,6 @@ CSS = """<style>
   border-radius:999px;margin-left:10px;vertical-align:middle;font-weight:600;letter-spacing:.04em}
 .oi-type-badge.fut{color:#5b9cf5;background:rgba(91,156,245,.13)}
 .oi-type-badge.opt{color:#c78af0;background:rgba(199,138,240,.13)}
-.oi-fut-col{}
-.oi-opt-col{}
 .oi-hist{margin:26px 0 0}
 .oi-hist h3{font-size:15px;margin:22px 0 2px;font-family:"IBM Plex Mono",monospace}
 .oi-hist h3 small{font-family:"IBM Plex Sans",sans-serif;font-weight:400;font-size:11.5px;
@@ -701,13 +699,13 @@ def history_tables(hist, prices):
                 f"<td class='{'up' if r['chg'] > 0 else 'dn'}'>{_fs(format(r['chg'], '+,'), ('+' if r['chg'] > 0 else '') + _k(r['chg']))}</td>"
                 f"<td class='vol'>{_fs(format(r['oi'], ','), _k(r['oi']))}</td>"
                 f"{opt_cells}{st}</tr>")
-        opt_hdr = (f"<th class='oi-opt-col'>{_fs('Opt ΔOI', 'ΔOpt')}</th>"
-                   f"<th class='vol oi-opt-col'>{_fs('Options OI', 'Opt OI')}</th>") if has_opt else ""
+        opt_hdr = (f"<th>{_fs('Opt ΔOI', 'ΔOpt')}</th>"
+                   f"<th class='vol'>{_fs('Options OI', 'Opt OI')}</th>") if has_opt else ""
         blocks.append(
             f"<h3>{inst}<small>{len(rows)} days &middot; net "
             f"{net:+,} contracts &middot; {up} of {len(rows)} days up</small></h3>"
             "<table class='oi-tw'><thead><tr><th>Date</th><th>Price</th>"
-            f"<th class='oi-fut-col'>{_fs('Fut ΔOI', 'ΔFut')}</th><th class='vol oi-fut-col'>{_fs('Futures OI', 'Fut OI')}</th>"
+            f"<th>{_fs('Fut ΔOI', 'ΔFut')}</th><th class='vol'>{_fs('Futures OI', 'Fut OI')}</th>"
             f"{opt_hdr}<th>Read</th></tr></thead>"
             f"<tbody>{''.join(body)}</tbody></table>")
     if not blocks:
