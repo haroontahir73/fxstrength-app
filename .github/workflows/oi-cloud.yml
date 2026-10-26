@@ -17,9 +17,9 @@ name: oi cloud capture
 on:
   schedule:
     # CME preliminary OI lands ~02:30 UTC (summer) / ~03:30 UTC (winter).
-    # Run at 03:00 and 04:00 UTC to catch both DST windows.
-    # Final OI lands ~14:30-15:30 UTC; run at 15:00 to pick up finals.
-    - cron: '0 3,4,15 * * 2-6'   # Tue-Sat (for Mon-Fri trade dates)
+    # Final OI lands ~14:30-15:30 UTC.
+    # Hourly Tue-Sat as fallback if CME is late or a run fails.
+    - cron: '0 * * * 2-6'   # every hour, Tue-Sat (Mon-Fri trade dates)
   workflow_dispatch:
 
 permissions:
