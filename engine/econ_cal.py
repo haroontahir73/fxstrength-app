@@ -546,18 +546,19 @@ FF_CCY_MAP = {"USD": "USD", "GBP": "GBP", "JPY": "JPY", "EUR": "EUR",
               "AUD": "AUD", "NZD": "NZD", "CAD": "CAD", "CHF": "CHF"}
 
 
-def _fetch_ff_upcoming():
+def _fetch_ff_upcoming(data=None):
     """Fetch ForexFactory this-week feed and return normalised upcoming events.
 
     The feed only serves the current week (Mon-Fri). There is no next-week endpoint.
     Events are returned with scheduled=True so the calendar page shows them in the
     upcoming tabs with countdown timers."""
     now = NOW()
+    cache = (Path(data) / "ff_cal_cache.json") if data else FF_CACHE
 
     # --- cache layer (the feed rate-limits aggressively)
-    if FF_CACHE.exists():
+    if cache.exists():
         try:
-            cached = json.loads(FF_CACHE.read_text(encoding="utf-8"))
+            cached = json.loads(cache.read_text(encoding="utf-8"))
             age = (now - dt.datetime.fromisoformat(cached["fetched_at"])).total_seconds() / 3600
             if age < FF_MAX_AGE_H:
                 rows = cached["rows"]
@@ -572,12 +573,12 @@ def _fetch_ff_upcoming():
         try:
             req = urllib.request.Request(FF_URL, headers={"User-Agent": "Mozilla/5.0"})
             rows = json.loads(urllib.request.urlopen(req, timeout=40).read().decode("utf-8", "replace"))
-            FF_CACHE.write_text(json.dumps({"fetched_at": now.isoformat(), "rows": rows}), encoding="utf-8")
+            cache.write_text(json.dumps({"fetched_at": now.isoformat(), "rows": rows}), encoding="utf-8")
         except Exception as e:
             # fall back to stale cache
-            if FF_CACHE.exists():
+            if cache.exists():
                 try:
-                    rows = json.loads(FF_CACHE.read_text(encoding="utf-8"))["rows"]
+                    rows = json.loads(cache.read_text(encoding="utf-8"))["rows"]
                 except Exception:
                     return [], f"unavailable ({type(e).__name__})"
             else:
@@ -713,7 +714,7 @@ def build(data=None, offline=False):
 
     # ForexFactory forward-looking schedule (this-week feed, replaces TradingView when it fails)
     try:
-        ff_upcoming, ff_status_msg = _fetch_ff_upcoming()
+        ff_upcoming, ff_status_msg = _fetch_ff_upcoming(data)
         if ff_upcoming:
             # Build dedup keys from all events already collected (official + TV)
             existing_keys = set()
