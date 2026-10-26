@@ -19,7 +19,7 @@ on:
     # CME preliminary OI lands ~02:30 UTC (summer) / ~03:30 UTC (winter).
     # Final OI lands ~14:30-15:30 UTC.
     # Hourly Tue-Sat as fallback if CME is late or a run fails.
-    - cron: '0 * * * 2-6'   # every hour, Tue-Sat (Mon-Fri trade dates)
+    - cron: '0 * * * 1-6'   # every hour, Mon-Sat (covers all trade dates)
   workflow_dispatch:
 
 permissions:
