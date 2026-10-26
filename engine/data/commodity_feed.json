@@ -1,5 +1,61 @@
 [
  {
+  "when": "26 Oct 21:30 UTC",
+  "iso": "2026-10-26T21:30:15.899228+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussia kills 2, injures 4 in missile strike on apartment block in Kharkiv - New York Post  (New York Post)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,031 (+0.6%)   Silver 54.03 (+0.6%)   WTI 101.25 (-2.0%)   DXY 102.00 (+0.2%)   US10Y 4.99 (-0.0%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPeDY2MWJ2dXRFdGNmYzZGTHJ2NkJ4R2FtbDlKYVF4WW91UXA0TU9mQnp1U1U3cVRkZHZpQWhjLVUzVDdHdGJUaTBBYnJrWnF5eE95NGdSVXU2cXk3Y1RwNUM1MGhJZFpTU3h4ZG9RUVNEaFNSVE1ocm1JSkVlN1JQc2h0TFJtbUE4NXNvZWZHZm1yanRRWU11MThPNnNfQndDWmRpZHhzZFFlWGM5UDZjTWNXNE0?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4031.0,
+   "Silver": 54.035,
+   "WTI": 101.25
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Russia kills 2, injures 4 in missile strike on apartment block in Kharkiv - New York Post",
+   "src": "New York Post",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,031 (+0.6%)   Silver 54.03 (+0.6%)   WTI 101.25 (-2.0%)   DXY 102.00 (+0.2%)   US10Y 4.99 (-0.0%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "25 Oct 21:17 UTC",
   "iso": "2026-10-25T21:17:06.430117+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,110 (-1.0%)   Silver 56.27 (-2.0%)   WTI 99.26 (+2.2%)   DXY 101.50 (-0.3%)   US10Y 5.15 (+0.6%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "22 Oct 06:09 UTC",
-  "iso": "2026-10-22T06:09:15.684336+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nThe Inflation Nemesis\u2014More Fed Rate Hikes Are Coming - Cabot Wealth Network  (Cabot Wealth Network)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,102 (-1.2%)   Silver 56.26 (-2.0%)   WTI 99.22 (+2.1%)   DXY 101.51 (-0.3%)   US10Y 5.15 (+0.6%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPZkdNWlNnTHI1dUJKWTBnaG9PbVl0dXpkVW8tcjJsS3Y5S1hGVlR5Ukh1d3JBVEQ4ajE5aVEybDhyMkVYbVhUT3NJSTQwUVRwUkI3WVZkMHRJSGtCYWpsR2RaaEJZZlQ4VnVZY2NfaG9XR3FqQTJOWVpDZlBab19UeE1n?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4101.6,
-   "Silver": 56.26,
-   "WTI": 99.22
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "The Inflation Nemesis\u2014More Fed Rate Hikes Are Coming - Cabot Wealth Network",
-   "src": "Cabot Wealth Network",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,102 (-1.2%)   Silver 56.26 (-2.0%)   WTI 99.22 (+2.1%)   DXY 101.51 (-0.3%)   US10Y 5.15 (+0.6%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
