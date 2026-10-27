@@ -1,5 +1,61 @@
 [
  {
+  "when": "27 Oct 07:17 UTC",
+  "iso": "2026-10-27T07:17:24.843041+00:00",
+  "cat": "oil_supply_tight",
+  "title": "TALK | OIL LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nGoldman Sachs warns that the scale of refinery outages has exceeded previous worst-case expectations, and global refined product tightness may persist until 2027. - \u5bcc\u9014\u725b\u725b  (\u5bcc\u9014\u725b\u725b)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191   look for longs - the direct hit (talk, not action yet)\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,013 (-0.6%)   Silver 52.87 (-2.3%)   WTI 102.11 (+0.3%)   DXY 102.20 (+0.2%)   US10Y 4.99 (-0.0%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNdld5RVllU3FEb3JoTmVzWmd3ZEd4TkZIYUhrVlpHZjgtY1RFa3hTOU1QUjVROW1mSzJIUTBCWWxsbEgzOTF2MEtuRk5LWGZOUVlFUDNYaXdKS1ptZlFmRDcxekZoTFlFN1h2Zm9HdDB6X25QTndBdDNFenFTbzZGSjdleGJYVERBTGdIa19ncHdkZmtfdnNWcWljcndnWUZmQ0pJ?oc=5",
+  "talk": true,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4013.0,
+   "Silver": 52.865,
+   "WTI": 102.11
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Goldman Sachs warns that the scale of refinery outages has exceeded previous worst-case expectations, and global refined product tightness may persist until 2027. - \u5bcc\u9014\u725b\u725b",
+   "src": "\u5bcc\u9014\u725b\u725b",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "the direct hit (talk, not action yet)",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,013 (-0.6%)   Silver 52.87 (-2.3%)   WTI 102.11 (+0.3%)   DXY 102.20 (+0.2%)   US10Y 4.99 (-0.0%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "27 Oct 06:41 UTC",
   "iso": "2026-10-27T06:41:22.272067+00:00",
   "cat": "oil_supply_loose",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,094 (-1.3%)   Silver 55.78 (-2.9%)   WTI 99.82 (+2.7%)   DXY 101.76 (-0.0%)   US10Y 5.03 (-2.2%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "22 Oct 12:45 UTC",
-  "iso": "2026-10-22T12:45:23.277748+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nBrent crude near $112 as U.S. and Israel reportedly weigh fresh Iran strikes\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,088 (-1.5%)   Silver 55.88 (-2.7%)   WTI 99.39 (+2.3%)   DXY 101.79 (+0.0%)   US10Y 5.04 (-2.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://www.cnbc.com/2026/10/22/oil-prices-today-wti-brent-saudi-arabia.html",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4087.9,
-   "Silver": 55.885,
-   "WTI": 99.39
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Brent crude near $112 as U.S. and Israel reportedly weigh fresh Iran strikes",
-   "src": "",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,088 (-1.5%)   Silver 55.88 (-2.7%)   WTI 99.39 (+2.3%)   DXY 101.79 (+0.0%)   US10Y 5.04 (-2.1%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
