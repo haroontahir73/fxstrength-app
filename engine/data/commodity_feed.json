@@ -1,5 +1,61 @@
 [
  {
+  "when": "27 Oct 10:23 UTC",
+  "iso": "2026-10-27T10:23:17.142369+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: Qatar foreign ministry spokesperson: Iran needs to show good intentions, stop threats against arab gulf states, and open the Strait of Hormuz for mediation efforts to succeed\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,011 (-0.7%)   Silver 53.26 (-1.6%)   WTI 102.29 (+0.5%)   DXY 102.24 (+0.3%)   US10Y 4.99 (-0.0%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://www.financialjuice.com/News/9822807/Qatar-foreign-ministry-spokesperson-Iran-needs-to-show-good-intentions-stop-threats-against-arab-gulf-states-and-open-the-Strait-of-Hormuz-for-mediation-efforts-to-succeed.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4011.1,
+   "Silver": 53.26,
+   "WTI": 102.29
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "FinancialJuice: Qatar foreign ministry spokesperson: Iran needs to show good intentions, stop threats against arab gulf states, and open the Strait of Hormuz for mediation efforts to succeed",
+   "src": "",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,011 (-0.7%)   Silver 53.26 (-1.6%)   WTI 102.29 (+0.5%)   DXY 102.24 (+0.3%)   US10Y 4.99 (-0.0%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "27 Oct 08:13 UTC",
   "iso": "2026-10-27T08:13:21.131091+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,053 (-2.3%)   Silver 54.92 (-4.4%)   WTI 99.20 (+2.1%)   DXY 101.60 (-0.2%)   US10Y 4.97 (-3.5%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "22 Oct 16:18 UTC",
-  "iso": "2026-10-22T16:18:06.722484+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nStrait of Hormuz Oil Tankers Hit: New Risks for U.S. Farmers - AgroLatam  (AgroLatam)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,062 (-2.1%)   Silver 55.11 (-4.0%)   WTI 98.83 (+1.7%)   DXY 101.70 (-0.1%)   US10Y 5.00 (-2.7%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQTHNGZzNlVHFUR3FNU3RaTjVreldVejBtMlFYaTVKdzJycXFaTHlFcTR5ZTRsdnc0YXNyYWNzYS1XM042SThmOW1INi1KZE02S3o1TDdpeTRDX3VESGwxOGdRY2VuTGY4LWFaNGd4LTdscXFTUGdfNHVaRmVHU193YlRhOGhBRUp2SThjeTFfR1QtTDRGVjR5TUR3?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4062.4,
-   "Silver": 55.11,
-   "WTI": 98.83
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Strait of Hormuz Oil Tankers Hit: New Risks for U.S. Farmers - AgroLatam",
-   "src": "AgroLatam",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,062 (-2.1%)   Silver 55.11 (-4.0%)   WTI 98.83 (+1.7%)   DXY 101.70 (-0.1%)   US10Y 5.00 (-2.7%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
