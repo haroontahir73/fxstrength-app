@@ -1,5 +1,61 @@
 [
  {
+  "when": "27 Oct 07:20 UTC",
+  "iso": "2026-10-27T07:20:46.437646+00:00",
+  "cat": "geo_deescalation",
+  "title": "GEOPOLITICS - calming down",
+  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nTrump describes a ceasefire with Iran as a \"waste of time,\" while highlighting the decline in oil prices and the protection of the Strait of Hormuz - \u0635\u0648\u062a \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a  (\u0635\u0648\u062a \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a)\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193    mild short bias - supply worry gone, barrels flow again (eased by self-check)\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,014 (-0.6%)   Silver 52.88 (-2.3%)   WTI 101.98 (+0.2%)   DXY 102.17 (+0.2%)   US10Y 4.99 (-0.0%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
+  "link": "https://news.google.com/rss/articles/CBMipwJBVV95cUxQRGJSdFF4d29TQWJrbEM1c2pHZTBKVTJkRkJfa2JETVBDa2JZdFhtZGhyeWhZOEg4RGd1RXlqUmNrRTBiRGhuQ1FxNy02SFRKbjlyLUd5VjA4czhoQnpyRm1EM2liYXBxMER1Mm84YlVmTEktdXRfR0Vmb2dtX091WXFRdWpRcTliejlER18yWGdabGhDVFVJZl9YVFY2RXVCSEh3cXVQYlpVRjZMTmZFc1RCLXNIalNRTmVUXy1JNkEwSjdKTHpoR0pILWpPMmkwQ2ZwMkxreS1hdHduWUNwRGFwOE5WSEoycVQzWS0zOGplbFdaZ0dHZkdWMEJpTmFBZWhHdGNDSTlWTDhIYmVKSE9XR1JiVkszR2dOai1udHZQckpQZ3R3?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4013.9,
+   "Silver": 52.88,
+   "WTI": 101.98
+  },
+  "parts": {
+   "emoji": "\ud83d\udd4a",
+   "label": "GEOPOLITICS \u2014 calming down",
+   "headline": "Trump describes a ceasefire with Iran as a \"waste of time,\" while highlighting the decline in oil prices and the protection of the Strait of Hormuz - \u0635\u0648\u062a \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a",
+   "src": "\u0635\u0648\u062a \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a",
+   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured both ways - fear-out vs yields-down cancel",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "same, no reliable direction",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "supply worry gone, barrels flow again (eased by self-check)",
+     "record": "some evidence - right 51% of 113 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,014 (-0.6%)   Silver 52.88 (-2.3%)   WTI 101.98 (+0.2%)   DXY 102.17 (+0.2%)   US10Y 4.99 (-0.0%)",
+   "reality": "",
+   "flip": "these deals break \u2014 one broken truce and it all goes back on"
+  }
+ },
+ {
   "when": "27 Oct 07:17 UTC",
   "iso": "2026-10-27T07:17:24.843041+00:00",
   "cat": "oil_supply_tight",
@@ -3299,62 +3355,6 @@
     }
    ],
    "snap": "NOW  Gold 4,065 (-2.0%)   Silver 55.41 (-3.5%)   WTI 98.65 (+1.5%)   DXY 101.86 (+0.1%)   US10Y 5.02 (-2.4%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "22 Oct 13:24 UTC",
-  "iso": "2026-10-22T13:24:34.020594+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOil shipping through Strait of Hormuz - Gray TV  (Gray TV)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,094 (-1.3%)   Silver 55.78 (-2.9%)   WTI 99.82 (+2.7%)   DXY 101.76 (-0.0%)   US10Y 5.03 (-2.2%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOVjRrcmdKTERGaU5SbWU2Y3FmWHpWVVBuS2lRQzkxQ214b1duUnJVcDN4TU96dk5TQXVEVmdOMDB6NFVwS0l3OWVWalRoU1VjdGJfNzRoQWJaREN4THlPalVxa0k1eE5aRnh0ZERZSDVMVllDOWd4UFU3eHJaX21GOUZkaWZLREhFZXc?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4094.3,
-   "Silver": 55.785,
-   "WTI": 99.82
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Oil shipping through Strait of Hormuz - Gray TV",
-   "src": "Gray TV",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,094 (-1.3%)   Silver 55.78 (-2.9%)   WTI 99.82 (+2.7%)   DXY 101.76 (-0.0%)   US10Y 5.03 (-2.2%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
   }
