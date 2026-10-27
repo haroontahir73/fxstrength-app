@@ -1,5 +1,61 @@
 [
  {
+  "when": "27 Oct 12:31 UTC",
+  "iso": "2026-10-27T12:31:18.485829+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nHouthis Claim Missile Strike on Saudi Oil Refinery, Warn Egypt Over Support for Riyadh - Kurdistan24  (Kurdistan24)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,030 (-0.2%)   Silver 53.39 (-1.3%)   WTI 101.02 (-0.7%)   DXY 102.18 (+0.2%)   US10Y 4.99 (-0.0%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPNkszVlBBY0FoOWdpNm9jNkM0TWZhczRxcnkxVG5Yb1RhMDBERFh5TTRPdzJvdjI4cllrUXBINE10YWtKRFRQdTVSLW9FVWhla1pIeHg3M05MbHplQjBfWDN0aEltLW9UTmZnbnE5UFliVkhYazh4MVRNRVdLOGZvaGRPamhGc3lvdDhXQTNrTUZtU241RmpFMGJMWGVIMy0zOEhfRjdkZDNZTUpTUno0d0dpczBTZnpkRVVuaUlnU2JOVWljVTBrcQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4030.5,
+   "Silver": 53.39,
+   "WTI": 101.02
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Houthis Claim Missile Strike on Saudi Oil Refinery, Warn Egypt Over Support for Riyadh - Kurdistan24",
+   "src": "Kurdistan24",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,030 (-0.2%)   Silver 53.39 (-1.3%)   WTI 101.02 (-0.7%)   DXY 102.18 (+0.2%)   US10Y 4.99 (-0.0%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "27 Oct 11:28 UTC",
   "iso": "2026-10-27T11:28:52.484047+00:00",
   "cat": "geo_deescalation",
@@ -3299,62 +3355,6 @@
     }
    ],
    "snap": "NOW  Gold 4,040 (-2.7%)   Silver 54.66 (-4.8%)   WTI 99.09 (+2.0%)   DXY 101.62 (-0.2%)   US10Y 4.95 (-3.8%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "22 Oct 19:20 UTC",
-  "iso": "2026-10-22T19:20:16.221591+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIran\u2019s secret oil supply bound for China has dried up thanks to US naval blockade, analysts say - New York Post  (New York Post)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,043 (-2.6%)   Silver 54.62 (-4.9%)   WTI 99.54 (+2.5%)   DXY 101.61 (-0.2%)   US10Y 4.95 (-3.8%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQUnVQUmtBMWxEa044SmZLUWJRY3BNMG9leS01MHFZTkhjdWNxM2h0MVZtVkpKOGdHOUdWd1VXWVdrYWlEcDdTUVl6OE5jZ2xwOUh1SjNSQlMyMm9YdDBBT21IeFc5VGpENWE3c2Fva25QRDFrd3FpWHVrU3pET1lsalB3Ym9EeDRHR2doMkZxQ0ZMWFVTc05rQUhR?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4042.7,
-   "Silver": 54.625,
-   "WTI": 99.54
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Iran\u2019s secret oil supply bound for China has dried up thanks to US naval blockade, analysts say - New York Post",
-   "src": "New York Post",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,043 (-2.6%)   Silver 54.62 (-4.9%)   WTI 99.54 (+2.5%)   DXY 101.61 (-0.2%)   US10Y 4.95 (-3.8%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
