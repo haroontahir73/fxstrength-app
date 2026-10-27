@@ -1,5 +1,61 @@
 [
  {
+  "when": "27 Oct 19:10 UTC",
+  "iso": "2026-10-27T19:10:07.354987+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nTanker Catches Fire After Hitting Sea Mines in Eastern Strait of Hormuz - WANA News Agency  (WANA News Agency)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,072 (+0.8%)   Silver 54.38 (+0.5%)   WTI 99.94 (-1.8%)   DXY 102.32 (+0.4%)   US10Y 4.99 (+0.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOUjR3WUhORnNFV1llNm5NSFFnaGpsZTJJZk50LUFvaE5DbjZYc2ZFNWhNdmtVVFZnaFpQYU1pRmcwNkpHdmVvdlRuZTdxWHl6UFVQTmpTNTRNZ1NoMmhoVjlTT2dWMTBPMFR6M3NxOWdTcFFHMHNKeXppYXVnLUFabVlmYUUyRWZKRWlwbTI5SV8tWlZKNHc?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4071.6,
+   "Silver": 54.375,
+   "WTI": 99.94
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Tanker Catches Fire After Hitting Sea Mines in Eastern Strait of Hormuz - WANA News Agency",
+   "src": "WANA News Agency",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,072 (+0.8%)   Silver 54.38 (+0.5%)   WTI 99.94 (-1.8%)   DXY 102.32 (+0.4%)   US10Y 4.99 (+0.1%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "27 Oct 18:50 UTC",
   "iso": "2026-10-27T18:50:30.729439+00:00",
   "cat": "geo_deescalation",
@@ -3299,62 +3355,6 @@
     }
    ],
    "snap": "NOW  Gold 4,041 (-0.5%)   Silver 53.84 (-1.7%)   WTI 101.22 (+1.8%)   DXY 101.65 (+0.0%)   US10Y 4.96 (+0.2%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "23 Oct 11:34 UTC",
-  "iso": "2026-10-23T11:34:04.626288+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRomania blames Russia for new deadly attack on ship - RFI  (RFI)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,045 (-0.4%)   Silver 54.13 (-1.2%)   WTI 101.02 (+1.6%)   DXY 101.78 (+0.2%)   US10Y 4.95 (-3.8%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQdGhMUmVoUUhQNC1Gc01pSUxmZ0NmOWtPa216TGZ3Y0VpWnF1VEF5QkNKVDRmUWdzRTBZODJRd2IxVFplcWJDRzdFNlZtU1hZbUN4OEFQaWVLbTNTYWhTUXNrYW0zZTBNSzJWYjY1VlFhLTFYMGJuajhJcnpRZnFleFpKOUxDVTRpUWNRejZxcHI0TXBwUHBIZkRYQ01oMlJMekNz?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4044.6,
-   "Silver": 54.13,
-   "WTI": 101.02
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Romania blames Russia for new deadly attack on ship - RFI",
-   "src": "RFI",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,045 (-0.4%)   Silver 54.13 (-1.2%)   WTI 101.02 (+1.6%)   DXY 101.78 (+0.2%)   US10Y 4.95 (-3.8%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
