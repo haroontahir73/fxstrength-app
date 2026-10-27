@@ -1,6 +1,17 @@
 {
  "geo_deescalation.oil": [
   {
+   "at": "2026-10-27T18:47:23.463278+00:00",
+   "action": "restore",
+   "drop_before": 1,
+   "drop_after": 0,
+   "n": 40,
+   "hit": 47.5,
+   "base": 48.5,
+   "excess": -1.0,
+   "why": "excess -1.0pp is above -2pp"
+  },
+  {
    "at": "2026-10-27T18:15:03.053007+00:00",
    "action": "restore",
    "drop_before": 2,
