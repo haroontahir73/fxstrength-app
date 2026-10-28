@@ -280,6 +280,41 @@ def fetch_cme(trade_date):
     return out
 
 
+def fetch_cme_options():
+    """Fetch options OI from the LastTotals JSON API for all instruments.
+    Returns {day: {inst: {oi_opt, chg_opt, volume_opt}}} for up to 30 days.
+    This endpoint serves a real browser-like UA from residential IPs (the Pi)
+    but is blocked from datacenter IPs (GitHub Actions)."""
+    day_map = {}
+    for inst, pid in CME_PRODUCT_ID.items():
+        url = CME_LAST_TOTALS.format(pid=pid, days=30)
+        try:
+            raw = _get(url, timeout=20)
+            data = json.loads(raw)
+        except urllib.error.HTTPError as e:
+            print(f"  options {inst}: HTTP {e.code} (skipping)")
+            return {}                           # stop on first refusal, don't hammer
+        except Exception as e:                  # noqa: BLE001
+            print(f"  options {inst}: {type(e).__name__} (skipping)")
+            return {}
+        vd = data.get("vdate") or []
+        for v in vd:
+            opt_oi_str = v.get("optionOi") or ""
+            if not opt_oi_str or opt_oi_str == "-":
+                continue
+            day_str = v.get("formattedDate", "")
+            if len(day_str) != 8:
+                continue
+            day = f"{day_str[:4]}-{day_str[4:6]}-{day_str[6:]}"
+            rec = day_map.setdefault(day, {}).setdefault(inst, {})
+            rec["oi_opt"] = _num(opt_oi_str)
+            rec["chg_opt"] = _num(v.get("optionOiChange") or v.get("optionChange"))
+            rec["volume_opt"] = _num(v.get("optionVolume"))
+        time.sleep(2.5)                         # human pace
+    print(f"  options: got {len(day_map)} days across {len(CME_PRODUCT_ID)} instruments")
+    return day_map
+
+
 def _fold_rows(out, rows):
     """Classify export rows into {inst: {oi,chg,volume, oi_opt,chg_opt,volume_opt}} by the
     Type column. Pure (no network) so it is unit-testable against a fixture export.
@@ -536,6 +571,17 @@ def update(force=False):
                 print(f"  CME unavailable - workbook gave {w} new cells ({s} already held)")
             except Exception as e:                            # noqa: BLE001
                 print(f"  workbook read failed: {type(e).__name__}: {e}")
+
+    # OPTIONS OI: fetch from the LastTotals JSON API (works from residential IPs like
+    # the Pi, blocked from datacenter IPs). merge_days is field-level so options fields
+    # backfill into days whose futures are already frozen.
+    try:
+        opt_days = fetch_cme_options()
+        if opt_days:
+            ow, os_ = merge_days(hist, opt_days)
+            print(f"  options OI: {ow} new cells written, {os_} already held")
+    except Exception as e:                                    # noqa: BLE001
+        print(f"  options OI fetch failed: {type(e).__name__}: {e}")
 
     state.setdefault("attempts", {}).setdefault(tkey, []).append(now.isoformat())
     state.setdefault("last_attempt_for", {})[tkey] = now.isoformat()
