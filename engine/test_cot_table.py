@@ -622,17 +622,22 @@ def test_render():
         bd.DATA = real
 
 
-def test_live_data_untouched():
+def _snapshot_live():
     from config import DATA
+    return {p.name: p.stat().st_mtime for p in DATA.glob("cot_*.json")}
+
+_LIVE_BEFORE = _snapshot_live()
+
+
+def test_live_data_untouched():
     g = "isolation"
-    now = {p.name: p.stat().st_mtime for p in DATA.glob("cot_*.json")}
+    now = _snapshot_live()
     check(g, "live data/cot_*.json untouched", now == _LIVE_BEFORE, f"before {_LIVE_BEFORE} after {now}")
 
 
 # ======================================================================================
 if __name__ == "__main__":
-    from config import DATA as _D
-    _LIVE_BEFORE = {p.name: p.stat().st_mtime for p in _D.glob("cot_*.json")}
+    _LIVE_BEFORE = _snapshot_live()          # reset to just-before-main-runs
     for fn in (test_matches_published_table, test_reversal, test_contracts, test_weeks,
                test_arithmetic, test_validation, test_schedule, test_build, test_report,
                test_positioning, test_render, test_live_data_untouched):
