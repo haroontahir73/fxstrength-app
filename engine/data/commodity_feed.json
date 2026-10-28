@@ -1,5 +1,61 @@
 [
  {
+  "when": "28 Oct 15:59 UTC",
+  "iso": "2026-10-28T15:59:05.789379+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold Slips to $4,051 as Oil Rally Fuels Fed Hike Fears - Crux Investor  (Crux Investor)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,055 (-0.5%)   Silver 53.67 (-1.1%)   WTI 103.33 (+3.4%)   DXY 102.36 (+0.0%)   US10Y 5.03 (+0.7%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNSThMSDdZOWlfMDJUOUNSNlFGUTFCSGxCX3VOcjBFREVBX0lWRmpTLWZMTWVRZVBJWXpUMFdWZkkweWZLOUU2ME1lUmFpdk85YnRVYnEwVlRuN3lUVFZnU3IzZzR0dUhQSmd0NVpweGNRQUJ2WHl3ZEN2SVlyQ0lzQ0ZWWXlQU05kWUhCNTYxNUF4UQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4054.6,
+   "Silver": 53.67,
+   "WTI": 103.33
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Gold Slips to $4,051 as Oil Rally Fuels Fed Hike Fears - Crux Investor",
+   "src": "Crux Investor",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,055 (-0.5%)   Silver 53.67 (-1.1%)   WTI 103.33 (+3.4%)   DXY 102.36 (+0.0%)   US10Y 5.03 (+0.7%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "28 Oct 14:25 UTC",
   "iso": "2026-10-28T14:25:12.383878+00:00",
   "cat": "rates_up",
@@ -3268,62 +3324,6 @@
    "label": "GEOPOLITICS \u2014 escalation",
    "headline": "Live - US warships ready for potential strikes on Iran, WSJ reports - Iran International",
    "src": "Iran International",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "24 Oct 12:04 UTC",
-  "iso": "2026-10-24T12:04:16.749822+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussia Says Drone Attack Damages Tolyatti Facilities, Ukraine Says Petrochemical Plant Hit - The Moscow Times  (The Moscow Times)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNbUJzZWtQSnBZSTRCUFpRS1ludk1oZ3UwZXFfdHNkZi1tSFptT2ZSYm5iekFPelAtU2NkNVdJbGtUdzlzQ3RDSFRpTk41a25yUm96ckxqWnFWZXNRTlBDaDdTaHhkTWROSkZrWmx2cXM4QmsyWTFpbjZtY2liYlpEX3Rmam1KWldEWC1UUTJUdVI1SHZYQl9OVk1IYmhEeHctZmVtb3RvTVMzMlZkd0FSRlAtb19xSWljekxVMkpoQ2FxVUFtN1F6LVVDLVpGY1NlaklfRQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4007.9,
-   "Silver": 53.949,
-   "WTI": 103.27
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Russia Says Drone Attack Damages Tolyatti Facilities, Ukraine Says Petrochemical Plant Hit - The Moscow Times",
-   "src": "The Moscow Times",
    "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
    "leans": [
     {
