@@ -1,5 +1,61 @@
 [
  {
+  "when": "28 Oct 07:34 UTC",
+  "iso": "2026-10-28T07:34:04.669070+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nOil jumps 2% with eyes on potential new Iran strikes - Breakingthenews.net  (Breakingthenews.net)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,048 (-0.7%)   Silver 53.91 (-0.7%)   WTI 101.91 (+2.0%)   DXY 102.47 (+0.1%)   US10Y 4.99 (+0.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNSk5mRGYyTkkxdFJ1Tl81WmZFc0Juak5ySXJhampSUnJNQmY2NXJkZGhuMlJ5THBCVFlPdGR1V28xUS1KTXJFanhtWk1lNkx5VF91SDcxNjltelRET3JxZG5kTHJKNGRndUtkbGJjMHVnWDh3d2hhdXpGajJZMTZjMDNzdzdWc2twblhUbnB4QTBzdnExalhORGlzTW0?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4047.7,
+   "Silver": 53.91,
+   "WTI": 101.91
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Oil jumps 2% with eyes on potential new Iran strikes - Breakingthenews.net",
+   "src": "Breakingthenews.net",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,048 (-0.7%)   Silver 53.91 (-0.7%)   WTI 101.91 (+2.0%)   DXY 102.47 (+0.1%)   US10Y 4.99 (+0.1%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "28 Oct 04:07 UTC",
   "iso": "2026-10-28T04:07:09.016192+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,013 (-1.2%)   Silver 54.07 (-1.3%)   WTI 103.01 (+3.6%)   DXY 101.81 (+0.2%)   US10Y 4.98 (+0.6%)",
    "reality": "",
    "flip": "squeezes end abruptly and give most of it back \u2014 do not chase late"
-  }
- },
- {
-  "when": "23 Oct 17:02 UTC",
-  "iso": "2026-10-23T17:02:58.175685+00:00",
-  "cat": "geo_escalation",
-  "title": "TALK | OIL LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nT\u00fcrkiye Warns New Attack on Iran Would Escalate Regional Conflict - Caspian Post  (Caspian Post)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191   look for longs - supply at risk = price up fast (talk, not action yet)\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,017 (-1.1%)   Silver 54.13 (-1.1%)   WTI 102.75 (+3.3%)   DXY 101.80 (+0.2%)   US10Y 4.99 (+0.7%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQRWs4MHpsTFd6SlQ0ZWRhWVF5VTJvTlptNkJwYTlRMzhzeVBudkljS0htRFVyVkhBQVVLdGFhalI0RjlSOXhwTEVaWUVJaXJMNU1rMmtISmQ3YkJhekdoOWZJYWhWRXZMbnBzVzctODFfcDlpUU5JV2FpQUEzSkhGQ190Q0U2TlN5UDVDUmxBd3pwQ0JOTDBJcnF0T21lV2s?oc=5",
-  "talk": true,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4016.6,
-   "Silver": 54.135,
-   "WTI": 102.75
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "T\u00fcrkiye Warns New Attack on Iran Would Escalate Regional Conflict - Caspian Post",
-   "src": "Caspian Post",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "supply at risk = price up fast (talk, not action yet)",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,017 (-1.1%)   Silver 54.13 (-1.1%)   WTI 102.75 (+3.3%)   DXY 101.80 (+0.2%)   US10Y 4.99 (+0.7%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
