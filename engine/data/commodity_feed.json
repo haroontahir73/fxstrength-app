@@ -1,5 +1,61 @@
 [
  {
+  "when": "28 Oct 18:47 UTC",
+  "iso": "2026-10-28T18:47:35.181046+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIndia seeks more affordable US energy imports; expects Russia oil sanctions waiver to continue - The New Indian Express  (The New Indian Express)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,070 (-0.1%)   Silver 54.15 (-0.3%)   WTI 102.49 (+2.6%)   DXY 102.19 (-0.1%)   US10Y 5.03 (+0.7%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOU3VQX3BLMTZqcW01aXFOOWNuQXh1MHFvMWQtbFYzS0RoUUlNcm5VVUczSTBqMDdTMF9id2Q1dnhEUHhpRTI1RUlIalUyUmFNMmhuajkyOGRHb1E5c0VyaU1PVHY1Z2xBdF8zY19ub1B2UXU4Z0ZxeG9NdHRDNGZyT29LT2JYT0RVenB2RktCWndWN2UzazZ0YVp4MUphdVJVcUk3QmdqUWdZYlVDWnV4Z21FMUlFTzgzV282UXRseW9xWW1iVWc5ZTNsZ1RCQjJGdVluRHg0RThhQks1aG1PSdIB7gFBVV95cUxPRjRUX0tKWTNLX1ZJS0ZqY0tVbF94eHBDSXp1bmszeXgzVzBlNjY1RGZ6VFJSZlFLNUxleVFveHo0Y19TTTB0Z09VcEhvOG0yb0xjZmhVZ0J6ME5XN2ZJTE9UT1lqbXdNMVRyd3lIaTdvOFMzbXUxS25STjA0b09Jb2xRTHpLVE03b0JkUzZCXzRodlFOSk54V0NqaTZzd1R4WWdRUGI2ZUpFM0ljUUkwMHIwdDNKTi12SFQycjhSc1FCUUw5ZUVNYlNIUnExY3g2cEtBejBONFhqVm11UGZmNEh4YjZUaXZQV3Q2OFN3?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4069.8,
+   "Silver": 54.145,
+   "WTI": 102.49
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "India seeks more affordable US energy imports; expects Russia oil sanctions waiver to continue - The New Indian Express",
+   "src": "The New Indian Express",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,070 (-0.1%)   Silver 54.15 (-0.3%)   WTI 102.49 (+2.6%)   DXY 102.19 (-0.1%)   US10Y 5.03 (+0.7%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "28 Oct 18:27 UTC",
   "iso": "2026-10-28T18:27:53.028897+00:00",
   "cat": "inflation_hot",
@@ -3295,62 +3351,6 @@
      "strength": 2,
      "call": "look for longs",
      "reason": "supply at risk = price up fast (talk, not action yet)",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "24 Oct 23:35 UTC",
-  "iso": "2026-10-24T23:35:08.390597+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nMassive Ukrainian drone attack hits shopping center in Russia's Belgorod Oblast, locals say - The Kyiv Independent  (The Kyiv Independent)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOdmh0VVFpaWJhdGhtR1ZQMjZCcmlPTi1uOTgyVGpZRXhjNVgwdVV2MEFWNmkzTlVvamU4TVFVaHlNR1h4N1BfbllSUTNCM21ndDVoRXF3eUtuUFFwX1Y3ZC1yNUQ3R1BiWG9SdWJiRURZLXk1dHUxbXRFV0t0LVFDSGxZbFhFWlh0dXd5VUw1QVN2Q1FDWWREeUhtSnFBQUVuZEZUcVRIMGJMdzJfeHllWnpUbTMwN3R6SHc?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4007.9,
-   "Silver": 53.949,
-   "WTI": 103.27
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Massive Ukrainian drone attack hits shopping center in Russia's Belgorod Oblast, locals say - The Kyiv Independent",
-   "src": "The Kyiv Independent",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
      "record": "CONFIDENT - right 63% of 83 past cases"
     }
    ],
