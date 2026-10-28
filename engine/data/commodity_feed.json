@@ -1,5 +1,61 @@
 [
  {
+  "when": "28 Oct 12:54 UTC",
+  "iso": "2026-10-28T12:54:27.070353+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nUkrainian drone attack kills one in Russia\u2019s Belgorod region, local authorities say - Al Arabiya English  (Al Arabiya English)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,068 (-0.2%)   Silver 54.23 (-0.1%)   WTI 101.96 (+2.1%)   DXY 102.33 (+0.0%)   US10Y 5.00 (+0.0%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPQUYtZmNQelUwM09VUFAyTFBKNXBFX08yOE1HOEZnOTF6TS1oakRzUXRsUllkWE1Mc0MtVk1tUmhjNXA5cjUwOXZ5REVKSlgxakxvZkdQSlg2NEFYLU1tSk1CM19PUUhIMEFBbEwyR1Z4LUNTWk1HTzg0S3ByYnJoU2dRVmxvekRtNGh5d3U4cWFxeGotY0hjcGhZSWg4Y1JLaVhaM1h0SWMyVHJJdFBKYnQ5N05YNFhmcmVBNWUyb3NIcXdCUjl4YUZvVmxvcTjSAdQBQVVfeXFMTnB5NmJCakE2VUg0MFhSb21MSElmNjAtTWFLOWo3VDJndi1ESnRXdkRzNHdmVVFjeHNFMGFuczdOZ19mQnVpSTUyQ18tWkhVSFFaUTlKWmRuVXdXWDY1bkpHUmVpSHZDM0dibUJaLXZzZjUycFhpdlA5RkRZaUI1X0RXZ0Uzdm5ndG04Z0trUFlDRDVqN1pvVTZPeWxFclpMNEprLW1ONmY5NkZvcURaTGsxY0hlUE1ZdGVqNGtIbUZCMmRILVdwODBEN2M4NjNzdFd2dE0?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4067.9,
+   "Silver": 54.225,
+   "WTI": 101.96
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Ukrainian drone attack kills one in Russia\u2019s Belgorod region, local authorities say - Al Arabiya English",
+   "src": "Al Arabiya English",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,068 (-0.2%)   Silver 54.23 (-0.1%)   WTI 101.96 (+2.1%)   DXY 102.33 (+0.0%)   US10Y 5.00 (+0.0%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "28 Oct 12:44 UTC",
   "iso": "2026-10-28T12:44:43.436518+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "24 Oct 02:16 UTC",
-  "iso": "2026-10-24T02:16:27.329525+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFed rate hike odds drop below 20% amid weak U.S. housing and steady inflation signals - Pluang  (Pluang)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,010 (-1.2%)   Silver 53.96 (-1.5%)   WTI 103.44 (+4.0%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNbE9wWXZTZldpS093UVpZaTd1TnBIUko4UXRBTjNGdUtMdExWbmNhNkhFdmdWRXhhUmRqVEVvNkpLbk9zZms0RE84T3J3TEVwUnR4UV9HZk5UWFUycTBodUJwM0ZxZUJPdkRIMzF1M1Y5aFFoM1ByUDBjckU1T19xR01RT3dGU1ZYeEhBbDVCOXVVTE1PanhaMUgyZDF4Q1o4NUpN?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4010.0,
-   "Silver": 53.96,
-   "WTI": 103.44
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Fed rate hike odds drop below 20% amid weak U.S. housing and steady inflation signals - Pluang",
-   "src": "Pluang",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,010 (-1.2%)   Silver 53.96 (-1.5%)   WTI 103.44 (+4.0%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
