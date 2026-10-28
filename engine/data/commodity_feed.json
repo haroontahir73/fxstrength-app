@@ -1,5 +1,61 @@
 [
  {
+  "when": "28 Oct 19:58 UTC",
+  "iso": "2026-10-28T19:58:15.691527+00:00",
+  "cat": "geo_escalation",
+  "title": "TALK | OIL LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: The new proposal's schedule includes claims of opening the Strait of Hormuz, lifting the blockade, addressing the Iranian nuclear issue, and summoning inspectors. - Al Arabiya\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191   look for longs - supply at risk = price up fast (talk, not action yet)\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,074 (-0.0%)   Silver 53.97 (-0.6%)   WTI 102.58 (+2.7%)   DXY 102.15 (-0.2%)   US10Y 5.04 (+1.0%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://www.financialjuice.com/News/9825897/The-new-proposals-schedule-includes-claims-of-opening-the-Strait-of-Hormuz-lifting-the-blockade-addressing-the-Iranian-nuclear-issue-and-summoning-inspectors---Al-Arabiya.aspx?xy=rss",
+  "talk": true,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4074.2,
+   "Silver": 53.97,
+   "WTI": 102.58
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "FinancialJuice: The new proposal's schedule includes claims of opening the Strait of Hormuz, lifting the blockade, addressing the Iranian nuclear issue, and summoning inspectors. - Al Arabiya",
+   "src": "",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "supply at risk = price up fast (talk, not action yet)",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,074 (-0.0%)   Silver 53.97 (-0.6%)   WTI 102.58 (+2.7%)   DXY 102.15 (-0.2%)   US10Y 5.04 (+1.0%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "28 Oct 18:47 UTC",
   "iso": "2026-10-28T18:47:35.181046+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "25 Oct 03:53 UTC",
-  "iso": "2026-10-25T03:53:47.362848+00:00",
-  "cat": "geo_escalation",
-  "title": "TALK | OIL LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nTrump says US could strike Iran \u2018tomorrow\u2019 or reach \u2018big, beautiful\u2019 deal - Daily Sun  (Daily Sun)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191   look for longs - supply at risk = price up fast (talk, not action yet)\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQaFEyN0VOX0tiZDFha0NEUThYUmJSMDVjRHBJeEUtWkxDZnNJUW1zZTdFb1k5VnpCNUN5UDBsdG00UU81S0ppWTRoQVl5UjZfQkpkYWVFRGlVSHFFa1hoY09IWlJzX0JGbEViQkx5LWR6NDNySXFKUTJBTDNCQm5GVDNNTTZVelpfZGFJUXlOUkNCMVc3RnBTQUhZNHFtcFJ3R3RVb2JDRHMyazA?oc=5",
-  "talk": true,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4007.9,
-   "Silver": 53.949,
-   "WTI": 103.27
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Trump says US could strike Iran \u2018tomorrow\u2019 or reach \u2018big, beautiful\u2019 deal - Daily Sun",
-   "src": "Daily Sun",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "supply at risk = price up fast (talk, not action yet)",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
