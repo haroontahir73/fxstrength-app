@@ -1,5 +1,61 @@
 [
  {
+  "when": "28 Oct 18:04 UTC",
+  "iso": "2026-10-28T18:04:51.157812+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFed Pauses Interest Rate Hikes for Now as Key Midterm Election Looms - Realtor.com  (Realtor.com)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,053 (-0.5%)   Silver 53.67 (-1.1%)   WTI 102.60 (+2.7%)   DXY 102.34 (+0.0%)   US10Y 5.02 (+0.5%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOb2JiRTlEZHN5bW90TElnWWcyUVIzaVM4a3VCTHdVcnN5SFowWFY1a0lYc09qejZpM1EyQ00tZ0pKQjB3aDN1enh6alRFM1V6NmFKNkFYam9Bb1pGMGlpYjdGMF9NSlNaTHFFRXRwbzlhYmZSNWw5SnVGTTREMi1yX0ZIaGw3UHJiX2dWTnpvdXRmeWZUNWRSMWwxYm85ODQyeXZDSFZ6cTAybDg?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4052.9,
+   "Silver": 53.675,
+   "WTI": 102.6
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Fed Pauses Interest Rate Hikes for Now as Key Midterm Election Looms - Realtor.com",
+   "src": "Realtor.com",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,053 (-0.5%)   Silver 53.67 (-1.1%)   WTI 102.60 (+2.7%)   DXY 102.34 (+0.0%)   US10Y 5.02 (+0.5%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "28 Oct 17:04 UTC",
   "iso": "2026-10-28T17:04:16.802405+00:00",
   "cat": "geo_escalation",
@@ -3295,62 +3351,6 @@
      "strength": 2,
      "call": "look for longs",
      "reason": "supply at risk = price up fast (talk, not action yet)",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "24 Oct 20:06 UTC",
-  "iso": "2026-10-24T20:06:39.240164+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nEight Nations Met in Istanbul. Their Message to Washington: Don't Strike Iran - Latin Times  (Latin Times)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPOGYtU2wxVW50YlNFd3pnWTV0cVNza0xFQlY5cjM0SVduQmdocTBic1NOQ1dNc0dqZHVyNlN3dUNhZDNnc0xvNF9uYnpkVVkxTmhrWDZSTnE1eVl1VVNjWjJJNGRYdUltY1p4WGpJMGxCY0t3Z2hBVFFybG1qbl84b3hQazRSV3c2?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4007.9,
-   "Silver": 53.949,
-   "WTI": 103.27
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Eight Nations Met in Istanbul. Their Message to Washington: Don't Strike Iran - Latin Times",
-   "src": "Latin Times",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
      "record": "CONFIDENT - right 63% of 83 past cases"
     }
    ],
