@@ -1,5 +1,61 @@
 [
  {
+  "when": "28 Oct 16:12 UTC",
+  "iso": "2026-10-28T16:12:14.531065+00:00",
+  "cat": "inflation_hot",
+  "title": "GOLD+SILVER SHORT | INFLATION - running hot",
+  "body": "\ud83c\udf21 INFLATION \u2014 running hot\n\nFed rate decision: Kevin Warsh faces pressure to explain pause as US inflation rises | Hindustan Times - Hindustan Times  (Hindustan Times)\n\nWHY: You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.\n\nGOLD   \u2193\u2193   look for shorts - the rates reaction beats the hedge story\n        [some evidence - right 50% of 485 past cases]\nSILVER \u2193\u2193   look for shorts - same, amplified\n        [some evidence - right 52% of 485 past cases]\nOIL    \u2192    no clean read - usually a cause, not a victim\n\nNOW  Gold 4,054 (-0.5%)   Silver 53.60 (-1.3%)   WTI 103.41 (+3.5%)   DXY 102.32 (-0.0%)   US10Y 5.04 (+0.9%)\n\nFLIP: if inflation is coming from oil AND growth is dying, gold turns up instead",
+  "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOQld2RWxOM1hTSmdqYXpEMHlvNURKcFlYSGRablREb3RiWjhEODZaaVVjaFUybVg3aFh0MTJwdV9xemkxdjhlM0x0V0loRjJkVmFILVZMNnl1YXRSb0FkSHBvbWNBWHNPTmtrazZjZms2bWpaMVNoTEFNZm85VjNGMEYzNllvbm95M3phNjNmMktUU01NWldZUGpQLVpOT2ZzczZZdnV2VmVLTG1sUWJhRC1meWZVUEhCRnJfeEdnLUllYnlFQnJYV2FsaHJPcHJmb084R2EzZUlFekZWTkVPLUtqYkdBaDk1M2fSAe8BQVVfeXFMTjJYekIwaWRFcUVuSWJuQ0Fid0Jzd2dPUG95T2N5Q1MtYXFRYW1TVmt3QWpmdVpHNWw1cm50RkZFTU5tSGgxTmN4UFBDRnBjaTFBelIwbFM5X3JVTmhyaGZ6MFJpM3F0U1Vxd1lWazlfQzdvTDB4bkZMZlFMUDFjWEc5MklNSjh2X0xIeHBWV1ZNZFJPT1lOdm1NczJmOG9EelBVV240SkdiWDNQdGczQ0wxODRNaTFnZ2x6c2FsdG9aSXhCMWxfenhIS21iVmZOVkRyQ3RHTDloX05YanV3OVV4TWFteEYxMy1nX2JMX1U?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4054.0,
+   "Silver": 53.605,
+   "WTI": 103.41
+  },
+  "parts": {
+   "emoji": "\ud83c\udf21",
+   "label": "INFLATION \u2014 running hot",
+   "headline": "Fed rate decision: Kevin Warsh faces pressure to explain pause as US inflation rises | Hindustan Times - Hindustan Times",
+   "src": "Hindustan Times",
+   "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "the rates reaction beats the hedge story",
+     "record": "some evidence - right 50% of 485 past cases"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "same, amplified",
+     "record": "some evidence - right 52% of 485 past cases"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "usually a cause, not a victim",
+     "record": ""
+    }
+   ],
+   "snap": "NOW  Gold 4,054 (-0.5%)   Silver 53.60 (-1.3%)   WTI 103.41 (+3.5%)   DXY 102.32 (-0.0%)   US10Y 5.04 (+0.9%)",
+   "reality": "",
+   "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
+  }
+ },
+ {
   "when": "28 Oct 15:59 UTC",
   "iso": "2026-10-28T15:59:05.789379+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "24 Oct 14:58 UTC",
-  "iso": "2026-10-24T14:58:25.261619+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nLive - US warships ready for potential strikes on Iran, WSJ reports - Iran International  (Iran International)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBiblkxNnVtVlJKZk9CWDVFRTZvY2F6bWZORmVtSkR4NVY4VzZQa3dPZy1KNE5EbUpvMWF3TDk0VEY5QnAzTmFWS3FjenBLRHdpU2UtMjVKZlphZl9tRkE?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4007.9,
-   "Silver": 53.949,
-   "WTI": 103.27
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Live - US warships ready for potential strikes on Iran, WSJ reports - Iran International",
-   "src": "Iran International",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
