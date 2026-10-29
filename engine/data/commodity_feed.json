@@ -1,5 +1,61 @@
 [
  {
+  "when": "29 Oct 13:21 UTC",
+  "iso": "2026-10-29T13:21:19.021261+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nU.S. inflation heats up in September, supporting expectations of Fed rate hike - The Globe and Mail  (The Globe and Mail)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,038 (-0.3%)   Silver 52.58 (-1.6%)   WTI 100.71 (-2.0%)   DXY 102.28 (+0.1%)   US10Y 5.00 (-0.8%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQY3N3VFo4NlBZb3JsQkh1ODhfbHF4akJQNkhtUXhCWmxhOXJobnEwY2dXTDd4akpxUlEzLXVoMWZVLW9NdGtTVk9yZ0pIWGJJdVgyMzFyZ1BDVmRBSVpyZE1XVUN2U2lwWFFoeXZTNlJLX0ZBZEVBVnhhTUJIeWJYMEltRGNHRDVZbkpVMXVMWnZERHh2YjByWmYwU3AzWUg4dmphZVdKY003NGs3UkxZUWxwdHloanRlV2hwTUlGV0hwbmxPb1Vz?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4037.8,
+   "Silver": 52.575,
+   "WTI": 100.71
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "U.S. inflation heats up in September, supporting expectations of Fed rate hike - The Globe and Mail",
+   "src": "The Globe and Mail",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,038 (-0.3%)   Silver 52.58 (-1.6%)   WTI 100.71 (-2.0%)   DXY 102.28 (+0.1%)   US10Y 5.00 (-0.8%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "29 Oct 12:32 UTC",
   "iso": "2026-10-29T12:32:02.916777+00:00",
   "cat": "us_data_weak",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,013 (-0.6%)   Silver 52.87 (-2.3%)   WTI 102.11 (+0.3%)   DXY 102.20 (+0.2%)   US10Y 4.99 (-0.0%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "27 Oct 06:41 UTC",
-  "iso": "2026-10-27T06:41:22.272067+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nNo pressure from US to cut Russian oil buys: Hardeep Puri after sanctions waiver - India Today  (India Today)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,014 (-0.6%)   Silver 52.90 (-2.2%)   WTI 101.23 (-0.5%)   DXY 102.11 (+0.1%)   US10Y 4.99 (-0.0%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQaV8xNmFWXzNMSHU1Qkp5YURBNEdxUUZMT2t2NTdjd1pISUN3TjR3a0RKM3FkZGZabndMYlJKTm9IdjVGNWZ2bWlFOGd5LWliU19IanlKZlhiQkZYMEI1SUU5bS1taHFVUXhnNXFPQ3RrelpuUXVIelBYYlIzalJPbC16Zmc1cHFhaUxubXZnTkxZV05xNXdjT2RNNm1VRkwzUGF0UHNzSGg2NkU4NXRHZ0lMNkJaWHhJblZFX3N30gG-AUFVX3lxTFBpXzE2YVZfM0xIdTVCSnlhREE0R3FRRkxPa3Y1N2N3WkhJQ3dONHdrREozcWRkZlpud0xiUkpOb0h2NUY1ZnZtaUU4Z3ktaWJTX0hqeUpmWGJCRlgwQjVJRTltLW1ocVVReGc1cU9DdGt6Wm5RdUh6UFhiUjNqUk9sLXpmZzVwcWFpTG5tdmdOTFlXTnE1d2NPZE02bVVGTDNQYXRQc3NIaDY2RTg1dEdnSUw2QlpYeEluVkVfc3c?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4014.0,
-   "Silver": 52.895,
-   "WTI": 101.23
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "No pressure from US to cut Russian oil buys: Hardeep Puri after sanctions waiver - India Today",
-   "src": "India Today",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,014 (-0.6%)   Silver 52.90 (-2.2%)   WTI 101.23 (-0.5%)   DXY 102.11 (+0.1%)   US10Y 4.99 (-0.0%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
