@@ -1,5 +1,61 @@
 [
  {
+  "when": "29 Oct 07:51 UTC",
+  "iso": "2026-10-29T07:51:04.220922+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nBracing For December Fed Rate Hike - BusinessToday Malaysia  (BusinessToday Malaysia)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,040 (-0.3%)   Silver 52.88 (-1.1%)   WTI 101.94 (-0.8%)   DXY 102.24 (+0.0%)   US10Y 5.04 (+1.0%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNOXpiWEFMRUx4SWEwd3BRMmozUVYtQTExeURWNHhvRkdBUWVKX18yRzFOVjgwTm9fTktmcHVnUmtpMGFUaExXb0lDcWt1RWVxaUR6N0V0bnhKNE1VaE9CMTFwS0gxVnh3TmxLTHlLQVZ2Tm12Q05HMDB1cllqeFAyS0d4MlNvQQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4039.8,
+   "Silver": 52.88,
+   "WTI": 101.94
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Bracing For December Fed Rate Hike - BusinessToday Malaysia",
+   "src": "BusinessToday Malaysia",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,040 (-0.3%)   Silver 52.88 (-1.1%)   WTI 101.94 (-0.8%)   DXY 102.24 (+0.0%)   US10Y 5.04 (+1.0%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "29 Oct 06:42 UTC",
   "iso": "2026-10-29T06:42:21.376975+00:00",
   "cat": "oil_supply_tight",
@@ -3299,62 +3355,6 @@
     }
    ],
    "snap": "NOW  Gold 4,031 (+0.6%)   Silver 54.03 (+0.6%)   WTI 101.25 (-2.0%)   DXY 102.00 (+0.2%)   US10Y 4.99 (-0.0%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "25 Oct 21:17 UTC",
-  "iso": "2026-10-25T21:17:06.430117+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nVideo appears to show missile strike on Energia plant in Russia\u2019s Lipetsk Oblast - The New Voice of Ukraine  (The New Voice of Ukraine)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNTFJsQURRM1NJS2lOc19TbV9Qak5qWXM0ck9mdTJ6dG9aVHdETjFsdDNTR2Q0ZVQtVUphdlBFOEptcWt3alpRTGdTS2tjaFRENnVuNzN1STdiX0xTcTBtR294M0toS2dOQlA3ekJoX2ZuUUFHTEltUE1ma3JHNERtLXJFNEhCcjEyZm1fNDJqWTJxTGQwcnZDVHRoVFE0QTZEdktJRzFIRzNKMmFWckxScVliVHdQcE9ydzdsY3VuOUJ4Sl840gHAAUFVX3lxTE9SXzBabXZlNWVzWmhRX2dBYTNVVjM2VVhNN3k4T2VUNkxfWUZNY3pOdHRneUFhZzFNLVFMMVdKa2RaR0xZN056aVZ3dTJTV3lyUE1mWWtRZFBHTmk3R1A2NUhLUmlHUWFrNzdrSFBTeHBBdDhDeUc4Uzc3Q3ZGUDI5dXNtWkVyU1dLc0ZBMUlqZlk3R0diQTNZalhRRzlya0p2OXh0djA2Vi1IUkpUWGZVTjlVRksxbDlWT0JTOTJpSw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4007.9,
-   "Silver": 53.949,
-   "WTI": 103.27
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Video appears to show missile strike on Energia plant in Russia\u2019s Lipetsk Oblast - The New Voice of Ukraine",
-   "src": "The New Voice of Ukraine",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,008 (-1.3%)   Silver 53.95 (-1.5%)   WTI 103.27 (+3.8%)   DXY 101.75 (+0.1%)   US10Y 4.99 (+0.7%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
