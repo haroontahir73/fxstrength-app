@@ -1,5 +1,61 @@
 [
  {
+  "when": "29 Oct 16:34 UTC",
+  "iso": "2026-10-29T16:34:41.804032+00:00",
+  "cat": "geo_deescalation",
+  "title": "TALK | OIL SHORT | GEOPOLITICS - calming down",
+  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nAid mission set to enter Oleshky as a localized Russia-Ukraine truce holds for a third day - Boston Herald  (Boston Herald)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193\u2193   look for shorts - supply worry gone, barrels flow again (talk, not action yet)\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,027 (-0.6%)   Silver 52.52 (-1.8%)   WTI 100.93 (-1.8%)   DXY 101.99 (-0.2%)   US10Y 5.00 (-1.0%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
+  "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFAtMXg1Mmtuc0h2MERrZ2xaaGxSdElqc1B3VDc4dTRqaVhvQUJvOHJLQUxrU0tURUpfMkhXUDk0eGJyU1F5QU81OTF1b3N4aHZ0YnhQUzhtSFNuaVZYR1ZjMmtJdm84X2VHNGVZMw?oc=5",
+  "talk": true,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4027.2,
+   "Silver": 52.515,
+   "WTI": 100.93
+  },
+  "parts": {
+   "emoji": "\ud83d\udd4a",
+   "label": "GEOPOLITICS \u2014 calming down",
+   "headline": "Aid mission set to enter Oleshky as a localized Russia-Ukraine truce holds for a third day - Boston Herald",
+   "src": "Boston Herald",
+   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured both ways - fear-out vs yields-down cancel",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "same, no reliable direction",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "supply worry gone, barrels flow again (talk, not action yet)",
+     "record": "some evidence - right 51% of 113 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,027 (-0.6%)   Silver 52.52 (-1.8%)   WTI 100.93 (-1.8%)   DXY 101.99 (-0.2%)   US10Y 5.00 (-1.0%)",
+   "reality": "",
+   "flip": "these deals break \u2014 one broken truce and it all goes back on"
+  }
+ },
+ {
   "when": "29 Oct 16:15 UTC",
   "iso": "2026-10-29T16:15:08.190681+00:00",
   "cat": "oil_supply_tight",
@@ -3299,62 +3355,6 @@
     }
    ],
    "snap": "NOW  Gold 4,029 (-0.2%)   Silver 53.66 (-0.8%)   WTI 100.78 (-1.0%)   DXY 102.18 (+0.2%)   US10Y 4.99 (-0.0%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "27 Oct 10:23 UTC",
-  "iso": "2026-10-27T10:23:17.142369+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: Qatar foreign ministry spokesperson: Iran needs to show good intentions, stop threats against arab gulf states, and open the Strait of Hormuz for mediation efforts to succeed\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,011 (-0.7%)   Silver 53.26 (-1.6%)   WTI 102.29 (+0.5%)   DXY 102.24 (+0.3%)   US10Y 4.99 (-0.0%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://www.financialjuice.com/News/9822807/Qatar-foreign-ministry-spokesperson-Iran-needs-to-show-good-intentions-stop-threats-against-arab-gulf-states-and-open-the-Strait-of-Hormuz-for-mediation-efforts-to-succeed.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4011.1,
-   "Silver": 53.26,
-   "WTI": 102.29
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "FinancialJuice: Qatar foreign ministry spokesperson: Iran needs to show good intentions, stop threats against arab gulf states, and open the Strait of Hormuz for mediation efforts to succeed",
-   "src": "",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,011 (-0.7%)   Silver 53.26 (-1.6%)   WTI 102.29 (+0.5%)   DXY 102.24 (+0.3%)   US10Y 4.99 (-0.0%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
   }
