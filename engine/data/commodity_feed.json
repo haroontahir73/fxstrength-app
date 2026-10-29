@@ -1,5 +1,61 @@
 [
  {
+  "when": "29 Oct 14:17 UTC",
+  "iso": "2026-10-29T14:17:52.846821+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\n3 oil tankers struck mines in the Strait of Hormuz, Iran says - Las Vegas Review-Journal  (Las Vegas Review-Journal)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,034 (-0.4%)   Silver 52.35 (-2.1%)   WTI 100.86 (-1.9%)   DXY 102.23 (+0.0%)   US10Y 4.98 (-1.2%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxObldJWmVNM0pSXzc3bUV6TWZwdnZiUDA2NXhzNmtTeGNGZ1BWUWJWZ2ZENXZ4N1hQdUt4X042ZVZoTnVVU2hLSFRsSGdiM2sxYUVPV2JXMHBJallILVAwYXN4OVgwVjhvY1N2V1I2X2Y1aTVselpwdDVVUzdNM0JmaHR3TDB5YkRoVnFERE1acDBwQ2FKeGdBOHlNR0dqNnBsc1VpZUZsTDF0ZkYxYTRZbElkM21VM1FyUklEYlpSXzZzRG5zZ0Ew?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4034.4,
+   "Silver": 52.35,
+   "WTI": 100.86
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "3 oil tankers struck mines in the Strait of Hormuz, Iran says - Las Vegas Review-Journal",
+   "src": "Las Vegas Review-Journal",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,034 (-0.4%)   Silver 52.35 (-2.1%)   WTI 100.86 (-1.9%)   DXY 102.23 (+0.0%)   US10Y 4.98 (-1.2%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "29 Oct 13:55 UTC",
   "iso": "2026-10-29T13:55:04.186962+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,017 (-0.5%)   Silver 52.89 (-2.3%)   WTI 102.25 (+0.5%)   DXY 102.11 (+0.1%)   US10Y 4.99 (-0.0%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "27 Oct 07:20 UTC",
-  "iso": "2026-10-27T07:20:46.437646+00:00",
-  "cat": "geo_deescalation",
-  "title": "GEOPOLITICS - calming down",
-  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nTrump describes a ceasefire with Iran as a \"waste of time,\" while highlighting the decline in oil prices and the protection of the Strait of Hormuz - \u0635\u0648\u062a \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a  (\u0635\u0648\u062a \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a)\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193    mild short bias - supply worry gone, barrels flow again (eased by self-check)\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,014 (-0.6%)   Silver 52.88 (-2.3%)   WTI 101.98 (+0.2%)   DXY 102.17 (+0.2%)   US10Y 4.99 (-0.0%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
-  "link": "https://news.google.com/rss/articles/CBMipwJBVV95cUxQRGJSdFF4d29TQWJrbEM1c2pHZTBKVTJkRkJfa2JETVBDa2JZdFhtZGhyeWhZOEg4RGd1RXlqUmNrRTBiRGhuQ1FxNy02SFRKbjlyLUd5VjA4czhoQnpyRm1EM2liYXBxMER1Mm84YlVmTEktdXRfR0Vmb2dtX091WXFRdWpRcTliejlER18yWGdabGhDVFVJZl9YVFY2RXVCSEh3cXVQYlpVRjZMTmZFc1RCLXNIalNRTmVUXy1JNkEwSjdKTHpoR0pILWpPMmkwQ2ZwMkxreS1hdHduWUNwRGFwOE5WSEoycVQzWS0zOGplbFdaZ0dHZkdWMEJpTmFBZWhHdGNDSTlWTDhIYmVKSE9XR1JiVkszR2dOai1udHZQckpQZ3R3?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4013.9,
-   "Silver": 52.88,
-   "WTI": 101.98
-  },
-  "parts": {
-   "emoji": "\ud83d\udd4a",
-   "label": "GEOPOLITICS \u2014 calming down",
-   "headline": "Trump describes a ceasefire with Iran as a \"waste of time,\" while highlighting the decline in oil prices and the protection of the Strait of Hormuz - \u0635\u0648\u062a \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a",
-   "src": "\u0635\u0648\u062a \u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a",
-   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured both ways - fear-out vs yields-down cancel",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "same, no reliable direction",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "supply worry gone, barrels flow again (eased by self-check)",
-     "record": "some evidence - right 51% of 113 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,014 (-0.6%)   Silver 52.88 (-2.3%)   WTI 101.98 (+0.2%)   DXY 102.17 (+0.2%)   US10Y 4.99 (-0.0%)",
-   "reality": "",
-   "flip": "these deals break \u2014 one broken truce and it all goes back on"
   }
  }
 ]
