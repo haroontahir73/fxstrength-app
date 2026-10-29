@@ -1,5 +1,5 @@
 {
- "at": "2026-10-29T01:19:59.313Z",
+ "at": "2026-10-29T07:43:54.838Z",
  "ok": false,
  "note": "TimeoutError: page.goto: Timeout 60000ms exceeded.\nCall log:\n  - navigating to \"https://www.cmegroup.com/markets/metals/precious/gold.volume.html\", waiting until \"domcontentloaded\"\n",
  "internet_ok": true
