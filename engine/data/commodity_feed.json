@@ -1,5 +1,61 @@
 [
  {
+  "when": "29 Oct 21:20 UTC",
+  "iso": "2026-10-29T21:20:44.322588+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold, silver fall as strong U.S. GDP, inflation support Fed tightening bets - Kitco PM Report - Kitco  (Kitco)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,033 (-0.5%)   Silver 52.22 (-2.3%)   WTI 102.86 (+0.1%)   DXY 101.91 (-0.3%)   US10Y 4.99 (-1.1%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOU2VQWDI4MkNMRVM3WHRwTlJWNDBHV2tmOUdnQXVPb0pvb1NOZjNuaThnNV91bnFaRlNPNnBZdlN5Z1hxRFpoNHplanVYWG5yWUVkcDdtSVdDRVNEYjA4VFdFWndJbFIwdS0tSnlWV1RKUDV0SnVoT1dIUE0zejVKMFY2dzN0LVVsZFlEZThWYmtiR0dxNl9uT2lyMDFLa0Q1Q3VXZXAxV1djWnRuR2x3Nk1SeVdKZVRpakRvVQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4033.3,
+   "Silver": 52.22,
+   "WTI": 102.86
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Gold, silver fall as strong U.S. GDP, inflation support Fed tightening bets - Kitco PM Report - Kitco",
+   "src": "Kitco",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,033 (-0.5%)   Silver 52.22 (-2.3%)   WTI 102.86 (+0.1%)   DXY 101.91 (-0.3%)   US10Y 4.99 (-1.1%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "29 Oct 21:17 UTC",
   "iso": "2026-10-29T21:17:22.450269+00:00",
   "cat": "oil_supply_tight",
@@ -3299,62 +3355,6 @@
     }
    ],
    "snap": "NOW  Gold 4,072 (+0.8%)   Silver 54.57 (+0.9%)   WTI 100.04 (-1.7%)   DXY 102.23 (+0.3%)   US10Y 4.98 (-0.1%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "27 Oct 14:27 UTC",
-  "iso": "2026-10-27T14:27:29.005306+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOil tanker catches fire after striking naval mines near Strait of Hormuz - Latest news from Azerbaijan  (Latest news from Azerbaijan)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,050 (+0.3%)   Silver 54.13 (+0.0%)   WTI 101.35 (-0.4%)   DXY 102.18 (+0.2%)   US10Y 5.00 (+0.3%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQTUhkV3p5NHVEaWxrbVJpcVpQTGpBQ0VydWFTTDhsem1yTTQ1b3Y2aFIyRFZxeWJrSlNta2hfY3BKNDFuUmZiQlpPdDNnWTBFOHpjbXBZdXRrUWJJTEJuSmhkd3oyMUstbGdCUk1lX2c3WUJGNTZCM3VZdF9QTU5qZjgtcm55aXVRMktQaUItUW44dmM0TkozNw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4049.6,
-   "Silver": 54.135,
-   "WTI": 101.35
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Oil tanker catches fire after striking naval mines near Strait of Hormuz - Latest news from Azerbaijan",
-   "src": "Latest news from Azerbaijan",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,050 (+0.3%)   Silver 54.13 (+0.0%)   WTI 101.35 (-0.4%)   DXY 102.18 (+0.2%)   US10Y 5.00 (+0.3%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
   }
