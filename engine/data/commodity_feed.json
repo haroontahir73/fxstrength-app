@@ -1,5 +1,61 @@
 [
  {
+  "when": "29 Oct 23:38 UTC",
+  "iso": "2026-10-29T23:38:59.721305+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIs Trump preparing to strike Iran again? Top US military commander briefs White House: Report - WION  (WION)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,027 (-0.6%)   Silver 51.99 (-2.7%)   WTI 102.70 (-0.1%)   DXY 101.85 (-0.3%)   US10Y 4.99 (-1.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPNEFQaENwMml4dGNZTm1hMU5FSkkxS0pMNFk2WGxFVEVOVFYyRzlMSU5RODRfQ2s0ZDAxUk9UcHd0MktXZVU3SkpLTk9ndlFlZ280U3VlVnBtQzFtWUhobGxRLUNoaTRfOGxCZGJvV1RCc0RNdHF0VHlpZ0RmcG9CaGZQckcyNUhsanBmZmxnd2tPbVZ0NkhTMUlhY2YxY3p6NGZoS1ZjTVZLb2o5N1pnRUtuZml1aHJNSzhxX00zXzk1XzR6RDZSaUUySUI5YkNl0gHWAUFVX3lxTE9BcUlPUExHV1N6X3VaZlBweHJtSDVyYzBZT3dQekpQSXRyWWgyaTlKZEY0a0QwMDlmWERxbmdoUjhnVlN0RnE5aFlqNnBhSktzc2FzQ2hid2Q1enY5aUNMeHliZ1dMMVcyWGp3YXBMU082T1BzQ2V0czc5S3M1NUNJT0VjSmRoejJobWFKMlpFdHRGVmJ0eTNad3RwZkl5R1kybjhLODl1cVlVWnc3RTdtQkJNRnFIOUVvNEdST0liY3NCMGUzcWdJWWczUVRUNHA3aHU5X3c?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4027.0,
+   "Silver": 51.995,
+   "WTI": 102.7
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Is Trump preparing to strike Iran again? Top US military commander briefs White House: Report - WION",
+   "src": "WION",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,027 (-0.6%)   Silver 51.99 (-2.7%)   WTI 102.70 (-0.1%)   DXY 101.85 (-0.3%)   US10Y 4.99 (-1.1%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "29 Oct 23:22 UTC",
   "iso": "2026-10-29T23:22:28.743959+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,073 (+0.8%)   Silver 54.45 (+0.6%)   WTI 100.07 (-1.7%)   DXY 102.27 (+0.3%)   US10Y 4.99 (+0.1%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "27 Oct 16:04 UTC",
-  "iso": "2026-10-27T16:04:52.315072+00:00",
-  "cat": "geo_deescalation",
-  "title": "GEOPOLITICS - calming down",
-  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nFinancialJuice: Melania Trump: Local ceasefire in Ukraine has begun\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193    mild short bias - supply worry gone, barrels flow again (eased by self-check)\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,076 (+0.9%)   Silver 54.55 (+0.8%)   WTI 100.26 (-1.5%)   DXY 102.24 (+0.3%)   US10Y 4.99 (-0.0%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
-  "link": "https://www.financialjuice.com/News/9823369/Melania-Trump-Local-ceasefire-in-Ukraine-has-begun.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4076.0,
-   "Silver": 54.545,
-   "WTI": 100.26
-  },
-  "parts": {
-   "emoji": "\ud83d\udd4a",
-   "label": "GEOPOLITICS \u2014 calming down",
-   "headline": "FinancialJuice: Melania Trump: Local ceasefire in Ukraine has begun",
-   "src": "",
-   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured both ways - fear-out vs yields-down cancel",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "same, no reliable direction",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "supply worry gone, barrels flow again (eased by self-check)",
-     "record": "some evidence - right 51% of 113 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,076 (+0.9%)   Silver 54.55 (+0.8%)   WTI 100.26 (-1.5%)   DXY 102.24 (+0.3%)   US10Y 4.99 (-0.0%)",
-   "reality": "",
-   "flip": "these deals break \u2014 one broken truce and it all goes back on"
   }
  }
 ]
