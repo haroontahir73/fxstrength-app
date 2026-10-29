@@ -1,5 +1,61 @@
 [
  {
+  "when": "29 Oct 13:55 UTC",
+  "iso": "2026-10-29T13:55:04.186962+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIran's IRGC says 3 oil tankers hit mines in Strait of Hormuz - \u5df4\u58eb\u7684\u5831  (\u5df4\u58eb\u7684\u5831)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,035 (-0.4%)   Silver 52.16 (-2.4%)   WTI 100.03 (-2.7%)   DXY 102.33 (+0.1%)   US10Y 4.97 (-1.6%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQbmlpWWxwcEk1czJ0RW1HTlhTSWowMlNYOVRjRENjcDhPT2I3NVh5UVkwaUJRYmw5LW9FWU1ja2JZM2MxQk1xRDRaRnJveFpINzBPOENkdnJPX3ZWdndHWHFmNGRhZjZsVzJlOU8xRkF0U3ZiRzk1ZERfbEo3YUx2clk3TEY3NFN4Y3NjUS1YZHB5QVRCUUN5VWN2QkJ3azFTcGNQN3FsdGlGaGRtM0x3dg?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4034.6,
+   "Silver": 52.165,
+   "WTI": 100.03
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Iran's IRGC says 3 oil tankers hit mines in Strait of Hormuz - \u5df4\u58eb\u7684\u5831",
+   "src": "\u5df4\u58eb\u7684\u5831",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,035 (-0.4%)   Silver 52.16 (-2.4%)   WTI 100.03 (-2.7%)   DXY 102.33 (+0.1%)   US10Y 4.97 (-1.6%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "29 Oct 13:21 UTC",
   "iso": "2026-10-29T13:21:19.021261+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,014 (-0.6%)   Silver 52.88 (-2.3%)   WTI 101.98 (+0.2%)   DXY 102.17 (+0.2%)   US10Y 4.99 (-0.0%)",
    "reality": "",
    "flip": "these deals break \u2014 one broken truce and it all goes back on"
-  }
- },
- {
-  "when": "27 Oct 07:17 UTC",
-  "iso": "2026-10-27T07:17:24.843041+00:00",
-  "cat": "oil_supply_tight",
-  "title": "TALK | OIL LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nGoldman Sachs warns that the scale of refinery outages has exceeded previous worst-case expectations, and global refined product tightness may persist until 2027. - \u5bcc\u9014\u725b\u725b  (\u5bcc\u9014\u725b\u725b)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191   look for longs - the direct hit (talk, not action yet)\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,013 (-0.6%)   Silver 52.87 (-2.3%)   WTI 102.11 (+0.3%)   DXY 102.20 (+0.2%)   US10Y 4.99 (-0.0%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNdld5RVllU3FEb3JoTmVzWmd3ZEd4TkZIYUhrVlpHZjgtY1RFa3hTOU1QUjVROW1mSzJIUTBCWWxsbEgzOTF2MEtuRk5LWGZOUVlFUDNYaXdKS1ptZlFmRDcxekZoTFlFN1h2Zm9HdDB6X25QTndBdDNFenFTbzZGSjdleGJYVERBTGdIa19ncHdkZmtfdnNWcWljcndnWUZmQ0pJ?oc=5",
-  "talk": true,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4013.0,
-   "Silver": 52.865,
-   "WTI": 102.11
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Goldman Sachs warns that the scale of refinery outages has exceeded previous worst-case expectations, and global refined product tightness may persist until 2027. - \u5bcc\u9014\u725b\u725b",
-   "src": "\u5bcc\u9014\u725b\u725b",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "the direct hit (talk, not action yet)",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,013 (-0.6%)   Silver 52.87 (-2.3%)   WTI 102.11 (+0.3%)   DXY 102.20 (+0.2%)   US10Y 4.99 (-0.0%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
