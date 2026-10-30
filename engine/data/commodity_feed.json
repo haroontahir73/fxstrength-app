@@ -1,5 +1,61 @@
 [
  {
+  "when": "30 Oct 17:19 UTC",
+  "iso": "2026-10-30T17:19:04.070464+00:00",
+  "cat": "geo_deescalation",
+  "title": "OIL STRONG SHORT | GEOPOLITICS - calming down",
+  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nOleshky evacuees leave for Russia as ceasefire holds - Al Jazeera  (Al Jazeera)\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - supply worry gone, barrels flow again\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 3,900 (-3.3%)   Silver 49.20 (-5.7%)   WTI 104.75 (+2.7%)   DXY 101.93 (-0.1%)   US10Y 4.94 (-1.0%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
+  "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNT0ZDNlRPTjdlM1JYRkNQblBzWVNPSnhkR0V0VUFyalIySzRSRGpzMnBudnk3d1V2dWhZR1VKSHR1Nks2cjB1V3NfMy1LODhBUjM3Y1lTODJhamxWVHl2ckY0U2lXLVVJTE1zM1d0WXBmN0ZlcDdocE1SN3NIVEo4OG1UN0s0Q0lYNFkyM1doZHU5eDY4ZXfSAZsBQVVfeXFMUFBudWpheVpPLWJDU25aZ3FCQmFIcS1icURldFJaeTZDaHhPZ1ZscVEzZTd1WVZsa242cUxjSW5iTGNYNEVuU1d4X0hzcFF1dTFPOUdkcGxGcFNFd3JhTTRScU5Kekd6Q0dXdTJoTkIyTlBGeUY3aS1JYTFPWW1NNUNOTnRfRDN2ajVhYUhmQnhiTnNTYmFtZm5MSlk?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3899.9,
+   "Silver": 49.195,
+   "WTI": 104.75
+  },
+  "parts": {
+   "emoji": "\ud83d\udd4a",
+   "label": "GEOPOLITICS \u2014 calming down",
+   "headline": "Oleshky evacuees leave for Russia as ceasefire holds - Al Jazeera",
+   "src": "Al Jazeera",
+   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured both ways - fear-out vs yields-down cancel",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "same, no reliable direction",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "supply worry gone, barrels flow again",
+     "record": "some evidence - right 51% of 113 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,900 (-3.3%)   Silver 49.20 (-5.7%)   WTI 104.75 (+2.7%)   DXY 101.93 (-0.1%)   US10Y 4.94 (-1.0%)",
+   "reality": "",
+   "flip": "these deals break \u2014 one broken truce and it all goes back on"
+  }
+ },
+ {
   "when": "30 Oct 16:21 UTC",
   "iso": "2026-10-30T16:21:34.677769+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,070 (-0.1%)   Silver 54.15 (-0.3%)   WTI 102.49 (+2.6%)   DXY 102.19 (-0.1%)   US10Y 5.03 (+0.7%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "28 Oct 18:27 UTC",
-  "iso": "2026-10-28T18:27:53.028897+00:00",
-  "cat": "inflation_hot",
-  "title": "GOLD+SILVER SHORT | INFLATION - running hot",
-  "body": "\ud83c\udf21 INFLATION \u2014 running hot\n\nFed votes in split decision to hold interest rates steady despite sticky inflation - Yahoo Finance  (Yahoo Finance)\n\nWHY: You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.\n\nGOLD   \u2193\u2193   look for shorts - the rates reaction beats the hedge story\n        [some evidence - right 50% of 485 past cases]\nSILVER \u2193\u2193   look for shorts - same, amplified\n        [some evidence - right 52% of 485 past cases]\nOIL    \u2192    no clean read - usually a cause, not a victim\n\nNOW  Gold 4,046 (-0.7%)   Silver 53.53 (-1.4%)   WTI 103.06 (+3.2%)   DXY 102.36 (+0.0%)   US10Y 5.03 (+0.8%)\n\nFLIP: if inflation is coming from oil AND growth is dying, gold turns up instead",
-  "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNTFNHanJ3MTBjVnBzMDd2NTFYRTR1azVJNmdJbXpiYm8wd0phUHZfcVNBWE1ySUwtSnJsVldzdGxoMXZTd09FR1pPV1EwV2N2YkROMVcxUENTRTNVd2NfQUdiM3JReWNhTTdDVjNMZ1diU0NxSEN2M1l1THVaNUo3emVBU0pSRHFZWE1JcHY1VkliTU9SRjB2VDdlTUJVSHZod1ZnZW1SeW53MWIyNDNDSWk5WW5IczBETFdjakhzdVNXNVdzNFFQTEtmQzNBek5wWmZjLWRxSmI2N09DZTJn?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4046.5,
-   "Silver": 53.535,
-   "WTI": 103.06
-  },
-  "parts": {
-   "emoji": "\ud83c\udf21",
-   "label": "INFLATION \u2014 running hot",
-   "headline": "Fed votes in split decision to hold interest rates steady despite sticky inflation - Yahoo Finance",
-   "src": "Yahoo Finance",
-   "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "the rates reaction beats the hedge story",
-     "record": "some evidence - right 50% of 485 past cases"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "same, amplified",
-     "record": "some evidence - right 52% of 485 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "usually a cause, not a victim",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 4,046 (-0.7%)   Silver 53.53 (-1.4%)   WTI 103.06 (+3.2%)   DXY 102.36 (+0.0%)   US10Y 5.03 (+0.8%)",
-   "reality": "",
-   "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
   }
  }
 ]
