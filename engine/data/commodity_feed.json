@@ -1,5 +1,61 @@
 [
  {
+  "when": "30 Oct 13:06 UTC",
+  "iso": "2026-10-30T13:06:58.661362+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nTanker hit by explosives in Strait of Hormuz as Iran claims two vessels disabled - Ynetnews  (Ynetnews)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,963 (-1.7%)   Silver 50.09 (-4.0%)   WTI 103.95 (+1.9%)   DXY 101.82 (-0.2%)   US10Y 4.95 (-0.9%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9uZkhrUzBlR3FWNlNxb0lPLURYTFRKeDJ6cmlOM1oxTWJoM1ZwX0UtWEZHRS0tVjNOaVdWbWVyamkzYW9La0dFQ2tGY3VIaHhpQk5JMHhB?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3963.3,
+   "Silver": 50.095,
+   "WTI": 103.95
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Tanker hit by explosives in Strait of Hormuz as Iran claims two vessels disabled - Ynetnews",
+   "src": "Ynetnews",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,963 (-1.7%)   Silver 50.09 (-4.0%)   WTI 103.95 (+1.9%)   DXY 101.82 (-0.2%)   US10Y 4.95 (-0.9%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "30 Oct 11:04 UTC",
   "iso": "2026-10-30T11:04:31.694709+00:00",
   "cat": "geo_escalation",
@@ -3299,62 +3355,6 @@
     }
    ],
    "snap": "NOW  Gold 4,055 (-0.5%)   Silver 53.67 (-1.1%)   WTI 103.33 (+3.4%)   DXY 102.36 (+0.0%)   US10Y 5.03 (+0.7%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "28 Oct 14:25 UTC",
-  "iso": "2026-10-28T14:25:12.383878+00:00",
-  "cat": "rates_up",
-  "title": "TALK | GOLD SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFed meeting today: October interest rate decision, December rate hike outlook and what Kevin Warsh may sig - The Economic Times  (The Economic Times)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193   look for shorts - rates up = gold's worst enemy (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,061 (-0.3%)   Silver 53.86 (-0.8%)   WTI 102.11 (+2.2%)   DXY 102.40 (+0.1%)   US10Y 5.01 (+0.3%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMihgJBVV95cUxOR3hlYXF6SHVMUHhkZGxBQ083aWlOZE5pazU0alcwZm5ZNEZMTkFiMjdiTkZCeW9GTnAwek5vaHRvSUliUHF1ei12NDlDSzBDNU1Ga0pUdmZOYS1HQ051dVdXSGNsRnY2ZXFoZUVqN0EzOWJDQUtQVEItTDVBWC1WdkwxVnJlV2JuUExBWFdRcnpSU183RlZEbHZxcUZadGRTdVp1NkRiQ3MtQ0JTMmJ3eF96TmJ4TWE0Yk1NNnhpOUhwN0FneEhRaWhBQXRlY2k3NGVTTWhhcFFSdHRYblAwWVVSblh1aEVyY0stNGRWYTFrNXh2MDdyZmhZYThkWWx4NGt1c1ZR0gGLAkFVX3lxTFBJMlg2RFFxVld5NzNXZlRrWWdTZ2twOWhSREg1X2x6MUFWSXloc2t4NXB2aUExRzlWX05YMUZ5c2ZGVHVBR0lYdlhxSWF4b2R5V2E0Z2hGUF9oUHNPcUI1aEdjaVhRS0VqVWpkVjdwOHpnbUJ6bTlMSUd6ckhBQVhHWUlvUkZpSU5xeHhlM0t6bXZhdG1zT1dfOWVoU0ZURHpSNWpweXNidFZQQWg4QnFZX1NhNFNWRDdkclcyNENaSmRGcmFiRzJaLVh4bFEzZFBkd1o1QlZDdkVIbWdnMnUtX3M1ME5HaUs5VzUtdFBQb1BKc25YSEMwbTV2U1ROdVJlLU1QTkZKOUV3RQ?oc=5",
-  "talk": true,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4060.9,
-   "Silver": 53.86,
-   "WTI": 102.11
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Fed meeting today: October interest rate decision, December rate hike outlook and what Kevin Warsh may sig - The Economic Times",
-   "src": "The Economic Times",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "rates up = gold's worst enemy (talk, not action yet)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,061 (-0.3%)   Silver 53.86 (-0.8%)   WTI 102.11 (+2.2%)   DXY 102.40 (+0.1%)   US10Y 5.01 (+0.3%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
   }
