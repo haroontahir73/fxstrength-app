@@ -1,5 +1,61 @@
 [
  {
+  "when": "30 Oct 14:36 UTC",
+  "iso": "2026-10-30T14:36:10.816117+00:00",
+  "cat": "geo_escalation",
+  "title": "TALK | OIL LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Axios' Ravid: Multiple US officials say focus of yesterday's meeting wasn't strikes; more than 20 attended, blockade and economic pressure discussed at length; strikes could still happen immediately after the midterms\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191   look for longs - supply at risk = price up fast (talk, not action yet)\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,906 (-3.1%)   Silver 49.15 (-5.8%)   WTI 104.41 (+2.4%)   DXY 102.03 (-0.0%)   US10Y 4.93 (-1.2%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://www.financialjuice.com/News/9829690/Axios-Ravid-Multiple-US-officials-say-focus-of-yesterdays-meeting-wasnt-strikes-more-than-20-attended-blockade-and-economic-pressure-discussed-at-length-strikes-could-still-happen-immediately-after-the-midterms.aspx?xy=rss",
+  "talk": true,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3905.8,
+   "Silver": 49.145,
+   "WTI": 104.41
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "FinancialJuice: Axios' Ravid: Multiple US officials say focus of yesterday's meeting wasn't strikes; more than 20 attended, blockade and economic pressure discussed at length; strikes could still happen immediately after the midterms",
+   "src": "",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "supply at risk = price up fast (talk, not action yet)",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,906 (-3.1%)   Silver 49.15 (-5.8%)   WTI 104.41 (+2.4%)   DXY 102.03 (-0.0%)   US10Y 4.93 (-1.2%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "30 Oct 13:43 UTC",
   "iso": "2026-10-30T13:43:12.494652+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,052 (-0.5%)   Silver 53.59 (-1.3%)   WTI 103.46 (+3.6%)   DXY 102.28 (-0.0%)   US10Y 5.04 (+0.9%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "28 Oct 16:12 UTC",
-  "iso": "2026-10-28T16:12:14.531065+00:00",
-  "cat": "inflation_hot",
-  "title": "GOLD+SILVER SHORT | INFLATION - running hot",
-  "body": "\ud83c\udf21 INFLATION \u2014 running hot\n\nFed rate decision: Kevin Warsh faces pressure to explain pause as US inflation rises | Hindustan Times - Hindustan Times  (Hindustan Times)\n\nWHY: You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.\n\nGOLD   \u2193\u2193   look for shorts - the rates reaction beats the hedge story\n        [some evidence - right 50% of 485 past cases]\nSILVER \u2193\u2193   look for shorts - same, amplified\n        [some evidence - right 52% of 485 past cases]\nOIL    \u2192    no clean read - usually a cause, not a victim\n\nNOW  Gold 4,054 (-0.5%)   Silver 53.60 (-1.3%)   WTI 103.41 (+3.5%)   DXY 102.32 (-0.0%)   US10Y 5.04 (+0.9%)\n\nFLIP: if inflation is coming from oil AND growth is dying, gold turns up instead",
-  "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOQld2RWxOM1hTSmdqYXpEMHlvNURKcFlYSGRablREb3RiWjhEODZaaVVjaFUybVg3aFh0MTJwdV9xemkxdjhlM0x0V0loRjJkVmFILVZMNnl1YXRSb0FkSHBvbWNBWHNPTmtrazZjZms2bWpaMVNoTEFNZm85VjNGMEYzNllvbm95M3phNjNmMktUU01NWldZUGpQLVpOT2ZzczZZdnV2VmVLTG1sUWJhRC1meWZVUEhCRnJfeEdnLUllYnlFQnJYV2FsaHJPcHJmb084R2EzZUlFekZWTkVPLUtqYkdBaDk1M2fSAe8BQVVfeXFMTjJYekIwaWRFcUVuSWJuQ0Fid0Jzd2dPUG95T2N5Q1MtYXFRYW1TVmt3QWpmdVpHNWw1cm50RkZFTU5tSGgxTmN4UFBDRnBjaTFBelIwbFM5X3JVTmhyaGZ6MFJpM3F0U1Vxd1lWazlfQzdvTDB4bkZMZlFMUDFjWEc5MklNSjh2X0xIeHBWV1ZNZFJPT1lOdm1NczJmOG9EelBVV240SkdiWDNQdGczQ0wxODRNaTFnZ2x6c2FsdG9aSXhCMWxfenhIS21iVmZOVkRyQ3RHTDloX05YanV3OVV4TWFteEYxMy1nX2JMX1U?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4054.0,
-   "Silver": 53.605,
-   "WTI": 103.41
-  },
-  "parts": {
-   "emoji": "\ud83c\udf21",
-   "label": "INFLATION \u2014 running hot",
-   "headline": "Fed rate decision: Kevin Warsh faces pressure to explain pause as US inflation rises | Hindustan Times - Hindustan Times",
-   "src": "Hindustan Times",
-   "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "the rates reaction beats the hedge story",
-     "record": "some evidence - right 50% of 485 past cases"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "same, amplified",
-     "record": "some evidence - right 52% of 485 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "usually a cause, not a victim",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 4,054 (-0.5%)   Silver 53.60 (-1.3%)   WTI 103.41 (+3.5%)   DXY 102.32 (-0.0%)   US10Y 5.04 (+0.9%)",
-   "reality": "",
-   "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
   }
  }
 ]
