@@ -1,5 +1,61 @@
 [
  {
+  "when": "30 Oct 05:48 UTC",
+  "iso": "2026-10-30T05:48:21.753225+00:00",
+  "cat": "rates_down",
+  "title": "GOLD+SILVER STRONG LONG | FED - leaning toward rate cuts",
+  "body": "\ud83d\udcb8 FED \u2014 leaning toward rate cuts\n\nGold, silver extend losses as US inflation concerns weigh on rate-cut hopes - Business Standard  (Business Standard)\n\nWHY: Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - cheaper money is gold's best friend\n        [NOT TESTED - no history to judge this on]\nSILVER \u2191\u2191\u2191  STRONG \u2014 go hunt longs - follows gold up, only harder\n        [NOT TESTED - no history to judge this on]\nOIL    \u2191    mild long bias - weaker dollar + a bit more growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,014 (-0.4%)   Silver 51.56 (-1.2%)   WTI 103.16 (+1.1%)   DXY 101.84 (-0.2%)   US10Y 4.99 (-1.1%)\n\nFLIP: a hot inflation print would kill the cut hopes",
+  "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNbGNGR2VIS2VvWUdtMEZ2cVZpMWVtUHU5YTJmanJJRWlQSGRQMmpzbFU2QzNOV0FscnZEcHQyLTFXS1hSZ1oyMkpyemhlTzZpV0Y2N21HTzh0Xy0tbFNabF82ZUNqUUVjb2hOSEdYanpLN3RTaVhYX01fc0N6Q1N4LWk5aHpGc2t0SFY2VzdlM2VrVHQ0VE9Dd1BsVV9BV1h3cmhvdWtXZkYtMWZrU0VUWDZsWjU5V0RuY3FnOTd6QnhWRllYcTdPb0szcy1kOHp0c3psVG9QbkZCYkl2UkwySmdR0gHnAUFVX3lxTE52WDRXbFdzZ08xN3BKWkQ3VkdyOV9jWms4RXRMWUdLOWU3T29FRkVyQlRkR2tHdVFxMkNTSk5Da3N1QXVMVHN5MWdsTG0tYVBFd25Ra29MNG9nOHMtejMxRXRkOGpfcHRfR25LWFJXalpsaWsxUFlWSEsxSlM2NnRkaVJNSXRmMDctWmpDRUNTUnd1TjNrZHdaT2FHTkxvTTFiWGFxMWpsaVVSdkxQVzNMZ1Y4aGRGbkpaSm5oRDgtRk95dDJTT0FBX1R5NlZsM2NJNTNyV05ja2lRLXBsTXc3THBJU3pTTQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4014.0,
+   "Silver": 51.565,
+   "WTI": 103.16
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb8",
+   "label": "FED \u2014 leaning toward rate cuts",
+   "headline": "Gold, silver extend losses as US inflation concerns weigh on rate-cut hopes - Business Standard",
+   "src": "Business Standard",
+   "why": "Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "cheaper money is gold's best friend",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "follows gold up, only harder",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "weaker dollar + a bit more growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 4,014 (-0.4%)   Silver 51.56 (-1.2%)   WTI 103.16 (+1.1%)   DXY 101.84 (-0.2%)   US10Y 4.99 (-1.1%)",
+   "reality": "",
+   "flip": "a hot inflation print would kill the cut hopes"
+  }
+ },
+ {
   "when": "30 Oct 04:49 UTC",
   "iso": "2026-10-30T04:49:07.754531+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,062 (-0.3%)   Silver 54.16 (-0.2%)   WTI 101.29 (+1.4%)   DXY 102.40 (+0.1%)   US10Y 4.99 (+0.1%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "28 Oct 01:00 UTC",
-  "iso": "2026-10-28T01:00:31.140094+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFed likely to wait on another rate hike as inflation pressures mount - WTOV  (WTOV)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,076 (+0.9%)   Silver 54.47 (+0.7%)   WTI 100.39 (-1.3%)   DXY 102.36 (+0.4%)   US10Y 4.99 (+0.1%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPWjVRSlFlQklJM2lsekh4dG9fLXI4dXFpQWp5aUpaNG9wTmpja2NiUHhPNGZkV2dxSEJpa1hjZjNtN0dwTnVMbWljSXhPdE5uWlBQMmZTYVROWEd3VTlfclRjZHFtUkJlQnpJaFh4bGo3YjB6UWxscHNCUGczNDBLTVVqajVPX3h6QnByUVRSNWlSeVQ4VEZETVctYjBKR2pkNWMySTdubzQ1SnRrYXNxbmlQUkhlN3lDT0tBVjducXI3Mm1rVFRGUXFZWXVGU2hIbHFMeFpKM05YWV82N1pqNVVIUl8xMXpIMkVWejVFRVU2SFdTLXJmODkxVERJenc?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4076.4,
-   "Silver": 54.465,
-   "WTI": 100.39
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Fed likely to wait on another rate hike as inflation pressures mount - WTOV",
-   "src": "WTOV",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,076 (+0.9%)   Silver 54.47 (+0.7%)   WTI 100.39 (-1.3%)   DXY 102.36 (+0.4%)   US10Y 4.99 (+0.1%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
