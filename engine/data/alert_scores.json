@@ -22152,5 +22152,38 @@
   "outcome": "win",
   "talk": false,
   "at": "2026-10-29T17:20:17.092234+00:00"
+ },
+ {
+  "id": "2026-10-29T19:45:05.903145+00:00|OIL",
+  "cat": "oil_supply_tight",
+  "instr": "OIL",
+  "dir": "up",
+  "strength": 3,
+  "chg": 0.528,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-10-29T19:45:05.903145+00:00"
+ },
+ {
+  "id": "2026-10-29T19:35:04.048454+00:00|GOLD",
+  "cat": "inflation_hot",
+  "instr": "GOLD",
+  "dir": "down",
+  "strength": 2,
+  "chg": -0.055,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-10-29T19:35:04.048454+00:00"
+ },
+ {
+  "id": "2026-10-29T19:35:04.048454+00:00|SILVER",
+  "cat": "inflation_hot",
+  "instr": "SILVER",
+  "dir": "down",
+  "strength": 2,
+  "chg": -0.46,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-10-29T19:35:04.048454+00:00"
  }
 ]
