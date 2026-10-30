@@ -1,5 +1,61 @@
 [
  {
+  "when": "30 Oct 17:22 UTC",
+  "iso": "2026-10-30T17:22:27.178402+00:00",
+  "cat": "oil_supply_loose",
+  "title": "OIL STRONG SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nSerbia\u2019s NIS oil company gets US sanctions waiver until Dec. 11 - Local TV - Investing.com  (Investing.com)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,900 (-3.3%)   Silver 49.21 (-5.7%)   WTI 104.85 (+2.8%)   DXY 101.92 (-0.1%)   US10Y 4.94 (-1.0%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQM0U2SUd6V1Z1VnBXd1d1VG94a0N4YXBIQm9lNHVEWnM3cGpybGdGZFQ4TTM2Mzk1M1djSUl1ZkJRVlJuaHFjNGRleU11TlMtb3dMb0FwWnZvQ04xOEpOblhFOVZSM3U1ajlnRWYyOXhRNC1QLXUyNUdLeGpsM3NEQUhIZjBTZEUxU3dDa0RzNGdBNEFtM2ozOFlfb1VfMUhCMWhPQVJLSXgyUHFad3hid1NKNzNhN2Y5R3I2UmRYc2ZqaFpnTVM2SVBCWU8?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3900.3,
+   "Silver": 49.21,
+   "WTI": 104.85
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "Serbia\u2019s NIS oil company gets US sanctions waiver until Dec. 11 - Local TV - Investing.com",
+   "src": "Investing.com",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "extra barrels push the price down",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,900 (-3.3%)   Silver 49.21 (-5.7%)   WTI 104.85 (+2.8%)   DXY 101.92 (-0.1%)   US10Y 4.94 (-1.0%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
   "when": "30 Oct 17:19 UTC",
   "iso": "2026-10-30T17:19:04.070464+00:00",
   "cat": "geo_deescalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,074 (-0.0%)   Silver 53.97 (-0.6%)   WTI 102.58 (+2.7%)   DXY 102.15 (-0.2%)   US10Y 5.04 (+1.0%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "28 Oct 18:47 UTC",
-  "iso": "2026-10-28T18:47:35.181046+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIndia seeks more affordable US energy imports; expects Russia oil sanctions waiver to continue - The New Indian Express  (The New Indian Express)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,070 (-0.1%)   Silver 54.15 (-0.3%)   WTI 102.49 (+2.6%)   DXY 102.19 (-0.1%)   US10Y 5.03 (+0.7%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOU3VQX3BLMTZqcW01aXFOOWNuQXh1MHFvMWQtbFYzS0RoUUlNcm5VVUczSTBqMDdTMF9id2Q1dnhEUHhpRTI1RUlIalUyUmFNMmhuajkyOGRHb1E5c0VyaU1PVHY1Z2xBdF8zY19ub1B2UXU4Z0ZxeG9NdHRDNGZyT29LT2JYT0RVenB2RktCWndWN2UzazZ0YVp4MUphdVJVcUk3QmdqUWdZYlVDWnV4Z21FMUlFTzgzV282UXRseW9xWW1iVWc5ZTNsZ1RCQjJGdVluRHg0RThhQks1aG1PSdIB7gFBVV95cUxPRjRUX0tKWTNLX1ZJS0ZqY0tVbF94eHBDSXp1bmszeXgzVzBlNjY1RGZ6VFJSZlFLNUxleVFveHo0Y19TTTB0Z09VcEhvOG0yb0xjZmhVZ0J6ME5XN2ZJTE9UT1lqbXdNMVRyd3lIaTdvOFMzbXUxS25STjA0b09Jb2xRTHpLVE03b0JkUzZCXzRodlFOSk54V0NqaTZzd1R4WWdRUGI2ZUpFM0ljUUkwMHIwdDNKTi12SFQycjhSc1FCUUw5ZUVNYlNIUnExY3g2cEtBejBONFhqVm11UGZmNEh4YjZUaXZQV3Q2OFN3?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4069.8,
-   "Silver": 54.145,
-   "WTI": 102.49
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "India seeks more affordable US energy imports; expects Russia oil sanctions waiver to continue - The New Indian Express",
-   "src": "The New Indian Express",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,070 (-0.1%)   Silver 54.15 (-0.3%)   WTI 102.49 (+2.6%)   DXY 102.19 (-0.1%)   US10Y 5.03 (+0.7%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
