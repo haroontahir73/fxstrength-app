@@ -22,5 +22,18 @@
    "excess": -0.9,
    "why": "excess -0.9pp is above -2pp"
   }
+ ],
+ "rates_down.silver": [
+  {
+   "at": "2026-10-30T10:28:34.743373+00:00",
+   "action": "downgrade",
+   "drop_before": 0,
+   "drop_after": 1,
+   "n": 20,
+   "hit": 35.0,
+   "base": 47.3,
+   "excess": -12.3,
+   "why": "excess -12.3pp over 20 calls"
+  }
  ]
 }

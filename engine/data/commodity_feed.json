@@ -1,5 +1,61 @@
 [
  {
+  "when": "30 Oct 10:44 UTC",
+  "iso": "2026-10-30T10:44:50.506510+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: IRGC Navy: Two oil tankers that switched off navigation systems were involved in incident, stopped south of Strait of Hormuz after ignoring radio warnings - Iranian Media.\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,994 (-0.9%)   Silver 50.66 (-2.9%)   WTI 104.10 (+2.1%)   DXY 101.63 (-0.4%)   US10Y 4.99 (-1.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://www.financialjuice.com/News/9829278/IRGC-Navy-Two-oil-tankers-that-switched-off-navigation-systems-were-involved-in-incident-stopped-south-of-Strait-of-Hormuz-after-ignoring-radio-warnings---Iranian-Media.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3993.5,
+   "Silver": 50.66,
+   "WTI": 104.1
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "FinancialJuice: IRGC Navy: Two oil tankers that switched off navigation systems were involved in incident, stopped south of Strait of Hormuz after ignoring radio warnings - Iranian Media.",
+   "src": "",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,994 (-0.9%)   Silver 50.66 (-2.9%)   WTI 104.10 (+2.1%)   DXY 101.63 (-0.4%)   US10Y 4.99 (-1.1%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "30 Oct 09:25 UTC",
   "iso": "2026-10-30T09:25:56.535250+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,068 (-0.2%)   Silver 54.23 (-0.1%)   WTI 101.96 (+2.1%)   DXY 102.33 (+0.0%)   US10Y 5.00 (+0.0%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "28 Oct 12:44 UTC",
-  "iso": "2026-10-28T12:44:43.436518+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nUS Treasury Yields Top 5% Ahead of Fed Decision as December Rate Hike Looms - Coinpaper  (Coinpaper)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,068 (-0.2%)   Silver 54.16 (-0.2%)   WTI 101.76 (+1.9%)   DXY 102.33 (+0.0%)   US10Y 5.00 (+0.1%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQSGQtVkNObWItNnNma3VZRUxKQVlxbk9RSUlmWUp4NFVtcVgxQ09ZTzdMcnE5NHdHM3FlcEJ3b1JCdnJoY3hueUxkTjFPTGJHVnFkSnoxbElEX0lVd2ZZTkt1OWZoUEZsWDFWS2JDZE5FWEFQRXhoQklCWnZ3anFpc1F6ZFZWVUhrZERzUEQxYVlOOV80cS1kNjNXMGlaX2VaY2dNRg?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4067.6,
-   "Silver": 54.16,
-   "WTI": 101.76
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "US Treasury Yields Top 5% Ahead of Fed Decision as December Rate Hike Looms - Coinpaper",
-   "src": "Coinpaper",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,068 (-0.2%)   Silver 54.16 (-0.2%)   WTI 101.76 (+1.9%)   DXY 102.33 (+0.0%)   US10Y 5.00 (+0.1%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
