@@ -1,5 +1,61 @@
 [
  {
+  "when": "30 Oct 23:45 UTC",
+  "iso": "2026-10-30T23:45:10.323203+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIRGC Navy Says Four Tankers Hit Mines, Catch Fire in Strait of Hormuz: 32 outlets compared - NewsCord  (NewsCord)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,885 (-3.6%)   Silver 49.13 (-5.9%)   WTI 102.95 (+0.9%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPN2htYS1rS1JzRy1XaFFaeUdRYlhZckhhMmZ2NDFkT19McEF1a3hYVUZ6RWg5TGoyYmpQUUx1SUNydUV3S3VUYTJoQVp0UWpmTG1BZnF5SFA3TFZsZzJ6VS1SdjB4VzAxdlRvMTFUb3pKRG1mZHZOeE1oa3JFYWw2Vm5vZWZvVmNpNk40M0FNYlU3RFpVbUdqNmdEdk5abDJIOWdhdVJMT21qN3N5dWVSZWNqaTkxRG9iNXpiSWFnUHVJbW9KZ3BBN25ndU5kVUc0MlRJaGg3Q1RiUl9FU1AyaXFZMjR4bWczbVE?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3884.9,
+   "Silver": 49.135,
+   "WTI": 102.95
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "IRGC Navy Says Four Tankers Hit Mines, Catch Fire in Strait of Hormuz: 32 outlets compared - NewsCord",
+   "src": "NewsCord",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,885 (-3.6%)   Silver 49.13 (-5.9%)   WTI 102.95 (+0.9%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "30 Oct 21:43 UTC",
   "iso": "2026-10-30T21:43:42.369114+00:00",
   "cat": "geo_deescalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,040 (-0.3%)   Silver 52.88 (-1.1%)   WTI 101.94 (-0.8%)   DXY 102.24 (+0.0%)   US10Y 5.04 (+1.0%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "29 Oct 06:42 UTC",
-  "iso": "2026-10-29T06:42:21.376975+00:00",
-  "cat": "oil_supply_tight",
-  "title": "TALK | OIL LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: South Korea National Security Advisor: Continuing talks with US on Strait of Hormuz deployment, still considering various options.\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191   look for longs - the direct hit (talk, not action yet)\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,038 (-0.3%)   Silver 52.72 (-1.4%)   WTI 101.33 (-1.4%)   DXY 102.24 (+0.1%)   US10Y 5.04 (+1.0%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://www.financialjuice.com/News/9826703/South-Korea-National-Security-Advisor-Continuing-talks-with-US-on-Strait-of-Hormuz-deployment-still-considering-various-options.aspx?xy=rss",
-  "talk": true,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4038.4,
-   "Silver": 52.715,
-   "WTI": 101.33
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "FinancialJuice: South Korea National Security Advisor: Continuing talks with US on Strait of Hormuz deployment, still considering various options.",
-   "src": "",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "the direct hit (talk, not action yet)",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,038 (-0.3%)   Silver 52.72 (-1.4%)   WTI 101.33 (-1.4%)   DXY 102.24 (+0.1%)   US10Y 5.04 (+1.0%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
