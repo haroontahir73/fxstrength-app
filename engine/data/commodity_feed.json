@@ -1,5 +1,61 @@
 [
  {
+  "when": "30 Oct 16:21 UTC",
+  "iso": "2026-10-30T16:21:34.677769+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold hits four-month low, silver falls below $50/oz on Fed hike fears - marketscreener.com  (marketscreener.com)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,907 (-3.1%)   Silver 49.27 (-5.6%)   WTI 104.15 (+2.1%)   DXY 101.84 (-0.2%)   US10Y 4.95 (-0.8%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNSU9oYVlpQUxxa0EwWmZrMDdCMFBSTmZxWDl0dmVDcFZLc2hrUTNmYXZqWGJZYURyTTVRWGxHVUkyT0xfV2JMR1A0M1Y1dmtqblV6a2hUakJyRVVWMUw3cUMtd1RZdUg4SzN6UU5wT3V5VUJUNVRxdl9EUFRHaWZLc0dtclpWSVgyY3dBVmxfYVl6amxmS0gya01wV2tPQkJLZTZLMjRsVGxtZWFaSmJGQXZqNmN1b2owQTk4OQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3907.4,
+   "Silver": 49.27,
+   "WTI": 104.15
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Gold hits four-month low, silver falls below $50/oz on Fed hike fears - marketscreener.com",
+   "src": "marketscreener.com",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,907 (-3.1%)   Silver 49.27 (-5.6%)   WTI 104.15 (+2.1%)   DXY 101.84 (-0.2%)   US10Y 4.95 (-0.8%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "30 Oct 15:28 UTC",
   "iso": "2026-10-30T15:28:53.987948+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,046 (-0.7%)   Silver 53.53 (-1.4%)   WTI 103.06 (+3.2%)   DXY 102.36 (+0.0%)   US10Y 5.03 (+0.8%)",
    "reality": "",
    "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
-  }
- },
- {
-  "when": "28 Oct 18:04 UTC",
-  "iso": "2026-10-28T18:04:51.157812+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFed Pauses Interest Rate Hikes for Now as Key Midterm Election Looms - Realtor.com  (Realtor.com)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,053 (-0.5%)   Silver 53.67 (-1.1%)   WTI 102.60 (+2.7%)   DXY 102.34 (+0.0%)   US10Y 5.02 (+0.5%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOb2JiRTlEZHN5bW90TElnWWcyUVIzaVM4a3VCTHdVcnN5SFowWFY1a0lYc09qejZpM1EyQ00tZ0pKQjB3aDN1enh6alRFM1V6NmFKNkFYam9Bb1pGMGlpYjdGMF9NSlNaTHFFRXRwbzlhYmZSNWw5SnVGTTREMi1yX0ZIaGw3UHJiX2dWTnpvdXRmeWZUNWRSMWwxYm85ODQyeXZDSFZ6cTAybDg?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4052.9,
-   "Silver": 53.675,
-   "WTI": 102.6
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Fed Pauses Interest Rate Hikes for Now as Key Midterm Election Looms - Realtor.com",
-   "src": "Realtor.com",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,053 (-0.5%)   Silver 53.67 (-1.1%)   WTI 102.60 (+2.7%)   DXY 102.34 (+0.0%)   US10Y 5.02 (+0.5%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
