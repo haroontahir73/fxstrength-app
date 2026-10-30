@@ -1,5 +1,61 @@
 [
  {
+  "when": "30 Oct 11:04 UTC",
+  "iso": "2026-10-30T11:04:31.694709+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nTanker Hit by Explosives Near Hormuz as Iran Reports Fires on Three Other Vessels - Palestine Chronicle  (Palestine Chronicle)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,986 (-1.1%)   Silver 50.55 (-3.2%)   WTI 104.22 (+2.2%)   DXY 101.64 (-0.4%)   US10Y 4.99 (-1.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNSklnU3ViOVMzdHAyVFplTGZhQzRULWxJSlhXZkVGR2RRMlBUZmgxSHJ6M3BkWV8wMWpjZXVqbEtEdjFyLUZnYk1la2FaVWFmMTV4aHphM0loZEFYbXI1STUzNGJHOVlBdGt3aWVsMnB0U0hfWGdfNWZYRF9Cd19EX0ROVWNNU2pROTF6ZDc5TzZjQWVFSlA0WC05Z2haVkJKNVFVYi1xUzhiRG5VdnZ5dUR1ODBNZEJx?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3986.5,
+   "Silver": 50.545,
+   "WTI": 104.22
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Tanker Hit by Explosives Near Hormuz as Iran Reports Fires on Three Other Vessels - Palestine Chronicle",
+   "src": "Palestine Chronicle",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,986 (-1.1%)   Silver 50.55 (-3.2%)   WTI 104.22 (+2.2%)   DXY 101.64 (-0.4%)   US10Y 4.99 (-1.1%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "30 Oct 11:01 UTC",
   "iso": "2026-10-30T11:01:09.764978+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,061 (-0.3%)   Silver 53.86 (-0.8%)   WTI 102.11 (+2.2%)   DXY 102.40 (+0.1%)   US10Y 5.01 (+0.3%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "28 Oct 13:33 UTC",
-  "iso": "2026-10-28T13:33:10.599841+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nQatarEnergy Extends LNG Force Majeure to End of 2026\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,065 (-0.2%)   Silver 54.17 (-0.2%)   WTI 101.90 (+2.0%)   DXY 102.35 (+0.0%)   US10Y 4.99 (-0.0%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://oilprice.com/Latest-Energy-News/World-News/QatarEnergy-Extends-LNG-Force-Majeure-to-End-of-2026.html",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4064.6,
-   "Silver": 54.17,
-   "WTI": 101.9
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "QatarEnergy Extends LNG Force Majeure to End of 2026",
-   "src": "",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,065 (-0.2%)   Silver 54.17 (-0.2%)   WTI 101.90 (+2.0%)   DXY 102.35 (+0.0%)   US10Y 4.99 (-0.0%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
