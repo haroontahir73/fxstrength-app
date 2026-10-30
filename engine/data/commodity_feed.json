@@ -1,5 +1,61 @@
 [
  {
+  "when": "30 Oct 01:48 UTC",
+  "iso": "2026-10-30T01:48:30.183328+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussia Strikes Kyiv With Ballistic Missiles Hours After Zelensky\u2019s Warning - Kyiv Post  (Kyiv Post)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,015 (-0.9%)   Silver 51.48 (-3.7%)   WTI 103.47 (+0.7%)   DXY 101.69 (-0.3%)   US10Y 4.99 (-1.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBOOVhxRGZoT3VNeFhKZlJLR09PSnBHMFlBdGhtNTY2enR0Q2RpeVhDakZTV0k2LUZkb2psZkZZN2FCeGY5RnU0aWFuMA?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4014.7,
+   "Silver": 51.48,
+   "WTI": 103.47
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Russia Strikes Kyiv With Ballistic Missiles Hours After Zelensky\u2019s Warning - Kyiv Post",
+   "src": "Kyiv Post",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,015 (-0.9%)   Silver 51.48 (-3.7%)   WTI 103.47 (+0.7%)   DXY 101.69 (-0.3%)   US10Y 4.99 (-1.1%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "30 Oct 01:28 UTC",
   "iso": "2026-10-30T01:28:36.628534+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,072 (+0.8%)   Silver 54.38 (+0.5%)   WTI 99.94 (-1.8%)   DXY 102.32 (+0.4%)   US10Y 4.99 (+0.1%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "27 Oct 18:50 UTC",
-  "iso": "2026-10-27T18:50:30.729439+00:00",
-  "cat": "geo_deescalation",
-  "title": "OIL STRONG SHORT | GEOPOLITICS - calming down",
-  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nHouthis Claim Strikes On Saudi Defence Ministry, Oil Refinery Amid $1 Billion Ceasefire Talk - NDTV Profit  (NDTV Profit)\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - supply worry gone, barrels flow again\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,069 (+0.8%)   Silver 54.29 (+0.3%)   WTI 100.00 (-1.7%)   DXY 102.31 (+0.3%)   US10Y 4.99 (+0.1%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
-  "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPVWlwTHhrb1lpbkFXVFR1dGlvVkxoUDR1UDFhNmw5YllqVWNObUV6cTY2UkNGYTFvZDlIVHl1MmFlTHotYUJNMDl1QUFWMGtqTVFSX2JITXRWWDk1VkktWW1nRTFyNmlHb1E5VFdrbHpzTVdlWjRNUlRNU3NjTDZiRDFyRjd4VnhTWGxlTF9ZZVgyMlRIYnY4WGdRTC1VX3k0WmR1NHpJc2NUMzRGRjNWcnR2ZFhmMnNnaXd5WW1pbTZtUDVNN1J5VGRxTFLSAdQBQVVfeXFMTm40QmRONnhtU0hOdFh6cEs1d3kwaXIxaEl0Z0lxeHNiM1Bud09CNl9MNTVqT2ZMV1o3TmIyRWZnT0JPVDE4aHFXU0gzX2E2M0lNeG1na0xkdHpkMkxOTlh5dExpRVJudzlZV3hUM0lCZGo2VTczSGpCTXBETF9DT2pDTXdNaGlKVUhZRVJLUlVnN2JtLU5fSWlxZGpsckRBcmpNbWxpWFU3LTVnYjlYdGtfWnh0NGx0SXo4cEViZHYtXzVvUEhJU2I1aUh4VEdEN21PbG4?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4069.4,
-   "Silver": 54.29,
-   "WTI": 100.0
-  },
-  "parts": {
-   "emoji": "\ud83d\udd4a",
-   "label": "GEOPOLITICS \u2014 calming down",
-   "headline": "Houthis Claim Strikes On Saudi Defence Ministry, Oil Refinery Amid $1 Billion Ceasefire Talk - NDTV Profit",
-   "src": "NDTV Profit",
-   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured both ways - fear-out vs yields-down cancel",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "same, no reliable direction",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "supply worry gone, barrels flow again",
-     "record": "some evidence - right 51% of 113 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,069 (+0.8%)   Silver 54.29 (+0.3%)   WTI 100.00 (-1.7%)   DXY 102.31 (+0.3%)   US10Y 4.99 (+0.1%)",
-   "reality": "",
-   "flip": "these deals break \u2014 one broken truce and it all goes back on"
   }
  }
 ]
