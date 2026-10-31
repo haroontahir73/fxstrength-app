@@ -1,5 +1,61 @@
 [
  {
+  "when": "31 Oct 14:39 UTC",
+  "iso": "2026-10-31T14:39:48.223503+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nDrone attack sparks fire at oil refinery in Russia\u2019s Ufa - Latest news from Azerbaijan  (Latest news from Azerbaijan)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,899 (-3.3%)   Silver 49.28 (-5.6%)   WTI 104.12 (+2.1%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNNmM3V1FXRVhLem9JTXNvRTRXSkx1blVra2hLU3U3TGtIZTBoNFBrbGFFdEYyV0pCbFk5eUUxR3kxV3dIZms2WG5ZZlNHTlg2Y0ZPVzVCbjJ0VXZRUkYzZHZaaF9SQzZkSnFlRjhLWEdtczVjbDU2V19fWXVnemZwYzRR?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3898.9,
+   "Silver": 49.276,
+   "WTI": 104.12
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Drone attack sparks fire at oil refinery in Russia\u2019s Ufa - Latest news from Azerbaijan",
+   "src": "Latest news from Azerbaijan",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,899 (-3.3%)   Silver 49.28 (-5.6%)   WTI 104.12 (+2.1%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "31 Oct 14:29 UTC",
   "iso": "2026-10-31T14:29:56.133178+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,035 (-0.4%)   Silver 52.53 (-1.7%)   WTI 101.77 (-1.0%)   DXY 101.98 (-0.2%)   US10Y 5.00 (-0.8%)",
    "reality": "",
    "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
-  }
- },
- {
-  "when": "29 Oct 16:34 UTC",
-  "iso": "2026-10-29T16:34:41.804032+00:00",
-  "cat": "geo_deescalation",
-  "title": "TALK | OIL SHORT | GEOPOLITICS - calming down",
-  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nAid mission set to enter Oleshky as a localized Russia-Ukraine truce holds for a third day - Boston Herald  (Boston Herald)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193\u2193   look for shorts - supply worry gone, barrels flow again (talk, not action yet)\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,027 (-0.6%)   Silver 52.52 (-1.8%)   WTI 100.93 (-1.8%)   DXY 101.99 (-0.2%)   US10Y 5.00 (-1.0%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
-  "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFAtMXg1Mmtuc0h2MERrZ2xaaGxSdElqc1B3VDc4dTRqaVhvQUJvOHJLQUxrU0tURUpfMkhXUDk0eGJyU1F5QU81OTF1b3N4aHZ0YnhQUzhtSFNuaVZYR1ZjMmtJdm84X2VHNGVZMw?oc=5",
-  "talk": true,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4027.2,
-   "Silver": 52.515,
-   "WTI": 100.93
-  },
-  "parts": {
-   "emoji": "\ud83d\udd4a",
-   "label": "GEOPOLITICS \u2014 calming down",
-   "headline": "Aid mission set to enter Oleshky as a localized Russia-Ukraine truce holds for a third day - Boston Herald",
-   "src": "Boston Herald",
-   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured both ways - fear-out vs yields-down cancel",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "same, no reliable direction",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "supply worry gone, barrels flow again (talk, not action yet)",
-     "record": "some evidence - right 51% of 113 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,027 (-0.6%)   Silver 52.52 (-1.8%)   WTI 100.93 (-1.8%)   DXY 101.99 (-0.2%)   US10Y 5.00 (-1.0%)",
-   "reality": "",
-   "flip": "these deals break \u2014 one broken truce and it all goes back on"
   }
  }
 ]
