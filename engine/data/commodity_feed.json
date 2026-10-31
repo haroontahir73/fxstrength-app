@@ -1,5 +1,61 @@
 [
  {
+  "when": "31 Oct 10:53 UTC",
+  "iso": "2026-10-31T10:53:52.169842+00:00",
+  "cat": "oil_supply_loose",
+  "title": "OIL STRONG SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nFinancialJuice: Iran\u2019s supreme leader directs armed forces to boost production of ammunition and weapons for reconnaissance, support and combat operations\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,899 (-3.3%)   Silver 49.28 (-5.6%)   WTI 104.12 (+2.1%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://www.financialjuice.com/News/9830744/Irans-supreme-leader-directs-armed-forces-to-boost-production-of-ammunition-and-weapons-for-reconnaissance-support-and-combat-operations.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3898.9,
+   "Silver": 49.276,
+   "WTI": 104.12
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "FinancialJuice: Iran\u2019s supreme leader directs armed forces to boost production of ammunition and weapons for reconnaissance, support and combat operations",
+   "src": "",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "extra barrels push the price down",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,899 (-3.3%)   Silver 49.28 (-5.6%)   WTI 104.12 (+2.1%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
   "when": "31 Oct 09:51 UTC",
   "iso": "2026-10-31T09:51:54.278438+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,038 (-0.3%)   Silver 52.58 (-1.6%)   WTI 100.71 (-2.0%)   DXY 102.28 (+0.1%)   US10Y 5.00 (-0.8%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "29 Oct 12:32 UTC",
-  "iso": "2026-10-29T12:32:02.916777+00:00",
-  "cat": "us_data_weak",
-  "title": "US DATA - came in weak",
-  "body": "\ud83d\udcca US DATA \u2014 came in weak\n\nUS GDP Price Index QoQ Adv: 2.2 vs 3.2 expected - a MISS (-31%)  (economic calendar)\n\nWHY: A weaker US economy pushes the Fed toward cutting rates. Cheaper money and a softer dollar are what gold wants. Silver is torn - it likes cheap money but it needs factories busy.\n\nGOLD   \u2191    mild long bias - brings rate cuts back into view\n        [some evidence - right 58% of 327 past cases]\nSILVER \u2191    mild long bias - cuts help, weaker industry hurts - nets to nothing measurable\n        [weak - 51% of 327 past cases, no better than chance]\nOIL    \u2193    mild short bias - a slower economy burns less fuel\n        [weak - 45% of 327 past cases, no better than chance]\n\nNOW  Gold 4,036 (-0.4%)   Silver 52.67 (-1.5%)   WTI 101.91 (-0.8%)   DXY 102.20 (+0.0%)   US10Y 5.04 (+1.0%)\n\nFLIP: one number is not a trend - watch the next jobs print",
-  "link": "",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4036.3,
-   "Silver": 52.67,
-   "WTI": 101.91
-  },
-  "parts": {
-   "emoji": "\ud83d\udcca",
-   "label": "US DATA \u2014 came in weak",
-   "headline": "US GDP Price Index QoQ Adv: 2.2 vs 3.2 expected - a MISS (-31%)",
-   "src": "economic calendar",
-   "why": "A weaker US economy pushes the Fed toward cutting rates. Cheaper money and a softer dollar are what gold wants. Silver is torn - it likes cheap money but it needs factories busy.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "brings rate cuts back into view",
-     "record": "some evidence - right 58% of 327 past cases"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "cuts help, weaker industry hurts - nets to nothing measurable",
-     "record": "weak - 51% of 327 past cases, no better than chance"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "a slower economy burns less fuel",
-     "record": "weak - 45% of 327 past cases, no better than chance"
-    }
-   ],
-   "snap": "NOW  Gold 4,036 (-0.4%)   Silver 52.67 (-1.5%)   WTI 101.91 (-0.8%)   DXY 102.20 (+0.0%)   US10Y 5.04 (+1.0%)",
-   "reality": "",
-   "flip": "one number is not a trend - watch the next jobs print"
   }
  }
 ]
