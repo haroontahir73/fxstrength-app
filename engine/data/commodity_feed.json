@@ -1,5 +1,61 @@
 [
  {
+  "when": "01 Nov 11:52 UTC",
+  "iso": "2026-11-01T11:52:23.513865+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nUkraine targets Russian oil refinery in massive drone attack, Moscow says - WION  (WION)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,899 (-3.3%)   Silver 49.28 (-5.6%)   WTI 104.12 (+2.1%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxObWJocUpad0VTbk50TVMzeHVYd29lbUtYaTRkemJKOXkxYVltbE9YMnhEOFpEMEozblRuajJpTU1WWVZ0OVM0THJLbS15Y2hlU2dneXVsbkJicDBwNVFLb1RmSk44VlNzV2d4UF91eTlRS19vQkU0ZlBXV2xHdTRLTjRDWmhkeGFic2x5WUdaaXBGbHNySEctS1BFYm1uaTc0b3l6dkZXX0ktZm9kRC1FWE9lOG1UOTjSAbwBQVVfeXFMTlQxT2sxNy10b1BkRGhnX1FTN3Myd3o0RnZ0ZFFtYkFFNXoyQ2Y5TnJWYnYzWEowWmsyUU90OGNSMWc4RGxuYXhJNHdiMGtrWENwVnVBbWhZRWxSUUVtX3FWQ1BSak1yNGFNTTlUVFBqelBHaXJfVGNfN0hsUlV1ejlJVHpTUnlqdzlmTDVCRzhxUGY5LUViSlB5VEcyVmx6ZTdBa0s2TkcwMnBvRDZKbzRFQjQwVmdCc2lNUmg?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3898.9,
+   "Silver": 49.276,
+   "WTI": 104.12
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Ukraine targets Russian oil refinery in massive drone attack, Moscow says - WION",
+   "src": "WION",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,899 (-3.3%)   Silver 49.28 (-5.6%)   WTI 104.12 (+2.1%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "01 Nov 10:11 UTC",
   "iso": "2026-11-01T10:11:22.938541+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,011 (-1.0%)   Silver 51.41 (-1.5%)   WTI 104.84 (+2.0%)   DXY 101.75 (-0.3%)   US10Y 4.99 (-1.1%)",
    "reality": "",
    "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
-  }
- },
- {
-  "when": "30 Oct 01:48 UTC",
-  "iso": "2026-10-30T01:48:30.183328+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussia Strikes Kyiv With Ballistic Missiles Hours After Zelensky\u2019s Warning - Kyiv Post  (Kyiv Post)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,015 (-0.9%)   Silver 51.48 (-3.7%)   WTI 103.47 (+0.7%)   DXY 101.69 (-0.3%)   US10Y 4.99 (-1.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBOOVhxRGZoT3VNeFhKZlJLR09PSnBHMFlBdGhtNTY2enR0Q2RpeVhDakZTV0k2LUZkb2psZkZZN2FCeGY5RnU0aWFuMA?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4014.7,
-   "Silver": 51.48,
-   "WTI": 103.47
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Russia Strikes Kyiv With Ballistic Missiles Hours After Zelensky\u2019s Warning - Kyiv Post",
-   "src": "Kyiv Post",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,015 (-0.9%)   Silver 51.48 (-3.7%)   WTI 103.47 (+0.7%)   DXY 101.69 (-0.3%)   US10Y 4.99 (-1.1%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
