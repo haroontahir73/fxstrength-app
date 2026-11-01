@@ -1,5 +1,61 @@
 [
  {
+  "when": "01 Nov 23:39 UTC",
+  "iso": "2026-11-01T23:39:20.983943+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nNetanyahu Presses Trump To Strike Iran After U.S. Midterm Elections: 14 outlets compared - NewsCord  (NewsCord)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,909 (+0.2%)   Silver 49.68 (+1.2%)   WTI 102.42 (-1.6%)   DXY 101.95 (+0.1%)   US10Y 4.93 (-1.2%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNZ0U4eW96U0NwcVVLb2NFeGlGdjgtbE9aTm8zME1QN253NmFQa3dJUnRUUlJnMC1sN0Z6dTlWM0ZlRWFzd2FlMFNRR1ZvTUIwSlE2SlF0TGtld1VURmpyNk12TXNtZUJ6NlowUlZ3ZklFTE55QkIxUmRHc1lmQUx2UTc2ckZ6UFFja0pKR0s0TGd4WGg2NDZlaG1Jck1xYUZUVkJ2QnNneTQyanlMaU1LVkxGMDdYLUlIejJUMExiSG1fZGpYb1czWnhpSllCRDgwVzl1ZUVR?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3908.6,
+   "Silver": 49.68,
+   "WTI": 102.42
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Netanyahu Presses Trump To Strike Iran After U.S. Midterm Elections: 14 outlets compared - NewsCord",
+   "src": "NewsCord",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,909 (+0.2%)   Silver 49.68 (+1.2%)   WTI 102.42 (-1.6%)   DXY 101.95 (+0.1%)   US10Y 4.93 (-1.2%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "01 Nov 21:46 UTC",
   "iso": "2026-11-01T21:46:06.768844+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,986 (-1.1%)   Silver 50.49 (-3.2%)   WTI 104.29 (+2.2%)   DXY 101.66 (-0.4%)   US10Y 4.99 (-1.1%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "30 Oct 10:44 UTC",
-  "iso": "2026-10-30T10:44:50.506510+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: IRGC Navy: Two oil tankers that switched off navigation systems were involved in incident, stopped south of Strait of Hormuz after ignoring radio warnings - Iranian Media.\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,994 (-0.9%)   Silver 50.66 (-2.9%)   WTI 104.10 (+2.1%)   DXY 101.63 (-0.4%)   US10Y 4.99 (-1.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://www.financialjuice.com/News/9829278/IRGC-Navy-Two-oil-tankers-that-switched-off-navigation-systems-were-involved-in-incident-stopped-south-of-Strait-of-Hormuz-after-ignoring-radio-warnings---Iranian-Media.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3993.5,
-   "Silver": 50.66,
-   "WTI": 104.1
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "FinancialJuice: IRGC Navy: Two oil tankers that switched off navigation systems were involved in incident, stopped south of Strait of Hormuz after ignoring radio warnings - Iranian Media.",
-   "src": "",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,994 (-0.9%)   Silver 50.66 (-2.9%)   WTI 104.10 (+2.1%)   DXY 101.63 (-0.4%)   US10Y 4.99 (-1.1%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
