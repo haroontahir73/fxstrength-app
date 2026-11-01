@@ -1,5 +1,61 @@
 [
  {
+  "when": "01 Nov 00:32 UTC",
+  "iso": "2026-11-01T00:32:36.145300+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nQuad calls out export curbs, Strait of Hormuz closure | World News - Hindustan Times  (Hindustan Times)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,899 (-3.3%)   Silver 49.28 (-5.6%)   WTI 104.12 (+2.1%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxQYnd1bzBBdjhkVUc3SkR6bHphUHNQQmNPaUxMaWhkYy0ycHhMMXpHYk5qV1BVcFY5RlVxVHVvTGdRbm4xMGdMVjMtLXpPZFJZdTJFZ2JFeERrYU9TdGJQUEhPQUdXcDNIRHBWakRmcnNmaW9EaUY2WUdtX1N5QjFaeXFJcXZXUktjM0lXMXgzbm5uOEduR0NEdUU4SnNSVmNiUGdLWFZta1dzUlo2Z3JXSkpxT2lPLTQ4TEZ3TlB1YXFIYTY4MFlSQ0w4MThsX2tzVVpGTE9jQlR0V25IWWJZRlFUa2RJcUdWWUd4eExLSWNXUW5qdC1yek9MVFdQYXEyZ094QkJXd3k1bW9QeFBydNIBlgJBVV95cUxNRkZWeF9xX29wUmVVR3YtRHdQRDVIdWZDc1dYSHo0STVtc2NmZER3NngxaW9UdlZ3LW9palpxcml0RUVwQW0zR2dEMDY3Nm5YakJobTk4NFZMZkVpa1BubkkzSzJLcEF5SDdmTVZrcFlHendsTVVva2xNbUN2QmhXZVhaNkZQNnNGSzVzTHI0LVpqekRfeGp2V2IyVnR0WVU1b1pqTmxhWi1mTkE4S0FBVVhoZ0s1Zl9pZnlmQ3RHbHVQbC1ORXRpZGp5WVVkMDhqTVdKNkFZOThOaTNFelZTYl9MWmRfazY4WWJoUFgzOWpZb21WM0RYMzh1bUNVTllZNTVzQjJZS0dkUk9iWnZSQ2ZBOGFDUQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3898.9,
+   "Silver": 49.276,
+   "WTI": 104.12
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Quad calls out export curbs, Strait of Hormuz closure | World News - Hindustan Times",
+   "src": "Hindustan Times",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,899 (-3.3%)   Silver 49.28 (-5.6%)   WTI 104.12 (+2.1%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "31 Oct 22:22 UTC",
   "iso": "2026-10-31T22:22:03.415179+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,033 (-0.5%)   Silver 52.22 (-2.3%)   WTI 102.86 (+0.1%)   DXY 101.91 (-0.3%)   US10Y 4.99 (-1.1%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "29 Oct 21:17 UTC",
-  "iso": "2026-10-29T21:17:22.450269+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nNew Tanker Explosion Reported in the Strait of Hormuz - WANA News Agency  (WANA News Agency)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,033 (-0.5%)   Silver 52.22 (-2.3%)   WTI 102.86 (+0.1%)   DXY 101.91 (-0.3%)   US10Y 4.99 (-1.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5jMmk4bEJsMVFTRENzVVdpQ0lnQ3htRjJkSG5xZWplMmkycFM0R01la2JXVjdjR2doWEhabHhWZUx6R3p2dVFRdllZSVNJdWJwYTFWVGZuOWlkQUh3TnNKVjFXODBuaUFldHFZZ2pjZ0dlRGQ1bGVBaU01UXdCZw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4033.3,
-   "Silver": 52.22,
-   "WTI": 102.86
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "New Tanker Explosion Reported in the Strait of Hormuz - WANA News Agency",
-   "src": "WANA News Agency",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,033 (-0.5%)   Silver 52.22 (-2.3%)   WTI 102.86 (+0.1%)   DXY 101.91 (-0.3%)   US10Y 4.99 (-1.1%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
