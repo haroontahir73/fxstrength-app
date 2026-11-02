@@ -22999,5 +22999,27 @@
   "outcome": "loss",
   "talk": false,
   "at": "2026-11-01T20:15:12.441374+00:00"
+ },
+ {
+  "id": "2026-11-01T21:29:49.622991+00:00|GOLD",
+  "cat": "geo_escalation",
+  "instr": "GOLD",
+  "dir": "up",
+  "strength": 1,
+  "chg": 0.595,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-11-01T21:29:49.622991+00:00"
+ },
+ {
+  "id": "2026-11-01T21:29:49.622991+00:00|OIL",
+  "cat": "geo_escalation",
+  "instr": "OIL",
+  "dir": "up",
+  "strength": 3,
+  "chg": -2.372,
+  "outcome": "loss",
+  "talk": false,
+  "at": "2026-11-01T21:29:49.622991+00:00"
  }
 ]
