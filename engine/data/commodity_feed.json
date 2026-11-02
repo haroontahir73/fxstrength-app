@@ -1,5 +1,61 @@
 [
  {
+  "when": "02 Nov 10:00 UTC",
+  "iso": "2026-11-02T10:00:48.077852+00:00",
+  "cat": "oil_supply_loose",
+  "title": "TALK | OIL SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nPresident Trump's Russia Sanctions Waiver Could Boost Indian Exports To U.S., Says Report - indica News  (indica News)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193   look for shorts - extra barrels push the price down (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,907 (+0.2%)   Silver 50.38 (+2.6%)   WTI 99.54 (-4.4%)   DXY 101.58 (-0.3%)   US10Y 4.93 (-1.2%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPRWZIY3R4TURkeThVZl9PejY3TFdnSVl6N2UzVVZoOUZadEozYTJBeUZWYlkxYzktV0xaYk1pd2dFa1RoNlFuSTRpVWZsQ2RoVUNGMmtrbE5GOEM1UzBIT195dGpGNmwwcGpfbTBOWjVCSTE1cHc3LThpWGMzLWZSaWRWZ3ZpQW1UUnpYQXNCSlJLUFlBbXZfSEk5NW9Hcm8yQlBrOEQ2MjZ5bnQ1a2tJ?oc=5",
+  "talk": true,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3907.0,
+   "Silver": 50.375,
+   "WTI": 99.54
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "President Trump's Russia Sanctions Waiver Could Boost Indian Exports To U.S., Says Report - indica News",
+   "src": "indica News",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "extra barrels push the price down (talk, not action yet)",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,907 (+0.2%)   Silver 50.38 (+2.6%)   WTI 99.54 (-4.4%)   DXY 101.58 (-0.3%)   US10Y 4.93 (-1.2%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
   "when": "02 Nov 09:21 UTC",
   "iso": "2026-11-02T09:21:52.387645+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,893 (-3.4%)   Silver 49.20 (-5.7%)   WTI 104.73 (+2.7%)   DXY 101.98 (-0.1%)   US10Y 4.94 (-1.0%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "30 Oct 17:22 UTC",
-  "iso": "2026-10-30T17:22:27.178402+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nSerbia\u2019s NIS oil company gets US sanctions waiver until Dec. 11 - Local TV - Investing.com  (Investing.com)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,900 (-3.3%)   Silver 49.21 (-5.7%)   WTI 104.85 (+2.8%)   DXY 101.92 (-0.1%)   US10Y 4.94 (-1.0%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQM0U2SUd6V1Z1VnBXd1d1VG94a0N4YXBIQm9lNHVEWnM3cGpybGdGZFQ4TTM2Mzk1M1djSUl1ZkJRVlJuaHFjNGRleU11TlMtb3dMb0FwWnZvQ04xOEpOblhFOVZSM3U1ajlnRWYyOXhRNC1QLXUyNUdLeGpsM3NEQUhIZjBTZEUxU3dDa0RzNGdBNEFtM2ozOFlfb1VfMUhCMWhPQVJLSXgyUHFad3hid1NKNzNhN2Y5R3I2UmRYc2ZqaFpnTVM2SVBCWU8?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3900.3,
-   "Silver": 49.21,
-   "WTI": 104.85
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "Serbia\u2019s NIS oil company gets US sanctions waiver until Dec. 11 - Local TV - Investing.com",
-   "src": "Investing.com",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 3,900 (-3.3%)   Silver 49.21 (-5.7%)   WTI 104.85 (+2.8%)   DXY 101.92 (-0.1%)   US10Y 4.94 (-1.0%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
