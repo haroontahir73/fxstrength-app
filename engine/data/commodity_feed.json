@@ -1,5 +1,61 @@
 [
  {
+  "when": "02 Nov 20:14 UTC",
+  "iso": "2026-11-02T20:14:04.197030+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nWill Trump strike Iran again? Netanyahu presses for military action after US midterms - Ynetnews  (Ynetnews)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,960 (+1.6%)   Silver 50.78 (+3.4%)   WTI 95.87 (-7.9%)   DXY 101.70 (-0.2%)   US10Y 4.89 (-0.7%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE05NUFmSVpGQlZ6TVlkWWQtckVnVjFQbURWbEFvVl9qc205QWJvR18zNk92X2RiNXlGS3lOaExtVEduUnlVanlrRS1WcE96bkRKQzMyQ0VB?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3959.7,
+   "Silver": 50.785,
+   "WTI": 95.87
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Will Trump strike Iran again? Netanyahu presses for military action after US midterms - Ynetnews",
+   "src": "Ynetnews",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,960 (+1.6%)   Silver 50.78 (+3.4%)   WTI 95.87 (-7.9%)   DXY 101.70 (-0.2%)   US10Y 4.89 (-0.7%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "02 Nov 17:17 UTC",
   "iso": "2026-11-02T17:17:13.006582+00:00",
   "cat": "geo_deescalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,885 (-3.6%)   Silver 49.13 (-5.9%)   WTI 102.95 (+0.9%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "30 Oct 21:43 UTC",
-  "iso": "2026-10-30T21:43:42.369114+00:00",
-  "cat": "geo_deescalation",
-  "title": "OIL STRONG SHORT | GEOPOLITICS - calming down",
-  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nFinancialJuice: Morocco satisfied with non-renewal of UN peacekeeping mission in Western Sahara: attached to ceasefire\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - supply worry gone, barrels flow again\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 3,885 (-3.6%)   Silver 49.13 (-5.9%)   WTI 102.95 (+0.9%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
-  "link": "https://www.financialjuice.com/News/9830252/Morocco-satisfied-with-non-renewal-of-UN-peacekeeping-mission-in-Western-Sahara-attached-to-ceasefire.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3884.9,
-   "Silver": 49.135,
-   "WTI": 102.95
-  },
-  "parts": {
-   "emoji": "\ud83d\udd4a",
-   "label": "GEOPOLITICS \u2014 calming down",
-   "headline": "FinancialJuice: Morocco satisfied with non-renewal of UN peacekeeping mission in Western Sahara: attached to ceasefire",
-   "src": "",
-   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured both ways - fear-out vs yields-down cancel",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "same, no reliable direction",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "supply worry gone, barrels flow again",
-     "record": "some evidence - right 51% of 113 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,885 (-3.6%)   Silver 49.13 (-5.9%)   WTI 102.95 (+0.9%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)",
-   "reality": "",
-   "flip": "these deals break \u2014 one broken truce and it all goes back on"
   }
  }
 ]
