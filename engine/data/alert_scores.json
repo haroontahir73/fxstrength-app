@@ -23230,5 +23230,16 @@
   "outcome": "win",
   "talk": true,
   "at": "2026-11-02T09:21:52.387645+00:00"
+ },
+ {
+  "id": "2026-11-02T10:00:48.077852+00:00|OIL",
+  "cat": "oil_supply_loose",
+  "instr": "OIL",
+  "dir": "down",
+  "strength": 2,
+  "chg": -2.039,
+  "outcome": "win",
+  "talk": true,
+  "at": "2026-11-02T10:00:48.077852+00:00"
  }
 ]
