@@ -2,6 +2,18 @@
 #
 # Runs the FX Strength Desk pipeline on GitHub's servers and deploys the dashboard to Pages.
 # No PC involved. Commits nothing - the page is published via the Pages deployment API.
+#
+# THE CRON IS NOT THE CLOCK. On this free repo GitHub delivers the */15 schedule
+# every few hours (2 Nov 2026: 17:19 and 23:58 UTC, then 3 Nov 06:28), and every
+# run that did fire succeeded. The last step of a run on main arms
+# refresh-nudge.yml (a cancelled run does not), which waits ~20 min and
+# dispatches this workflow again. A failed deploy still arms, so a transient
+# error retries instead of waiting for the cron. news-watch.yml dispatches this
+# workflow directly if that chain has gone quiet. Both send no inputs, so
+# cot_legacy_fetch stays off — the Pi is still the only caller that sets it.
+# A second dispatch is refused while a run is queued or in progress: this
+# group keeps one pending run, and GitHub cancels that pending run when
+# another arrives.
 name: refresh dashboard
 
 on:
@@ -33,6 +45,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: write          # arm refresh-nudge.yml; the deploy token otherwise cannot
 
 concurrency:
   group: refresh-dashboard
@@ -211,3 +224,17 @@ jobs:
 
       - id: deploy
         uses: actions/deploy-pages@v4
+
+      # Chain the next rebuild. continue-on-error so a GitHub hiccup here cannot
+      # turn a deploy that already succeeded into a failed run (the Pi treats
+      # this run's conclusion as the COT trigger's result). Not cancelled(): a
+      # human cancel should stop the chain. The waiter is a different workflow,
+      # so this run still finishes in about a minute — it does not sleep, and
+      # it does not hold the concurrency group open.
+      - name: Arm the next rebuild
+        if: ${{ always() && !cancelled() && github.ref == 'refs/heads/main' }}
+        continue-on-error: true
+        working-directory: engine
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: timeout 60 python nudge_refresh.py --arm

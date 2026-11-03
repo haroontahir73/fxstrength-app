@@ -1,0 +1,45 @@
+# .github/workflows/refresh-nudge.yml
+#
+# The clock for the Pages dashboard. refresh.yml arms this at the end of every
+# deploy on main (a GITHUB_TOKEN workflow_dispatch does start a run). We sleep,
+# then dispatch refresh.yml if no refresh has finished inside the gap and none
+# is queued or running.
+#
+# Not in the refresh-dashboard concurrency group: sleeping here must not hold
+# the deploy lock or delay the Pi. cancel-in-progress on THIS group means a
+# newer deploy replaces a sleeper that is already waiting, instead of stacking
+# another 20 minutes behind it.
+#
+# No secrets, and the dispatch sends no inputs, so cot_legacy_fetch stays off.
+# The decision lives in engine/nudge_refresh.py and is covered by
+# test_nudge_refresh.py, which the refresh and news-watch gates already run.
+# This job does not build or publish, so it does not repeat that gate.
+name: refresh nudge
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: refresh-nudge
+  cancel-in-progress: true
+
+jobs:
+  nudge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Dispatch the next dashboard refresh when it is due
+        working-directory: engine
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python nudge_refresh.py --wait

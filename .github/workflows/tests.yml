@@ -151,6 +151,12 @@ jobs:
       - name: Pi checker suite (35 checks)
         run: python pi/test_pi_check.py
 
+      # Pages rebuild clock (nudge_refresh.py): when a dispatch is due, what it
+      # sends, and that a queued or running refresh is left alone. Offline.
+      - name: Refresh nudge suite (52 checks)
+        working-directory: engine
+        run: python test_nudge_refresh.py
+
       # A test that writes to engine/data corrupts live pipeline state: these files are
       # committed and restored from the Actions cache, so a polluted one outlives the run
       # and reaches the dashboard. test_commodity_decode.py really did unlink the live
@@ -205,3 +211,4 @@ jobs:
           python /tmp/no_push.py test_history_panel.py
           python /tmp/no_push.py test_options_oi.py
           python /tmp/no_push.py test_oi_public.py
+          python /tmp/no_push.py test_nudge_refresh.py
