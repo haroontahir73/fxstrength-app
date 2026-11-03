@@ -39,6 +39,7 @@ on:
 
 permissions:
   contents: write          # the loop commits the feed file when a new alert lands
+  actions: write           # workflow_dispatch refresh.yml when its chain has gone quiet
 
 concurrency:
   group: news-watch
@@ -138,11 +139,18 @@ jobs:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Same token the loop already pushes with. workflow_dispatch is the one
+          # event it is allowed to start; a push of the feed ([skip refresh], and
+          # made with this token) does not start refresh.yml.
+          GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           END=$(( $(date +%s) + 330*60 ))
           PASS=1
+          # After a dispatch, stay quiet longer than the waiter sleeps. This loop
+          # is the backstop for a dead chain, not a second clock racing it.
+          NUDGE_HOLD=0
           while :; do
             echo "::group::pass $PASS  $(date -u +%H:%M:%S)Z"
             # COMMODITY FIRST, deliberately. The two watchers claim a shared theme
@@ -178,6 +186,13 @@ jobs:
             # and retries from a fresh fetch if main moves. It exits at once, with no
             # network, on a pass where the feed did not change.
             python publish_state.py || true
+            # Exit 10 means "not due". It must not fail the watcher (Actions runs
+            # this script with set -e); a real error must not either.
+            if [ "$(date +%s)" -ge "$NUDGE_HOLD" ]; then
+              if timeout 90 python nudge_refresh.py; then
+                NUDGE_HOLD=$(( $(date +%s) + 1800 ))
+              fi
+            fi
             echo "::endgroup::"
             PASS=$(( PASS + 1 ))
             [ $(( $(date +%s) + 180 )) -lt $END ] || break

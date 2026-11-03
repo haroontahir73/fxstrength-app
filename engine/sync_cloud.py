@@ -92,16 +92,14 @@ def read_pulse_state():
 def pulse(dry):
     """Nudge the cloud into rebuilding when GitHub's scheduler has dropped the job.
 
-    refresh.yml is set to cron '*/30' but measured over three days it delivered 19
-    scheduled runs - median gap 235 minutes, worst 7.8 hours. Discrete crons are not the
-    answer either: news-watch.yml uses '7,37' and did no better (median 273 min).
-    Scheduled workflows on free/public repos are best-effort and get dropped wholesale.
+    refresh.yml's cron is best-effort on this free repo (hours between scheduled
+    runs, not 15 minutes). The rebuild clock is nudge_refresh.py: each deploy arms
+    a waiter that dispatches the next one, and the news-watch loop restarts that
+    chain if it goes quiet. This PC is no longer required for that.
 
-    But refresh.yml ALSO triggers on any push touching engine/**, and this PC has a
-    scheduled task that genuinely runs every 15 minutes. So the reliable clock is here,
-    not at GitHub: when the published page has gone stale, commit a one-line heartbeat
-    and let the push trigger the rebuild. (engine/data/** is excluded from news-watch's
-    push paths, so this never restarts the alert watcher.)
+    The pulse remains a fallback while the machine is on. A push of engine/**
+    still triggers refresh.yml. engine/data/** is excluded from news-watch's push
+    paths, so the commit never restarts the alert watcher.
 
     Deliberately self-limiting - it only commits when the scheduler has ALREADY failed,
     so a healthy week produces no heartbeat commits at all.
