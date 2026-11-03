@@ -1,5 +1,61 @@
 [
  {
+  "when": "03 Nov 06:15 UTC",
+  "iso": "2026-11-03T06:15:39.014489+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nThe governor of the Yaroslavl region confirmed damage to one of Russia\u2019s largest oil refineries following a drone attack - \u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0456 \u041d\u0430\u0446\u0456\u043e\u043d\u0430\u043b\u044c\u043d\u0456 \u041d\u043e\u0432\u0438\u043d\u0438 (\u0423\u041d\u041d)  (\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0456 \u041d\u0430\u0446\u0456\u043e\u043d\u0430\u043b\u044c\u043d\u0456 \u041d\u043e\u0432\u0438\u043d\u0438 (\u0423\u041d\u041d))\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,933 (-0.9%)   Silver 49.43 (-2.5%)   WTI 97.38 (+1.0%)   DXY 101.73 (-0.0%)   US10Y 4.89 (-0.7%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOYW5PWUpvVWNEbjA3ZEFZb3hZT2xObVdCTWZfSjlPQ2U4MjdndlNnVlYzV2NOOHVUSFhrSXhRdTJfOFhSZFJlMkg4ajlnMlQzdFY1MElwOWJMZVlNRHZWRmZzWGJfMk5sT3pCZXBqQXpIWWtJbi1yX2FKN1c4cEQzT0FBTmVac2tCbVlVeVRfbTFSby1NcF9nMFVWSC1EaTdfbkhnNFFyVTJCLXQzSWxFSWc0TjdaOXpwcXRBOFU1cno1V3UxVk1HTFJvWno1Y01QbGxkU3g1TEZRUdIB2AFBVV95cUxPeVBGOGU0VENUdkxnZDUzd3FtdnBybmwxdWExUllPMmpROFRaeVAtbFZjcHFIN2RYTk5SNzlBODlHaDBLekJzV0ZZTDZvRjlEVmJnNXV4Y2JaTWhXenA4LXJJS1A2WlRpTGUwSEctU28tVXN5LVYtQW5RMW90RHNaa2tZRkZDeS1tZUxiRjk5MGJLX3gxcmVTbGRYb0NzQ1A0bC1QeE5TaUl5UFJuRjJpRzdmSDZyNk56WUxKd1NDV2czNS1HbFF5NDB3WXNES3NrQVUxblhxdEE?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3933.0,
+   "Silver": 49.43,
+   "WTI": 97.38
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "The governor of the Yaroslavl region confirmed damage to one of Russia\u2019s largest oil refineries following a drone attack - \u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0456 \u041d\u0430\u0446\u0456\u043e\u043d\u0430\u043b\u044c\u043d\u0456 \u041d\u043e\u0432\u0438\u043d\u0438 (\u0423\u041d\u041d)",
+   "src": "\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0456 \u041d\u0430\u0446\u0456\u043e\u043d\u0430\u043b\u044c\u043d\u0456 \u041d\u043e\u0432\u0438\u043d\u0438 (\u0423\u041d\u041d)",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,933 (-0.9%)   Silver 49.43 (-2.5%)   WTI 97.38 (+1.0%)   DXY 101.73 (-0.0%)   US10Y 4.89 (-0.7%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "03 Nov 04:38 UTC",
   "iso": "2026-11-03T04:38:37.178400+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,899 (-3.3%)   Silver 49.28 (-5.6%)   WTI 104.12 (+2.1%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "31 Oct 10:53 UTC",
-  "iso": "2026-10-31T10:53:52.169842+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nFinancialJuice: Iran\u2019s supreme leader directs armed forces to boost production of ammunition and weapons for reconnaissance, support and combat operations\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,899 (-3.3%)   Silver 49.28 (-5.6%)   WTI 104.12 (+2.1%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://www.financialjuice.com/News/9830744/Irans-supreme-leader-directs-armed-forces-to-boost-production-of-ammunition-and-weapons-for-reconnaissance-support-and-combat-operations.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3898.9,
-   "Silver": 49.276,
-   "WTI": 104.12
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "FinancialJuice: Iran\u2019s supreme leader directs armed forces to boost production of ammunition and weapons for reconnaissance, support and combat operations",
-   "src": "",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 3,899 (-3.3%)   Silver 49.28 (-5.6%)   WTI 104.12 (+2.1%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
