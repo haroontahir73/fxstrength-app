@@ -46,8 +46,11 @@ SAFEGUARDS (all in myfxbook_state.json, carried in the cache):
     one; unarchived day files stay in the cache and are never pruned until archived.
   * HIDE_AFTER_H - a snapshot older than 24 h is not shown: the tab and the cards say
     "Myfxbook retail sentiment unavailable - last successful update <time>" (attribution
-    stays). A small script applies the same cut-off in the browser if the page itself is
-    not rebuilt for a day.
+    stays). That time, and the Age line beside a still-shown reading, are both
+    status.last_ok_at (the last outlook read that succeeded). fetched_at is only a
+    fallback, so a rewrite that did not succeed cannot make Age say "12 minutes" while
+    the note says there has been no successful update for more than 24 hours. A small
+    script applies the same cut-off in the browser if the page itself is not rebuilt.
 
 FAILURE NEVER BLANKS THE DATA. The last valid snapshot is kept and shown, marked "Last known
 Myfxbook data - stale" with the reason; values are never replaced by zeros.
@@ -774,6 +777,12 @@ def build(now=None, data=None, env=None, opener=None, force=False):
     st["last_error"] = status.get("last_error")
     snap["status"] = status
     snap["source"] = {"name": SOURCE_NAME, "url": SOURCE_URL}
+    # One clock on disk too. A rewrite that is not a successful outlook read must not
+    # leave fetched_at newer than the recorded success, or the next render ages the
+    # page off the rewrite and the 24 h note off the real fetch.
+    ok_at = status.get("last_ok_at")
+    if _parse_ts(ok_at) is not None:
+        snap["fetched_at"] = ok_at
     _write(out_p, snap)
     _write(st_p, st)
     return snap
@@ -797,8 +806,44 @@ def _fmt_ts(ts):
     return t.strftime("%d %b %Y %H:%M UTC")
 
 
+def _parse_ts(ts):
+    """A timezone-aware UTC datetime, or None when `ts` is not an ISO stamp."""
+    if not isinstance(ts, str) or not ts:
+        return None
+    try:
+        t = dt.datetime.fromisoformat(ts.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if t.tzinfo is None:
+        t = t.replace(tzinfo=dt.timezone.utc)
+    return t
+
+
+def success_ts(snap):
+    """The last successful Myfxbook fetch, the one clock both staleness messages use.
+
+    `status.last_ok_at` is written only when an outlook read succeeds. `fetched_at` is
+    meant to be that same stamp, but the snapshot file is rewritten on attempts that
+    did not succeed (status, source) and a newer `fetched_at` can ride along. Ageing
+    the page off `fetched_at` then says "Age: 12 minutes" while the hide note, which
+    is about the last success, says there has been none for more than 24 hours.
+    `last_ok_at` wins when it parses; `fetched_at` remains the fallback for snapshots
+    stored before `last_ok_at` existed (and for a malformed success stamp).
+    """
+    if not isinstance(snap, dict):
+        return None
+    st = snap.get("status")
+    if isinstance(st, dict):
+        ok = st.get("last_ok_at")
+        if _parse_ts(ok) is not None:
+            return ok
+    return snap.get("fetched_at")
+
+
 def _age_min(ts, now):
-    t = dt.datetime.fromisoformat(ts.replace("Z", "+00:00"))
+    t = _parse_ts(ts)
+    if t is None:
+        raise ValueError(f"bad timestamp: {ts!r}")
     return max(0, int((now - t).total_seconds() // 60))
 
 
@@ -835,7 +880,7 @@ def _bar(lp, sp):
 
 
 def _freshness_line(snap, now, compact=False):
-    ts = snap.get("fetched_at")
+    ts = success_ts(snap)
     st = snap.get("status") or {}
     if not ts:
         return ""
@@ -868,9 +913,9 @@ HIDE_MIN = HIDE_AFTER_H * 60
 
 
 def expired(snap, now):
-    """True once the stored snapshot is more than HIDE_AFTER_H old: nothing is shown from it."""
-    ts = snap.get("fetched_at")
-    return bool(ts) and _age_min(ts, now) > HIDE_MIN
+    """True once the last successful fetch is more than HIDE_AFTER_H old: nothing is shown."""
+    ts = success_ts(snap)
+    return bool(ts) and _parse_ts(ts) is not None and _age_min(ts, now) > HIDE_MIN
 
 
 def _exp_text(ts, card=False):
@@ -936,13 +981,13 @@ def retail_panel(now=None, data=None, env=None):
             'Long is not &ldquo;bullish&rdquo; and short is not &ldquo;bearish&rdquo;: these are raw '
             'positioning figures, not trade signals. Tap a market for its 50-week COT report, where the '
             'same figures sit beside the institutional data.</p>')
-    if not snap.get("fetched_at"):
+    ts = success_ts(snap)
+    if not ts:
         msg = ("Myfxbook credentials are not configured yet, so no data has been fetched."
                if not st.get("configured") else
                "No Myfxbook data yet" + (f" &mdash; last attempt failed: {_esc(st.get('last_error_msg') or '')}"
                                           if st.get("last_error") else " &mdash; fetched on the next refresh."))
         return head + f'<p class="mfxempty">{msg}</p>' + ATTRIB + "</section>"
-    ts = snap["fetched_at"]
     if expired(snap, now):
         # older than HIDE_AFTER_H: no reading reaches the page at all
         return head + f'<p class="mfxempty mfxexpired">{_exp_text(ts)}</p>' + ATTRIB + "</section>"
@@ -976,9 +1021,9 @@ def report_card(key, now=None, data=None, env=None):
     now = now or dt.datetime.now(dt.timezone.utc)
     snap = _load(data)
     head = '<div class="mfxcard"><div class="mfxct">Myfxbook retail'
-    if not snap.get("fetched_at"):
+    ts = success_ts(snap)
+    if not ts:
         return head + f'</div><p class="mfxna">No Myfxbook data yet.</p>{CARD_CREDIT}</div>'
-    ts = snap["fetched_at"]
     if expired(snap, now):
         return head + f'</div><p class="mfxna mfxexpired">{_exp_text(ts, card=True)}</p>{CARD_CREDIT}</div>'
     m = (snap.get("markets") or {}).get(key)

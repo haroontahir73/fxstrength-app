@@ -876,6 +876,77 @@ def _ledger(gh):
     return json.loads(base64.b64decode(c))
 
 
+def t_one_success_clock():
+    """Age and the '>24 h' note share status.last_ok_at. A newer fetched_at, left by a
+    rewrite that did not succeed, must not make them disagree."""
+    g = "one-clock"
+    data = _tmp()
+    run_build(data, T0, FakeMyfxbook())
+    now = T0 + dt.timedelta(hours=30)
+    recent = mf._iso(now - dt.timedelta(minutes=12))
+    old = mf._iso(T0)
+    recent_txt, old_txt = "15 Oct 2026 14:48 UTC", "14 Oct 2026 09:00 UTC"
+
+    def load():
+        return json.loads((data / mf.OUT_NAME).read_text())
+
+    def save(snap):
+        (data / mf.OUT_NAME).write_text(json.dumps(snap))
+
+    snap = load()
+    snap["fetched_at"] = recent
+    snap["status"]["last_ok_at"] = old
+    snap["status"]["last_attempt_at"] = recent
+    save(snap)
+    html = mf.retail_panel(now=now, data=data)
+    card = mf.report_card("XAU", now=now, data=data)
+    check(g, "fetched_at 12 min ago but last success 30 h ago: tab shows the >24h note, not Age",
+          "no successful update for more than 24 hours" in html
+          and f"Last successful update: {old_txt}." in html
+          and "12 minutes" not in html and "mfxage" not in html and recent_txt not in html
+          and "LONG 61%" not in html, html[:500])
+    check(g, "the report card cites the same last success and has no Age line",
+          "no successful update for more than 24 hours" in card
+          and f"Last successful update: {old_txt}." in card
+          and "12 minutes" not in card and "mfxage" not in card and "LONG 61%" not in card)
+
+    snap = load()
+    snap["fetched_at"] = old
+    snap["status"]["last_ok_at"] = recent
+    save(snap)
+    html = mf.retail_panel(now=now, data=data)
+    card = mf.report_card("XAU", now=now, data=data)
+    check(g, "last success 12 min ago: Age, the live stamp and the note all use it",
+          'Age: <span class="mfxage">12 minutes</span>' in html
+          and f'data-mfx-ts="{recent}"' in html and f'data-mfx-exp="{recent}"' in html
+          and f"Updated: {recent_txt}" in html and f"Last successful update: {recent_txt}." in html
+          and old not in html and old_txt not in html and "LONG 61%" in html, html[html.find("mfxfresh"):html.find("mfxfresh") + 240])
+    check(g, "the report card uses that same 12-minute success time",
+          'Age: <span class="mfxage">12 minutes</span>' in card
+          and f'data-mfx-ts="{recent}"' in card and f'data-mfx-exp="{recent}"' in card
+          and f"Last successful update: {recent_txt}." in card
+          and old_txt not in card and "LONG 61%" in card)
+
+    snap = load()
+    snap["status"].pop("last_ok_at", None)
+    snap["fetched_at"] = recent
+    save(snap)
+    html = mf.retail_panel(now=now, data=data)
+    check(g, "no last_ok_at yet: Age still follows fetched_at",
+          'Age: <span class="mfxage">12 minutes</span>' in html and f'data-mfx-ts="{recent}"' in html)
+
+    data2 = _tmp()
+    run_build(data2, T0, FakeMyfxbook())
+    drifted = json.loads((data2 / mf.OUT_NAME).read_text())
+    drifted["fetched_at"] = mf._iso(T0 + dt.timedelta(minutes=12))
+    (data2 / mf.OUT_NAME).write_text(json.dumps(drifted))
+    fake = FakeMyfxbook()
+    healed, out = run_build(data2, T0 + dt.timedelta(minutes=20), fake)
+    check(g, "a rewrite that does not fetch pins fetched_at back to last_ok_at",
+          fake.calls == [] and healed.get("fetched_at") == old and healed["status"].get("last_ok_at") == old,
+          (healed.get("fetched_at"), healed.get("status"), out))
+
+
 def t_request_budget():
     """One budget for every real Community Outlook request (production + manual), kept under
     the documented 100/24 h; manual real checks reserve first and fail closed."""
@@ -987,7 +1058,8 @@ def t_ci_fixture():
 if __name__ == "__main__":
     for fn in (t_parse, t_match, t_labels, t_fetch, t_build_and_budget, t_failures_keep_snapshot,
                t_render, t_secrets, t_archive, t_probe, t_switch, t_select, t_threshold, t_history_upgrade, t_attribution,
-               t_fail_backoff, t_login_lock, t_archive_spacing, t_hide_24h, t_request_budget, t_ci_fixture):
+               t_fail_backoff, t_login_lock, t_archive_spacing, t_hide_24h, t_one_success_clock,
+               t_request_budget, t_ci_fixture):
         try:
             fn()
         except Exception as e:                                 # noqa: BLE001
