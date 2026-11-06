@@ -212,22 +212,49 @@ def should_try(state, tkey, now=None):
     return True, "due"
 
 
+def _final_option_locked(cur, key):
+    """A bulletin import marks oi_opt_status FINAL. Later workbook or CME sync must not
+    replace those option fields, including when freeze is off."""
+    if not isinstance(cur, dict) or cur.get("oi_opt_status") != "FINAL":
+        return False
+    return key in ("oi_opt", "chg_opt", "volume_opt") or str(key).startswith("oi_opt")
+
+
 def merge_days(hist, day_map, freeze=FREEZE_STORED_DAYS):
     """Write {day: {inst: {field: val}}} into hist, FIELD BY FIELD. With `freeze`, a field
     already stored is left exactly as it was - preliminary stays preliminary, finals never
     overwrite - but a NEW field (e.g. options OI backfilled after futures) can still be added
-    to a day whose futures fields are already frozen."""
+    to a day whose futures fields are already frozen. Final bulletin options stay either way."""
     written = skipped = 0
     for day, vals in day_map.items():
         for inst, rec in vals.items():
+            if not isinstance(rec, dict):
+                continue
             cur = hist.setdefault(day, {}).setdefault(inst, {})
             for k, v in rec.items():
+                if v is None or _final_option_locked(cur, k):
+                    skipped += 1
+                    continue
                 if freeze and cur.get(k) is not None:
                     skipped += 1
                     continue
                 cur[k] = v
                 written += 1
     return written, skipped
+
+
+def overlay_futures(hist, incoming):
+    """Workbook rows update futures oi/chg/volume only. They do not delete options."""
+    for day, vals in incoming.items():
+        bucket = hist.setdefault(day, {})
+        for inst, rec in (vals or {}).items():
+            if not isinstance(rec, dict):
+                continue
+            cur = bucket.setdefault(inst, {})
+            for k in ("oi", "chg", "volume"):
+                if rec.get(k) is not None:
+                    cur[k] = rec[k]
+    return hist
 
 
 # ---------------------------------------------------------------- source 1: CME
@@ -714,6 +741,7 @@ def _daylabel(iso):
 def history_tables(hist, prices):
     """Combined daily rows per instrument — futures and options OI side by side."""
     blocks = []
+    any_opt = False
     for inst in ORDER:
         rows = day_rows(hist, prices, inst)
         if not rows:
@@ -721,6 +749,7 @@ def history_tables(hist, prices):
         net = sum(r["chg"] for r in rows)
         up = sum(1 for r in rows if r["chg"] > 0)
         has_opt = any(hist.get(r["date"], {}).get(inst, {}).get("oi_opt") is not None for r in rows)
+        any_opt = any_opt or has_opt
         body = []
         for r in rows:
             d = hist.get(r["date"], {}).get(inst, {})
@@ -756,11 +785,19 @@ def history_tables(hist, prices):
             f"<tbody>{''.join(body)}</tbody></table>")
     if not blocks:
         return ""
+    opt_note = ""
+    if any_opt:
+        opt_note = ('<p class="oi-sub"><b>Options OI</b> is outstanding option contracts, calls plus '
+                    'puts, on the standard full-size future (its monthly series and its weekly series). '
+                    'Micros, minis and average-price options are not in that count. It is not a '
+                    'futures-equivalent or delta-adjusted figure. A blank options change means there is '
+                    'no earlier options observation on the same basis. Futures OI in the same row stays '
+                    'the stored preliminary figure when the final bulletin later revises it.</p>')
     return ('<div class="oi-hist"><h2>Daily open interest &mdash; last 7 days, day by day</h2>'
             '<p class="oi-sub">Rule&nbsp;#1 is about the <b>run</b>, not one print. Days that '
             'keep closing up with open interest rising are the ones to hold and add into. '
             'A shrinking OI increase after a long run is profit-taking starting. OI falling '
-            'on a spike day is the exit.</p>' + "".join(blocks) + '</div>')
+            'on a spike day is the exit.</p>' + "".join(blocks) + opt_note + '</div>')
 
 
 def options_tables(hist, n=TABLE_DAYS):
@@ -986,8 +1023,7 @@ def main():
     elif "--seed" in args:
         wb = args[args.index("--seed") + 1]
         hist = _load(HIST_FILE, {})
-        for day, vals in read_workbook(wb).items():
-            hist.setdefault(day, {}).update(vals)
+        overlay_futures(hist, read_workbook(wb))
         _save(HIST_FILE, hist)
         print(f"  seeded {len(hist)} days from {Path(wb).name}")
         state = _load(STATE_FILE, {})

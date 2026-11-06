@@ -143,6 +143,11 @@ jobs:
         working-directory: engine
         run: python test_check_build_oi.py
 
+      # Local CME daily-bulletin options import. No network. Options are raw contract counts.
+      - name: Bulletin options import suite
+        working-directory: engine
+        run: python test_bulletin_oi.py
+
       - name: Economic calendar suite (PR #14)
         working-directory: engine
         run: python test_econ_cal.py
@@ -219,4 +224,5 @@ jobs:
           python /tmp/no_push.py test_options_oi.py
           python /tmp/no_push.py test_oi_public.py
           python /tmp/no_push.py test_check_build_oi.py
+          python /tmp/no_push.py test_bulletin_oi.py
           python /tmp/no_push.py test_nudge_refresh.py

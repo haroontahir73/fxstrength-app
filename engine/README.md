@@ -520,15 +520,26 @@ rate change* indicators as `3 + 2 × (P(hike) − P(cut))`.
 ## Open interest: daily CME OI (oi.py)
 
 The **Open interest** tab and the standalone `open-interest.html` page show daily CME
-futures + options open interest, rendered by `oi.py` from `data/oi_history.json` (Pi-synced).
-Data is collected on the Pi (CME blocks GitHub runners) and committed via `sync_cloud`;
-the runner uses `--render-only` to rebuild the page from stored history.
+futures + options open interest, rendered by `oi.py` from `data/oi_history.json`.
+Futures still arrive from the PC workbook or a Pi sync. Those cells stay preliminary:
+a later final bulletin does not overwrite them.
+
+Options are raw outstanding contracts (calls plus puts on the standard full-size future,
+monthly and weekly), not a futures-equivalent figure. They are read from daily-bulletin
+files the user already downloaded. Nothing here fetches CME.
+
+```
+pdftotext -layout section.pdf section.layout.txt   # poppler; or pass the PDF if pdftotext is on PATH
+python bulletin_oi.py report section.layout.txt
+python bulletin_oi.py apply --data data section.layout.txt
+```
+
+`report` prints the coverage and the futures revision and writes nothing. `apply` fills
+`oi_opt` on that trade date only. The first options day has no change. A workbook seed
+updates futures and leaves a final options reading in place.
 
 `fetch_oi.py` (the commodity-score OI leg, `SOURCE="cot_weekly"`, CFTC-based) is a separate
 concern and is unchanged.
-
-Tests: `test_oi_public.py`; `check_build.check_oi` locks the CFTC breakdown and that no CME
-value or wording remains on the public tab.
 
 ## Options Futures-Equivalent OI (options_oi.py, PR #12 — data only)
 
