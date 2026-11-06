@@ -153,7 +153,7 @@ jobs:
 
       # Pages rebuild clock (nudge_refresh.py): when a dispatch is due, what it
       # sends, and that a queued or running refresh is left alone. Offline.
-      - name: Refresh nudge suite (52 checks)
+      - name: Refresh nudge suite (53 checks)
         working-directory: engine
         run: python test_nudge_refresh.py
 
