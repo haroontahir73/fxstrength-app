@@ -19,7 +19,11 @@ Checks, for the COT report tables and all 16 50-week reports:
     independent point-in-time percentile over 156 reports (52 minimum, mid-rank), and its
     hover/tap text carries the unfaded percentile;
   * history: with --require-history N, every market must have at least N weekly reports
-    stored (proves the one-time backfill ran).
+    stored (proves the one-time backfill ran);
+  * open interest: the tab is the daily CME section (oi.py), not the weekly CFTC
+    futures-equivalent breakdown. Futures columns and each market's futures OI come
+    from oi_history.json. Options columns are checked only when that file has oi_opt;
+    an omitted options table or a "no data yet" state passes until options data arrives.
 Exit status 1 on any failure; prints a summary either way.
 """
 import argparse, os, html, json, math, re, sys
@@ -480,39 +484,209 @@ def check_history(page, data_dir):
        "History: the section shows retail bands, never an exact long / short %")
 
 
+# Daily CME column headers, as oi.history_tables writes them (span.f is the desktop label).
+_OI_FUT_HEADERS = ("Date", "Price", "Fut \u0394OI", "Futures OI", "Read")
+_OI_OPT_HEADERS = ("Opt \u0394OI", "Options OI")
+# A shown options cell may be blank until that day has oi_opt. These are empty, not values.
+_OI_OPT_EMPTY = {
+    "", "\u2014", "\u2013", "-", "n/a",
+    "no data yet", "not available yet", "no open-interest data yet",
+}
+_OI_SECTION = "OI: daily CME section present in the OI tab"
+_OI_LABEL = "OI: tab labelled daily CME open interest"
+_OI_COLUMNS = ("OI: futures columns are shown; options columns match stored oi_opt "
+               "(empty or no-data passes)")
+_OI_METHOD = "OI: the methodology states CME preliminary open interest for that trade date"
+_OI_VALUES = ("OI: each market's futures OI (and options OI when stored) is rendered "
+              "from the daily CME archive")
+
+
+def _load_oi_history(data_dir):
+    """(date map, error). error is None when the file is missing or a usable dict.
+
+    Missing is not an error: the tab then has to say daily OI is not available yet.
+    A corrupt file is an error, so a broken archive cannot pass on the empty-state wording.
+    """
+    path = Path(data_dir) / "oi_history.json"
+    if not path.exists():
+        return None, None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as e:
+        return None, f"unreadable ({e})"
+    if not isinstance(data, dict):
+        return None, f"not a date map ({type(data).__name__})"
+    return data, None
+
+
+def _shown_oi_rows(hist, inst, n):
+    """The same days oi.day_rows keeps: newest first, skip a day with no futures change."""
+    rows = []
+    for day in sorted(hist, reverse=True):
+        rec = hist.get(day)
+        if not isinstance(rec, dict):
+            continue
+        d = rec.get(inst)
+        if not isinstance(d, dict) or d.get("chg") is None:
+            continue
+        rows.append((day, d))
+        if len(rows) >= n:
+            break
+    return rows
+
+
+def _oi_market_blocks(tab):
+    """{instrument: html from its h3 through its daily table}."""
+    return {m.group(1): m.group(0)
+            for m in re.finditer(r"<h3>([A-Za-z0-9]+)<small>(.*?)</table>", tab, re.S)}
+
+
+def _oi_cell_text(inner):
+    """Desktop label (span.f) when the cell has one, otherwise the cell's own text."""
+    full = re.search(r"<span class=['\"]f['\"]>(.*?)</span>", inner, re.S)
+    raw = full.group(1) if full else inner
+    text = html.unescape(re.sub(r"<[^>]+>", "", raw)).replace("\xa0", " ").strip()
+    return re.sub(r"\s+", " ", text)
+
+
+def _oi_row_cells(row_html, tag):
+    return [_oi_cell_text(inner)
+            for inner in re.findall(rf"<{tag}\b[^>]*>(.*?)</{tag}>", row_html, re.S)]
+
+
+def _oi_table(block):
+    """(header cells, body rows) of the daily oi-tw table, or ([], []) when it is absent."""
+    m = re.search(r"<table class=['\"]oi-tw['\"]>(.*?)</table>", block, re.S)
+    if not m:
+        return [], []
+    table = m.group(1)
+    header = []
+    head = re.search(r"<thead>(.*?)</thead>", table, re.S)
+    if head:
+        row = re.search(r"<tr[^>]*>(.*?)</tr>", head.group(1), re.S)
+        if row:
+            header = _oi_row_cells(row.group(1), "th")
+    body = []
+    foot = re.search(r"<tbody>(.*?)</tbody>", table, re.S)
+    if foot:
+        body = [_oi_row_cells(row.group(1), "td")
+                for row in re.finditer(r"<tr[^>]*>(.*?)</tr>", foot.group(1), re.S)]
+    return header, body
+
+
+def _fmt_oi(n):
+    """The comma form oi.history_tables writes for an int level (420408 -> '420,408')."""
+    if isinstance(n, bool) or not isinstance(n, int):
+        return None
+    return f"{n:,}"
+
+
+def _opt_cell_empty(text):
+    return text.casefold() in _OI_OPT_EMPTY
+
+
+def _oi_unavailable(tab):
+    return ("Daily OI data not available yet" in tab
+            or "No open-interest data yet" in tab)
+
+
 def check_oi(page, data_dir):
-    """The Open interest tab is CFTC-sourced (PR #13), not CME: the futures-only / options-FE /
-    combined / share breakdown is present, no CME-derived value or wording remains, and when the
-    archive exists every market's three numbers come straight from it."""
-    import re as _re
-    m = _re.search(r'<div class="panel" id="p-oi">(.*?)(<div class="panel" id="p-|\Z)', page, _re.S)
+    """The Open interest tab is daily CME OI (futures, plus options when the Pi has pushed them).
+
+    PR #29 replaced the weekly CFTC futures-equivalent section. These checks follow
+    oi.render / history_tables: the daily heading and CME preliminary methodology, the
+    futures columns, and each market's futures OI taken from oi_history.json. Options
+    columns are validated only for markets whose shown days have oi_opt. Until that
+    field exists, omitted options columns — or a column that only says 'no data yet' —
+    pass.
+    """
+    m = re.search(r'<div class="panel" id="p-oi">(.*?)(<div class="panel" id="p-|\Z)', page, re.S)
     ok(m is not None, "OI: Open interest tab present (id=p-oi)")
     if not m:
         return
     tab = m.group(1)
-    ok("CFTC weekly" in tab, "OI: CFTC weekly section present in the OI tab")
-    p = data_dir / "options_fe_oi.json"
-    view = json.loads(p.read_text()) if p.exists() else None
-    if not view or not view.get("markets"):
-        ok("No CFTC open-interest data" in tab, "OI: no archive -> tab says unavailable")
+    hist, err = _load_oi_history(data_dir)
+    if err:
+        ok(False, "OI: daily CME archive oi_history.json is readable", err)
         return
-    ok("CFTC weekly" in tab, "OI: tab labelled CFTC weekly")
-    ok(all(h in tab for h in ("Futures OI", "Options FE OI", "Combined OI", "Options share")),
-       "OI: the futures / options-FE / combined / share breakdown is shown")
-    ok("not the number of outstanding option contracts" in tab,
-       "OI: the methodology distinguishes FE OI from actual option contracts")
-    # every available market's latest futures-only OI and combined OI appear verbatim from the archive
-    import options_oi as _oo
-    miss = []
-    for key, mk in view["markets"].items():
-        obs = mk.get("observations") or []
-        if not obs:
+    if not hist:
+        ok(_oi_unavailable(tab), "OI: no daily CME history -> tab says unavailable")
+        return
+
+    import oi as _oi
+    shown = {}
+    for inst in _oi.ORDER:
+        rows = _shown_oi_rows(hist, inst, _oi.TABLE_DAYS)
+        if rows:
+            shown[inst] = rows
+    if not shown:
+        ok(False, "OI: oi_history.json has no daily futures rows to render")
+        return
+
+    blocks = _oi_market_blocks(tab)
+    tables = {inst: _oi_table(blocks[inst]) if inst in blocks else ([], [])
+              for inst in shown}
+
+    ok("Daily open interest" in tab and "last 7 days, day by day" in tab and "oi-tw" in tab,
+       _OI_SECTION)
+    ok("the daily bias layer" in tab and "CFTC weekly" not in tab and "Options FE OI" not in tab,
+       _OI_LABEL)
+
+    bad_cols = []
+    for inst, rows in shown.items():
+        header, body = tables[inst]
+        if any(h not in header for h in _OI_FUT_HEADERS):
+            bad_cols.append(inst)
             continue
-        last = obs[-1]
-        if f'{last["futures_only_oi"]:,}' not in tab or f'{last["combined_oi"]:,}' not in tab:
-            miss.append(key)
-    ok(not miss, "OI: each market's futures-only and combined OI are rendered from the CFTC archive", miss[:4])
-    ok(_oo is not None, "OI: the tab reads the PR #12 CFTC archive (no CME fetch)")
+        has_opt = any(d.get("oi_opt") is not None for _, d in rows)
+        opt_i = header.index("Options OI") if "Options OI" in header else None
+        if not has_opt:
+            if opt_i is None and "Opt \u0394OI" not in header:
+                continue
+            if (opt_i is not None and "Opt \u0394OI" in header and body
+                    and all(opt_i < len(cells) and _opt_cell_empty(cells[opt_i]) for cells in body)):
+                continue
+            bad_cols.append(inst)
+            continue
+        if any(h not in header for h in _OI_OPT_HEADERS):
+            bad_cols.append(inst)
+    ok(not bad_cols, _OI_COLUMNS, bad_cols[:4])
+
+    ok("how many futures contracts are still open" in tab
+       and "CME preliminary open interest" in tab
+       and "for that trade date" in tab,
+       _OI_METHOD)
+
+    miss = []
+    for inst, rows in shown.items():
+        header, body = tables[inst]
+        fut_i = header.index("Futures OI") if "Futures OI" in header else None
+        opt_i = header.index("Options OI") if "Options OI" in header else None
+        has_opt = any(d.get("oi_opt") is not None for _, d in rows)
+        if fut_i is None or len(body) != len(rows):
+            miss.append(inst)
+            continue
+        bad = False
+        for (_, d), cells in zip(rows, body):
+            want = _fmt_oi(d.get("oi"))
+            if want is None or fut_i >= len(cells) or cells[fut_i] != want:
+                bad = True
+                break
+            if not has_opt:
+                continue
+            stored = d.get("oi_opt")
+            got = cells[opt_i] if opt_i is not None and opt_i < len(cells) else None
+            if stored is None:
+                if got is None or not _opt_cell_empty(got):
+                    bad = True
+                    break
+                continue
+            if _fmt_oi(stored) is None or got != _fmt_oi(stored):
+                bad = True
+                break
+        if bad or (has_opt and opt_i is None):
+            miss.append(inst)
+    ok(not miss, _OI_VALUES, miss[:4])
 
 
 def finish():
