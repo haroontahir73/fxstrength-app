@@ -88,8 +88,9 @@ jobs:
       # malformed / refused / unavailable responses, the request budget, last-good snapshot
       # (never zeros), labels, history + the private-repo archive (merge, never shrinks,
       # refuses a public repo), the safeguards (failure back-off, login lock + reset, archive
-      # retry spacing, 24 h hide), and no credential, session or token in any file/page/log.
-      - name: Myfxbook suite (335 checks)
+      # retry spacing, 24 h hide), one clock for the Age line and the 24 h note, and no
+      # credential, session or token in any file/page/log.
+      - name: Myfxbook suite (341 checks)
         working-directory: engine
         run: python test_myfxbook.py
 

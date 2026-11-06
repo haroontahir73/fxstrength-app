@@ -128,7 +128,7 @@ def retail_side(key, snap, now, on):
         return {"error": "Myfxbook retail data is switched off"}
     if not o["retail_symbols"]:
         return {"error": "Myfxbook has no data for this market"}
-    ts = (snap or {}).get("fetched_at")
+    ts = mf.success_ts(snap)
     if not ts:
         return {"error": "Myfxbook retail data unavailable - nothing fetched yet"}
     m = (snap.get("markets") or {}).get(key)
