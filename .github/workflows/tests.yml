@@ -136,6 +136,12 @@ jobs:
         working-directory: engine
         run: python test_oi_daily.py
 
+      # check_build.check_oi: the Open interest tab is daily CME (PR #29), not weekly
+      # CFTC futures-equivalent. Options columns pass while oi_opt is empty. Offline.
+      - name: Build-check OI assertions (daily CME)
+        working-directory: engine
+        run: python test_check_build_oi.py
+
       - name: Economic calendar suite (PR #14)
         working-directory: engine
         run: python test_econ_cal.py
@@ -211,4 +217,5 @@ jobs:
           python /tmp/no_push.py test_history_panel.py
           python /tmp/no_push.py test_options_oi.py
           python /tmp/no_push.py test_oi_public.py
+          python /tmp/no_push.py test_check_build_oi.py
           python /tmp/no_push.py test_nudge_refresh.py
