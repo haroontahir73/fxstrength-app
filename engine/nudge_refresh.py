@@ -214,7 +214,9 @@ def github_http(method, url, token, body):
         return e.code, raw.decode("utf-8", "replace")
 
 
-def main(argv=None):
+def main(argv=None, *, now=None):
+    """now is the freshness clock. Production reads UTC; tests pass a fixed instant
+    so a run stamped a minute before that instant stays inside the gap on any date."""
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--arm", action="store_true",
                     help="dispatch the waiter workflow instead of refresh.yml")
@@ -233,7 +235,8 @@ def main(argv=None):
     if args.arm:
         kind, msg = arm(github_http, repo, token)
     else:
-        kind, msg = execute(github_http, repo, token, dt.datetime.now(dt.timezone.utc))
+        clock = dt.datetime.now(dt.timezone.utc) if now is None else now
+        kind, msg = execute(github_http, repo, token, clock)
     line = f"nudge: {msg}"
     print(f"::warning::{line}" if kind == "error" else line, flush=True)
     if kind == "error":

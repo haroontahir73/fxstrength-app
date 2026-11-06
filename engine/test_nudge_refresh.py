@@ -227,12 +227,15 @@ def test_cli():
         slept = []
         nr.time.sleep = slept.append
 
-        def _quiet(argv):
+        def _quiet(argv, now=NOW):
+            # Fixtures are stamped relative to NOW. main() must use that same
+            # instant: the wall clock would make a "one minute ago" run look
+            # days old once the calendar moves past 2026-11-03.
             buf = io.StringIO()
             old = sys.stdout
             sys.stdout = buf
             try:
-                return nr.main(argv), buf.getvalue()
+                return nr.main(argv, now=now), buf.getvalue()
             finally:
                 sys.stdout = old
 
@@ -258,6 +261,15 @@ def test_cli():
               code == nr.EXIT_SKIP and not any(c[0] == "POST" for c in http.calls),
               f"code={code}")
         check(g, "the skip reason is printed", "nudge:" in out)
+
+        http = _Http(gets=[{"workflow_runs": [run(2, minutes_ago=40)]}])
+        nr.github_http = http
+        code, _ = _quiet([])
+        check(g, "a stale run exits 0 and POSTs refresh.yml",
+              code == nr.EXIT_OK
+              and any(c[0] == "POST" and c[1].endswith("/refresh.yml/dispatches")
+                      for c in http.calls),
+              f"code={code} calls={[c[0] for c in http.calls]}")
 
         os.environ.pop("GH_TOKEN", None)
         os.environ.pop("GITHUB_TOKEN", None)
