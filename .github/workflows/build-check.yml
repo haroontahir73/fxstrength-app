@@ -47,7 +47,12 @@ concurrency:
 jobs:
   build:
     name: full build (real data, no deploy)
-    runs-on: ubuntu-latest
+    # ubuntu-latest is Ubuntu 26.04 during the hosted-image migration.
+    # Playwright 1.56 has no Chromium build for ubuntu26.04-x64, so
+    # `playwright install --with-deps chromium` exits before check_layout.py
+    # and measure_phone.py. ubuntu-24.04 is the image that package supports.
+    # The desktop and phone layout checks stay on; they are not skipped.
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     env:
       NTFY_TOPIC: ''
