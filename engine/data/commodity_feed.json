@@ -1,5 +1,61 @@
 [
  {
+  "when": "08 Nov 23:41 UTC",
+  "iso": "2026-11-08T23:41:03.282031+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nBrent and WTI Crude Oil Prices Fall as Trump Signals Iran Deal Is More Likely Than Renewed Military Action - FXLeaders  (FXLeaders)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,077 (+0.1%)   Silver 51.86 (+0.1%)   WTI 90.30 (-0.6%)   DXY 102.26 (-0.0%)   US10Y 4.86 (+0.5%)\n\nREALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOc2R3c000OEc4TUtTNWN0UTRtUVgzU2c5RV93UW1UVXF4TFFkRDZuMEpqTDZQdmdpZW5nYWZkXzlZRnZtSGk5NGQwTE41SWVTcUNyU2pKQ2VIX29wa3FVajNjUTVUOFpqMG1JZGptNlBheERhWEkxQjRWZmtzM3FnR1Nfck9EZnlXNXdQbl83bk9uay0yRGo3eHpVVW9IQmJxUkFLWEtYVDJmT3Bta1Q4ZHpuSmE2MnI4dXRnNl9GcWZKRWZIOHJKMU82UlcyRWVmNDNIT0UxVW1RVy1vaTA1WUJxQQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4077.1,
+   "Silver": 51.86,
+   "WTI": 90.3
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Brent and WTI Crude Oil Prices Fall as Trump Signals Iran Deal Is More Likely Than Renewed Military Action - FXLeaders",
+   "src": "FXLeaders",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,077 (+0.1%)   Silver 51.86 (+0.1%)   WTI 90.30 (-0.6%)   DXY 102.26 (-0.0%)   US10Y 4.86 (+0.5%)",
+   "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "08 Nov 20:43 UTC",
   "iso": "2026-11-08T20:43:32.266141+00:00",
   "cat": "rates_up",
@@ -3295,62 +3351,6 @@
      "strength": 3,
      "call": "STRONG \u2014 go hunt longs",
      "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,899 (-3.3%)   Silver 49.28 (-5.6%)   WTI 104.12 (+2.1%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "01 Nov 20:21 UTC",
-  "iso": "2026-11-01T20:21:46.660831+00:00",
-  "cat": "geo_escalation",
-  "title": "TALK | OIL LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nGulf states warn another U.S.-Israeli strike on Iran could spill into a bigger war - Briefs Finance  (Briefs Finance)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191   look for longs - supply at risk = price up fast (talk, not action yet)\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,899 (-3.3%)   Silver 49.28 (-5.6%)   WTI 104.12 (+2.1%)   DXY 101.96 (-0.1%)   US10Y 4.93 (-1.2%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQeG9xcWx1R3ZKTUR2WmVFcTl4M282QUNWM21LY2s4NktkVzdkb0FsX1BNZ0gtNmFJWF8wZW1ERU96OFE0eW9SQmU4NnBmWUt5UnBmdDUwMjZndHpCRkZuemJ5QUpBak5VeXB5QjBpYm5KQ3piU3FXWldubnhpX2lPejNuSnJaYXJjcmpDOWJyUjhNQQ?oc=5",
-  "talk": true,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3898.9,
-   "Silver": 49.276,
-   "WTI": 104.12
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Gulf states warn another U.S.-Israeli strike on Iran could spill into a bigger war - Briefs Finance",
-   "src": "Briefs Finance",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "supply at risk = price up fast (talk, not action yet)",
      "record": "CONFIDENT - right 63% of 83 past cases"
     }
    ],
