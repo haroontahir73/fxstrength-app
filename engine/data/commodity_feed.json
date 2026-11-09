@@ -1,5 +1,61 @@
 [
  {
+  "when": "09 Nov 21:28 UTC",
+  "iso": "2026-11-09T21:28:50.724077+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nOil falls as Trump hints at pausing Iran strikes after US midterms - Upstream Online  (Upstream Online)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,148 (+1.8%)   Silver 53.31 (+2.9%)   WTI 87.04 (-4.2%)   DXY 101.67 (-0.6%)   US10Y 4.86 (+0.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPUVlIYVg1OE9rUFZvYlJLSUNCY3VhSkRKRE05UHQwMXlwTVVLUzBqaGJIVmpYM1p4cFpjTFBXckplSHdKMWt6c05XZnloWTVQMlVZeE9QQ19lY2x4ZWVvdXhkcVQ5RUcwZV9DNE9Yc2pRSi1LbzJjOTlyMUVhenF4VE83WXNnTjUzdHl2V1lYQy02YnpDaGluQ3dGUkNNUEhYb2VIbXUwLWg0V0xCM3YxU1N1OXVJMVpqZ28yRzlXWjM2ZTA?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4147.8,
+   "Silver": 53.31,
+   "WTI": 87.04
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Oil falls as Trump hints at pausing Iran strikes after US midterms - Upstream Online",
+   "src": "Upstream Online",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,148 (+1.8%)   Silver 53.31 (+2.9%)   WTI 87.04 (-4.2%)   DXY 101.67 (-0.6%)   US10Y 4.86 (+0.1%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "09 Nov 21:15 UTC",
   "iso": "2026-11-09T21:15:44.541502+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,956 (+1.5%)   Silver 50.30 (+2.5%)   WTI 96.53 (-7.3%)   DXY 101.84 (+0.1%)   US10Y 4.89 (-0.7%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "02 Nov 23:15 UTC",
-  "iso": "2026-11-02T23:15:34.092552+00:00",
-  "cat": "inflation_hot",
-  "title": "GOLD+SILVER SHORT | INFLATION - running hot",
-  "body": "\ud83c\udf21 INFLATION \u2014 running hot\n\nFinancialJuice: S.Korea Oct core CPI rises 2.8% y/y vs 2.8% in Sept: stats office\n\nWHY: You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.\n\nGOLD   \u2193\u2193   look for shorts - the rates reaction beats the hedge story\n        [some evidence - right 50% of 485 past cases]\nSILVER \u2193\u2193   look for shorts - same, amplified\n        [some evidence - right 52% of 485 past cases]\nOIL    \u2192    no clean read - usually a cause, not a victim\n\nNOW  Gold 3,956 (+1.5%)   Silver 50.69 (+3.2%)   WTI 96.43 (-7.4%)   DXY 101.80 (-0.1%)   US10Y 4.89 (-0.7%)\n\nFLIP: if inflation is coming from oil AND growth is dying, gold turns up instead",
-  "link": "https://www.financialjuice.com/News/9833427/SKorea-Oct-core-CPI-rises-28-yy-vs-28-in-Sept-stats-office.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3956.4,
-   "Silver": 50.69,
-   "WTI": 96.43
-  },
-  "parts": {
-   "emoji": "\ud83c\udf21",
-   "label": "INFLATION \u2014 running hot",
-   "headline": "FinancialJuice: S.Korea Oct core CPI rises 2.8% y/y vs 2.8% in Sept: stats office",
-   "src": "",
-   "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "the rates reaction beats the hedge story",
-     "record": "some evidence - right 50% of 485 past cases"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "same, amplified",
-     "record": "some evidence - right 52% of 485 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "usually a cause, not a victim",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 3,956 (+1.5%)   Silver 50.69 (+3.2%)   WTI 96.43 (-7.4%)   DXY 101.80 (-0.1%)   US10Y 4.89 (-0.7%)",
-   "reality": "",
-   "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
   }
  }
 ]
