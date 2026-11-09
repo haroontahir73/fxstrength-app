@@ -1,5 +1,61 @@
 [
  {
+  "when": "09 Nov 13:01 UTC",
+  "iso": "2026-11-09T13:01:28.214915+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: Fitch: Our baseline assumes that some form of durable deal will re-open Strait of Hormuz around 1Q27.\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,130 (+1.3%)   Silver 52.78 (+1.9%)   WTI 87.47 (-3.7%)   DXY 101.86 (-0.4%)   US10Y 4.86 (+0.5%)\n\nREALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://www.financialjuice.com/News/9843327/Fitch-Our-baseline-assumes-that-some-form-of-durable-deal-will-re-open-Strait-of-Hormuz-around-1Q27.aspx?xy=rss",
+  "talk": false,
+  "pushed": false,
+  "queued_for_retry": true,
+  "push_error": "telegram TimeoutError",
+  "px": {
+   "Gold": 4129.6,
+   "Silver": 52.785,
+   "WTI": 87.47
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "FinancialJuice: Fitch: Our baseline assumes that some form of durable deal will re-open Strait of Hormuz around 1Q27.",
+   "src": "",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,130 (+1.3%)   Silver 52.78 (+1.9%)   WTI 87.47 (-3.7%)   DXY 101.86 (-0.4%)   US10Y 4.86 (+0.5%)",
+   "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "09 Nov 12:50 UTC",
   "iso": "2026-11-09T12:50:55.993756+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,907 (+0.2%)   Silver 50.10 (+2.0%)   WTI 99.59 (-4.4%)   DXY 101.64 (-0.2%)   US10Y 4.93 (-1.2%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "02 Nov 12:34 UTC",
-  "iso": "2026-11-02T12:34:10.885151+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nHaley Stevens backs Mike Rogers. And, Gulf states brace for potential attack on Iran - WKU Public Radio  (WKU Public Radio)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,915 (+0.4%)   Silver 50.22 (+2.3%)   WTI 99.82 (-4.1%)   DXY 101.62 (-0.3%)   US10Y 4.93 (-1.2%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPSjBjMGRkakpBMHNaRHJIaGlNbTlmclo4a0tiTHVxU1VMN2U0cGt1dzZCYW14Sy1peDdZSnBNaXVRVWUwa3B5bVNKNFJOMlFFb1RRNjBTOGNubTFCSFhIcjQ3eDdubXl5WVhKZ3Vidnl5cWxINElMTnU4X1J5ZUVlbDhtTDJ0VVNqVWEtRHBNVHpFRVlkUDZOekpXNklXQWZJY3JMb1B5WF9VNzd5T2RabjE1aW1VYWdPdG1QZXRB?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3914.9,
-   "Silver": 50.215,
-   "WTI": 99.82
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Haley Stevens backs Mike Rogers. And, Gulf states brace for potential attack on Iran - WKU Public Radio",
-   "src": "WKU Public Radio",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,915 (+0.4%)   Silver 50.22 (+2.3%)   WTI 99.82 (-4.1%)   DXY 101.62 (-0.3%)   US10Y 4.93 (-1.2%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
