@@ -538,6 +538,30 @@ python bulletin_oi.py apply --data data section.layout.txt
 `oi_opt` on that trade date only. The first options day has no change. A workbook seed
 updates futures and leaves a final options reading in place.
 
+The same PC can import a CME **VOI Totals** workbook instead of the bulletin. These are
+the binary .xls files (one per asset class: Energy, Metals, FX) with columns Name, Type,
+Globex, Clear Port, Volume, Open Interest, Change. They do not print a trade date or a
+preliminary/final status, so both have to be typed. The command reads the files on disk
+and does not contact CME. `report` writes nothing.
+
+```
+python voi_totals_oi.py report --date 2026-11-06 --status preliminary energy.xls metals.xls fx.xls
+python voi_totals_oi.py apply --date 2026-11-06 --status preliminary --data data energy.xls metals.xls fx.xls
+```
+
+Only the standard futures row and the standard options row are kept: GC Gold, SI Silver,
+CL WTI (`Crude Oil Futures` / `Crude Oil Option`), and 6E, 6B, 6J, 6A, 6N, 6C, 6S.
+Micros, minis, crosses, weeklies, related and financial WTI products, and natural gas
+are left out. Natural gas is not JPY (on the bulletin that option's code is 6J). Options
+are raw contract counts, calls plus puts. This workbook path uses the monthly FX option
+only. `bulletin_oi.py` can add weekly FX options on top of the monthly series, so the
+two totals are not the same series: they are stored under different `oi_opt_basis`
+values and are not differenced against each other, and one is not written over the other.
+
+A preliminary file does not replace a final options reading. Futures cells already
+stored for that date are left as they are; the report only prints the file's futures
+figure beside the stored one. The first options day has no change.
+
 `fetch_oi.py` (the commodity-score OI leg, `SOURCE="cot_weekly"`, CFTC-based) is a separate
 concern and is unchanged.
 
