@@ -1,5 +1,61 @@
 [
  {
+  "when": "09 Nov 06:09 UTC",
+  "iso": "2026-11-09T06:09:09.746101+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nOil prices mixed after Trump plays down Iran strikes - Arabian Gulf Business Insight | AGBI  (Arabian Gulf Business Insight | AGBI)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,133 (+1.4%)   Silver 52.94 (+2.2%)   WTI 90.17 (-0.7%)   DXY 102.11 (-0.2%)   US10Y 4.86 (+0.5%)\n\nREALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxObF9nZlE5Q3pGclZXcmVGa050Z184Wk9Cenl1bl95alZkRHdBOVBLeE9fNHAzUWcyWW9NMEFSbnRZaDRrNW1qY3daR09MLWdFX2l1WjVKekRaQjY2azItOW5wajVDREZxYlVMUG5WU3lzRlJ0b0hQQVkyb18tcThvWEFjd3k0REM1UVYyNXM4eDBXVXBfWFR4R3dB?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4132.6,
+   "Silver": 52.935,
+   "WTI": 90.17
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Oil prices mixed after Trump plays down Iran strikes - Arabian Gulf Business Insight | AGBI",
+   "src": "Arabian Gulf Business Insight | AGBI",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,133 (+1.4%)   Silver 52.94 (+2.2%)   WTI 90.17 (-0.7%)   DXY 102.11 (-0.2%)   US10Y 4.86 (+0.5%)",
+   "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "09 Nov 06:02 UTC",
   "iso": "2026-11-09T06:02:36.361272+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,914 (+0.4%)   Silver 50.10 (+2.1%)   WTI 100.61 (-3.4%)   DXY 101.92 (+0.0%)   US10Y 4.93 (-1.2%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "02 Nov 03:57 UTC",
-  "iso": "2026-11-02T03:57:22.869424+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nOpec+ holds December oil output steady amid rising Gulf shipping threats - Upstream Online  (Upstream Online)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,915 (+0.4%)   Silver 50.09 (+2.0%)   WTI 100.89 (-3.1%)   DXY 101.95 (+0.1%)   US10Y 4.93 (-1.2%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPZklfYm4wb0VBS2tuS1Q3M05mRXJXT19zRExabC10b3kzQTd3eVVYOWlVaUZZNmdXUlVUaUhuUDQwMUlNMkwxZmlUai1PT1cxY3ptTmppQUNNT1YwQzN4YUtsalJrZmF3VlZlakIyQjQxd1M1X1l3WV9tRnFnTEtKekNrYmY3ZmFTSWNHWk0waXdIUkZkd1ZIZUpPRlQtNWRPSTZtZkJwZVN0Z3cwSnAyY0JyX1J2Qlh1bTdndjJRTFU?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3914.8,
-   "Silver": 50.09,
-   "WTI": 100.89
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "Opec+ holds December oil output steady amid rising Gulf shipping threats - Upstream Online",
-   "src": "Upstream Online",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 3,915 (+0.4%)   Silver 50.09 (+2.0%)   WTI 100.89 (-3.1%)   DXY 101.95 (+0.1%)   US10Y 4.93 (-1.2%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
