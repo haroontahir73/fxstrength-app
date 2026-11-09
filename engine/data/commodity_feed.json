@@ -1,5 +1,61 @@
 [
  {
+  "when": "09 Nov 14:47 UTC",
+  "iso": "2026-11-09T14:47:00.999150+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nStrait of Hormuz Tanker Traffic Is the Test for Normal Oil Supply - StoneX  (StoneX)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,126 (+1.3%)   Silver 52.53 (+1.4%)   WTI 87.52 (-3.6%)   DXY 101.87 (-0.4%)   US10Y 4.84 (-0.5%)\n\nREALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPd0JsVHZSLWZSMzlWRms5aWxEM2pId2RKMmtjOE1xNlBpQ2xteC05bTJseFFVTHZZUy04TjRnNjFmRWJ0LUpNc1YxSkl4NW04OHVfVnhraXhiUGN3cUZZTFI5QUNocWpwSzBpTmVWdmx2MGdvMHBJRS02cUdzR19STmNhOGZESmRQM2tYY1RsUHNMaDVfSDZ1Yk5LMGJCWDE3Ui1qZmFyZw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4126.5,
+   "Silver": 52.53,
+   "WTI": 87.52
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Strait of Hormuz Tanker Traffic Is the Test for Normal Oil Supply - StoneX",
+   "src": "StoneX",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,126 (+1.3%)   Silver 52.53 (+1.4%)   WTI 87.52 (-3.6%)   DXY 101.87 (-0.4%)   US10Y 4.84 (-0.5%)",
+   "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "09 Nov 13:51 UTC",
   "iso": "2026-11-09T13:51:08.076901+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,966 (+1.7%)   Silver 50.91 (+3.7%)   WTI 97.13 (-6.7%)   DXY 101.66 (-0.2%)   US10Y 4.90 (-0.6%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "02 Nov 14:11 UTC",
-  "iso": "2026-11-02T14:11:42.793837+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nOil Tanker Catches Fire in Eastern Strait of Hormuz - WANA News Agency  (WANA News Agency)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,946 (+1.2%)   Silver 50.70 (+3.3%)   WTI 97.76 (-6.1%)   DXY 101.64 (-0.2%)   US10Y 4.91 (-0.5%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5BNkY2ZXZjcmZjdWFDTU9jQW9IRDNrbnRrRmJMemlFWXlDQTZPU2JLSmhJbXBRY0FDUFdPOVF6am5TQnRxVnVNQ0o1RUtNMldROGs5anZncW93bDE4SEJ0WnBIckJaLXREbVMxOGdlSzJ3SjFUWEZ6bjRLZw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3946.4,
-   "Silver": 50.7,
-   "WTI": 97.76
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Oil Tanker Catches Fire in Eastern Strait of Hormuz - WANA News Agency",
-   "src": "WANA News Agency",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,946 (+1.2%)   Silver 50.70 (+3.3%)   WTI 97.76 (-6.1%)   DXY 101.64 (-0.2%)   US10Y 4.91 (-0.5%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
