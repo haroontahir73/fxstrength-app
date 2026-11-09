@@ -1,5 +1,61 @@
 [
  {
+  "when": "09 Nov 16:41 UTC",
+  "iso": "2026-11-09T16:41:13.962282+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nOil prices fall to two-month low as Trump says new Iran strikes \u2018unlikely\u2019 - The Independent  (The Independent)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,125 (+1.2%)   Silver 52.70 (+1.7%)   WTI 87.34 (-3.8%)   DXY 101.83 (-0.5%)   US10Y 4.88 (+0.3%)\n\nREALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOc29NaVlRcmQwYzlYWDNIa3B5TDNUbXNUMjJSX0tFbFRnempFaV9qNEJLZEVDVlhzZW1vbWhMbFBSdG96WWFPYTJjOTI4Z3BxWnZUM3dHTk85SlJyVFRiZjlXY2h0dUs2TVM3S3BzY2hEMjVwMjlLeHpvbTRTR2J5VERMSnBlOUJETnlNaUVTYnc2TDhCdUJ5dUJ1amFfcThTY0JEM2NkNA?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 4125.2,
+   "Silver": 52.7,
+   "WTI": 87.34
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Oil prices fall to two-month low as Trump says new Iran strikes \u2018unlikely\u2019 - The Independent",
+   "src": "The Independent",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 4,125 (+1.2%)   Silver 52.70 (+1.7%)   WTI 87.34 (-3.8%)   DXY 101.83 (-0.5%)   US10Y 4.88 (+0.3%)",
+   "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "09 Nov 14:47 UTC",
   "iso": "2026-11-09T14:47:00.999150+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,978 (+2.0%)   Silver 51.02 (+3.9%)   WTI 96.50 (-7.3%)   DXY 101.65 (-0.2%)   US10Y 4.88 (-1.0%)",
    "reality": "",
    "flip": "these deals break \u2014 one broken truce and it all goes back on"
-  }
- },
- {
-  "when": "02 Nov 15:39 UTC",
-  "iso": "2026-11-02T15:39:34.980822+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Kazakhstan: Atyrau-Samara oil flows halted after a drone attack.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,966 (+1.7%)   Silver 50.91 (+3.7%)   WTI 97.13 (-6.7%)   DXY 101.66 (-0.2%)   US10Y 4.90 (-0.6%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://www.financialjuice.com/News/9832863/Kazakhstan-Atyrau-Samara-oil-flows-halted-after-a-drone-attack.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3965.8,
-   "Silver": 50.915,
-   "WTI": 97.13
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "FinancialJuice: Kazakhstan: Atyrau-Samara oil flows halted after a drone attack.",
-   "src": "",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,966 (+1.7%)   Silver 50.91 (+3.7%)   WTI 97.13 (-6.7%)   DXY 101.66 (-0.2%)   US10Y 4.90 (-0.6%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]

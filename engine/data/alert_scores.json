@@ -23956,5 +23956,16 @@
   "outcome": "loss",
   "talk": false,
   "at": "2026-11-09T09:58:36.772889+00:00"
+ },
+ {
+  "id": "2026-11-09T11:13:04.531527+00:00|OIL",
+  "cat": "geo_deescalation",
+  "instr": "OIL",
+  "dir": "down",
+  "strength": 3,
+  "chg": -1.867,
+  "outcome": "win",
+  "talk": false,
+  "at": "2026-11-09T11:13:04.531527+00:00"
  }
 ]
