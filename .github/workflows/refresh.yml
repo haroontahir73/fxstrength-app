@@ -170,6 +170,8 @@ jobs:
       # RENDER ONLY: data is collected on the Pi (CME blocks runners + ToS) and arrives
       # via sync_cloud; this rebuilds open-interest.html from oi_history.json and
       # injects the daily card. continue-on-error; never deploys, never writes CFTC data.
+      # Does not rewrite oi_history.json. Options written by voi_totals_oi.py apply
+      # stay in the committed file (pinned above) and are rendered from it.
       - name: Daily OI page (CME, Pi-synced)
         working-directory: engine
         continue-on-error: true

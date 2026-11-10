@@ -544,10 +544,24 @@ Globex, Clear Port, Volume, Open Interest, Change. They do not print a trade dat
 preliminary/final status, so both have to be typed. The command reads the files on disk
 and does not contact CME. `report` writes nothing.
 
+Daily routine. Upload the three VOI Totals files (Energy, Metals, FX). From `engine/`,
+pass the trade date and the status yourself — they are not in the workbook:
+
 ```
-python voi_totals_oi.py report --date 2026-11-06 --status preliminary energy.xls metals.xls fx.xls
-python voi_totals_oi.py apply --date 2026-11-06 --status preliminary --data data energy.xls metals.xls fx.xls
+python voi_totals_oi.py report --date YYYY-MM-DD --status preliminary energy.xls metals.xls fx.xls
+python voi_totals_oi.py apply --date YYYY-MM-DD --status preliminary --data data energy.xls metals.xls fx.xls
 ```
+
+Use `--status final` only for a final session. A preliminary file never replaces a final
+options reading. Apply the older date first when loading more than one day, so the later
+day has a change; the first day of the series has none. Commit `engine/data/oi_history.json`.
+The 15-minute Pages rebuild checks that file out and renders from it. `oi.py --render-only`
+does not rewrite it, so the options stay on the Open interest tab and on `open-interest.html`.
+
+The page shows, for GC, SI, CL, 6E, 6B, 6J, 6A, 6N, 6C and 6S: total, calls, puts, the
+change when one exists, the trade date, and PRELIMINARY or FINAL. The label is raw contract
+counts (calls + puts), monthly standard options only. A missing figure is a dash. Futures
+rows on the same page are left as they were.
 
 Only the standard futures row and the standard options row are kept: GC Gold, SI Silver,
 CL WTI (`Crude Oil Futures` / `Crude Oil Option`), and 6E, 6B, 6J, 6A, 6N, 6C, 6S.
@@ -558,9 +572,10 @@ only. `bulletin_oi.py` can add weekly FX options on top of the monthly series, s
 two totals are not the same series: they are stored under different `oi_opt_basis`
 values and are not differenced against each other, and one is not written over the other.
 
-A preliminary file does not replace a final options reading. Futures cells already
-stored for that date are left as they are; the report only prints the file's futures
-figure beside the stored one. The first options day has no change.
+A preliminary file does not replace a final options reading. Futures cells are not
+written by this command, including when that date has no futures stored yet. The report
+prints the file's futures figure beside the stored one and leaves the cell alone. The
+first options day has no change.
 
 `fetch_oi.py` (the commodity-score OI leg, `SOURCE="cot_weekly"`, CFTC-based) is a separate
 concern and is unchanged.
