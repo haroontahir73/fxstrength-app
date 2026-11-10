@@ -13523,244 +13523,104 @@
   "Gold": {
    "oi": 403730,
    "chg": 859,
-   "volume": 221798,
-   "oi_opt": 845398,
-   "chg_opt": null,
-   "oi_opt_calls": 606366,
-   "oi_opt_puts": 239032,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 221798
   },
   "Silver": {
    "oi": 113523,
    "chg": -1985,
-   "volume": 66395,
-   "oi_opt": 99306,
-   "chg_opt": null,
-   "oi_opt_calls": 67894,
-   "oi_opt_puts": 31412,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 66395
   },
   "Oil": {
    "oi": 1914794,
    "chg": -3767,
-   "volume": 820824,
-   "oi_opt": 2592056,
-   "chg_opt": null,
-   "oi_opt_calls": 1201460,
-   "oi_opt_puts": 1390596,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 820824
   },
   "EUR": {
    "oi": 868673,
    "chg": -217,
-   "volume": 263189,
-   "oi_opt": 399297,
-   "chg_opt": null,
-   "oi_opt_calls": 214009,
-   "oi_opt_puts": 185288,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 263189
   },
   "GBP": {
    "oi": 225543,
    "chg": -8432,
-   "volume": 101125,
-   "oi_opt": 58029,
-   "chg_opt": null,
-   "oi_opt_calls": 23764,
-   "oi_opt_puts": 34265,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 101125
   },
   "JPY": {
    "oi": 385059,
    "chg": 1586,
-   "volume": 200309,
-   "oi_opt": 98430,
-   "chg_opt": null,
-   "oi_opt_calls": 55422,
-   "oi_opt_puts": 43008,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 200309
   },
   "AUD": {
    "oi": 346256,
    "chg": 9780,
-   "volume": 153488,
-   "oi_opt": 49793,
-   "chg_opt": null,
-   "oi_opt_calls": 19330,
-   "oi_opt_puts": 30463,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 153488
   },
   "NZD": {
    "oi": 136910,
    "chg": 2655,
-   "volume": 51971,
-   "oi_opt": 7743,
-   "chg_opt": null,
-   "oi_opt_calls": 7150,
-   "oi_opt_puts": 593,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 51971
   },
   "CAD": {
    "oi": 344014,
    "chg": -3537,
-   "volume": 105151,
-   "oi_opt": 61186,
-   "chg_opt": null,
-   "oi_opt_calls": 32025,
-   "oi_opt_puts": 29161,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 105151
   },
   "CHF": {
    "oi": 130630,
    "chg": 366,
-   "volume": 34724,
-   "oi_opt": 28988,
-   "chg_opt": null,
-   "oi_opt_calls": 15224,
-   "oi_opt_puts": 13764,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 34724
   }
  },
  "2026-11-09": {
   "Gold": {
    "oi": 407133,
    "chg": 4843,
-   "volume": 249833,
-   "oi_opt": 850067,
-   "chg_opt": 4669,
-   "oi_opt_calls": 609056,
-   "oi_opt_puts": 241011,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 249833
   },
   "Silver": {
    "oi": 113214,
    "chg": -249,
-   "volume": 76060,
-   "oi_opt": 101809,
-   "chg_opt": 2503,
-   "oi_opt_calls": 70169,
-   "oi_opt_puts": 31640,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 76060
   },
   "Oil": {
    "oi": 1912078,
    "chg": -1190,
-   "volume": 928338,
-   "oi_opt": 2601433,
-   "chg_opt": 9377,
-   "oi_opt_calls": 1219716,
-   "oi_opt_puts": 1381717,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 928338
   },
   "EUR": {
    "oi": 856027,
    "chg": -13141,
-   "volume": 179203,
-   "oi_opt": 401870,
-   "chg_opt": 2573,
-   "oi_opt_calls": 215502,
-   "oi_opt_puts": 186368,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 179203
   },
   "GBP": {
    "oi": 221975,
    "chg": -3110,
-   "volume": 77487,
-   "oi_opt": 59955,
-   "chg_opt": 1926,
-   "oi_opt_calls": 24961,
-   "oi_opt_puts": 34994,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 77487
   },
   "JPY": {
    "oi": 388222,
    "chg": 3749,
-   "volume": 163628,
-   "oi_opt": 100254,
-   "chg_opt": 1824,
-   "oi_opt_calls": 56098,
-   "oi_opt_puts": 44156,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 163628
   },
   "AUD": {
    "oi": 346752,
    "chg": 205,
-   "volume": 88504,
-   "oi_opt": 51248,
-   "chg_opt": 1455,
-   "oi_opt_calls": 20231,
-   "oi_opt_puts": 31017,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 88504
   },
   "NZD": {
    "oi": 135120,
    "chg": -1789,
-   "volume": 46601,
-   "oi_opt": 7743,
-   "chg_opt": 0,
-   "oi_opt_calls": 7152,
-   "oi_opt_puts": 591,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 46601
   },
   "CAD": {
    "oi": 339845,
    "chg": -4324,
-   "volume": 80734,
-   "oi_opt": 62905,
-   "chg_opt": 1719,
-   "oi_opt_calls": 33649,
-   "oi_opt_puts": 29256,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 80734
   },
   "CHF": {
    "oi": 128440,
    "chg": -2197,
-   "volume": 24407,
-   "oi_opt": 29100,
-   "chg_opt": 112,
-   "oi_opt_calls": 15303,
-   "oi_opt_puts": 13797,
-   "oi_opt_basis": "voi-totals:standard-full-size-monthly-option-contracts",
-   "oi_opt_status": "PRELIMINARY",
-   "oi_opt_source": "cme-voi-totals-local-xls"
+   "volume": 24407
   }
  }
 }
