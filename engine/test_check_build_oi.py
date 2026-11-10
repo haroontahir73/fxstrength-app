@@ -97,16 +97,40 @@ OPT_HEADER = ("<th><span class='f'>Opt \u0394OI</span><span class='s'>\u0394Opt<
 
 
 def t_real_archive_empty_options():
-    """Today's oi_history.json has futures rows and no oi_opt. The rendered tab must pass."""
+    """The committed archive stores VOI options and the rendered tab shows them."""
     data = Path(__file__).parent / "data"
     hist = json.loads((data / "oi_history.json").read_text(encoding="utf-8"))
     body = render(hist)
-    check("committed archive has no oi_opt", "oi_opt" not in json.dumps(hist))
+    check("committed archive stores options", "oi_opt" in json.dumps(hist))
+    for inst in oi.ORDER:
+        for day in ("2026-11-06", "2026-11-09"):
+            cell = hist[day][inst]
+            check(f"{day} {inst} keeps futures and stores options",
+                  isinstance(cell.get("oi"), int) and cell.get("chg") is not None
+                  and isinstance(cell.get("oi_opt"), int)
+                  and cell.get("oi_opt_calls", 0) + cell.get("oi_opt_puts", 0) == cell["oi_opt"]
+                  and cell.get("oi_opt_status") == "PRELIMINARY"
+                  and cell.get("oi_opt_basis") == oi.VOI_OPT_BASIS)
+    check("6 Nov is the first options day, so its change is absent",
+          all(hist["2026-11-06"][inst].get("chg_opt") is None for inst in oi.ORDER))
+    check("9 Nov change is the difference against 6 Nov, including a real zero",
+          all(hist["2026-11-09"][inst]["chg_opt"]
+              == hist["2026-11-09"][inst]["oi_opt"] - hist["2026-11-06"][inst]["oi_opt"]
+              for inst in oi.ORDER)
+          and hist["2026-11-09"]["NZD"]["chg_opt"] == 0)
+    gold = hist["2026-11-09"]["Gold"]
+    check("rendered tab shows the gold options split",
+          f"{gold['oi_opt']:,}" in body and f"{gold['oi_opt_calls']:,}" in body
+          and f"{gold['oi_opt_puts']:,}" in body)
     for old in ("CFTC weekly", "Options FE OI", "Combined OI", "Options share",
                 "not the number of outstanding option contracts"):
         check(f"rendered tab has no {old!r}", old not in body)
-    check("rendered tab has Futures OI and no Options OI column",
-          "Futures OI" in body and "Options OI" not in body)
+    check("rendered tab shows futures and options, labeled monthly standard",
+          "Futures OI" in body and "Options OI" in body and "Calls" in body and "Puts" in body
+          and "PRELIMINARY" in body
+          and "raw contract counts (calls + puts)" in body
+          and "monthly standard options only" in body
+          and "2026-11-09" in body)
     oks, fails = run(wrap(body), data)
     check("real archive: no failures", not fails)
     if fails:
@@ -132,12 +156,14 @@ def t_rendered_options_values():
     for name in FIVE:
         check(f"options fixture passes: {name}", name in oks)
 
-    broken = render(hist).replace("120,000", "999,999", 1)
+    # The snapshot and the daily table both print the level and the header.
+    # Corrupting only the first copy would leave the table check_oi reads intact.
+    broken = render(hist).replace("120,000", "999,999")
     oks, fails = run(wrap(broken), data)
     check("wrong options level fails the archive check", check_build._OI_VALUES in fails)
     check("wrong options level still recognises the section", check_build._OI_SECTION in oks)
 
-    no_header = render(hist).replace("Options OI", "Open interest", 1).replace("Opt OI", "OI", 1)
+    no_header = render(hist).replace("Options OI", "Open interest").replace("Opt OI", "OI")
     oks, fails = run(wrap(no_header), data)
     check("missing Options OI header fails the column check", check_build._OI_COLUMNS in fails)
 

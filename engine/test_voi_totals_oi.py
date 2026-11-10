@@ -193,6 +193,23 @@ def t_merge_days_locks_final_options():
     check("futures can still move when freeze is off", cell["oi"] == 999)
 
 
+def t_merge_days_locks_preliminary_basis():
+    hist = {"2024-03-04": {"Gold": {"oi": 111, "chg": 4, "volume": 9,
+                                    "oi_opt": 100, "chg_opt": None,
+                                    "oi_opt_calls": 60, "oi_opt_puts": 40,
+                                    "oi_opt_status": "PRELIMINARY", "oi_opt_basis": vo.BASIS}}}
+    oi.merge_days(hist, {"2024-03-04": {"Gold": {
+        "oi": 1, "chg": 1, "volume": 1, "oi_opt": 9, "chg_opt": 9,
+        "oi_opt_calls": 4, "oi_opt_puts": 5, "oi_opt_status": "FINAL",
+        "oi_opt_basis": "cme-optionOi"}}}, freeze=False)
+    cell = hist["2024-03-04"]["Gold"]
+    check("preliminary voi options survive a later pull, including a blank change",
+          cell["oi_opt"] == 100 and cell["chg_opt"] is None
+          and cell["oi_opt_calls"] == 60 and cell["oi_opt_puts"] == 40
+          and cell["oi_opt_status"] == "PRELIMINARY" and cell["oi_opt_basis"] == vo.BASIS)
+    check("futures can still be revised when that freeze is off", cell["oi"] == 1)
+
+
 def t_sample_xls_and_mini_stream():
     report = vo.build_report([SAMPLE], "2024-03-04", "preliminary")
     check("synthetic workbook covers every standard market", report["ok"] and not report["problems"])
@@ -273,6 +290,7 @@ def main():
     for fn in (t_collisions_and_exact_names, t_calls_must_equal_total_and_zero_is_real,
                t_header_is_by_name, t_two_files_conflict_and_agree,
                t_apply_preserves_futures_and_final, t_merge_days_locks_final_options,
+               t_merge_days_locks_preliminary_basis,
                t_sample_xls_and_mini_stream, t_cli_requires_date_and_status_and_writes_options_only,
                t_no_network_and_html_rejected):
         fn()

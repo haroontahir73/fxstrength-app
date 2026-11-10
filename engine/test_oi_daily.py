@@ -66,6 +66,77 @@ def t_pctile():
 
 
 
+def t_snapshot_missing_is_dash_and_zero_is_real():
+    hist = {"2026-11-09": {"Gold": {"oi_opt": 10, "oi_opt_calls": None, "oi_opt_puts": 0,
+                                    "chg_opt": None, "oi_opt_status": "PRELIMINARY",
+                                    "oi_opt_basis": oi.VOI_OPT_BASIS},
+                           "NZD": {"oi_opt": 5, "oi_opt_calls": 2, "oi_opt_puts": 3,
+                                   "chg_opt": 0, "oi_opt_status": "FINAL",
+                                   "oi_opt_basis": oi.VOI_OPT_BASIS}}}
+    html = oi.options_snapshot(hist)
+    gold = html.split(">Gold")[1].split("</tr>")[0]
+    check("missing calls and change are dashes", gold.count("&mdash;") >= 2 and "+0" not in gold)
+    check("a stored put of zero is shown", ">0<" in gold and "PRELIMINARY" in gold and ">10<" in gold)
+    nzd = html.split(">NZD")[1].split("</tr>")[0]
+    check("a real zero change is shown", "+0" in nzd and "FINAL" in nzd)
+    chf = html.split(">CHF")[1].split("</tr>")[0]
+    check("a market with no options is dashes, not zeros",
+          chf.count("&mdash;") >= 5 and ">0<" not in chf and "+0" not in chf)
+    check("labeled monthly standard raw counts",
+          "raw contract counts (calls + puts)" in html and "monthly standard options only" in html)
+    check("snapshot lists every standard code",
+          all(code in html for code in ("GC", "SI", "CL", "6E", "6B", "6J", "6A", "6N", "6C", "6S")))
+
+
+def t_options_only_day_does_not_relabel_futures():
+    hist = {"2026-11-06": {"EUR": {"oi": 10, "chg": 1, "oi_opt": 19, "chg_opt": None,
+                                   "oi_opt_calls": 11, "oi_opt_puts": 8,
+                                   "oi_opt_status": "PRELIMINARY", "oi_opt_basis": oi.VOI_OPT_BASIS}},
+            "2026-11-09": {"EUR": {"oi_opt": 25, "chg_opt": 6, "oi_opt_calls": 14, "oi_opt_puts": 11,
+                                   "oi_opt_status": "PRELIMINARY", "oi_opt_basis": oi.VOI_OPT_BASIS}}}
+    html = oi.render(hist, {}, {}, {})
+    check("futures banner stays on the futures day",
+          "trade date 2026-11-06" in html and "trade date 2026-11-09" not in html)
+    check("options block shows the later reading",
+          "2026-11-09" in html and ">25<" in html and "Calls" in html and "PRELIMINARY" in html)
+    before = json.dumps(hist, sort_keys=True)
+    oi.render(hist, {}, {}, {})
+    check("render does not mutate history", json.dumps(hist, sort_keys=True) == before)
+
+
+def t_render_only_does_not_rewrite_options(tmp_path=None):
+    import tempfile
+    d = Path(tempfile.mkdtemp())
+    hist = {"2026-11-06": {"EUR": {"oi": 10, "chg": 1, "volume": 1,
+                                   "oi_opt": 19, "chg_opt": None,
+                                   "oi_opt_calls": 11, "oi_opt_puts": 8,
+                                   "oi_opt_status": "PRELIMINARY",
+                                   "oi_opt_basis": oi.VOI_OPT_BASIS}}}
+    path = d / "oi_history.json"
+    path.write_text(json.dumps(hist), encoding="utf-8")
+    dash = d / "dashboard.html"
+    dash.write_text("<html><body></body></html>", encoding="utf-8")
+    saved = (oi.HIST_FILE, oi.STATE_FILE, oi.PAGE, oi.price_moves, sys.argv)
+    oi.HIST_FILE = path
+    oi.STATE_FILE = d / "oi_state.json"
+    oi.PAGE = d / "open-interest.html"
+    oi.price_moves = lambda *a, **k: {}
+    sys.argv = ["oi.py", "--render-only", str(dash)]
+    try:
+        oi.main()
+    finally:
+        oi.HIST_FILE, oi.STATE_FILE, oi.PAGE, oi.price_moves, sys.argv = saved
+    got = json.loads(path.read_text(encoding="utf-8"))
+    check("render-only leaves the options file byte-for-byte in meaning", got == hist)
+    page = (d / "open-interest.html").read_text(encoding="utf-8")
+    card = dash.read_text(encoding="utf-8")
+    check("standalone page shows the options reading",
+          "19" in page and "PRELIMINARY" in page and "monthly standard options only" in page
+          and "11" in page and "8" in page)
+    check("dashboard card names the options series",
+          "monthly standard options only" in card and "PRELIMINARY" in card)
+
+
 def t_render_has_options_and_states():
     hist = {}
     for i in range(14):
@@ -80,7 +151,10 @@ def t_render_has_options_and_states():
 
 def main():
     for fn in [t_fold_rows_fut_and_opt, t_pull_into_fut_opt, t_field_wise_freeze,
-               t_pctile, t_render_has_options_and_states]:
+               t_pctile, t_snapshot_missing_is_dash_and_zero_is_real,
+               t_options_only_day_does_not_relabel_futures,
+               t_render_only_does_not_rewrite_options,
+               t_render_has_options_and_states]:
         fn()
     print(f"\n{'FAILED' if FAILS else 'PASSED'}: {len(FAILS)} failure(s)")
     sys.exit(1 if FAILS else 0)

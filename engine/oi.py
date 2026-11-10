@@ -51,6 +51,9 @@ import datetime as dt
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+from bulletin_oi import BASIS as BULLETIN_OPT_BASIS
+from voi_totals_oi import BASIS as VOI_OPT_BASIS
+
 try:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 except Exception:                                             # noqa: BLE001
@@ -110,6 +113,12 @@ INSTRUMENTS = {
     "CHF":    ("swiss franc",       "6S=F"),
 }
 ORDER = ["Gold", "Silver", "Oil", "EUR", "GBP", "JPY", "AUD", "NZD", "CAD", "CHF"]
+# CME product code beside each instrument. The options block always lists these ten.
+OPT_MARKETS = (
+    ("Gold", "GC"), ("Silver", "SI"), ("Oil", "CL"),
+    ("EUR", "6E"), ("GBP", "6B"), ("JPY", "6J"),
+    ("AUD", "6A"), ("NZD", "6N"), ("CAD", "6C"), ("CHF", "6S"),
+)
 
 # RETRY POLICY
 # Not fixed windows. CME publishes the preliminary report when it publishes - and the PC
@@ -212,19 +221,31 @@ def should_try(state, tkey, now=None):
     return True, "due"
 
 
-def _final_option_locked(cur, key):
-    """A bulletin import marks oi_opt_status FINAL. Later workbook or CME sync must not
-    replace those option fields, including when freeze is off."""
-    if not isinstance(cur, dict) or cur.get("oi_opt_status") != "FINAL":
-        return False
+def _option_field(key):
     return key in ("oi_opt", "chg_opt", "volume_opt") or str(key).startswith("oi_opt")
+
+
+def _stored_option_locked(cur, key):
+    """Keep a stored options reading when a later futures sync or CME pull arrives.
+
+    A FINAL bulletin stays even when futures freeze is off. A named basis — the monthly
+    VOI series, or the bulletin's monthly-plus-weekly series — is not CME's optionOi
+    total, so those fields are not overwritten and a blank change is not filled in.
+    A futures-only day has no basis yet, and a new options field can still be added.
+    """
+    if not isinstance(cur, dict) or not _option_field(key):
+        return False
+    if cur.get("oi_opt_status") == "FINAL":
+        return True
+    return bool(cur.get("oi_opt_basis"))
 
 
 def merge_days(hist, day_map, freeze=FREEZE_STORED_DAYS):
     """Write {day: {inst: {field: val}}} into hist, FIELD BY FIELD. With `freeze`, a field
     already stored is left exactly as it was - preliminary stays preliminary, finals never
     overwrite - but a NEW field (e.g. options OI backfilled after futures) can still be added
-    to a day whose futures fields are already frozen. Final bulletin options stay either way."""
+    to a day whose futures fields are already frozen. Final bulletin options, and any options
+    reading that already names its basis, stay either way."""
     written = skipped = 0
     for day, vals in day_map.items():
         for inst, rec in vals.items():
@@ -232,7 +253,7 @@ def merge_days(hist, day_map, freeze=FREEZE_STORED_DAYS):
                 continue
             cur = hist.setdefault(day, {}).setdefault(inst, {})
             for k, v in rec.items():
-                if v is None or _final_option_locked(cur, k):
+                if v is None or _stored_option_locked(cur, k):
                     skipped += 1
                     continue
                 if freeze and cur.get(k) is not None:
@@ -676,6 +697,10 @@ CSS = """<style>
 .oi-hist h3{font-size:15px;margin:22px 0 2px;font-family:"IBM Plex Mono",monospace}
 .oi-hist h3 small{font-family:"IBM Plex Sans",sans-serif;font-weight:400;font-size:11.5px;
   color:var(--mut,#8a8a94);margin-left:8px}
+.oi-opt{margin:22px 0 8px}
+.oi-opt h2{font-size:19px;margin:0 0 6px}
+.oi-opt .mut{color:var(--mut,#8a8a94);font-size:11px;margin-left:4px}
+.oi-opt-scroll{overflow-x:auto;max-width:100%}
 .oi-tw{width:100%;border-collapse:collapse;font-size:12.5px;
   font-family:"IBM Plex Mono",monospace;margin-top:6px}
 .oi-tw th{text-align:right;font-weight:600;font-size:10.5px;letter-spacing:.06em;
@@ -738,10 +763,213 @@ def _daylabel(iso):
         return iso[5:]
 
 
+def _day_has_futures(hist, day):
+    bucket = hist.get(day) if isinstance(hist, dict) else None
+    if not isinstance(bucket, dict):
+        return False
+    for inst in ORDER:
+        rec = bucket.get(inst)
+        if isinstance(rec, dict) and rec.get("oi") is not None and rec.get("chg") is not None:
+            return True
+    return False
+
+
+def latest_futures_day(hist):
+    """Newest trade date that actually has a futures open-interest change."""
+    if not isinstance(hist, dict):
+        return None
+    for day in sorted(hist, reverse=True):
+        if _day_has_futures(hist, day):
+            return day
+    return None
+
+
+def futures_asof(hist, state):
+    """Trade date for the futures banner. An options-only day does not become it."""
+    state = state or {}
+    for key in ("last_good_date", "newest"):
+        day = state.get(key)
+        if _day_has_futures(hist, day):
+            return day
+    return latest_futures_day(hist)
+
+
+def _latest_options(hist, inst):
+    if not isinstance(hist, dict):
+        return None, None
+    for day in sorted(hist, reverse=True):
+        bucket = hist.get(day)
+        if not isinstance(bucket, dict):
+            continue
+        rec = bucket.get(inst)
+        if isinstance(rec, dict) and rec.get("oi_opt") is not None:
+            return day, rec
+    return None, None
+
+
+def _as_int(n):
+    if isinstance(n, bool) or not isinstance(n, int):
+        return None
+    return n
+
+
+def _opt_num_cell(n):
+    """A contract count. Missing is a dash. A stored zero stays zero."""
+    n = _as_int(n)
+    if n is None:
+        return "<td class='na'>&mdash;</td>"
+    return f"<td class='vol'>{_fs(format(n, ','), _k(n))}</td>"
+
+
+def _opt_chg_cell(n):
+    """Day-over-day change. Missing is a dash, never a made-up zero."""
+    n = _as_int(n)
+    if n is None:
+        return "<td class='na'>&mdash;</td>"
+    cls = "up" if n > 0 else "dn" if n < 0 else ""
+    sign = "+" if n > 0 else ""
+    return f"<td class='{cls}'>{_fs(format(n, '+,'), sign + _k(n))}</td>"
+
+
+def _opt_status_cell(status):
+    if status == "PRELIMINARY":
+        return f"<td class='st'>{_fs('PRELIMINARY', 'PRELIM')}</td>"
+    if status == "FINAL":
+        return f"<td class='st'>{_fs('FINAL', 'FINAL')}</td>"
+    return "<td class='na'>&mdash;</td>"
+
+
+def _opt_date_cell(day):
+    if not day:
+        return "<td class='na'>&mdash;</td>"
+    try:
+        d = dt.date.fromisoformat(day)
+    except ValueError:
+        return f"<td>{_esc(day)}</td>"
+    return (f"<td class='oi-day' title='{day}'>"
+            f"{_fs(d.strftime('%a %d %b %Y'), d.strftime('%d %b'))}</td>")
+
+
+def _snapshot_intro(bases, any_opt):
+    known = {b for b in bases if b}
+    head = ("<b>Options OI</b> is outstanding option contracts, "
+            "raw contract counts (calls + puts)")
+    if not any_opt or (known and known <= {VOI_OPT_BASIS}):
+        series = (", monthly standard options only. "
+                  "Weeklies, micros, minis and crosses are not included. ")
+    elif any_opt and not known:
+        series = ". Micros, minis and average-price options are not in that count. "
+    elif known <= {BULLETIN_OPT_BASIS}:
+        series = (". The count includes the monthly series and the weekly series. "
+                  "Micros, minis and average-price options are not included. ")
+    else:
+        series = (". Each row keeps the basis it was stored on, and those bases "
+                  "are not mixed into one change. ")
+    tail = ("It is not a futures-equivalent or delta-adjusted figure. "
+            "A dash means that figure is not stored. It is not zero. "
+            "The first day of a series has no change.")
+    return f'<p class="oi-sub">{head}{series}{tail}</p>'
+
+
+def _history_opt_note(bases):
+    known = {b for b in bases if b}
+    if known and known <= {VOI_OPT_BASIS}:
+        which = "monthly standard options only"
+    elif not known or known <= {BULLETIN_OPT_BASIS}:
+        which = "its monthly series and its weekly series"
+    else:
+        which = "the basis stored on that day"
+    return ('<p class="oi-sub"><b>Options OI</b> is outstanding option contracts, calls plus '
+            f'puts, on the standard full-size future ({which}). '
+            'Micros, minis and average-price options are not in that count. It is not a '
+            'futures-equivalent or delta-adjusted figure. A blank options change means there is '
+            'no earlier options observation on the same basis. Futures OI in the same row stays '
+            'the stored preliminary figure when the final bulletin later revises it.</p>')
+
+
+def options_snapshot(hist):
+    """Latest raw options reading for every standard market. Always rendered.
+
+    Total, calls, puts and the change when a prior day of the same series exists.
+    The trade date and PRELIMINARY/FINAL label come from that reading. A missing
+    figure is a dash. Futures rows are left to the tables above and below.
+    """
+    hist = hist if isinstance(hist, dict) else {}
+    rows = []
+    bases = []
+    any_opt = False
+    for inst, code in OPT_MARKETS:
+        day, rec = _latest_options(hist, inst)
+        rec = rec or {}
+        held = rec.get("oi_opt") is not None
+        if held:
+            any_opt = True
+            bases.append(rec.get("oi_opt_basis"))
+        rows.append(
+            "<tr>"
+            f"<td>{_esc(inst)} <span class='mut'>{code}</span></td>"
+            f"{_opt_date_cell(day if held else None)}"
+            f"{_opt_status_cell(rec.get('oi_opt_status') if held else None)}"
+            f"{_opt_num_cell(rec.get('oi_opt') if held else None)}"
+            f"{_opt_num_cell(rec.get('oi_opt_calls') if held else None)}"
+            f"{_opt_num_cell(rec.get('oi_opt_puts') if held else None)}"
+            f"{_opt_chg_cell(rec.get('chg_opt') if held else None)}"
+            "</tr>")
+    return (
+        '<div class="oi-opt">'
+        '<h2>Standard options open interest</h2>'
+        + _snapshot_intro(bases, any_opt) +
+        '<div class="oi-opt-scroll"><table class="oi-tw"><thead><tr>'
+        f"<th>{_fs('Market', 'Mkt')}</th>"
+        f"<th>{_fs('Trade date', 'Date')}</th>"
+        f"<th>{_fs('Status', 'St')}</th>"
+        f"<th class='vol'>{_fs('Options OI', 'Opt')}</th>"
+        f"<th class='vol'>{_fs('Calls', 'Calls')}</th>"
+        f"<th class='vol'>{_fs('Puts', 'Puts')}</th>"
+        f"<th>{_fs('Change', 'Δ')}</th>"
+        "</tr></thead><tbody>"
+        + "".join(rows) +
+        "</tbody></table></div></div>")
+
+
+def _options_strip_line(hist):
+    """One line for the dashboard card. The full breakdown is on the OI tab and page."""
+    days = []
+    statuses = set()
+    monthly = True
+    for inst, _code in OPT_MARKETS:
+        day, rec = _latest_options(hist, inst)
+        if day is None:
+            continue
+        days.append(day)
+        statuses.add(rec.get("oi_opt_status"))
+        if rec.get("oi_opt_basis") != VOI_OPT_BASIS:
+            monthly = False
+    label = ("raw contract counts (calls + puts), monthly standard options only"
+             if monthly else "raw contract counts (calls + puts)")
+    if not days:
+        return (f'<div style="margin-top:7px"><b>Options</b> {label}'
+                ' &middot; no reading stored yet</div>')
+    day = max(days)
+    try:
+        shown = dt.date.fromisoformat(day).strftime("%d %b %Y")
+    except ValueError:
+        shown = day
+    if statuses == {"PRELIMINARY"}:
+        st = " PRELIMINARY"
+    elif statuses == {"FINAL"}:
+        st = " FINAL"
+    else:
+        st = ""
+    return (f'<div style="margin-top:7px"><b>Options</b> {label}'
+            f' &middot; {shown}{st}</div>')
+
+
 def history_tables(hist, prices):
     """Combined daily rows per instrument — futures and options OI side by side."""
     blocks = []
     any_opt = False
+    shown_bases = []
     for inst in ORDER:
         rows = day_rows(hist, prices, inst)
         if not rows:
@@ -758,17 +986,16 @@ def history_tables(hist, prices):
             st = (f"<td class='st na'>&mdash;</td>" if not r["state"] else
                   f"<td class='st'><span class='oi-tag {r['cls']}'>"
                   f"{SHORT_STATE.get(r['state'], r['state'])}</span></td>")
-            # options columns
+            # options columns — a missing count is a dash, never zero
             opt_cells = ""
             if has_opt:
                 oi_opt = d.get("oi_opt")
-                chg_opt = d.get("chg_opt")
+                if oi_opt is not None:
+                    shown_bases.append(d.get("oi_opt_basis"))
                 if oi_opt is None:
                     opt_cells = "<td class='na'>&mdash;</td><td class='na'>&mdash;</td>"
                 else:
-                    oc = ("<td class='na'>&mdash;</td>" if chg_opt is None else
-                          f"<td class='{'up' if chg_opt > 0 else 'dn'}'>{_fs(format(chg_opt, '+,'), ('+' if chg_opt > 0 else '') + _k(chg_opt))}</td>")
-                    opt_cells = f"{oc}<td class='vol'>{_fs(format(oi_opt, ','), _k(oi_opt))}</td>"
+                    opt_cells = f"{_opt_chg_cell(d.get('chg_opt'))}{_opt_num_cell(oi_opt)}"
             body.append(
                 f"<tr><td class='oi-day'>{_fs(_daylabel(r['date']), _daylabel(r['date'])[:6])}</td>{pc}"
                 f"<td class='{'up' if r['chg'] > 0 else 'dn'}'>{_fs(format(r['chg'], '+,'), ('+' if r['chg'] > 0 else '') + _k(r['chg']))}</td>"
@@ -785,14 +1012,7 @@ def history_tables(hist, prices):
             f"<tbody>{''.join(body)}</tbody></table>")
     if not blocks:
         return ""
-    opt_note = ""
-    if any_opt:
-        opt_note = ('<p class="oi-sub"><b>Options OI</b> is outstanding option contracts, calls plus '
-                    'puts, on the standard full-size future (its monthly series and its weekly series). '
-                    'Micros, minis and average-price options are not in that count. It is not a '
-                    'futures-equivalent or delta-adjusted figure. A blank options change means there is '
-                    'no earlier options observation on the same basis. Futures OI in the same row stays '
-                    'the stored preliminary figure when the final bulletin later revises it.</p>')
+    opt_note = _history_opt_note(shown_bases) if any_opt else ""
     return ('<div class="oi-hist"><h2>Daily open interest &mdash; last 7 days, day by day</h2>'
             '<p class="oi-sub">Rule&nbsp;#1 is about the <b>run</b>, not one print. Days that '
             'keep closing up with open interest rising are the ones to hold and add into. '
@@ -801,13 +1021,15 @@ def history_tables(hist, prices):
 
 
 def options_tables(hist, n=TABLE_DAYS):
-    """Legacy separate options table — returns empty now that options are merged into history_tables."""
+    """Kept so older callers still resolve. The snapshot is rendered on its own, above the daily tables."""
     return ""
 
 
 def render(hist, state, reads, prices=None):
     now = dt.datetime.now(dt.timezone.utc)
-    last = state.get("last_good_date") or state.get("newest") or (sorted(hist)[-1] if hist else None)
+    last = futures_asof(hist, state)
+    if last is None:
+        last = state.get("last_good_date") or state.get("newest") or (sorted(hist)[-1] if hist else None)
     behind = trade_days_behind(last, now.date())
     weekend = now.weekday() >= 5
     if behind is None:
@@ -872,6 +1094,7 @@ def render(hist, state, reads, prices=None):
             'exit signal after a long run.</td></tr>'
             '</table>'
             f'<div class="oi-rows">{"".join(rows)}</div>'
+            + options_snapshot(hist)
             + history_tables(hist, prices or {})
             + options_tables(hist) +
             f'<p class="oi-sub" style="margin-top:16px">Price change is the futures close vs the '
@@ -902,13 +1125,19 @@ def write_page(block):
 MARK_A, MARK_B = "<!--OI_STRIP_START-->", "<!--OI_STRIP_END-->"
 
 
-def strip_block(state, reads):
+def strip_block(state, reads, hist=None):
     """A one-line summary + link, injected into dashboard.html so the OI page is findable."""
     longs = [i for i, r in reads.items() if r and r["state"] == "NEW MONEY LONG"]
     shorts = [i for i, r in reads.items() if r and r["state"] == "NEW MONEY SHORT"]
     fake = [i for i, r in reads.items()
             if r and r["state"] in ("SHORT COVERING", "LONG LIQUIDATION")]
-    last = state.get("last_good_date") or state.get("newest") or "n/a"
+    if hist is None:
+        last = state.get("last_good_date") or state.get("newest") or "n/a"
+        opt_line = ""
+    else:
+        last = (futures_asof(hist, state) or state.get("last_good_date")
+                or state.get("newest") or "n/a")
+        opt_line = _options_strip_line(hist)
     # trade days, not calendar days - see trade_days_behind(). Otherwise every Sunday and
     # Monday this card claimed the data was days old when it was the newest that exists.
     behind = trade_days_behind(last)
@@ -934,7 +1163,7 @@ def strip_block(state, reads):
         f'<div style="margin-top:7px"><span style="color:#3fbe83">New longs:</span> '
         f'{_lst(longs)}<br><span style="color:#ec6a5e">New shorts:</span> {_lst(shorts)}'
         f'<br><span style="color:#e0a63a">No new money (do not chase):</span> {_lst(fake)}'
-        '</div></a>')
+        f'</div>{opt_line}</a>')
 
 
 def inject_strip(html_path, block):
@@ -1035,7 +1264,9 @@ def main():
     # the newest day actually in the history, whatever route it arrived by - the banner
     # and the strip both key off this so a seeded-only history still dates itself
     if hist:
-        state["newest"] = sorted(hist)[-1]
+        # Futures freshness stays on a day that has futures. An options-only date
+        # must not make the banner claim the futures book has moved.
+        state["newest"] = latest_futures_day(hist) or sorted(hist)[-1]
         _save(STATE_FILE, state)
 
     prices = price_moves()
@@ -1047,7 +1278,7 @@ def main():
                   f"OI {r['chg']:+8,}  {r['state']}")
     write_page(render(hist, state, reads, prices))
     target = next((a for a in args if a.endswith(".html")), "dashboard.html")
-    inject_strip(target, strip_block(state, reads))
+    inject_strip(target, strip_block(state, reads, hist))
 
 
 if __name__ == "__main__":
