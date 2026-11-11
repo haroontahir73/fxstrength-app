@@ -1,0 +1,55 @@
+# If a futures sync still replaces oi_history.json and drops stored options,
+# put those fields back from the parent commit and rebuild the dashboard.
+# Futures numbers in the new commit are not touched. A run that finds nothing
+# missing commits nothing. The repair push uses the workflow token, which does
+# not start this workflow again.
+name: keep stored options
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'engine/data/oi_history.json'
+      - '.github/workflows/keep-oi-options.yml'
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: keep-oi-options
+  cancel-in-progress: false
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Restore omitted options
+        id: keep
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python engine/keep_oi_options.py | tee /tmp/keep-oi.out
+          if grep -q '^RESTORED' /tmp/keep-oi.out; then
+            echo "changed=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      # The repair commit is made with this token, so it does not start
+      # refresh.yml on its own. Dispatch one so the restored file is what
+      # the next Pages build renders.
+      - name: Rebuild the dashboard
+        if: steps.keep.outputs.changed == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run "refresh dashboard" --ref main

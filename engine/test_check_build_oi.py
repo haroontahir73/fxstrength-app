@@ -113,11 +113,19 @@ def t_real_archive_empty_options():
                   and cell.get("oi_opt_basis") == oi.VOI_OPT_BASIS)
     check("6 Nov is the first options day, so its change is absent",
           all(hist["2026-11-06"][inst].get("chg_opt") is None for inst in oi.ORDER))
+    changes_ok = True
+    for inst in oi.ORDER:
+        prev = hist["2026-11-06"][inst]
+        cur = hist["2026-11-09"][inst]
+        if ("chg_opt" not in cur or not isinstance(cur.get("oi_opt"), int)
+                or not isinstance(prev.get("oi_opt"), int)):
+            changes_ok = False
+            break
+        if cur["chg_opt"] != cur["oi_opt"] - prev["oi_opt"]:
+            changes_ok = False
+            break
     check("9 Nov change is the difference against 6 Nov, including a real zero",
-          all(hist["2026-11-09"][inst]["chg_opt"]
-              == hist["2026-11-09"][inst]["oi_opt"] - hist["2026-11-06"][inst]["oi_opt"]
-              for inst in oi.ORDER)
-          and hist["2026-11-09"]["NZD"]["chg_opt"] == 0)
+          changes_ok and hist["2026-11-09"]["NZD"].get("chg_opt") == 0)
     gold = hist["2026-11-09"]["Gold"]
     check("rendered tab shows the gold options split",
           f"{gold['oi_opt']:,}" in body and f"{gold['oi_opt_calls']:,}" in body

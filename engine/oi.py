@@ -278,6 +278,70 @@ def overlay_futures(hist, incoming):
     return hist
 
 
+def merge_local_history(published, local):
+    """Fold a PC copy of the archive into the published one without dropping options.
+
+    sync_cloud.py carries this file up from the machine that captures futures. That
+    copy does not contain options written on the repo (VOI Totals, the bulletin).
+    Replacing the published file with it deleted the 6 Nov and 9 Nov preliminary
+    readings. Published days and published options fields stay. Futures values in
+    the local copy still win, including a day the published file does not have yet.
+    A stored options basis, or a FINAL reading, is not overwritten by a different
+    options payload. Neither argument is modified.
+    """
+    hist = json.loads(json.dumps(published if isinstance(published, dict) else {}))
+    if not isinstance(local, dict):
+        return hist
+    for day, vals in local.items():
+        if not isinstance(vals, dict):
+            continue
+        bucket = hist.setdefault(day, {})
+        if not isinstance(bucket, dict):
+            bucket = {}
+            hist[day] = bucket
+        for inst, rec in vals.items():
+            if not isinstance(rec, dict):
+                continue
+            cur = bucket.get(inst)
+            if not isinstance(cur, dict):
+                cur = {}
+                bucket[inst] = cur
+            for k, v in rec.items():
+                if _stored_option_locked(cur, k):
+                    continue
+                # A blank local field must not erase a number already stored.
+                if v is None and cur.get(k) is not None:
+                    continue
+                cur[k] = v
+    return hist
+
+
+def restore_omitted_options(previous, current):
+    """Copy option fields that `current` dropped. Nothing `current` still stores changes.
+
+    A futures sync that replaces oi_history.json omits options it does not know
+    about. This fills those keys from `previous` and leaves every futures value,
+    and every option value still present, exactly as `current` has them. A day
+    `current` no longer has is not put back (the archive also trims old days on
+    purpose). Neither argument is modified.
+    """
+    hist = json.loads(json.dumps(current if isinstance(current, dict) else {}))
+    if not isinstance(previous, dict):
+        return hist
+    for day, vals in previous.items():
+        bucket = hist.get(day)
+        if not isinstance(bucket, dict) or not isinstance(vals, dict):
+            continue
+        for inst, rec in vals.items():
+            cur = bucket.get(inst)
+            if not isinstance(cur, dict) or not isinstance(rec, dict):
+                continue
+            for k, v in rec.items():
+                if _option_field(k) and k not in cur:
+                    cur[k] = v
+    return hist
+
+
 # ---------------------------------------------------------------- source 1: CME
 def _parse_cme_xls(raw):
     """The 'xls' export is really an HTML table. Returns [(product, volume, oi, chg)]."""
