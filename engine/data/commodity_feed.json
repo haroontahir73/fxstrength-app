@@ -1,5 +1,61 @@
 [
  {
+  "when": "12 Nov 13:01 UTC",
+  "iso": "2026-11-12T13:01:30.655684+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nLarger series of interest rate hikes are more likely after hot October CPI - Baltimore Sun  (Baltimore Sun)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,941 (-1.5%)   Silver 50.91 (-1.9%)   WTI 85.80 (-0.8%)   DXY 102.92 (+0.0%)   US10Y 5.00 (+0.3%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNSWdfOUFybFZDekp6MzZIYW9BRjVFNW53aGRUdk9MZVBqZk9kUF9HMjVJbDl2NVBKYjlKQkhhaDJkb19BdjdQU0RHd3NyMHR5SFpqTzBlNWFBTGdRNmRPMTMtd0drVE05czMtLXo2Z0dsckZHYTFqQWlQS3dXYnd0b0dSWUFrU1JuNzJtT2k1SGduNVZ5Q0plS09lNjZlOHFSSEJmWUF0M08yMjZVM3dhaWhmQzVNQQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3941.2,
+   "Silver": 50.905,
+   "WTI": 85.8
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Larger series of interest rate hikes are more likely after hot October CPI - Baltimore Sun",
+   "src": "Baltimore Sun",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,941 (-1.5%)   Silver 50.91 (-1.9%)   WTI 85.80 (-0.8%)   DXY 102.92 (+0.0%)   US10Y 5.00 (+0.3%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "12 Nov 11:09 UTC",
   "iso": "2026-11-12T11:09:45.809806+00:00",
   "cat": "inflation_hot",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,075 (-0.9%)   Silver 51.94 (-0.6%)   WTI 90.83 (+0.3%)   DXY 102.28 (+0.7%)   US10Y 4.86 (+0.5%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "08 Nov 08:24 UTC",
-  "iso": "2026-11-08T08:24:06.674145+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nWatch: US Centcom shows strike commercial vessel in Hormuz that allegedly defied Iran blockade - The Times of India  (The Times of India)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,075 (-0.9%)   Silver 51.94 (-0.6%)   WTI 90.83 (+0.3%)   DXY 102.28 (+0.7%)   US10Y 4.86 (+0.5%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxPd0pyZm9DclBzRS1UUTdKaXQ4VlkyV0dXT2ZSUzRORmFtbzAzdXljQzNmMDg5a3kzMW5fOUJKaWtNMlMzeDhUWnJ3Q1UxX2lPdTZHLTlfaGNPdElLSm1jVjZFQnliT016cEt6dW5CMWJieUFQajVuSk1YdTlWV0Q1NGx5Si1wbE1GVkpMOTBBdy1XX2EzZW00cFlaMi1kSTg4dmd2bE1vcFBfOEltbFVpYk14akZvWGdQWGFseGw2VGtSbFIyTUktalBBVGN4YWJSWDNUOG9qRzAtQk1CY0NILWE3Xzl1VDJ6MEg5bjdBZzhXSVNNS3dJ0gH8AUFVX3lxTFB4dm9IdTFmT1FoTGNncVhXRTZVTTJxZThzeG0wQkNzSGx1akZLNVBpUlg1V1loWWlnS2tYUE1DLThYT2xMYTdxV0hnbzR6NEJhWHNNTlFmbGhaX2hKWFpFd25HdGt6RkIwbGIwTXItUkpsMHBQLTZ3bFBoUERzRWswWFhFNXlNR3lTT3E3cEJrTFpaNjhjdXExZlYtZk9LTklrR2o4MUNJZkZ3ZDB3WGR0SGVuNWEydnppSlFTdGxCOWhHTXU1b1dzYmZKLWp1RXlfRzE4UXhDOTJkbVVrQTc2Y1prS0VZNU9IeG82Mks3SDJxUkVmT1VrTVRzcA?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4074.9,
-   "Silver": 51.942,
-   "WTI": 90.83
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Watch: US Centcom shows strike commercial vessel in Hormuz that allegedly defied Iran blockade - The Times of India",
-   "src": "The Times of India",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,075 (-0.9%)   Silver 51.94 (-0.6%)   WTI 90.83 (+0.3%)   DXY 102.28 (+0.7%)   US10Y 4.86 (+0.5%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
