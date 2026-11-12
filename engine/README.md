@@ -557,6 +557,10 @@ options reading. Apply the older date first when loading more than one day, so t
 day has a change; the first day of the series has none. Commit `engine/data/oi_history.json`.
 The 15-minute Pages rebuild checks that file out and renders from it. `oi.py --render-only`
 does not rewrite it, so the options stay on the Open interest tab and on `open-interest.html`.
+`sync_cloud.py` merges the PC's copy into the published archive. A futures-only local file
+updates futures and does not delete stored options. If that machine is still running the
+old replace, `.github/workflows/keep-oi-options.yml` puts the omitted fields back from
+the previous commit. Futures numbers in the new commit stay as they are.
 
 The page shows, for GC, SI, CL, 6E, 6B, 6J, 6A, 6N, 6C and 6S: total, calls, puts, the
 change when one exists, the trade date, and PRELIMINARY or FINAL. The label is raw contract

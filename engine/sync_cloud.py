@@ -37,8 +37,9 @@ DEST = CLONE / "engine" / "data"
 FILES = ["fundamentals_manual.json", "commodities_manual.json",
          "rate_expectations_manual.json", "speech_tone.json",
          # Daily open interest. CME only answers a real browser, so the cloud can never
-         # fetch this itself - it is captured on this PC and carried up here. Days are
-         # frozen once stored (oi.FREEZE_STORED_DAYS), so this file only ever grows.
+         # fetch this itself - futures are captured on this PC and carried up here.
+         # The file is merged, not replaced: a futures-only local copy must not delete
+         # options already stored on the repo. Replacing it did that on 10 Nov 2026.
          "oi_history.json"]
 
 PAGE = "https://haroontahir73.github.io/fxstrength-app/dashboard.html"
@@ -152,6 +153,26 @@ def pulse(dry):
     print(f"  pulse: page was {age:.0f} min stale - nudged the cloud into a rebuild")
 
 
+def file_payload(name, local_text, published_text):
+    """The text to commit for one override file.
+
+    Judgment files are the PC's copy and replace what is published. oi_history.json
+    is merged with the published archive first (see oi.merge_local_history), so a
+    local futures book that simply omits options does not wipe them. A missing or
+    unreadable published copy falls back to the local text.
+    """
+    if name != "oi_history.json" or not (published_text or "").strip():
+        return local_text
+    try:
+        published = json.loads(published_text)
+        local = json.loads(local_text)
+    except ValueError:
+        return local_text
+    import oi
+    merged = oi.merge_local_history(published, local)
+    return json.dumps(merged, indent=1) + "\n"
+
+
 def main():
     dry = "--dry-run" in sys.argv
     if not CLONE.exists():
@@ -192,7 +213,10 @@ def main():
         # would report every file as changed. And compare the PARSED json, not the bytes:
         # local is CRLF and the repo is LF, so a byte compare marks all four as changed
         # on every run and commits noise forever. Only a real change should push.
+        # oi_history is merged before that compare, so a futures-only local file that
+        # already matches the published futures is "in sync" and is not committed.
         published = git("show", f"origin/main:engine/data/{f}", check=False)
+        text = file_payload(f, text, published)
         try:
             same = bool(published) and json.loads(published) == json.loads(text)
         except ValueError:

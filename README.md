@@ -37,3 +37,7 @@ the PC workbook / Pi path. The report prints the file's futures figure next to t
 
 Commit `engine/data/oi_history.json`. The 15-minute Pages rebuild checks that file out and
 renders it. The rebuild does not rewrite the file, so the options stay on the dashboard.
+The PC sync merges this file with what is already published: a futures-only local copy
+updates futures and leaves stored options in place. If a futures sync still commits a
+copy that omits those fields, the keep-options workflow puts them back from the
+previous commit and leaves that commit's futures numbers as they are.

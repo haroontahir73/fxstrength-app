@@ -137,6 +137,94 @@ def t_render_only_does_not_rewrite_options(tmp_path=None):
           "monthly standard options only" in card and "PRELIMINARY" in card)
 
 
+def t_local_sync_keeps_published_options():
+    """The 10 Nov wipe: a futures-only PC copy replaced the archive and dropped oi_opt."""
+    published = {
+        "2026-11-05": {"EUR": {"oi": 1, "chg": 1, "volume": 1}},
+        "2026-11-06": {"Gold": {
+            "oi": 403730, "chg": 859, "volume": 221798,
+            "oi_opt": 845398, "chg_opt": None,
+            "oi_opt_calls": 606366, "oi_opt_puts": 239032,
+            "oi_opt_basis": oi.VOI_OPT_BASIS, "oi_opt_status": "PRELIMINARY",
+            "oi_opt_source": "cme-voi-totals-local-xls"}},
+    }
+    local = {
+        "2026-11-06": {"Gold": {"oi": 403730, "chg": 859, "volume": 221798}},
+        "2026-11-10": {"Gold": {"oi": 410000, "chg": 100, "volume": 50}},
+    }
+    merged = oi.merge_local_history(published, local)
+    gold = merged["2026-11-06"]["Gold"]
+    check("futures-only local copy keeps the voi options and the blank change",
+          gold["oi"] == 403730 and gold["oi_opt"] == 845398 and gold["chg_opt"] is None
+          and gold["oi_opt_calls"] == 606366 and gold["oi_opt_puts"] == 239032
+          and gold["oi_opt_status"] == "PRELIMINARY"
+          and gold["oi_opt_basis"] == oi.VOI_OPT_BASIS)
+    check("a published day missing from the local file stays",
+          merged["2026-11-05"]["EUR"]["oi"] == 1)
+    check("a new local futures day is added", merged["2026-11-10"]["Gold"]["oi"] == 410000
+          and "oi_opt" not in merged["2026-11-10"]["Gold"])
+    check("merge does not mutate the published archive",
+          published["2026-11-06"]["Gold"]["oi_opt"] == 845398)
+    clash = {"2026-11-06": {"Gold": {
+        "oi": 404000, "chg": 900, "volume": 10, "oi_opt": 1, "chg_opt": 9,
+        "oi_opt_status": "FINAL", "oi_opt_basis": "cme-optionOi"}}}
+    kept = oi.merge_local_history(published, clash)["2026-11-06"]["Gold"]
+    check("a named options basis is not replaced; futures from the pc still apply",
+          kept["oi"] == 404000 and kept["chg"] == 900 and kept["oi_opt"] == 845398
+          and kept["chg_opt"] is None and kept["oi_opt_status"] == "PRELIMINARY")
+    added = oi.merge_local_history(
+        {"2026-11-10": {"EUR": {"oi": 2, "chg": 1}}},
+        {"2026-11-10": {"EUR": {"oi": 2, "chg": None, "oi_opt": 9, "chg_opt": None}}})
+    check("a blank local change does not erase a stored futures change",
+          added["2026-11-10"]["EUR"]["chg"] == 1 and added["2026-11-10"]["EUR"]["oi_opt"] == 9
+          and added["2026-11-10"]["EUR"]["chg_opt"] is None)
+    check("an empty local archive leaves published options in place",
+          oi.merge_local_history(published, {})["2026-11-06"]["Gold"]["oi_opt"] == 845398)
+    check("a non-dict local archive leaves the published file",
+          oi.merge_local_history(published, None) == published)
+
+    import sync_cloud
+    payload = sync_cloud.file_payload("oi_history.json", json.dumps(local), json.dumps(published))
+    got = json.loads(payload)
+    check("sync payload keeps options and adds the new futures day",
+          got["2026-11-06"]["Gold"]["oi_opt"] == 845398
+          and got["2026-11-10"]["Gold"]["oi"] == 410000
+          and payload.endswith("\n"))
+    check("other override files are still replaced wholesale",
+          sync_cloud.file_payload("speech_tone.json", "{\"a\": 1}", "{\"a\": 2}") == "{\"a\": 1}")
+    check("a missing published archive keeps the local oi text",
+          sync_cloud.file_payload("oi_history.json", "{\"Gold\": 1}", "") == "{\"Gold\": 1}")
+    check("unreadable published oi falls back to the local text",
+          sync_cloud.file_payload("oi_history.json", "{\"Gold\": 1}", "not json") == "{\"Gold\": 1}")
+
+    # A later commit may still be the old wholesale replace. Only missing option
+    # keys come back; a futures update and an intentional options revision stay.
+    wiped = {
+        "2026-11-06": {"Gold": {"oi": 403730, "chg": 859, "volume": 221798}},
+        "2026-11-10": {"Gold": {"oi": 410000, "chg": 100, "volume": 50}},
+    }
+    repaired = oi.restore_omitted_options(published, wiped)
+    again = repaired["2026-11-06"]["Gold"]
+    check("a wholesale replace gets the omitted voi fields back",
+          again["oi"] == 403730 and again["volume"] == 221798
+          and again["oi_opt"] == 845398 and again["chg_opt"] is None
+          and again["oi_opt_calls"] == 606366 and again["oi_opt_status"] == "PRELIMINARY")
+    check("a new futures day in the replace is kept and an old day is not resurrected",
+          repaired["2026-11-10"]["Gold"]["oi"] == 410000
+          and "2026-11-05" not in repaired)
+    revised = {"2026-11-06": {"Gold": {
+        "oi": 404000, "chg": 900, "volume": 10,
+        "oi_opt": 845000, "chg_opt": 0,
+        "oi_opt_status": "FINAL", "oi_opt_basis": oi.VOI_OPT_BASIS}}}
+    kept_rev = oi.restore_omitted_options(published, revised)["2026-11-06"]["Gold"]
+    check("an options value the new commit still has is not reverted",
+          kept_rev["oi"] == 404000 and kept_rev["oi_opt"] == 845000
+          and kept_rev["chg_opt"] == 0 and kept_rev["oi_opt_status"] == "FINAL"
+          and kept_rev["oi_opt_calls"] == 606366 and kept_rev["oi_opt_puts"] == 239032)
+    check("restore does not mutate either archive",
+          published["2026-11-06"]["Gold"]["oi_opt"] == 845398 and "oi_opt" not in wiped["2026-11-06"]["Gold"])
+
+
 def t_render_has_options_and_states():
     hist = {}
     for i in range(14):
@@ -153,6 +241,7 @@ def main():
     for fn in [t_fold_rows_fut_and_opt, t_pull_into_fut_opt, t_field_wise_freeze,
                t_pctile, t_snapshot_missing_is_dash_and_zero_is_real,
                t_options_only_day_does_not_relabel_futures,
+               t_local_sync_keeps_published_options,
                t_render_only_does_not_rewrite_options,
                t_render_has_options_and_states]:
         fn()
