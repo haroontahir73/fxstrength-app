@@ -1,5 +1,61 @@
 [
  {
+  "when": "12 Nov 21:51 UTC",
+  "iso": "2026-11-12T21:51:40.403492+00:00",
+  "cat": "geo_escalation",
+  "title": "TALK | OIL LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nTrump says he wouldn\u2019t hesitate to strike Iran if \u2018I saw things going the other way\u2019 - The Times of Israel  (The Times of Israel)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191   look for longs - supply at risk = price up fast (talk, not action yet)\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,879 (-3.0%)   Silver 49.92 (-3.8%)   WTI 88.70 (+2.5%)   DXY 103.19 (+0.3%)   US10Y 5.10 (+2.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQTHp6aklpWEJ6b2ZTYjQtTmd0WEZYdVZRMUt3UzZ2RUJzc0tfdkpnREFYZFlldGFYSGJGaE9KeVloLUFVWmQ1bnNET1FQb1lrWGhTN09wYlZ4WFBVbWtLX2pUODZDUHdLa2FlZVQ0MzFEblhCMFhhLU5NOWhCclNQS2J6YldadXowNGZIRnpkLVJROXlsM1VVTnpBMXZoNVprZzJQel93MldFaUhsTnhmVVZGdUd6WmhhbnNkbTdteElTSmljV3c?oc=5",
+  "talk": true,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3878.9,
+   "Silver": 49.92,
+   "WTI": 88.7
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Trump says he wouldn\u2019t hesitate to strike Iran if \u2018I saw things going the other way\u2019 - The Times of Israel",
+   "src": "The Times of Israel",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "supply at risk = price up fast (talk, not action yet)",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,879 (-3.0%)   Silver 49.92 (-3.8%)   WTI 88.70 (+2.5%)   DXY 103.19 (+0.3%)   US10Y 5.10 (+2.1%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "12 Nov 20:33 UTC",
   "iso": "2026-11-12T20:33:27.171439+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,133 (+1.4%)   Silver 52.92 (+2.2%)   WTI 90.26 (-0.6%)   DXY 102.11 (-0.2%)   US10Y 4.86 (+0.5%)",
    "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "09 Nov 04:15 UTC",
-  "iso": "2026-11-09T04:15:25.943577+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nUkrainian forces reportedly strike Russia's second-largest oil refinery in overnight drone attack - The Kyiv Independent  (The Kyiv Independent)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,127 (+1.3%)   Silver 53.05 (+2.4%)   WTI 91.34 (+0.6%)   DXY 102.18 (-0.1%)   US10Y 4.86 (+0.5%)\n\nREALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQNmM0aWNYYUR4eFdtT0V5R2YyWEI4QXV1REh4dGRyaWJLV0FWaEt5akZmb18ybGxORHlVR0FxSjJCcVc0aVBTMzhZTGtPNWJkdUNSaDFONFhyZVRyYVdxaW1TVFpXUUF2aS1ZbmdFaU9pUi1TaVJaRHFkb0EwdDA0bXNyXzduNUtkMHpWUmRJa3l0d0RvczlPUDdKOWRyRTc5d2E4ZWNydG0xR1lPWHBjZE10SVZiaXkxUVhaWi1HYmlITE0?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4127.0,
-   "Silver": 53.05,
-   "WTI": 91.34
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Ukrainian forces reportedly strike Russia's second-largest oil refinery in overnight drone attack - The Kyiv Independent",
-   "src": "The Kyiv Independent",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,127 (+1.3%)   Silver 53.05 (+2.4%)   WTI 91.34 (+0.6%)   DXY 102.18 (-0.1%)   US10Y 4.86 (+0.5%)",
-   "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
