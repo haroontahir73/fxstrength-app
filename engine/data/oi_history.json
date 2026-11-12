@@ -13762,5 +13762,57 @@
    "oi_opt_status": "PRELIMINARY",
    "oi_opt_source": "cme-voi-totals-local-xls"
   }
+ },
+ "2026-11-10": {
+  "Gold": {
+   "oi": 405910,
+   "chg": 1448,
+   "volume": 258941
+  },
+  "Silver": {
+   "oi": 115837,
+   "chg": 2757,
+   "volume": 85061
+  },
+  "Oil": {
+   "oi": 1918647,
+   "chg": 8776,
+   "volume": 796934
+  },
+  "EUR": {
+   "oi": 854904,
+   "chg": -1862,
+   "volume": 234446
+  },
+  "GBP": {
+   "oi": 219897,
+   "chg": -2043,
+   "volume": 94333
+  },
+  "JPY": {
+   "oi": 389186,
+   "chg": 992,
+   "volume": 190537
+  },
+  "AUD": {
+   "oi": 353007,
+   "chg": 6208,
+   "volume": 99294
+  },
+  "NZD": {
+   "oi": 131950,
+   "chg": -3126,
+   "volume": 44771
+  },
+  "CAD": {
+   "oi": 343347,
+   "chg": 3674,
+   "volume": 76021
+  },
+  "CHF": {
+   "oi": 126463,
+   "chg": -1977,
+   "volume": 35759
+  }
  }
 }
