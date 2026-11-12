@@ -1,5 +1,61 @@
 [
  {
+  "when": "12 Nov 11:09 UTC",
+  "iso": "2026-11-12T11:09:45.809806+00:00",
+  "cat": "inflation_hot",
+  "title": "GOLD+SILVER SHORT | INFLATION - running hot",
+  "body": "\ud83c\udf21 INFLATION \u2014 running hot\n\nIndia October CPI inflation rises to 6.09%, food inflation accelerates to 8.94%\n\nWHY: You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.\n\nGOLD   \u2193\u2193   look for shorts - the rates reaction beats the hedge story\n        [some evidence - right 50% of 485 past cases]\nSILVER \u2193\u2193   look for shorts - same, amplified\n        [some evidence - right 52% of 485 past cases]\nOIL    \u2192    no clean read - usually a cause, not a victim\n\nNOW  Gold 3,959 (-1.0%)   Silver 51.27 (-1.2%)   WTI 85.74 (-0.9%)   DXY 102.84 (-0.1%)   US10Y 5.00 (+0.3%)\n\nFLIP: if inflation is coming from oil AND growth is dying, gold turns up instead",
+  "link": "https://investinglive.com/news/india-october-cpi-inflation-rises-to-6-09-food-inflation-accelerates-to-8-94/",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3959.2,
+   "Silver": 51.275,
+   "WTI": 85.74
+  },
+  "parts": {
+   "emoji": "\ud83c\udf21",
+   "label": "INFLATION \u2014 running hot",
+   "headline": "India October CPI inflation rises to 6.09%, food inflation accelerates to 8.94%",
+   "src": "",
+   "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "the rates reaction beats the hedge story",
+     "record": "some evidence - right 50% of 485 past cases"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "same, amplified",
+     "record": "some evidence - right 52% of 485 past cases"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "usually a cause, not a victim",
+     "record": ""
+    }
+   ],
+   "snap": "NOW  Gold 3,959 (-1.0%)   Silver 51.27 (-1.2%)   WTI 85.74 (-0.9%)   DXY 102.84 (-0.1%)   US10Y 5.00 (+0.3%)",
+   "reality": "",
+   "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
+  }
+ },
+ {
   "when": "12 Nov 10:56 UTC",
   "iso": "2026-11-12T10:56:34.257143+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,075 (-0.9%)   Silver 51.94 (-0.6%)   WTI 90.83 (+0.3%)   DXY 102.28 (+0.7%)   US10Y 4.86 (+0.5%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "08 Nov 07:08 UTC",
-  "iso": "2026-11-08T07:08:38.913805+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIran says two oil tankers hit sea mines in Strait of Hormuz - The New Region  (The New Region)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,075 (-0.9%)   Silver 51.94 (-0.6%)   WTI 90.83 (+0.3%)   DXY 102.28 (+0.7%)   US10Y 4.86 (+0.5%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9EOThXc19SelZySHgwYjlvYWpGVzdoUEJpbUFySkRKSHFrcURGQXBmTVZVOEd2NnRmcnBFR25PektSZ3BrN1BGN1NuWQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4074.9,
-   "Silver": 51.942,
-   "WTI": 90.83
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Iran says two oil tankers hit sea mines in Strait of Hormuz - The New Region",
-   "src": "The New Region",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,075 (-0.9%)   Silver 51.94 (-0.6%)   WTI 90.83 (+0.3%)   DXY 102.28 (+0.7%)   US10Y 4.86 (+0.5%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
