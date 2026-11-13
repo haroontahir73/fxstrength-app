@@ -1,5 +1,61 @@
 [
  {
+  "when": "13 Nov 19:06 UTC",
+  "iso": "2026-11-13T19:06:18.015379+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nAn apartment building damaged during a Russian airstrike, amid Russia's attack on Ukraine, in Zaporizhzhia, Ukraine November 13, 2026. REUTERS/Sergiy Chalyi - The Lufkin Daily News  (The Lufkin Daily News)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,885 (-0.0%)   Silver 49.02 (-1.9%)   WTI 88.74 (+0.0%)   DXY 103.38 (+0.2%)   US10Y 5.14 (+0.8%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiqAJBVV95cUxOek1mejZNNWlvX05NN0RQV0JSS1J6akdZN0l6ZDA5VnBETjhhczNTbFU5LU9lM0JoR2l3UEh0U2lkYXpxSTVxVEJGQ2NCTWtNT2VsWllpMTRfQk5mb3RHZEt4U2NIQTFOa0RlOWpGQVlyX2puU0V6MzBlZXpZTXhFUXhtWC1HdDVWRHZwM2FORUt1c2NQdHlsV2tjY3VGcjAtOGN2b3Q1Q1JiN2VONm1MeXhxMkdBNHpMQUZ4ODJTak5xcE9wbXNEOG9xeHZGVmcxYjVmdjMtNFlWWVVTX01OQ1dIR0tjV3IxWVZhajYxRDFoM20xWWtWdmZfUXdWSEt5cDdaSHRKaXpiTTdmTWpqQk1hYTFRYjdqQkVhbVN0VkE1V0tjaWxNOA?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3884.6,
+   "Silver": 49.015,
+   "WTI": 88.74
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "An apartment building damaged during a Russian airstrike, amid Russia's attack on Ukraine, in Zaporizhzhia, Ukraine November 13, 2026. REUTERS/Sergiy Chalyi - The Lufkin Daily News",
+   "src": "The Lufkin Daily News",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,885 (-0.0%)   Silver 49.02 (-1.9%)   WTI 88.74 (+0.0%)   DXY 103.38 (+0.2%)   US10Y 5.14 (+0.8%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "13 Nov 18:10 UTC",
   "iso": "2026-11-13T18:10:07.746385+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,133 (+1.4%)   Silver 53.18 (+2.7%)   WTI 86.60 (-4.7%)   DXY 101.72 (-0.6%)   US10Y 4.86 (+0.1%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "09 Nov 22:50 UTC",
-  "iso": "2026-11-09T22:50:04.794278+00:00",
-  "cat": "geo_deescalation",
-  "title": "OIL STRONG SHORT | GEOPOLITICS - calming down",
-  "body": "\ud83d\udd4a GEOPOLITICS \u2014 calming down\n\nCrude Prices Plunge as Mideast Supply, Ceasefire Hopes Build - Energy Intelligence  (Energy Intelligence)\n\nWHY: Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.\n\nGOLD   \u2192    no clean read - measured both ways - fear-out vs yields-down cancel\nSILVER \u2192    no clean read - same, no reliable direction\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - supply worry gone, barrels flow again\n        [some evidence - right 51% of 113 past cases]\n\nNOW  Gold 4,150 (+1.8%)   Silver 53.45 (+3.2%)   WTI 86.38 (-4.9%)   DXY 101.68 (-0.6%)   US10Y 4.86 (+0.1%)\n\nFLIP: these deals break \u2014 one broken truce and it all goes back on",
-  "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9uOUlGbzZLZ21xeVo1MzNxdUg2UXRnNUVvUTJKYU9NR0cyS0QxZG1lNTRHRlRGM29ZdU9RRzdJR283VGNWNWp5RDRhMTl6cTQxdWRNRFNtLS12ZkNvek9DT1I4NXFoakFxb0JIWE81NVdUQQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4149.5,
-   "Silver": 53.455,
-   "WTI": 86.38
-  },
-  "parts": {
-   "emoji": "\ud83d\udd4a",
-   "label": "GEOPOLITICS \u2014 calming down",
-   "headline": "Crude Prices Plunge as Mideast Supply, Ceasefire Hopes Build - Energy Intelligence",
-   "src": "Energy Intelligence",
-   "why": "Traders had pushed prices up because they were scared. Now the fear is easing, so that extra price comes back off.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured both ways - fear-out vs yields-down cancel",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "same, no reliable direction",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "supply worry gone, barrels flow again",
-     "record": "some evidence - right 51% of 113 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,150 (+1.8%)   Silver 53.45 (+3.2%)   WTI 86.38 (-4.9%)   DXY 101.68 (-0.6%)   US10Y 4.86 (+0.1%)",
-   "reality": "",
-   "flip": "these deals break \u2014 one broken truce and it all goes back on"
   }
  }
 ]
