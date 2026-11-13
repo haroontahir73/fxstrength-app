@@ -1,5 +1,61 @@
 [
  {
+  "when": "13 Nov 10:41 UTC",
+  "iso": "2026-11-13T10:41:20.582795+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIran Claims Missile Strike Capability of Up to 1,500 Kilometers - Caspian Post  (Caspian Post)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,902 (+0.4%)   Silver 49.97 (-0.0%)   WTI 87.86 (-1.0%)   DXY 103.22 (+0.0%)   US10Y 5.10 (+2.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQejFsMzVWOVY4U1kyQjhPcmktMk4xX1VuN0F5X25xMkJNbXVsNEk0d0NEaGlkYk5STC1EVzduOHpIY1AtT0pIS21JUFJKUVAyUGdrejNyNmltZHJDbmcySHc4QlNvVXROUzJGQjVkYTQyajhwZzNjRDZwUVgybDhyQ2VHOW1xNnR4ckVvZldWM2RjYk9mSmw0?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3902.4,
+   "Silver": 49.97,
+   "WTI": 87.86
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Iran Claims Missile Strike Capability of Up to 1,500 Kilometers - Caspian Post",
+   "src": "Caspian Post",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,902 (+0.4%)   Silver 49.97 (-0.0%)   WTI 87.86 (-1.0%)   DXY 103.22 (+0.0%)   US10Y 5.10 (+2.1%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "13 Nov 10:21 UTC",
   "iso": "2026-11-13T10:21:44.090274+00:00",
   "cat": "oil_supply_tight",
@@ -3300,62 +3356,6 @@
    ],
    "snap": "NOW  Gold 4,141 (+1.6%)   Silver 53.41 (+3.1%)   WTI 85.36 (-6.0%)   DXY 101.66 (-0.6%)   US10Y 4.86 (+0.1%)",
    "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "09 Nov 18:32 UTC",
-  "iso": "2026-11-09T18:32:09.040559+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Saudi-led coalition: Destroyed factory used by Yemen's Houthis to make ballistic missile components.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 4,110 (+0.9%)   Silver 52.65 (+1.6%)   WTI 87.69 (-3.5%)   DXY 101.82 (-0.5%)   US10Y 4.87 (+0.3%)\n\nREALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://www.financialjuice.com/News/9843780/Saudi-led-coalition-Destroyed-factory-used-by-Yemens-Houthis-to-make-ballistic-missile-components.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4110.4,
-   "Silver": 52.65,
-   "WTI": 87.69
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "FinancialJuice: Saudi-led coalition: Destroyed factory used by Yemen's Houthis to make ballistic missile components.",
-   "src": "",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,110 (+0.9%)   Silver 52.65 (+1.6%)   WTI 87.69 (-3.5%)   DXY 101.82 (-0.5%)   US10Y 4.87 (+0.3%)",
-   "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
