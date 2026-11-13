@@ -1,5 +1,61 @@
 [
  {
+  "when": "13 Nov 18:10 UTC",
+  "iso": "2026-11-13T18:10:07.746385+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFinancialJuice: BofA economists add third rate hike to Fed view by March 2027.\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,888 (+0.1%)   Silver 49.08 (-1.8%)   WTI 88.62 (-0.1%)   DXY 103.40 (+0.2%)   US10Y 5.13 (+0.6%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://www.financialjuice.com/News/9851385/BofA-economists-add-third-rate-hike-to-Fed-view-by-March-2027.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3888.3,
+   "Silver": 49.08,
+   "WTI": 88.62
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "FinancialJuice: BofA economists add third rate hike to Fed view by March 2027.",
+   "src": "",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,888 (+0.1%)   Silver 49.08 (-1.8%)   WTI 88.62 (-0.1%)   DXY 103.40 (+0.2%)   US10Y 5.13 (+0.6%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "13 Nov 16:40 UTC",
   "iso": "2026-11-13T16:40:41.121717+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,150 (+1.8%)   Silver 53.45 (+3.2%)   WTI 86.38 (-4.9%)   DXY 101.68 (-0.6%)   US10Y 4.86 (+0.1%)",
    "reality": "",
    "flip": "these deals break \u2014 one broken truce and it all goes back on"
-  }
- },
- {
-  "when": "09 Nov 21:54 UTC",
-  "iso": "2026-11-09T21:54:48.086337+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: Iran's IRGC navy has disabled the navigation systems of 4 large oil tankers attempting to transit the Strait of Hormuz through an illegal route over the past 24 hours, leaving them unable to continue their journey - Press TV\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,144 (+1.7%)   Silver 53.33 (+2.9%)   WTI 86.73 (-4.5%)   DXY 101.69 (-0.6%)   US10Y 4.86 (+0.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://www.financialjuice.com/News/9844022/Irans-IRGC-navy-has-disabled-the-navigation-systems-of-4-large-oil-tankers-attempting-to-transit-the-Strait-of-Hormuz-through-an-illegal-route-over-the-past-24-hours-leaving-them-unable-to-continue-their-journey---Press-TV.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4143.8,
-   "Silver": 53.325,
-   "WTI": 86.73
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "FinancialJuice: Iran's IRGC navy has disabled the navigation systems of 4 large oil tankers attempting to transit the Strait of Hormuz through an illegal route over the past 24 hours, leaving them unable to continue their journey - Press TV",
-   "src": "",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,144 (+1.7%)   Silver 53.33 (+2.9%)   WTI 86.73 (-4.5%)   DXY 101.69 (-0.6%)   US10Y 4.86 (+0.1%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
