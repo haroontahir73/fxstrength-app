@@ -1,5 +1,61 @@
 [
  {
+  "when": "14 Nov 08:00 UTC",
+  "iso": "2026-11-14T08:00:46.711517+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nTanker catches fire after hitting naval mine in Strait of Hormuz - TodayPress.tv  (TodayPress.tv)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,886 (+0.0%)   Silver 49.12 (-1.7%)   WTI 88.56 (-0.2%)   DXY 103.41 (+0.2%)   US10Y 5.15 (+1.0%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQcUZkajBhVDRhd3ZiQXNCaXdrdEZqR0N3SjUyWTJNRVJNb1gtSmJJRG9CQzduc2dSSUVXY2JVQjdDS2tybGtkRTJzaU8wbDdyYlF2TS1Tb0hHWDlpa25tem9pR3lXMGREYmlzcE1jOU9rdzIydEJsSC1GaVo1eXY4Z2FCbHBtLUwyODlTZjNGaDVLQTRER1VaWWhWcw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3886.3,
+   "Silver": 49.121,
+   "WTI": 88.56
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Tanker catches fire after hitting naval mine in Strait of Hormuz - TodayPress.tv",
+   "src": "TodayPress.tv",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,886 (+0.0%)   Silver 49.12 (-1.7%)   WTI 88.56 (-0.2%)   DXY 103.41 (+0.2%)   US10Y 5.15 (+1.0%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "14 Nov 07:28 UTC",
   "iso": "2026-11-14T07:28:30.938614+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,077 (-0.9%)   Silver 52.13 (-0.8%)   WTI 84.78 (-2.4%)   DXY 101.80 (+0.1%)   US10Y 4.90 (+0.8%)",
    "reality": "",
    "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
-  }
- },
- {
-  "when": "10 Nov 13:06 UTC",
-  "iso": "2026-11-10T13:06:19.653236+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nADNOC Gas Explores Alternative Export Routes Amid Strait of Hormuz Disruptions - Egypt Oil & Gas  (Egypt Oil & Gas)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,084 (-0.7%)   Silver 52.23 (-0.6%)   WTI 84.83 (-2.3%)   DXY 101.77 (+0.1%)   US10Y 4.86 (+0.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaEdmaGduc09qbXVwLXd2UHBBcUtUdkxhZHhnTXBrN1NzVW5OXzVFb3hfNXFxVWdwcndIdW9Wa3RQZ2c2dGJCQTBHY09KV1p1MWJTZFB3OHdWMUZmSl9TTGdWdjVIUU5FZ2ZEU1d2NEV6WHJYOUFqUkFDN0VmY2pBUUQ2MnQ4T3M3cjIxd1FqcnZPdldGT3JGZWowbDkwTGRGNjRkRXZZeGQ1emJwSEE?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4084.5,
-   "Silver": 52.23,
-   "WTI": 84.83
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "ADNOC Gas Explores Alternative Export Routes Amid Strait of Hormuz Disruptions - Egypt Oil & Gas",
-   "src": "Egypt Oil & Gas",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,084 (-0.7%)   Silver 52.23 (-0.6%)   WTI 84.83 (-2.3%)   DXY 101.77 (+0.1%)   US10Y 4.86 (+0.1%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
