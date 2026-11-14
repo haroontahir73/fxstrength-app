@@ -1,5 +1,61 @@
 [
  {
+  "when": "14 Nov 19:30 UTC",
+  "iso": "2026-11-14T19:30:28.719973+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nTwo tankers strike mines in Strait of Hormuz - Israel National News  (Israel National News)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,886 (+0.0%)   Silver 49.12 (-1.7%)   WTI 88.56 (-0.2%)   DXY 103.41 (+0.2%)   US10Y 5.15 (+1.0%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE56ZjNiTkF1a3R5MTl2ZVNXQ2dlNklUX0xMQWs1Vlh3dHg5eURIeWFheUJYWG5USkUtQVRYcndmdHpyemtDVmNpYzkxZ0ptWjJYSVctOXpTZjRaQQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3886.3,
+   "Silver": 49.121,
+   "WTI": 88.56
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Two tankers strike mines in Strait of Hormuz - Israel National News",
+   "src": "Israel National News",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,886 (+0.0%)   Silver 49.12 (-1.7%)   WTI 88.56 (-0.2%)   DXY 103.41 (+0.2%)   US10Y 5.15 (+1.0%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "14 Nov 18:51 UTC",
   "iso": "2026-11-14T18:51:34.116311+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,958 (-1.1%)   Silver 51.39 (-0.9%)   WTI 87.27 (+0.9%)   DXY 102.88 (-0.0%)   US10Y 5.00 (+0.3%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "12 Nov 07:59 UTC",
-  "iso": "2026-11-12T07:59:14.275488+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nOil falls as supply glut concerns and easing geopolitical risks weigh on prices - Anadolu Ajans\u0131  (Anadolu Ajans\u0131)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,965 (-0.9%)   Silver 51.23 (-1.2%)   WTI 86.86 (+0.4%)   DXY 102.94 (+0.0%)   US10Y 5.00 (+0.3%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQMW9xdU82SFhaSDNfOW93QW5SMlowTm9HUkYzRzJHOUhlbk5wdENzdlJ2Y0hlTFlWZXRCQmVfRmhZdHZBZVhvMEFMOWx4ZGJ6U2ljeXFQeW5XS2pSZk05X0duYlUxQzhWOGNLUjR6SzNlYlFiN2RaM3hWbjZrVGJpNmUyVm8yWnZ2STgzM0g0YzVXa0FaY1RUSk5xdE9CeWxoSENzTWU5Yk1pZjJBWVRHQktaam5GZXNtcXZDcnBR0gHGAUFVX3lxTFBHUzN3R1BFU3BBcWh4NDZjMkcyeVE3b0Vfc0ZadzdHRVBhSFJ1U2xwYzgxVEpQTTJlV3ZyRlJEV2dsXzZVZ2dFc1dtbGNBM2VGa0lyZGRSVVdIVnR5VFpKT1I0Qm9sa1QyZ05CUmhNV1pxdzc5OVpOVTBJeDdCbDZfRm96WktfNVdtUXdkZkR5ODJpWVA4NERkTmFRNGxrUjJiaXJmamlfTW53ZGpPZl9pdkRQY0ZoMUhKbHFyOGpUSFZ2T01PQQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3965.2,
-   "Silver": 51.235,
-   "WTI": 86.86
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "Oil falls as supply glut concerns and easing geopolitical risks weigh on prices - Anadolu Ajans\u0131",
-   "src": "Anadolu Ajans\u0131",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 3,965 (-0.9%)   Silver 51.23 (-1.2%)   WTI 86.86 (+0.4%)   DXY 102.94 (+0.0%)   US10Y 5.00 (+0.3%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
