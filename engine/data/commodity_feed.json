@@ -1,5 +1,61 @@
 [
  {
+  "when": "14 Nov 11:02 UTC",
+  "iso": "2026-11-14T11:02:31.762120+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nAnother Tanker Catches Fire After Hitting Mine in Strait of Hormuz - - WANA News Agency  (WANA News Agency)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,886 (+0.0%)   Silver 49.12 (-1.7%)   WTI 88.56 (-0.2%)   DXY 103.41 (+0.2%)   US10Y 5.15 (+1.0%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPM2dGdHZEblVXN1RvVG93a2tuaW5qTlNfYUM1M201N1hKWkhPSGtqRnpSbVFhcEtMX05KYW5rYUdNV09OMDlkSDBlUUlQWTNObjNpWHVjYzVTbXBYNHIxVFltV1M5Q0FoYlZNa0tSaEpiOGVlSld0aUhWNloxSW1MZ2N1Vkx1U0ozbG9zV1lWUQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3886.3,
+   "Silver": 49.121,
+   "WTI": 88.56
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Another Tanker Catches Fire After Hitting Mine in Strait of Hormuz - - WANA News Agency",
+   "src": "WANA News Agency",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,886 (+0.0%)   Silver 49.12 (-1.7%)   WTI 88.56 (-0.2%)   DXY 103.41 (+0.2%)   US10Y 5.15 (+1.0%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "14 Nov 10:13 UTC",
   "iso": "2026-11-14T10:13:55.920577+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,077 (-0.9%)   Silver 52.13 (-0.8%)   WTI 84.78 (-2.4%)   DXY 101.80 (+0.1%)   US10Y 4.90 (+0.8%)",
    "reality": "",
    "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
-  }
- },
- {
-  "when": "10 Nov 13:35 UTC",
-  "iso": "2026-11-10T13:35:50.293575+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\n25 basis points is the unanimous call for December Fed hike \u2013 Reuters poll - FXStreet  (FXStreet)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 4,077 (-0.9%)   Silver 52.13 (-0.8%)   WTI 84.78 (-2.4%)   DXY 101.80 (+0.1%)   US10Y 4.90 (+0.8%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNYjFXZmw5WjRNR3YtSWJ5WTNhNVF0YTdGNk95Y09BQU1rU2FFaXdvQTJOT2M2YUh0QlVwbDlOMGFobXFBcFpzNHpYSVVNRTdoTkc1aWFPTWw5OS15bEROM0llRlJ4ekpJcEtVcWt4anZJTmx3T0ZrNHB2cFF5SHk0WDJaMlpmbURZdEdDd1hqQ3JzRUhhVkhybmE3ckZhb2VNaUpnOFRlM0wtNjZvNnRKQUtyOFlKQQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4076.9,
-   "Silver": 52.135,
-   "WTI": 84.78
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "25 basis points is the unanimous call for December Fed hike \u2013 Reuters poll - FXStreet",
-   "src": "FXStreet",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 4,077 (-0.9%)   Silver 52.13 (-0.8%)   WTI 84.78 (-2.4%)   DXY 101.80 (+0.1%)   US10Y 4.90 (+0.8%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
