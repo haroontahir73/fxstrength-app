@@ -1,5 +1,61 @@
 [
  {
+  "when": "14 Nov 10:13 UTC",
+  "iso": "2026-11-14T10:13:55.920577+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: IAEA: electrical grid instability from military action caused power cuts at some nuclear units in Ukraine this week\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,886 (+0.0%)   Silver 49.12 (-1.7%)   WTI 88.56 (-0.2%)   DXY 103.41 (+0.2%)   US10Y 5.15 (+1.0%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://www.financialjuice.com/News/9852167/IAEA-electrical-grid-instability-from-military-action-caused-power-cuts-at-some-nuclear-units-in-Ukraine-this-week.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3886.3,
+   "Silver": 49.121,
+   "WTI": 88.56
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "FinancialJuice: IAEA: electrical grid instability from military action caused power cuts at some nuclear units in Ukraine this week",
+   "src": "",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,886 (+0.0%)   Silver 49.12 (-1.7%)   WTI 88.56 (-0.2%)   DXY 103.41 (+0.2%)   US10Y 5.15 (+1.0%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "14 Nov 08:00 UTC",
   "iso": "2026-11-14T08:00:46.711517+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,077 (-0.9%)   Silver 52.13 (-0.8%)   WTI 84.78 (-2.4%)   DXY 101.80 (+0.1%)   US10Y 4.90 (+0.8%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "10 Nov 13:35 UTC",
-  "iso": "2026-11-10T13:35:49.846148+00:00",
-  "cat": "inflation_hot",
-  "title": "GOLD+SILVER SHORT | INFLATION - running hot",
-  "body": "\ud83c\udf21 INFLATION \u2014 running hot\n\nInflation Just Came In Hotter Than Expected. That Is a Warning to Retirees That Kevin Warsh's Fed Is Not Done Raising Rates - 24/7 Wall St.  (24/7 Wall St.)\n\nWHY: You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.\n\nGOLD   \u2193\u2193   look for shorts - the rates reaction beats the hedge story\n        [some evidence - right 50% of 485 past cases]\nSILVER \u2193\u2193   look for shorts - same, amplified\n        [some evidence - right 52% of 485 past cases]\nOIL    \u2192    no clean read - usually a cause, not a victim\n\nNOW  Gold 4,077 (-0.9%)   Silver 52.13 (-0.8%)   WTI 84.78 (-2.4%)   DXY 101.80 (+0.1%)   US10Y 4.90 (+0.8%)\n\nFLIP: if inflation is coming from oil AND growth is dying, gold turns up instead",
-  "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxNemdMS1E5N19SODZYaDZLcm9TRjBqMnRlVXN0S3I3MUV5aHBlT3VMOVpsWVBvRzBydll4YTg5dkZJVjZUNjFCdEp5aTVvdzlUWVZ1SEVBZ2dUcjZPbVRpRUFYaDlwU3RDeFJZa2xGVzVyU1IzTVB0T0RxVU5WcjZiOWZPclVNYXBwSnRYaGEtd3ZVODd3UmR0QktyQ2NlVlZpSFk1SjM5M2NwZUlRbU1MeFZnUUNpd2J3S2pHRVBrM2tYcnV6NnpHSEJDdGQ5c0JiUWxDcFNOYUh5WXNBQWM1N2hzNnZEZEdGVUxRZlAtUnp1TjdhUnlVZw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4076.9,
-   "Silver": 52.135,
-   "WTI": 84.78
-  },
-  "parts": {
-   "emoji": "\ud83c\udf21",
-   "label": "INFLATION \u2014 running hot",
-   "headline": "Inflation Just Came In Hotter Than Expected. That Is a Warning to Retirees That Kevin Warsh's Fed Is Not Done Raising Rates - 24/7 Wall St.",
-   "src": "24/7 Wall St.",
-   "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "the rates reaction beats the hedge story",
-     "record": "some evidence - right 50% of 485 past cases"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193\u2193",
-     "dir": "down",
-     "strength": 2,
-     "call": "look for shorts",
-     "reason": "same, amplified",
-     "record": "some evidence - right 52% of 485 past cases"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "usually a cause, not a victim",
-     "record": ""
-    }
-   ],
-   "snap": "NOW  Gold 4,077 (-0.9%)   Silver 52.13 (-0.8%)   WTI 84.78 (-2.4%)   DXY 101.80 (+0.1%)   US10Y 4.90 (+0.8%)",
-   "reality": "",
-   "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
   }
  }
 ]
