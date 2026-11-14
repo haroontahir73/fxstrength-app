@@ -1,5 +1,61 @@
 [
  {
+  "when": "14 Nov 03:16 UTC",
+  "iso": "2026-11-14T03:16:41.769383+00:00",
+  "cat": "rates_down",
+  "title": "GOLD STRONG LONG, SILVER LONG | FED - leaning toward rate cuts",
+  "body": "\ud83d\udcb8 FED \u2014 leaning toward rate cuts\n\n[Weekend Money] \"U.S. Treasury Yields to Peak Early Next Year... Increase Long-Term Bond Holdings Ahead of 2028 Rate Cuts\" - \uc544\uc2dc\uc544\uacbd\uc81c  (\uc544\uc2dc\uc544\uacbd\uc81c)\n\nWHY: Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.\n\nGOLD   \u2191\u2191\u2191  STRONG \u2014 go hunt longs - cheaper money is gold's best friend\n        [NOT TESTED - no history to judge this on]\nSILVER \u2191\u2191   look for longs - follows gold up, only harder (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2191    mild long bias - weaker dollar + a bit more growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,888 (+0.1%)   Silver 48.65 (-2.6%)   WTI 88.92 (+0.2%)   DXY 103.41 (+0.2%)   US10Y 5.15 (+1.0%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: a hot inflation print would kill the cut hopes",
+  "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1QRXFZUnZnWXhpVHgxSG9FVjYyOHdzdWhIWnk0VjFyQ3pteW5Xanh2UnlJdmNiX3BOb0U0WFZsaTR2T3AweFZJQ3hiRURVNHNrVHBzUHZQUTVVNUJFV2lkaFpBdXc?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3887.6,
+   "Silver": 48.65,
+   "WTI": 88.92
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb8",
+   "label": "FED \u2014 leaning toward rate cuts",
+   "headline": "[Weekend Money] \"U.S. Treasury Yields to Peak Early Next Year... Increase Long-Term Bond Holdings Ahead of 2028 Rate Cuts\" - \uc544\uc2dc\uc544\uacbd\uc81c",
+   "src": "\uc544\uc2dc\uc544\uacbd\uc81c",
+   "why": "Lower US rates mean cash pays you less, so holding gold costs you nothing in lost interest. The dollar usually weakens too, and everything priced in dollars gets cheaper for the rest of the world.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "cheaper money is gold's best friend",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "follows gold up, only harder (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "weaker dollar + a bit more growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,888 (+0.1%)   Silver 48.65 (-2.6%)   WTI 88.92 (+0.2%)   DXY 103.41 (+0.2%)   US10Y 5.15 (+1.0%)",
+   "reality": "",
+   "flip": "a hot inflation print would kill the cut hopes"
+  }
+ },
+ {
   "when": "14 Nov 01:12 UTC",
   "iso": "2026-11-14T01:12:43.084660+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 4,083 (-0.8%)   Silver 52.45 (-0.2%)   WTI 85.07 (-2.0%)   DXY 101.72 (+0.1%)   US10Y 4.86 (+0.1%)",
    "reality": "",
    "flip": "these deals break \u2014 one broken truce and it all goes back on"
-  }
- },
- {
-  "when": "10 Nov 10:41 UTC",
-  "iso": "2026-11-10T10:41:40.169799+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nGlobal carbon emissions projected to fall as Iran war disrupts oil - WCNC  (WCNC)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 4,083 (-0.8%)   Silver 52.45 (-0.2%)   WTI 85.22 (-1.9%)   DXY 101.72 (+0.1%)   US10Y 4.86 (+0.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNZnBzdnZpamIwTE9aREdBcTlrcTJaX1FKTjR2Mkt5bHplTldEMXJzRmdFN3ZXZm5LQ3d4OFpoRnhCYmN6anp1SWMxN0dwc0FEZk92VXhYdVRDYWdRUEZ6X1pIRjBIREVTOEd5N0tJRkk0bXl3djRJY0NVaTBldUxRZmZvU0dfUFpPckVQWVZndVRQU2FmWDFCOTZ0aDFiY3VmYy1lbTQ1NUpXNlcwNzBXRmxqQUptR3hjdGJoSFV2eVJId05wa0Z5YTRNMndMTVk0Zmx3UWo4LU96Q3l1cmZDNTRNU0t3Vko4WllqbjdYeE1Qai1N?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 4082.7,
-   "Silver": 52.45,
-   "WTI": 85.22
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Global carbon emissions projected to fall as Iran war disrupts oil - WCNC",
-   "src": "WCNC",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 4,083 (-0.8%)   Silver 52.45 (-0.2%)   WTI 85.22 (-1.9%)   DXY 101.72 (+0.1%)   US10Y 4.86 (+0.1%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
