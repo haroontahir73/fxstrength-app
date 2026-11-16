@@ -1,5 +1,61 @@
 [
  {
+  "when": "16 Nov 12:34 UTC",
+  "iso": "2026-11-16T12:34:42.489959+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussia faces largest Ukrainian drone attack of war as 1,336 drones are intercepted - Ynetnews  (Ynetnews)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,875 (-0.3%)   Silver 47.55 (-3.0%)   WTI 87.77 (-0.9%)   DXY 103.45 (+0.0%)   US10Y 5.15 (+1.0%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBVQUp0UEgxUU5SS3ktc2xTdXRXQjlhX19ZQ3g3ck02VlA4Z2hsQ0NUOVNkOFFITGVWUWppc0tRTlUxTE0xNmswbFBMMlVUdENYcm8wR2NTRQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3874.6,
+   "Silver": 47.545,
+   "WTI": 87.77
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Russia faces largest Ukrainian drone attack of war as 1,336 drones are intercepted - Ynetnews",
+   "src": "Ynetnews",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,875 (-0.3%)   Silver 47.55 (-3.0%)   WTI 87.77 (-0.9%)   DXY 103.45 (+0.0%)   US10Y 5.15 (+1.0%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "16 Nov 11:15 UTC",
   "iso": "2026-11-16T11:15:20.610763+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,886 (+0.0%)   Silver 49.12 (-1.7%)   WTI 88.42 (-0.4%)   DXY 103.32 (+0.1%)   US10Y 5.13 (+0.5%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "13 Nov 14:51 UTC",
-  "iso": "2026-11-13T14:51:35.213392+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nCan Netanyahu launch a strike on Iran before he leaves? - Al Jazeera  (Al Jazeera)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,897 (+0.3%)   Silver 49.76 (-0.4%)   WTI 89.25 (+0.6%)   DXY 103.20 (+0.0%)   US10Y 5.17 (+1.2%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPTDVpZXM0aE93SXF5aVY4RzJ0VWpkdExxa09ab0VsdEpkUWVLRDJWZk9QbzJ1ZDRRRXRTaHBxYUlPcEp4VlhqY1JnVlVEaTU3UFBaVk0yajY4MWlkZm1kSmZIOWVSampraEd5TnZ1TnlNVWJER2g5R0p3cl8ycmRraEg5S2ktaTV4OTFQaGJlbTVta21SYlpPM1BnUzLSAaIBQVVfeXFMTS1nUFo2cWt1eGhEcG9uNTQ3R05sMzZzSU9seGsweFlYMFRlNXBQS21uRU44SEtrczhpekRVaW11Uk15N0tkbzhMcENKWk5FOXdLcmh0MGhwaEdRbGVkdzFINUo4MjNyVld1ZXVXQWQ2c3lvWUFoZlY2ZFgtcEJUSjREVFpZZDdoUnFwNGc0bGlSZXAyWHluNEJDTC1DZjNlRDFn?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3897.3,
-   "Silver": 49.755,
-   "WTI": 89.25
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Can Netanyahu launch a strike on Iran before he leaves? - Al Jazeera",
-   "src": "Al Jazeera",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,897 (+0.3%)   Silver 49.76 (-0.4%)   WTI 89.25 (+0.6%)   DXY 103.20 (+0.0%)   US10Y 5.17 (+1.2%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
