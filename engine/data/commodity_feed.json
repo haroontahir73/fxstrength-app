@@ -1,5 +1,61 @@
 [
  {
+  "when": "16 Nov 04:11 UTC",
+  "iso": "2026-11-16T04:11:12.733372+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold stays near YTD low as USD gains support from Fed rate hike bets and Middle East tensions - www.tmgm.com  (www.tmgm.com)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,878 (-0.2%)   Silver 47.59 (-2.9%)   WTI 88.31 (-0.3%)   DXY 103.44 (+0.0%)   US10Y 5.15 (+1.0%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPVjFWWUFUbjZYX3l3M0hZcEJIX3kwMHpqQWZqT2tDd0kxeXY0blFlWE1RNEZzQkgyR2JYRzlmNEJEQXp5c3VIeUhLZGNTQmJvNXpUZ2M2SGk0Zmx5NWNSRUNyZnVSWWE0WGExZ1BLenp4dzZLZTh0aUxSd2h1LXg2aTVKYkt4bzk2Q2hvSEUzblFKVHN4YkFSMDN4NV9RdXcxMmJsMWhTT1NmVVVZczV3aURsQVpjdXVQN2Z0RjVxd2lQU0dJN0JPZExWR1d5YVhNN3h2Vkx1YUNTQWJpaldLSnFTbFZBZw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3878.0,
+   "Silver": 47.585,
+   "WTI": 88.31
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Gold stays near YTD low as USD gains support from Fed rate hike bets and Middle East tensions - www.tmgm.com",
+   "src": "www.tmgm.com",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,878 (-0.2%)   Silver 47.59 (-2.9%)   WTI 88.31 (-0.3%)   DXY 103.44 (+0.0%)   US10Y 5.15 (+1.0%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "16 Nov 03:32 UTC",
   "iso": "2026-11-16T03:32:26.591089+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,913 (+0.7%)   Silver 50.41 (+0.9%)   WTI 88.29 (-0.5%)   DXY 103.16 (-0.0%)   US10Y 5.10 (+2.1%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "13 Nov 02:02 UTC",
-  "iso": "2026-11-13T02:02:51.770540+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nVolgograd oil refinery, Rostov-on-Don production facility in flames following Ukrainian drone attack - Yahoo  (Yahoo)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,913 (+0.7%)   Silver 50.60 (+1.3%)   WTI 88.19 (-0.6%)   DXY 103.13 (+0.2%)   US10Y 5.10 (+2.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNZjNIdnp4Snl6eFhPOFM0ZndtZ1NiRTJsaXQyZU8wRWtPVXMxaXF6UmplOG5VRHdnNGd1WE5HalhLR2lteFRxZk0xclFLR2VfVkZ0TWhvTHBULXpNZ1ZXMHYxZW1YWmFHOHZzN3B0TW4tVEo1dFJoV2Q3ZTdQajByNldtWjhhM3ZHc3Nmb3Z5RTlFUnBP?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3912.7,
-   "Silver": 50.6,
-   "WTI": 88.19
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Volgograd oil refinery, Rostov-on-Don production facility in flames following Ukrainian drone attack - Yahoo",
-   "src": "Yahoo",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,913 (+0.7%)   Silver 50.60 (+1.3%)   WTI 88.19 (-0.6%)   DXY 103.13 (+0.2%)   US10Y 5.10 (+2.1%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
