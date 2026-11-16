@@ -1,5 +1,61 @@
 [
  {
+  "when": "16 Nov 19:00 UTC",
+  "iso": "2026-11-16T19:00:30.945514+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nMalaysia Is Accused of Playing 'Decisive Role' in Helping Iran\u2019s \u2018Shadow Fleet\u2019 Evade US Oil Blockade - freebeacon.com  (freebeacon.com)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,856 (-0.8%)   Silver 46.97 (-4.2%)   WTI 85.48 (-3.5%)   DXY 103.60 (+0.2%)   US10Y 5.12 (-0.6%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNR1lJUEtKOE9uQVVHeXpST2o2UXIzQWVMYkU5Vlp4VHVBNjN0LXNSTEJHNDZ2N2tUVUdvdnhvUWNZb1plYk9nRWlRcGstVmVoZC1FZFZ6dGN2eHd6NnRmeXByQVhQdUNscHJqMUVoUmRxT0lQel9sSlJyQlZzWlJrVHdkejltdFhaUGEyclVYbWgxcFJRODVncjBvbkRzYXg0S1dmckZ3bmNLNzNmVXhKTWlBVWN2TFZSeHFweVc4SmpMZEROWUUydTFKTlhVR1IzekNleA?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3856.4,
+   "Silver": 46.965,
+   "WTI": 85.48
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Malaysia Is Accused of Playing 'Decisive Role' in Helping Iran\u2019s \u2018Shadow Fleet\u2019 Evade US Oil Blockade - freebeacon.com",
+   "src": "freebeacon.com",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,856 (-0.8%)   Silver 46.97 (-4.2%)   WTI 85.48 (-3.5%)   DXY 103.60 (+0.2%)   US10Y 5.12 (-0.6%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "16 Nov 18:01 UTC",
   "iso": "2026-11-16T18:01:06.658517+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,883 (-0.0%)   Silver 48.99 (-2.0%)   WTI 88.68 (-0.1%)   DXY 103.38 (+0.2%)   US10Y 5.15 (+0.9%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "13 Nov 19:06 UTC",
-  "iso": "2026-11-13T19:06:18.015379+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nAn apartment building damaged during a Russian airstrike, amid Russia's attack on Ukraine, in Zaporizhzhia, Ukraine November 13, 2026. REUTERS/Sergiy Chalyi - The Lufkin Daily News  (The Lufkin Daily News)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,885 (-0.0%)   Silver 49.02 (-1.9%)   WTI 88.74 (+0.0%)   DXY 103.38 (+0.2%)   US10Y 5.14 (+0.8%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiqAJBVV95cUxOek1mejZNNWlvX05NN0RQV0JSS1J6akdZN0l6ZDA5VnBETjhhczNTbFU5LU9lM0JoR2l3UEh0U2lkYXpxSTVxVEJGQ2NCTWtNT2VsWllpMTRfQk5mb3RHZEt4U2NIQTFOa0RlOWpGQVlyX2puU0V6MzBlZXpZTXhFUXhtWC1HdDVWRHZwM2FORUt1c2NQdHlsV2tjY3VGcjAtOGN2b3Q1Q1JiN2VONm1MeXhxMkdBNHpMQUZ4ODJTak5xcE9wbXNEOG9xeHZGVmcxYjVmdjMtNFlWWVVTX01OQ1dIR0tjV3IxWVZhajYxRDFoM20xWWtWdmZfUXdWSEt5cDdaSHRKaXpiTTdmTWpqQk1hYTFRYjdqQkVhbVN0VkE1V0tjaWxNOA?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3884.6,
-   "Silver": 49.015,
-   "WTI": 88.74
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "An apartment building damaged during a Russian airstrike, amid Russia's attack on Ukraine, in Zaporizhzhia, Ukraine November 13, 2026. REUTERS/Sergiy Chalyi - The Lufkin Daily News",
-   "src": "The Lufkin Daily News",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,885 (-0.0%)   Silver 49.02 (-1.9%)   WTI 88.74 (+0.0%)   DXY 103.38 (+0.2%)   US10Y 5.14 (+0.8%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
