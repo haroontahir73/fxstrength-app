@@ -1,5 +1,61 @@
 [
  {
+  "when": "18 Nov 12:53 UTC",
+  "iso": "2026-11-18T12:53:46.310227+00:00",
+  "cat": "oil_supply_loose",
+  "title": "OIL STRONG SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nOil prices slip as U.S. inventory build and supply glut fears outweigh Mideast risks - Quartz  (Quartz)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,754 (-2.8%)   Silver 45.26 (-4.3%)   WTI 84.20 (-2.1%)   DXY 103.87 (+0.4%)   US10Y 5.10 (-0.4%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE54TkUtUllubzRhZVpnNlRRQ3pWZUt5aW92MTNVWUpCM242SmljNTNwa3lWd3JScHBQdmtCNTBLOENYTm1nQ0ZjXzBpUG9IVG5DbWNHSzk3OWtScGFtSVRKY0tHajJtYi1pTlJIcWduNkpSbGw4dGI0?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3754.2,
+   "Silver": 45.255,
+   "WTI": 84.2
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "Oil prices slip as U.S. inventory build and supply glut fears outweigh Mideast risks - Quartz",
+   "src": "Quartz",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "extra barrels push the price down",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,754 (-2.8%)   Silver 45.26 (-4.3%)   WTI 84.20 (-2.1%)   DXY 103.87 (+0.4%)   US10Y 5.10 (-0.4%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
   "when": "18 Nov 12:50 UTC",
   "iso": "2026-11-18T12:50:27.826019+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,878 (-0.2%)   Silver 47.59 (-2.9%)   WTI 88.31 (-0.3%)   DXY 103.44 (+0.0%)   US10Y 5.15 (+1.0%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "16 Nov 03:32 UTC",
-  "iso": "2026-11-16T03:32:26.591089+00:00",
-  "cat": "oil_supply_tight",
-  "title": "TALK | OIL LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nIran Reports Another Oil Tanker Catching Fire After Naval Mine Strike In Strait Of Hormuz, Warns Ships Against - Free Press Journal  (Free Press Journal)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191   look for longs - the direct hit (talk, not action yet)\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,872 (-0.4%)   Silver 47.44 (-3.2%)   WTI 87.89 (-0.8%)   DXY 103.45 (+0.0%)   US10Y 5.15 (+1.0%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPejF4c3dNR3BoeUgxSW9jWjhYb2tJeFRuMko0X1p4UWl5XzFpcTgzaWd4Ri1tWGxoQktxQ3hOV2M5YWVuQ1o2QUdoQXYwN216MzFTbUtiX1pabElBMjhBTlJGZE8yRzFNZFJEcXgzemxpbTJaa2c2QXA2SnNLaUpVNkhYWWZtaTVac0c5OXQtU0dZVkd1bnVJRXV0UlpHbFNqMjlTbE5UYXRRWjRQaFVfSENiY04tdThlRHlCNUQyRnJzNEczQkx4LVgyb1BITVRhSlhCUVVqV0c2OHQ5VGktUEhGUXVUUHgyeEEwSV9EaDI2YWM1UXNCenJrazdod21LamxJY0pCUkRzUdIBjwJBVV95cUxQWGZJWUdLVXlDRjlUWjhzX3dFcDhTNkVtd3ZHZTE3dkR0TzhSc1V0VG1aRl9Yd0NicHhvVXFoU2tIR2RUa2c0Q3pIWkNrWko3WTM3MUJNSmlsTEhDWnpLMEpjSnd5dWFBZ3RXbDktNThleWpZMDNWZGQ3cndfUjRMeUt2MlhhSGpoRXhBaGk0VjI1ZXQ3eDExOEpSNGtJX25Ia1hCV0RCSlhiSWc3b3lVRnkxa0RwUFNXSDczRlhkSDY3ZWRWTDRVZ09MQnRKX2NUV3FybG1HQXVvVFJFYXcwTUNoMWFOUTdwLUFMQkM2WWZkaVJldVR4Ulc4V3ppY055ZGdkOXpDcU1GMmUtbDRr?oc=5",
-  "talk": true,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3872.4,
-   "Silver": 47.44,
-   "WTI": 87.89
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Iran Reports Another Oil Tanker Catching Fire After Naval Mine Strike In Strait Of Hormuz, Warns Ships Against - Free Press Journal",
-   "src": "Free Press Journal",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "the direct hit (talk, not action yet)",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,872 (-0.4%)   Silver 47.44 (-3.2%)   WTI 87.89 (-0.8%)   DXY 103.45 (+0.0%)   US10Y 5.15 (+1.0%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
