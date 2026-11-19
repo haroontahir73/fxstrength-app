@@ -1,12 +1,12 @@
 {
-"news_theme:geo": 1795064723.7452168,
-"news_theme:energy": 1795055372.6254303,
-"news_theme_kw:energy:strait of hormuz": 1795055372.6254303,
+"news_theme:geo": 1795074581.838842,
+"news_theme:energy": 1795074582.288765,
+"news_theme_kw:energy:strait of hormuz": 1795074582.288765,
 "news_theme:macro": 1794971248.7489128,
 "news_theme_kw:macro:hawkish": 1794971248.7489128,
 "news_theme:tariff": 1795065703.9903226,
 "news_theme_kw:tariff:tariffs on": 1795065703.9903226,
-"news_theme_kw:geo:blockade": 1795028747.9821947,
+"news_theme_kw:geo:blockade": 1795074581.838842,
 "news_theme_kw:tariff:new tariff": 1794629110.146322,
 "news_theme_kw:geo:strikes on": 1795064723.7452168,
 "news_theme_kw:geo:invasion": 1794789339.4803424,
@@ -3011,5 +3011,8 @@
 "84adbd5eb142ae64": 1795064723.3948877,
 "9d406c76147d4b6a": 1795064723.3954012,
 "6553021a73874b4b": 1795065703.6301615,
-"105d7e14b48eea9a": 1795066287.0157855
+"105d7e14b48eea9a": 1795066287.0157855,
+"e4edca604cd43c01": 1795074581.390634,
+"b9179822133520c7": 1795074581.8390343,
+"50ce0e6eab1b3245": 1795074582.2888308
 }
