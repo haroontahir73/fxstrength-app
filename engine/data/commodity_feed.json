@@ -1,5 +1,61 @@
 [
  {
+  "when": "19 Nov 11:15 UTC",
+  "iso": "2026-11-19T11:15:24.324358+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nReport: Netanyahu Urging Trump to Strike Iran as US, IDF Military Leaders Discuss Strategy - CBN.com  (CBN.com)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,735 (-0.2%)   Silver 45.13 (+0.3%)   WTI 82.46 (-1.0%)   DXY 103.61 (-0.2%)   US10Y 5.07 (-0.7%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNSWpKWUJyX1pheGREdURRU0dlSTJtRl9GQkNBekZHUEt3Rjd6SmVkRzlyQUpSU05DOVJ2RVNEUXJWQVczbmpoSFBaQTY3U2ZGTWxpTUZXM19ET1VabldFd1pxVVlna09yRVZIb09XaWMzenBhNnZTQ2ZUM1QwRHBnWW1pZl9IaXV3UUVJTWVDQ3lzRWI3ajFtbDY5Q1MyaFh5Rk5fVUY3b3ZqZ3JjT1BF?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3734.8,
+   "Silver": 45.13,
+   "WTI": 82.46
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Report: Netanyahu Urging Trump to Strike Iran as US, IDF Military Leaders Discuss Strategy - CBN.com",
+   "src": "CBN.com",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,735 (-0.2%)   Silver 45.13 (+0.3%)   WTI 82.46 (-1.0%)   DXY 103.61 (-0.2%)   US10Y 5.07 (-0.7%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "19 Nov 10:06 UTC",
   "iso": "2026-11-19T10:06:35.023370+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,884 (+0.8%)   Silver 47.73 (+2.0%)   WTI 85.09 (-0.7%)   DXY 103.45 (-0.1%)   US10Y 5.12 (-0.6%)",
    "reality": "REALITY CHECK: gold firm while shares fall - the safety trade IS working, so the textbook read below holds.",
    "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
-  }
- },
- {
-  "when": "17 Nov 04:36 UTC",
-  "iso": "2026-11-17T04:36:12.698386+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nMiddle East latest: Tanker attacked in Strait of Hormuz off Oman, UKMTO says - The National  (The National)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,871 (+0.5%)   Silver 47.31 (+1.1%)   WTI 84.96 (-0.9%)   DXY 103.49 (-0.1%)   US10Y 5.12 (-0.6%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQbTl5RWVWNzJOd1BBVC1RZmR6aHBLUFZTaEtvZkFYVEtzV2N4c01TS05Oek15M2U2NS1lZk5MQkI4QU8zSm9va1JlU213c0dwS3doMXJ6N1RSZVA3OWUzbVI3Vk16MGtobTRKVTNQRFJrMTRvQVlNTzFRY2Z3dG82MWRGb21pNjF0djB0VjFGVVplRE9IRVNoY2ZtQjVkRkk?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3871.1,
-   "Silver": 47.315,
-   "WTI": 84.96
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Middle East latest: Tanker attacked in Strait of Hormuz off Oman, UKMTO says - The National",
-   "src": "The National",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,871 (+0.5%)   Silver 47.31 (+1.1%)   WTI 84.96 (-0.9%)   DXY 103.49 (-0.1%)   US10Y 5.12 (-0.6%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
