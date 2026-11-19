@@ -226,6 +226,13 @@ def _socrata_recent(url, codes, days=21):
     return json.loads(_get(q).decode("utf-8", "replace"))
 
 
+def latest_socrata_date():
+    """Newest report date in the CFTC TFF dataset (YYYY-MM-DD), one tiny query."""
+    q = f"{SOCRATA_TFF}?%24select=max%28report_date_as_yyyy_mm_dd%29%20AS%20d"
+    rows = json.loads(_get(q, tries=2, timeout=30).decode("utf-8", "replace"))
+    return (rows[0].get("d") or "")[:10] or None
+
+
 def _current_from_socrata():
     """Latest complete weekly report for every tracked contract, from CFTC. Returns
     ({ccy: row}, {sym: row}, {extra_sym: row}, report_date) or raises. `extra` (crypto) is
