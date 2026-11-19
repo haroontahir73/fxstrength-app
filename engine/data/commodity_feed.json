@@ -1,5 +1,61 @@
 [
  {
+  "when": "19 Nov 17:16 UTC",
+  "iso": "2026-11-19T17:16:32.463969+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold Slides Below $3,700 as Fed Rate-Hike Talk Raises the Cost of Holding a Non-Yielding Metal - BigGo Finance  (BigGo Finance)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,672 (-1.9%)   Silver 44.07 (-2.1%)   WTI 82.85 (-0.5%)   DXY 103.88 (+0.0%)   US10Y 5.06 (-0.0%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB2RC1tTG5JMVFfZmMteGNWWm9zNjJWanN2ajVxVnRFc3V3NDFrcXgtVDRmYWZXOXZEV05WZk83V0MxUGxicjEwOW1mekhTaGJLWjQxUUFCNl9yT01ZUThkZWEwc1JjemVYUVF2SEp3c1BXc3JVTWc?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3672.4,
+   "Silver": 44.07,
+   "WTI": 82.85
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Gold Slides Below $3,700 as Fed Rate-Hike Talk Raises the Cost of Holding a Non-Yielding Metal - BigGo Finance",
+   "src": "BigGo Finance",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,672 (-1.9%)   Silver 44.07 (-2.1%)   WTI 82.85 (-0.5%)   DXY 103.88 (+0.0%)   US10Y 5.06 (-0.0%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "19 Nov 13:50 UTC",
   "iso": "2026-11-19T13:50:19.012799+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,859 (+0.2%)   Silver 47.39 (+1.3%)   WTI 85.99 (+0.3%)   DXY 103.61 (+0.1%)   US10Y 5.12 (-0.6%)",
    "reality": "",
    "flip": "one hot print reverses the whole thing"
-  }
- },
- {
-  "when": "17 Nov 11:04 UTC",
-  "iso": "2026-11-17T11:04:04.954049+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nThis Isn\u2019t a Crypto Crash. Fed Hike Bets Are Hitting Everything - BeInCrypto  (BeInCrypto)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,856 (+0.1%)   Silver 47.34 (+1.2%)   WTI 86.04 (+0.4%)   DXY 103.61 (+0.1%)   US10Y 5.12 (-0.6%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5MblMyeXUtS2VjS1pobTN1Wm84TGhnRmdpYmx0LWRhWGdNZlNEbWN6bzdHd2tuM2VQOHpCM1g3QlduTE5MTkFHSzFNNVM5dmg3bjVEVUhyVEhsOXNib0xkRzduUE9OUQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3855.9,
-   "Silver": 47.34,
-   "WTI": 86.04
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "This Isn\u2019t a Crypto Crash. Fed Hike Bets Are Hitting Everything - BeInCrypto",
-   "src": "BeInCrypto",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 3,856 (+0.1%)   Silver 47.34 (+1.2%)   WTI 86.04 (+0.4%)   DXY 103.61 (+0.1%)   US10Y 5.12 (-0.6%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
