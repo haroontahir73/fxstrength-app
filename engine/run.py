@@ -117,6 +117,20 @@ def run(mode):
         if missing:
             print(f"COT: cached cot.json predates {', '.join(missing)} - refetching")
             cot = None
+        # A delayed CFTC release (e.g. a US holiday pushes Friday's report to Monday) lands
+        # after the Saturday `cot` run, and daily runs used to reuse the old week until the
+        # next Saturday. If the cached report is over a week old, ask CFTC (one tiny query)
+        # whether a newer week exists and refetch only then.
+        if cot is not None:
+            try:
+                rd = (cot.get("currencies", {}).get("EUR") or {}).get("report_date")
+                if rd and (dt.date.today() - dt.date.fromisoformat(rd)).days > 7:
+                    latest = fetch_cot.latest_socrata_date()
+                    if latest and latest > rd:
+                        print(f"COT: cached report {rd} but CFTC has {latest} - refetching")
+                        cot = None
+            except Exception as e:
+                print(f"COT: freshness check skipped ({type(e).__name__}: {e})")
     if cot is None:
         if mode == "cot":
             print("COT:")
