@@ -1,5 +1,61 @@
 [
  {
+  "when": "20 Nov 04:40 UTC",
+  "iso": "2026-11-20T04:40:05.272613+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Ballistic missile strikes damage multiple bridges in Ukraine's Kyiv: mayor\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,531 (-4.2%)   Silver 41.44 (-6.5%)   WTI 82.88 (-0.4%)   DXY 103.81 (-0.1%)   US10Y 5.05 (-0.3%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://www.financialjuice.com/News/9861157/Ballistic-missile-strikes-damage-multiple-bridges-in-Ukraines-Kyiv-mayor.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3531.3,
+   "Silver": 41.435,
+   "WTI": 82.88
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "FinancialJuice: Ballistic missile strikes damage multiple bridges in Ukraine's Kyiv: mayor",
+   "src": "",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,531 (-4.2%)   Silver 41.44 (-6.5%)   WTI 82.88 (-0.4%)   DXY 103.81 (-0.1%)   US10Y 5.05 (-0.3%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "20 Nov 04:33 UTC",
   "iso": "2026-11-20T04:33:33.501389+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,852 (-0.0%)   Silver 47.29 (+1.1%)   WTI 85.61 (-0.1%)   DXY 103.56 (+0.0%)   US10Y 5.10 (-0.4%)",
    "reality": "",
    "flip": "a hot inflation print would kill the cut hopes"
-  }
- },
- {
-  "when": "17 Nov 22:34 UTC",
-  "iso": "2026-11-17T22:34:28.603226+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nCENTCOM chief visits Israel amid reports of US preparations for possible attack on Iran: Report - A News  (A News)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,852 (-0.0%)   Silver 47.29 (+1.1%)   WTI 85.61 (-0.1%)   DXY 103.55 (+0.0%)   US10Y 5.10 (-0.4%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQZFhOZkdOV2FCcnpheW93aUJjd0JnSXZFTUZNMUEzMWlxenFkQjNld2xYTHkyc3VyajFPeEFXZk1xSjEtbm5ZNWNlYlhENGlKdmJ4bjJidkwtYkJFN1BpVEsxRzV1NDYyUnk2SWs3RFJMVVFqbVgyUHBneTQzZDFEalFwT1MtaUdwYklEVTY1WktYQjdoUE9WbmxoYkVMb01IcF9QaDR4NlFKS202S04zSy01UTEyODJIdksxd0dZYU00UVVCOXJyakpOdkkxUXIxMGZtUkl30gHbAUFVX3lxTE5qaTQzRXluXzhQMVZ0RDFPU1l4LWczc1ZPOHVvN1lIREJqazNlejFVbnJOREdmdElpRjB6Y0t6RzlGMjNXbjA5bFZYN2dTQ2ljRTB3WnRUMXdSalpjM18wSmhTdGZIVDNfWGRJdl95NmJ0ZVJ1ODRmZTgxNDNXRzBvTkxXVy1iUk9MbHY3cXNGOFNSVkhKWnhncnJXY2kweWdTMmJqUjc4LU1uVC16VUhaRkxIc2lEdWEzQlRUSG1aWTBWZGdsNXRGM0ZPTElpLXBIbUh2SXBPbDQ5Zw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3851.9,
-   "Silver": 47.29,
-   "WTI": 85.61
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "CENTCOM chief visits Israel amid reports of US preparations for possible attack on Iran: Report - A News",
-   "src": "A News",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,852 (-0.0%)   Silver 47.29 (+1.1%)   WTI 85.61 (-0.1%)   DXY 103.55 (+0.0%)   US10Y 5.10 (-0.4%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
