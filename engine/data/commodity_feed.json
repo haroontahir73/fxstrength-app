@@ -1,5 +1,117 @@
 [
  {
+  "when": "20 Nov 16:01 UTC",
+  "iso": "2026-11-20T16:01:45.212642+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nTreasury Secretary Bessent questions Fed\u2019s larger rate hike plans - Crypto Briefing  (Crypto Briefing)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,552 (-3.6%)   Silver 41.64 (-6.0%)   WTI 81.96 (-1.5%)   DXY 103.65 (-0.2%)   US10Y 4.94 (-2.1%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOa3B5c3BETGd0ZzI1SVdCQm9yd05xbklnd1MyOXNnM2liNjg4UDQwRUhmeW0tcjEwSkJFU0NMd1F6Q0Q3RUd6NXBoVlJVNmJKWmI4bkR6cVNZWm1FV1IwRzBlMHNEUTdTLXVRd3lfaHFnN216WS1CTHE2S3Y3NHZic0lJeC1MYUg5SHg2OENlQUZmbUR6Zml3?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3552.3,
+   "Silver": 41.64,
+   "WTI": 81.96
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Treasury Secretary Bessent questions Fed\u2019s larger rate hike plans - Crypto Briefing",
+   "src": "Crypto Briefing",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,552 (-3.6%)   Silver 41.64 (-6.0%)   WTI 81.96 (-1.5%)   DXY 103.65 (-0.2%)   US10Y 4.94 (-2.1%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
+  "when": "20 Nov 16:01 UTC",
+  "iso": "2026-11-20T16:01:44.848879+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIsrael seeks broader regional coalition ahead of potential Iran strikes - The Jerusalem Post  (The Jerusalem Post)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,552 (-3.6%)   Silver 41.64 (-6.0%)   WTI 81.96 (-1.5%)   DXY 103.65 (-0.2%)   US10Y 4.94 (-2.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE41V0xjZWVhMTlwRjU2VGQ5ME10dGV0WjZrRWpnNW1JN29vMGp6M1RZNGliTUFJd1NmeUQtazYzYUQ3T3hUNTZxNllJNnpLVDJWemlTU0twSnZFSkhCS09CY28tYkJqNElyY1E?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3552.3,
+   "Silver": 41.64,
+   "WTI": 81.96
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Israel seeks broader regional coalition ahead of potential Iran strikes - The Jerusalem Post",
+   "src": "The Jerusalem Post",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,552 (-3.6%)   Silver 41.64 (-6.0%)   WTI 81.96 (-1.5%)   DXY 103.65 (-0.2%)   US10Y 4.94 (-2.1%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "20 Nov 11:50 UTC",
   "iso": "2026-11-20T11:50:16.631919+00:00",
   "cat": "geo_escalation",
@@ -3245,118 +3357,6 @@
    "snap": "NOW  Gold 3,772 (-2.4%)   Silver 45.65 (-3.5%)   WTI 82.63 (-3.9%)   DXY 103.83 (+0.3%)   US10Y 5.10 (-0.4%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "18 Nov 06:18 UTC",
-  "iso": "2026-11-18T06:18:56.529371+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nEuro loses ground below 1.1000 as Fed December hike odds rise, eyes on FOMC Minutes - FXStreet  (FXStreet)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,787 (-2.0%)   Silver 45.94 (-2.9%)   WTI 84.66 (-1.6%)   DXY 103.67 (+0.2%)   US10Y 5.10 (-0.4%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQY210S0JXOGR4bFN4RVJRNGlkUXdOT2tGWXlUUnFhSlRWTVlDTWxiYlRjUWMyZ2N0d05YUFFOU29udVJ1Z19Ra0ZlS284T1FZLUFkdU9JZGZ2ZEZGckhxNHFJZll6MVN5Q0ktX3ZKVnJVcjFSWUZTZmhMcEpVcFRsSmdfNjVvcW5mNXFSeWdJeC1SWUpaU1E5bGdPUWRaaEZPbkgxdDNVYVU0aXNCMl9FdkF4LWFUV1lNWW44T2s1aTUzUQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3787.0,
-   "Silver": 45.935,
-   "WTI": 84.66
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Euro loses ground below 1.1000 as Fed December hike odds rise, eyes on FOMC Minutes - FXStreet",
-   "src": "FXStreet",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 3,787 (-2.0%)   Silver 45.94 (-2.9%)   WTI 84.66 (-1.6%)   DXY 103.67 (+0.2%)   US10Y 5.10 (-0.4%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "18 Nov 05:04 UTC",
-  "iso": "2026-11-18T05:04:41.542954+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\n2 Russian oil refineries reportedly targeted in overnight drone attack on Krasnodar Krai - The Kyiv Independent  (The Kyiv Independent)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,788 (-1.7%)   Silver 45.86 (-2.0%)   WTI 84.75 (-1.1%)   DXY 103.62 (+0.1%)   US10Y 5.10 (-0.4%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPc3BURzBTMklXSGpvLUpPTzFpMHlVY1FCZlRYbl9BemFRSFpxNjlxQ0Z4RzFXM3h1V1RmS3h1dko5ajhOc19zeldyemU4Q2xMbUQ1ckw1MHcySWQ4MUV5MUx2QmR3Q3lyem01WUkzTWRlWFBid3U4TVpGS2wxeFV6NVNTWXFJQzZ5amxtaGl5b0Y1cnpnd29aTWlXQWxybHNLSUc4Sm1IX19NUV9LUW1hUTMtWk5WY3Ay?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3787.8,
-   "Silver": 45.86,
-   "WTI": 84.75
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "2 Russian oil refineries reportedly targeted in overnight drone attack on Krasnodar Krai - The Kyiv Independent",
-   "src": "The Kyiv Independent",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,788 (-1.7%)   Silver 45.86 (-2.0%)   WTI 84.75 (-1.1%)   DXY 103.62 (+0.1%)   US10Y 5.10 (-0.4%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
