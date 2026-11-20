@@ -1,5 +1,61 @@
 [
  {
+  "when": "20 Nov 19:36 UTC",
+  "iso": "2026-11-20T19:36:56.434847+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFinancialJuice: Traders no longer fully price in a December Fed rate hike.\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,514 (-4.7%)   Silver 40.92 (-7.7%)   WTI 83.48 (+0.3%)   DXY 103.87 (-0.0%)   US10Y 4.94 (-2.3%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://www.financialjuice.com/News/9862359/Traders-no-longer-fully-price-in-a-December-Fed-rate-hike.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3513.7,
+   "Silver": 40.925,
+   "WTI": 83.48
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "FinancialJuice: Traders no longer fully price in a December Fed rate hike.",
+   "src": "",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,514 (-4.7%)   Silver 40.92 (-7.7%)   WTI 83.48 (+0.3%)   DXY 103.87 (-0.0%)   US10Y 4.94 (-2.3%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "20 Nov 19:14 UTC",
   "iso": "2026-11-20T19:14:09.827545+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,758 (-2.7%)   Silver 45.41 (-4.0%)   WTI 84.27 (-2.0%)   DXY 103.81 (+0.3%)   US10Y 5.10 (-0.4%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "18 Nov 12:53 UTC",
-  "iso": "2026-11-18T12:53:46.310227+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nOil prices slip as U.S. inventory build and supply glut fears outweigh Mideast risks - Quartz  (Quartz)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,754 (-2.8%)   Silver 45.26 (-4.3%)   WTI 84.20 (-2.1%)   DXY 103.87 (+0.4%)   US10Y 5.10 (-0.4%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE54TkUtUllubzRhZVpnNlRRQ3pWZUt5aW92MTNVWUpCM242SmljNTNwa3lWd3JScHBQdmtCNTBLOENYTm1nQ0ZjXzBpUG9IVG5DbWNHSzk3OWtScGFtSVRKY0tHajJtYi1pTlJIcWduNkpSbGw4dGI0?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3754.2,
-   "Silver": 45.255,
-   "WTI": 84.2
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "Oil prices slip as U.S. inventory build and supply glut fears outweigh Mideast risks - Quartz",
-   "src": "Quartz",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 3,754 (-2.8%)   Silver 45.26 (-4.3%)   WTI 84.20 (-2.1%)   DXY 103.87 (+0.4%)   US10Y 5.10 (-0.4%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
