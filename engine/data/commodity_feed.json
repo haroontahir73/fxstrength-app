@@ -1,5 +1,61 @@
 [
  {
+  "when": "21 Nov 02:35 UTC",
+  "iso": "2026-11-21T02:35:15.549580+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIran hardliners push tanker convoy to defy US blockade - Iran International  (Iran International)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,539 (-4.0%)   Silver 41.08 (-7.3%)   WTI 83.62 (+0.5%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1hcEdHM3RmVUI1OWxtSmVnVmxIci16eWg4VTJQRm1ndDNCYjVMZjhOODNFa2daVGIwUnZDNm1fWDN3UFhDalhpNUk4dmtELWRKTlE?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3539.0,
+   "Silver": 41.08,
+   "WTI": 83.62
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Iran hardliners push tanker convoy to defy US blockade - Iran International",
+   "src": "Iran International",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,539 (-4.0%)   Silver 41.08 (-7.3%)   WTI 83.62 (+0.5%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "20 Nov 23:56 UTC",
   "iso": "2026-11-20T23:56:56.501066+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,742 (-3.2%)   Silver 44.99 (-4.9%)   WTI 81.65 (-5.1%)   DXY 103.81 (+0.3%)   US10Y 5.06 (-0.8%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "18 Nov 14:02 UTC",
-  "iso": "2026-11-18T14:02:25.490153+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nADNOC Says One of Its Vessels Attacked in Strait of Hormuz - - WANA News Agency  (WANA News Agency)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,791 (-1.9%)   Silver 45.79 (-3.2%)   WTI 83.81 (-2.6%)   DXY 103.76 (+0.3%)   US10Y 5.10 (-0.0%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNM09HeGh5RXRxRlRZRTVteUVwNmJlTVQxTzhkMGVRbl9WU21MM2ZmYmx0bU8xU1dCYzhPNTZhMnVTODZyclBCdzR2dTFQa2VtektBekhTSDk2dUt5QTZkYXBiYjNyUzdoc0dyYVJqbVQ4RTktVmMwY1o1UkxobHpIT2Nqc1c?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3790.9,
-   "Silver": 45.79,
-   "WTI": 83.81
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "ADNOC Says One of Its Vessels Attacked in Strait of Hormuz - - WANA News Agency",
-   "src": "WANA News Agency",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,791 (-1.9%)   Silver 45.79 (-3.2%)   WTI 83.81 (-2.6%)   DXY 103.76 (+0.3%)   US10Y 5.10 (-0.0%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
