@@ -1,5 +1,61 @@
 [
  {
+  "when": "21 Nov 07:55 UTC",
+  "iso": "2026-11-21T07:55:22.489631+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: Ukmto: tanker leaving strait of Hormuz struck on stern by unidentified projectile\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,515 (-4.6%)   Silver 41.07 (-7.3%)   WTI 83.41 (+0.2%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://www.financialjuice.com/News/9862892/Ukmto-tanker-leaving-strait-of-Hormuz-struck-on-stern-by-unidentified-projectile.aspx?xy=rss",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3515.4,
+   "Silver": 41.07,
+   "WTI": 83.41
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "FinancialJuice: Ukmto: tanker leaving strait of Hormuz struck on stern by unidentified projectile",
+   "src": "",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,515 (-4.6%)   Silver 41.07 (-7.3%)   WTI 83.41 (+0.2%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "21 Nov 03:14 UTC",
   "iso": "2026-11-21T03:14:02.003227+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,731 (-3.4%)   Silver 44.97 (-4.9%)   WTI 82.22 (-4.4%)   DXY 103.84 (+0.3%)   US10Y 5.06 (-0.8%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "18 Nov 17:56 UTC",
-  "iso": "2026-11-18T17:56:58.882428+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nUS Cracks Down on Iran Oil Blockade, Threatening Action - Marine News Magazine  (Marine News Magazine)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,742 (-3.2%)   Silver 44.99 (-4.9%)   WTI 81.65 (-5.1%)   DXY 103.81 (+0.3%)   US10Y 5.06 (-0.8%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9xTGlrYlZqeEU4WHBZUDRweDYtMGpSM0ZqdWFwWGVJLWdnUjdSVEhGWWpUMEViZEY5c2hqUlpydVM2N3QtcmR5cExlYThiZTJvS2RTS0t4V1dmUDBTalNTVlFkRFRoUE1WeE1mRS00YVJVQURZdmNjRmtGYw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3742.3,
-   "Silver": 44.99,
-   "WTI": 81.65
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "US Cracks Down on Iran Oil Blockade, Threatening Action - Marine News Magazine",
-   "src": "Marine News Magazine",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,742 (-3.2%)   Silver 44.99 (-4.9%)   WTI 81.65 (-5.1%)   DXY 103.81 (+0.3%)   US10Y 5.06 (-0.8%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
