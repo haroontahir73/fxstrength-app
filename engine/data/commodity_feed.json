@@ -1,5 +1,61 @@
 [
  {
+  "when": "22 Nov 09:25 UTC",
+  "iso": "2026-11-22T09:25:56.222179+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussia\u2019s Baltic Fleet Base Comes Under First-Ever Suspected Drone Attack in Kaliningrad - UNITED24 Media  (UNITED24 Media)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,515 (-4.6%)   Silver 41.07 (-7.3%)   WTI 83.41 (+0.2%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPMWNRdlNCSDdlbmZZWlFpTnJzZm5zYklkQjM3RjN2T1BDUFdrU3dtSjhNdFh0NXJzcjN6bjk2aDlUUy1oUFl0eDh4U0xqMUhjc3pINnFJM3Z3eXFyUW1Ja2RGdlBWeElZc0J5RVRlcnAzWTJnb2VWb0pkQnh3WGU5Q3FValNRSjc5THNsNmVSREFEeUZuMjRnaDdrckU0RjBNS3k0R3psd1lHWEFRekZEMnhyYl9mbjZvdmpqQ19EZURyTHk4XzFZcGVKbzVsQQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3515.4,
+   "Silver": 41.07,
+   "WTI": 83.41
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Russia\u2019s Baltic Fleet Base Comes Under First-Ever Suspected Drone Attack in Kaliningrad - UNITED24 Media",
+   "src": "UNITED24 Media",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,515 (-4.6%)   Silver 41.07 (-7.3%)   WTI 83.41 (+0.2%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "22 Nov 02:08 UTC",
   "iso": "2026-11-22T02:08:57.963958+00:00",
   "cat": "geo_escalation",
@@ -3299,62 +3355,6 @@
     }
    ],
    "snap": "NOW  Gold 3,724 (-3.6%)   Silver 45.09 (-4.7%)   WTI 82.22 (-4.4%)   DXY 103.91 (+0.4%)   US10Y 5.07 (-0.7%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "19 Nov 03:18 UTC",
-  "iso": "2026-11-19T03:18:06.604470+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFederal Reserve October 2026 Minutes Highlight Rate Hike Expectations - Blockchain News  (Blockchain News)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,702 (-1.1%)   Silver 44.56 (-1.0%)   WTI 81.86 (-1.7%)   DXY 103.93 (+0.1%)   US10Y 5.07 (-0.7%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTFA0cFZMcHFTUXdMaUVZY3c3d2pVQ1gzanJ4aFZuZVkzcTBpdWFuYUpCaEpTX2VlU3g5M3A1S1ZnSzZtN2Z6RWRMcEZac1V1bHpLOVlHM0NXQnpZX3p3WmsxSHctYnVjaE5YU1lJcC0xWTNiLUU?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3701.6,
-   "Silver": 44.565,
-   "WTI": 81.86
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Federal Reserve October 2026 Minutes Highlight Rate Hike Expectations - Blockchain News",
-   "src": "Blockchain News",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 3,702 (-1.1%)   Silver 44.56 (-1.0%)   WTI 81.86 (-1.7%)   DXY 103.93 (+0.1%)   US10Y 5.07 (-0.7%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
   }
