@@ -1,5 +1,61 @@
 [
  {
+  "when": "22 Nov 16:22 UTC",
+  "iso": "2026-11-22T16:22:46.321242+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nLibya\u2019s eastern government suspects drone attack caused explosion on Russian ship - Al Arabiya English  (Al Arabiya English)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,515 (-4.6%)   Silver 41.07 (-7.3%)   WTI 83.41 (+0.2%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNMGRpdm9oaUJGUlE1RlFDUlFLT0h0M0FWenhfZzRvMGdLMVRtb2hvbEtoZW95Q3FFNm96S21fZ0FzSUUySnhBZ1pndm5LdnZwMW9GWkxCSlZLR3l3bE1kdi1NQUZBWTJKXzVqdDlJYlh4c2dLTFNIWWo1aDg2Y0hLZ1ptV2JLLWhra2NNUXRFcENsVXVSU1BEUFpneFhDbFFYOTRFX01obEpxcThqRWgtU0JELWtWeDRNYlZJNG9fU0Yxd3Z3ZWVtVy15R1VkXzDSAdQBQVVfeXFMT28xcnZLNkZyZGxrenRRWVBtVjNLQi1GOTBCcC1TZUk3TXVSUFJya1FMY0FSaVZBTnptZ2x6TjJtVUYzOWxCWWNpWFdTZWRhWHVTSlVDTENiWWVCN0pWbUhNZHFJbFhiMHJxa1p3bkJLUlpJcFlFa0daekhNOGIycENnX1lPTlVMQjJqVEN2T0h1QjFoNklkV3RuT1dWTmdNTUQ1UGJFajZCVFRzckwzTjlRVHRWZGVNZEI1Rm81Q0xfZWQ1ajRxSHVDMGRDeTh1VElBSUY?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3515.4,
+   "Silver": 41.07,
+   "WTI": 83.41
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Libya\u2019s eastern government suspects drone attack caused explosion on Russian ship - Al Arabiya English",
+   "src": "Al Arabiya English",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,515 (-4.6%)   Silver 41.07 (-7.3%)   WTI 83.41 (+0.2%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "22 Nov 15:19 UTC",
   "iso": "2026-11-22T15:19:55.048383+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,731 (-0.3%)   Silver 45.16 (+0.4%)   WTI 82.40 (-1.0%)   DXY 103.71 (-0.1%)   US10Y 5.07 (-0.7%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "19 Nov 09:33 UTC",
-  "iso": "2026-11-19T09:33:42.598858+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nStrait Of Hormuz Erupts Again: Another Transiting Tanker Struck Near Oman As Shipping Crisis Deepens - The Times of India  (The Times of India)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,731 (-0.3%)   Silver 44.99 (-0.0%)   WTI 82.58 (-0.8%)   DXY 103.69 (-0.2%)   US10Y 5.07 (-0.7%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxOTzJHY0JkTmhVTDZCeC1nUzRzVkxvWHJuaUpVQkVaSzNEcjVMeGhtYTFCci15M25udV9pTnRDS05zdmgxUnhlRThFUGlwRm53SFRJb2NGN3dQZmpxV3p5UVhxOEUwNWNPWkphRXR3ZmxiMUI3OHp5TXdCVDhIWXQwdXI2aERwNnpSWmFvWEV3bU51eGxOejJzNkRieEgzRjR6ZGE2S1FEWDNfY29xYVJVMk1ReFoxNGFORVNZdkk2LTFIUUc5Z3NUUjZyamtONVk4bGlVYTZvQnY5T3c1bVhyaE5TaUVZcUwwSTJTdDkzRUpOQllOREpDZ0x2WS13YlRkTUVEekVvdWFhalh00gGSAkFVX3lxTE1mVDN1dHl1R081QW9lRFMtYWNlVl8tTWNZYk5EQ3Z2aXdBaG5aXzBoTDVTWVZ4WHNBZlBOMXl5RDB0N3F5MXRtT1lmUUVXTm5jRDNsRTlWeG54aUtWZGhFVlY3MFZyeUQ1MUN6Uk9PbXlhN1NDZ0JIZE9sYXBnT284NW5GUm5fakZPeUZaUGkya1U0NWJZRGpJYldMS3BXSmNSRjM1a3lIbmhzS3NzeUZyMko4VS1jcHAwcllEdnpvM25DeDVqVE9qX2VTMmN0YUNvd2VGTnRhb3NzNzNIU2NlYTh6S0NteThDMW9wLWxaeGFJb1ZrNWM0ZnlrQ2UtVHllcGZKcGFGamxqN0dFZHNOVlE?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3730.6,
-   "Silver": 44.995,
-   "WTI": 82.58
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Strait Of Hormuz Erupts Again: Another Transiting Tanker Struck Near Oman As Shipping Crisis Deepens - The Times of India",
-   "src": "The Times of India",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,731 (-0.3%)   Silver 44.99 (-0.0%)   WTI 82.58 (-0.8%)   DXY 103.69 (-0.2%)   US10Y 5.07 (-0.7%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
