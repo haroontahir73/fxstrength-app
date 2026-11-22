@@ -1,5 +1,61 @@
 [
  {
+  "when": "22 Nov 02:08 UTC",
+  "iso": "2026-11-22T02:08:57.963958+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nOil pipeline blockade so far cost Libya nearly $31M: National Oil Corporation - Anadolu Ajans\u0131  (Anadolu Ajans\u0131)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,515 (-4.6%)   Silver 41.07 (-7.3%)   WTI 83.41 (+0.2%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOaFhmeDk3QlJ1Mld1UlBtSTVGQUFLOGtSalpucEVzQlNLTTlJakpHclJxd2Z0YU5LXzNkM2VTdDhlSEdrZXhnSjFVeWVWeDdHUnJZcmNSRnIwOEdCak1OcU1LdmFuUk1NTENmWmNwTVF1ZmFVNzNNSjdjckw5enBJYmExQjZTOHMyTnBfWDR0OVA0a215MEdZOGxFU0d0aEpJSUMxTFl6UzVQWVhKbVFWMTBWSXE5SVBuaENMLQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3515.4,
+   "Silver": 41.07,
+   "WTI": 83.41
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Oil pipeline blockade so far cost Libya nearly $31M: National Oil Corporation - Anadolu Ajans\u0131",
+   "src": "Anadolu Ajans\u0131",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,515 (-4.6%)   Silver 41.07 (-7.3%)   WTI 83.41 (+0.2%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "21 Nov 21:21 UTC",
   "iso": "2026-11-21T21:21:51.670054+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,702 (-1.1%)   Silver 44.56 (-1.0%)   WTI 81.86 (-1.7%)   DXY 103.93 (+0.1%)   US10Y 5.07 (-0.7%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "19 Nov 03:18 UTC",
-  "iso": "2026-11-19T03:18:06.304307+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nTrump Reportedly Weighing New Military Strike on Iran; Global Oil Prices Halt Slide and Rebound - BigGo Finance  (BigGo Finance)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,702 (-1.1%)   Silver 44.56 (-1.0%)   WTI 81.86 (-1.7%)   DXY 103.93 (+0.1%)   US10Y 5.07 (-0.7%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5FMVNRTjNvVVdTdVl1YW9tUUYxZVpiWEVmNk9wQ1NxMlltTXdFRE9VcU8zNDFOUHJBR3JKUjdhcE4ycWJUZ2tRZHkzakh0MlRuUnZhZzMxcFJ6SEpWX3NQM3p2TF8xcjQtYzZlYU9GQ0RYWXJzTEE?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3701.6,
-   "Silver": 44.565,
-   "WTI": 81.86
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Trump Reportedly Weighing New Military Strike on Iran; Global Oil Prices Halt Slide and Rebound - BigGo Finance",
-   "src": "BigGo Finance",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,702 (-1.1%)   Silver 44.56 (-1.0%)   WTI 81.86 (-1.7%)   DXY 103.93 (+0.1%)   US10Y 5.07 (-0.7%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
