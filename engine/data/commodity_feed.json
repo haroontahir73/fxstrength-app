@@ -1,5 +1,61 @@
 [
  {
+  "when": "23 Nov 13:03 UTC",
+  "iso": "2026-11-23T13:03:06.791543+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nBill Ackman Fed Rate Hike Warning Raises US Recession Concerns - TronWeekly  (TronWeekly)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,614 (+2.8%)   Silver 41.98 (+2.3%)   WTI 82.18 (-2.1%)   DXY 104.06 (+0.2%)   US10Y 4.91 (-2.8%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBSc1pHQW1GZWFnUHA3cklKOVZDNjNhblBIZzFZUUVxd1NoNV8zRlJmWkJhWjRRMFNCY1FDbGhCQ3BkaklKcHNmdS1hY1BITW9zWVFJbGl2Z2c3Vmttay1jR1I0WVU1dXM5LVhSVjFEWUZmWEF4empHcUpETQ?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3614.2,
+   "Silver": 41.985,
+   "WTI": 82.18
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Bill Ackman Fed Rate Hike Warning Raises US Recession Concerns - TronWeekly",
+   "src": "TronWeekly",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,614 (+2.8%)   Silver 41.98 (+2.3%)   WTI 82.18 (-2.1%)   DXY 104.06 (+0.2%)   US10Y 4.91 (-2.8%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "23 Nov 11:44 UTC",
   "iso": "2026-11-23T11:44:21.744896+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,622 (-3.2%)   Silver 42.84 (-4.8%)   WTI 82.88 (-0.5%)   DXY 103.92 (+0.1%)   US10Y 5.05 (-0.3%)",
    "reality": "",
    "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
-  }
- },
- {
-  "when": "19 Nov 23:45 UTC",
-  "iso": "2026-11-19T23:45:08.907964+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nLPG Tanker Tara Gas Fire Extinguished in the Strait of Hormuz - The Maritime Executive  (The Maritime Executive)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,622 (-3.2%)   Silver 42.84 (-4.8%)   WTI 82.88 (-0.5%)   DXY 103.92 (+0.1%)   US10Y 5.05 (-0.3%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNMjVsVGhEUVdtamJqSGIzU04tZEVvUVRWTGc2MXloVnBqXy1xZW14YU05SEw0OUliVUgwTnl4YlIzQlZ2d3JiYkkxTTl1Tzh4WUJ3QXYtb00xVEctdjJRZ1ItVWVMVnJXMlIyM1ZpNGlsZE1HS1oySFljY051LWgwQU1aZk9vUVNSTVNRN3hmM1pnLVJMcl9TczdB?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3622.1,
-   "Silver": 42.835,
-   "WTI": 82.88
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "LPG Tanker Tara Gas Fire Extinguished in the Strait of Hormuz - The Maritime Executive",
-   "src": "The Maritime Executive",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,622 (-3.2%)   Silver 42.84 (-4.8%)   WTI 82.88 (-0.5%)   DXY 103.92 (+0.1%)   US10Y 5.05 (-0.3%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
