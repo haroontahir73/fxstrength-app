@@ -1,5 +1,61 @@
 [
  {
+  "when": "23 Nov 10:31 UTC",
+  "iso": "2026-11-23T10:31:35.553618+00:00",
+  "cat": "inflation_hot",
+  "title": "GOLD+SILVER SHORT | INFLATION - running hot",
+  "body": "\ud83c\udf21 INFLATION \u2014 running hot\n\nFederal Reserve: Consecutive hikes and sticky inflation \u2013 TD Securities - www.tmgm.com  (www.tmgm.com)\n\nWHY: You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.\n\nGOLD   \u2193\u2193   look for shorts - the rates reaction beats the hedge story\n        [some evidence - right 50% of 485 past cases]\nSILVER \u2193\u2193   look for shorts - same, amplified\n        [some evidence - right 52% of 485 past cases]\nOIL    \u2192    no clean read - usually a cause, not a victim\n\nNOW  Gold 3,620 (+3.0%)   Silver 42.46 (+3.5%)   WTI 82.99 (-1.2%)   DXY 103.86 (+0.1%)   US10Y 4.91 (-2.8%)\n\nFLIP: if inflation is coming from oil AND growth is dying, gold turns up instead",
+  "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOQk9QbExjZUtWMHpWdTN2OGZiMk1jMWhPYmxJb2QyNkdaVzZ0Ykg1RkY2cG9IRExzZUpDX0kyNGMyNmZUSUVVaTluQXhrN1dPeXJFdjlUcWVtU1hzZzVKOEdMRzN4dE9UcDk1YWVndGhwa2RuWjVtaDZUb3pObFhUbVpPeGQ4emlfcm1NMUw1RmRKM3oyUE1kTnRUYzAzS0djNmw3T1Q3bl9henBRY3BiZ0djRXd4MjhuSGV4R0tBeHBqMmZDVDQta3R4Qk5pd2QtV05F?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3619.6,
+   "Silver": 42.46,
+   "WTI": 82.99
+  },
+  "parts": {
+   "emoji": "\ud83c\udf21",
+   "label": "INFLATION \u2014 running hot",
+   "headline": "Federal Reserve: Consecutive hikes and sticky inflation \u2013 TD Securities - www.tmgm.com",
+   "src": "www.tmgm.com",
+   "why": "You would think high inflation is good for gold. It is not, at first. High inflation makes the Fed keep rates high, and high rates hurt gold more than the inflation helps it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "the rates reaction beats the hedge story",
+     "record": "some evidence - right 50% of 485 past cases"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "same, amplified",
+     "record": "some evidence - right 52% of 485 past cases"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "usually a cause, not a victim",
+     "record": ""
+    }
+   ],
+   "snap": "NOW  Gold 3,620 (+3.0%)   Silver 42.46 (+3.5%)   WTI 82.99 (-1.2%)   DXY 103.86 (+0.1%)   US10Y 4.91 (-2.8%)",
+   "reality": "",
+   "flip": "if inflation is coming from oil AND growth is dying, gold turns up instead"
+  }
+ },
+ {
   "when": "23 Nov 09:41 UTC",
   "iso": "2026-11-23T09:41:49.206198+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,666 (-2.0%)   Silver 43.92 (-2.4%)   WTI 83.14 (-0.1%)   DXY 103.90 (+0.0%)   US10Y 5.05 (-0.3%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "19 Nov 20:35 UTC",
-  "iso": "2026-11-19T20:35:59.450138+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Iran Foreign Ministry Spokesman on X: US accusations about Tehran developing chemical and biological weapons are intended to create fear and justify military action.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,672 (-1.9%)   Silver 44.00 (-2.2%)   WTI 82.88 (-0.5%)   DXY 103.89 (+0.0%)   US10Y 5.05 (-0.3%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://www.financialjuice.com/News/9860623/Iran-Foreign-Ministry-Spokesman-on-X-US-accusations-about-Tehran-developing-chemical-and-biological-weapons-are-intended-to-create-fear-and-justify-military-action.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3672.5,
-   "Silver": 44.0,
-   "WTI": 82.88
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "FinancialJuice: Iran Foreign Ministry Spokesman on X: US accusations about Tehran developing chemical and biological weapons are intended to create fear and justify military action.",
-   "src": "",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,672 (-1.9%)   Silver 44.00 (-2.2%)   WTI 82.88 (-0.5%)   DXY 103.89 (+0.0%)   US10Y 5.05 (-0.3%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
