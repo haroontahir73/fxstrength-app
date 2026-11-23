@@ -1,5 +1,61 @@
 [
  {
+  "when": "23 Nov 11:44 UTC",
+  "iso": "2026-11-23T11:44:21.744896+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\n'Americans Won't Be So Foolish': Iran Dares Trump Over Possible Attack On Iranian Dams - The Times of India  (The Times of India)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,622 (+3.0%)   Silver 42.40 (+3.3%)   WTI 81.96 (-2.4%)   DXY 103.89 (+0.1%)   US10Y 4.91 (-2.8%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQb1hVMUJzWE9KbGVKeUtvN200N3h4eHNyX0lfdHkzdFdQR3ZNajhIVFV0RTNWNk13ZjBLTVRQVzVPdlVMTUxRc0lIMG1jMnJCUDEwMnVHTnhuaWxSbll4dERkaFdobmtrNTZBUnBCY0tmazR0MExHNzZOTTRfTnlxN2hja05hc1JVWFJTX1dKQlVlR3BVYktmaWpvcGU4aHlmYllESm5uUGhDbWd0Wi16NkpZWGFyUjRoTFJUTzhFWXh6Zi1aVGdJUk9ESFVNcUY5YjlfNFQ3SWNMNFVESnlsaXprQUx6M0huUE0wRW9VUGRwaXh5aWfSAfsBQVVfeXFMTnJROWJkSDlzMC1EeVYwNXVtMDRCQTlqT0haamwxZkpXUy1iQ0pYVnllMXE5aDl4VVpZY2VzY3JsWE9ZWlphQmdleG84TWlJazRSYWM1Yi1UTnpGNDJaaXpYSGxNaDNWQWhySFFvSk9iWC0wbnhCUktmeDFyOXdZZk5tTHNnaXdIeXFfaGJkUWhlclh0eEVCMnlxWFdtMGFYZnYwa2xBSktucGY0bGNmZFdBZVk5aUptVm1NOVJZNC0tOWJOdW9hWlh3VmhZSGNZOWpKaUc2S2k5QU5ETldHTHZZQUxCZUlkVHF5c0ZGTXIwYmtPU1duQVc1ZGM?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3621.5,
+   "Silver": 42.4,
+   "WTI": 81.96
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "'Americans Won't Be So Foolish': Iran Dares Trump Over Possible Attack On Iranian Dams - The Times of India",
+   "src": "The Times of India",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,622 (+3.0%)   Silver 42.40 (+3.3%)   WTI 81.96 (-2.4%)   DXY 103.89 (+0.1%)   US10Y 4.91 (-2.8%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "23 Nov 11:24 UTC",
   "iso": "2026-11-23T11:24:24.322763+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,622 (-3.2%)   Silver 42.84 (-4.8%)   WTI 82.88 (-0.5%)   DXY 103.92 (+0.1%)   US10Y 5.05 (-0.3%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "19 Nov 23:45 UTC",
-  "iso": "2026-11-19T23:45:08.566946+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold falls to 14-month low below $3,650 on hawkish Fed signals - FXStreet  (FXStreet)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,622 (-3.2%)   Silver 42.84 (-4.8%)   WTI 82.88 (-0.5%)   DXY 103.92 (+0.1%)   US10Y 5.05 (-0.3%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQbWxBZ2JuMWhKMWhRUVFycmxGNTZ0cUNESWZDdnljWTl4b3ZGNk81cVR5MlVRc2NMenIzUlVJcDRhWGxVTjd6N09RVXd5QkZsODNna1YtNm1uZ21YU2RQVWZjZ2hfYkhWUEpaLWx4N1pnWHRQckNfS2trenIza3U2LWNKb1d0WFZyNVAxdXhyOU50SldsNVVWX2xtZTBFNVdTUVA5azFLbw?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3622.1,
-   "Silver": 42.835,
-   "WTI": 82.88
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Gold falls to 14-month low below $3,650 on hawkish Fed signals - FXStreet",
-   "src": "FXStreet",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 3,622 (-3.2%)   Silver 42.84 (-4.8%)   WTI 82.88 (-0.5%)   DXY 103.92 (+0.1%)   US10Y 5.05 (-0.3%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
