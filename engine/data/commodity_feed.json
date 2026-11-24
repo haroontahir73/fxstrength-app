@@ -1,5 +1,61 @@
 [
  {
+  "when": "24 Nov 22:02 UTC",
+  "iso": "2026-11-24T22:02:50.101136+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nBond Traders Rush to Hedge Risk of Fed Hikes Stalling Economy - Bloomberg.com  (Bloomberg.com)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,553 (-2.7%)   Silver 40.69 (-5.7%)   WTI 81.64 (+1.8%)   DXY 103.83 (-0.5%)   US10Y 4.90 (-0.3%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOTks3ZzVpZ2RhN2hxV1hPSlJ2T3c2ZGZrVWtKRktucmtOR3QtaWNHQ2drajdHQS1wT3BQbTJzQnBDZmhWaTgwZU1kWUxvd0w4YUVPdGVwTlZjWnNLT2tib053VjJCTno3dVZvM1Q5SGktcUp6QVV4cVotOGd5bVRSQ1AxOHBGUjViMVVCQ05KNHRLSlpxNENRM25KYTZUYnJlUHc5bnhYUzVwdnRfNmxxdmxR?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3552.9,
+   "Silver": 40.685,
+   "WTI": 81.64
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Bond Traders Rush to Hedge Risk of Fed Hikes Stalling Economy - Bloomberg.com",
+   "src": "Bloomberg.com",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,553 (-2.7%)   Silver 40.69 (-5.7%)   WTI 81.64 (+1.8%)   DXY 103.83 (-0.5%)   US10Y 4.90 (-0.3%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "24 Nov 20:27 UTC",
   "iso": "2026-11-24T20:27:06.735898+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,514 (-4.7%)   Silver 40.92 (-7.7%)   WTI 83.48 (+0.3%)   DXY 103.87 (-0.0%)   US10Y 4.94 (-2.3%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "20 Nov 19:14 UTC",
-  "iso": "2026-11-20T19:14:09.827545+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nTanker Catches Fire After Projectile Strike Near Strait Of Hormuz: Report - NDTV  (NDTV)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,528 (-4.3%)   Silver 41.29 (-6.8%)   WTI 83.11 (-0.1%)   DXY 103.84 (-0.1%)   US10Y 4.95 (-2.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQSUpDR2Q3MExlZk5VQWlFTFRhd3FDVi03TVZwMGRvNHhreUVybWdaX09aTDZfZU90X19vUll1Y2xOLW9oRWJDTi0zZ1JYLXhTRFozY1RNdUszQTJFMWRiVWRDQmZ6dVlsMEJtR1FVSTg1YWFYdkFSN0M5MGJfd0RvcG9zbEdxNFVzTEhFZDNPYjJ3R3cwSlI0Y3hqTHpUalg4eTRQMDlOMUtxX0otVHY3MWt0ONIBuwFBVV95cUxPLXNsRW1xOU9qRGp5SHVWb2hwMHB3TGpZbnBUUHJvVVJaT0J4MHlWUHdSLXZnaDZWT25XT1pDUzEycXBOMzd6UDVqSGg0UG1PT0VYYjJ0ZDVIUENua1c1Wm9tampOcGYxWGZVcnpVRlNMMjd4aE1yZG1odnROekFjbXowZTNXWTJkNDJWTE0tQVhkZ2tjeWZpQzBGV1BUcFJ3M1FMQXBqeG5ua1RqWTZ2REZSTnBqOUQyb2FR?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3527.7,
-   "Silver": 41.29,
-   "WTI": 83.11
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Tanker Catches Fire After Projectile Strike Near Strait Of Hormuz: Report - NDTV",
-   "src": "NDTV",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,528 (-4.3%)   Silver 41.29 (-6.8%)   WTI 83.11 (-0.1%)   DXY 103.84 (-0.1%)   US10Y 4.95 (-2.1%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
