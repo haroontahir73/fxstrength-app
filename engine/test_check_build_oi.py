@@ -128,8 +128,10 @@ def t_real_archive_empty_options():
           changes_ok and hist["2026-11-09"]["NZD"].get("chg_opt") == 0)
     gold = hist["2026-11-09"]["Gold"]
     check("rendered tab shows the gold options split",
-          f"{gold['oi_opt']:,}" in body and f"{gold['oi_opt_calls']:,}" in body
-          and f"{gold['oi_opt_puts']:,}" in body)
+          isinstance(gold.get("oi_opt"), int)
+          and f"{gold['oi_opt']:,}" in body
+          and f"{gold.get('oi_opt_calls', 0):,}" in body
+          and f"{gold.get('oi_opt_puts', 0):,}" in body)
     for old in ("CFTC weekly", "Options FE OI", "Combined OI", "Options share",
                 "not the number of outstanding option contracts"):
         check(f"rendered tab has no {old!r}", old not in body)
