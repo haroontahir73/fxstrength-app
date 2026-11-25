@@ -1,5 +1,61 @@
 [
  {
+  "when": "25 Nov 04:29 UTC",
+  "iso": "2026-11-25T04:29:49.722301+00:00",
+  "cat": "oil_supply_loose",
+  "title": "OIL STRONG SHORT | OIL - more barrels coming",
+  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nOil slips over 1% as supply glut prospect offsets Middle East disruption fears - www.marketscreener.com  (www.marketscreener.com)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,554 (-0.2%)   Silver 40.70 (-0.1%)   WTI 80.78 (-1.5%)   DXY 103.98 (+0.2%)   US10Y 4.90 (-0.3%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
+  "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPNV9xdTlqZTNvLWlPOXRoc0FYRkZrbjVINy1XQW1icWNBWmpYTTZFb1pJbENGSUJFVW5wdEpSbVdnbElLeTRqU2diVnZCSC1RM1pXQm1jdDRRTWQxbkVRTmIyaGhCUXJueTdNUUFYVDc0aWRJY19uUTlJMVpNaWhveU10T2s1NUtvMjlkNDhmLTliV2ItWkpYVEJWdGMwZ1dXbDNWcFJuSGFhaHVDZTlhQmM1dUJzaUlISHlUR29uaDRrY0lQamxQVXF3?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3554.4,
+   "Silver": 40.705,
+   "WTI": 80.78
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 more barrels coming",
+   "headline": "Oil slips over 1% as supply glut prospect offsets Middle East disruption fears - www.marketscreener.com",
+   "src": "www.marketscreener.com",
+   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no direct link",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "extra barrels push the price down",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,554 (-0.2%)   Silver 40.70 (-0.1%)   WTI 80.78 (-1.5%)   DXY 103.98 (+0.2%)   US10Y 4.90 (-0.3%)",
+   "reality": "",
+   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
+  }
+ },
+ {
   "when": "25 Nov 03:44 UTC",
   "iso": "2026-11-25T03:44:44.887530+00:00",
   "cat": "geo_escalation",
@@ -3268,62 +3324,6 @@
    "label": "OIL \u2014 supply getting tighter",
    "headline": "Strait of Hormuz attacks have increased to highest level since Iran war began - ABC News - Breaking News, Latest News and Videos",
    "src": "ABC News - Breaking News, Latest News and Videos",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,515 (-4.6%)   Silver 41.07 (-7.3%)   WTI 83.41 (+0.2%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "21 Nov 07:55 UTC",
-  "iso": "2026-11-21T07:55:22.489631+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nFinancialJuice: Ukmto: tanker leaving strait of Hormuz struck on stern by unidentified projectile\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,515 (-4.6%)   Silver 41.07 (-7.3%)   WTI 83.41 (+0.2%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://www.financialjuice.com/News/9862892/Ukmto-tanker-leaving-strait-of-Hormuz-struck-on-stern-by-unidentified-projectile.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3515.4,
-   "Silver": 41.07,
-   "WTI": 83.41
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "FinancialJuice: Ukmto: tanker leaving strait of Hormuz struck on stern by unidentified projectile",
-   "src": "",
    "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
    "leans": [
     {
