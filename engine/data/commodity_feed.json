@@ -1,5 +1,61 @@
 [
  {
+  "when": "25 Nov 01:41 UTC",
+  "iso": "2026-11-25T01:41:55.208907+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold Extends Losses on US Tariff-Hike Push, Fed Tightening Fears; $3,500 Support in Focus - bloomingbit  (bloomingbit)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,540 (-3.1%)   Silver 40.67 (-5.7%)   WTI 81.55 (+1.7%)   DXY 103.90 (-0.4%)   US10Y 4.90 (-0.3%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9uelJpVWVPUVBmemhVWFJoVU1QMlhqQ2g3eHVScGI4QzdWbHdDNlE0V2k5UE1IUGl6eXc3LXloUjVxUnFGTWVLaWU3M3RkekZseWl4Wg?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3539.6,
+   "Silver": 40.67,
+   "WTI": 81.55
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Gold Extends Losses on US Tariff-Hike Push, Fed Tightening Fears; $3,500 Support in Focus - bloomingbit",
+   "src": "bloomingbit",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,540 (-3.1%)   Silver 40.67 (-5.7%)   WTI 81.55 (+1.7%)   DXY 103.90 (-0.4%)   US10Y 4.90 (-0.3%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "25 Nov 01:35 UTC",
   "iso": "2026-11-25T01:35:23.657590+00:00",
   "cat": "oil_supply_loose",
@@ -3268,62 +3324,6 @@
    "label": "GEOPOLITICS \u2014 escalation",
    "headline": "Iran hardliners push tanker convoy to defy US blockade - Iran International",
    "src": "Iran International",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,539 (-4.0%)   Silver 41.08 (-7.3%)   WTI 83.62 (+0.5%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "20 Nov 23:56 UTC",
-  "iso": "2026-11-20T23:56:56.501066+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nFinancialJuice: Saudi-led coalition: intercepts and destroys three ballistic missiles launched by Yemen's Houthis toward Riyadh\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,539 (-4.0%)   Silver 41.08 (-7.3%)   WTI 83.62 (+0.5%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://www.financialjuice.com/News/9862601/Saudi-led-coalition-intercepts-and-destroys-three-ballistic-missiles-launched-by-Yemens-Houthis-toward-Riyadh.aspx?xy=rss",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3539.0,
-   "Silver": 41.08,
-   "WTI": 83.62
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "FinancialJuice: Saudi-led coalition: intercepts and destroys three ballistic missiles launched by Yemen's Houthis toward Riyadh",
-   "src": "",
    "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
    "leans": [
     {
