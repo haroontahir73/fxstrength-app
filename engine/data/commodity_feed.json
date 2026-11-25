@@ -1,5 +1,61 @@
 [
  {
+  "when": "25 Nov 13:50 UTC",
+  "iso": "2026-11-25T13:50:29.956999+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFed\u2019s preferred inflation gauge accelerated to 3.8% in October, likely sealing rate hike - CNBC  (CNBC)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,505 (-1.6%)   Silver 39.60 (-2.8%)   WTI 82.57 (+0.6%)   DXY 103.94 (+0.1%)   US10Y 4.84 (-1.3%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1SREI2WkZTZTJWN0daalVYUlBFRVAtcUNzY3BybGN3dnJCUU1OR2dVRkNXMDRMWmtISWZSSkdNeFNGdm4xc2ZveGtVMmtnUFFqanhXbmhhcktZUWRrM1BpVUE0OU5ZNnNTOENfVDhoTmdWQWxNZGlFbXFR0gF_QVVfeXFMTmFSS3ViODJ4VUhoUF9pUHJwRldEZTlzTHoxRWt3djJQZGJLZ2R4dG9MSk9KaEZtbUp1a1ZwZjNMS0VJbDIyTldzcTlTblFKaWZ5LXJ0UXRMZERRbHNUZDdNYzV5UzVSV0pJYUhoVFh2T1psRElLZFlNUEVnUnBMaw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3504.8,
+   "Silver": 39.605,
+   "WTI": 82.57
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Fed\u2019s preferred inflation gauge accelerated to 3.8% in October, likely sealing rate hike - CNBC",
+   "src": "CNBC",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,505 (-1.6%)   Silver 39.60 (-2.8%)   WTI 82.57 (+0.6%)   DXY 103.94 (+0.1%)   US10Y 4.84 (-1.3%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "25 Nov 13:47 UTC",
   "iso": "2026-11-25T13:47:12.284106+00:00",
   "cat": "inflation_hot",
@@ -3268,62 +3324,6 @@
    "label": "GEOPOLITICS \u2014 escalation",
    "headline": "Iran strikes 3 oil tankers as it shows off new missile launchers - JC Post",
    "src": "JC Post",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,515 (-4.6%)   Silver 41.07 (-7.3%)   WTI 83.41 (+0.2%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "22 Nov 09:25 UTC",
-  "iso": "2026-11-22T09:25:56.222179+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussia\u2019s Baltic Fleet Base Comes Under First-Ever Suspected Drone Attack in Kaliningrad - UNITED24 Media  (UNITED24 Media)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,515 (-4.6%)   Silver 41.07 (-7.3%)   WTI 83.41 (+0.2%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPMWNRdlNCSDdlbmZZWlFpTnJzZm5zYklkQjM3RjN2T1BDUFdrU3dtSjhNdFh0NXJzcjN6bjk2aDlUUy1oUFl0eDh4U0xqMUhjc3pINnFJM3Z3eXFyUW1Ja2RGdlBWeElZc0J5RVRlcnAzWTJnb2VWb0pkQnh3WGU5Q3FValNRSjc5THNsNmVSREFEeUZuMjRnaDdrckU0RjBNS3k0R3psd1lHWEFRekZEMnhyYl9mbjZvdmpqQ19EZURyTHk4XzFZcGVKbzVsQQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3515.4,
-   "Silver": 41.07,
-   "WTI": 83.41
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Russia\u2019s Baltic Fleet Base Comes Under First-Ever Suspected Drone Attack in Kaliningrad - UNITED24 Media",
-   "src": "UNITED24 Media",
    "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
    "leans": [
     {
