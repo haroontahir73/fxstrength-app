@@ -1,5 +1,61 @@
 [
  {
+  "when": "25 Nov 22:42 UTC",
+  "iso": "2026-11-25T22:42:21.907290+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nThird tanker hits mine in Strait of Hormuz, Iran says - \u30a2\u30e9\u30d6\u30cb\u30e5\u30fc\u30b9  (\u30a2\u30e9\u30d6\u30cb\u30e5\u30fc\u30b9)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,618 (+1.6%)   Silver 41.67 (+2.2%)   WTI 84.15 (+2.6%)   DXY 103.69 (-0.1%)   US10Y 4.85 (-1.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOZUkybGNhbUFxVmloUFJlU3pJeTJOYWdwUTE0U052TkxSZjk0Tno1cDVvVUhCRHMyOGxMYUtXelpWMU93Q1pMMmdDMWMzazFKZVR4SUQ0aW9BRGlmYnZqUEVSNmpyY0hHQ2V3LUplem9NVWw3cG4xRzFLVjZxS21zMDd4MVB3YVdTOWlUR2paSGZMcjc3aTV2bldRNTlZTHFS?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3617.8,
+   "Silver": 41.67,
+   "WTI": 84.15
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Third tanker hits mine in Strait of Hormuz, Iran says - \u30a2\u30e9\u30d6\u30cb\u30e5\u30fc\u30b9",
+   "src": "\u30a2\u30e9\u30d6\u30cb\u30e5\u30fc\u30b9",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,618 (+1.6%)   Silver 41.67 (+2.2%)   WTI 84.15 (+2.6%)   DXY 103.69 (-0.1%)   US10Y 4.85 (-1.1%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "25 Nov 21:44 UTC",
   "iso": "2026-11-25T21:44:00.805416+00:00",
   "cat": "oil_supply_loose",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,612 (+2.8%)   Silver 42.01 (+2.4%)   WTI 83.18 (-1.0%)   DXY 103.75 (-0.1%)   US10Y 4.91 (-2.8%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "22 Nov 20:07 UTC",
-  "iso": "2026-11-22T20:07:18.751433+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nRussian cargo ship leaves Finland\u2019s territorial waters after drone attack - Al Jazeera  (Al Jazeera)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,515 (-4.6%)   Silver 41.07 (-7.3%)   WTI 83.41 (+0.2%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPd2NCaGF6MUxSRzUwVFhLTFAxUzR6bnU3TW5PSE9vQzRrRnk4Qnd3d0ZpQ1RMYk1wZEd3eHVla1lNOFhZTHktekYwZWJ2eElMaXRpamVCWWFrSEpUTVQxVjRpdHJ2WG9SSFp1aXVHTTBXUWVCdHFHTFJzc0I3Zks1dzZxNS1zWjhCTFhKR0tCM3RJdy1YLXJsTWhwSGhJUktORXJwaTBaQjHSAa4BQVVfeXFMTjJuTVlYMUFraG1VUWhHUXY5TTJiMF9SajVvX1lqLWNtOTRqaHNsei1OcUVuN1NuVU5ucDNoa2lZZFk3ZGkzRm1ybW50UllFcUZveEhIMDBnaG5pVmdzTktDeWpfejBrVk9kQ0NQV2pWNDBfcTJ0eHNfYTM0cUNaZjNTdVFWV3VWWWFEeS0wWDFMYTZrbHBMeEl5NzItRE1jRE5qZG5mdFJ5VUxoV3lB?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3515.4,
-   "Silver": 41.07,
-   "WTI": 83.41
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Russian cargo ship leaves Finland\u2019s territorial waters after drone attack - Al Jazeera",
-   "src": "Al Jazeera",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,515 (-4.6%)   Silver 41.07 (-7.3%)   WTI 83.41 (+0.2%)   DXY 103.84 (-0.1%)   US10Y 4.91 (-2.8%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
