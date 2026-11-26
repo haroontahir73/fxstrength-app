@@ -270,6 +270,127 @@ def _cot_hist_rows(code, hist, weeks, cat):
     return rows
 
 
+# ---- COT Positioning Reading — visual summary at the top of the COT tab ----------------
+# A compact card per currency showing: mini SVG bar of NC net, the positioning percentile
+# (where current NC net sits in its 3-year history), and a traffic-light reading.
+
+def _cot_reading_signal(pct):
+    """Traffic-light label and colour from a percentile rank (0-100).
+    High percentile = speculators very long = crowding risk (red).
+    Low percentile = speculators very short = crowding risk (also red, opposite side).
+    Middle = neutral (green)."""
+    if pct is None:
+        return "No data", "#888", "not-enough-history"
+    if pct >= 90:
+        return "Extreme long", "#dc2626", "extreme"
+    if pct >= 75:
+        return "High long", "#ea580c", "high"
+    if pct >= 60:
+        return "Mild long", "#65a30d", "mild"
+    if pct >= 40:
+        return "Neutral", "#16a34a", "neutral"
+    if pct >= 25:
+        return "Mild short", "#65a30d", "mild"
+    if pct >= 10:
+        return "High short", "#ea580c", "high"
+    return "Extreme short", "#dc2626", "extreme"
+
+
+def _cot_reading_bar_svg(pct, color, w=120, h=18):
+    """A mini horizontal bar showing the percentile as position on a 0-100 scale."""
+    if pct is None:
+        return f'<svg width="{w}" height="{h}" class="cr-minibar"><rect x="0" y="0" width="{w}" height="{h}" rx="3" fill="var(--cr-barbg,#333)"/></svg>'
+    # bar background
+    bx = max(2, pct / 100 * (w - 4)) + 2
+    # draw: background, then a marker line at the percentile position
+    mid_x = 2 + (pct / 100) * (w - 4)
+    return (f'<svg width="{w}" height="{h}" class="cr-minibar">'
+            f'<rect x="0" y="0" width="{w}" height="{h}" rx="3" fill="var(--cr-barbg,#333)"/>'
+            f'<line x1="{w/2:.0f}" y1="2" x2="{w/2:.0f}" y2="{h-2}" stroke="var(--cr-mid,#555)" stroke-width="1" stroke-dasharray="2,2"/>'
+            f'<circle cx="{mid_x:.1f}" cy="{h/2:.0f}" r="5" fill="{color}"/>'
+            f'</svg>')
+
+
+def cot_positioning_reading():
+    """Visual COT positioning reading: one row per currency/commodity showing where
+    speculative (Non-Commercial) net positioning sits in its 3-year history."""
+    store = _cr_store()
+    if not store:
+        return ""
+
+    latest, prev = _ct.pick_weeks(store)
+    if not latest:
+        return ""
+
+    rows_html = []
+    for label, code, rev, key, desc in _ct.ALL_ROWS:
+        c = store["contracts"].get(code)
+        if not c:
+            continue
+        weeks = c.get("weeks", {})
+        dates = sorted(weeks.keys())
+        if not dates or latest not in weeks:
+            continue
+
+        # Get NC net for all available weeks
+        sides = [_ct._side(weeks[d], rev) for d in dates]
+        nc_nets = [s[0] - s[1] if s else None for s in sides]
+
+        # Current NC net
+        cur_side = _ct._side(weeks[latest], rev)
+        if cur_side is None:
+            continue
+        cur_nc_net = cur_side[0] - cur_side[1]
+        cur_comm_net = cur_side[2] - cur_side[3]
+
+        # Percentile rank of current NC net over available history (up to RANK_WEEKS)
+        idx = dates.index(latest)
+        lo = max(0, idx - _ct.RANK_WEEKS + 1)
+        window = [v for v in nc_nets[lo:idx + 1] if v is not None]
+        if len(window) < _ct.MIN_RANK_WEEKS:
+            pct = None
+        else:
+            pct = _ct.percentile_rank(window, cur_nc_net)
+
+        signal_label, signal_color, signal_cls = _cot_reading_signal(pct)
+        bar_svg = _cot_reading_bar_svg(pct, signal_color)
+
+        # Direction arrow
+        nc_dir = "▲" if cur_nc_net > 0 else "▼" if cur_nc_net < 0 else "—"
+        nc_cls = "pos" if cur_nc_net > 0 else "neg" if cur_nc_net < 0 else ""
+
+        # Commercial positioning (opposite = confirmation of extreme)
+        comm_dir = "▲" if cur_comm_net > 0 else "▼" if cur_comm_net < 0 else "—"
+
+        pct_txt = f"{pct:.0f}" if pct is not None else "—"
+
+        rows_html.append(
+            f'<tr class="crr-row">'
+            f'<td class="crr-pair"><a href="#cot50-{esc(key)}">{esc(label)}</a></td>'
+            f'<td class="crr-net mono {nc_cls}">{nc_dir} {cur_nc_net:+,}</td>'
+            f'<td class="crr-bar">{bar_svg}</td>'
+            f'<td class="crr-idx mono" style="color:{signal_color}">{pct_txt}</td>'
+            f'<td class="crr-sig" style="color:{signal_color}"><span class="crr-dot" style="background:{signal_color}"></span>{signal_label}</td>'
+            f'</tr>')
+
+    if not rows_html:
+        return ""
+
+    return f"""<section class="crr-sec">
+    <h2>COT Positioning Reading</h2>
+    <p class="sub">Where speculative (Non-Commercial) net positioning sits in its <b>{_ct.RANK_WEEKS}-week</b>
+    (~3 year) history. The dot shows the current percentile &mdash; centre is neutral, edges are
+    extremes. <span style="color:#dc2626">●</span>&nbsp;Extreme = crowded, reversal risk.
+    <span style="color:#ea580c">●</span>&nbsp;High = building.
+    <span style="color:#16a34a">●</span>&nbsp;Neutral = balanced. Tap a pair for the full 50-week report.</p>
+    <div class="tw"><table class="crr-tbl">
+      <thead><tr><th></th><th class="num">NC Net</th><th>Positioning</th>
+      <th class="num">Index</th><th>Reading</th></tr></thead>
+      <tbody>{"".join(rows_html)}</tbody>
+    </table></div>
+  </section>"""
+
+
 # ---- the classic COT tables + per-contract 50-week Legacy reports (cot_table.py) --------
 # Laid out like the weekly "Commitment of Traders Report" sheets: olive header bars, peach
 # row labels, a long/short-share tint on the % cells, green/red net and difference cells
@@ -2013,7 +2134,8 @@ def build():
         # path next to the curve it prices. Each section is still built by its own function
         # and still degrades on its own, so a dead feed costs one section, not the tab.
         # Step 2: COT x Myfxbook retail divergence scanner - display only, feeds nothing.
-        "{{COT_PANEL}}": (_safe_panel(_div.scanner, "Positioning divergences")
+        "{{COT_PANEL}}": (_safe_panel(cot_positioning_reading, "COT positioning reading")
+                          + _safe_panel(_div.scanner, "Positioning divergences")
                           + _safe_panel(_hist.link, "Historical performance link")
                           + _safe_panel(cot_report_tables, "COT report tables")
                           + cot_panel()

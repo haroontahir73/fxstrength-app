@@ -371,6 +371,30 @@ table.cotrep{min-width:1100px;width:100%;border-collapse:collapse;font-size:12.5
 .crscroll{max-height:78vh;overflow:auto}
 .crscroll thead{position:sticky;top:0;z-index:3}
 @media (min-width:820px){.crscroll{max-height:none;overflow:visible}}
+/* COT Positioning Reading — compact summary at the top of the COT tab */
+.crr-sec{margin-bottom:22px}
+.crr-sec h2{font-family:"IBM Plex Mono",monospace;font-size:16px;font-weight:700;margin:0 0 4px}
+.crr-sec .sub{font-size:12px;color:var(--mut);margin:0 0 12px;line-height:1.5}
+.crr-tbl{width:100%;border-collapse:collapse;font-size:13px}
+.crr-tbl th{font-family:"IBM Plex Mono",monospace;font-size:11px;text-transform:uppercase;
+  letter-spacing:.04em;color:var(--mut);font-weight:600;padding:6px 8px;text-align:left;
+  border-bottom:1px solid var(--line2);white-space:nowrap}
+.crr-tbl th.num{text-align:right}
+.crr-row td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+.crr-row:hover td{background:var(--surface)}
+.crr-pair{font-weight:600;white-space:nowrap}
+.crr-pair a{color:var(--accent);text-decoration:underline dotted;text-underline-offset:3px}
+.crr-pair a:hover{text-decoration-style:solid}
+.crr-net{text-align:right;white-space:nowrap;font-size:12px}
+.crr-net.pos{color:var(--buy,#16a34a)}
+.crr-net.neg{color:var(--sell,#dc2626)}
+.crr-bar{text-align:center}
+.crr-idx{text-align:right;font-weight:700;font-size:14px}
+.crr-sig{white-space:nowrap;font-size:12px;font-weight:600}
+.crr-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.cr-minibar{vertical-align:middle}
+@media (max-width:600px){.crr-tbl{font-size:12px} .crr-net{font-size:11px} .crr-idx{font-size:12px}
+  .crr-sig{font-size:11px}}
 /* Per-instrument 50-week drill-down. A hash link opens it; :target makes it a full-screen
    layer over the tab, and the browser Back button (or the back link) closes it - it behaves
    like its own page without any script. Lives outside .panel so no hidden parent can eat it. */
