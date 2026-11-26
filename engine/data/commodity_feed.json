@@ -1,5 +1,61 @@
 [
  {
+  "when": "26 Nov 13:44 UTC",
+  "iso": "2026-11-26T13:44:13.344463+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nAttack on a tanker in the Strait of Hormuz; warning issued to transiting vessels - Yemen Online  (Yemen Online)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,599 (+1.8%)   Silver 41.66 (+4.0%)   WTI 84.62 (+1.1%)   DXY 103.71 (+0.0%)   US10Y 4.85 (-1.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE4zNGpsYkxSYUM5a0tBbDRLSk5kaHRHUzZUN1h3YVpDZnBFSWdZWXYySEdscHhEZ2NzR0RyVkh1eVJtbzFnVkRVRWRFUkI4SjdH?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3598.8,
+   "Silver": 41.665,
+   "WTI": 84.62
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Attack on a tanker in the Strait of Hormuz; warning issued to transiting vessels - Yemen Online",
+   "src": "Yemen Online",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,599 (+1.8%)   Silver 41.66 (+4.0%)   WTI 84.62 (+1.1%)   DXY 103.71 (+0.0%)   US10Y 4.85 (-1.1%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "26 Nov 13:05 UTC",
   "iso": "2026-11-26T13:05:09.864257+00:00",
   "cat": "rates_up",
@@ -3299,62 +3355,6 @@
     }
    ],
    "snap": "NOW  Gold 3,664 (+4.2%)   Silver 43.26 (+5.4%)   WTI 82.17 (-2.2%)   DXY 104.18 (+0.4%)   US10Y 4.94 (+0.5%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "23 Nov 13:29 UTC",
-  "iso": "2026-11-23T13:29:27.803963+00:00",
-  "cat": "geo_escalation",
-  "title": "TALK | OIL LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIsrael unlikely to strike Iran without US backing, despite fears Netanyahu may act alone - report - The Jerusalem Post  (The Jerusalem Post)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191   look for longs - supply at risk = price up fast (talk, not action yet)\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,622 (+3.0%)   Silver 42.23 (+2.9%)   WTI 81.96 (-2.4%)   DXY 104.08 (+0.3%)   US10Y 4.91 (-2.8%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9GYW5tek41cmt3bGg5LXlpRWZBY2xlYmFhbDJUY0R4bmY3ZUZHZUxVdHZsejNvUEtXZGNMWkRvSkRKZF9jTXItM1BrNHpEQm16OXVOWmZqc2dzenQ5b0xaY2hscjdDVzFMV2c?oc=5",
-  "talk": true,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3622.1,
-   "Silver": 42.23,
-   "WTI": 81.96
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Israel unlikely to strike Iran without US backing, despite fears Netanyahu may act alone - report - The Jerusalem Post",
-   "src": "The Jerusalem Post",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191",
-     "dir": "up",
-     "strength": 2,
-     "call": "look for longs",
-     "reason": "supply at risk = price up fast (talk, not action yet)",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,622 (+3.0%)   Silver 42.23 (+2.9%)   WTI 81.96 (-2.4%)   DXY 104.08 (+0.3%)   US10Y 4.91 (-2.8%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
