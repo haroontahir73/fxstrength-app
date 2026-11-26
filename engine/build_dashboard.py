@@ -296,18 +296,15 @@ def _cot_reading_signal(pct):
     return "Extreme short", "#dc2626", "extreme"
 
 
-def _cot_reading_bar_svg(pct, color, w=120, h=18):
+def _cot_reading_bar_svg(pct, color, w=100, h=10):
     """A mini horizontal bar showing the percentile as position on a 0-100 scale."""
     if pct is None:
-        return f'<svg width="{w}" height="{h}" class="cr-minibar"><rect x="0" y="0" width="{w}" height="{h}" rx="3" fill="var(--cr-barbg,#333)"/></svg>'
-    # bar background
-    bx = max(2, pct / 100 * (w - 4)) + 2
-    # draw: background, then a marker line at the percentile position
+        return f'<svg width="100%" height="{h}" viewBox="0 0 {w} {h}" class="cr-minibar"><rect x="0" y="0" width="{w}" height="{h}" rx="3" fill="var(--cr-barbg,#333)"/></svg>'
     mid_x = 2 + (pct / 100) * (w - 4)
-    return (f'<svg width="{w}" height="{h}" class="cr-minibar">'
+    return (f'<svg width="100%" height="{h}" viewBox="0 0 {w} {h}" class="cr-minibar">'
             f'<rect x="0" y="0" width="{w}" height="{h}" rx="3" fill="var(--cr-barbg,#333)"/>'
-            f'<line x1="{w/2:.0f}" y1="2" x2="{w/2:.0f}" y2="{h-2}" stroke="var(--cr-mid,#555)" stroke-width="1" stroke-dasharray="2,2"/>'
-            f'<circle cx="{mid_x:.1f}" cy="{h/2:.0f}" r="5" fill="{color}"/>'
+            f'<line x1="{w/2:.0f}" y1="1" x2="{w/2:.0f}" y2="{h-1}" stroke="var(--cr-mid,#555)" stroke-width=".7" stroke-dasharray="1.5,1.5"/>'
+            f'<circle cx="{mid_x:.1f}" cy="{h/2:.0f}" r="4" fill="{color}"/>'
             f'</svg>')
 
 
@@ -365,29 +362,25 @@ def cot_positioning_reading():
         pct_txt = f"{pct:.0f}" if pct is not None else "—"
 
         rows_html.append(
-            f'<tr class="crr-row">'
-            f'<td class="crr-pair"><a href="#cot50-{esc(key)}">{esc(label)}</a></td>'
-            f'<td class="crr-net mono {nc_cls}">{nc_dir} {cur_nc_net:+,}</td>'
-            f'<td class="crr-bar">{bar_svg}</td>'
-            f'<td class="crr-idx mono" style="color:{signal_color}">{pct_txt}</td>'
-            f'<td class="crr-sig" style="color:{signal_color}"><span class="crr-dot" style="background:{signal_color}"></span>{signal_label}</td>'
-            f'</tr>')
+            f'<a href="#cot50-{esc(key)}" class="crr-card">'
+            f'<div class="crr-top"><span class="crr-pair">{esc(label)}</span>'
+            f'<span class="crr-net {nc_cls}">{nc_dir}{cur_nc_net:+,}</span></div>'
+            f'<div class="crr-bar">{bar_svg}</div>'
+            f'<div class="crr-bot"><span class="crr-idx" style="color:{signal_color}">{pct_txt}</span>'
+            f'<span class="crr-sig" style="color:{signal_color}">'
+            f'<span class="crr-dot" style="background:{signal_color}"></span>{signal_label}</span></div>'
+            f'</a>')
 
     if not rows_html:
         return ""
 
     return f"""<section class="crr-sec">
     <h2>COT Positioning Reading</h2>
-    <p class="sub">Where speculative (Non-Commercial) net positioning sits in its <b>{_ct.RANK_WEEKS}-week</b>
-    (~3 year) history. The dot shows the current percentile &mdash; centre is neutral, edges are
-    extremes. <span style="color:#dc2626">●</span>&nbsp;Extreme = crowded, reversal risk.
-    <span style="color:#ea580c">●</span>&nbsp;High = building.
-    <span style="color:#16a34a">●</span>&nbsp;Neutral = balanced. Tap a pair for the full 50-week report.</p>
-    <div class="tw"><table class="crr-tbl">
-      <thead><tr><th></th><th class="num">NC Net</th><th>Positioning</th>
-      <th class="num">Index</th><th>Reading</th></tr></thead>
-      <tbody>{"".join(rows_html)}</tbody>
-    </table></div>
+    <p class="sub"><span style="color:#dc2626">●</span> Extreme
+    <span style="color:#ea580c">●</span> High
+    <span style="color:#16a34a">●</span> Neutral &mdash;
+    dot = percentile in {_ct.RANK_WEEKS}-week history. Tap for 50-week report.</p>
+    <div class="crr-grid">{"".join(rows_html)}</div>
   </section>"""
 
 
