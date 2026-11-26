@@ -288,7 +288,7 @@ def _cot_reading_signal(pct):
     if pct >= 60:
         return "Mild long", "#4ade80", "mild"
     if pct >= 40:
-        return "Neutral", "#a3a3a3", "neutral"
+        return "Neutral", "#3b82f6", "neutral"
     if pct >= 25:
         return "Mild short", "#f87171", "mild"
     if pct >= 10:
@@ -378,7 +378,7 @@ def cot_positioning_reading():
     <h2>COT Positioning Reading</h2>
     <p class="sub"><span style="color:#16a34a">●</span> Long
     <span style="color:#dc2626">●</span> Short
-    <span style="color:#a3a3a3">●</span> Neutral &mdash;
+    <span style="color:#3b82f6">●</span> Neutral &mdash;
     dot = percentile in {_ct.RANK_WEEKS}-week history. Tap for 50-week report.</p>
     <div class="crr-grid">{"".join(rows_html)}</div>
   </section>"""
