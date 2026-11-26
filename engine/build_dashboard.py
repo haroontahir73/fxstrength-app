@@ -282,17 +282,17 @@ def _cot_reading_signal(pct):
     if pct is None:
         return "No data", "#888", "not-enough-history"
     if pct >= 90:
-        return "Extreme long", "#dc2626", "extreme"
+        return "Extreme long", "#16a34a", "extreme"
     if pct >= 75:
-        return "High long", "#ea580c", "high"
+        return "High long", "#22c55e", "high"
     if pct >= 60:
-        return "Mild long", "#65a30d", "mild"
+        return "Mild long", "#4ade80", "mild"
     if pct >= 40:
-        return "Neutral", "#16a34a", "neutral"
+        return "Neutral", "#a3a3a3", "neutral"
     if pct >= 25:
-        return "Mild short", "#65a30d", "mild"
+        return "Mild short", "#f87171", "mild"
     if pct >= 10:
-        return "High short", "#ea580c", "high"
+        return "High short", "#ef4444", "high"
     return "Extreme short", "#dc2626", "extreme"
 
 
@@ -376,9 +376,9 @@ def cot_positioning_reading():
 
     return f"""<section class="crr-sec">
     <h2>COT Positioning Reading</h2>
-    <p class="sub"><span style="color:#dc2626">●</span> Extreme
-    <span style="color:#ea580c">●</span> High
-    <span style="color:#16a34a">●</span> Neutral &mdash;
+    <p class="sub"><span style="color:#16a34a">●</span> Long
+    <span style="color:#dc2626">●</span> Short
+    <span style="color:#a3a3a3">●</span> Neutral &mdash;
     dot = percentile in {_ct.RANK_WEEKS}-week history. Tap for 50-week report.</p>
     <div class="crr-grid">{"".join(rows_html)}</div>
   </section>"""
