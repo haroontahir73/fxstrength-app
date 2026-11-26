@@ -1,5 +1,61 @@
 [
  {
+  "when": "26 Nov 13:05 UTC",
+  "iso": "2026-11-26T13:05:09.864257+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold \u2013 Elevated Inflation Continues to Fuel Hawkish Fed Rate Outlook - Action Forex  (Action Forex)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,591 (+1.6%)   Silver 41.84 (+4.5%)   WTI 84.67 (+1.2%)   DXY 103.74 (+0.1%)   US10Y 4.85 (-1.1%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPbU1BVVhLNkxTQ1BZU2VHd0JxZ1RIMkV3SWc2UTJUX2xSbVhFU1RBRVYyS3VfLVlfVWc1Y0VtUk1NWjZEOEcwLXNza0lxczdvVEgzS2R0MGZJRXJOeWhfTGlRR3ZvdnhaTVhUSjhOcVgxMXBIdFRwVlBDenhFYThranVZMUdFWFZVX0p1UV9Ndl9jeXhjblF6QVVGVnJzd2ozUlNNQWZ2Y3B6Z21UT0p0YUFlQTZycl9hQWNGUHdYREg1TGdxS0haR3ljdUlNMTg?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3591.4,
+   "Silver": 41.84,
+   "WTI": 84.67
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Gold \u2013 Elevated Inflation Continues to Fuel Hawkish Fed Rate Outlook - Action Forex",
+   "src": "Action Forex",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,591 (+1.6%)   Silver 41.84 (+4.5%)   WTI 84.67 (+1.2%)   DXY 103.74 (+0.1%)   US10Y 4.85 (-1.1%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "26 Nov 12:12 UTC",
   "iso": "2026-11-26T12:12:51.432950+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,622 (+3.0%)   Silver 42.23 (+2.9%)   WTI 81.96 (-2.4%)   DXY 104.08 (+0.3%)   US10Y 4.91 (-2.8%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "23 Nov 13:03 UTC",
-  "iso": "2026-11-23T13:03:06.791543+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nBill Ackman Fed Rate Hike Warning Raises US Recession Concerns - TronWeekly  (TronWeekly)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,614 (+2.8%)   Silver 41.98 (+2.3%)   WTI 82.18 (-2.1%)   DXY 104.06 (+0.2%)   US10Y 4.91 (-2.8%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBSc1pHQW1GZWFnUHA3cklKOVZDNjNhblBIZzFZUUVxd1NoNV8zRlJmWkJhWjRRMFNCY1FDbGhCQ3BkaklKcHNmdS1hY1BITW9zWVFJbGl2Z2c3Vmttay1jR1I0WVU1dXM5LVhSVjFEWUZmWEF4empHcUpETQ?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3614.2,
-   "Silver": 41.985,
-   "WTI": 82.18
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Bill Ackman Fed Rate Hike Warning Raises US Recession Concerns - TronWeekly",
-   "src": "TronWeekly",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 3,614 (+2.8%)   Silver 41.98 (+2.3%)   WTI 82.18 (-2.1%)   DXY 104.06 (+0.2%)   US10Y 4.91 (-2.8%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
