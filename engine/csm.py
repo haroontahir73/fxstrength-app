@@ -33,29 +33,39 @@ ORDER = MAJORS + EXTRAS
 
 # ── Fetch ────────────────────────────────────────────────────────────────
 
+# The actual HTML uses id= (not class=) on each bar div:
+#   <div id="map-innercontainer-weak3" style="background-image:none">&nbsp;</div>
+#   <div id="map-innercontainer-strong1">&nbsp;</div>
+# Inactive bars carry style="background-image:none"; active bars have no such style.
+# Currency names sit in <div id="map-innercontainer-symbol">EURO</div>.
+# Each currency is wrapped in <div id="rate-outercontainer">...</div>.
+
 _BAR_RE = re.compile(
-    r'class="map-innercontainer[^"]*?((?:strong|weak)\d)[^"]*"'
-    r'[^>]*style="([^"]*)"',
-    re.DOTALL,
+    r'id="map-innercontainer-((?:strong|weak)\d)"([^>]*)',
 )
-_CCY_BLOCK_RE = re.compile(
-    r'<div\s+class="[^"]*map-container[^"]*"[^>]*>.*?'
-    r'<span[^>]*class="[^"]*map-label[^"]*"[^>]*>(\w+)</span>'
-    r'(.*?)</div>\s*</div>',
-    re.DOTALL,
+_SYM_RE = re.compile(
+    r'id="map-innercontainer-symbol"[^>]*>(\w+)<',
 )
+
+# Map livecharts names → standard 3-letter codes
+_NAME_MAP = {"EURO": "EUR"}
 
 
 def _parse_scores(html: str) -> dict[str, float]:
     """Extract active bar counts from the livecharts HTML and convert to 0-10."""
     scores: dict[str, float] = {}
-    for m in _CCY_BLOCK_RE.finditer(html):
-        ccy = m.group(1).upper().strip()
-        block = m.group(2)
+    # Split by rate-outercontainer to isolate each currency block
+    blocks = html.split("rate-outercontainer")
+    for block in blocks[1:]:
+        sym_m = _SYM_RE.search(block)
+        if not sym_m:
+            continue
+        raw_name = sym_m.group(1).strip().upper()
+        ccy = _NAME_MAP.get(raw_name, raw_name)
         bars = _BAR_RE.findall(block)
         if not bars:
             continue
-        active = sum(1 for _cls, style in bars if "none" not in style.lower())
+        active = sum(1 for _cls, attrs in bars if "none" not in attrs.lower())
         total = len(bars) if len(bars) > 0 else 6
         scores[ccy] = round(active / total * 10, 1)
     return scores
