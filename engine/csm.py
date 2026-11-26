@@ -67,7 +67,7 @@ def _parse_scores(html: str) -> dict[str, float]:
             continue
         active = sum(1 for _cls, attrs in bars if "none" not in attrs.lower())
         total = len(bars) if len(bars) > 0 else 6
-        scores[ccy] = round(active / total * 10, 1)
+        scores[ccy] = round(active / total * 9, 1)
     return scores
 
 
@@ -98,25 +98,25 @@ def load() -> dict[str, float]:
 
 def _bar_color(score: float) -> str:
     """CSS colour for the strength bar — green for strong, red for weak."""
-    if score >= 7.5:
+    if score >= 6.75:
         return "#16a34a"      # strong green
-    if score >= 5.5:
+    if score >= 5.0:
         return "#65a30d"      # mild green
-    if score >= 4.5:
+    if score >= 4.0:
         return "#ca8a04"      # neutral amber
-    if score >= 2.5:
+    if score >= 2.25:
         return "#ea580c"      # mild red
     return "#dc2626"          # weak red
 
 
 def _strength_label(score: float) -> str:
-    if score >= 7.5:
+    if score >= 6.75:
         return "Strong"
-    if score >= 5.5:
+    if score >= 5.0:
         return "Moderate"
-    if score >= 4.5:
+    if score >= 4.0:
         return "Neutral"
-    if score >= 2.5:
+    if score >= 2.25:
         return "Moderate"
     return "Weak"
 
@@ -135,7 +135,7 @@ def render(scores: dict[str, float]) -> str:
 
     rows: list[str] = []
     for ccy, sc in ranked:
-        bar_w = max(sc * 10, 2)  # percentage width, min 2% so something shows
+        bar_w = max(sc / 9 * 100, 2)  # percentage width, min 2% so something shows
         color = _bar_color(sc)
         label = _strength_label(sc)
         rows.append(
@@ -152,7 +152,7 @@ def render(scores: dict[str, float]) -> str:
     return (
         '<section class="csm-section">'
         '<h2>Currency Strength Meter</h2>'
-        '<p class="sub">Numerical strength scores (0–10) derived from '
+        '<p class="sub">Numerical strength scores (0–9) derived from '
         '<a href="https://www.livecharts.co.uk/currency-strength.php" '
         'target="_blank" rel="noopener">livecharts.co.uk</a>. '
         'Higher = stronger currency.</p>'
