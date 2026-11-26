@@ -1,5 +1,61 @@
 [
  {
+  "when": "26 Nov 12:12 UTC",
+  "iso": "2026-11-26T12:12:51.432950+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nAdnoc finds body of seafarer missing after Strait of Hormuz attack - TradeWinds News  (TradeWinds News)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,598 (+1.8%)   Silver 41.78 (+4.3%)   WTI 84.36 (+0.8%)   DXY 103.78 (+0.1%)   US10Y 4.85 (-1.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOUEJWYTFwdmxjdjlFaXNtT19ZTlVTd1hYbkFtOVJMSGxmTkxra1NmVmZjZmE4RUtBQ1ozTVFDMWVEX0FRQkptaWVoQlN2V0xhX1U5cGJWOV9CQTRlTDlBb0E4enNVeFBfbUZZVzVxM3ZMV0F0aDNVcFhBcFFaaUlnOXFKdmU2RFhQMmNaWnpzX0tjX1ZiUnhEWTViczRtT2hvdUgtbzFpblo3RFg0MjlIQi1LNFNDLVRWalMzdg?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3598.5,
+   "Silver": 41.785,
+   "WTI": 84.36
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Adnoc finds body of seafarer missing after Strait of Hormuz attack - TradeWinds News",
+   "src": "TradeWinds News",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,598 (+1.8%)   Silver 41.78 (+4.3%)   WTI 84.36 (+0.8%)   DXY 103.78 (+0.1%)   US10Y 4.85 (-1.1%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "26 Nov 08:09 UTC",
   "iso": "2026-11-26T08:09:45.524189+00:00",
   "cat": "oil_supply_tight",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,614 (+2.8%)   Silver 41.98 (+2.3%)   WTI 82.18 (-2.1%)   DXY 104.06 (+0.2%)   US10Y 4.91 (-2.8%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "23 Nov 11:44 UTC",
-  "iso": "2026-11-23T11:44:21.744896+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\n'Americans Won't Be So Foolish': Iran Dares Trump Over Possible Attack On Iranian Dams - The Times of India  (The Times of India)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,622 (+3.0%)   Silver 42.40 (+3.3%)   WTI 81.96 (-2.4%)   DXY 103.89 (+0.1%)   US10Y 4.91 (-2.8%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQb1hVMUJzWE9KbGVKeUtvN200N3h4eHNyX0lfdHkzdFdQR3ZNajhIVFV0RTNWNk13ZjBLTVRQVzVPdlVMTUxRc0lIMG1jMnJCUDEwMnVHTnhuaWxSbll4dERkaFdobmtrNTZBUnBCY0tmazR0MExHNzZOTTRfTnlxN2hja05hc1JVWFJTX1dKQlVlR3BVYktmaWpvcGU4aHlmYllESm5uUGhDbWd0Wi16NkpZWGFyUjRoTFJUTzhFWXh6Zi1aVGdJUk9ESFVNcUY5YjlfNFQ3SWNMNFVESnlsaXprQUx6M0huUE0wRW9VUGRwaXh5aWfSAfsBQVVfeXFMTnJROWJkSDlzMC1EeVYwNXVtMDRCQTlqT0haamwxZkpXUy1iQ0pYVnllMXE5aDl4VVpZY2VzY3JsWE9ZWlphQmdleG84TWlJazRSYWM1Yi1UTnpGNDJaaXpYSGxNaDNWQWhySFFvSk9iWC0wbnhCUktmeDFyOXdZZk5tTHNnaXdIeXFfaGJkUWhlclh0eEVCMnlxWFdtMGFYZnYwa2xBSktucGY0bGNmZFdBZVk5aUptVm1NOVJZNC0tOWJOdW9hWlh3VmhZSGNZOWpKaUc2S2k5QU5ETldHTHZZQUxCZUlkVHF5c0ZGTXIwYmtPU1duQVc1ZGM?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3621.5,
-   "Silver": 42.4,
-   "WTI": 81.96
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "'Americans Won't Be So Foolish': Iran Dares Trump Over Possible Attack On Iranian Dams - The Times of India",
-   "src": "The Times of India",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,622 (+3.0%)   Silver 42.40 (+3.3%)   WTI 81.96 (-2.4%)   DXY 103.89 (+0.1%)   US10Y 4.91 (-2.8%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
