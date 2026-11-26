@@ -1146,52 +1146,52 @@
  "2026-07-20": {
   "Gold": {
    "oi": 380769,
-   "chg": null,
+   "chg": -738,
    "volume": 127463
   },
   "Silver": {
    "oi": 104499,
-   "chg": null,
+   "chg": -448,
    "volume": 37541
   },
   "Oil": {
    "oi": 1851458,
-   "chg": null,
+   "chg": -12564,
    "volume": 956281
   },
   "EUR": {
    "oi": 796946,
-   "chg": null,
+   "chg": 1765,
    "volume": 119498
   },
   "GBP": {
    "oi": 263407,
-   "chg": null,
+   "chg": -333,
    "volume": 73578
   },
   "JPY": {
    "oi": 403045,
-   "chg": null,
+   "chg": 2640,
    "volume": 100205
   },
   "AUD": {
    "oi": 217131,
-   "chg": null,
+   "chg": 3394,
    "volume": 74628
   },
   "NZD": {
    "oi": 111679,
-   "chg": null,
+   "chg": -1016,
    "volume": 27806
   },
   "CAD": {
    "oi": 366070,
-   "chg": null,
+   "chg": -1473,
    "volume": 62663
   },
   "CHF": {
    "oi": 106243,
-   "chg": null,
+   "chg": 1228,
    "volume": 17427
   }
  },
@@ -9980,58 +9980,6 @@
   "CHF": {
    "oi": 56590,
    "chg": 998,
-   "volume": null
-  }
- },
- "2021-09-24": {
-  "Gold": {
-   "oi": 498005,
-   "chg": -32,
-   "volume": null
-  },
-  "Silver": {
-   "oi": 144047,
-   "chg": 406,
-   "volume": null
-  },
-  "Oil": {
-   "oi": 2157090,
-   "chg": 13363,
-   "volume": null
-  },
-  "EUR": {
-   "oi": 657733,
-   "chg": -10165,
-   "volume": null
-  },
-  "GBP": {
-   "oi": 159312,
-   "chg": -1011,
-   "volume": null
-  },
-  "JPY": {
-   "oi": 200637,
-   "chg": 11953,
-   "volume": null
-  },
-  "AUD": {
-   "oi": 177633,
-   "chg": -3484,
-   "volume": null
-  },
-  "NZD": {
-   "oi": 35211,
-   "chg": -1918,
-   "volume": null
-  },
-  "CAD": {
-   "oi": 121861,
-   "chg": -2016,
-   "volume": null
-  },
-  "CHF": {
-   "oi": 55592,
-   "chg": -29,
    "volume": null
   }
  },
