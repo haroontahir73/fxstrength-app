@@ -16,6 +16,7 @@ import cot_table as _ct
 import myfxbook as _mfx
 import divergence as _div
 import history_panel as _hist
+import csm as _csm
 
 
 OUT = Path(__file__).parent / "dashboard.html"
@@ -2020,6 +2021,7 @@ def build():
                           # Step 3: historical performance of the divergence - reads the engine output only
                           + _safe_panel(_hist.section, "Historical performance")),
         "{{OI_PANEL}}": oi_panel(),
+        "{{CSM_PANEL}}": _safe_panel(_csm.csm_panel, "Currency Strength Meter"),
         # Myfxbook Community Outlook - its own tab, display only (myfxbook.py).
         "{{RETAIL_PANEL}}": _safe_panel(_mfx.retail_panel, "Retail sentiment (Myfxbook)"),
         # Per-contract 50-week COT history, one full-screen :target layer each. Outside every

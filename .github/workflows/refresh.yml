@@ -93,7 +93,8 @@ jobs:
             engine/data/speech_tone.json \
             engine/data/commodity_feed.json \
             engine/data/indices_manual.json \
-            engine/data/oi_history.json
+            engine/data/oi_history.json \
+            engine/data/csm_cache.json
 
       - name: Choose mode
         id: mode
@@ -176,6 +177,14 @@ jobs:
         working-directory: engine
         continue-on-error: true
         run: python oi.py --render-only dashboard.html
+
+      # Currency Strength Meter - fetches livecharts.co.uk and caches scores.
+      # Falls back to committed cache if the live fetch fails.
+      # continue-on-error: a flaky external site must never take the deploy down.
+      - name: Currency strength meter (livecharts)
+        working-directory: engine
+        continue-on-error: true
+        run: python csm.py dashboard.html
 
       # Refresh TradingView calendar (upcoming events + surprise scores) so
       # econ_cal.py has forward-looking events for the day tabs + countdown timers.

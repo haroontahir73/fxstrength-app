@@ -135,6 +135,14 @@ table{border-collapse:collapse;width:100%;font-size:13px}
 .tw table{min-width:560px}
 .oi-hist .tw{margin-top:6px}
 .oi-hist table.oi-tw{min-width:0}  /* fits a phone, no sideways scroll */
+/* CSM — currency strength meter */
+.csm-table{max-width:520px}
+.csm-ccy{font-family:"IBM Plex Mono",monospace;font-weight:600;width:48px}
+.csm-bar-cell{width:55%;padding:10px 8px}
+.csm-bar{height:18px;border-radius:4px;transition:width .3s}
+.csm-score{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:15px;
+  text-align:right;width:42px;white-space:nowrap}
+.csm-label{font-size:11px;text-transform:uppercase;letter-spacing:.05em;width:70px}
 th{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--mut);font-weight:500;padding:11px 16px;
   border-bottom:1px solid var(--line);white-space:nowrap}
@@ -165,7 +173,7 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 /* Ten tabs (Myfxbook retail added after COT). Fed Watch is folded into Rates; COT and Open interest are their own tabs again
    (Retail sentiment rides along on the COT tab). The id `tab-yld` is kept for the merged
    Rates pair rather than renamed - internal wiring, churning it buys nothing. */
-#tab-cot:checked~#p-cot,#tab-oi:checked~#p-oi,#tab-rtl:checked~#p-rtl,
+#tab-cot:checked~#p-cot,#tab-oi:checked~#p-oi,#tab-csm:checked~#p-csm,#tab-rtl:checked~#p-rtl,
 #tab-macro:checked~#p-macro,
 #tab-micro:checked~#p-micro,#tab-board:checked~#p-board,
 #tab-mx:checked~#p-mx,#tab-yld:checked~#p-yld,
@@ -173,6 +181,7 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 #tab-cot:checked~.tabs label[for="tab-cot"],
 #tab-rtl:checked~.tabs label[for="tab-rtl"],
 #tab-oi:checked~.tabs label[for="tab-oi"],
+#tab-csm:checked~.tabs label[for="tab-csm"],
 #tab-macro:checked~.tabs label[for="tab-macro"],
 #tab-micro:checked~.tabs label[for="tab-micro"],
 #tab-mx:checked~.tabs label[for="tab-mx"],
@@ -691,6 +700,7 @@ a{color:var(--accent)}
   <input type="radio" name="tab" id="tab-cot" class="tabin">
   <input type="radio" name="tab" id="tab-rtl" class="tabin">
   <input type="radio" name="tab" id="tab-oi" class="tabin">
+  <input type="radio" name="tab" id="tab-csm" class="tabin">
   <input type="radio" name="tab" id="tab-yld" class="tabin">
   <input type="radio" name="tab" id="tab-seas" class="tabin">
   <input type="radio" name="tab" id="tab-idx" class="tabin">
@@ -702,6 +712,7 @@ a{color:var(--accent)}
     <label for="tab-cot">COT</label>
     <label for="tab-rtl">Myfxbook retail</label>
     <label for="tab-oi">Open interest</label>
+    <label for="tab-csm">CSM</label>
     <label for="tab-yld">Rates</label>
     <label for="tab-seas">Seasonality</label>
     <label for="tab-idx">Indices</label>
@@ -713,6 +724,7 @@ a{color:var(--accent)}
   <div class="panel" id="p-cot">{{COT_PANEL}}</div>
   <div class="panel" id="p-rtl">{{RETAIL_PANEL}}</div>
   <div class="panel" id="p-oi">{{OI_PANEL}}</div>
+  <div class="panel" id="p-csm">{{CSM_PANEL}}</div>
   <div class="panel" id="p-yld">{{RATES_PANEL}}</div>
   <div class="panel" id="p-seas">{{SEASONALITY_PANEL}}</div>
   <div class="panel" id="p-idx">{{INDICES_PANEL}}</div>
