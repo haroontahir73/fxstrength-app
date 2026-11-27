@@ -390,6 +390,18 @@ table.cotrep{min-width:1100px;width:100%;border-collapse:collapse;font-size:12.5
 .crr-sig{font-size:10px;font-weight:600;white-space:nowrap}
 .crr-dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:3px;vertical-align:middle}
 .cr-minibar{display:block}
+.oir-sec{margin-bottom:18px}
+.oir-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px}
+.oir-card{background:var(--surface);border:1px solid var(--line);border-radius:8px;
+  padding:7px 8px 6px;color:inherit}
+.oir-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+.oir-pair{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:700;color:var(--accent)}
+.oir-px{font-family:"IBM Plex Mono",monospace;font-size:10px;white-space:nowrap}
+.oir-px.pos{color:var(--buy,#16a34a)}
+.oir-px.neg{color:var(--sell,#dc2626)}
+.oir-chg{font-family:"IBM Plex Mono",monospace;font-size:10px;opacity:.7;margin-bottom:2px}
+.oir-state{font-size:10px;font-weight:600;white-space:nowrap}
+.oir-dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:3px;vertical-align:middle}
 /* Per-instrument 50-week drill-down. A hash link opens it; :target makes it a full-screen
    layer over the tab, and the browser Back button (or the back link) closes it - it behaves
    like its own page without any script. Lives outside .panel so no hidden parent can eat it. */

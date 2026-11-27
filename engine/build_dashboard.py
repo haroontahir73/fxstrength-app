@@ -384,6 +384,88 @@ def cot_positioning_reading():
   </section>"""
 
 
+# ---- OI Positioning Reading (daily open interest + price direction) ---------------------
+# Same card-grid pattern as the COT reading above, but for DAILY open interest.
+# OI isn't directional by itself, so we pair OI change with price move:
+#   OI up + price up   = NEW MONEY LONG  → green
+#   OI up + price down = NEW MONEY SHORT → red
+#   OI down            = positions closing → blue
+
+_OI_STATE_COLOR = {
+    "NEW MONEY LONG":  "#16a34a",
+    "NEW MONEY SHORT": "#dc2626",
+    "SHORT COVERING":  "#3b82f6",
+    "LONG LIQUIDATION": "#3b82f6",
+}
+
+
+def oi_positioning_reading():
+    """Visual OI positioning reading: one card per instrument showing the latest
+    daily OI + price state (new longs, new shorts, closing)."""
+    try:
+        import oi as _oiday
+        hist = _oiday._load(_oiday.HIST_FILE, {})
+        if not hist:
+            return ""
+        try:
+            prices = _oiday.price_moves()
+        except Exception:                   # noqa: BLE001
+            prices = {}
+        reads = _oiday.analyse(hist, prices)
+    except Exception:                       # noqa: BLE001
+        return ""
+
+    rows_html = []
+    for inst in _oiday.ORDER:
+        rec = reads.get(inst)
+        if not rec:
+            rows_html.append(
+                f'<div class="oir-card">'
+                f'<div class="oir-top"><span class="oir-pair">{esc(inst)}</span></div>'
+                f'<div class="oir-state" style="color:#888">No data</div>'
+                f'</div>')
+            continue
+
+        state = rec["state"]
+        color = _OI_STATE_COLOR.get(state, "#888")
+        cls = rec["cls"]  # pos / neg / warn
+
+        # OI change with sign
+        chg = rec["chg"]
+        chg_str = f"{chg:+,}" if chg else "—"
+
+        # Price change %
+        px_pct = rec.get("px_chg_pct")
+        px_str = f"{px_pct:+.2f}%" if px_pct is not None else "—"
+        px_cls = "pos" if px_pct and px_pct > 0 else "neg" if px_pct and px_pct < 0 else ""
+
+        # Size indicator
+        size = rec.get("size", "normal")
+        size_icon = "⬤" if size == "big" else "●" if size == "normal" else "·"
+
+        rows_html.append(
+            f'<div class="oir-card">'
+            f'<div class="oir-top"><span class="oir-pair">{esc(inst)}</span>'
+            f'<span class="oir-px {px_cls}">{px_str}</span></div>'
+            f'<div class="oir-chg">OI {chg_str}</div>'
+            f'<div class="oir-state" style="color:{color}">'
+            f'<span class="oir-dot" style="background:{color}"></span>'
+            f'{state}</div>'
+            f'</div>')
+
+    if not rows_html:
+        return ""
+
+    return f"""<section class="oir-sec">
+    <h2>OI Positioning Reading</h2>
+    <p class="sub"><span style="color:#16a34a">●</span> New longs
+    <span style="color:#dc2626">●</span> New shorts
+    <span style="color:#3b82f6">●</span> Closing &mdash;
+    latest daily OI change paired with price direction.</p>
+    <div class="oir-grid">{"".join(rows_html)}</div>
+  </section>"""
+
+
 # ---- the classic COT tables + per-contract 50-week Legacy reports (cot_table.py) --------
 # Laid out like the weekly "Commitment of Traders Report" sheets: olive header bars, peach
 # row labels, a long/short-share tint on the % cells, green/red net and difference cells
@@ -974,8 +1056,11 @@ def oi_panel():
                 prices = _oiday.price_moves()
             except Exception:                               # noqa: BLE001
                 prices = {}
-            return _oiday.render(hist, {"last_good_date": sorted(hist)[-1]},
-                                _oiday.analyse(hist, prices), prices)
+            reading = _safe_panel(oi_positioning_reading,
+                                 "OI positioning reading")
+            return reading + _oiday.render(
+                hist, {"last_good_date": sorted(hist)[-1]},
+                _oiday.analyse(hist, prices), prices)
     except Exception:                                       # noqa: BLE001
         pass
     return '<p style="padding:18px;opacity:.5">Daily OI data not available yet.</p>'

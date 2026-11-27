@@ -136,6 +136,10 @@ FIRST_TRY_UTC = (5, 0)    # from ~05:00 UTC, i.e. before London. Just where the 
 BLOCKED_STREAK_BEFORE_BACKOFF = 3
 BACKOFF_GAP_MIN = 6 * 60
 
+# HARD CAP: at most one CME request per calendar day. The source is aggressive about
+# rate-limiting; hammering it every hour just gets the IP blocked for days.
+MAX_CME_ATTEMPTS_PER_DAY = 1
+
 # PRELIMINARY ONLY - never revise.
 # CME reissues each trade date later as a final/settled figure. The desk wants the
 # preliminary read (that is what is available in time to set the day's bias) and wants it
@@ -662,6 +666,21 @@ def update(force=False):
     if hist.get(tkey) and not force:
         print(f"  {tkey} already captured - nothing to do")
         return hist, state
+
+    # Hard cap: at most MAX_CME_ATTEMPTS_PER_DAY requests to CME per calendar day,
+    # regardless of trade date. This prevents IP blocking.
+    if not force:
+        today_str = now.date().isoformat()
+        all_attempts = state.get("attempts", {})
+        today_count = sum(
+            1 for _tkey, times in all_attempts.items()
+            for t in times
+            if t[:10] == today_str
+        )
+        if today_count >= MAX_CME_ATTEMPTS_PER_DAY:
+            print(f"  already contacted CME {today_count} time(s) today - "
+                  f"capped at {MAX_CME_ATTEMPTS_PER_DAY}/day")
+            return hist, state
 
     ok, why = should_try(state, tkey, now)
     if not ok and not force:
