@@ -1,5 +1,61 @@
 [
  {
+  "when": "27 Nov 00:48 UTC",
+  "iso": "2026-11-27T00:48:56.375693+00:00",
+  "cat": "rates_up",
+  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nGold Holds Steady As Markets Brace For Fed Hikes - Finimize  (Finimize)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,593 (+1.6%)   Silver 41.76 (+4.3%)   WTI 85.27 (+1.9%)   DXY 103.78 (+0.1%)   US10Y 4.85 (-1.1%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNRHcwVkJaNXVDNThkZDJVQTFLOGZteWdEWkVGdG9VTFFOQjFlWUtVbDRHRkJvYTVobWUtNGNtbUdQdHJHajJjM1BpQ0JQRGV3UlpSbEhRX01hRVFSaXdLSXhoOUk5czdrQUR4ZWFnb3ROU0hOTVZTcFhLUFlyd1ctYXNMNA?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3593.3,
+   "Silver": 41.755,
+   "WTI": 85.27
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Gold Holds Steady As Markets Brace For Fed Hikes - Finimize",
+   "src": "Finimize",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193\u2193",
+     "dir": "down",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt shorts",
+     "reason": "rates up = gold's worst enemy",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,593 (+1.6%)   Silver 41.76 (+4.3%)   WTI 85.27 (+1.9%)   DXY 103.78 (+0.1%)   US10Y 4.85 (-1.1%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "27 Nov 00:07 UTC",
   "iso": "2026-11-27T00:07:07.013837+00:00",
   "cat": "inflation_hot",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,653 (+0.0%)   Silver 43.09 (-0.1%)   WTI 79.92 (-0.3%)   DXY 104.21 (-0.1%)   US10Y 4.92 (+0.1%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "24 Nov 01:24 UTC",
-  "iso": "2026-11-24T01:24:36.652093+00:00",
-  "cat": "rates_up",
-  "title": "GOLD STRONG SHORT | FED - leaning toward higher rates",
-  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nFed Rate Hike Bets Build Ahead Of December Meet: Fed\u2019s John Williams Says Inflation Still \u2018Too High\u2019 - Stocktwits  (Stocktwits)\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - rates up = gold's worst enemy\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,660 (+4.1%)   Silver 43.30 (+5.5%)   WTI 80.16 (-4.5%)   DXY 104.27 (+0.4%)   US10Y 4.92 (+0.1%)\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
-  "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNMTdkSEVkTG41NS1DY1F3cC1QNnhJem9Gd2V0bFpmdVQ5MFVta1JfSXVqYVF4aTRPeXljS3hyNTZlYkZMcWJzaXlEZWJYT1RZWEViUUJTdS1WX0JRaS04YkRJVFpWbmZOczVKTnJaX2hiRXpkVFR4M3Q1amsyck1VbzdlaHRvV05SQWFhQXFCVFJRam5SNlQxTEVmT1hPbldlRFowbFRwa25iUDBhdkJTR1J0MGtrUFk?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3659.5,
-   "Silver": 43.295,
-   "WTI": 80.16
-  },
-  "parts": {
-   "emoji": "\ud83d\udcb5",
-   "label": "FED \u2014 leaning toward higher rates",
-   "headline": "Fed Rate Hike Bets Build Ahead Of December Meet: Fed\u2019s John Williams Says Inflation Still \u2018Too High\u2019 - Stocktwits",
-   "src": "Stocktwits",
-   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "rates up = gold's worst enemy",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "same hit as gold, only bigger (eased by self-check)",
-     "record": "NOT TESTED - no history to judge this on"
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193",
-     "dir": "down",
-     "strength": 1,
-     "call": "mild short bias",
-     "reason": "only indirectly, via slower growth",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 3,660 (+4.1%)   Silver 43.30 (+5.5%)   WTI 80.16 (-4.5%)   DXY 104.27 (+0.4%)   US10Y 4.92 (+0.1%)",
-   "reality": "",
-   "flip": "a weak US jobs or inflation number takes this straight back off"
   }
  }
 ]
