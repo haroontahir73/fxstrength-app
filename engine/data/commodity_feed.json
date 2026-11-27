@@ -1,5 +1,61 @@
 [
  {
+  "when": "27 Nov 01:08 UTC",
+  "iso": "2026-11-27T01:08:17.728857+00:00",
+  "cat": "geo_escalation",
+  "title": "TALK | OIL LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nInside Ramat David: The Israeli airbase that could launch the next attack on Iran - Ynetnews  (Ynetnews)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191   look for longs - supply at risk = price up fast (talk, not action yet)\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,588 (+1.5%)   Silver 41.65 (+4.0%)   WTI 85.18 (+1.8%)   DXY 103.85 (+0.2%)   US10Y 4.85 (-1.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFA0VjVCS2dKU3JSVkR6eGx3MldVNloyUzZmdXh6aHNKUjFrRXlEX2g5bkwzVFVLZ09FWkxDT1dreTlZSGI4bHNlYVpuSy1XZVFNcENKTHdfYWdDNWtRNWJiZDdkTHNGcEx3NkQ1c01R?oc=5",
+  "talk": true,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3588.0,
+   "Silver": 41.645,
+   "WTI": 85.18
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Inside Ramat David: The Israeli airbase that could launch the next attack on Iran - Ynetnews",
+   "src": "Ynetnews",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191",
+     "dir": "up",
+     "strength": 2,
+     "call": "look for longs",
+     "reason": "supply at risk = price up fast (talk, not action yet)",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,588 (+1.5%)   Silver 41.65 (+4.0%)   WTI 85.18 (+1.8%)   DXY 103.85 (+0.2%)   US10Y 4.85 (-1.1%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "27 Nov 00:48 UTC",
   "iso": "2026-11-27T00:48:56.375693+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,620 (-0.9%)   Silver 42.19 (-2.2%)   WTI 79.88 (-0.4%)   DXY 104.39 (+0.1%)   US10Y 4.92 (+0.1%)",
    "reality": "",
    "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
-  }
- },
- {
-  "when": "24 Nov 02:33 UTC",
-  "iso": "2026-11-24T02:33:17.046979+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\n\u2018Severe explosions, fires\u2019: Iran claims 3 oil tankers struck mines in Strait of Hormuz - The Times of India  (The Times of India)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,653 (+0.0%)   Silver 43.09 (-0.1%)   WTI 79.92 (-0.3%)   DXY 104.21 (-0.1%)   US10Y 4.92 (+0.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQdzNuQW1ZeUhCZXE4N0d4dW9xd2V1WTRxU3Y5M0k2SVlST1dwQkdvM2hMM0hVRTB0bnBSNkJXUG5tU1RWZlF2U0NuZTZkOUtFQVpnZkxnbnE4LXhCcVlEWXRvWTFMVVplSlRDbVJ4ZU9sazlrNElPRXRwUmRBT0Z3Q05pVndDZ0xrUXpZd09ZQ3l6aVdMUGhYRXhucjFyaDFkbDR0aFItdXRjSW1HR1lMSDRkMlk3NVlva2hVR0w1THRQaFlzR2FHT0MxdWJFX1FwakFWMkF5dXJ4TlhMYnBqQThRd09lY1M5dWpJY2ZyVVRMUXht0gH6AUFVX3lxTFBSeDZnN3QzNDJwLVVuSURtWmRjanE1QmRTQmxBWjAtYmJreTVfN01hNVNlMVJGQWpJd2RFdGZKTnR2Yzd3REhvMlQtN1JmNTVhNEMybGdEZ2JPSXRXYmJzTE5ZZVE3bDhQcEhCQWZlOE9rWEFBV3J4MDhRZVpndGhBQTBUUXlfdlA3aDdyOWItVUo0OEM4blRITEsxakNsRmtYOVdlRk40eE9OV0RsMDlXWW5PRXpwVG5XUWQ0VnRscWtTV25BMnJSaWlocThVcDQ2ZlNaV1RIZWI4OWwtdWpfT0dSYmkwOHlldjdQTWVVUXpIQ3dBVUtqLUE?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3652.8,
-   "Silver": 43.085,
-   "WTI": 79.92
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "\u2018Severe explosions, fires\u2019: Iran claims 3 oil tankers struck mines in Strait of Hormuz - The Times of India",
-   "src": "The Times of India",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,653 (+0.0%)   Silver 43.09 (-0.1%)   WTI 79.92 (-0.3%)   DXY 104.21 (-0.1%)   US10Y 4.92 (+0.1%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
