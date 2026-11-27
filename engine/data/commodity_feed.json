@@ -1,5 +1,61 @@
 [
  {
+  "when": "27 Nov 05:03 UTC",
+  "iso": "2026-11-27T05:03:51.306091+00:00",
+  "cat": "oil_supply_tight",
+  "title": "OIL STRONG LONG | OIL - supply getting tighter",
+  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nMissing Jordanian seafarer found dead after attack on ADNOC L&S vessel in Strait of Hormuz - Baird Maritime  (Baird Maritime)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,662 (+3.6%)   Silver 43.74 (+9.2%)   WTI 85.80 (+2.5%)   DXY 103.75 (+0.1%)   US10Y 4.85 (-1.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
+  "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNeG5xUE1wUWVZQ1daYTFYeDdYLVBIOHZDWk1UMXVybEFreWpzczJVVDFJRzJOVGp5UVhQc0xBMVpiZkNSbGFYb1c0ZzlKV0phMmtFSGFlTEVGUW10T09UNjJETi1KazlJcTY2bHJ4RWx0MzFON01VSVU5TlU0ekMxdDlfN21HVHFPSW5GT2FpclE1TUdnRUF5NjlrY0ZDbjBC0gGuAUFVX3lxTE95Y1dkNDZHZm80RTlLOTF0WUs0emhOODZZSTNnQ0NnWFZQNVdtNHBtck5oT1hpeS1xZUNERmluVjUwZERfVzE1djBLQ1EyQXZENTdGSS10Q1RsdUZOTjBhYWtFR1A2LThUUFBteGl4Q0hYN1haU0pKQTZpOGtldW50V1dadGZNdTNqenJhbVB3bjBnNS15bXJSX1hDTDNsTEJiUGhjMm1DOEhoV1Rwdw?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3662.3,
+   "Silver": 43.745,
+   "WTI": 85.8
+  },
+  "parts": {
+   "emoji": "\ud83d\udee2",
+   "label": "OIL \u2014 supply getting tighter",
+   "headline": "Missing Jordanian seafarer found dead after attack on ADNOC L&S vessel in Strait of Hormuz - Baird Maritime",
+   "src": "Baird Maritime",
+   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "the inflation-hedge step does not hold up in the data",
+     "record": ""
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "measured against the call",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "the direct hit",
+     "record": "CONFIDENT - right 63% of 54 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,662 (+3.6%)   Silver 43.74 (+9.2%)   WTI 85.80 (+2.5%)   DXY 103.75 (+0.1%)   US10Y 4.85 (-1.1%)",
+   "reality": "",
+   "flip": "if the disruption turns out to be small or short, it fades within days"
+  }
+ },
+ {
   "when": "27 Nov 03:32 UTC",
   "iso": "2026-11-27T03:32:48.928109+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,622 (-0.8%)   Silver 41.81 (-3.1%)   WTI 80.00 (-0.2%)   DXY 104.16 (-0.2%)   US10Y 4.92 (+0.1%)",
    "reality": "",
    "flip": "a weak US jobs or inflation number takes this straight back off"
-  }
- },
- {
-  "when": "24 Nov 09:52 UTC",
-  "iso": "2026-11-24T09:52:46.176113+00:00",
-  "cat": "geo_escalation",
-  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
-  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIranian media walk back tanker convoy claims after days of blockade-breaking hype - Iran International  (Iran International)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,622 (-0.8%)   Silver 41.84 (-3.0%)   WTI 79.93 (-0.3%)   DXY 104.25 (-0.1%)   US10Y 4.92 (+0.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
-  "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5LR0d1R2poV0hQWGktWUQ0WXFxLU91MkRzSEVkUGNqV1M1Rk1HQU54XzE0YlgwU1NzaTQwUWtRREpnMjkwMG9Ra3JIay16ZDUxMmc?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3621.5,
-   "Silver": 41.84,
-   "WTI": 79.93
-  },
-  "parts": {
-   "emoji": "\ud83d\udea8",
-   "label": "GEOPOLITICS \u2014 escalation",
-   "headline": "Iranian media walk back tanker convoy claims after days of blockade-breaking hype - Iran International",
-   "src": "Iran International",
-   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2191",
-     "dir": "up",
-     "strength": 1,
-     "call": "mild long bias",
-     "reason": "the classic panic buy",
-     "record": "often right (61% of 83) but the move is tiny"
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no measurable edge - it is half an industrial metal",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "supply at risk = price up fast",
-     "record": "CONFIDENT - right 63% of 83 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,622 (-0.8%)   Silver 41.84 (-3.0%)   WTI 79.93 (-0.3%)   DXY 104.25 (-0.1%)   US10Y 4.92 (+0.1%)",
-   "reality": "",
-   "flip": "any hint of a ceasefire and the whole premium comes straight out"
   }
  }
 ]
