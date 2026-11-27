@@ -1,5 +1,61 @@
 [
  {
+  "when": "27 Nov 03:32 UTC",
+  "iso": "2026-11-27T03:32:48.928109+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nTwo Italians killed in Kuwait drone attack; Trump says Iran war ends \u2018whenever I want it\u2019\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,656 (+3.4%)   Silver 43.86 (+9.5%)   WTI 85.83 (+2.6%)   DXY 103.68 (+0.0%)   US10Y 4.85 (-1.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://www.cnbc.com/2026/11/27/us-iran-war-trump-hormuz-italian-killed-trump.html",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3655.8,
+   "Silver": 43.86,
+   "WTI": 85.83
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Two Italians killed in Kuwait drone attack; Trump says Iran war ends \u2018whenever I want it\u2019",
+   "src": "",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,656 (+3.4%)   Silver 43.86 (+9.5%)   WTI 85.83 (+2.6%)   DXY 103.68 (+0.0%)   US10Y 4.85 (-1.1%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "27 Nov 03:29 UTC",
   "iso": "2026-11-27T03:29:34.887890+00:00",
   "cat": "rates_up",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,622 (-0.8%)   Silver 41.84 (-3.0%)   WTI 79.93 (-0.3%)   DXY 104.25 (-0.1%)   US10Y 4.92 (+0.1%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "24 Nov 09:42 UTC",
-  "iso": "2026-11-24T09:42:58.547648+00:00",
-  "cat": "oil_supply_tight",
-  "title": "OIL STRONG LONG | OIL - supply getting tighter",
-  "body": "\ud83d\udee2 OIL \u2014 supply getting tighter\n\nMiddle East latest: IRGC says three tankers ablaze in Strait of Hormuz - thenationalnews.com  (thenationalnews.com)\n\nWHY: Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.\n\nGOLD   \u2192    no clean read - the inflation-hedge step does not hold up in the data\nSILVER \u2192    no clean read - measured against the call\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - the direct hit\n        [CONFIDENT - right 63% of 54 past cases]\n\nNOW  Gold 3,624 (-0.8%)   Silver 41.80 (-3.1%)   WTI 80.00 (-0.2%)   DXY 104.23 (-0.1%)   US10Y 4.92 (+0.1%)\n\nFLIP: if the disruption turns out to be small or short, it fades within days",
-  "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQNW14YjRmMTY1a0preF9JQmJVaDFGVmZWUlNJbmRNelFCQjFqYVpfbzJMSFJPN2hwQ1diRDZYdkh3Z09LalBnb3hBZ0k1LUtZNWVpZnprZDlzMzAtVnZZZzAxNTlQYXZYcHNHdjJEZkE5Y3Nfall1Vnk0YkQ5NUpTZDctU3BLbXhz?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3623.7,
-   "Silver": 41.8,
-   "WTI": 80.0
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 supply getting tighter",
-   "headline": "Middle East latest: IRGC says three tankers ablaze in Strait of Hormuz - thenationalnews.com",
-   "src": "thenationalnews.com",
-   "why": "Fewer barrels reaching the market than people expected. Buyers chase what is left, so the price goes up.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "the inflation-hedge step does not hold up in the data",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "measured against the call",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2191\u2191\u2191",
-     "dir": "up",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt longs",
-     "reason": "the direct hit",
-     "record": "CONFIDENT - right 63% of 54 past cases"
-    }
-   ],
-   "snap": "NOW  Gold 3,624 (-0.8%)   Silver 41.80 (-3.1%)   WTI 80.00 (-0.2%)   DXY 104.23 (-0.1%)   US10Y 4.92 (+0.1%)",
-   "reality": "",
-   "flip": "if the disruption turns out to be small or short, it fades within days"
   }
  }
 ]
