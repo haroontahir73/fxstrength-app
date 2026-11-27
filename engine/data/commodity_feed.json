@@ -1,5 +1,61 @@
 [
  {
+  "when": "27 Nov 01:27 UTC",
+  "iso": "2026-11-27T01:27:32.405913+00:00",
+  "cat": "geo_escalation",
+  "title": "OIL STRONG LONG | GEOPOLITICS - escalation",
+  "body": "\ud83d\udea8 GEOPOLITICS \u2014 escalation\n\nIran has no involvement in Kuwait drone attack, ready for joint investigation: FM - China Daily Global Edition  (China Daily Global Edition)\n\nWHY: War scares people into buying safety, and it threatens the supply of oil coming out of the region.\n\nGOLD   \u2191    mild long bias - the classic panic buy\n        [often right (61% of 83) but the move is tiny]\nSILVER \u2192    no clean read - no measurable edge - it is half an industrial metal\nOIL    \u2191\u2191\u2191  STRONG \u2014 go hunt longs - supply at risk = price up fast\n        [CONFIDENT - right 63% of 83 past cases]\n\nNOW  Gold 3,596 (+1.7%)   Silver 42.01 (+4.9%)   WTI 85.28 (+1.9%)   DXY 103.81 (+0.1%)   US10Y 4.85 (-1.1%)\n\nFLIP: any hint of a ceasefire and the whole premium comes straight out",
+  "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOTDFVQlFhUTlmdk9QalFFUjQ0TTZKVk0xUnhaLVN5dEhRckhmSFdIN0VGbjl4aXltNkExYktJcHVsTnVNSjA5dzY2RHBqRzF2SWZPdm9WMnFLUEtMZmNZMGlPMUZtd19aODVuMWJVdVA0bjZHcWE0RG43WDJsbG9zbENB?oc=5",
+  "talk": false,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3595.5,
+   "Silver": 42.005,
+   "WTI": 85.28
+  },
+  "parts": {
+   "emoji": "\ud83d\udea8",
+   "label": "GEOPOLITICS \u2014 escalation",
+   "headline": "Iran has no involvement in Kuwait drone attack, ready for joint investigation: FM - China Daily Global Edition",
+   "src": "China Daily Global Edition",
+   "why": "War scares people into buying safety, and it threatens the supply of oil coming out of the region.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2191",
+     "dir": "up",
+     "strength": 1,
+     "call": "mild long bias",
+     "reason": "the classic panic buy",
+     "record": "often right (61% of 83) but the move is tiny"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2192",
+     "dir": "flat",
+     "strength": 0,
+     "call": "no clean read",
+     "reason": "no measurable edge - it is half an industrial metal",
+     "record": ""
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2191\u2191\u2191",
+     "dir": "up",
+     "strength": 3,
+     "call": "STRONG \u2014 go hunt longs",
+     "reason": "supply at risk = price up fast",
+     "record": "CONFIDENT - right 63% of 83 past cases"
+    }
+   ],
+   "snap": "NOW  Gold 3,596 (+1.7%)   Silver 42.01 (+4.9%)   WTI 85.28 (+1.9%)   DXY 103.81 (+0.1%)   US10Y 4.85 (-1.1%)",
+   "reality": "",
+   "flip": "any hint of a ceasefire and the whole premium comes straight out"
+  }
+ },
+ {
   "when": "27 Nov 01:08 UTC",
   "iso": "2026-11-27T01:08:17.728857+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,626 (-0.7%)   Silver 42.05 (-2.5%)   WTI 79.21 (-1.2%)   DXY 104.29 (-0.0%)   US10Y 4.92 (+0.1%)",
    "reality": "",
    "flip": "any hint of a ceasefire and the whole premium comes straight out"
-  }
- },
- {
-  "when": "24 Nov 07:16 UTC",
-  "iso": "2026-11-24T07:16:51.382616+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nOil Prices Fall as Global Supply Glut Fears Outweigh Middle East Tensions - APAC Media  (APAC Media)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,620 (-0.9%)   Silver 42.19 (-2.2%)   WTI 79.88 (-0.4%)   DXY 104.39 (+0.1%)   US10Y 4.92 (+0.1%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPRENCLWplZHMySGQtLUFyWHdOWVYzRzUwYnQ2d3U1N2FTTndZUFhDeXVwT0FsMXNhOVAxbmVqNjdmc0sycjFvbXpaekhrS0hndXZZMlB5Y2hYZVd3QThOeVRkZWR5YzhNRHNMV2Q5a1VBUXVwT3lZN2tQSVVvLVJiWGRITVRHQ0JkWmlNTTVUdTREMnN5eEJKb2Z6X2toRHc?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3619.8,
-   "Silver": 42.185,
-   "WTI": 79.88
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "Oil Prices Fall as Global Supply Glut Fears Outweigh Middle East Tensions - APAC Media",
-   "src": "APAC Media",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 3,620 (-0.9%)   Silver 42.19 (-2.2%)   WTI 79.88 (-0.4%)   DXY 104.39 (+0.1%)   US10Y 4.92 (+0.1%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
