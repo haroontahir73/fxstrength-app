@@ -1,5 +1,61 @@
 [
  {
+  "when": "28 Nov 03:49 UTC",
+  "iso": "2026-11-28T03:49:19.424001+00:00",
+  "cat": "rates_up",
+  "title": "TALK | GOLD SHORT | FED - leaning toward higher rates",
+  "body": "\ud83d\udcb5 FED \u2014 leaning toward higher rates\n\nRinggit Expected To Trade Around 4.13 As Fed Rate Hike Looms - BusinessToday Malaysia  (BusinessToday Malaysia)\n\n^ This is TALK, not something that has happened yet. Conviction cut one notch.\n\nWHY: Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.\n\nGOLD   \u2193\u2193   look for shorts - rates up = gold's worst enemy (talk, not action yet)\n        [NOT TESTED - no history to judge this on]\nSILVER \u2193    mild short bias - same hit as gold, only bigger (eased by self-check)\n        [NOT TESTED - no history to judge this on]\nOIL    \u2193    mild short bias - only indirectly, via slower growth\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,668 (+3.8%)   Silver 43.70 (+9.1%)   WTI 83.08 (-0.7%)   DXY 104.01 (+0.3%)   US10Y 4.94 (+1.8%)\n^ MARKETS ARE SHUT - that is the last close, not a live price. Expect a gap in this direction when they reopen Sunday 22:00 UTC.\n\nFLIP: a weak US jobs or inflation number takes this straight back off",
+  "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNeFBSQWNtbHlqcTFWYzV6YVQ2R2Y3cnJIOUlfWmdNc1U5OGJWeGd6UmJEaVBsS1F1cXAyX0d2Sm8wT2dUZXdQTHQ4RlBsWGJRdG43VG02bGo4aDM3UmtaSWNRZHlVTHQ1cVAyRWY5NWg3Y1M2LTU2SHAtM1FOcWlVSXJzYWdwT2QzTWdBVF9tZ3NyanRyWFdOVTdqb1RJQ1VnRkRDQ2dtb3Y?oc=5",
+  "talk": true,
+  "pushed": true,
+  "queued_for_retry": false,
+  "push_error": "",
+  "px": {
+   "Gold": 3668.5,
+   "Silver": 43.702,
+   "WTI": 83.08
+  },
+  "parts": {
+   "emoji": "\ud83d\udcb5",
+   "label": "FED \u2014 leaning toward higher rates",
+   "headline": "Ringgit Expected To Trade Around 4.13 As Fed Rate Hike Looms - BusinessToday Malaysia",
+   "src": "BusinessToday Malaysia",
+   "why": "Higher US rates make cash and bonds pay more. Gold pays you nothing to hold it, so it becomes less attractive and money leaves it.",
+   "leans": [
+    {
+     "label": "GOLD",
+     "arrow": "\u2193\u2193",
+     "dir": "down",
+     "strength": 2,
+     "call": "look for shorts",
+     "reason": "rates up = gold's worst enemy (talk, not action yet)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "SILVER",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "same hit as gold, only bigger (eased by self-check)",
+     "record": "NOT TESTED - no history to judge this on"
+    },
+    {
+     "label": "OIL",
+     "arrow": "\u2193",
+     "dir": "down",
+     "strength": 1,
+     "call": "mild short bias",
+     "reason": "only indirectly, via slower growth",
+     "record": "NOT TESTED - no history to judge this on"
+    }
+   ],
+   "snap": "NOW  Gold 3,668 (+3.8%)   Silver 43.70 (+9.1%)   WTI 83.08 (-0.7%)   DXY 104.01 (+0.3%)   US10Y 4.94 (+1.8%)",
+   "reality": "",
+   "flip": "a weak US jobs or inflation number takes this straight back off"
+  }
+ },
+ {
   "when": "27 Nov 19:44 UTC",
   "iso": "2026-11-27T19:44:32.716332+00:00",
   "cat": "geo_escalation",
@@ -3301,62 +3357,6 @@
    "snap": "NOW  Gold 3,536 (-0.7%)   Silver 40.25 (-1.3%)   WTI 80.61 (-1.8%)   DXY 103.99 (+0.2%)   US10Y 4.90 (-0.3%)",
    "reality": "",
    "flip": "if the disruption turns out to be small or short, it fades within days"
-  }
- },
- {
-  "when": "25 Nov 04:29 UTC",
-  "iso": "2026-11-25T04:29:49.722301+00:00",
-  "cat": "oil_supply_loose",
-  "title": "OIL STRONG SHORT | OIL - more barrels coming",
-  "body": "\ud83d\udee2 OIL \u2014 more barrels coming\n\nOil slips over 1% as supply glut prospect offsets Middle East disruption fears - www.marketscreener.com  (www.marketscreener.com)\n\nWHY: More supply than the market expected. Too much oil chasing the same buyers means a lower price.\n\nGOLD   \u2192    no clean read - no direct link\nSILVER \u2192    no clean read - no direct link\nOIL    \u2193\u2193\u2193  STRONG \u2014 go hunt shorts - extra barrels push the price down\n        [NOT TESTED - no history to judge this on]\n\nNOW  Gold 3,554 (-0.2%)   Silver 40.70 (-0.1%)   WTI 80.78 (-1.5%)   DXY 103.98 (+0.2%)   US10Y 4.90 (-0.3%)\n\nFLIP: OPEC often says more than it actually pumps \u2014 watch the real exports",
-  "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPNV9xdTlqZTNvLWlPOXRoc0FYRkZrbjVINy1XQW1icWNBWmpYTTZFb1pJbENGSUJFVW5wdEpSbVdnbElLeTRqU2diVnZCSC1RM1pXQm1jdDRRTWQxbkVRTmIyaGhCUXJueTdNUUFYVDc0aWRJY19uUTlJMVpNaWhveU10T2s1NUtvMjlkNDhmLTliV2ItWkpYVEJWdGMwZ1dXbDNWcFJuSGFhaHVDZTlhQmM1dUJzaUlISHlUR29uaDRrY0lQamxQVXF3?oc=5",
-  "talk": false,
-  "pushed": true,
-  "queued_for_retry": false,
-  "push_error": "",
-  "px": {
-   "Gold": 3554.4,
-   "Silver": 40.705,
-   "WTI": 80.78
-  },
-  "parts": {
-   "emoji": "\ud83d\udee2",
-   "label": "OIL \u2014 more barrels coming",
-   "headline": "Oil slips over 1% as supply glut prospect offsets Middle East disruption fears - www.marketscreener.com",
-   "src": "www.marketscreener.com",
-   "why": "More supply than the market expected. Too much oil chasing the same buyers means a lower price.",
-   "leans": [
-    {
-     "label": "GOLD",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "SILVER",
-     "arrow": "\u2192",
-     "dir": "flat",
-     "strength": 0,
-     "call": "no clean read",
-     "reason": "no direct link",
-     "record": ""
-    },
-    {
-     "label": "OIL",
-     "arrow": "\u2193\u2193\u2193",
-     "dir": "down",
-     "strength": 3,
-     "call": "STRONG \u2014 go hunt shorts",
-     "reason": "extra barrels push the price down",
-     "record": "NOT TESTED - no history to judge this on"
-    }
-   ],
-   "snap": "NOW  Gold 3,554 (-0.2%)   Silver 40.70 (-0.1%)   WTI 80.78 (-1.5%)   DXY 103.98 (+0.2%)   US10Y 4.90 (-0.3%)",
-   "reality": "",
-   "flip": "OPEC often says more than it actually pumps \u2014 watch the real exports"
   }
  }
 ]
